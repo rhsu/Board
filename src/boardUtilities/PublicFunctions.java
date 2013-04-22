@@ -85,4 +85,13 @@ public class PublicFunctions
 			System.out.print(matrix[0][j] + " ");
 		}
 	}
+	
+	/**
+	* Usage: For creating a new SET piece
+	* @return A random number between 1 and 7
+	*/
+	public static int getRandomNumber()
+	{
+		return (int)(Math.random()*7)+1;
+	}
 }
