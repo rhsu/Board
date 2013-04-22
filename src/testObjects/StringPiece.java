@@ -1,11 +1,12 @@
 package testObjects;
 
-/*import abstraction.AbstractPiece;
+import board.AbstractPiece;
 
 public class StringPiece extends AbstractPiece<String>
 {
-	public StringPiece(int i, int j)
+	public StringPiece(int i, int j, String s)
 	{
 		super(i, j);
+		t = s;
 	}
-}*/
+}
