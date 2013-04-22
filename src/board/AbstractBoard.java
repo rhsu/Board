@@ -13,7 +13,9 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 * the board object to allocate in the constructor
 	 */
 	protected T[][] board;
-		
+	protected int horizontal_size;
+	protected int vertical_size;
+	
 	//<editor-fold defaultstate="collapsed" desc="RETRIEVAL FUNCTIONS">
         
 	/**
@@ -134,7 +136,7 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 * </code>
 	 * </pre>
 	 */
-	public AbstractBoard()
+	public AbstractBoard(int i, int j)
 	{
 		//TODO: Research how to do generic array allocation seems complicated
 	}

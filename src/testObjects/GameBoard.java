@@ -162,8 +162,9 @@ public class GameBoard extends AbstractBoard<GamePiece>
 	/**
 	 *Constructor.
 	 */
-	public GameBoard()
+	public GameBoard(int h, int v)
 	{
+		super(h, v);
 		board = new GamePiece[7][7];
 		for(int i = 0; i < 7; i++)
 		{

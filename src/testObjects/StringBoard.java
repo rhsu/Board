@@ -4,9 +4,10 @@ import board.AbstractBoard;
 
 public class StringBoard extends AbstractBoard<StringPiece>
 {
-	public StringBoard()
+	public StringBoard(int h, int v)
 	{
-		board = new StringPiece[7][7];
+		super(h, v);
+		board = new StringPiece[h][v];
 		for(int i = 0; i < 7; i++)
 		{
 			for(int j = 0; j < 7; j++)
