@@ -1,14 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package testObjects;
+
+import board.AbstractPiece;
 
 /**
  *
  */
-public class BooleanPiece 
+public class BooleanPiece extends AbstractPiece
 {
-	
+	public BooleanPiece(int i, int j, boolean b)
+	{
+		super(i, j);
+		this.t = b;
+	}
 }

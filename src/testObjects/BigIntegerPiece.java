@@ -1,14 +1,16 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package testObjects;
+
+import board.AbstractPiece;
+import java.math.BigInteger;
 
 /**
  *
  */
-public class BigIntegerPiece 
+public class BigIntegerPiece extends AbstractPiece
 {
-
+	public BigIntegerPiece(int h, int v, BigInteger bi)
+	{
+		super(h, v);
+		this.t = bi;
+	}
 }

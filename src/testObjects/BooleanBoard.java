@@ -1,14 +1,21 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package testObjects;
+
+import board.AbstractBoard;
 
 /**
  *
  */
-public class BooleanBoard 
+public class BooleanBoard extends AbstractBoard<BooleanPiece>
 {
-
+	public BooleanBoard(int h, int v)
+	{
+		super(h, v);
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				board[i][j] = new BooleanPiece(i, j, false);
+			}
+		}
+	}
 }
