@@ -138,6 +138,8 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 */
 	public AbstractBoard(int i, int j)
 	{
+		horizontal_size = i;
+		vertical_size = j;
 		//TODO: Research how to do generic array allocation seems complicated
 	}
 	
@@ -149,9 +151,9 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	{
 		StringBuilder builder = new StringBuilder();
 		builder.append("==============").append("\n");
-		for (int i = 0; i < 7; i++)
+		for (int i = 0; i < horizontal_size; i++)
 		{
-			for (int j = 0 ; j < 7; j++)
+			for (int j = 0 ; j < vertical_size; j++)
 			{
 				builder.append(pieceAt(i,j).toString()).append(" ");
 			}

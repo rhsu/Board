@@ -8,9 +8,9 @@ public class StringBoard extends AbstractBoard<StringPiece>
 	{
 		super(h, v);
 		board = new StringPiece[h][v];
-		for(int i = 0; i < 7; i++)
+		for(int i = 0; i < h; i++)
 		{
-			for(int j = 0; j < 7; j++)
+			for(int j = 0; j < v; j++)
 			{
 				board[i][j] = new StringPiece(i, j, "");
 			}
