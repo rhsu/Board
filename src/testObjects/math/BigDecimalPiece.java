@@ -1,4 +1,4 @@
-package testObjects;
+package testObjects.math;
 
 import board.AbstractPiece;
 import java.math.BigDecimal;

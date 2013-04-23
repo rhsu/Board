@@ -1,7 +1,8 @@
-package testObjects;
+package testObjects.gameObjects;
 
 import board.AbstractPiece;
 import boardUtilities.PublicFunctions;
+import testObjects.PieceType;
 
 /**
  *An implementation of AbstractPiece using PieceType as the Generic type

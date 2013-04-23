@@ -1,4 +1,4 @@
-package testObjects;
+package testObjects.math;
 
 import board.AbstractBoard;
 
