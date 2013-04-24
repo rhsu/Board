@@ -1,24 +1,14 @@
 package boardUtilities;
 
 /**
- *
- * @author RHsu
+ *Various static functions
  */
-public class PublicFunctions 
-{	
+public class UtilityFunctions 
+{		
 	/**
-	 * 
-	 * @param s the string to check if its a valid integer.
-	 * @return True if the string is a valid integer
-	 */
-	public static boolean isInteger(String s)
-	{
-		return s.matches("-?[0-9]+");
-	}
-	
-	/**
-	* Checks if the user inputted position is valid
+	* Checks if the user input position is valid
 	* @param position The position to check
+	* @param size the size of the board
 	* @return True if the position of valid
 	*/
 	public static boolean isValidPosition(int position, int size)

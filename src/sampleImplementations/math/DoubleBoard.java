@@ -1,9 +1,9 @@
-package testObjects.math;
+package sampleImplementations.math;
 
 import board.AbstractBoard;
 
 /**
- *
+ *A double implementation
  */
 public class DoubleBoard extends AbstractBoard<DoublePiece>
 {

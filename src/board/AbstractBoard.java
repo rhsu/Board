@@ -1,6 +1,6 @@
 package board;
 
-import boardUtilities.PublicFunctions;
+import boardUtilities.UtilityFunctions;
 
 /**
  * The Abstract Board class is a custom made data-structure, which allows easy
@@ -13,7 +13,13 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 * the board object to allocate in the constructor
 	 */
 	protected T[][] board;
+	/**
+	 * The horizontal size of the board
+	 */
 	protected int horizontal_size;
+	/**
+	 * The vertical size of the board
+	 */
 	protected int vertical_size;
 	
 	//<editor-fold defaultstate="collapsed" desc="RETRIEVAL FUNCTIONS">
@@ -109,7 +115,7 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 */
 	public T pieceAt(int i, int j)
 	{
-		if (PublicFunctions.isValidPosition(i, horizontal_size) && PublicFunctions.isValidPosition(j, vertical_size)) 
+		if (UtilityFunctions.isValidPosition(i, horizontal_size) && UtilityFunctions.isValidPosition(j, vertical_size)) 
 		{
 			return board[i][j];
 		}
@@ -122,6 +128,8 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	/**
 	 * To utilize this constructor, allocate a 2-dimensional array of objects that
 	 * extends abstract piece. 
+	 * 
+	 * 
 	 * <br/>
 	 * Example usage:
 	 * <pre>
@@ -135,6 +143,15 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 * }
 	 * </code>
 	 * </pre>
+	 * 
+	 * Some example implementations include:
+	 * @see sampleImplementations.BooleanBoard
+	 * @see sampleImplementations.CharBoard
+	 * @see sampleImplementations.math.IntBoard
+	 * @see sampleImplementations.math.DoubleBoard
+	 * @see sampleImplementations.math.BigDecimalBoard
+	 * @see sampleImplementations.math.BigIntegerBoard
+	 * @see sampleImplementations.StringBoard
 	 */
 	public AbstractBoard(int i, int j)
 	{

@@ -1,7 +1,10 @@
-package testObjects.math;
+package sampleImplementations.math;
 
 import board.AbstractBoard;
 
+/**
+ * An integer implementation
+ */
 public class IntBoard extends AbstractBoard<IntPiece>
 {
 	public IntBoard(int h, int v)

@@ -1,9 +1,9 @@
-package testObjects;
+package sampleImplementations;
 
 import board.AbstractPiece;
 
 /**
- *
+ *A character implementation
  */
 public class CharPiece extends AbstractPiece
 {

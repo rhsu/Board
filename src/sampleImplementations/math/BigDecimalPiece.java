@@ -1,10 +1,10 @@
-package testObjects.math;
+package sampleImplementations.math;
 
 import board.AbstractPiece;
 import java.math.BigDecimal;
 
 /**
- *
+ *A big decimal implementation
  */
 public class BigDecimalPiece extends AbstractPiece
 {

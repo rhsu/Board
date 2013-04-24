@@ -1,14 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-package testObjects;
+package sampleImplementations;
 
 import board.AbstractBoard;
 
 /**
- *
+ *A character implementation
  */
 public class CharBoard extends AbstractBoard<CharPiece>
 {

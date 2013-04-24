@@ -2,7 +2,6 @@ package testObjects.gameObjects;
 
 import board.AbstractBoard;
 import java.util.ArrayList;
-import testObjects.PieceType;
 
 /**
  *An implementation of AbstractBoard that takes in GamePiece as the

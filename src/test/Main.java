@@ -1,9 +1,8 @@
 package test;
 
-import testObjects.math.IntBoard;
+import sampleImplementations.math.IntPiece;
+import sampleImplementations.math.IntBoard;
 import board.AbstractBoard;
-import testObjects.*;
-import testObjects.math.*;
 
 /**
  *

@@ -1,8 +1,7 @@
 package testObjects.gameObjects;
 
 import board.AbstractPiece;
-import boardUtilities.PublicFunctions;
-import testObjects.PieceType;
+import boardUtilities.UtilityFunctions;
 
 /**
  *An implementation of AbstractPiece using PieceType as the Generic type
@@ -101,7 +100,7 @@ public class GamePiece extends AbstractPiece<PieceType>
 				value = MYSTERY2_VALUE;
 				break;
 			case SET:
-				value = PublicFunctions.getRandomNumber();
+				value = UtilityFunctions.getRandomNumber();
 				break;
 			case EMPTY:
 				value = EMPTY_VALUE;

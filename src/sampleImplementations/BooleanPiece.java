@@ -1,9 +1,9 @@
-package testObjects;
+package sampleImplementations;
 
 import board.AbstractPiece;
 
 /**
- *
+ *A boolean implementation
  */
 public class BooleanPiece extends AbstractPiece
 {

@@ -1,7 +1,10 @@
-package testObjects;
+package sampleImplementations;
 
 import board.AbstractBoard;
 
+/**
+ * A string implementation
+ */
 public class StringBoard extends AbstractBoard<StringPiece>
 {
 	public StringBoard(int h, int v)

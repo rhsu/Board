@@ -1,8 +1,7 @@
-package testObjects;
+package testObjects.gameObjects;
 
 /**
- *
- * @author RHsu
+ *A enumeration for GamePiece
  */
 public enum PieceType 
 {

@@ -1,10 +1,10 @@
-package testObjects.math;
+package sampleImplementations.math;
 
 import board.AbstractBoard;
 import java.math.BigInteger;
 
 /**
- *
+ *A big integer implementation
  */
 public class BigIntegerBoard extends AbstractBoard<BigIntegerPiece>
 {
