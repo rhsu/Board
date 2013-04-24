@@ -1,7 +1,8 @@
 package test;
 
-import testObjects.IntBoard;
-import testObjects.StringBoard;
+import testObjects.math.IntBoard;
+import board.AbstractBoard;
+import testObjects.*;
 import testObjects.math.*;
 
 /**
@@ -15,8 +16,12 @@ public class Main
 		//System.out.println(board);
 		//BigIntegerBoard board = new BigIntegerBoard(10,10);
 		
-		IntBoard board = new IntBoard(3,3);
+		AbstractBoard board = new IntBoard(5,9);
+		//StringBoard board = new StringBoard(3,3);
+		//CharBoard board = new CharBoard(3,3);
 		//System.out.println(board.pieceAt(,));
+		//IntPiece p = new IntPiece(3,3,1);
+		//System.out.println(p);
 		System.out.println(board);
 	}
 }

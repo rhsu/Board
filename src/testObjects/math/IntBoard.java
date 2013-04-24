@@ -1,4 +1,4 @@
-package testObjects;
+package testObjects.math;
 
 import board.AbstractBoard;
 
@@ -7,6 +7,7 @@ public class IntBoard extends AbstractBoard<IntPiece>
 	public IntBoard(int h, int v)
 	{
 		super(h, v);
+		board = new IntPiece[h][v];
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
