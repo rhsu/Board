@@ -1,5 +1,6 @@
 package test;
 
+import testObjects.IntBoard;
 import testObjects.StringBoard;
 import testObjects.math.*;
 
@@ -14,7 +15,8 @@ public class Main
 		//System.out.println(board);
 		//BigIntegerBoard board = new BigIntegerBoard(10,10);
 		
-		StringBoard board = new StringBoard(10,10);
+		IntBoard board = new IntBoard(3,3);
+		//System.out.println(board.pieceAt(,));
 		System.out.println(board);
 	}
 }
