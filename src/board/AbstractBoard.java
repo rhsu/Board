@@ -109,13 +109,11 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 */
 	public T pieceAt(int i, int j)
 	{
-		//TODO: PublicFunctions isValidPosition needs to be updated
-		/*if (PublicFunctions.isValidPosition(i) && PublicFunctions.isValidPosition(j)) 
+		if (PublicFunctions.isValidPosition(i, horizontal_size) && PublicFunctions.isValidPosition(j, vertical_size)) 
 		{
 			return board[i][j];
-		}*/
-		//return null;
-		return board[i][j];
+		}
+		return null;
 	}
 	
 	

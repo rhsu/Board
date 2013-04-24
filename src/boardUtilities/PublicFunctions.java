@@ -18,34 +18,12 @@ public class PublicFunctions
 	
 	/**
 	* Checks if the user inputted position is valid
-	* Usage: In the prompt since the user input is of type string
-	* @param position The position to check.
-	* @return True if the position of valid
-	*/
-	public static boolean isValidPosition(String position)
-	{
-		if(!isInteger(position))
-		{
-			return false;
-		}
-
-		int numPosition = Integer.parseInt(position);
-
-		if ((numPosition > 0) && (numPosition < 8))
-		{
-			return true;
-		}
-		return false;
-	}
-	
-	/**
-	* Checks if the user inputted position is valid
 	* @param position The position to check
 	* @return True if the position of valid
 	*/
-	public static boolean isValidPosition(int position)
+	public static boolean isValidPosition(int position, int size)
 	{
-		return ((position >= 0) && (position < 7));
+		return ((position >= 0) && (position < size));
 	}
 	
    /**
