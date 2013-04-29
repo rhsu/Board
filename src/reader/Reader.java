@@ -19,7 +19,13 @@ public class Reader
 			{
 				number = Integer.parseInt(in.nextLine());
 				
-				if(number > 10)
+				if(number <= 0)
+				{
+					System.out.println("Dimension cannot be negative or 0.");
+					error = true;
+				}
+				
+				else if(number > 10)
 				{
 					System.out.println("You have entered a number greater than 10. Are you sure you want to continue");
 					switch(in.nextLine())
@@ -69,9 +75,7 @@ public class Reader
 		int v = GetValidNumberFromUser(in);
 				
 		IntBoard b = new IntBoard(h, v);
-		
-		System.out.println(b);
-				
+						
 		System.out.println("Enter the elements of the matrix");
 		for(int i = 0; i < b.getHorizontal(); i++)
 		{
