@@ -1,4 +1,4 @@
-package reader;
+package board.IO;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

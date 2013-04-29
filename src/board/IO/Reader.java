@@ -1,4 +1,4 @@
-package reader;
+package board.IO;
 
 import java.util.Scanner;
 import sampleImplementations.math.IntBoard;
