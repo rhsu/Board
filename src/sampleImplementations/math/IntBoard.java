@@ -19,14 +19,4 @@ public class IntBoard extends AbstractBoard<IntPiece>
 			}
 		}
 	}
-
-	public int getHorizontal() 
-	{
-		throw new UnsupportedOperationException("Not yet implemented");
-	}
-
-	public int getVertical() 
-	{
-		throw new UnsupportedOperationException("Not yet implemented");
-	}
 }
