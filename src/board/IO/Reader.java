@@ -12,7 +12,7 @@ public class Reader
 	private static int GetValidNumberFromUser(Scanner in)
 	{
 		int number = 0;
-		boolean error;
+		boolean hasError;
 		do
 		{
 			try
@@ -22,7 +22,7 @@ public class Reader
 				if(number <= 0)
 				{
 					System.out.println("Dimension cannot be negative or 0.");
-					error = true;
+					hasError = true;
 				}
 				
 				else if(number > 10)
@@ -34,41 +34,38 @@ public class Reader
 						case "yes":
 						case "Y":
 						case "y":
-							error = false;
+							hasError = false;
 							break;
 						case "No":
 						case "no":
 						case "N":
 						case "n":
-							error = true;
+							hasError = true;
 							System.out.println("Enter a smaller number.");
 							break;
 						default:
-							error = true;
+							hasError = true;
 							System.out.println("Invalid entry. Try again");
 							break;
 					}
 				}
 				else
 				{
-					error = false;
+					hasError = false;
 				}
 			}
 			catch(NumberFormatException e)
 			{
 				System.out.println("Invalid entry. Try again");
-				error = true;
+				hasError = true;
 			}
-		}
-		while(error);
+		}while(hasError);
 		
 		return number;
 	}
 	
-	public static void ReadInByInput()
+	public static void ReadInByInput(Scanner in)
 	{
-		Scanner in = new Scanner(System.in);
-
 		System.out.println("Enter the number of rows");
 		int h = GetValidNumberFromUser(in);
 		System.out.println("Enter the number of columns");
@@ -96,13 +93,35 @@ public class Reader
 		System.out.println(b);
 	}
 	
-	public static void ReadInByFile()
+	public static void ReadInByFile(Scanner in)
 	{
 		
 	}
 	
 	public static void main(String[] args)
 	{
-		ReadInByInput();
+		Scanner in = new Scanner(System.in);
+		boolean hasError;
+		do
+		{
+			System.out.println("Read in by file or by input?");
+			switch(in.nextLine())
+			{
+				case "File":
+				case "file":
+					ReadInByFile(in);
+					hasError = false;
+					break;
+				case "Input":
+				case "input":
+					ReadInByInput(in);
+					hasError = false;
+					break;
+				default:
+					System.out.println("Invalid Entry.");
+					hasError = true;
+					break;
+			}
+		}while(hasError);
 	}
 }
