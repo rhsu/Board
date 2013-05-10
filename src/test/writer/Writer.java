@@ -1,4 +1,4 @@
-package board.IO;
+package test.writer;
 
 import java.io.BufferedWriter;
 import java.io.File;
