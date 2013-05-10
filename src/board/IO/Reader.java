@@ -1,5 +1,8 @@
 package board.IO;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 import sampleImplementations.math.IntBoard;
 
@@ -95,7 +98,21 @@ public class Reader
 	
 	public static void ReadInByFile(Scanner in)
 	{
+		System.out.println("Enter the filename");
+		String filename = in.nextLine();
 		
+		try (BufferedReader br = new BufferedReader(new FileReader(filename)))
+		{
+			String line;
+			while ((line = br.readLine()) != null) 
+			{
+				
+			}
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
 	}
 	
 	public static void main(String[] args)
