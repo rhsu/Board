@@ -98,21 +98,28 @@ public class Reader
 	
 	public static void ReadInByFile(Scanner in)
 	{
-		System.out.println("Enter the filename");
+		System.out.println("Enter the file name");
 		String filename = in.nextLine();
+		boolean hasErrors;
 		
-		try (BufferedReader br = new BufferedReader(new FileReader(filename)))
+		do
 		{
-			String line;
-			while ((line = br.readLine()) != null) 
+			try (BufferedReader br = new BufferedReader(new FileReader(filename)))
 			{
-				
+				System.out.println("here?");
+				String line;
+				while ((line = br.readLine()) != null) 
+				{
+					System.out.println(line);
+				}
+				hasErrors = false;
+			} 
+			catch (IOException e) 
+			{
+				System.out.println("ERROR: File not found");
+				hasErrors = true;
 			}
-		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
+		}while(hasErrors);
 	}
 	
 	public static void main(String[] args)
