@@ -52,7 +52,8 @@ public class BoardEditorTerminal extends AbstractTerminal
 			{
 
 				textArea.append("You chose input");
-				state = -2;
+				textArea.append("Enter the number of rows. \n");
+				state = 2;
 				break;
 			}
 			else
@@ -74,21 +75,27 @@ public class BoardEditorTerminal extends AbstractTerminal
 	private void readInputState()
 	{
 		boolean hasError;
-		textArea.append("Enter the number of rows. \n");
+
 		String text = textField.getText();
 		do
 		{
 			try
 			{
-				Integer.parseInt(text);
-				hasError = false;
+				int i = Integer.parseInt(text);
+				if(i <= 0) throw new NumberFormatException();
+				break;
 			}
 			catch(NumberFormatException e)
 			{
 				textArea.append("Invalid input. Try again. \n");
 				hasError = true;
 			}
+			finally
+			{
+				System.out.println("Done!");
+			}
 		}while(!hasError);
+	
 	}
 	
 	public static void main(String[] args)
