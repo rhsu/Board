@@ -2,6 +2,7 @@ package rhsu.board.IO.terminal;
 
 import com.terminalPanelGUI.AbstractTerminal;
 import com.terminalPanelGUI.UniversalPanelLauncher;
+import rhsu.board.utilities.UtilityFunctions;
 
 /**
  *
@@ -74,28 +75,32 @@ public class BoardEditorTerminal extends AbstractTerminal
 	
 	private void readInputState()
 	{
-		boolean hasError;
+		boolean hasError = false;
 
 		String text = textField.getText();
+		
 		do
 		{
-			try
-			{
-				int i = Integer.parseInt(text);
-				if(i <= 0) throw new NumberFormatException();
-				break;
+			if(UtilityFunctions.isInteger(text))
+			{	
+				hasError = (Integer.parseInt(text) <= 0);
 			}
-			catch(NumberFormatException e)
+			else
+			{
+				hasError = true;
+				System.out.println("In here?");
+			}
+			
+			if(hasError)
 			{
 				textArea.append("Invalid input. Try again. \n");
-				hasError = true;
 			}
-			finally
+			else
 			{
-				System.out.println("Done!");
+				textArea.append("Done!");
 			}
-		}while(!hasError);
-	
+			
+		}while(hasError);
 	}
 	
 	public static void main(String[] args)
