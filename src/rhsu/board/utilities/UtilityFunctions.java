@@ -1,4 +1,4 @@
-package boardUtilities;
+package rhsu.board.utilities;
 
 /**
  *Various static functions

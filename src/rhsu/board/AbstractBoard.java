@@ -1,6 +1,6 @@
-package board;
+package rhsu.board;
 
-import boardUtilities.UtilityFunctions;
+import rhsu.board.utilities.UtilityFunctions;
 
 /**
  * The Abstract Board class is a custom made data-structure, which allows easy

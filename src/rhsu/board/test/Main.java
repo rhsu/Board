@@ -1,8 +1,8 @@
-package test;
+package rhsu.board.test;
 
-import sampleImplementations.math.IntPiece;
-import sampleImplementations.math.IntBoard;
-import board.AbstractBoard;
+import rhsu.board.sampleImplementations.math.IntPiece;
+import rhsu.board.sampleImplementations.math.IntBoard;
+import rhsu.board.AbstractBoard;
 
 /**
  *

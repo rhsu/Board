@@ -1,6 +1,6 @@
-package sampleImplementations;
+package rhsu.board.sampleImplementatoins;
 
-import board.AbstractPiece;
+import rhsu.board.AbstractPiece;
 
 /**
  * A string implementation

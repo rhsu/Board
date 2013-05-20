@@ -1,4 +1,4 @@
-package testObjects.gameObjects;
+package rhsu.board.testObjects.gameObjects;
 
 /**
  *A enumeration for GamePiece

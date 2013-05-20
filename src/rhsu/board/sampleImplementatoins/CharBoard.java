@@ -1,6 +1,6 @@
-package sampleImplementations;
+package rhsu.board.sampleImplementatoins;
 
-import board.AbstractBoard;
+import rhsu.board.AbstractBoard;
 
 /**
  *A character implementation

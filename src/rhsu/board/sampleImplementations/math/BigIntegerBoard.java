@@ -1,6 +1,6 @@
-package sampleImplementations.math;
+package rhsu.board.sampleImplementations.math;
 
-import board.AbstractBoard;
+import rhsu.board.AbstractBoard;
 import java.math.BigInteger;
 
 /**

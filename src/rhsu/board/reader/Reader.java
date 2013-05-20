@@ -1,7 +1,7 @@
-package reader;
+package rhsu.board.reader;
 
 import java.util.Scanner;
-import sampleImplementations.math.IntBoard;
+import rhsu.board.sampleImplementations.math.IntBoard;
 
 /**
  *
