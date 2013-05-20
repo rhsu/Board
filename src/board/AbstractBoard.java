@@ -1,6 +1,6 @@
 package board;
 
-import boardUtilities.UtilityFunctions;
+import board.utilities.UtilityFunctions;
 
 /**
  * The Abstract Board class is a custom made data-structure, which allows easy

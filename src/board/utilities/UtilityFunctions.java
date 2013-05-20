@@ -1,4 +1,4 @@
-package boardUtilities;
+package board.utilities;
 
 /**
  *Various static functions
@@ -61,5 +61,15 @@ public class UtilityFunctions
 	public static int getRandomNumber()
 	{
 		return (int)(Math.random()*7)+1;
+	}
+	
+	/**
+	 * 
+	 * @param s the string to check if its a valid integer.
+	 * @return True if the string is a valid integer
+	 */
+	public static boolean isInteger(String s)
+	{
+		return s.matches("-?[0-9]+");
 	}
 }
