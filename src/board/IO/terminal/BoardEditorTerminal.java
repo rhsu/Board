@@ -44,15 +44,16 @@ public class BoardEditorTerminal extends AbstractTerminal
 		{
 			if(text.equalsIgnoreCase("file"))
 			{
-				hasError = false;
 				textArea.append("You chose file");
-				state = -1;
+				state = 1;
+				break;
 			}
 			else if(text.equalsIgnoreCase("input"))
 			{
-				hasError = false;
+
 				textArea.append("You chose input");
 				state = -2;
+				break;
 			}
 			else
 			{
@@ -67,7 +68,7 @@ public class BoardEditorTerminal extends AbstractTerminal
 	
 	private void fileProcessingState() 
 	{
-
+		textArea.append("You are in the file processing state. Not yet implemented \n");
 	}
 	
 	private void readInputState()
