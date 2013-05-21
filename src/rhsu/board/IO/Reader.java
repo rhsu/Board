@@ -39,7 +39,7 @@ public class Reader
 				else if(number > 5)
 				{
 					System.out.println("You have entered a number greater than 5.");
-					System.out.println("It is not recommended to use a different form of data entry");
+					System.out.println("It is recommended to use a different form of data entry");
 					System.out.println("Do you want to continue?");
 					
 					boolean hasLocalError;
@@ -63,6 +63,7 @@ public class Reader
 							default:
 								hasLocalError = true;
 								System.out.println("Invalid entry. Try again");
+								System.out.println("Do you want to continue?");
 								break;
 						}
 					}while(hasLocalError);
