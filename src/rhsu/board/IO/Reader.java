@@ -110,12 +110,13 @@ public class Reader
 
 	public static void ReadInByFile(Scanner in)
 	{
-		System.out.println("Enter the file name");
-		String filename = in.nextLine();
-		boolean hasErrors;
-
+		boolean hasError;
 		do
 		{
+			System.out.println("Enter the file name");
+			String filename = in.nextLine();
+			hasError = false;
+			
 			try (BufferedReader br = new BufferedReader(new FileReader(filename)))
 			{
 				System.out.println("here?");
@@ -124,19 +125,18 @@ public class Reader
 				{
 					System.out.println(line);
 				}
-				hasErrors = false;
 			}
 			catch (IOException e)
 			{
 				System.out.println("ERROR: File not found");
-				hasErrors = true;
+				hasError = true;
 			}
-		}while(hasErrors);
+		}while(hasError);
 	}
 
 	public static void main(String[] args)
 	{
-		Scanner in = new Scanner(System.in);
+		Scanner in = new Scanner(System.in);	
 		boolean hasError;
 		do
 		{
