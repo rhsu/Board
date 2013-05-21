@@ -20,53 +20,51 @@ public class Reader
 		do
 		{
 			String strNum = in.nextLine();
+		
+			hasError = (!UtilityFunctions.isInteger(strNum));
 			
-			if(UtilityFunctions.isInteger(strNum))
-			{
-				number = Integer.parseInt(strNum);
-				hasError = false;
-			}
-			else
-			{
-				hasError = true;
-			}
-
 			if(hasError)
 			{
 				System.out.println("Invalid entry. Try again");
 			}
-			else if(!hasError && number <= 0)
+			else //valid number
 			{
-				System.out.println("Dimension cannot be negative or 0.");
-				hasError = true;
-			}
-			else if(number > 10)
-			{
-				System.out.println("You have entered a number greater than 10. Are you sure you want to continue");
-				switch(in.nextLine())
+				number = Integer.parseInt(strNum);
+				
+				if(number <= 0)
 				{
-					case "Yes":
-					case "yes":
-					case "Y":
-					case "y":
-						hasError = false;
-						break;
-					case "No":
-					case "no":
-					case "N":
-					case "n":
-						hasError = true;
-						System.out.println("Enter a smaller number.");
-						break;
-					default:
-						hasError = true;
-						System.out.println("Invalid entry. Try again");
-						break;
+					System.out.println("Dimension cannot be negative or 0.");
+					hasError = true;
 				}
-			}
-			else
-			{
-				hasError = false;
+				else if(number > 5)
+				{
+					System.out.println("You have entered a number greater than 5.");
+					System.out.println("It is not recommended to use a different form of data entry");
+					System.out.println("Do you want to continue?");
+					switch(in.nextLine())
+					{
+						case "Yes":
+						case "yes":
+						case "Y":
+						case "y":
+							break;
+						case "No":
+						case "no":
+						case "N":
+						case "n":
+							hasError = true;
+							System.out.println("Enter a smaller number.");
+							break;
+						default:
+							hasError = true;
+							System.out.println("Invalid entry. Try again");
+							break;
+					}
+				}
+				else
+				{
+					hasError = false;
+				}
 			}
 		}while(hasError);
 
