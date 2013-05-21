@@ -1,4 +1,4 @@
-package rhsu.board.IO.terminal;
+package rhsu.board.IO.terminalPanel;
 
 import com.terminalPanelGUI.AbstractTerminal;
 import com.terminalPanelGUI.UniversalPanelLauncher;

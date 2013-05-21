@@ -1,4 +1,4 @@
-package rhsu.test.writer;
+package rhsu.board.test.writer;
 
 import java.io.BufferedWriter;
 import java.io.File;
