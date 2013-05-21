@@ -41,25 +41,31 @@ public class Reader
 					System.out.println("You have entered a number greater than 5.");
 					System.out.println("It is not recommended to use a different form of data entry");
 					System.out.println("Do you want to continue?");
-					switch(in.nextLine())
+					
+					boolean hasLocalError;
+					do
 					{
-						case "Yes":
-						case "yes":
-						case "Y":
-						case "y":
-							break;
-						case "No":
-						case "no":
-						case "N":
-						case "n":
-							hasError = true;
-							System.out.println("Enter a smaller number.");
-							break;
-						default:
-							hasError = true;
-							System.out.println("Invalid entry. Try again");
-							break;
-					}
+						hasLocalError = false;
+						switch(in.nextLine())
+						{
+							case "Yes":
+							case "yes":
+							case "Y":
+							case "y":
+								break;
+							case "No":
+							case "no":
+							case "N":
+							case "n":
+								hasError = true;
+								System.out.println("Enter a smaller number.");
+								break;
+							default:
+								hasLocalError = true;
+								System.out.println("Invalid entry. Try again");
+								break;
+						}
+					}while(hasLocalError);
 				}
 				else
 				{
