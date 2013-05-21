@@ -91,12 +91,13 @@ public class Reader
 		for(int i = 0; i < b.getHorizontal(); i++)
 		{
 			for(int j = 0; j < b.getVertical(); j++)
-			{
-				try
+			{				
+				String strNum = in.nextLine();
+				if(UtilityFunctions.isInteger(strNum))
 				{
-					b.pieceAt(i,j).setType(Integer.parseInt(in.nextLine()));
+					b.pieceAt(i,j).setType(Integer.parseInt(strNum));
 				}
-				catch(NumberFormatException e)
+				else
 				{
 					System.out.println("Invalid entry. Try again");
 					j--;
@@ -140,17 +141,17 @@ public class Reader
 		do
 		{
 			System.out.println("Read in by file or by input?");
+			hasError = false;
+			
 			switch(in.nextLine())
 			{
 				case "File":
 				case "file":
 					ReadInByFile(in);
-					hasError = false;
 					break;
 				case "Input":
 				case "input":
 					ReadInByInput(in);
-					hasError = false;
 					break;
 				default:
 					System.out.println("Invalid Entry.");
