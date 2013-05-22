@@ -78,6 +78,27 @@ public class Reader
 		return number;
 	}
 
+	private final static String DELIMITERS = "|:,\t";
+	
+	public static char determineDelimiter(String line)
+	{
+		int delimiterIndex = -1;
+		int selectedDelimiter = -1;
+		
+		for (int i = 0; i < DELIMITERS.length(); i++)
+		{
+			int currentIndex = line.indexOf(DELIMITERS.charAt(i));
+
+			if ((currentIndex < delimiterIndex && currentIndex != -1) || (currentIndex > delimiterIndex && delimiterIndex == -1))
+			{
+				delimiterIndex = currentIndex;
+				selectedDelimiter = i;
+			}
+		}
+		
+		return (selectedDelimiter == -1 ? '\0' : DELIMITERS.charAt(selectedDelimiter));
+	}
+	
 	public static void ReadInByInput(Scanner in)
 	{
 		System.out.println("Enter the number of rows");
@@ -120,7 +141,6 @@ public class Reader
 			
 			try (BufferedReader br = new BufferedReader(new FileReader(filename)))
 			{
-				System.out.println("here?");
 				String line;
 				while ((line = br.readLine()) != null)
 				{
@@ -135,6 +155,11 @@ public class Reader
 		}while(hasError);
 	}
 
+	public static void DisplayHelp()
+	{
+		System.out.println("This is the help option");
+	}
+	
 	public static void main(String[] args)
 	{
 		Scanner in = new Scanner(System.in);	
@@ -146,13 +171,17 @@ public class Reader
 			
 			switch(in.nextLine())
 			{
-				case "File":
 				case "file":
 					ReadInByFile(in);
 					break;
-				case "Input":
 				case "input":
 					ReadInByInput(in);
+					break;
+				case "help":
+					DisplayHelp();
+					break;
+				case "exit":
+					System.exit(0);
 					break;
 				default:
 					System.out.println("Invalid Entry.");
