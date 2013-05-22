@@ -13,7 +13,7 @@ import rhsu.board.utilities.UtilityFunctions;
  */
 public class Reader
 {
-	private static int GetValidNumberFromUser(Scanner in)
+	private static int getValidNumberFromUser(Scanner in)
 	{
 		int number = 0;
 		boolean hasError;
@@ -99,12 +99,12 @@ public class Reader
 		return (selectedDelimiter == -1 ? '\0' : DELIMITERS.charAt(selectedDelimiter));
 	}
 	
-	public static void ReadInByInput(Scanner in)
+	public static void readInByInput(Scanner in)
 	{
 		System.out.println("Enter the number of rows");
-		int h = GetValidNumberFromUser(in);
+		int h = getValidNumberFromUser(in);
 		System.out.println("Enter the number of columns");
-		int v = GetValidNumberFromUser(in);
+		int v = getValidNumberFromUser(in);
 
 		IntBoard b = new IntBoard(h, v);
 
@@ -130,7 +130,7 @@ public class Reader
 		System.out.println(b);
 	}
 
-	public static void ReadInByFile(Scanner in)
+	public static void readInByFile(Scanner in)
 	{
 		boolean hasError;
 		do
@@ -155,7 +155,7 @@ public class Reader
 		}while(hasError);
 	}
 
-	public static void DisplayHelp()
+	public static void displayHelp()
 	{
 		System.out.println("This is the help option");
 	}
@@ -172,13 +172,13 @@ public class Reader
 			switch(in.nextLine())
 			{
 				case "file":
-					ReadInByFile(in);
+					readInByFile(in);
 					break;
 				case "input":
-					ReadInByInput(in);
+					readInByInput(in);
 					break;
 				case "help":
-					DisplayHelp();
+					displayHelp();
 					break;
 				case "exit":
 					System.exit(0);
