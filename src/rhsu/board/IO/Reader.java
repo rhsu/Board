@@ -78,20 +78,18 @@ public class Reader
 		return number;
 	}
 
-	private final static String DELIMITERS = "|:,\t";
+	private final static String DELIMITERS = "|,\t";
 	
 	public static char determineDelimiter(String line)
 	{
-		int delimiterIndex = -1;
 		int selectedDelimiter = -1;
 		
 		for (int i = 0; i < DELIMITERS.length(); i++)
 		{
 			int currentIndex = line.indexOf(DELIMITERS.charAt(i));
-
-			if ((currentIndex < delimiterIndex && currentIndex != -1) || (currentIndex > delimiterIndex && delimiterIndex == -1))
+			
+			if(currentIndex != -1)
 			{
-				delimiterIndex = currentIndex;
 				selectedDelimiter = i;
 			}
 		}
@@ -133,18 +131,32 @@ public class Reader
 	public static void readInByFile(Scanner in)
 	{
 		boolean hasError;
+		boolean matchedDelimiter;
+		
+		char delimiter = '\0';
+		
 		do
 		{
 			System.out.println("Enter the file name");
 			String filename = in.nextLine();
 			hasError = false;
-			
+			matchedDelimiter = false;
+
 			try (BufferedReader br = new BufferedReader(new FileReader(filename)))
-			{
+			{				
 				String line;
 				while ((line = br.readLine()) != null)
 				{
-					System.out.println(line);
+					if(!matchedDelimiter)
+					{
+						delimiter = determineDelimiter(line);
+						matchedDelimiter = true;
+					}
+					
+					String[] stuff = line.split(new Character(delimiter).toString());
+					
+					//System.out.println(line + "the delimiter is: " + delimiter);
+					for(int s = 0; s < stuff.length; s++) System.out.print(stuff[s] + " ");
 				}
 			}
 			catch (IOException e)
