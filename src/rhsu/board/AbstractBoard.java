@@ -157,7 +157,16 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	{
 		horizontal_size = i;
 		vertical_size = j;
-		//TODO: Research how to do generic array allocation seems complicated
+	}
+	
+	public int getHorizontal_size()
+	{
+		return horizontal_size;
+	}
+	
+	public int getVertical_size()
+	{
+		return vertical_size;
 	}
 	
 	/**

@@ -23,9 +23,9 @@ public class Reader
 		b.pieceAt(0,0).setType(1);
 		
 		System.out.println("Enter the elements of the matrix");
-		for(int i = 0; i < b.getHorizontal(); i++)
+		for(int i = 0; i < b.getHorizontal_size(); i++)
 		{
-			for(int j = 0; j < b.getVertical(); j++)
+			for(int j = 0; j < b.getVertical_size(); j++)
 			{
 				b.pieceAt(i,j).setType(Integer.parseInt(in.nextLine()));	
 			}	
