@@ -14,6 +14,5 @@ public interface Matrix<T>
 	public Matrix Subtract(Matrix m);
 	public Matrix Multiply(Matrix m);
 	public Matrix Inverse();
-	
 	public T Determinant();
 }
