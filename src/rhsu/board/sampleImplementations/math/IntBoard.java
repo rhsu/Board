@@ -1,11 +1,12 @@
 package rhsu.board.sampleImplementations.math;
 
 import rhsu.board.AbstractBoard;
+import rhsu.board.arithmetic.Matrix;
 
 /**
  * An integer implementation
  */
-public class IntBoard extends AbstractBoard<IntPiece>
+public class IntBoard extends AbstractBoard<IntPiece> implements Matrix<Integer>
 {
 	public IntBoard(int h, int v)
 	{
@@ -18,5 +19,35 @@ public class IntBoard extends AbstractBoard<IntPiece>
 				board[i][j] = new IntPiece(i, j, 0);
 			}
 		}
+	}
+
+	@Override
+	public Matrix Add(Matrix m) 
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	@Override
+	public Matrix Subtract(Matrix m) 
+	{
+		throw new UnsupportedOperationException("Not supported yet."); 
+	}
+
+	@Override
+	public Matrix Multiply(Matrix m) 
+	{
+		throw new UnsupportedOperationException("Not supported yet."); 
+	}
+
+	@Override
+	public Matrix Inverse() 
+	{
+		throw new UnsupportedOperationException("Not supported yet."); 
+	}
+
+	@Override
+	public Integer Determinant() 
+	{
+		throw new UnsupportedOperationException("Not supported yet."); 
 	}
 }
