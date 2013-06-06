@@ -1,14 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package rhsu.board.arithmetic;
+
+import rhsu.board.Board;
 
 /**
  *
  * @author rhsu
  */
-public interface Matrix<T> 
+public interface Matrix<T> extends Board<T>
 {
 	public Matrix Add(Matrix m);
 	public Matrix Subtract(Matrix m);

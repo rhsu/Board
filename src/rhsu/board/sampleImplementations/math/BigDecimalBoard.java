@@ -7,7 +7,7 @@ import rhsu.board.arithmetic.Matrix;
 /**
  *A big decimal implementation
  */
-public class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implements Matrix<BigDecimal>
+public class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implements Matrix<BigDecimalPiece>
 {
 	public BigDecimalBoard(int h, int v)
 	{
@@ -47,7 +47,7 @@ public class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implements M
 	}
 
 	@Override
-	public BigDecimal Determinant() 
+	public BigDecimalPiece Determinant() 
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}

@@ -1,7 +1,7 @@
 package rhsu.board.test;
 
-import rhsu.board.sampleImplementations.math.IntPiece;
-import rhsu.board.sampleImplementations.math.IntBoard;
+import rhsu.board.sampleImplementations.math.IntegerPiece;
+import rhsu.board.sampleImplementations.math.IntegerBoard;
 import rhsu.board.AbstractBoard;
 
 /**
@@ -15,13 +15,13 @@ public class Main
 		//System.out.println(board);
 		//BigIntegerBoard board = new BigIntegerBoard(10,10);
 		
-		IntBoard board = new IntBoard(5,9);
+		IntegerBoard board = new IntegerBoard(5,9);
 		//StringBoard board = new StringBoard(3,3);
 		//CharBoard board = new CharBoard(3,3);
 		//System.out.println(board.pieceAt(,));
 		//IntPiece p = new IntPiece(3,3,1);
 		//System.out.println(p);
-		IntPiece p = board.pieceAt(1,1);
+		IntegerPiece p = board.pieceAt(1,1);
 		System.out.println(p);
 		System.out.println(board);
 	}

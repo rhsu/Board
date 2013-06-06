@@ -1,0 +1,21 @@
+package rhsu.board;
+
+/**
+ *
+ * @author RHsu
+ */
+public interface Board <T>
+{
+	public T getLeftPiece(int i, int j);
+	public T getLeftPiece(T p);	
+	public T getRightPiece(int i, int j);
+	public T getRightPiece(T p);
+	public T getDownPiece(int i, int j);
+	public T getDownPiece(T p);
+	public T getUpPiece(int i, int j);
+	public T getUpPiece(T p);
+	public T pieceAt(int i, int j);
+	public int getHorizontal_size();
+	public int getVertical_size();
+}
+

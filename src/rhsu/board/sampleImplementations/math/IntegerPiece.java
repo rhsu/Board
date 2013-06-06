@@ -5,9 +5,9 @@ import rhsu.board.AbstractPiece;
 /**
  * An integer implementation
  */
-public class IntPiece extends AbstractPiece<Integer>
+public class IntegerPiece extends AbstractPiece<Integer>
 {
-	public IntPiece(int i, int j, int value)
+	public IntegerPiece(int i, int j, int value)
 	{
 		super(i, j);
 		t = new Integer(value);

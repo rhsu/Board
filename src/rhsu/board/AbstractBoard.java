@@ -7,7 +7,7 @@ import rhsu.board.utilities.UtilityFunctions;
  * access of "pieces" by retrieval functions.
  * @param <T> Generic Type. The type must extend Abstract Piece
  */
-public abstract class AbstractBoard <T extends AbstractPiece>
+public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T>
 {
 	/**
 	 * the board object to allocate in the constructor
@@ -30,6 +30,7 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 * @param j vertical index
 	 * @return The piece to the left of the given index
 	 */
+	@Override
 	public T getLeftPiece(int i, int j)
 	{		
 		return pieceAt(i, j - 1);
@@ -40,6 +41,7 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 * @param p Piece
 	 * @return The piece to the left of the given piece
 	 */
+	@Override
 	public T getLeftPiece(T p)
 	{
 		return pieceAt(p.getHorizontal(), p.getVertical() - 1);
@@ -51,6 +53,7 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 * @param j vertical index
 	 * @return The piece to the right of the given index
 	 */
+	@Override
 	public T getRightPiece(int i, int j)
 	{
 		return pieceAt(i, j + 1);
@@ -61,6 +64,7 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 * @param p Piece
 	 * @return The piece to the right of the given piece
 	 */
+	@Override
 	public T getRightPiece(T p)
 	{
 		return pieceAt(p.getHorizontal(), p.getVertical() + 1);
@@ -72,6 +76,7 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 * @param j vertical index
 	 * @return The piece above the given index
 	 */
+	@Override
 	public T getUpPiece(int i, int j)
 	{
 		return pieceAt(i - 1, j);
@@ -82,6 +87,7 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 * @param p piece
 	 * @return The piece above the given piece
 	 */
+	@Override
 	public T getUpPiece(T p)
 	{
 		return pieceAt(p.getHorizontal() - 1, p.getVertical());
@@ -93,6 +99,7 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 * @param j vertical index
 	 * @return The piece below the given index
 	 */
+	@Override
 	public T getDownPiece(int i, int j)
 	{
 		return pieceAt(i + 1, j);
@@ -102,6 +109,7 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 * @param p piece
 	 * @return The piece below the given piece
 	 */
+	@Override
 	public T getDownPiece(T p)
 	{
 		return pieceAt(p.getHorizontal() + 1, p.getVertical());
@@ -113,6 +121,7 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 	 * @param j vertical index
 	 * @return The piece from the board. Null if no piece exists
 	 */
+	@Override
 	public T pieceAt(int i, int j)
 	{
 		if (UtilityFunctions.isValidPosition(i, horizontal_size) && UtilityFunctions.isValidPosition(j, vertical_size)) 
@@ -159,11 +168,13 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 		vertical_size = j;
 	}
 	
+	@Override
 	public int getHorizontal_size()
 	{
 		return horizontal_size;
 	}
 	
+	@Override
 	public int getVertical_size()
 	{
 		return vertical_size;

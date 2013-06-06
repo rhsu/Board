@@ -7,7 +7,7 @@ import rhsu.board.arithmetic.Matrix;
 /**
  *A big integer implementation
  */
-public class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implements Matrix<BigInteger>
+public class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implements Matrix<BigIntegerPiece>
 {
 	public BigIntegerBoard(int h, int v)
 	{
@@ -23,27 +23,31 @@ public class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implements M
 	}
 
 	@Override
-	public Matrix Add(Matrix m) {
+	public Matrix Add(Matrix m) 
+	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public Matrix Subtract(Matrix m) {
+	public Matrix Subtract(Matrix m) 
+	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public Matrix Multiply(Matrix m) {
+	public Matrix Multiply(Matrix m) 
+	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public Matrix Inverse() {
+	public Matrix Inverse() 
+	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public BigInteger Determinant() {
+	public BigIntegerPiece Determinant() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }

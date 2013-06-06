@@ -1,48 +1,37 @@
-package rhsu.board.sampleImplementations.math;
-
-import rhsu.board.AbstractBoard;
-import rhsu.board.arithmetic.Matrix;
+package rhsu.board.arithmetic;
 
 /**
- *A double implementation
+ *
+ * @author rhsu
  */
-public class DoubleBoard extends AbstractBoard<DoublePiece> implements Matrix<DoublePiece>
+public class AbstractMatrix<T> //implements Matrix<T>
 {
-	public DoubleBoard(int h, int v)
+	public AbstractMatrix()
 	{
-		super(h, v);
-		board = new DoublePiece[h][v];
-		for(int i = 0; i < h; i++)
-		{
-			for(int j = 0; j < v; j++)
-			{
-				board[i][j] = new DoublePiece(i, j, 0.0);
-			}
-		}
+		
 	}
 
-	@Override
-	public Matrix Add(Matrix m) {
+	public Matrix Add(Matrix m) 
+	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
-	@Override
-	public Matrix Subtract(Matrix m) {
+	public Matrix Subtract(Matrix m) 
+	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
-	@Override
-	public Matrix Multiply(Matrix m) {
+	public Matrix Multiply(Matrix m) 
+	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
-	@Override
-	public Matrix Inverse() {
+	public Matrix Inverse() 
+	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
-	@Override
-	public DoublePiece Determinant() 
+	public T Determinant() 
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}

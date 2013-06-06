@@ -1,7 +1,7 @@
 package rhsu.board.reader;
 
 import java.util.Scanner;
-import rhsu.board.sampleImplementations.math.IntBoard;
+import rhsu.board.sampleImplementations.math.IntegerBoard;
 
 /**
  *
@@ -18,7 +18,7 @@ public class Reader
 		System.out.println("Enter the number of rows");
 		String v = in.nextLine();
 		
-		IntBoard b = new IntBoard(Integer.parseInt(h), Integer.parseInt(v));
+		IntegerBoard b = new IntegerBoard(Integer.parseInt(h), Integer.parseInt(v));
 		
 		b.pieceAt(0,0).setType(1);
 		

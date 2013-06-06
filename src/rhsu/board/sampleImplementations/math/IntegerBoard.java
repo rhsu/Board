@@ -6,17 +6,17 @@ import rhsu.board.arithmetic.Matrix;
 /**
  * An integer implementation
  */
-public class IntBoard extends AbstractBoard<IntPiece> implements Matrix<Integer>
+public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<IntegerPiece>
 {
-	public IntBoard(int h, int v)
+	public IntegerBoard(int h, int v)
 	{
 		super(h, v);
-		board = new IntPiece[h][v];
+		board = new IntegerPiece[h][v];
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new IntPiece(i, j, 0);
+				board[i][j] = new IntegerPiece(i, j, 0);
 			}
 		}
 	}
@@ -46,8 +46,8 @@ public class IntBoard extends AbstractBoard<IntPiece> implements Matrix<Integer>
 	}
 
 	@Override
-	public Integer Determinant() 
+	public IntegerPiece Determinant() 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }
