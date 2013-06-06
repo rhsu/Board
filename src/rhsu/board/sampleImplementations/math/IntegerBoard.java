@@ -24,7 +24,26 @@ public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<
 	@Override
 	public Matrix Add(Matrix m) 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		IntegerBoard other = (IntegerBoard)m;
+		//1 check dimensions
+		
+		//2 create a new Matrix of IntegerPieces.
+		int h = m.getHorizontal_size();
+		int v = m.getVertical_size();
+		IntegerBoard result =  new IntegerBoard(h,v);
+		
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				int a = other.pieceAt(i, j).getType();
+				int b = this.pieceAt(i, j).getType();
+				result.pieceAt(i, j).setType(a + b);
+			}
+		}
+		
+		return result;
 	}
 
 	@Override
