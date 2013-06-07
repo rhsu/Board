@@ -17,5 +17,7 @@ public interface Board <T>
 	public T pieceAt(int i, int j);
 	public int getHorizontal_size();
 	public int getVertical_size();
+	public Object getTypeAt(int i, int j);
+	public void setTypeAt(int i, int j, Object obj);
 }
 

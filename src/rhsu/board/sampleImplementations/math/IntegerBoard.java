@@ -37,9 +37,12 @@ public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<
 		{
 			for(int j = 0; j < v; j++)
 			{
-				int a = other.pieceAt(i, j).getType();
-				int b = this.pieceAt(i, j).getType();
-				result.pieceAt(i, j).setType(a + b);
+				//int a = other.pieceAt(i, j).getType();
+				Integer a = (Integer) other.getTypeAt(i, j);
+				//int b = this.pieceAt(i, j).getType();
+				Integer b = (Integer) other.getTypeAt(i, j);
+				//result.pieceAt(i, j).setType(a + b);
+				result.setTypeAt(i,j, a+b);				
 			}
 		}
 		
