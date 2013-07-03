@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 import rhsu.board.sampleImplementations.math.IntBoard;
 import rhsu.board.utilities.UtilityFunctions;
 
@@ -13,7 +14,47 @@ import rhsu.board.utilities.UtilityFunctions;
  */
 public class Reader
 {
-	private static int getValidNumberFromUser(Scanner in)
+	private final static String DELIMITERS = "|,\t";
+	private Scanner in;
+	
+	public Reader()
+	{
+		in = new Scanner(System.in);
+	}
+	
+	public void mainPrompt()
+	{
+		boolean hasError;
+		do
+		{
+			System.out.println("Read in by file or by input?");
+			System.out.println("To exit press exit");
+			System.out.println("For help press help");
+			hasError = false;
+			
+			switch(in.nextLine())
+			{
+				case "file":
+					readInByFile(in);
+					break;
+				case "input":
+					readInByInput(in);
+					break;
+				case "help":
+					displayHelp();
+					break;
+				case "exit":
+					System.exit(0);
+					break;
+				default:
+					System.out.println("Invalid Entry.");
+					hasError = true;
+					break;
+			}
+		}while(hasError);
+	}
+	
+	private int getValidNumberFromUser(Scanner in)
 	{
 		int number = 0;
 		boolean hasError;
@@ -77,8 +118,6 @@ public class Reader
 
 		return number;
 	}
-
-	private final static String DELIMITERS = "|,\t";
 	
 	public static char determineDelimiter(String line)
 	{
@@ -97,7 +136,7 @@ public class Reader
 		return (selectedDelimiter == -1 ? '\0' : DELIMITERS.charAt(selectedDelimiter));
 	}
 	
-	public static void readInByInput(Scanner in)
+	public void readInByInput(Scanner in)
 	{
 		System.out.println("Enter the number of rows");
 		int h = getValidNumberFromUser(in);
@@ -128,35 +167,27 @@ public class Reader
 		System.out.println(b);
 	}
 
-	public static void readInByFile(Scanner in)
-	{
+	public void readInByFile(Scanner in)
+	{		
 		boolean hasError;
-		boolean matchedDelimiter;
-		
-		char delimiter = '\0';
 		
 		do
 		{
 			System.out.println("Enter the file name");
 			String filename = in.nextLine();
 			hasError = false;
-			matchedDelimiter = false;
 
 			try (BufferedReader br = new BufferedReader(new FileReader(filename)))
-			{				
+			{
 				String line;
 				while ((line = br.readLine()) != null)
 				{
-					if(!matchedDelimiter)
+					StringTokenizer tokenizer = new StringTokenizer(line, DELIMITERS);
+					
+					while(tokenizer.hasMoreTokens())
 					{
-						delimiter = determineDelimiter(line);
-						matchedDelimiter = true;
+						System.out.println("token " + tokenizer.nextToken().trim());
 					}
-					
-					String[] stuff = line.split(new Character(delimiter).toString());
-					
-					//System.out.println(line + "the delimiter is: " + delimiter);
-					for(int s = 0; s < stuff.length; s++) System.out.print(stuff[s] + " ");
 				}
 			}
 			catch (IOException e)
@@ -167,39 +198,14 @@ public class Reader
 		}while(hasError);
 	}
 
-	public static void displayHelp()
+	public void displayHelp()
 	{
 		System.out.println("This is the help option");
 	}
 	
 	public static void main(String[] args)
 	{
-		Scanner in = new Scanner(System.in);	
-		boolean hasError;
-		do
-		{
-			System.out.println("Read in by file or by input?");
-			hasError = false;
-			
-			switch(in.nextLine())
-			{
-				case "file":
-					readInByFile(in);
-					break;
-				case "input":
-					readInByInput(in);
-					break;
-				case "help":
-					displayHelp();
-					break;
-				case "exit":
-					System.exit(0);
-					break;
-				default:
-					System.out.println("Invalid Entry.");
-					hasError = true;
-					break;
-			}
-		}while(hasError);
+		Reader myReader = new Reader();
+		myReader.mainPrompt();
 	}
 }
