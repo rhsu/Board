@@ -3,6 +3,8 @@ package rhsu.board.IO;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 import rhsu.board.sampleImplementations.math.IntBoard;
@@ -165,11 +167,14 @@ public class Reader
 		}
 
 		System.out.println(b);
+		//return b;
 	}
 
 	public void readInByFile(Scanner in)
 	{		
 		boolean hasError;
+		
+		List<int[]> testList = new LinkedList<>();
 		
 		do
 		{
@@ -183,11 +188,19 @@ public class Reader
 				while ((line = br.readLine()) != null)
 				{
 					StringTokenizer tokenizer = new StringTokenizer(line, DELIMITERS);
+					int[] test2 = new int[tokenizer.countTokens()];
+					
+					int index = 0;
 					
 					while(tokenizer.hasMoreTokens())
 					{
-						System.out.println("token " + tokenizer.nextToken().trim());
+						int t = Integer.parseInt(tokenizer.nextToken().trim());
+						
+						test2[index] = t;
+						index++;
 					}
+					
+					testList.add(test2);
 				}
 			}
 			catch (IOException e)
@@ -196,6 +209,21 @@ public class Reader
 				hasError = true;
 			}
 		}while(hasError);
+		
+		IntBoard b = new IntBoard(testList.get(0).length, testList.size());
+		
+		int boardCounter = 0;		
+		for(int[] item : testList)
+		{
+			for(int i = 0; i < item.length; i++)
+			{
+				b.pieceAt(i, boardCounter++).setType(item[i]);
+			}
+			System.out.println();
+		}
+		
+		System.out.println("printingt board...");
+		System.out.println(b);
 	}
 
 	public void displayHelp()
