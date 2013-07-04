@@ -8,7 +8,6 @@ import java.util.ArrayList;
  * genetic type.
  */
 public class GameBoard extends AbstractBoard<GamePiece>
-
 {
 	//<editor-fold defaultstate="collapsed" desc="RETRIEVAL FUNCTIONS">
 	/**
