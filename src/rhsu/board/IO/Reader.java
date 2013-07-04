@@ -16,14 +16,27 @@ import rhsu.board.utilities.UtilityFunctions;
  */
 public class Reader
 {
+	/**
+	 * A string containing all the supported delimiters
+	 */
 	private final static String DELIMITERS = "|,;:\t";
+	
+	/**
+	 * Private scanner member
+	 */
 	private Scanner in;
 	
+	/**
+	 * Constructor for building a reader
+	 */
 	public Reader()
 	{
 		in = new Scanner(System.in);
 	}
 	
+	/**
+	 * The main prompt
+	 */
 	public void mainPrompt()
 	{
 		boolean hasError;
@@ -37,10 +50,10 @@ public class Reader
 			switch(in.nextLine())
 			{
 				case "file":
-					readInByFile(in);
+					readInByFile();
 					break;
 				case "input":
-					readInByInput(in);
+					readInByInput();
 					break;
 				case "help":
 					displayHelp();
@@ -56,7 +69,13 @@ public class Reader
 		}while(hasError);
 	}
 	
-	private int getValidNumberFromUser(Scanner in)
+	/**
+	 * Asks the user to enter a valid user.
+	 * Contains error checking
+	 * @param in the Scanner
+	 * @return a valid number
+	 */
+	private int getValidNumberFromUser()
 	{
 		int number = 0;
 		boolean hasError;
@@ -121,29 +140,16 @@ public class Reader
 		return number;
 	}
 	
-	public static char determineDelimiter(String line)
-	{
-		int selectedDelimiter = -1;
-		
-		for (int i = 0; i < DELIMITERS.length(); i++)
-		{
-			int currentIndex = line.indexOf(DELIMITERS.charAt(i));
-			
-			if(currentIndex != -1)
-			{
-				selectedDelimiter = i;
-			}
-		}
-		
-		return (selectedDelimiter == -1 ? '\0' : DELIMITERS.charAt(selectedDelimiter));
-	}
-	
-	public void readInByInput(Scanner in)
+	/**
+	 * Reads in hard input
+	 * @param in 
+	 */
+	public void readInByInput()
 	{
 		System.out.println("Enter the number of rows");
-		int h = getValidNumberFromUser(in);
+		int h = getValidNumberFromUser();
 		System.out.println("Enter the number of columns");
-		int v = getValidNumberFromUser(in);
+		int v = getValidNumberFromUser();
 
 		IntBoard b = new IntBoard(h, v);
 
@@ -170,7 +176,10 @@ public class Reader
 		//return b;
 	}
 
-	public void readInByFile(Scanner in)
+	/**
+	 * Reads in from file
+	 */
+	public void readInByFile()
 	{		
 		boolean hasError;
 		
@@ -227,6 +236,9 @@ public class Reader
 		System.out.println(b);
 	}
 
+	/**
+	 * Displays help
+	 */
 	public void displayHelp()
 	{
 		System.out.println("This is the help option");
