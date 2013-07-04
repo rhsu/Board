@@ -217,8 +217,9 @@ public class Reader
 		{
 			for(int i = 0; i < item.length; i++)
 			{
-				b.pieceAt(i, boardCounter++).setType(item[i]);
+				b.pieceAt(i, boardCounter).setType(item[i]);
 			}
+			boardCounter++;
 			System.out.println();
 		}
 		
