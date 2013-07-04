@@ -16,7 +16,7 @@ import rhsu.board.utilities.UtilityFunctions;
  */
 public class Reader
 {
-	private final static String DELIMITERS = "|,\t";
+	private final static String DELIMITERS = "|,;:\t";
 	private Scanner in;
 	
 	public Reader()
