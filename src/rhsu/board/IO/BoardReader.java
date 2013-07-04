@@ -155,9 +155,9 @@ public class BoardReader
 
 		System.out.println("Enter the elements of the matrix");
 
-		for(int i = 0; i < b.getHorizontal(); i++)
+		for(int i = 0; i < b.getHorizontal_size(); i++)
 		{
-			for(int j = 0; j < b.getVertical(); j++)
+			for(int j = 0; j < b.getVertical_size(); j++)
 			{				
 				String strNum = in.nextLine();
 				if(UtilityFunctions.isInteger(strNum))

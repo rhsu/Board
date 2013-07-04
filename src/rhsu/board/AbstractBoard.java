@@ -208,14 +208,4 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 		builder.append("==============");
 		return builder.toString();
 	}
-	
-	public int getHorizontal() 
-	{
-		return this.horizontal_size;
-	}
-
-	public int getVertical() 
-	{
-		return this.vertical_size;
-	}
 }
