@@ -1,7 +1,8 @@
 package rhsu.board.testObjects.gameObjects;
 
-import rhsu.board.AbstractPiece;
 import rhsu.board.utilities.UtilityFunctions;
+import rhsu.board.AbstractPiece;
+
 
 /**
  *An implementation of AbstractPiece using PieceType as the Generic type
