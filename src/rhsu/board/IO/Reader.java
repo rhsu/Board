@@ -244,6 +244,10 @@ public class Reader
 		System.out.println("This is the help option");
 	}
 	
+	/**
+	 * Sample usage of Reader
+	 * @param args 
+	 */
 	public static void main(String[] args)
 	{
 		Reader myReader = new Reader();
