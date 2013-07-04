@@ -4,16 +4,25 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import rhsu.board.AbstractBoard;
+import rhsu.board.sampleImplementations.math.IntBoard;
  
 public class Writer 
 {
-	public static void main(String[] args) 
+	String content;
+	
+	public Writer()
+	{
+		
+	}
+	
+	public void writeToFile(AbstractBoard board, String filename)
 	{
 		try 
-		{
-			String content = "asdfasdf jaksdfjdks jfajsdkfjalsf";
- 
-			File file = new File("test.txt");
+		{	
+			content = board.toString();
+			
+			File file = new File(filename);
  
 			// if file doesnt exists, then create it
 			if (!file.exists()) 
@@ -27,12 +36,21 @@ public class Writer
 				bw.write(content);
 			}
  
-			System.out.println("Done");
- 
+			System.out.println("Done creating file: " + filename);
 		} 
 		catch (IOException e) 
 		{
 			System.out.println(e);
 		}
+	}
+	
+	public void writeToFile(AbstractBoard board)
+	{
+		writeToFile(board, "output.txt");
+	}
+	
+	public static void main(String[] args) 
+	{
+		
 	}
 }
