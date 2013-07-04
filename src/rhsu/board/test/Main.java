@@ -13,14 +13,16 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		StringTokenizer st = new StringTokenizer("this, is, a, test",",|");
+		/*StringTokenizer st = new StringTokenizer("this, is, a, test",",|");
 		while(st.hasMoreTokens())
 		{
 			System.out.println(st.nextToken().trim());
-		}
+		}*/
 		
 		AbstractBoard board = new IntBoard(5,9);
 		
 		BoardWriter myWriter = new BoardWriter();
+		
+		myWriter.writeToFile(board, "something.txt");
 	}
 }
