@@ -6,11 +6,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import rhsu.board.AbstractBoard;
  
-public class Writer 
+public class BoardWriter 
 {
 	String content;
 	
-	public Writer()
+	public BoardWriter()
 	{
 		
 	}

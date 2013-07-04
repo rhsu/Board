@@ -14,7 +14,7 @@ import rhsu.board.utilities.UtilityFunctions;
  *
  * @author robert
  */
-public class Reader
+public class BoardReader
 {
 	/**
 	 * A string containing all the supported delimiters
@@ -29,7 +29,7 @@ public class Reader
 	/**
 	 * Constructor for building a reader
 	 */
-	public Reader()
+	public BoardReader()
 	{
 		in = new Scanner(System.in);
 	}
@@ -250,7 +250,7 @@ public class Reader
 	 */
 	public static void main(String[] args)
 	{
-		Reader myReader = new Reader();
+		BoardReader myReader = new BoardReader();
 		myReader.mainPrompt();
 	}
 }
