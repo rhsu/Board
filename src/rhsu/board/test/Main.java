@@ -21,8 +21,8 @@ public class Main
 		
 		AbstractBoard board = new IntBoard(5,9);
 		
-		BoardWriter myWriter = new BoardWriter();
+		//BoardWriter myWriter = new BoardWriter();
 		
-		myWriter.writeToFile(board, "something.txt");
+		//myWriter.writeToFile(board, "something.txt");
 	}
 }
