@@ -10,6 +10,7 @@ import java.util.StringTokenizer;
 import rhsu.board.AbstractBoard;
 import rhsu.board.sampleImplementations.math.IntBoard;
 import rhsu.board.sampleImplementatoins.StringBoard;
+import rhsu.board.sampleImplementatoins.StringPiece;
 import rhsu.board.utilities.UtilityFunctions;
 
 /**
@@ -27,7 +28,7 @@ public class BoardReaderString
 	 * Private scanner member
 	 */
 	private Scanner in;
-	private StringBoard outputBoard;
+	private AbstractBoard<StringPiece> outputBoard;
 	
 	/**
 	 * Constructor for building a reader
@@ -41,7 +42,7 @@ public class BoardReaderString
 	 * 
 	 * @return the outputBoard that was read in.
 	 */
-	public StringBoard getOutputBoard()
+	public AbstractBoard<StringPiece> getOutputBoard()
 	{
 		return outputBoard;
 	}
