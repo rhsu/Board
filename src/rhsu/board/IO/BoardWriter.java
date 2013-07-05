@@ -8,14 +8,9 @@ import rhsu.board.AbstractBoard;
  
 public class BoardWriter 
 {
-	String content;
+	private String content;
 	
-	public BoardWriter()
-	{
-		
-	}
-	
-	public void writeToFile(AbstractBoard board, String filename)
+	public BoardWriter(AbstractBoard board, String filename)
 	{
 		try 
 		{	
@@ -43,11 +38,11 @@ public class BoardWriter
 		}
 	}
 	
-	public void writeToFile(AbstractBoard board)
+	public BoardWriter(AbstractBoard board)
 	{
-		writeToFile(board, "output.txt");
+		this(board, "output.txt");
 	}
-	
+		
 	public static void main(String[] args) 
 	{
 		
