@@ -24,5 +24,7 @@ public class Main
 		//BoardWriter myWriter = new BoardWriter();
 		
 		//myWriter.writeToFile(board, "something.txt");
+		
+		BoardWriter myWriter = new BoardWriter(board);
 	}
 }

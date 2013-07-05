@@ -8,8 +8,25 @@ import rhsu.board.AbstractBoard;
  
 public class BoardWriter 
 {
+	/**
+	 * The content to write to the reader
+	 */
 	private String content;
 	
+	/**
+	 * 
+	 * @return the content that the reader wrote to the file
+	 */
+	public String getContent()
+	{
+		return content;
+	}
+	
+	/**
+	 * Suggested Constructor for BoardWriter
+	 * @param the board to write
+	 * @param filename the name of the file to output
+	 */
 	public BoardWriter(AbstractBoard board, String filename)
 	{
 		try 
@@ -38,6 +55,10 @@ public class BoardWriter
 		}
 	}
 	
+	/**
+	 * Makes the filename to be output.txt
+	 * @param board the board to write
+	 */
 	public BoardWriter(AbstractBoard board)
 	{
 		this(board, "output.txt");

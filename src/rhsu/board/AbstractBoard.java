@@ -179,11 +179,19 @@ public abstract class AbstractBoard <T extends AbstractPiece>
 		vertical_size = j;
 	}
 	
+	/**
+	 * 
+	 * @return the horizontal size of the board
+	 */
 	public int getHorizontal_size()
 	{
 		return horizontal_size;
 	}
 	
+	/**
+	 * 
+	 * @return the vertical size of the board
+	 */
 	public int getVertical_size()
 	{
 		return vertical_size;
