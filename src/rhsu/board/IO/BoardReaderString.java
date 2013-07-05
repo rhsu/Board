@@ -7,14 +7,16 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import rhsu.board.AbstractBoard;
 import rhsu.board.sampleImplementations.math.IntBoard;
+import rhsu.board.sampleImplementatoins.StringBoard;
 import rhsu.board.utilities.UtilityFunctions;
 
 /**
  *
  * @author robert
  */
-public class BoardReader
+public class BoardReaderString
 {
 	/**
 	 * A string containing all the supported delimiters
@@ -25,13 +27,23 @@ public class BoardReader
 	 * Private scanner member
 	 */
 	private Scanner in;
+	private StringBoard outputBoard;
 	
 	/**
 	 * Constructor for building a reader
 	 */
-	public BoardReader()
+	public BoardReaderString()
 	{
 		in = new Scanner(System.in);
+	}
+	
+	/**
+	 * 
+	 * @return the outputBoard that was read in.
+	 */
+	public StringBoard getOutputBoard()
+	{
+		return outputBoard;
 	}
 	
 	/**
@@ -151,29 +163,19 @@ public class BoardReader
 		System.out.println("Enter the number of columns");
 		int v = getValidNumberFromUser();
 
-		IntBoard b = new IntBoard(h, v);
+		 outputBoard = new StringBoard(h, v);
 
 		System.out.println("Enter the elements of the matrix");
 
-		for(int i = 0; i < b.getHorizontal_size(); i++)
+		for(int i = 0; i < outputBoard.getHorizontal_size(); i++)
 		{
-			for(int j = 0; j < b.getVertical_size(); j++)
-			{				
-				String strNum = in.nextLine();
-				if(UtilityFunctions.isInteger(strNum))
-				{
-					b.pieceAt(i,j).setType(Integer.parseInt(strNum));
-				}
-				else
-				{
-					System.out.println("Invalid entry. Try again");
-					j--;
-				}
+			for(int j = 0; j < outputBoard.getVertical_size(); j++)
+			{								
+				outputBoard.pieceAt(i, j).setType(in.nextLine());
 			}
 		}
 
-		System.out.println(b);
-		//return b;
+		System.out.println(outputBoard);
 	}
 
 	/**
@@ -232,7 +234,7 @@ public class BoardReader
 			System.out.println();
 		}
 		
-		System.out.println("printing board...");
+		System.out.println("printingt board...");
 		System.out.println(b);
 	}
 
@@ -250,7 +252,7 @@ public class BoardReader
 	 */
 	public static void main(String[] args)
 	{
-		BoardReader myReader = new BoardReader();
+		BoardReaderString myReader = new BoardReaderString();
 		myReader.mainPrompt();
 	}
 }
