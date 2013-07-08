@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
-import rhsu.board.AbstractBoard;
 import rhsu.board.AbstractPiece;
+import rhsu.board.BaseBoard;
 
 /**
  *
@@ -18,11 +18,11 @@ public class AbstractBoardReader<T extends AbstractPiece> implements BoardReader
 {
 	protected final static String DELIMITERS = "|,;:\t";
 	protected Scanner in;
-	protected AbstractBoard<T> outputBoard;
+	protected BaseBoard<T> outputBoard;
 	
-	public AbstractBoardReader(AbstractBoard board)
+	public AbstractBoardReader()
 	{
-		outputBoard = board;
+		//outputBoard= new BaseBoard<>(4,4);
 	}
 	
 	@Override
@@ -100,6 +100,9 @@ public class AbstractBoardReader<T extends AbstractPiece> implements BoardReader
 		}while(hasError);
 		
 		//IntBoard b = new IntBoard(testList.get(0).length, testList.size());
+		//BaseBoard<T> b = new BaseBoard(4,4);
+		
+		outputBoard = new BaseBoard(testList.get(0).length, testList.size());
 		
 		int boardCounter = 0;		
 		for(int[] item : testList)
