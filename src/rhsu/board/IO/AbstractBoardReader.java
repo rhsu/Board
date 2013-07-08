@@ -9,6 +9,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 import rhsu.board.AbstractPiece;
 import rhsu.board.BaseBoard;
+import rhsu.board.sampleImplementations.math.IntPiece;
 
 /**
  *
@@ -129,5 +130,11 @@ public class AbstractBoardReader<T extends AbstractPiece> implements BoardReader
 	public void displayHelp()
 	{
 		System.out.println("This is the help option");
+	}
+	
+	public static void main(String[] args)
+	{
+		AbstractBoardReader<IntPiece> reader = new AbstractBoardReader<>();
+		reader.mainPrompt();
 	}
 }
