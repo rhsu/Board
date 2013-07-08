@@ -1,11 +1,13 @@
 package rhsu.board.sampleImplementations.math;
 
 import rhsu.board.AbstractBoard;
+import rhsu.board.BaseBoard;
 
 /**
  * An integer implementation
  */
-public class IntBoard extends AbstractBoard<IntPiece>
+//public class IntBoard extends AbstractBoard<IntPiece>
+public class IntBoard extends BaseBoard<IntPiece>
 {
 	public IntBoard(int h, int v)
 	{
