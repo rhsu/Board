@@ -1,12 +1,12 @@
 package rhsu.board.sampleImplementations.math;
 
-import rhsu.board.AbstractBoard;
+import rhsu.board.BaseBoard;
 import java.math.BigInteger;
 
 /**
  *A big integer implementation
  */
-public class BigIntegerBoard extends AbstractBoard<BigIntegerPiece>
+public class BigIntegerBoard extends BaseBoard<BigIntegerPiece>
 {
 	public BigIntegerBoard(int h, int v)
 	{

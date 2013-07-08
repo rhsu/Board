@@ -1,6 +1,6 @@
 package rhsu.board.sampleImplementations.math;
 
-import rhsu.board.AbstractPiece;
+import rhsu.board.BasePiece;
 import rhsu.board.BasePiece;
 
 /**

@@ -1,12 +1,12 @@
 package rhsu.board.sampleImplementations.math;
 
-import rhsu.board.AbstractBoard;
+import rhsu.board.BaseBoard;
 import java.math.BigDecimal;
 
 /**
  *A big decimal implementation
  */
-public class BigDecimalBoard extends AbstractBoard<BigDecimalPiece>
+public class BigDecimalBoard extends BaseBoard<BigDecimalPiece>
 {
 	public BigDecimalBoard(int h, int v)
 	{
