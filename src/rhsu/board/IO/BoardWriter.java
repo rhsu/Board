@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import rhsu.board.AbstractBoard;
+import rhsu.board.BaseBoard;
  
 public class BoardWriter 
 {
@@ -27,7 +27,7 @@ public class BoardWriter
 	 * @param the board to write
 	 * @param filename the name of the file to output
 	 */
-	public BoardWriter(AbstractBoard board, String filename)
+	public BoardWriter(BaseBoard board, String filename)
 	{
 		try 
 		{	
@@ -59,7 +59,7 @@ public class BoardWriter
 	 * Makes the filename to be output.txt
 	 * @param board the board to write
 	 */
-	public BoardWriter(AbstractBoard board)
+	public BoardWriter(BaseBoard board)
 	{
 		this(board, "output.txt");
 	}

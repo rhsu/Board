@@ -1,13 +1,13 @@
 package rhsu.board.testObjects.gameObjects;
 
-import rhsu.board.AbstractBoard;
+import rhsu.board.BaseBoard;
 import java.util.ArrayList;
 
 /**
  *An implementation of AbstractBoard that takes in GamePiece as the
  * genetic type.
  */
-public class GameBoard extends AbstractBoard<GamePiece>
+public class GameBoard extends BaseBoard<GamePiece>
 {
 	//<editor-fold defaultstate="collapsed" desc="RETRIEVAL FUNCTIONS">
 	/**

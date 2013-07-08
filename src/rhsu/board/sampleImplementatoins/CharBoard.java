@@ -1,11 +1,11 @@
 package rhsu.board.sampleImplementatoins;
 
-import rhsu.board.AbstractBoard;
+import rhsu.board.BaseBoard;
 
 /**
  *A character implementation
  */
-public class CharBoard extends AbstractBoard<CharPiece>
+public class CharBoard extends BaseBoard<CharPiece>
 {
 	public CharBoard(int h, int v)
 	{

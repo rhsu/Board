@@ -1,11 +1,11 @@
 package rhsu.board.sampleImplementatoins;
 
-import rhsu.board.AbstractBoard;
+import rhsu.board.BaseBoard;
 
 /**
  *A boolean implementation
  */
-public class BooleanBoard extends AbstractBoard<BooleanPiece>
+public class BooleanBoard extends BaseBoard<BooleanPiece>
 {
 	public BooleanBoard(int h, int v)
 	{
