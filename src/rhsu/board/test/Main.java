@@ -13,8 +13,8 @@ public class Main
 		b.setTypeAt(1, 0, 5.8);
 		
 		Matrix a = new DoubleBoard(2,2);
-		a.setTypeAt(0, 1, 50.5);
-		a.setTypeAt(1, 0, 50.2);
+		a.setTypeAt(0, 1, 50.0);
+		a.setTypeAt(1, 0, 50.0);
 		
 		System.out.println(b);
 		System.out.println(a);
