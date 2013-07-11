@@ -1,5 +1,7 @@
 package rhsu.board.implementations.math;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import rhsu.board.AbstractBoard;
 import rhsu.board.arithmetic.Matrix;
 
@@ -25,23 +27,30 @@ public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<
 	public Matrix Add(Matrix m) 
 	{
 		IntegerBoard other = (IntegerBoard)m;
-		//1 check dimensions
+
+		if(other.getHorizontal_size() != this.getHorizontal_size() 
+			|| other.getVertical_size() != this.getVertical_size())
+		{
+			try 
+			{			
+				throw new Exception("Invalid Dimensions");
+			} 
+			catch (Exception ex) 
+			{
+				Logger.getLogger(IntegerBoard.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		}
 		
-		//2 create a new Matrix of IntegerPieces.
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
 		IntegerBoard result =  new IntegerBoard(h,v);
-		
 		
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				//int a = other.pieceAt(i, j).getType();
-				Integer a = (Integer) other.getTypeAt(i, j);
-				//int b = this.pieceAt(i, j).getType();
+				Integer a = (Integer) this.getTypeAt(i, j);
 				Integer b = (Integer) other.getTypeAt(i, j);
-				//result.pieceAt(i, j).setType(a + b);
 				result.setTypeAt(i,j, a+b);				
 			}
 		}
