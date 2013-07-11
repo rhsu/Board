@@ -35,7 +35,6 @@ public class BoardWriter
 			
 			File file = new File(filename);
  
-			// if file doesnt exists, then create it
 			if (!file.exists()) 
 			{
 				file.createNewFile();
@@ -62,10 +61,5 @@ public class BoardWriter
 	public BoardWriter(AbstractBoard board)
 	{
 		this(board, "output.txt");
-	}
-		
-	public static void main(String[] args) 
-	{
-		
 	}
 }

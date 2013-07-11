@@ -37,7 +37,6 @@ public class BoardEditorTerminal extends AbstractTerminal
 	
 	public void initialState()
 	{
-		//examine user input
 		String text = textField.getText();
 		boolean hasError;
 		
