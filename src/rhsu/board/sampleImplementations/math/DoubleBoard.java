@@ -1,11 +1,11 @@
 package rhsu.board.sampleImplementations.math;
 
-import rhsu.board.BaseBoard;
+import rhsu.board.AbstractBoard;
 
 /**
  *A double implementation
  */
-public class DoubleBoard extends BaseBoard<DoublePiece>
+public class DoubleBoard extends AbstractBoard<DoublePiece>
 {
 	public DoubleBoard(int h, int v)
 	{

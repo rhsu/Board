@@ -1,13 +1,13 @@
 package rhsu.board.testObjects.gameObjects;
 
 import rhsu.board.utilities.UtilityFunctions;
-import rhsu.board.BasePiece;
+import rhsu.board.AbstractPiece;
 
 
 /**
  *An implementation of AbstractPiece using PieceType as the Generic type
  */
-public class GamePiece extends BasePiece<PieceType>
+public class GamePiece extends AbstractPiece<PieceType>
 {
 	//<editor-fold defaultstate="collapsed" desc="MEMBER VARIABLES">
 	private boolean remove;

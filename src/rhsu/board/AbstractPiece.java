@@ -6,7 +6,7 @@ package rhsu.board;
  * access in the AbstractBoard object
  * @param <T> Generic Type (any valid object)
  */
-public abstract class BasePiece<T>
+public abstract class AbstractPiece<T>
 {
 	//<editor-fold  defaultstate="collpased" desc="MEMBER VARIABLES">
 	/**
@@ -67,9 +67,8 @@ public abstract class BasePiece<T>
 	 * @param i the horizontal index
 	 * @param j the vertical index
 	 */
-	public BasePiece(int i, int j)
+	public AbstractPiece(int i, int j)
 	{
-		//piece = (T) new Object(); //commenting out because method is unsafe
 		this.horizontal = i;
 		this.vertical = j;
 	}

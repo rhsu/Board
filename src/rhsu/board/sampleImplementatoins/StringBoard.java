@@ -1,11 +1,11 @@
 package rhsu.board.sampleImplementatoins;
 
-import rhsu.board.BaseBoard;
+import rhsu.board.AbstractBoard;
 
 /**
  * A string implementation
  */
-public class StringBoard extends BaseBoard<StringPiece>
+public class StringBoard extends AbstractBoard<StringPiece>
 {
 	public StringBoard(int h, int v)
 	{
