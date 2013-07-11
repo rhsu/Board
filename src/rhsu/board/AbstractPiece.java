@@ -69,7 +69,6 @@ public abstract class AbstractPiece<T>
 	 */
 	public AbstractPiece(int i, int j)
 	{
-		//piece = (T) new Object(); //commenting out because method is unsafe
 		this.horizontal = i;
 		this.vertical = j;
 	}

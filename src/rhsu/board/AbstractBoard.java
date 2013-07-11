@@ -190,13 +190,20 @@ public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T
 		vertical_size = j;
 	}
 	
-	@Override
+	/**
+	 * 
+	 * @return the horizontal size of the board
+	 */
 	public int getHorizontal_size()
 	{
 		return horizontal_size;
 	}
 	
 	@Override
+	/**
+	 * 
+	 * @return the vertical size of the board
+	 */
 	public int getVertical_size()
 	{
 		return vertical_size;
