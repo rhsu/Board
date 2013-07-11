@@ -4,7 +4,7 @@ import rhsu.board.IO.BoardWriter;
 import java.util.StringTokenizer;
 import rhsu.board.*;
 import rhsu.*;
-import rhsu.board.sampleImplementations.math.IntBoard;
+import rhsu.board.implementations.math.IntBoard;
 
 /**
  *

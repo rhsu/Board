@@ -1,4 +1,4 @@
-package rhsu.board.sampleImplementations;
+package rhsu.board.implementations;
 
 import rhsu.board.BaseBoard;
 
