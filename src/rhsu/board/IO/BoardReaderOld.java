@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
-import rhsu.board.sampleImplementations.math.IntBoard;
+import rhsu.board.implementations.math.IntBoard;
 import rhsu.board.utilities.UtilityFunctions;
 
 /**

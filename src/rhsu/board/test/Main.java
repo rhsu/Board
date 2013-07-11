@@ -1,10 +1,12 @@
 package rhsu.board.test;
 
-import rhsu.board.sampleImplementations.math.IntPiece;
+import rhsu.board.implementations.math.IntPiece;
 import rhsu.board.*;
 import rhsu.board.IO.*;
-import rhsu.board.sampleImplementations.*;
-import rhsu.board.sampleImplementations.math.*;
+import rhsu.board.implementations.*;
+import rhsu.board.implementations.math.*;
+import rhsu.*;
+import rhsu.board.implementations.math.IntBoard;
 
 /**
  *

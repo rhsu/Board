@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 import rhsu.board.AbstractBoard;
-import rhsu.board.sampleImplementations.math.IntBoard;
-import rhsu.board.sampleImplementatoins.StringBoard;
-import rhsu.board.sampleImplementatoins.StringPiece;
+import rhsu.board.implementations.math.IntBoard;
+import rhsu.board.implementations.StringBoard;
+import rhsu.board.implementations.StringPiece;
 import rhsu.board.utilities.UtilityFunctions;
 
 /**

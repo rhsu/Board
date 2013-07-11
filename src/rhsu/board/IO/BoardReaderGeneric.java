@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 import rhsu.board.AbstractPiece;
 import rhsu.board.BaseBoard;
-import rhsu.board.sampleImplementations.math.IntPiece;
+import rhsu.board.implementations.math.IntPiece;
 
 /**
  *
