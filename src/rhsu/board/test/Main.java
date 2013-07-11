@@ -1,19 +1,20 @@
 package rhsu.board.test;
 
 import rhsu.board.arithmetic.Matrix;
+import rhsu.board.implementations.math.DoubleBoard;
 import rhsu.board.implementations.math.IntegerBoard;
 
 public class Main
 {
 	public static void main(String[] args)
 	{
-		Matrix b = new IntegerBoard(3,2);
-		b.setTypeAt(0, 1, 5);
-		b.setTypeAt(1, 0, 5);
+		Matrix b = new DoubleBoard(2,2);
+		b.setTypeAt(0, 1, 5.6);
+		b.setTypeAt(1, 0, 5.8);
 		
-		Matrix a = new IntegerBoard(2,2);
-		a.setTypeAt(0, 1, 50);
-		a.setTypeAt(1, 0, 50);
+		Matrix a = new DoubleBoard(2,2);
+		a.setTypeAt(0, 1, 50.5);
+		a.setTypeAt(1, 0, 50.2);
 		
 		System.out.println(b);
 		System.out.println(a);

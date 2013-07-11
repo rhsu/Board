@@ -27,10 +27,8 @@ public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<
 	@Override
 	public Matrix Add(Matrix m) 
 	{
-		IntegerBoard other = (IntegerBoard)m;
-
-		if(other.getHorizontal_size() != this.getHorizontal_size() 
-			|| other.getVertical_size() != this.getVertical_size())
+		if(m.getHorizontal_size() != this.getHorizontal_size() 
+			|| m.getVertical_size() != this.getVertical_size())
 		{
 			try 
 			{			
@@ -51,7 +49,7 @@ public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<
 			for(int j = 0; j < v; j++)
 			{
 				Integer a = (Integer) this.getTypeAt(i, j);
-				Integer b = (Integer) other.getTypeAt(i, j);
+				Integer b = (Integer) m.getTypeAt(i, j);
 				result.setTypeAt(i,j, a+b);				
 			}
 		}

@@ -3,6 +3,7 @@ package rhsu.board.implementations.math;
 import rhsu.board.AbstractBoard;
 import java.math.BigInteger;
 import rhsu.board.arithmetic.Matrix;
+import rhsu.board.arithmetic.MatrixPiece;
 
 /**
  *A big integer implementation
@@ -48,6 +49,11 @@ public class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implements M
 
 	@Override
 	public BigIntegerPiece Determinant() {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public Matrix Multiply(MatrixPiece piece) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }
