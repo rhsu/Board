@@ -1,12 +1,10 @@
 package rhsu.board;
 
-import rhsu.board.sampleImplementatoins.StringPiece;
-
 /**
  *
  * @author rhsu
  */
-public class BaseBoard extends AbstractBoard<StringPiece>
+public class BaseBoard<T extends AbstractPiece> extends AbstractBoard<T>
 {
 	public BaseBoard(int h, int v)
 	{
