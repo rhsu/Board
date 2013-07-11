@@ -13,6 +13,8 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		
+		//BoardReaderGeneric<IntPiece> test = new BoardReaderGeneric<>();
+		BoardReaderOld test = new BoardReaderOld();
+		test.mainPrompt();
 	}
 }

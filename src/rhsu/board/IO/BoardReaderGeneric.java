@@ -23,7 +23,7 @@ public class BoardReaderGeneric<T extends AbstractPiece> implements BoardReader<
 	
 	public BoardReaderGeneric()
 	{
-		//outputBoard= new BaseBoard<>(4,4);
+		in = new Scanner(System.in);
 	}
 	
 	@Override
