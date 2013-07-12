@@ -90,7 +90,34 @@ public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<
 	}
 
 	@Override
-	public Board<IntegerPiece> ConvertFromStringBoard(StringBoard baseBoard) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	public Board<IntegerPiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	{
+		Board<IntegerPiece> result = new IntegerBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
+		try
+		{
+			for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
+			{
+				for(int v = 0; v < baseBoard.getVertical_size(); v++)
+				{
+					if(baseBoard.pieceAt(h,v).getType().equalsIgnoreCase("true"))
+					{
+						result.pieceAt(h, v).setType(1);
+					}
+					else if(baseBoard.pieceAt(h, v).getType().equalsIgnoreCase("false"))
+					{
+						result.pieceAt(h, v).setType(0);
+					}
+					else
+					{
+						result.pieceAt(h, v).setType(Integer.parseInt(baseBoard.pieceAt(h,v).getType()));
+					}
+				}
+			}
+			return result;
+		}
+		catch(NumberFormatException e)
+		{
+			return null;
+		}
 	}
 }

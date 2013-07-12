@@ -27,13 +27,10 @@ public class Main
 		
 		BoardReader reader = new BoardReader();
 		reader.mainPrompt();
-		//1. test array out of bounds exception
-		//System.out.println(reader.getOutputBoard());
 		
-		BooleanBoard b = new BooleanBoard(2,1);
-		BooleanBoard c = new BooleanBoard(3,3);
-				
-		Board test = b.ConvertFromStringBoard(reader.getOutputBoard());
+		IntegerBoard b = new IntegerBoard(1,1);
+
+		Board<IntegerPiece> test = b.ConvertFromStringBoard(reader.getOutputBoard());
 		
 		System.out.println(test);
 	}
