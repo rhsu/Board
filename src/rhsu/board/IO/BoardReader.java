@@ -175,7 +175,7 @@ public class BoardReader
 	{
 		for(int i = 0; i < h; i++)
 		{
-			
+			outputBoard.pieceAt(i,j).setType(items
 		}
 	}
 
