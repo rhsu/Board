@@ -57,10 +57,10 @@ public class BoardReader
 			switch(in.nextLine())
 			{
 				case "file":
-					readInByFile();
+					readInByFilePrompt();
 					break;
 				case "input":
-					readInByInput();
+					readInByInputPrompt();
 					break;
 				case "help":
 					displayHelp();
@@ -151,7 +151,7 @@ public class BoardReader
 	 * Reads in hard input
 	 * @param in 
 	 */
-	public void readInByInput()
+	public void readInByInputPrompt()
 	{
 		System.out.println("Enter the number of rows");
 		int h = getValidNumberFromUser();
@@ -170,11 +170,19 @@ public class BoardReader
 			}
 		}
 	}
+	
+	public StringBoard createOutputBoard(int h, int v, List<string> items)
+	{
+		for(int i = 0; i < h; i++)
+		{
+			
+		}
+	}
 
 	/**
 	 * Reads in from file
 	 */
-	public void readInByFile()
+	public void readInByFilePrompt()
 	{		
 		boolean hasError;
 		
