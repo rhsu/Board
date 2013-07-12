@@ -3,8 +3,10 @@ package rhsu.board.implementations.math;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import rhsu.board.AbstractBoard;
+import rhsu.board.Board;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
+import rhsu.board.implementations.StringBoard;
 
 /**
  * An integer implementation
@@ -84,6 +86,11 @@ public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<
 	@Override
 	public Matrix Multiply(MatrixPiece piece) 
 	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public Board<IntegerPiece> ConvertFromStringBoard(StringBoard baseBoard) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }

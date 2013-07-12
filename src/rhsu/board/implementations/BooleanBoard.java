@@ -1,6 +1,7 @@
 package rhsu.board.implementations;
 
 import rhsu.board.AbstractBoard;
+import rhsu.board.Board;
 
 /**
  *A boolean implementation
@@ -18,5 +19,11 @@ public class BooleanBoard extends AbstractBoard<BooleanPiece>
 				board[i][j] = new BooleanPiece(i, j, false);
 			}
 		}
+	}
+
+	@Override
+	public Board<BooleanPiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }

@@ -2,6 +2,8 @@ package rhsu.board.testObjects.gameObjects;
 
 import rhsu.board.AbstractBoard;
 import java.util.ArrayList;
+import rhsu.board.Board;
+import rhsu.board.implementations.StringBoard;
 
 /**
  *An implementation of AbstractBoard that takes in GamePiece as the
@@ -242,6 +244,11 @@ public class GameBoard extends AbstractBoard<GamePiece>
 			gamepiece.setType(PieceType.EMPTY);
 			gamepiece.setRemove(false);
 		}
+	}
+
+	@Override
+	public Board<GamePiece> ConvertFromStringBoard(StringBoard baseBoard) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 }

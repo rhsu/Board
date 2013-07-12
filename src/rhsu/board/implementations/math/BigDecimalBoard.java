@@ -2,8 +2,10 @@ package rhsu.board.implementations.math;
 
 import rhsu.board.AbstractBoard;
 import java.math.BigDecimal;
+import rhsu.board.Board;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
+import rhsu.board.implementations.StringBoard;
 
 /**
  *A big decimal implementation
@@ -56,6 +58,11 @@ public class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implements M
 	@Override
 	public Matrix Multiply(MatrixPiece piece) 
 	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public Board<BigDecimalPiece> ConvertFromStringBoard(StringBoard baseBoard) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }

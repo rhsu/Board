@@ -1,6 +1,7 @@
 package rhsu.board.implementations;
 
 import rhsu.board.AbstractBoard;
+import rhsu.board.Board;
 
 /**
  *A character implementation
@@ -18,5 +19,11 @@ public class CharBoard extends AbstractBoard<CharPiece>
 				board[i][j] = new CharPiece(i, j, ' ');
 			}
 		}
+	}
+
+	@Override
+	public Board<CharPiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }
