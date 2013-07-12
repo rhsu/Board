@@ -169,9 +169,6 @@ public class BoardReader
 				outputBoard.pieceAt(i, j).setType(in.nextLine());
 			}
 		}
-
-		//System.out.println(outputBoard);
-		//return b;
 	}
 
 	/**
@@ -226,9 +223,6 @@ public class BoardReader
 			}
 			boardCounter++;
 		}
-		
-		//System.out.println("printing board...");
-		//System.out.println(outputBoard);
 	}
 
 	/**
