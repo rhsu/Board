@@ -23,6 +23,11 @@ public class BoardReader
 	private final static String DELIMITERS = " |,;:\t";
 	private StringBoard outputBoard;
 	
+	public StringBoard getOutputBoard()
+	{
+		return outputBoard;
+	}
+	
 	/**
 	 * Private scanner member
 	 */
