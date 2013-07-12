@@ -24,6 +24,22 @@ public class CharBoard extends AbstractBoard<CharPiece>
 	@Override
 	public Board<CharPiece> ConvertFromStringBoard(StringBoard baseBoard) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		Board<CharPiece> result = new CharBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
+		
+		try
+		{
+			for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
+			{
+				for(int v = 0; v < baseBoard.getVertical_size(); v++)
+				{
+					result.pieceAt(h, v).setType(baseBoard.pieceAt(h,v).getType().charAt(0));
+				}
+			}
+			return result;
+		}
+		catch(NumberFormatException e)
+		{
+			return null;
+		}
 	}
 }

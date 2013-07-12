@@ -60,7 +60,26 @@ public class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implements M
 	}
 
 	@Override
-	public Board<BigIntegerPiece> ConvertFromStringBoard(StringBoard baseBoard) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	public Board<BigIntegerPiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	{
+		Board<BigIntegerPiece> result = new BigIntegerBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
+		
+		try
+		{
+			for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
+			{
+				for(int v = 0; v < baseBoard.getVertical_size(); v++)
+				{
+					//int i = Integer.parseInt(baseBoard.pieceAt(h,v).getType());
+					result.pieceAt(h, v).setType(
+							new BigInteger(baseBoard.pieceAt(h,v).getType()));
+				}
+			}
+			return result;
+		}
+		catch(NumberFormatException e)
+		{
+			return null;
+		}
 	}
 }

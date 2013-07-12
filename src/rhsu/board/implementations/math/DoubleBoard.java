@@ -86,7 +86,24 @@ public class DoubleBoard extends AbstractBoard<DoublePiece> implements Matrix<Do
 	}
 
 	@Override
-	public Board<DoublePiece> ConvertFromStringBoard(StringBoard baseBoard) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	public Board<DoublePiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	{
+		Board<DoublePiece> result = new DoubleBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
+		
+		try
+		{
+			for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
+			{
+				for(int v = 0; v < baseBoard.getVertical_size(); v++)
+				{
+					result.pieceAt(h, v).setType(Double.parseDouble(baseBoard.pieceAt(h,v).getType()));
+				}
+			}
+			return result;
+		}
+		catch(NumberFormatException e)
+		{
+			return null;
+		}
 	}
 }

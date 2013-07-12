@@ -1,5 +1,6 @@
 package rhsu.board.test;
 
+import rhsu.board.AbstractBoard;
 import rhsu.board.Board;
 import rhsu.board.IO.*;
 import rhsu.board.arithmetic.Matrix;
@@ -28,9 +29,9 @@ public class Main
 		BoardReader reader = new BoardReader();
 		reader.mainPrompt();
 		
-		IntegerBoard b = new IntegerBoard(1,1);
+		AbstractBoard b = new CharBoard(1,1);
 
-		Board<IntegerPiece> test = b.ConvertFromStringBoard(reader.getOutputBoard());
+		Board<CharPiece> test = b.ConvertFromStringBoard(reader.getOutputBoard());
 		
 		System.out.println(test);
 	}

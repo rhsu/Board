@@ -62,7 +62,26 @@ public class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implements M
 	}
 
 	@Override
-	public Board<BigDecimalPiece> ConvertFromStringBoard(StringBoard baseBoard) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	public Board<BigDecimalPiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	{
+		Board<BigDecimalPiece> result = new BigDecimalBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
+		
+		try
+		{
+			for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
+			{
+				for(int v = 0; v < baseBoard.getVertical_size(); v++)
+				{
+					//int i = Integer.parseInt(baseBoard.pieceAt(h,v).getType());
+					result.pieceAt(h, v).setType(
+							new BigDecimal(baseBoard.pieceAt(h,v).getType()));
+				}
+			}
+			return result;
+		}
+		catch(NumberFormatException e)
+		{
+			return null;
+		}
 	}
 }
