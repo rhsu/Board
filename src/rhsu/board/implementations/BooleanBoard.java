@@ -24,6 +24,22 @@ public class BooleanBoard extends AbstractBoard<BooleanPiece>
 	@Override
 	public Board<BooleanPiece> ConvertFromStringBoard(StringBoard baseBoard) 
 	{
+		if(baseBoard.getHorizontal_size() != this.getHorizontal_size()
+				|| baseBoard.getVertical_size() !=  this.getVertical_size())
+		{
+			//throw new ArrayOutOfBoundsException("Invalid Dimensions: Cannot Convert");
+		}
+		
+		for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
+		{
+			for(int v = 0; v < baseBoard.getVertical_size(); v++)
+			{
+				Boolean b = Boolean.valueOf(baseBoard.getTypeAt(h, v).toString());
+				System.out.println(b);
+			}
+		}
+		
+		
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }

@@ -21,6 +21,7 @@ public class BoardReader
 	 * A string containing all the supported delimiters
 	 */
 	private final static String DELIMITERS = " |,;:\t";
+	private StringBoard outputBoard;
 	
 	/**
 	 * Private scanner member
@@ -152,28 +153,19 @@ public class BoardReader
 		System.out.println("Enter the number of columns");
 		int v = getValidNumberFromUser();
 
-		IntegerBoard b = new IntegerBoard(h, v);
+		outputBoard = new StringBoard(h, v);
 
 		System.out.println("Enter the elements of the matrix");
 
-		for(int i = 0; i < b.getHorizontal_size(); i++)
+		for(int i = 0; i < outputBoard.getHorizontal_size(); i++)
 		{
-			for(int j = 0; j < b.getVertical_size(); j++)
+			for(int j = 0; j < outputBoard.getVertical_size(); j++)
 			{				
-				String strNum = in.nextLine();
-				if(UtilityFunctions.isInteger(strNum))
-				{
-					b.pieceAt(i,j).setType(Integer.parseInt(strNum));
-				}
-				else
-				{
-					System.out.println("Invalid entry. Try again");
-					j--;
-				}
+				outputBoard.pieceAt(i, j).setType(in.nextLine());
 			}
 		}
 
-		System.out.println(b);
+		System.out.println(outputBoard);
 		//return b;
 	}
 
@@ -218,21 +210,21 @@ public class BoardReader
 			}
 		}while(hasError);
 		
-		StringBoard b = new StringBoard(fileContent.size(), fileContent.get(0).length);
+		outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
 		
 		int boardCounter = 0;		
 		for(String[] item : fileContent)
 		{
 			for(int i = 0; i < item.length; i++)
 			{
-				b.pieceAt(boardCounter, i).setType(item[i]);
+				outputBoard.pieceAt(boardCounter, i).setType(item[i]);
 			}
 			boardCounter++;
 			System.out.println();
 		}
 		
 		System.out.println("printing board...");
-		System.out.println(b);
+		System.out.println(outputBoard);
 	}
 
 	/**
