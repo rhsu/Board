@@ -170,7 +170,7 @@ public class BoardReader
 			}
 		}
 
-		System.out.println(outputBoard);
+		//System.out.println(outputBoard);
 		//return b;
 	}
 
@@ -225,11 +225,10 @@ public class BoardReader
 				outputBoard.pieceAt(boardCounter, i).setType(item[i]);
 			}
 			boardCounter++;
-			System.out.println();
 		}
 		
-		System.out.println("printing board...");
-		System.out.println(outputBoard);
+		//System.out.println("printing board...");
+		//System.out.println(outputBoard);
 	}
 
 	/**

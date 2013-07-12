@@ -27,5 +27,8 @@ public class Main
 		BoardReader reader = new BoardReader();
 		reader.mainPrompt();
 		//1. test array out of bounds exception
+		//System.out.println(reader.getOutputBoard());
+		
+		
 	}
 }
