@@ -1,5 +1,7 @@
 package rhsu.board.implementations;
 
+import java.util.HashSet;
+import java.util.Set;
 import rhsu.board.AbstractBoard;
 import rhsu.board.Board;
 
@@ -23,23 +25,18 @@ public class BooleanBoard extends AbstractBoard<BooleanPiece>
 
 	@Override
 	public Board<BooleanPiece> ConvertFromStringBoard(StringBoard baseBoard) 
-	{
-		if(baseBoard.getHorizontal_size() != this.getHorizontal_size()
-				|| baseBoard.getVertical_size() !=  this.getVertical_size())
-		{
-			//throw new ArrayOutOfBoundsException("Invalid Dimensions: Cannot Convert");
-		}
+	{	
+		Board<BooleanPiece> result = new BooleanBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
 		for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
 		{
 			for(int v = 0; v < baseBoard.getVertical_size(); v++)
 			{
-				Boolean b = Boolean.valueOf(baseBoard.getTypeAt(h, v).toString());
-				System.out.println(b);
+				Boolean b = (baseBoard.getTypeAt(h, v).equals("1")) ? true : Boolean.valueOf(baseBoard.getTypeAt(h, v).toString());
+				result.pieceAt(h, v).setType(b);
 			}
 		}
 		
-		
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		return result;
 	}
 }

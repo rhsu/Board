@@ -1,5 +1,6 @@
 package rhsu.board.test;
 
+import rhsu.board.Board;
 import rhsu.board.IO.*;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.implementations.math.*;
@@ -29,6 +30,11 @@ public class Main
 		//1. test array out of bounds exception
 		//System.out.println(reader.getOutputBoard());
 		
+		BooleanBoard b = new BooleanBoard(2,1);
+		BooleanBoard c = new BooleanBoard(3,3);
+				
+		Board test = b.ConvertFromStringBoard(reader.getOutputBoard());
 		
+		System.out.println(test);
 	}
 }
