@@ -17,7 +17,7 @@ import rhsu.board.implementations.math.IntegerPiece;
  */
 public class BoardReaderGeneric<T extends AbstractPiece> implements BoardReader<T>
 {
-	protected final static String DELIMITERS = "|,;:\t";
+	protected final static String DELIMITERS = " |,;:\t";
 	protected Scanner in;
 	protected BaseBoard<T> outputBoard;
 	
@@ -60,25 +60,24 @@ public class BoardReaderGeneric<T extends AbstractPiece> implements BoardReader<
 	}
 
 	@Override
-	public void readInByInput() 
+	public void readInByFile() 
 	{
-		boolean hasError;
+		boolean hasError = false;
 		
-		List<int[]> testList = new LinkedList<>();
+		List<int[]> fileContent = new LinkedList<>();
 		
 		do
 		{
 			System.out.println("Enter the file name");
 			String filename = in.nextLine();
-			hasError = false;
-
+			
 			try (BufferedReader br = new BufferedReader(new FileReader(filename)))
 			{
 				String line;
 				while ((line = br.readLine()) != null)
 				{
 					StringTokenizer tokenizer = new StringTokenizer(line, DELIMITERS);
-					int[] test2 = new int[tokenizer.countTokens()];
+					int[] delimitedLines = new int[tokenizer.countTokens()];
 					
 					int index = 0;
 					
@@ -86,42 +85,35 @@ public class BoardReaderGeneric<T extends AbstractPiece> implements BoardReader<
 					{
 						int t = Integer.parseInt(tokenizer.nextToken().trim());
 						
-						test2[index] = t;
+						delimitedLines[index] = t;
 						index++;
 					}
 					
-					testList.add(test2);
+					fileContent.add(delimitedLines);
 				}
 			}
-			catch (IOException e)
+			catch(IOException e)
 			{
 				System.out.println("ERROR: File not found");
 				hasError = true;
 			}
-		}while(hasError);
+		}
+		while(hasError);
 		
-		//IntBoard b = new IntBoard(testList.get(0).length, testList.size());
-		//BaseBoard<T> b = new BaseBoard(4,4);
-		
-		outputBoard = new BaseBoard(testList.get(0).length, testList.size());
-		
-		int boardCounter = 0;		
-		for(int[] item : testList)
+		for(int[] item : fileContent)
 		{
 			for(int i = 0; i < item.length; i++)
 			{
-				outputBoard.pieceAt(i, boardCounter).setType(item[i]);
+				//b.pieceAt(boardCounter, i).setType(item[i]);
+				System.out.print(item[i] + " ");
 			}
-			boardCounter++;
+			//boardCounter++;
 			System.out.println();
 		}
-		
-		System.out.println("printingt board...");
-		System.out.println(outputBoard);
 	}
 
 	@Override
-	public void readInByFile() 
+	public void readInByInput() 
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
