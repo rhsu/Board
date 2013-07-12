@@ -1,14 +1,17 @@
 package rhsu.board.test;
 
+import rhsu.board.AbstractBoard;
+import rhsu.board.Board;
+import rhsu.board.IO.*;
 import rhsu.board.arithmetic.Matrix;
-import rhsu.board.implementations.math.DoubleBoard;
-import rhsu.board.implementations.math.IntegerBoard;
+import rhsu.board.implementations.math.*;
+import rhsu.board.implementations.*;
 
 public class Main
 {
 	public static void main(String[] args)
 	{
-		Matrix b = new DoubleBoard(2,2);
+		/*Matrix b = new DoubleBoard(2,2);
 		b.setTypeAt(0, 1, 5.6);
 		b.setTypeAt(1, 0, 5.8);
 		
@@ -21,6 +24,15 @@ public class Main
 		
 		Matrix c = a.Add(b);
 		
-		System.out.println(c);
+		System.out.println(c);*/
+		
+		BoardReader reader = new BoardReader();
+		reader.mainPrompt();
+		
+		AbstractBoard b = new CharBoard(1,1);
+
+		Board<CharPiece> test = b.ConvertFromStringBoard(reader.getOutputBoard());
+		
+		System.out.println(test);
 	}
 }
