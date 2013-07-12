@@ -19,7 +19,7 @@ public class BoardReaderOld
 	/**
 	 * A string containing all the supported delimiters
 	 */
-	private final static String DELIMITERS = "|,;:\t";
+	private final static String DELIMITERS = " |,;:\t";
 	
 	/**
 	 * Private scanner member
@@ -183,7 +183,7 @@ public class BoardReaderOld
 	{		
 		boolean hasError;
 		
-		List<int[]> testList = new LinkedList<>();
+		List<int[]> fileContent = new LinkedList<>();
 		
 		do
 		{
@@ -197,7 +197,7 @@ public class BoardReaderOld
 				while ((line = br.readLine()) != null)
 				{
 					StringTokenizer tokenizer = new StringTokenizer(line, DELIMITERS);
-					int[] test2 = new int[tokenizer.countTokens()];
+					int[] delimitedLines = new int[tokenizer.countTokens()];
 					
 					int index = 0;
 					
@@ -205,11 +205,11 @@ public class BoardReaderOld
 					{
 						int t = Integer.parseInt(tokenizer.nextToken().trim());
 						
-						test2[index] = t;
+						delimitedLines[index] = t;
 						index++;
 					}
 					
-					testList.add(test2);
+					fileContent.add(delimitedLines);
 				}
 			}
 			catch (IOException e)
@@ -219,14 +219,14 @@ public class BoardReaderOld
 			}
 		}while(hasError);
 		
-		IntegerBoard b = new IntegerBoard(testList.get(0).length, testList.size());
+		IntegerBoard b = new IntegerBoard(fileContent.size(), fileContent.get(0).length);
 		
 		int boardCounter = 0;		
-		for(int[] item : testList)
+		for(int[] item : fileContent)
 		{
 			for(int i = 0; i < item.length; i++)
 			{
-				b.pieceAt(i, boardCounter).setType(item[i]);
+				b.pieceAt(boardCounter, i).setType(item[i]);
 			}
 			boardCounter++;
 			System.out.println();
