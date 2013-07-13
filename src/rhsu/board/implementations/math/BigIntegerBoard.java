@@ -4,8 +4,10 @@ import rhsu.board.AbstractBoard;
 import java.math.BigInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import rhsu.board.Board;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
+import rhsu.board.implementations.StringBoard;
 
 /**
  *A big integer implementation
@@ -84,5 +86,29 @@ public class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implements M
 	@Override
 	public Matrix Multiply(MatrixPiece piece) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public Board<BigIntegerPiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	{
+		Board<BigIntegerPiece> result = new BigIntegerBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
+		
+		try
+		{
+			for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
+			{
+				for(int v = 0; v < baseBoard.getVertical_size(); v++)
+				{
+					//int i = Integer.parseInt(baseBoard.pieceAt(h,v).getType());
+					result.pieceAt(h, v).setType(
+							new BigInteger(baseBoard.pieceAt(h,v).getType()));
+				}
+			}
+			return result;
+		}
+		catch(NumberFormatException e)
+		{
+			return null;
+		}
 	}
 }
