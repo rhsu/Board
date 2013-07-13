@@ -10,17 +10,14 @@ import rhsu.board.implementations.*;
 public class Main
 {
 	public static void main(String[] args)
-	{
+	{ 
 		BoardReader reader = new BoardReader();
 		reader.mainPrompt();
 		StringBoard test = reader.getOutputBoard();
-		
-		System.out.println(test);
-		
+
 		IntegerBoard b = new IntegerBoard(1,1);
-		
-		b = (IntegerBoard) b.ConvertFromStringBoard(test);
-		
+		b.ConvertFromStringBoard(test);
+
 		System.out.println(b);
 	}
 }
