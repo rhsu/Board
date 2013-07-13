@@ -129,6 +129,10 @@ public class BoardReader
 								hasError = true;
 								System.out.println("Enter a smaller number.");
 								break;
+							case "back":
+							case "Back":
+								mainPrompt();
+								break;
 							default:
 								hasLocalError = true;
 								System.out.println("Invalid entry. Try again");
@@ -166,38 +170,13 @@ public class BoardReader
 		{
 			for(int j = 0; j < v; j++)
 			{
-				items.offer(in.nextLine());
+				String inNextLine = in.nextLine();
+				checkReturnToMainPrompt(inNextLine);
+				items.offer(inNextLine);
 			}
 		}
 		
 		setUpOutputBoardFromInput(h,v, items);
-	}
-	
-	public void setUpOutputBoardFromInput(int h, int v, LinkedList<String> items)
-	{
-		outputBoard = new StringBoard(h, v);
-		
-		for(int i = 0; i < h; i++)
-		{
-			for(int j = 0; j < v; j++)
-			{
-				outputBoard.pieceAt(i,j).setType(items.remove());
-			}
-		}
-	}
-
-	public void setUpOutputBoardFromReadin(LinkedList<String[]> fileContent)
-	{
-		outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
-		int boardCounter = 0;		
-		for(String[] item : fileContent)
-		{
-			for(int i = 0; i < item.length; i++)
-			{
-				outputBoard.pieceAt(boardCounter, i).setType(item[i]);
-			}
-			boardCounter++;
-		}
 	}
 	
 	/**
@@ -242,6 +221,38 @@ public class BoardReader
 		}while(hasError);
 		
 		setUpOutputBoardFromReadin(fileContent);
+	}
+	
+	public void checkReturnToMainPrompt(String inNextLine)
+	{
+		if(inNextLine.equalsIgnoreCase("back")) mainPrompt();
+	}
+	
+	public void setUpOutputBoardFromInput(int h, int v, LinkedList<String> items)
+	{
+		outputBoard = new StringBoard(h, v);
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				outputBoard.pieceAt(i,j).setType(items.remove());
+			}
+		}
+	}
+
+	public void setUpOutputBoardFromReadin(LinkedList<String[]> fileContent)
+	{
+		outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
+		int boardCounter = 0;		
+		for(String[] item : fileContent)
+		{
+			for(int i = 0; i < item.length; i++)
+			{
+				outputBoard.pieceAt(boardCounter, i).setType(item[i]);
+			}
+			boardCounter++;
+		}
 	}
 	
 	/**
