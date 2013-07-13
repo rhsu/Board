@@ -18,9 +18,12 @@ public class Main
 		reader.mainPrompt();
 		StringBoard test = reader.getOutputBoard();
 		
-		IntegerBoard b = new IntegerBoard(1,1);
-		b.ConvertFromStringBoard(test);
+		Matrix<IntegerPiece> b = new IntegerBoard(1,1);
+		b = (Matrix<IntegerPiece>) b.ConvertFromStringBoard(test);
 		
-		System.out.println(b);
+		Matrix<IntegerPiece> c = new IntegerBoard(1,1);
+		c = (Matrix<IntegerPiece>) c.ConvertFromStringBoard(test);
+		
+		System.out.println(b.Add(c));
 	}
 }
