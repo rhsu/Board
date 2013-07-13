@@ -191,7 +191,11 @@ public class BoardReader
 		do
 		{
 			System.out.println("Enter the file name");
-			String filename = in.nextLine();
+			String nextLine = in.nextLine();
+			
+			if(checkReturnToMainPrompt(nextLine)) return;
+			
+			String filename = nextLine;
 			hasError = false;
 
 			try (BufferedReader br = new BufferedReader(new FileReader(filename)))
@@ -223,9 +227,14 @@ public class BoardReader
 		setUpOutputBoardFromReadin(fileContent);
 	}
 	
-	public void checkReturnToMainPrompt(String inNextLine)
+	public boolean checkReturnToMainPrompt(String inNextLine)
 	{
-		if(inNextLine.equalsIgnoreCase("back")) mainPrompt();
+		if(inNextLine.equalsIgnoreCase("back")) 
+		{
+			mainPrompt();
+			return true;
+		}
+		return false;
 	}
 	
 	public void setUpOutputBoardFromInput(int h, int v, LinkedList<String> items)
