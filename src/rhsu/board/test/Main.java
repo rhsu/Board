@@ -14,6 +14,13 @@ public class Main
 {
 	public static void main(String[] args)
 	{
+		BoardReader reader = new BoardReader();
+		reader.mainPrompt();
+		StringBoard test = reader.getOutputBoard();
 		
+		IntegerBoard b = new IntegerBoard(1,1);
+		b.ConvertFromStringBoard(test);
+		
+		System.out.println(b);
 	}
 }
