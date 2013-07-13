@@ -29,7 +29,7 @@ public class Main
 		BoardReader reader = new BoardReader();
 		reader.mainPrompt();
 		
-		AbstractBoard b = new CharBoard(1,1);
+		AbstractBoard b = new IntegerBoard(1,1);
 
 		Board<CharPiece> test = b.ConvertFromStringBoard(reader.getOutputBoard());
 		

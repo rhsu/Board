@@ -158,27 +158,48 @@ public class BoardReader
 		System.out.println("Enter the number of columns");
 		int v = getValidNumberFromUser();
 
-		outputBoard = new StringBoard(h, v);
+		LinkedList<String> items = new LinkedList<>();
 
-		System.out.println("Enter the elements of the matrix");
-
-		for(int i = 0; i < outputBoard.getHorizontal_size(); i++)
+		System.out.println("Enter the elements of the board line by line");
+		
+		for(int i = 0; i < h; i++)
 		{
-			for(int j = 0; j < outputBoard.getVertical_size(); j++)
-			{				
-				outputBoard.pieceAt(i, j).setType(in.nextLine());
+			for(int j = 0; j < v; j++)
+			{
+				items.offer(in.nextLine());
+			}
+		}
+		
+		setUpOutputBoard(h,v, items);
+	}
+	
+	public void setUpOutputBoard(int h, int v, LinkedList<String> items)
+	{
+		outputBoard = new StringBoard(h, v);
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				outputBoard.pieceAt(i,j).setType(items.remove());
 			}
 		}
 	}
-	
-	public StringBoard createOutputBoard(int h, int v, List<string> items)
+
+	public void setUpOutputBoard(LinkedList<String[]> fileContent)
 	{
-		for(int i = 0; i < h; i++)
+		outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
+		int boardCounter = 0;		
+		for(String[] item : fileContent)
 		{
-			outputBoard.pieceAt(i,j).setType(items
+			for(int i = 0; i < item.length; i++)
+			{
+				outputBoard.pieceAt(boardCounter, i).setType(item[i]);
+			}
+			boardCounter++;
 		}
 	}
-
+	
 	/**
 	 * Reads in from file
 	 */
@@ -186,7 +207,7 @@ public class BoardReader
 	{		
 		boolean hasError;
 		
-		List<String[]> fileContent = new LinkedList<>();
+		LinkedList<String[]> fileContent = new LinkedList<>();
 		
 		do
 		{
@@ -220,19 +241,9 @@ public class BoardReader
 			}
 		}while(hasError);
 		
-		outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
-		
-		int boardCounter = 0;		
-		for(String[] item : fileContent)
-		{
-			for(int i = 0; i < item.length; i++)
-			{
-				outputBoard.pieceAt(boardCounter, i).setType(item[i]);
-			}
-			boardCounter++;
-		}
+		setUpOutputBoard(fileContent);
 	}
-
+	
 	/**
 	 * Displays help
 	 */
