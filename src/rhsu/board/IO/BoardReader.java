@@ -170,10 +170,10 @@ public class BoardReader
 			}
 		}
 		
-		setUpOutputBoard(h,v, items);
+		setUpOutputBoardFromInput(h,v, items);
 	}
 	
-	public void setUpOutputBoard(int h, int v, LinkedList<String> items)
+	public void setUpOutputBoardFromInput(int h, int v, LinkedList<String> items)
 	{
 		outputBoard = new StringBoard(h, v);
 		
@@ -186,7 +186,7 @@ public class BoardReader
 		}
 	}
 
-	public void setUpOutputBoard(LinkedList<String[]> fileContent)
+	public void setUpOutputBoardFromReadin(LinkedList<String[]> fileContent)
 	{
 		outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
 		int boardCounter = 0;		
@@ -241,7 +241,7 @@ public class BoardReader
 			}
 		}while(hasError);
 		
-		setUpOutputBoard(fileContent);
+		setUpOutputBoardFromReadin(fileContent);
 	}
 	
 	/**
