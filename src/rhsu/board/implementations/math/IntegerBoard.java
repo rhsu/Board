@@ -29,7 +29,7 @@ public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<
 	public IntegerBoard(StringBoard copy)
 	{
 		super(copy);
-		ConvertFromStringBoard2(copy);
+		ConvertFromStringBoard(copy);
 	}
 	
 	@Override
@@ -94,41 +94,9 @@ public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
-
-	@Override
-	public Board<IntegerPiece> ConvertFromStringBoard(StringBoard baseBoard) 
-	{
-		Board<IntegerPiece> result = new IntegerBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
-		
-		try
-		{
-			for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
-			{
-				for(int v = 0; v < baseBoard.getVertical_size(); v++)
-				{
-					if(baseBoard.pieceAt(h,v).getType().equalsIgnoreCase("true"))
-					{
-						result.pieceAt(h, v).setType(1);
-					}
-					else if(baseBoard.pieceAt(h, v).getType().equalsIgnoreCase("false"))
-					{
-						result.pieceAt(h, v).setType(0);
-					}
-					else
-					{
-						result.pieceAt(h, v).setType(Integer.parseInt(baseBoard.pieceAt(h,v).getType()));
-					}
-				}
-			}
-			return result;
-		}
-		catch(NumberFormatException e)
-		{
-			return null;
-		}
-	}
 	
-	public void ConvertFromStringBoard2(StringBoard baseBoard)
+	@Override
+	public void ConvertFromStringBoard(StringBoard baseBoard)
 	{
 		int h = baseBoard.getHorizontal_size();
 		int v = baseBoard.getVertical_size();

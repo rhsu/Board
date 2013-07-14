@@ -60,7 +60,7 @@ public class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implements M
 	}
 
 	@Override
-	public Board<BigIntegerPiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	public void ConvertFromStringBoard(StringBoard baseBoard) 
 	{
 		Board<BigIntegerPiece> result = new BigIntegerBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
@@ -75,11 +75,11 @@ public class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implements M
 							new BigInteger(baseBoard.pieceAt(h,v).getType()));
 				}
 			}
-			return result;
+			//return result;
 		}
 		catch(NumberFormatException e)
 		{
-			return null;
+			//return null;
 		}
 	}
 }

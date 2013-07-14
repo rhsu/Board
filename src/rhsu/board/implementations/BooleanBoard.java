@@ -39,7 +39,7 @@ public class BooleanBoard extends AbstractBoard<BooleanPiece>
 	}
 	
 	@Override
-	public Board<BooleanPiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	public void ConvertFromStringBoard(StringBoard baseBoard) 
 	{	
 		Board<BooleanPiece> result = new BooleanBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
@@ -52,6 +52,6 @@ public class BooleanBoard extends AbstractBoard<BooleanPiece>
 			}
 		}
 		
-		return result;
+		//return result;
 	}
 }

@@ -86,7 +86,7 @@ public class DoubleBoard extends AbstractBoard<DoublePiece> implements Matrix<Do
 	}
 
 	@Override
-	public Board<DoublePiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	public void ConvertFromStringBoard(StringBoard baseBoard) 
 	{
 		Board<DoublePiece> result = new DoubleBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
@@ -99,11 +99,11 @@ public class DoubleBoard extends AbstractBoard<DoublePiece> implements Matrix<Do
 					result.pieceAt(h, v).setType(Double.parseDouble(baseBoard.pieceAt(h,v).getType()));
 				}
 			}
-			return result;
+			//return result;
 		}
 		catch(NumberFormatException e)
 		{
-			return null;
+			//return null;
 		}
 	}
 }

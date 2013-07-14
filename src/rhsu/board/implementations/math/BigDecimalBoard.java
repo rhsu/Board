@@ -62,7 +62,7 @@ public class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implements M
 	}
 
 	@Override
-	public Board<BigDecimalPiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	public void ConvertFromStringBoard(StringBoard baseBoard) 
 	{
 		Board<BigDecimalPiece> result = new BigDecimalBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
@@ -77,11 +77,11 @@ public class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implements M
 							new BigDecimal(baseBoard.pieceAt(h,v).getType()));
 				}
 			}
-			return result;
+			//return result;
 		}
 		catch(NumberFormatException e)
 		{
-			return null;
+			//return null;
 		}
 	}
 }

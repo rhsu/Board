@@ -22,8 +22,8 @@ public class StringBoard extends AbstractBoard<StringPiece>
 	}
 
 	@Override
-	public Board<StringPiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	public void ConvertFromStringBoard(StringBoard baseBoard) 
 	{
-		return baseBoard;
+		//return baseBoard;
 	}
 }
