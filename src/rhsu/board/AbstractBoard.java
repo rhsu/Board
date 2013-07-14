@@ -190,6 +190,12 @@ public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T
 		vertical_size = j;
 	}
 	
+	public AbstractBoard(AbstractBoard<T> copy)
+	{
+		this.horizontal_size = copy.getHorizontal_size();
+		this.vertical_size = copy.getVertical_size();
+	}
+	
 	/**
 	 * 
 	 * @return the horizontal size of the board

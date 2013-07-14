@@ -147,7 +147,7 @@ public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<
 					}
 				}
 			}
-			this = (IntegerBoard) result;
+			//this = (IntegerBoard) result;
 		}
 		catch(NumberFormatException e)
 		{
