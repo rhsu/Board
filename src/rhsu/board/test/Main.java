@@ -31,7 +31,8 @@ public class Main
 		//System.out.println(b.getTypeAt(0,0));
 		
 		BooleanBoard c = new BooleanBoard(b);
-		
+		//System.out.println(b.getHorizontal_size() + " " + b.getVertical_size());
+		//System.out.println(c.getHorizontal_size() + " " + c.getVertical_size());
 		System.out.println(c);
 	}
 }
