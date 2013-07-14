@@ -26,6 +26,12 @@ public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<
 		}
 	}
 
+	public IntegerBoard(StringBoard copy)
+	{
+		super(copy);
+		ConvertFromStringBoard2(copy);
+	}
+	
 	@Override
 	public Matrix Add(Matrix m) 
 	{
@@ -122,36 +128,36 @@ public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<
 		}
 	}
 	
-	//public Board<IntegerPiece> ConvertFromStringBoard2(StringBoard baseBoard) 
 	public void ConvertFromStringBoard2(StringBoard baseBoard)
 	{
-		Board<IntegerPiece> result = new IntegerBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
-		
+		int h = baseBoard.getHorizontal_size();
+		int v = baseBoard.getVertical_size();
+		board = new IntegerPiece[h][v];
 		try
 		{
-			for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
+			for(int i = 0; i < h; i++)
 			{
-				for(int v = 0; v < baseBoard.getVertical_size(); v++)
+				for(int j = 0; j < v; j++)
 				{
 					if(baseBoard.pieceAt(h,v).getType().equalsIgnoreCase("true"))
 					{
-						result.pieceAt(h, v).setType(1);
+						this.setTypeAt(i, j, 1);
 					}
 					else if(baseBoard.pieceAt(h, v).getType().equalsIgnoreCase("false"))
 					{
-						result.pieceAt(h, v).setType(0);
+						this.setTypeAt(i, j, 0);
 					}
 					else
 					{
-						result.pieceAt(h, v).setType(Integer.parseInt(baseBoard.pieceAt(h,v).getType()));
+						this.setTypeAt(i, j, Integer.parseInt(baseBoard.pieceAt(i, j)
+								.getType()));	
 					}
 				}
 			}
-			//this = (IntegerBoard) result;
 		}
 		catch(NumberFormatException e)
 		{
-			//this = null;
+			board = null;
 		}
 	}
 }

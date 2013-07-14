@@ -1,5 +1,6 @@
 package rhsu.board;
 
+import rhsu.board.implementations.StringBoard;
 import rhsu.board.utilities.UtilityFunctions;
 
 /**
@@ -194,6 +195,11 @@ public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T
 	{
 		this.horizontal_size = copy.getHorizontal_size();
 		this.vertical_size = copy.getVertical_size();
+	}
+	
+	public AbstractBoard(StringBoard copy)
+	{
+		
 	}
 	
 	/**
