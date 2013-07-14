@@ -11,29 +11,15 @@ public class Main
 {
 	public static void main(String[] args)
 	{ 
-		/*BoardReader reader = new BoardReader();
->>>>>>> copy
+		BoardReader reader = new BoardReader();
 		reader.mainPrompt();
+		
 		StringBoard test = reader.getOutputBoard();
-
-		IntegerBoard b = new IntegerBoard(1,1);
-		b.ConvertFromStringBoard(test);
-
 		
-		b = (IntegerBoard) b.ConvertFromStringBoard(test);
+		System.out.println(test);
 		
-		System.out.println(b);*/
+		IntegerBoard b = new IntegerBoard(test);
 		
-		BooleanBoard b = new BooleanBoard(1,2);
-		b.setTypeAt(0, 0, true);
-		
-		System.out.println(b);
-		
-		//System.out.println(b.getTypeAt(0,0));
-		
-		BooleanBoard c = new BooleanBoard(b);
-		//System.out.println(b.getHorizontal_size() + " " + b.getVertical_size());
-		//System.out.println(c.getHorizontal_size() + " " + c.getVertical_size());
-		System.out.println(c);
+		//System.out.println(b);
 	}
 }

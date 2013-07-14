@@ -11,7 +11,7 @@ import rhsu.board.implementations.StringBoard;
 /**
  * An integer implementation
  */
-public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<IntegerPiece>
+public final class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<IntegerPiece>
 {
 	public IntegerBoard(int h, int v)
 	{

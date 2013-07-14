@@ -241,4 +241,10 @@ public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T
 		builder.append("==============");
 		return builder.toString();
 	}
+	
+	@Override
+	public void ConvertFromStringBoard(StringBoard other)
+	{
+		
+	}
 }
