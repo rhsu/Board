@@ -16,10 +16,10 @@ public class Main
 		
 		StringBoard test = reader.getOutputBoard();
 		
-		System.out.println(test);
+		//System.out.println(test);
 		
 		IntegerBoard b = new IntegerBoard(test);
 		
-		//System.out.println(b);
+		System.out.println(b);
 	}
 }

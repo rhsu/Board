@@ -101,24 +101,25 @@ public final class IntegerBoard extends AbstractBoard<IntegerPiece> implements M
 		int h = baseBoard.getHorizontal_size();
 		int v = baseBoard.getVertical_size();
 		board = new IntegerPiece[h][v];
+				
 		try
 		{
 			for(int i = 0; i < h; i++)
 			{
 				for(int j = 0; j < v; j++)
 				{
-					if(baseBoard.pieceAt(h,v).getType().equalsIgnoreCase("true"))
+					if(baseBoard.pieceAt(i,j).getType().equalsIgnoreCase("true"))
 					{
-						this.setTypeAt(i, j, 1);
+						board[i][j] = new IntegerPiece(i, j, 1);
 					}
-					else if(baseBoard.pieceAt(h, v).getType().equalsIgnoreCase("false"))
+					else if(baseBoard.pieceAt(i, j).getType().equalsIgnoreCase("false"))
 					{
-						this.setTypeAt(i, j, 0);
+						board[i][j] = new IntegerPiece(i, j, 0);
 					}
 					else
 					{
-						this.setTypeAt(i, j, Integer.parseInt(baseBoard.pieceAt(i, j)
-								.getType()));	
+						board[i][j] = new IntegerPiece(i, j, 
+								Integer.parseInt(baseBoard.pieceAt(i, j).getType()));
 					}
 				}
 			}
