@@ -199,7 +199,8 @@ public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T
 	
 	public AbstractBoard(StringBoard copy)
 	{
-		
+		this.horizontal_size = copy.getHorizontal_size();
+		this.vertical_size = copy.getVertical_size();
 	}
 	
 	/**
@@ -229,11 +230,11 @@ public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T
 	public String toString()
 	{
 		StringBuilder builder = new StringBuilder();
-		builder.append("==============").append("\n");
+		builder.append("==============").append("\n");		
 		for (int i = 0; i < horizontal_size; i++)
 		{
 			for (int j = 0 ; j < vertical_size; j++)
-			{
+			{				
 				builder.append(pieceAt(i,j).toString()).append(" ");
 			}
 			builder.append("\n");
