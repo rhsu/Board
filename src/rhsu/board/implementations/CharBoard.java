@@ -21,6 +21,12 @@ public class CharBoard extends AbstractBoard<CharPiece>
 		}
 	}
 
+	public CharBoard(StringBoard copy)
+	{
+		super(copy);
+		this.ConvertFromStringBoard(copy);
+	}
+	
 	@Override
 	public void ConvertFromStringBoard(StringBoard baseBoard) 
 	{

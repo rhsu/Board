@@ -10,7 +10,7 @@ import rhsu.board.implementations.StringBoard;
 /**
  *A big integer implementation
  */
-public class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implements Matrix<BigIntegerPiece>
+public final class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implements Matrix<BigIntegerPiece>
 {
 	public BigIntegerBoard(int h, int v)
 	{
@@ -25,6 +25,12 @@ public class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implements M
 		}
 	}
 
+	public BigIntegerBoard(StringBoard copy)
+	{
+		super(copy);
+		this.ConvertFromStringBoard(copy);
+	}
+	
 	@Override
 	public Matrix Add(Matrix m) 
 	{

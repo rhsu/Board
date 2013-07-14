@@ -23,6 +23,13 @@ public class BooleanBoard extends AbstractBoard<BooleanPiece>
 		}
 	}
 
+	public BooleanBoard(StringBoard copy)
+	{
+		super(copy);
+		this.ConvertFromStringBoard(copy);
+	}
+	
+	/*
 	public BooleanBoard(AbstractBoard<BooleanPiece> other)
 	{
 		super(other);
@@ -36,7 +43,7 @@ public class BooleanBoard extends AbstractBoard<BooleanPiece>
 				board[i][j] = other.pieceAt(i, j);
 			}
 		}
-	}
+	}*/
 	
 	@Override
 	public void ConvertFromStringBoard(StringBoard baseBoard) 
@@ -51,7 +58,5 @@ public class BooleanBoard extends AbstractBoard<BooleanPiece>
 				result.pieceAt(h, v).setType(b);
 			}
 		}
-		
-		//return result;
 	}
 }

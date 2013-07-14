@@ -11,7 +11,7 @@ import rhsu.board.implementations.StringBoard;
 /**
  *A double implementation
  */
-public class DoubleBoard extends AbstractBoard<DoublePiece> implements Matrix<DoublePiece>
+public final class DoubleBoard extends AbstractBoard<DoublePiece> implements Matrix<DoublePiece>
 {
 	public DoubleBoard(int h, int v)
 	{
@@ -26,6 +26,12 @@ public class DoubleBoard extends AbstractBoard<DoublePiece> implements Matrix<Do
 		}
 	}
 
+	public DoubleBoard(StringBoard copy)
+	{
+		super(copy);
+		ConvertFromStringBoard(copy);
+	}
+	
 	@Override
 	public Matrix Add(Matrix m) 
 	{
