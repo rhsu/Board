@@ -12,17 +12,28 @@ import rhsu.board.implementations.math.IntegerBoard;
 import rhsu.board.utilities.UtilityFunctions;
 
 /**
- *
- * @author robert
+ *The board reader object allows the user to import board objects either from
+ * file or by input.
+ * 
+ * By default, the created objects are of type String
+ * 
  */
 public class BoardReader
 {
 	/**
-	 * A string containing all the supported delimiters
+	 * All the supported delimiters: space, pipe, comma, semicolon, colon, tab
 	 */
 	private final static String DELIMITERS = " |,;:\t";
+	
+	/**
+	 * the StringBoard that is constructed by this instance of a BoardReader
+	 */
 	private StringBoard outputBoard;
 	
+	/**
+	 * Getter for output board
+	 * @return the created output board
+	 */
 	public StringBoard getOutputBoard()
 	{
 		return outputBoard;
@@ -227,6 +238,11 @@ public class BoardReader
 		setUpOutputBoardFromReadin(fileContent);
 	}
 	
+	/**
+	 * Allows the user to return back to the main prompt
+	 * @param inNextLine
+	 * @return true or false if the enter entered back
+	 */
 	public boolean checkReturnToMainPrompt(String inNextLine)
 	{
 		if(inNextLine.equalsIgnoreCase("back")) 
@@ -237,6 +253,12 @@ public class BoardReader
 		return false;
 	}
 	
+	/**
+	 * Creates an output board based off of user inputted items
+	 * @param h the horizontal size of the board
+	 * @param v the vertical size of the board
+	 * @param items the user inputted items (as a queue)
+	 */
 	public void setUpOutputBoardFromInput(int h, int v, LinkedList<String> items)
 	{
 		outputBoard = new StringBoard(h, v);
@@ -250,6 +272,10 @@ public class BoardReader
 		}
 	}
 
+	/**
+	 * sets up the output board based off of a file
+	 * @param fileContent the file contents to populate a board
+	 */
 	public void setUpOutputBoardFromReadin(LinkedList<String[]> fileContent)
 	{
 		outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);

@@ -253,6 +253,10 @@ public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T
 		return builder.toString();
 	}
 	
+	/**
+	 * Converts the current board into a board based off of values from the baseBoard
+	 * @param baseBoard the board to convert from
+	 */
 	@Override
 	public void convertFromStringBoard(StringBoard other)
 	{
