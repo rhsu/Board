@@ -3,7 +3,6 @@ package rhsu.board.implementations.math;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import rhsu.board.AbstractBoard;
-import rhsu.board.Board;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
 import rhsu.board.implementations.StringBoard;
@@ -11,7 +10,7 @@ import rhsu.board.implementations.StringBoard;
 /**
  * An integer implementation
  */
-public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<IntegerPiece>
+public final class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<IntegerPiece>
 {
 	public IntegerBoard(int h, int v)
 	{
@@ -26,6 +25,12 @@ public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<
 		}
 	}
 
+	public IntegerBoard(StringBoard copy)
+	{
+		super(copy);
+		ConvertFromStringBoard(copy);
+	}
+	
 	@Override
 	public Matrix Add(Matrix m) 
 	{
@@ -88,36 +93,39 @@ public class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
-
+	
 	@Override
-	public Board<IntegerPiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	public void ConvertFromStringBoard(StringBoard baseBoard)
 	{
-		Board<IntegerPiece> result = new IntegerBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
+		int h = baseBoard.getHorizontal_size();
+		int v = baseBoard.getVertical_size();
+		board = new IntegerPiece[h][v];
+				
 		try
 		{
-			for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
+			for(int i = 0; i < h; i++)
 			{
-				for(int v = 0; v < baseBoard.getVertical_size(); v++)
+				for(int j = 0; j < v; j++)
 				{
-					if(baseBoard.pieceAt(h,v).getType().equalsIgnoreCase("true"))
+					if(baseBoard.pieceAt(i,j).getType().equalsIgnoreCase("true"))
 					{
-						result.pieceAt(h, v).setType(1);
+						board[i][j] = new IntegerPiece(i, j, 1);
 					}
-					else if(baseBoard.pieceAt(h, v).getType().equalsIgnoreCase("false"))
+					else if(baseBoard.pieceAt(i, j).getType().equalsIgnoreCase("false"))
 					{
-						result.pieceAt(h, v).setType(0);
+						board[i][j] = new IntegerPiece(i, j, 0);
 					}
 					else
 					{
-						result.pieceAt(h, v).setType(Integer.parseInt(baseBoard.pieceAt(h,v).getType()));
+						board[i][j] = new IntegerPiece(i, j, 
+								Integer.parseInt(baseBoard.pieceAt(i, j).getType()));
 					}
 				}
 			}
-			return result;
 		}
 		catch(NumberFormatException e)
 		{
-			return null;
+			board = null;
 		}
 	}
 }

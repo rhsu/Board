@@ -21,8 +21,14 @@ public class CharBoard extends AbstractBoard<CharPiece>
 		}
 	}
 
+	public CharBoard(StringBoard copy)
+	{
+		super(copy);
+		this.ConvertFromStringBoard(copy);
+	}
+	
 	@Override
-	public Board<CharPiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	public void ConvertFromStringBoard(StringBoard baseBoard) 
 	{
 		Board<CharPiece> result = new CharBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
@@ -35,11 +41,11 @@ public class CharBoard extends AbstractBoard<CharPiece>
 					result.pieceAt(h, v).setType(baseBoard.pieceAt(h,v).getType().charAt(0));
 				}
 			}
-			return result;
+			//return result;
 		}
 		catch(NumberFormatException e)
 		{
-			return null;
+			//return null;
 		}
 	}
 }

@@ -11,7 +11,7 @@ import rhsu.board.implementations.StringBoard;
 /**
  *A double implementation
  */
-public class DoubleBoard extends AbstractBoard<DoublePiece> implements Matrix<DoublePiece>
+public final class DoubleBoard extends AbstractBoard<DoublePiece> implements Matrix<DoublePiece>
 {
 	public DoubleBoard(int h, int v)
 	{
@@ -26,6 +26,12 @@ public class DoubleBoard extends AbstractBoard<DoublePiece> implements Matrix<Do
 		}
 	}
 
+	public DoubleBoard(StringBoard copy)
+	{
+		super(copy);
+		ConvertFromStringBoard(copy);
+	}
+	
 	@Override
 	public Matrix Add(Matrix m) 
 	{
@@ -86,7 +92,7 @@ public class DoubleBoard extends AbstractBoard<DoublePiece> implements Matrix<Do
 	}
 
 	@Override
-	public Board<DoublePiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	public void ConvertFromStringBoard(StringBoard baseBoard) 
 	{
 		Board<DoublePiece> result = new DoubleBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
@@ -99,11 +105,11 @@ public class DoubleBoard extends AbstractBoard<DoublePiece> implements Matrix<Do
 					result.pieceAt(h, v).setType(Double.parseDouble(baseBoard.pieceAt(h,v).getType()));
 				}
 			}
-			return result;
+			//return result;
 		}
 		catch(NumberFormatException e)
 		{
-			return null;
+			//return null;
 		}
 	}
 }

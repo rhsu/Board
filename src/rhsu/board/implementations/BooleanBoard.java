@@ -23,8 +23,30 @@ public class BooleanBoard extends AbstractBoard<BooleanPiece>
 		}
 	}
 
+	public BooleanBoard(StringBoard copy)
+	{
+		super(copy);
+		this.ConvertFromStringBoard(copy);
+	}
+	
+	/*
+	public BooleanBoard(AbstractBoard<BooleanPiece> other)
+	{
+		super(other);
+		int h = other.getHorizontal_size();
+		int v = other.getVertical_size();
+		board = new BooleanPiece[h][v];
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				board[i][j] = other.pieceAt(i, j);
+			}
+		}
+	}*/
+	
 	@Override
-	public Board<BooleanPiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	public void ConvertFromStringBoard(StringBoard baseBoard) 
 	{	
 		Board<BooleanPiece> result = new BooleanBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
@@ -36,7 +58,5 @@ public class BooleanBoard extends AbstractBoard<BooleanPiece>
 				result.pieceAt(h, v).setType(b);
 			}
 		}
-		
-		return result;
 	}
 }
