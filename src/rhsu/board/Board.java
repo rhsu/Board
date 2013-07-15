@@ -21,6 +21,6 @@ public interface Board <T>
 	public int getVertical_size();
 	public Object getTypeAt(int i, int j);
 	public void setTypeAt(int i, int j, Object obj);
-	public void ConvertFromStringBoard(StringBoard baseBoard);
+	public void convertFromStringBoard(StringBoard baseBoard);
 }
 

@@ -254,7 +254,7 @@ public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T
 	}
 	
 	@Override
-	public void ConvertFromStringBoard(StringBoard other)
+	public void convertFromStringBoard(StringBoard other)
 	{
 		
 	}
