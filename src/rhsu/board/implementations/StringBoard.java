@@ -1,7 +1,6 @@
 package rhsu.board.implementations;
 
 import rhsu.board.AbstractBoard;
-import rhsu.board.Board;
 
 /**
  * A string implementation
@@ -20,10 +19,15 @@ public class StringBoard extends AbstractBoard<StringPiece>
 			}
 		}
 	}
-
-	@Override
-	public Board<StringPiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	
+	public StringBoard(StringBoard copy)
 	{
-		return baseBoard;
+		super(copy);
+	}
+	
+	@Override
+	public void ConvertFromStringBoard(StringBoard baseBoard) 
+	{
+		//return baseBoard;
 	}
 }

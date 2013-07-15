@@ -1,5 +1,6 @@
 package rhsu.board;
 
+import rhsu.board.implementations.StringBoard;
 import rhsu.board.utilities.UtilityFunctions;
 
 /**
@@ -190,6 +191,19 @@ public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T
 		vertical_size = j;
 	}
 	
+	/*
+	public AbstractBoard(AbstractBoard<T> copy)
+	{
+		this.horizontal_size = copy.getHorizontal_size();
+		this.vertical_size = copy.getVertical_size();
+	}*/
+	
+	public AbstractBoard(StringBoard copy)
+	{
+		this.horizontal_size = copy.getHorizontal_size();
+		this.vertical_size = copy.getVertical_size();
+	}
+	
 	/**
 	 * 
 	 * @return the horizontal size of the board
@@ -200,11 +214,11 @@ public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T
 		return horizontal_size;
 	}
 	
-	@Override
 	/**
 	 * 
 	 * @return the vertical size of the board
 	 */
+	@Override
 	public int getVertical_size()
 	{
 		return vertical_size;
@@ -217,16 +231,22 @@ public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T
 	public String toString()
 	{
 		StringBuilder builder = new StringBuilder();
-		builder.append("==============").append("\n");
+		builder.append("==============").append("\n");		
 		for (int i = 0; i < horizontal_size; i++)
 		{
 			for (int j = 0 ; j < vertical_size; j++)
-			{
+			{				
 				builder.append(pieceAt(i,j).toString()).append(" ");
 			}
 			builder.append("\n");
 		}
 		builder.append("==============");
 		return builder.toString();
+	}
+	
+	@Override
+	public void ConvertFromStringBoard(StringBoard other)
+	{
+		
 	}
 }

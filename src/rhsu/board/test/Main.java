@@ -14,16 +14,6 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		BoardReader reader = new BoardReader();
-		reader.mainPrompt();
-		StringBoard test = reader.getOutputBoard();
 		
-		Matrix<IntegerPiece> b = new IntegerBoard(1,1);
-		b = (Matrix<IntegerPiece>) b.ConvertFromStringBoard(test);
-		
-		Matrix<IntegerPiece> c = new IntegerBoard(1,1);
-		c = (Matrix<IntegerPiece>) c.ConvertFromStringBoard(test);
-		
-		System.out.println(b.Add(c));
 	}
 }

@@ -10,7 +10,7 @@ import rhsu.board.implementations.StringBoard;
 /**
  *A big decimal implementation
  */
-public class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implements Matrix<BigDecimalPiece>
+public final class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implements Matrix<BigDecimalPiece>
 {
 	public BigDecimalBoard(int h, int v)
 	{
@@ -25,6 +25,12 @@ public class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implements M
 		}
 	}
 
+	public BigDecimalBoard(StringBoard copy)
+	{
+		super(copy);
+		this.ConvertFromStringBoard(copy);
+	}
+	
 	@Override
 	public Matrix Add(Matrix m) 
 	{
@@ -62,7 +68,7 @@ public class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implements M
 	}
 
 	@Override
-	public Board<BigDecimalPiece> ConvertFromStringBoard(StringBoard baseBoard) 
+	public void ConvertFromStringBoard(StringBoard baseBoard) 
 	{
 		Board<BigDecimalPiece> result = new BigDecimalBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
@@ -77,11 +83,11 @@ public class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implements M
 							new BigDecimal(baseBoard.pieceAt(h,v).getType()));
 				}
 			}
-			return result;
+			//return result;
 		}
 		catch(NumberFormatException e)
 		{
-			return null;
+			//return null;
 		}
 	}
 }
