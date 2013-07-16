@@ -30,7 +30,7 @@ public final class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implem
 	public BigIntegerBoard(StringBoard copy)
 	{
 		super(copy);
-		this.ConvertFromStringBoard(copy);
+		this.convertFromStringBoard(copy);
 	}
 	
 	@Override
@@ -95,7 +95,7 @@ public final class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implem
 	}
 
 	@Override
-	public void ConvertFromStringBoard(StringBoard baseBoard) 
+	public void convertFromStringBoard(StringBoard baseBoard) 
 	{
 		Board<BigIntegerPiece> result = new BigIntegerBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		

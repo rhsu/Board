@@ -28,7 +28,7 @@ public final class IntegerBoard extends AbstractBoard<IntegerPiece> implements M
 	public IntegerBoard(StringBoard copy)
 	{
 		super(copy);
-		ConvertFromStringBoard(copy);
+		convertFromStringBoard(copy);
 	}
 	
 	@Override
@@ -95,7 +95,7 @@ public final class IntegerBoard extends AbstractBoard<IntegerPiece> implements M
 	}
 	
 	@Override
-	public void ConvertFromStringBoard(StringBoard baseBoard)
+	public void convertFromStringBoard(StringBoard baseBoard)
 	{
 		int h = baseBoard.getHorizontal_size();
 		int v = baseBoard.getVertical_size();
