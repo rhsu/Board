@@ -100,12 +100,12 @@ public class GameBoard extends AbstractBoard<GamePiece>
 		ArrayList<GamePiece> arrayList = new ArrayList<>();
 		for(int j = 0; j < 7; j++)
 		{
-			GamePiece temp = pieceAt(row, j);
+			/*GamePiece temp = pieceAt(row, j);
 
 			if((temp != null) && (temp.getType() != PieceType.EMPTY))
 			{
 				arrayList.add(temp);
-			}
+			}*/
 		}
 		return arrayList;
 	}
@@ -127,11 +127,11 @@ public class GameBoard extends AbstractBoard<GamePiece>
 			
 		for(int i = 0; i < 7; i++)
 		{
-			GamePiece temp = pieceAt(i, column);
+			/*GamePiece temp = pieceAt(i, column);
 			if((temp != null) && (temp.getType() != PieceType.EMPTY))
 			{
 				arrayList.add(temp);
-			}
+			}*/
 		}
 		return arrayList;
 	}
@@ -147,11 +147,11 @@ public class GameBoard extends AbstractBoard<GamePiece>
 		{
 			for(int j = 0; j < 7; j++)
 			{
-				GamePiece p = (GamePiece) pieceAt(i, j);
+				/*GamePiece p = (GamePiece) pieceAt(i, j);
 				if(p.getRemove())
 				{
 					list.add(p);
-				}
+				}*/
 			}
 		}
 		return list;
@@ -197,13 +197,13 @@ public class GameBoard extends AbstractBoard<GamePiece>
 		
 		for (int index = 6; index >= 0; index--)
 		{
-			GamePiece current = (GamePiece)pieceAt(index, position);
+			/*GamePiece current = (GamePiece)pieceAt(index, position);
 			if(current.getType() == PieceType.EMPTY)
 			{				
 				current.setValue(value);
 				checkForRemoval(current);				
 				return true;
-			}
+			}*/
 		}
 		return false;
 	}

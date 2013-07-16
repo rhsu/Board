@@ -10,7 +10,7 @@ import rhsu.board.implementations.StringBoard;
  */
 public abstract class AbstractBoard<T> implements Board<T>
 {	
-	protected class AbstractPiece<T>
+	public class AbstractPiece<T>
 	{
 		private int horizontal;
 		private int vertical;
@@ -80,7 +80,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	 */
 	protected int vertical_size;
 	
-	public AbstractPiece<T> pieceAt2(int i, int j)
+	public AbstractPiece<T> pieceAt(int i, int j)
 	{
 		return board[i][j];
 	}
@@ -148,12 +148,6 @@ public abstract class AbstractBoard<T> implements Board<T>
 
 	@Override
 	public T getUpPiece(Object p) 
-	{
-		throw new UnsupportedOperationException("Not supported yet."); 
-	}
-
-	@Override
-	public T pieceAt(int i, int j) 
 	{
 		throw new UnsupportedOperationException("Not supported yet."); 
 	}

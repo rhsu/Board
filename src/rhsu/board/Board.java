@@ -1,5 +1,7 @@
 package rhsu.board;
 
+import java.util.List;
+import rhsu.board.AbstractBoard.AbstractPiece;
 import rhsu.board.implementations.StringBoard;
 
 /**
@@ -64,18 +66,10 @@ public interface Board<T>
 	 * @return The piece above the given piece
 	 */
 	public T getUpPiece(T p);
-	
-	/**
-	 * Retrieves a Piece from the board with the given indices
-	 * @param i horizontal index
-	 * @param j vertical index
-	 * @return The piece from the board. Null if no piece exists
-	 */
-	public T pieceAt(int i, int j);
-	
+		
 	public T getTypeAt(int i, int j);
 	
-	public void setTypeAt(int i, int j, T t);
+	public void setTypeAt(int i, int j, T t);	
 	
 	/**
 	 * 
@@ -94,5 +88,8 @@ public interface Board<T>
 	 * @param baseBoard the board to convert from
 	 */
 	public void convertFromStringBoard(StringBoard baseBoard);
+	
+	//public AbstractPiece<T> pieceAt(int i, int j);
+	public TestObj<T> test();
 }
 
