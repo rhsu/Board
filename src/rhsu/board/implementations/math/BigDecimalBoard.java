@@ -2,8 +2,7 @@ package rhsu.board.implementations.math;
 
 import rhsu.board.AbstractBoard;
 import java.math.BigDecimal;
-import rhsu.board.AbstractPiece;
-import rhsu.board.Board;
+import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
 import rhsu.board.implementations.StringBoard;
@@ -17,12 +16,12 @@ public class BigDecimalBoard extends AbstractBoard<BigDecimal> implements Matrix
 	public BigDecimalBoard(int h, int v)
 	{
 		super(h, v);
-		board = new AbstractPiece[h][v];
+		board = new BoardPiece[h][v];
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new AbstractPiece(i, j, BigDecimal.ZERO);
+				board[i][j] = new BoardPiece(i, j, BigDecimal.ZERO);
 			}
 		}
 	}

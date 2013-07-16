@@ -1,6 +1,6 @@
 package rhsu.board;
 
-public class AbstractPiece<T>
+public class BoardPiece<T>
 {
 	private int horizontal;
 	private int vertical;
@@ -43,7 +43,7 @@ public class AbstractPiece<T>
 	}
 	//</editor-fold>
 
-	public AbstractPiece(int i, int j, T t)
+	public BoardPiece(int i, int j, T t)
 	{
 		this.horizontal = i;
 		this.vertical = j;

@@ -11,7 +11,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	/**
 	 * the board object to allocate in the constructor
 	 */
-	protected AbstractPiece<T>[][] board;
+	protected BoardPiece<T>[][] board;
 	/**
 	 * The horizontal size of the board
 	 */
@@ -22,7 +22,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	protected int vertical_size;
 	
 	@Override
-	public AbstractPiece<T> pieceAt(int i, int j)
+	public BoardPiece<T> pieceAt(int i, int j)
 	{
 		return board[i][j];
 	}

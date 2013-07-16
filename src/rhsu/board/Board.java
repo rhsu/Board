@@ -8,7 +8,7 @@ import rhsu.board.implementations.StringBoard;
  */
 public interface Board<T>
 {
-	public AbstractPiece<T> pieceAt(int i, int j);
+	public BoardPiece<T> pieceAt(int i, int j);
 	
 	/**
 	 * 

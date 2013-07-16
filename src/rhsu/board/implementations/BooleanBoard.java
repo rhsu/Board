@@ -1,7 +1,7 @@
 package rhsu.board.implementations;
 
 import rhsu.board.AbstractBoard;
-import rhsu.board.AbstractPiece;
+import rhsu.board.BoardPiece;
 
 /**
  *A boolean implementation
@@ -13,12 +13,12 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 	public BooleanBoard(int h, int v)
 	{
 		super(h, v);
-		board = new AbstractPiece[h][v];
+		board = new BoardPiece[h][v];
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new AbstractPiece(i, j, false);
+				board[i][j] = new BoardPiece(i, j, false);
 			}
 		}
 	}

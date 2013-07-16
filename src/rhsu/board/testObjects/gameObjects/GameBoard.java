@@ -2,7 +2,7 @@ package rhsu.board.testObjects.gameObjects;
 
 import rhsu.board.AbstractBoard;
 import java.util.ArrayList;
-import rhsu.board.AbstractPiece;
+import rhsu.board.BoardPiece;
 import rhsu.board.implementations.StringBoard;
 
 /**
@@ -167,7 +167,7 @@ public class GameBoard extends AbstractBoard<GamePiece>
 	public GameBoard(int h, int v)
 	{
 		super(h, v);
-		board = new AbstractPiece[h][v];
+		board = new BoardPiece[h][v];
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
