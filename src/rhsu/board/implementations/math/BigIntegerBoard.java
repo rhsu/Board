@@ -2,7 +2,7 @@ package rhsu.board.implementations.math;
 
 import rhsu.board.AbstractBoard;
 import java.math.BigInteger;
-import rhsu.board.Board;
+import rhsu.board.AbstractPiece;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
 import rhsu.board.implementations.StringBoard;

@@ -2,6 +2,7 @@ package rhsu.board.testObjects.gameObjects;
 
 import rhsu.board.AbstractBoard;
 import java.util.ArrayList;
+import rhsu.board.AbstractPiece;
 import rhsu.board.implementations.StringBoard;
 
 /**

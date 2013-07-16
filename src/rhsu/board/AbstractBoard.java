@@ -21,6 +21,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	 */
 	protected int vertical_size;
 	
+	@Override
 	public AbstractPiece<T> pieceAt(int i, int j)
 	{
 		return board[i][j];

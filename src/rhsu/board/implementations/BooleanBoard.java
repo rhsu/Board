@@ -1,7 +1,7 @@
 package rhsu.board.implementations;
 
 import rhsu.board.AbstractBoard;
-import rhsu.board.Board;
+import rhsu.board.AbstractPiece;
 
 /**
  *A boolean implementation

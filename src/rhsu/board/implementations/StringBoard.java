@@ -1,6 +1,7 @@
 package rhsu.board.implementations;
 
 import rhsu.board.AbstractBoard;
+import rhsu.board.AbstractPiece;
 
 /**
  * A string implementation
