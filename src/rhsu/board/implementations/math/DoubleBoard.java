@@ -56,9 +56,9 @@ public final class DoubleBoard extends AbstractBoard<DoublePiece> implements Mat
 		{
 			for(int j = 0; j < v; j++)
 			{
-				Double a = (Double) this.getTypeAt(i, j);
-				Double b = (Double) m.getTypeAt(i, j);
-				result.setTypeAt(i,j, a+b);				
+				//Double a = (Double) this.getTypeAt(i, j);
+				//Double b = (Double) m.getTypeAt(i, j);
+				//result.setTypeAt(i,j, a+b);				
 			}
 		}
 		

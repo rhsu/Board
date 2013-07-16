@@ -54,7 +54,8 @@ public class BooleanBoard extends AbstractBoard<BooleanPiece>
 		{
 			for(int v = 0; v < baseBoard.getVertical_size(); v++)
 			{
-				Boolean b = (baseBoard.getTypeAt(h, v).equals("1")) ? true : Boolean.valueOf(baseBoard.getTypeAt(h, v).toString());
+				Boolean b = (baseBoard.pieceAt(h, v).getType().equals("1")) ? true
+						: Boolean.valueOf(baseBoard.pieceAt(h, v).toString());
 				result.pieceAt(h, v).setType(b);
 			}
 		}

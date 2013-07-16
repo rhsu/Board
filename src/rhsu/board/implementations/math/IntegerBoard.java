@@ -55,9 +55,9 @@ public final class IntegerBoard extends AbstractBoard<IntegerPiece> implements M
 		{
 			for(int j = 0; j < v; j++)
 			{
-				Integer a = (Integer) this.getTypeAt(i, j);
-				Integer b = (Integer) m.getTypeAt(i, j);
-				result.setTypeAt(i,j, a+b);				
+				//Integer a = (Integer) this.getTypeAt(i, j);
+				//Integer b = (Integer) m.getTypeAt(i, j);
+				//result.setTypeAt(i,j, a+b);				
 			}
 		}
 		

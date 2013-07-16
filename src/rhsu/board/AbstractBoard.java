@@ -145,30 +145,7 @@ public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T
 		}
 		return null;
 	}
-	
-	/**
-	 * Retrieves the underlying Object from the board with the given indices
-	 * @param i horizontal index
-	 * @param j vertical index
-	 * @return The underlying Object from the board. Null if no object exists
-	 */
-	@Override
-	public Object getTypeAt(int i, int j)
-	{
-		return this.pieceAt(i, j).getType();
-	}
-
-	/**
-	 * Sets the type at the given indices
-	 * @param i horizontal index
-	 * @param j vertical index
-	 */
-	@Override
-	public void setTypeAt(int i, int j, Object obj)
-	{
-		this.pieceAt(i,j).setType(obj);
-	}
-	
+		
 	//</editor-fold>
 	
 	/**

@@ -86,21 +86,6 @@ public interface Board <T>
 	public int getVertical_size();
 	
 	/**
-	 * Retrieves the underlying Object from the board with the given indices
-	 * @param i horizontal index
-	 * @param j vertical index
-	 * @return The underlying Object from the board. Null if no object exists
-	 */
-	public Object getTypeAt(int i, int j);
-	
-	/**
-	 * Sets the type at the given indices
-	 * @param i horizontal index
-	 * @param j vertical index
-	 */
-	public void setTypeAt(int i, int j, Object obj);
-	
-	/**
 	 * Converts the current board into a board based off of values from the baseBoard
 	 * @param baseBoard the board to convert from
 	 */
