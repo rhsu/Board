@@ -19,8 +19,12 @@ public class Main
 		
 		DoublePiece test = new DoublePiece(1,1,1);
 		
-		Double d3 = (Double) test.getType();
+		Double d3 = test.getType();
 		
-		System.out.println(d3);
+		IntegerPiece test2 = new IntegerPiece(1,1,1);
+		
+		Integer t2 = test2.getType();
+		
+		System.out.println(d3 + t2);
 	}
 }

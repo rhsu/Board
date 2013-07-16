@@ -6,7 +6,7 @@ import java.math.BigInteger;
 /**
  *A big integer implementation
  */
-public class BigIntegerPiece extends AbstractPiece
+public class BigIntegerPiece extends AbstractPiece<BigInteger>
 {
 	public BigIntegerPiece(int h, int v, BigInteger bi)
 	{
