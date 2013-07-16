@@ -73,6 +73,10 @@ public interface Board<T>
 	 */
 	public T pieceAt(int i, int j);
 	
+	public T getTypeAt(int i, int j);
+	
+	public void setTypeAt(int i, int j, T t);
+	
 	/**
 	 * 
 	 * @return the horizontal size of the board

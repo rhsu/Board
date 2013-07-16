@@ -4,10 +4,10 @@ package rhsu.board.overhaul;
  *
  * @author rhsu
  */
-public class AbstractBoardImpl extends AbstractBoard2<Integer>
+public class IntegerBoard2 extends AbstractBoard2<Integer>
 {
 	@SuppressWarnings({"unchecked"})
-	public AbstractBoardImpl(int h, int v)
+	public IntegerBoard2(int h, int v)
 	{
 		super(h,v);
 		
@@ -24,8 +24,9 @@ public class AbstractBoardImpl extends AbstractBoard2<Integer>
 		
 	public static void main(String[] args)
 	{
-		AbstractBoardImpl test = new AbstractBoardImpl(5,5);
+		IntegerBoard2 test = new IntegerBoard2(5,5);
 		
 		int a = test.pieceAt2(0, 0).getType();
+		int b = test.getTypeAt(0, 0);
 	}
 }
