@@ -5,7 +5,7 @@ import rhsu.board.AbstractPiece;
 /**
  *A boolean implementation
  */
-public class BooleanPiece extends AbstractPiece
+public class BooleanPiece extends AbstractPiece<Boolean>
 {
 	public BooleanPiece(int i, int j, boolean b)
 	{

@@ -5,7 +5,7 @@ import rhsu.board.AbstractPiece;
 /**
  *A double implementation
  */
-public class DoublePiece extends AbstractPiece
+public class DoublePiece extends AbstractPiece<Double>
 {
 	public DoublePiece(int i, int j, double d)
 	{
