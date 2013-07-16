@@ -8,6 +8,8 @@ import rhsu.board.implementations.StringBoard;
  */
 public interface Board<T>
 {
+	public AbstractPiece<T> pieceAt(int i, int j);
+	
 	/**
 	 * 
 	 * @param i horizontal index
@@ -86,7 +88,5 @@ public interface Board<T>
 	 * @param baseBoard the board to convert from
 	 */
 	public void convertFromStringBoard(StringBoard baseBoard);
-	
-	public AbstractPiece<T> pieceAt(int i, int j);
 }
 
