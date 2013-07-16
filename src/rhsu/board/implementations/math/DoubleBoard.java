@@ -11,8 +11,9 @@ import rhsu.board.implementations.StringBoard;
 /**
  *A double implementation
  */
-public final class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
+public class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
 {
+	@SuppressWarnings({"unchecked"})
 	public DoubleBoard(int h, int v)
 	{
 		super(h, v);

@@ -10,8 +10,9 @@ import rhsu.board.implementations.StringBoard;
 /**
  *A big integer implementation
  */
-public final class BigIntegerBoard extends AbstractBoard<BigInteger> implements Matrix<BigInteger>
+public class BigIntegerBoard extends AbstractBoard<BigInteger> implements Matrix<BigInteger>
 {
+	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(int h, int v)
 	{
 		super(h, v);

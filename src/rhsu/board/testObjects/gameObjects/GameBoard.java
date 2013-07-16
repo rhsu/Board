@@ -2,7 +2,6 @@ package rhsu.board.testObjects.gameObjects;
 
 import rhsu.board.AbstractBoard;
 import java.util.ArrayList;
-import rhsu.board.Board;
 import rhsu.board.implementations.StringBoard;
 
 /**
@@ -163,6 +162,7 @@ public class GameBoard extends AbstractBoard<GamePiece>
 	/**
 	 *Constructor.
 	 */
+	@SuppressWarnings({"unchecked"})
 	public GameBoard(int h, int v)
 	{
 		super(h, v);

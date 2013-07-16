@@ -12,6 +12,7 @@ import rhsu.board.implementations.StringBoard;
  */
 public class BigDecimalBoard extends AbstractBoard<BigDecimal> implements Matrix<BigDecimal>
 {
+	@SuppressWarnings({"unchecked"})
 	public BigDecimalBoard(int h, int v)
 	{
 		super(h, v);

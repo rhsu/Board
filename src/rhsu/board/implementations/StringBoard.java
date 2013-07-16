@@ -7,6 +7,7 @@ import rhsu.board.AbstractBoard;
  */
 public class StringBoard extends AbstractBoard<String>
 {
+	@SuppressWarnings({"unchecked"})
 	public StringBoard(int h, int v)
 	{
 		super(h, v);

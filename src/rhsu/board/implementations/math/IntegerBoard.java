@@ -10,8 +10,9 @@ import rhsu.board.implementations.StringBoard;
 /**
  * An integer implementation
  */
-public final class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integer>
+public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integer>
 {
+	@SuppressWarnings({"unchecked"})
 	public IntegerBoard(int h, int v)
 	{
 		super(h, v);
