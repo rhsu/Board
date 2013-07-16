@@ -6,7 +6,7 @@ import rhsu.board.implementations.StringBoard;
  *
  * @author RHsu
  */
-public interface Board <T>
+public interface Board<T>
 {
 	/**
 	 * 
