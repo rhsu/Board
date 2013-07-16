@@ -10,26 +10,26 @@ import rhsu.board.implementations.StringBoard;
 /**
  *A big integer implementation
  */
-public final class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implements Matrix<BigIntegerPiece>
+public final class BigIntegerBoard extends AbstractBoard<BigInteger> implements Matrix<BigInteger>
 {
 	public BigIntegerBoard(int h, int v)
 	{
 		super(h, v);
-		board = new BigIntegerPiece[h][v];
+		board = new AbstractPiece[h][v];
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new BigIntegerPiece(i, j, BigInteger.ZERO);
+				board[i][j] = new AbstractPiece(i, j, BigInteger.ZERO);
 			}
 		}
 	}
 
-	public BigIntegerBoard(StringBoard copy)
+	/*public BigIntegerBoard(StringBoard copy)
 	{
 		super(copy);
 		this.convertFromStringBoard(copy);
-	}
+	}*/
 	
 	@Override
 	public Matrix Add(Matrix m) 
@@ -56,7 +56,7 @@ public final class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implem
 	}
 
 	@Override
-	public BigIntegerPiece Determinant() {
+	public BigInteger Determinant() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
@@ -68,7 +68,7 @@ public final class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implem
 	@Override
 	public void convertFromStringBoard(StringBoard baseBoard) 
 	{
-		Board<BigIntegerPiece> result = new BigIntegerBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
+		/*Board<BigIntegerPiece> result = new BigIntegerBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
 		try
 		{
@@ -86,6 +86,6 @@ public final class BigIntegerBoard extends AbstractBoard<BigIntegerPiece> implem
 		catch(NumberFormatException e)
 		{
 			//return null;
-		}
+		}*/
 	}
 }

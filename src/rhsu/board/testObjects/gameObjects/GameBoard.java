@@ -166,13 +166,13 @@ public class GameBoard extends AbstractBoard<GamePiece>
 	public GameBoard(int h, int v)
 	{
 		super(h, v);
-		board = new GamePiece[h][v];
+		board = new AbstractPiece[h][v];
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = (i < 6) ? new GamePiece(PieceType.EMPTY, i, j) 
-						: new GamePiece(PieceType.SET, i, j);
+				//board[i][j] = (i < 6) ? new GamePiece(PieceType.EMPTY, i, j) 
+				//		: new GamePiece(PieceType.SET, i, j);
 			}
 		}
 	}
@@ -247,7 +247,8 @@ public class GameBoard extends AbstractBoard<GamePiece>
 	}
 
 	@Override
-	public void convertFromStringBoard(StringBoard baseBoard) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	public void convertFromStringBoard(StringBoard baseBoard) 
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 }

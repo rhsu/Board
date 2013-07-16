@@ -11,26 +11,26 @@ import rhsu.board.implementations.StringBoard;
 /**
  *A double implementation
  */
-public final class DoubleBoard extends AbstractBoard<DoublePiece> implements Matrix<DoublePiece>
+public final class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
 {
 	public DoubleBoard(int h, int v)
 	{
 		super(h, v);
-		board = new DoublePiece[h][v];
+		board = new AbstractPiece[h][v];
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new DoublePiece(i, j, 0.0);
+				board[i][j] = new AbstractPiece(i, j, 0.0);
 			}
 		}
 	}
 
-	public DoubleBoard(StringBoard copy)
+	/*public DoubleBoard(StringBoard copy)
 	{
 		super(copy);
 		convertFromStringBoard(copy);
-	}
+	}*/
 	
 	@Override
 	public Matrix Add(Matrix m) 
@@ -81,7 +81,7 @@ public final class DoubleBoard extends AbstractBoard<DoublePiece> implements Mat
 	}
 
 	@Override
-	public DoublePiece Determinant() 
+	public Double Determinant() 
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
@@ -94,7 +94,7 @@ public final class DoubleBoard extends AbstractBoard<DoublePiece> implements Mat
 	@Override
 	public void convertFromStringBoard(StringBoard baseBoard) 
 	{
-		Board<DoublePiece> result = new DoubleBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
+		/*Board<DoublePiece> result = new DoubleBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
 		try
 		{
@@ -110,6 +110,6 @@ public final class DoubleBoard extends AbstractBoard<DoublePiece> implements Mat
 		catch(NumberFormatException e)
 		{
 			//return null;
-		}
+		}*/
 	}
 }

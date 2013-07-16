@@ -10,26 +10,26 @@ import rhsu.board.implementations.StringBoard;
 /**
  * An integer implementation
  */
-public final class IntegerBoard extends AbstractBoard<IntegerPiece> implements Matrix<IntegerPiece>
+public final class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integer>
 {
 	public IntegerBoard(int h, int v)
 	{
 		super(h, v);
-		board = new IntegerPiece[h][v];
+		board = new AbstractPiece[h][v];
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new IntegerPiece(i, j, 0);
+				board[i][j] = new AbstractPiece(i, j, 0);
 			}
 		}
 	}
 
-	public IntegerBoard(StringBoard copy)
+	/*public IntegerBoard(StringBoard copy)
 	{
 		super(copy);
 		convertFromStringBoard(copy);
-	}
+	}*/
 	
 	@Override
 	public Matrix Add(Matrix m) 
@@ -83,7 +83,7 @@ public final class IntegerBoard extends AbstractBoard<IntegerPiece> implements M
 	}
 
 	@Override
-	public IntegerPiece Determinant() 
+	public Integer Determinant() 
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
@@ -97,7 +97,7 @@ public final class IntegerBoard extends AbstractBoard<IntegerPiece> implements M
 	@Override
 	public void convertFromStringBoard(StringBoard baseBoard)
 	{
-		int h = baseBoard.getHorizontal_size();
+		/*int h = baseBoard.getHorizontal_size();
 		int v = baseBoard.getVertical_size();
 		board = new IntegerPiece[h][v];
 				
@@ -126,6 +126,6 @@ public final class IntegerBoard extends AbstractBoard<IntegerPiece> implements M
 		catch(NumberFormatException e)
 		{
 			board = null;
-		}
+		}*/
 	}
 }

@@ -4,11 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 import rhsu.board.implementations.StringBoard;
-import rhsu.board.implementations.math.IntegerBoard;
 import rhsu.board.utilities.UtilityFunctions;
 
 /**
@@ -267,7 +265,7 @@ public class BoardReader
 		{
 			for(int j = 0; j < v; j++)
 			{
-				outputBoard.pieceAt(i,j).setType(items.remove());
+				outputBoard.setTypeAt(i, j, items.remove());
 			}
 		}
 	}
@@ -284,7 +282,7 @@ public class BoardReader
 		{
 			for(int i = 0; i < item.length; i++)
 			{
-				outputBoard.pieceAt(boardCounter, i).setType(item[i]);
+				outputBoard.setTypeAt(boardCounter, i, item[i]);
 			}
 			boardCounter++;
 		}

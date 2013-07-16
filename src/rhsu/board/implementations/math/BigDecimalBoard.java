@@ -10,26 +10,26 @@ import rhsu.board.implementations.StringBoard;
 /**
  *A big decimal implementation
  */
-public final class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implements Matrix<BigDecimalPiece>
+public class BigDecimalBoard extends AbstractBoard<BigDecimal> implements Matrix<BigDecimal>
 {
 	public BigDecimalBoard(int h, int v)
 	{
 		super(h, v);
-		board = new BigDecimalPiece[h][v];
+		board = new AbstractPiece[h][v];
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new BigDecimalPiece(i, j, BigDecimal.ZERO);
+				board[i][j] = new AbstractPiece(i, j, BigDecimal.ZERO);
 			}
 		}
 	}
 
-	public BigDecimalBoard(StringBoard copy)
+	/*public BigDecimalBoard(StringBoard copy)
 	{
 		super(copy);
 		this.convertFromStringBoard(copy);
-	}
+	}*/
 	
 	@Override
 	public Matrix Add(Matrix m) 
@@ -56,7 +56,7 @@ public final class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implem
 	}
 
 	@Override
-	public BigDecimalPiece Determinant() 
+	public BigDecimal Determinant() 
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
@@ -70,7 +70,7 @@ public final class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implem
 	@Override
 	public void convertFromStringBoard(StringBoard baseBoard) 
 	{
-		Board<BigDecimalPiece> result = new BigDecimalBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
+		/*Board<BigDecimalPiece> result = new BigDecimalBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
 		try
 		{
@@ -88,6 +88,6 @@ public final class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implem
 		catch(NumberFormatException e)
 		{
 			//return null;
-		}
+		}*/
 	}
 }
