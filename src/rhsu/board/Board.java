@@ -1,7 +1,5 @@
 package rhsu.board;
 
-import java.util.List;
-import rhsu.board.AbstractBoard.AbstractPiece;
 import rhsu.board.implementations.StringBoard;
 
 /**
@@ -89,7 +87,6 @@ public interface Board<T>
 	 */
 	public void convertFromStringBoard(StringBoard baseBoard);
 	
-	//public AbstractPiece<T> pieceAt(int i, int j);
-	public TestObj<T> test();
+	public AbstractPiece<T> pieceAt(int i, int j);
 }
 

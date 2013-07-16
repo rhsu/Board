@@ -1,7 +1,5 @@
 package rhsu.board;
 
-import java.util.HashSet;
-import rhsu.board.Board;
 import rhsu.board.implementations.StringBoard;
 
 /**
@@ -9,64 +7,7 @@ import rhsu.board.implementations.StringBoard;
  * @author rhsu
  */
 public abstract class AbstractBoard<T> implements Board<T>
-{	
-	public class AbstractPiece<T>
-	{
-		private int horizontal;
-		private int vertical;
-		private T t;
-		
-		//<editor-fold defaultstate="collapsed" desc="ACCESSORS">
-		/**
-		* @return the horizontal index
-		*/
-		public int getHorizontal()
-		{
-			return this.horizontal;
-		}
-
-		/**
-		 * 
-		 * @return the vertical index
-		 */
-		public int getVertical()
-		{
-			return this.vertical;
-		}
-
-		/**
-		 * 
-		 * @return the object itself
-		 */
-		public T getType()
-		{
-			return t;
-		}
-
-		/**
-		 * Modifies the object to be the same as the parameter
-		 * @param t the value to change into
-		 */
-		public void setType(T t)
-		{
-			this.t = t;
-		}
-		//</editor-fold>
-		
-		public AbstractPiece(int i, int j, T t)
-		{
-			this.horizontal = i;
-			this.vertical = j;
-			this.t = t;
-		}
-		
-		@Override
-		public String toString()
-		{
-			return t.toString();
-		}
-	}
-	
+{		
 	/**
 	 * the board object to allocate in the constructor
 	 */
