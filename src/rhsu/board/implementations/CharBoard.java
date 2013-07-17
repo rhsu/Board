@@ -2,7 +2,6 @@ package rhsu.board.implementations;
 
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
-import rhsu.board.Board;
 
 /**
  *A character implementation

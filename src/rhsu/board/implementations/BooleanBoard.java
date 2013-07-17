@@ -8,7 +8,6 @@ import rhsu.board.BoardPiece;
  */
 public class BooleanBoard extends AbstractBoard<Boolean>
 {
-	
 	@SuppressWarnings({"unchecked"})
 	public BooleanBoard(int h, int v)
 	{

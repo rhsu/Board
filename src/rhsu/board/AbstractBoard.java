@@ -44,72 +44,69 @@ public abstract class AbstractBoard<T> implements Board<T>
 		horizontal_size = h;
 		vertical_size = v;
 	}
-	
-	//<editor-fold defaultstate="collapsed" desc="BOARD">
+
 	@Override
-	public T getLeftPiece(int i, int j) 
+	public BoardPiece<T> getLeftPiece(int i, int j) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		return pieceAt(i,j - 1);
 	}
 
 	@Override
-	public T getLeftPiece(Object p) 
+	public BoardPiece<T> getLeftPiece(BoardPiece<T> p) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		return getLeftPiece(p.getHorizontal(), p.getVertical() - 1);
 	}
 
 	@Override
-	public T getRightPiece(int i, int j) 
+	public BoardPiece<T> getRightPiece(int i, int j) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		return pieceAt(i, j + 1);
 	}
 
 	@Override
-	public T getRightPiece(Object p) 
+	public BoardPiece<T> getRightPiece(BoardPiece<T> p) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		return getRightPiece(p.getHorizontal(), p.getVertical() + 1);
 	}
 
 	@Override
-	public T getDownPiece(int i, int j) 
+	public BoardPiece<T> getDownPiece(int i, int j) 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return pieceAt(i + 1, j);
 	}
 
 	@Override
-	public T getDownPiece(Object p) 
+	public BoardPiece<T> getDownPiece(BoardPiece<T> p) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		return pieceAt(p.getHorizontal() + 1, p.getVertical());
 	}
 
 	@Override
-	public T getUpPiece(int i, int j) 
+	public BoardPiece<T> getUpPiece(int i, int j) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		return pieceAt(i - 1, j);
 	}
 
 	@Override
-	public T getUpPiece(Object p) 
+	public BoardPiece<T> getUpPiece(BoardPiece<T> p) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		return pieceAt(p.getHorizontal() - 1, p.getVertical());
 	}
 
 	@Override
 	public int getHorizontal_size() 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		return this.horizontal_size;
 	}
 
 	@Override
 	public int getVertical_size() 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		return this.vertical_size;
 	}
 
 	@Override
-	public void convertFromStringBoard(StringBoard baseBoard) 
-	{
-		throw new UnsupportedOperationException("Not supported yet.");
+	public void convertFromStringBoard(StringBoard baseBoard) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
-	//</editor-fold>
 }
