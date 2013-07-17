@@ -21,8 +21,8 @@ public class Main
 		
 		System.out.println(b);
 		
-		//System.out.println(b.getRightPiece(0,0));
+		System.out.println(b.getRightPiece(0,0));
 		System.out.println(b.getRightPiece(test));
-		System.out.println(test);
+		//System.out.println(test);
 	}
 }
