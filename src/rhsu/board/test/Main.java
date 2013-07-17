@@ -14,6 +14,8 @@ public class Main
 	{
 		BoardReader reader = new BoardReader();
 		reader.mainPrompt();
+		AbstractBoard<String> test = reader.getOutputBoard();
 		
+		System.out.println(test);
 	}
 }
