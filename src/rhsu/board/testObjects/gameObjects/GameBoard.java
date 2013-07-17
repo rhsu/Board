@@ -28,7 +28,7 @@ public class GameBoard extends AbstractBoard<GamePiece>
                 
 		GamePiece current = p;
 		int numAdjacent = 0;
-		while((getLeftPiece(current) != null) && (getLeftPiece(current).getType() != PieceType.EMPTY))
+		/*while((getLeftPiece(current) != null) && (getLeftPiece(current).getType() != PieceType.EMPTY))
 		{
 			numAdjacent++;
 			current = getLeftPiece(current);
@@ -40,7 +40,7 @@ public class GameBoard extends AbstractBoard<GamePiece>
 		{
 			numAdjacent++;
 			current = getRightPiece(current);
-		}
+		}*/
 
 		numAdjacent++; //increment to include self;
                 
@@ -66,7 +66,7 @@ public class GameBoard extends AbstractBoard<GamePiece>
 		int numAdjacent = 0;
 
 		//get the pieces below
-		while((getUpPiece(current) != null) && (getUpPiece(current).getType() != PieceType.EMPTY))
+		/*while((getUpPiece(current) != null) && (getUpPiece(current).getType() != PieceType.EMPTY))
 		{
 			numAdjacent++;
 			current = getUpPiece(current);
@@ -79,7 +79,7 @@ public class GameBoard extends AbstractBoard<GamePiece>
 		{
 			numAdjacent++;
 			current = getDownPiece(current);
-		}
+		}*/
                 
 		numAdjacent++; //include self
                 
