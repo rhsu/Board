@@ -109,4 +109,22 @@ public abstract class AbstractBoard<T> implements Board<T>
 	public void convertFromStringBoard(StringBoard baseBoard) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder builder = new StringBuilder();
+		builder.append("==============").append("\n");		
+		for (int i = 0; i < horizontal_size; i++)
+		{
+			for (int j = 0 ; j < vertical_size; j++)
+			{				
+				builder.append(pieceAt(i,j).toString()).append(" ");
+			}
+			builder.append("\n");
+		}
+		builder.append("==============");
+		return builder.toString();
+	}
+		
 }
