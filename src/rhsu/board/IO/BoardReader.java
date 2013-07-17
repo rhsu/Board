@@ -164,7 +164,7 @@ public class BoardReader
 	 * Reads in hard input
 	 * @param in 
 	 */
-	public void readInByInputPrompt()
+	private void readInByInputPrompt()
 	{
 		System.out.println("Enter the number of rows");
 		int h = getValidNumberFromUser();
@@ -191,7 +191,7 @@ public class BoardReader
 	/**
 	 * Reads in from file
 	 */
-	public void readInByFilePrompt()
+	private void readInByFilePrompt()
 	{		
 		boolean hasError;
 		
@@ -241,7 +241,7 @@ public class BoardReader
 	 * @param inNextLine
 	 * @return true or false if the enter entered back
 	 */
-	public boolean checkReturnToMainPrompt(String inNextLine)
+	private boolean checkReturnToMainPrompt(String inNextLine)
 	{
 		if(inNextLine.equalsIgnoreCase("back")) 
 		{
@@ -257,7 +257,7 @@ public class BoardReader
 	 * @param v the vertical size of the board
 	 * @param items the user inputted items (as a queue)
 	 */
-	public void setUpOutputBoardFromInput(int h, int v, LinkedList<String> items)
+	private void setUpOutputBoardFromInput(int h, int v, LinkedList<String> items)
 	{
 		outputBoard = new StringBoard(h, v);
 		
@@ -274,7 +274,7 @@ public class BoardReader
 	 * sets up the output board based off of a file
 	 * @param fileContent the file contents to populate a board
 	 */
-	public void setUpOutputBoardFromReadin(LinkedList<String[]> fileContent)
+	private void setUpOutputBoardFromReadin(LinkedList<String[]> fileContent)
 	{
 		outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
 		int boardCounter = 0;		
@@ -291,7 +291,7 @@ public class BoardReader
 	/**
 	 * Displays help
 	 */
-	public void displayHelp()
+	private void displayHelp()
 	{
 		System.out.println("This is the help option");
 	}
