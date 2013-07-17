@@ -10,16 +10,21 @@ import rhsu.board.implementations.*;
 public class Main
 {
 	public static void main(String[] args)
-	{ 
-		BoardReader reader = new BoardReader();
-		reader.mainPrompt();
+	{
+		//DoubleBoard b = new DoubleBoard(1,1);
 		
-		StringBoard test = reader.getOutputBoard();
+		//double d1 = (double) b.getTypeAt(0, 0);
 		
-		//System.out.println(test);
+		//double d2 = (double) b.pieceAt(0, 0).getType();
 		
-		IntegerBoard b = new IntegerBoard(test);
+		DoublePiece test = new DoublePiece(1,1,1);
 		
-		System.out.println(b);
+		Double d3 = test.getType();
+		
+		IntegerPiece test2 = new IntegerPiece(1,1,1);
+		
+		Integer t2 = test2.getType();
+		
+		System.out.println(d3 + t2);
 	}
 }

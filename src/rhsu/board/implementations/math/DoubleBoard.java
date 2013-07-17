@@ -29,7 +29,7 @@ public final class DoubleBoard extends AbstractBoard<DoublePiece> implements Mat
 	public DoubleBoard(StringBoard copy)
 	{
 		super(copy);
-		ConvertFromStringBoard(copy);
+		convertFromStringBoard(copy);
 	}
 	
 	@Override
@@ -92,7 +92,7 @@ public final class DoubleBoard extends AbstractBoard<DoublePiece> implements Mat
 	}
 
 	@Override
-	public void ConvertFromStringBoard(StringBoard baseBoard) 
+	public void convertFromStringBoard(StringBoard baseBoard) 
 	{
 		Board<DoublePiece> result = new DoubleBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		

@@ -26,7 +26,7 @@ public class BooleanBoard extends AbstractBoard<BooleanPiece>
 	public BooleanBoard(StringBoard copy)
 	{
 		super(copy);
-		this.ConvertFromStringBoard(copy);
+		this.convertFromStringBoard(copy);
 	}
 	
 	/*
@@ -46,7 +46,7 @@ public class BooleanBoard extends AbstractBoard<BooleanPiece>
 	}*/
 	
 	@Override
-	public void ConvertFromStringBoard(StringBoard baseBoard) 
+	public void convertFromStringBoard(StringBoard baseBoard) 
 	{	
 		Board<BooleanPiece> result = new BooleanBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		

@@ -4,9 +4,23 @@ import rhsu.board.implementations.StringBoard;
 import rhsu.board.utilities.UtilityFunctions;
 
 /**
- * The Abstract Board class is a custom made data-structure, which allows easy
- * access of "pieces" by retrieval functions.
+ * The Abstract Board abstract class is a 2D array wrapper class,
+ * which allows access of "pieces" by retrieval functions.
+ * 
+ * A "piece" is defined as an object, which includes two additional properties:
+ * 
+ * Horizontal Index and Vertical Index
+ * 
  * @param <T> Generic Type. The type must extend Abstract Piece
+ * 
+ * Some example implementations include:
+ * @see sampleImplementations.BooleanBoard
+ * @see sampleImplementations.CharBoard
+ * @see sampleImplementations.math.IntBoard
+ * @see sampleImplementations.math.DoubleBoard
+ * @see sampleImplementations.math.BigDecimalBoard
+ * @see sampleImplementations.math.BigIntegerBoard
+ * @see sampleImplementations.StringBoard 
  */
 public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T>
 {
@@ -175,15 +189,6 @@ public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T
 	 * }
 	 * </code>
 	 * </pre>
-	 * 
-	 * Some example implementations include:
-	 * @see sampleImplementations.BooleanBoard
-	 * @see sampleImplementations.CharBoard
-	 * @see sampleImplementations.math.IntBoard
-	 * @see sampleImplementations.math.DoubleBoard
-	 * @see sampleImplementations.math.BigDecimalBoard
-	 * @see sampleImplementations.math.BigIntegerBoard
-	 * @see sampleImplementations.StringBoard
 	 */
 	public AbstractBoard(int i, int j)
 	{
@@ -198,6 +203,10 @@ public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T
 		this.vertical_size = copy.getVertical_size();
 	}*/
 	
+	/**
+	 * Allows 
+	 * @param copy 
+	 */
 	public AbstractBoard(StringBoard copy)
 	{
 		this.horizontal_size = copy.getHorizontal_size();
@@ -244,8 +253,12 @@ public abstract class AbstractBoard <T extends AbstractPiece> implements Board<T
 		return builder.toString();
 	}
 	
+	/**
+	 * Converts the current board into a board based off of values from the baseBoard
+	 * @param baseBoard the board to convert from
+	 */
 	@Override
-	public void ConvertFromStringBoard(StringBoard other)
+	public void convertFromStringBoard(StringBoard other)
 	{
 		
 	}

@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 /**
  *A big decimal implementation
  */
-public class BigDecimalPiece extends AbstractPiece
+public class BigDecimalPiece extends AbstractPiece<BigDecimal>
 {
 	public BigDecimalPiece(int h, int j, BigDecimal bd)
 	{

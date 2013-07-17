@@ -28,7 +28,7 @@ public final class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implem
 	public BigDecimalBoard(StringBoard copy)
 	{
 		super(copy);
-		this.ConvertFromStringBoard(copy);
+		this.convertFromStringBoard(copy);
 	}
 	
 	@Override
@@ -68,7 +68,7 @@ public final class BigDecimalBoard extends AbstractBoard<BigDecimalPiece> implem
 	}
 
 	@Override
-	public void ConvertFromStringBoard(StringBoard baseBoard) 
+	public void convertFromStringBoard(StringBoard baseBoard) 
 	{
 		Board<BigDecimalPiece> result = new BigDecimalBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
