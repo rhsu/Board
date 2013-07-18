@@ -18,6 +18,53 @@ import rhsu.board.utilities.UtilityFunctions;
  */
 public final class BoardReaderConsoleApp
 {	
+	private class BoardReaderOutputBuilder
+	{
+		private StringBoard outputBoard;
+
+		/**
+		 * Creates an output board based off of user inputted items
+		 * @param h the horizontal size of the board
+		 * @param v the vertical size of the board
+		 * @param items the user inputted items (as a queue)
+		 */
+		private void buildOutputBoard(int h, int v, LinkedList<String> items)
+		{
+			outputBoard = new StringBoard(h, v);
+
+			for(int i = 0; i < h; i++)
+			{
+				for(int j = 0; j < v; j++)
+				{
+					outputBoard.setTypeAt(i, j, items.remove());
+				}
+			}
+		}
+
+		/**
+		 * sets up the output board based off of a file
+		 * @param fileContent the file contents to populate a board
+		 */
+		private void buildOutputBoard(LinkedList<String[]> fileContent)
+		{
+			outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
+			int boardCounter = 0;		
+			for(String[] item : fileContent)
+			{
+				for(int i = 0; i < item.length; i++)
+				{
+					outputBoard.setTypeAt(boardCounter, i, item[i]);
+				}
+				boardCounter++;
+			}
+		}
+
+		private StringBoard getOutputBoard()
+		{
+			return outputBoard;
+		}
+	}
+	
 	/**
 	 * All the supported delimiters: space, pipe, comma, semicolon, colon, tab
 	 */
@@ -28,25 +75,20 @@ public final class BoardReaderConsoleApp
 	 */
 	private Scanner in;
 	
-	private BoardReader reader;
+	private BoardReaderOutputBuilder builder;
 	
 	/**
 	 * Constructor for building a reader
 	 */
 	public BoardReaderConsoleApp()
 	{
-		reader = new BoardReader();
+		builder = new BoardReaderOutputBuilder();
 		in = new Scanner(System.in);
 	}
 	
 	public StringBoard getOutputBoard()
 	{
-		return reader.getOutputBoard();
-	}
-	
-	public BoardReader getReader()
-	{
-		return reader;
+		return builder.getOutputBoard();
 	}
 	
 	/**
@@ -183,7 +225,7 @@ public final class BoardReaderConsoleApp
 				items.offer(inNextLine);
 			}
 		}
-		reader.buildOutputBoard(h, v, items);
+		builder.buildOutputBoard(h, v, items);
 	}
 	
 	/**
@@ -231,7 +273,7 @@ public final class BoardReaderConsoleApp
 			}
 		}while(hasError);
 		
-		reader.buildOutputBoard(fileContent);
+		builder.buildOutputBoard(fileContent);
 	}
 	
 	/**
