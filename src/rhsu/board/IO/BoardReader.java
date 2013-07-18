@@ -60,4 +60,9 @@ public class BoardReader
 			boardCounter++;
 		}
 	}
+	
+	public StringBoard getOutputBoard()
+	{
+		return outputBoard;
+	}
 }

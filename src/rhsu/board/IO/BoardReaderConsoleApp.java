@@ -24,20 +24,6 @@ public final class BoardReaderConsoleApp
 	private final static String DELIMITERS = " |,;:\t";
 	
 	/**
-	 * the StringBoard that is constructed by this instance of a BoardReader
-	 */
-	private StringBoard outputBoard;
-	
-	/**
-	 * Getter for output board
-	 * @return the created output board
-	 */
-	public StringBoard getOutputBoard()
-	{
-		return outputBoard;
-	}
-	
-	/**
 	 * Private scanner member
 	 */
 	private Scanner in;
@@ -53,10 +39,20 @@ public final class BoardReaderConsoleApp
 		in = new Scanner(System.in);
 	}
 	
+	public StringBoard getOutputBoard()
+	{
+		return reader.getOutputBoard();
+	}
+	
+	public BoardReader getReader()
+	{
+		return reader;
+	}
+	
 	/**
 	 * The main prompt
 	 */
-	public void mainPrompt()
+	private void mainPrompt()
 	{
 		boolean hasError;
 		do
@@ -259,5 +255,15 @@ public final class BoardReaderConsoleApp
 	private void displayHelp()
 	{
 		System.out.println("This is the help option");
+	}
+	
+	public static void LaunchApp()
+	{
+		BoardReaderConsoleApp app = new BoardReaderConsoleApp();
+		app.mainPrompt();
+		
+		StringBoard test = app.getOutputBoard();
+		
+		System.out.println(test);
 	}
 }
