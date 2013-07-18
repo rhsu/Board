@@ -12,10 +12,7 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		BoardReader reader = new BoardReader();
-		reader.mainPrompt();
-		AbstractBoard<String> test = reader.getOutputBoard();
-		
-		System.out.println(test);
+		BoardReaderConsoleApp app = new BoardReaderConsoleApp();
+		app.mainPrompt();
 	}
 }

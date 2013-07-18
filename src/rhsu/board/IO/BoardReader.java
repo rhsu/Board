@@ -30,7 +30,7 @@ public class BoardReader
 	 * @param v the vertical size of the board
 	 * @param items the user inputted items (as a queue)
 	 */
-	private void buildOutputBoard(int h, int v, LinkedList<String> items)
+	public void buildOutputBoard(int h, int v, LinkedList<String> items)
 	{
 		outputBoard = new StringBoard(h, v);
 		
@@ -47,7 +47,7 @@ public class BoardReader
 	 * sets up the output board based off of a file
 	 * @param fileContent the file contents to populate a board
 	 */
-	private void buildOutputBoard(LinkedList<String[]> fileContent)
+	public void buildOutputBoard(LinkedList<String[]> fileContent)
 	{
 		outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
 		int boardCounter = 0;		
