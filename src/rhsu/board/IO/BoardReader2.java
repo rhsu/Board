@@ -38,32 +38,11 @@ public class BoardReader2
 		
 		return outputBoard;
 	}
-
-	/**
-	 * sets up the output board based off of a file
-	 * @param fileContent the file contents to populate a board
-	 */
-	public StringBoard buildOutputBoard(LinkedList<String[]> fileContent)
-	{
-		StringBoard outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
-		
-		int boardCounter = 0;		
-		for(String[] item : fileContent)
-		{
-			for(int i = 0; i < item.length; i++)
-			{
-				outputBoard.setTypeAt(boardCounter, i, item[i]);
-			}
-			boardCounter++;
-		}
-		
-		return outputBoard;
-	}
 	
 	/**
 	 * Reads in from file
 	 */
-	public StringBoard buildOutputBoard(String filename)
+	public StringBoard buildOutputBoard(String filename) throws IOException
 	{		
 		LinkedList<String[]> fileContent = new LinkedList<>();
 		
@@ -88,7 +67,8 @@ public class BoardReader2
 		}
 		catch (IOException e)
 		{
-			return new StringBoard(0,0);
+			//return new StringBoard(0,0);
+			throw new IOException("File not found");
 		}
 		
 		

@@ -18,77 +18,25 @@ import rhsu.board.utilities.UtilityFunctions;
  */
 public final class BoardReaderConsoleApp
 {	
-	private class BoardReaderOutputBuilder
-	{
-		private StringBoard outputBoard;
-
-		/**
-		 * Creates an output board based off of user inputted items
-		 * @param h the horizontal size of the board
-		 * @param v the vertical size of the board
-		 * @param items the user inputted items (as a queue)
-		 */
-		private void buildOutputBoard(int h, int v, LinkedList<String> items)
-		{
-			outputBoard = new StringBoard(h, v);
-
-			for(int i = 0; i < h; i++)
-			{
-				for(int j = 0; j < v; j++)
-				{
-					outputBoard.setTypeAt(i, j, items.remove());
-				}
-			}
-		}
-
-		/**
-		 * sets up the output board based off of a file
-		 * @param fileContent the file contents to populate a board
-		 */
-		private void buildOutputBoard(LinkedList<String[]> fileContent)
-		{
-			outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
-			int boardCounter = 0;		
-			for(String[] item : fileContent)
-			{
-				for(int i = 0; i < item.length; i++)
-				{
-					outputBoard.setTypeAt(boardCounter, i, item[i]);
-				}
-				boardCounter++;
-			}
-		}
-
-		private StringBoard getOutputBoard()
-		{
-			return outputBoard;
-		}
-	}
-	
-	/**
-	 * All the supported delimiters: space, pipe, comma, semicolon, colon, tab
-	 */
-	private final static String DELIMITERS = " |,;:\t";
-	
 	/**
 	 * Private scanner member
 	 */
 	private Scanner in;
-	
-	private BoardReaderOutputBuilder builder;
+	private BoardReader2 reader;
+	private StringBoard outputBoard;
 	
 	/**
 	 * Constructor for building a reader
 	 */
 	public BoardReaderConsoleApp()
 	{
-		builder = new BoardReaderOutputBuilder();
+		reader = new BoardReader2();
 		in = new Scanner(System.in);
 	}
 	
 	public StringBoard getOutputBoard()
 	{
-		return builder.getOutputBoard();
+		return outputBoard;
 	}
 	
 	/**
@@ -225,7 +173,7 @@ public final class BoardReaderConsoleApp
 				items.offer(inNextLine);
 			}
 		}
-		builder.buildOutputBoard(h, v, items);
+		outputBoard = reader.buildOutputBoard(h, v, items);
 	}
 	
 	/**
@@ -247,33 +195,17 @@ public final class BoardReaderConsoleApp
 			String filename = nextLine;
 			hasError = false;
 
-			try (BufferedReader br = new BufferedReader(new FileReader(filename)))
+			try
 			{
-				String line;
-				while ((line = br.readLine()) != null)
-				{
-					StringTokenizer tokenizer = new StringTokenizer(line, DELIMITERS);
-					String[] delimitedLines = new String[tokenizer.countTokens()];
-					
-					int index = 0;
-					
-					while(tokenizer.hasMoreTokens())
-					{
-						delimitedLines[index] = tokenizer.nextToken().trim();
-						index++;
-					}
-					
-					fileContent.add(delimitedLines);
-				}
+				outputBoard = reader.buildOutputBoard(filename);
 			}
-			catch (IOException e)
+			catch(IOException e)
 			{
-				System.out.println("ERROR: File not found");
+				outputBoard = null;
 				hasError = true;
+				System.out.println("Invalid Filename: Try again");
 			}
 		}while(hasError);
-		
-		builder.buildOutputBoard(fileContent);
 	}
 	
 	/**
