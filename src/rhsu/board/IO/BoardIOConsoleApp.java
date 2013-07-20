@@ -16,7 +16,7 @@ import rhsu.board.utilities.UtilityFunctions;
  * By default, the created objects are of type String
  * 
  */
-public final class BoardReaderConsoleApp
+public final class BoardIOConsoleApp
 {	
 	/**
 	 * Private scanner member
@@ -28,7 +28,7 @@ public final class BoardReaderConsoleApp
 	/**
 	 * Constructor for building a reader
 	 */
-	public BoardReaderConsoleApp()
+	public BoardIOConsoleApp()
 	{
 		reader = new BoardReader();
 		in = new Scanner(System.in);
@@ -233,7 +233,7 @@ public final class BoardReaderConsoleApp
 	
 	public static void LaunchApp()
 	{
-		BoardReaderConsoleApp app = new BoardReaderConsoleApp();
+		BoardIOConsoleApp app = new BoardIOConsoleApp();
 		app.mainPrompt();
 		
 		StringBoard test = app.getOutputBoard();
