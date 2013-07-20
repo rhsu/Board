@@ -2,7 +2,7 @@ package rhsu.board.testObjects.gameObjects;
 
 import rhsu.board.AbstractBoard;
 import java.util.ArrayList;
-import rhsu.board.Board;
+import rhsu.board.BoardPiece;
 import rhsu.board.implementations.StringBoard;
 
 /**
@@ -28,7 +28,7 @@ public class GameBoard extends AbstractBoard<GamePiece>
                 
 		GamePiece current = p;
 		int numAdjacent = 0;
-		while((getLeftPiece(current) != null) && (getLeftPiece(current).getType() != PieceType.EMPTY))
+		/*while((getLeftPiece(current) != null) && (getLeftPiece(current).getType() != PieceType.EMPTY))
 		{
 			numAdjacent++;
 			current = getLeftPiece(current);
@@ -40,7 +40,7 @@ public class GameBoard extends AbstractBoard<GamePiece>
 		{
 			numAdjacent++;
 			current = getRightPiece(current);
-		}
+		}*/
 
 		numAdjacent++; //increment to include self;
                 
@@ -66,7 +66,7 @@ public class GameBoard extends AbstractBoard<GamePiece>
 		int numAdjacent = 0;
 
 		//get the pieces below
-		while((getUpPiece(current) != null) && (getUpPiece(current).getType() != PieceType.EMPTY))
+		/*while((getUpPiece(current) != null) && (getUpPiece(current).getType() != PieceType.EMPTY))
 		{
 			numAdjacent++;
 			current = getUpPiece(current);
@@ -79,7 +79,7 @@ public class GameBoard extends AbstractBoard<GamePiece>
 		{
 			numAdjacent++;
 			current = getDownPiece(current);
-		}
+		}*/
                 
 		numAdjacent++; //include self
                 
@@ -101,12 +101,12 @@ public class GameBoard extends AbstractBoard<GamePiece>
 		ArrayList<GamePiece> arrayList = new ArrayList<>();
 		for(int j = 0; j < 7; j++)
 		{
-			GamePiece temp = pieceAt(row, j);
+			/*GamePiece temp = pieceAt(row, j);
 
 			if((temp != null) && (temp.getType() != PieceType.EMPTY))
 			{
 				arrayList.add(temp);
-			}
+			}*/
 		}
 		return arrayList;
 	}
@@ -128,11 +128,11 @@ public class GameBoard extends AbstractBoard<GamePiece>
 			
 		for(int i = 0; i < 7; i++)
 		{
-			GamePiece temp = pieceAt(i, column);
+			/*GamePiece temp = pieceAt(i, column);
 			if((temp != null) && (temp.getType() != PieceType.EMPTY))
 			{
 				arrayList.add(temp);
-			}
+			}*/
 		}
 		return arrayList;
 	}
@@ -148,11 +148,11 @@ public class GameBoard extends AbstractBoard<GamePiece>
 		{
 			for(int j = 0; j < 7; j++)
 			{
-				GamePiece p = (GamePiece) pieceAt(i, j);
+				/*GamePiece p = (GamePiece) pieceAt(i, j);
 				if(p.getRemove())
 				{
 					list.add(p);
-				}
+				}*/
 			}
 		}
 		return list;
@@ -163,16 +163,17 @@ public class GameBoard extends AbstractBoard<GamePiece>
 	/**
 	 *Constructor.
 	 */
+	@SuppressWarnings({"unchecked"})
 	public GameBoard(int h, int v)
 	{
 		super(h, v);
-		board = new GamePiece[h][v];
+		board = new BoardPiece[h][v];
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = (i < 6) ? new GamePiece(PieceType.EMPTY, i, j) 
-						: new GamePiece(PieceType.SET, i, j);
+				//board[i][j] = (i < 6) ? new GamePiece(PieceType.EMPTY, i, j) 
+				//		: new GamePiece(PieceType.SET, i, j);
 			}
 		}
 	}
@@ -197,13 +198,13 @@ public class GameBoard extends AbstractBoard<GamePiece>
 		
 		for (int index = 6; index >= 0; index--)
 		{
-			GamePiece current = (GamePiece)pieceAt(index, position);
+			/*GamePiece current = (GamePiece)pieceAt(index, position);
 			if(current.getType() == PieceType.EMPTY)
 			{				
 				current.setValue(value);
 				checkForRemoval(current);				
 				return true;
-			}
+			}*/
 		}
 		return false;
 	}
@@ -247,7 +248,8 @@ public class GameBoard extends AbstractBoard<GamePiece>
 	}
 
 	@Override
-	public void convertFromStringBoard(StringBoard baseBoard) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	public void convertFromStringBoard(StringBoard baseBoard) 
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 }

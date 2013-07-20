@@ -1,33 +1,32 @@
 package rhsu.board.implementations;
 
-import java.util.HashSet;
-import java.util.Set;
 import rhsu.board.AbstractBoard;
-import rhsu.board.Board;
+import rhsu.board.BoardPiece;
 
 /**
  *A boolean implementation
  */
-public class BooleanBoard extends AbstractBoard<BooleanPiece>
+public class BooleanBoard extends AbstractBoard<Boolean>
 {
+	@SuppressWarnings({"unchecked"})
 	public BooleanBoard(int h, int v)
 	{
 		super(h, v);
-		board = new BooleanPiece[h][v];
+		board = new BoardPiece[h][v];
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new BooleanPiece(i, j, false);
+				board[i][j] = new BoardPiece(i, j, false);
 			}
 		}
 	}
 
-	public BooleanBoard(StringBoard copy)
+	/*public BooleanBoard(StringBoard copy)
 	{
-		super(copy);
-		this.convertFromStringBoard(copy);
-	}
+		//super(copy);
+		//this.convertFromStringBoard(copy);
+	}*/
 	
 	/*
 	public BooleanBoard(AbstractBoard<BooleanPiece> other)
@@ -48,14 +47,15 @@ public class BooleanBoard extends AbstractBoard<BooleanPiece>
 	@Override
 	public void convertFromStringBoard(StringBoard baseBoard) 
 	{	
-		Board<BooleanPiece> result = new BooleanBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
+		BooleanBoard result = new BooleanBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
 		for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
 		{
 			for(int v = 0; v < baseBoard.getVertical_size(); v++)
 			{
-				Boolean b = (baseBoard.getTypeAt(h, v).equals("1")) ? true : Boolean.valueOf(baseBoard.getTypeAt(h, v).toString());
-				result.pieceAt(h, v).setType(b);
+				/*Boolean b = (baseBoard.pieceAt(h, v).getType().equals("1")) ? true
+						: Boolean.valueOf(baseBoard.pieceAt(h, v).toString());
+				result.pieceAt(h, v).setType(b);*/
 			}
 		}
 	}
