@@ -63,7 +63,7 @@ public class BoardReader2
 	/**
 	 * Reads in from file
 	 */
-	private StringBoard buildOutputBoard(String filename)
+	public StringBoard buildOutputBoard(String filename)
 	{		
 		LinkedList<String[]> fileContent = new LinkedList<>();
 		
@@ -88,9 +88,23 @@ public class BoardReader2
 		}
 		catch (IOException e)
 		{
-			
+			return new StringBoard(0,0);
 		}
 		
-		return buildOutputBoard(fileContent);
+		
+		StringBoard outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
+		
+		int boardCounter = 0;
+		
+		for(String[] item : fileContent)
+		{
+			for(int i = 0; i < item.length; i++)
+			{
+				outputBoard.setTypeAt(boardCounter, i, item[i]);
+			}
+			boardCounter++;
+		}
+		
+		return outputBoard;
 	}
 }
