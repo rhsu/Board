@@ -1,36 +1,37 @@
 package rhsu.board.implementations;
 
 import rhsu.board.AbstractBoard;
-import rhsu.board.Board;
+import rhsu.board.BoardPiece;
 
 /**
  *A character implementation
  */
-public class CharBoard extends AbstractBoard<CharPiece>
+public class CharBoard extends AbstractBoard<Character>
 {
+	@SuppressWarnings({"unchecked"})
 	public CharBoard(int h, int v)
 	{
 		super(h, v);
-		board = new CharPiece[h][v];
+		board = new BoardPiece[h][v];
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new CharPiece(i, j, ' ');
+				board[i][j] = new BoardPiece(i, j, ' ');
 			}
 		}
 	}
 
-	public CharBoard(StringBoard copy)
+	/*public CharBoard(StringBoard copy)
 	{
 		super(copy);
 		this.convertFromStringBoard(copy);
-	}
+	}*/
 	
 	@Override
 	public void convertFromStringBoard(StringBoard baseBoard) 
 	{
-		Board<CharPiece> result = new CharBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
+		/*Board<CharPiece> result = new CharBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
 		try
 		{
@@ -46,6 +47,6 @@ public class CharBoard extends AbstractBoard<CharPiece>
 		catch(NumberFormatException e)
 		{
 			//return null;
-		}
+		}*/
 	}
 }

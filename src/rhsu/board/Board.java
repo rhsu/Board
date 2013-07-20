@@ -6,49 +6,51 @@ import rhsu.board.implementations.StringBoard;
  *
  * @author RHsu
  */
-public interface Board <T>
+public interface Board<T>
 {
+	public BoardPiece<T> pieceAt(int i, int j);
+	
 	/**
 	 * 
 	 * @param i horizontal index
 	 * @param j vertical index
 	 * @return The piece to the left of the given index
 	 */
-	public T getLeftPiece(int i, int j);
+	public BoardPiece<T> getLeftPiece(int i, int j);
 	
 	/**
 	 * 
 	 * @param p Piece
 	 * @return The piece to the left of the given piece
 	 */
-	public T getLeftPiece(T p);	
+	public BoardPiece<T> getLeftPiece(BoardPiece<T> p);	
 	
 	/**
 	 * 
 	 * @param p Piece
 	 * @return The piece to the left of the given piece
 	 */
-	public T getRightPiece(int i, int j);
+	public BoardPiece<T> getRightPiece(int i, int j);
 	
 	/**
 	 * 
 	 * @param p Piece
 	 * @return The piece to the right of the given piece
 	 */
-	public T getRightPiece(T p);
+	public BoardPiece<T> getRightPiece(BoardPiece<T> p);
 	
 	/**
 	 * @param p piece
 	 * @return The piece below the given piece
 	 */
-	public T getDownPiece(int i, int j);
+	public BoardPiece<T> getDownPiece(int i, int j);
 	
 	/**
 	 * 
 	 * @param p piece
 	 * @return The piece above the given piece
 	 */
-	public T getDownPiece(T p);
+	public BoardPiece<T> getDownPiece(BoardPiece<T> p);
 	
 	/**
 	 * 
@@ -56,22 +58,18 @@ public interface Board <T>
 	 * @param j vertical index
 	 * @return The piece above the given index
 	 */
-	public T getUpPiece(int i, int j);
+	public BoardPiece<T> getUpPiece(int i, int j);
 	
 	/**
 	 * 
 	 * @param p piece
 	 * @return The piece above the given piece
 	 */
-	public T getUpPiece(T p);
+	public BoardPiece<T> getUpPiece(BoardPiece<T> p);
+		
+	public T getTypeAt(int i, int j);
 	
-	/**
-	 * Retrieves a Piece from the board with the given indices
-	 * @param i horizontal index
-	 * @param j vertical index
-	 * @return The piece from the board. Null if no piece exists
-	 */
-	public T pieceAt(int i, int j);
+	public void setTypeAt(int i, int j, T t);	
 	
 	/**
 	 * 
@@ -84,21 +82,6 @@ public interface Board <T>
 	 * @return the vertical size of the board
 	 */
 	public int getVertical_size();
-	
-	/**
-	 * Retrieves the underlying Object from the board with the given indices
-	 * @param i horizontal index
-	 * @param j vertical index
-	 * @return The underlying Object from the board. Null if no object exists
-	 */
-	public Object getTypeAt(int i, int j);
-	
-	/**
-	 * Sets the type at the given indices
-	 * @param i horizontal index
-	 * @param j vertical index
-	 */
-	public void setTypeAt(int i, int j, Object obj);
 	
 	/**
 	 * Converts the current board into a board based off of values from the baseBoard

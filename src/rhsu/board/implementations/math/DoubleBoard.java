@@ -3,7 +3,7 @@ package rhsu.board.implementations.math;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import rhsu.board.AbstractBoard;
-import rhsu.board.Board;
+import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
 import rhsu.board.implementations.StringBoard;
@@ -11,26 +11,27 @@ import rhsu.board.implementations.StringBoard;
 /**
  *A double implementation
  */
-public final class DoubleBoard extends AbstractBoard<DoublePiece> implements Matrix<DoublePiece>
+public class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
 {
+	@SuppressWarnings({"unchecked"})
 	public DoubleBoard(int h, int v)
 	{
 		super(h, v);
-		board = new DoublePiece[h][v];
+		board = new BoardPiece[h][v];
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new DoublePiece(i, j, 0.0);
+				board[i][j] = new BoardPiece(i, j, 0.0);
 			}
 		}
 	}
 
-	public DoubleBoard(StringBoard copy)
+	/*public DoubleBoard(StringBoard copy)
 	{
 		super(copy);
 		convertFromStringBoard(copy);
-	}
+	}*/
 	
 	@Override
 	public Matrix Add(Matrix m) 
@@ -56,9 +57,9 @@ public final class DoubleBoard extends AbstractBoard<DoublePiece> implements Mat
 		{
 			for(int j = 0; j < v; j++)
 			{
-				Double a = (Double) this.getTypeAt(i, j);
-				Double b = (Double) m.getTypeAt(i, j);
-				result.setTypeAt(i,j, a+b);				
+				//Double a = (Double) this.getTypeAt(i, j);
+				//Double b = (Double) m.getTypeAt(i, j);
+				//result.setTypeAt(i,j, a+b);				
 			}
 		}
 		
@@ -81,7 +82,7 @@ public final class DoubleBoard extends AbstractBoard<DoublePiece> implements Mat
 	}
 
 	@Override
-	public DoublePiece Determinant() 
+	public Double Determinant() 
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
@@ -94,7 +95,7 @@ public final class DoubleBoard extends AbstractBoard<DoublePiece> implements Mat
 	@Override
 	public void convertFromStringBoard(StringBoard baseBoard) 
 	{
-		Board<DoublePiece> result = new DoubleBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
+		/*Board<DoublePiece> result = new DoubleBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
 		
 		try
 		{
@@ -110,6 +111,6 @@ public final class DoubleBoard extends AbstractBoard<DoublePiece> implements Mat
 		catch(NumberFormatException e)
 		{
 			//return null;
-		}
+		}*/
 	}
 }
