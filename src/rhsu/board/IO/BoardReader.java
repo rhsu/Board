@@ -11,7 +11,7 @@ import rhsu.board.implementations.StringBoard;
  *
  * @author robert
  */
-public class BoardReader2 
+public class BoardReader 
 {
 	/**
 	 * All the supported delimiters: space, pipe, comma, semicolon, colon, tab
@@ -86,5 +86,11 @@ public class BoardReader2
 		}
 		
 		return outputBoard;
+	}
+	
+	public static StringBoard getBoardFromFile(String filename) throws IOException
+	{
+		BoardReader reader = new BoardReader();
+		return reader.buildOutputBoard(filename);
 	}
 }

@@ -22,7 +22,7 @@ public final class BoardReaderConsoleApp
 	 * Private scanner member
 	 */
 	private Scanner in;
-	private BoardReader2 reader;
+	private BoardReader reader;
 	private StringBoard outputBoard;
 	
 	/**
@@ -30,7 +30,7 @@ public final class BoardReaderConsoleApp
 	 */
 	public BoardReaderConsoleApp()
 	{
-		reader = new BoardReader2();
+		reader = new BoardReader();
 		in = new Scanner(System.in);
 	}
 	
