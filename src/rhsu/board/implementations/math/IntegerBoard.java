@@ -27,17 +27,10 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 			}
 		}
 	}
-
+	
 	public IntegerBoard(String filename)
 	{
 		super(filename);
-	}
-	
-	@Override
-	public void export(String filename)
-	{
-		//BoardWriter writer = new BoardWriter(this, filename);
-		//BoardWriter.write(filename, this);
 	}
 	
 	/*public IntegerBoard(StringBoard copy)

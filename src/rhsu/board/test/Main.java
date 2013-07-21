@@ -17,7 +17,6 @@ public class Main
 		
 		IntegerBoard b = new IntegerBoard(3,3);
 		b.setTypeAt(0, 2, 2562);
-		
 		b.export("test.txt");
 	}
 }
