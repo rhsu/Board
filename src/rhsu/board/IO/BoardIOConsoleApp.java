@@ -25,7 +25,6 @@ public final class BoardIOConsoleApp
 	private BoardReader reader;
 	private StringBoard outputBoard;
 	
-	
 	/**
 	 * Constructor for building a reader
 	 */
