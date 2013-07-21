@@ -4,6 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
+import rhsu.board.IO.BoardWriter;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
 import rhsu.board.implementations.StringBoard;
@@ -30,6 +31,12 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 	public IntegerBoard(String filename)
 	{
 		super(filename);
+	}
+	
+	@Override
+	public void export(String filename)
+	{
+		BoardWriter writer = new BoardWriter(this, filename);
 	}
 	
 	/*public IntegerBoard(StringBoard copy)
