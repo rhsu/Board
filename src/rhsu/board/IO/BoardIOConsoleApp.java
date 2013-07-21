@@ -25,6 +25,7 @@ public final class BoardIOConsoleApp
 	private BoardReader reader;
 	private StringBoard outputBoard;
 	
+	
 	/**
 	 * Constructor for building a reader
 	 */
@@ -71,7 +72,40 @@ public final class BoardIOConsoleApp
 					hasError = true;
 					break;
 			}
+			
 		}while(hasError);
+		
+		writePrompt();
+		
+	}
+	
+	private void writePrompt()
+	{
+		System.out.println("Board successfully created.");
+		System.out.println("Would you like to export?");
+		String line = in.nextLine();
+		
+		switch(line)
+		{
+			case "Yes":
+			case "yes":
+			case "Y":
+			case "y":
+				System.out.println("Enter a filename");
+				String filename = in.nextLine();
+				BoardWriter writer = new BoardWriter(outputBoard, filename);
+				System.out.println("Exporting board as " + filename);
+				System.out.println("Exiting the application");
+				break;
+			case "No":
+			case "no":
+			case "N":
+			case "n":
+				System.out.println("Not exporting...");
+				System.out.println("The board you created is " + outputBoard);
+				System.out.println("Exiting the application");
+				break;
+		}
 	}
 	
 	/**

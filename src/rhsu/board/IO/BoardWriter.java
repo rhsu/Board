@@ -21,6 +21,11 @@ public class BoardWriter
 	{
 		return content;
 	}
+
+	public BoardWriter()
+	{
+		
+	}
 	
 	/**
 	 * Suggested Constructor for BoardWriter
