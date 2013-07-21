@@ -7,68 +7,8 @@ import java.io.IOException;
 import rhsu.board.AbstractBoard;
  
 public class BoardWriter 
-{
-	/**
-	 * The content to write to the reader
-	 */
-	private String content;
-	
-	/**
-	 * 
-	 * @return the content that the reader wrote to the file
-	 */
-	public String getContent()
-	{
-		return content;
-	}
-
-	public BoardWriter()
-	{
-		
-	}
-	
-	/**
-	 * Suggested Constructor for BoardWriter
-	 * @param the board to write
-	 * @param filename the name of the file to output
-	 */
-	public BoardWriter(AbstractBoard board, String filename)
-	{
-		try 
-		{	
-			content = board.toString();
-			
-			File file = new File(filename);
- 
-			if (!file.exists()) 
-			{
-				file.createNewFile();
-			}
- 
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			try (BufferedWriter bw = new BufferedWriter(fw))
-			{
-				bw.write(content);
-			}
- 
-			System.out.println("Done creating file: " + filename);
-		} 
-		catch (IOException e) 
-		{
-			System.out.println(e);
-		}
-	}
-	
-	/**
-	 * Makes the filename to be output.txt
-	 * @param board the board to write
-	 */
-	public BoardWriter(AbstractBoard board)
-	{
-		this(board, "output.txt");
-	}
-	
-	public static void write(AbstractBoard board, String filename)
+{	
+	public void writeBoardToFile(String filename, AbstractBoard board)
 	{
 		try 
 		{	
@@ -92,6 +32,17 @@ public class BoardWriter
 		catch (IOException e) 
 		{
 			System.out.println(e);
-		}
+		}		
+	}
+	
+	public void writeBoardToFile(AbstractBoard board)
+	{
+		writeBoardToFile("output.txt", board);
+	}
+	
+	public static void write(String filename, AbstractBoard board)
+	{
+		BoardWriter writer = new BoardWriter();
+		writer.writeBoardToFile(filename, board);
 	}
 }
