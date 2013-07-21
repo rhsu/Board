@@ -27,6 +27,11 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 		}
 	}
 
+	public IntegerBoard(String filename)
+	{
+		super(filename);
+	}
+	
 	/*public IntegerBoard(StringBoard copy)
 	{
 		super(copy);

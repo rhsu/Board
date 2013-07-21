@@ -45,6 +45,16 @@ public abstract class AbstractBoard<T> implements Board<T>
 		vertical_size = v;
 	}
 
+	public AbstractBoard(String filename)
+	{
+		
+	}
+	
+	public void export(String filename)
+	{
+		
+	}
+	
 	@Override
 	public BoardPiece<T> getLeftPiece(int i, int j) 
 	{
