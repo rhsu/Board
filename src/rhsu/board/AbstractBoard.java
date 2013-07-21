@@ -1,5 +1,6 @@
 package rhsu.board;
 
+import rhsu.board.IO.BoardWriter;
 import rhsu.board.implementations.StringBoard;
 
 /**
@@ -52,7 +53,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	
 	public void export(String filename)
 	{
-		
+		BoardWriter.write(filename, this);
 	}
 	
 	@Override
