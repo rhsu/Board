@@ -67,4 +67,31 @@ public class BoardWriter
 	{
 		this(board, "output.txt");
 	}
+	
+	public static void write(AbstractBoard board, String filename)
+	{
+		try 
+		{	
+			String content = board.toString();
+			
+			File file = new File(filename);
+ 
+			if (!file.exists()) 
+			{
+				file.createNewFile();
+			}
+ 
+			FileWriter fw = new FileWriter(file.getAbsoluteFile());
+			try (BufferedWriter bw = new BufferedWriter(fw))
+			{
+				bw.write(content);
+			}
+ 
+			System.out.println("Done creating file: " + filename);
+		} 
+		catch (IOException e) 
+		{
+			System.out.println(e);
+		}
+	}
 }
