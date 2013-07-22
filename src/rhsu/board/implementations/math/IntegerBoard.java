@@ -1,9 +1,11 @@
 package rhsu.board.implementations.math;
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
+import rhsu.board.IO.BoardReader;
 import rhsu.board.IO.BoardWriter;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
@@ -28,9 +30,29 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 		}
 	}
 	
+	@SuppressWarnings({"unchecked"})
 	public IntegerBoard(String filename)
 	{
 		super(filename);
+
+		try
+		{
+			this.doConvertFromStringBoard(BoardReader.getBoardFromFile(filename));
+		}
+		catch(IOException e)
+		{
+			this.horizontal_size = 0;
+			this.vertical_size = 0;
+			this.board = new BoardPiece[horizontal_size][vertical_size];
+			
+			for(int i = 0; i < horizontal_size; i++)
+			{
+				for(int j = 0; j < vertical_size; j++)
+				{
+					board[i][j] = new BoardPiece(i, j, 0);
+				}
+			}
+		}
 	}
 	
 	/*public IntegerBoard(StringBoard copy)
@@ -102,30 +124,36 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 	
+	private void doConvertFromStringBoard(StringBoard baseBoard)
+	{
+		convertFromStringBoard(baseBoard);
+	}
+	
+	@SuppressWarnings({"unchecked"})
 	@Override
 	public void convertFromStringBoard(StringBoard baseBoard)
-	{
-		/*int h = baseBoard.getHorizontal_size();
-		int v = baseBoard.getVertical_size();
-		board = new IntegerPiece[h][v];
-				
+	{	
+		this.horizontal_size = baseBoard.getHorizontal_size();
+		this.vertical_size = baseBoard.getVertical_size();
+		this.board = new BoardPiece[horizontal_size][vertical_size];
+		
 		try
 		{
-			for(int i = 0; i < h; i++)
+			for(int i = 0; i < horizontal_size; i++)
 			{
-				for(int j = 0; j < v; j++)
+				for(int j = 0; j < vertical_size; j++)
 				{
 					if(baseBoard.pieceAt(i,j).getType().equalsIgnoreCase("true"))
 					{
-						board[i][j] = new IntegerPiece(i, j, 1);
+						board[i][j] = new BoardPiece(i, j, 1);
 					}
 					else if(baseBoard.pieceAt(i, j).getType().equalsIgnoreCase("false"))
 					{
-						board[i][j] = new IntegerPiece(i, j, 0);
+						board[i][j] = new BoardPiece(i, j, 0);
 					}
 					else
 					{
-						board[i][j] = new IntegerPiece(i, j, 
+						board[i][j] = new BoardPiece(i, j, 
 								Integer.parseInt(baseBoard.pieceAt(i, j).getType()));
 					}
 				}
@@ -134,6 +162,6 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 		catch(NumberFormatException e)
 		{
 			board = null;
-		}*/
+		}
 	}
 }

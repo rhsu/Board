@@ -71,7 +71,6 @@ public class BoardReader
 			throw new IOException("File not found");
 		}
 		
-		
 		StringBoard outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
 		
 		int boardCounter = 0;

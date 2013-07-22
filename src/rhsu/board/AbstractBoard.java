@@ -1,5 +1,7 @@
 package rhsu.board;
 
+import java.io.IOException;
+import rhsu.board.IO.BoardReader;
 import rhsu.board.IO.BoardWriter;
 import rhsu.board.implementations.StringBoard;
 
@@ -22,6 +24,24 @@ public abstract class AbstractBoard<T> implements Board<T>
 	 */
 	protected int vertical_size;
 	
+	public AbstractBoard(int h, int v)
+	{
+		horizontal_size = h;
+		vertical_size = v;
+	}
+
+	public AbstractBoard(String filename)
+	{
+		/*try
+		{
+			StringBoard board = BoardReader.getBoardFromFile(filename);
+		}
+		catch(IOException e)
+		{
+			
+		}*/
+	}
+	
 	@Override
 	public BoardPiece<T> pieceAt(int i, int j)
 	{
@@ -38,17 +58,6 @@ public abstract class AbstractBoard<T> implements Board<T>
 	public void setTypeAt(int i, int j, T t)
 	{
 		board[i][j].setType(t);
-	}
-	
-	public AbstractBoard(int h, int v)
-	{
-		horizontal_size = h;
-		vertical_size = v;
-	}
-
-	public AbstractBoard(String filename)
-	{
-		
 	}
 	
 	public void export(String filename)
