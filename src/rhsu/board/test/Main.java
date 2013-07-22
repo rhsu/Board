@@ -15,7 +15,7 @@ public class Main
 	{
 		//IntegerBoard b = new IntegerBoard("test.txt");
 		
-		DoubleBoard b = new DoubleBoard("test.txt");
+		IntegerBoard b = new IntegerBoard("test.txt");
 		
 		System.out.println(b);
 	}

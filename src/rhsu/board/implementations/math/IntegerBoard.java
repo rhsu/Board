@@ -129,44 +129,4 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
-	
-	private void doConvertFromStringBoard(StringBoard baseBoard)
-	{
-		convertFromStringBoard(baseBoard);
-	}
-	
-	@SuppressWarnings({"unchecked"})
-	public void convertFromStringBoard(StringBoard baseBoard)
-	{	
-		this.horizontal_size = baseBoard.getHorizontal_size();
-		this.vertical_size = baseBoard.getVertical_size();
-		this.board = new BoardPiece[horizontal_size][vertical_size];
-		
-		try
-		{
-			for(int i = 0; i < horizontal_size; i++)
-			{
-				for(int j = 0; j < vertical_size; j++)
-				{
-					if(baseBoard.pieceAt(i,j).getType().equalsIgnoreCase("true"))
-					{
-						board[i][j] = new BoardPiece(i, j, 1);
-					}
-					else if(baseBoard.pieceAt(i, j).getType().equalsIgnoreCase("false"))
-					{
-						board[i][j] = new BoardPiece(i, j, 0);
-					}
-					else
-					{
-						board[i][j] = new BoardPiece(i, j, 
-								Integer.parseInt(baseBoard.getTypeAt(i, j)));
-					}
-				}
-			}
-		}
-		catch(NumberFormatException e)
-		{
-			board = null;
-		}
-	}
 }
