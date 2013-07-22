@@ -30,16 +30,6 @@ public abstract class AbstractBoard<T> implements Board<T>
 		horizontal_size = h;
 		vertical_size = v;
 	}
-
-	/*@SuppressWarnings({"unchecked"})
-	public AbstractBoard(String filename)
-	{
-		StringBoard baseBoard = BoardReader.getBoardFromFile(filename);
-			
-		this.horizontal_size = baseBoard.getHorizontal_size();
-		this.vertical_size = baseBoard.getVertical_size();
-		this.board = new BoardPiece[horizontal_size][vertical_size];
-	}*/
 	
 	@SuppressWarnings({"unchecked"})
 	public AbstractBoard(String filename)
