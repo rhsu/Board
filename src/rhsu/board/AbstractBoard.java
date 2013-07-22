@@ -114,6 +114,20 @@ public abstract class AbstractBoard<T> implements Board<T>
 	public String toString()
 	{
 		StringBuilder builder = new StringBuilder();
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for (int j = 0; j < vertical_size; j++)
+			{
+				builder.append(pieceAt(i,j).toString()).append(" ");
+			}
+			builder.append("\n");
+		}
+		return builder.toString();
+	}
+	
+	public String printString()
+	{
+		StringBuilder builder = new StringBuilder();
 		builder.append("==============").append("\n");		
 		for (int i = 0; i < horizontal_size; i++)
 		{
@@ -126,5 +140,4 @@ public abstract class AbstractBoard<T> implements Board<T>
 		builder.append("==============");
 		return builder.toString();
 	}
-		
 }
