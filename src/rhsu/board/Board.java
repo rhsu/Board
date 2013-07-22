@@ -1,7 +1,5 @@
 package rhsu.board;
 
-import rhsu.board.implementations.StringBoard;
-
 /**
  *
  * @author RHsu
