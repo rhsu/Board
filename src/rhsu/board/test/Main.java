@@ -13,10 +13,10 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		//BoardIOConsoleApp.LaunchApp();
+		//IntegerBoard b = new IntegerBoard("test.txt");
 		
-		IntegerBoard b = new IntegerBoard(3,3);
-		b.setTypeAt(0, 2, 2562);
-		b.export("test.txt");
+		DoubleBoard b = new DoubleBoard("test.txt");
+		
+		System.out.println(b);
 	}
 }

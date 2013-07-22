@@ -32,14 +32,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 
 	public AbstractBoard(String filename)
 	{
-		/*try
-		{
-			StringBoard board = BoardReader.getBoardFromFile(filename);
-		}
-		catch(IOException e)
-		{
-			
-		}*/
+		
 	}
 	
 	@Override

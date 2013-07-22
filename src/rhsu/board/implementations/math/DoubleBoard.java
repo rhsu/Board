@@ -1,9 +1,11 @@
 package rhsu.board.implementations.math;
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
+import rhsu.board.IO.BoardReader;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
 import rhsu.board.implementations.StringBoard;
@@ -27,6 +29,30 @@ public class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
 		}
 	}
 
+	public DoubleBoard(String filename)
+	{
+		super(filename);
+		
+		try
+		{
+			this.doConvertFromStringBoard(BoardReader.getBoardFromFile(filename));
+		}
+		catch(IOException e)
+		{
+			this.horizontal_size = 0;
+			this.vertical_size = 0;
+			this.board = new BoardPiece[horizontal_size][vertical_size];
+			
+			for(int i = 0; i < horizontal_size; i++)
+			{
+				for(int j = 0; j < vertical_size; j++)
+				{
+					board[i][j] = new BoardPiece(i, j, 0.0);
+				}
+			}
+		}
+	}
+	
 	/*public DoubleBoard(StringBoard copy)
 	{
 		super(copy);
@@ -92,25 +118,32 @@ public class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
+	private void doConvertFromStringBoard(StringBoard baseBoard)
+	{
+		convertFromStringBoard(baseBoard);
+	}
+	
 	@Override
 	public void convertFromStringBoard(StringBoard baseBoard) 
 	{
-		/*Board<DoublePiece> result = new DoubleBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
+		this.horizontal_size = baseBoard.getHorizontal_size();
+		this.vertical_size = baseBoard.getVertical_size();
+		this.board = new BoardPiece[horizontal_size][vertical_size];
 		
 		try
 		{
-			for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
+			for(int i = 0; i < baseBoard.getHorizontal_size(); i++)
 			{
-				for(int v = 0; v < baseBoard.getVertical_size(); v++)
+				for(int j = 0; j < baseBoard.getVertical_size(); j++)
 				{
-					result.pieceAt(h, v).setType(Double.parseDouble(baseBoard.pieceAt(h,v).getType()));
+					board[i][j] = new BoardPiece(i,j,
+							Double.parseDouble(baseBoard.getTypeAt(i, j)));
 				}
 			}
-			//return result;
 		}
 		catch(NumberFormatException e)
 		{
-			//return null;
-		}*/
+			board = null;
+		}
 	}
 }

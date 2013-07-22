@@ -154,7 +154,7 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 					else
 					{
 						board[i][j] = new BoardPiece(i, j, 
-								Integer.parseInt(baseBoard.pieceAt(i, j).getType()));
+								Integer.parseInt(baseBoard.getTypeAt(i, j)));
 					}
 				}
 			}
