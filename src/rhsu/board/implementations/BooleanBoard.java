@@ -22,6 +22,20 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 		}
 	}
 
+	public BooleanBoard(String filename)
+	{
+		super(filename);
+		
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				board[i][j] = new BoardPiece(i, j, 
+						Boolean.baseBoard.getTypeAt(i, j));
+			}
+		}
+	}
+	
 	/*public BooleanBoard(StringBoard copy)
 	{
 		//super(copy);

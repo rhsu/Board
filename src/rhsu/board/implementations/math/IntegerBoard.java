@@ -33,39 +33,34 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 	{		
 		super(filename);
 
-		try
+		for(int i = 0; i < horizontal_size; i++)
 		{
-			for(int i = 0; i < horizontal_size; i++)
+			for(int j = 0; j < vertical_size; j++)
 			{
-				for(int j = 0; j < vertical_size; j++)
+				if(baseBoard.pieceAt(i,j).getType().equalsIgnoreCase("true"))
 				{
-					if(baseBoard.pieceAt(i,j).getType().equalsIgnoreCase("true"))
+					board[i][j] = new BoardPiece(i, j, 1);
+				}
+				else if(baseBoard.pieceAt(i, j).getType().equalsIgnoreCase("false"))
+				{
+					board[i][j] = new BoardPiece(i, j, 0);
+				}
+				else
+				{
+					try
 					{
-						board[i][j] = new BoardPiece(i, j, 1);
+					board[i][j] = new BoardPiece(i, j, 
+							Integer.parseInt(baseBoard.getTypeAt(i, j)));
 					}
-					else if(baseBoard.pieceAt(i, j).getType().equalsIgnoreCase("false"))
+					catch(NumberFormatException e)
 					{
-						board[i][j] = new BoardPiece(i, j, 0);
-					}
-					else
-					{
-						board[i][j] = new BoardPiece(i, j, 
-								Integer.parseInt(baseBoard.getTypeAt(i, j)));
+						board[i][j] = new BoardPiece(i, j,
+								"ERROR");
 					}
 				}
 			}
 		}
-		catch(NumberFormatException e)
-		{
-			board = null;
-		}
 	}
-	
-	/*public IntegerBoard(StringBoard copy)
-	{
-		super(copy);
-		convertFromStringBoard(copy);
-	}*/
 	
 	@Override
 	public Matrix Add(Matrix m) 
@@ -121,12 +116,12 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 	@Override
 	public Integer Determinant() 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public Matrix Multiply(MatrixPiece piece) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 }

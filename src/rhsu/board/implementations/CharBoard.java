@@ -22,30 +22,18 @@ public class CharBoard extends AbstractBoard<Character>
 		}
 	}
 
-	/*public CharBoard(StringBoard copy)
+	@SuppressWarnings({"unchecked"})
+	public CharBoard(String filename)
 	{
-		super(copy);
-		this.convertFromStringBoard(copy);
-	}*/
-	
-	public void convertFromStringBoard(StringBoard baseBoard) 
-	{
-		/*Board<CharPiece> result = new CharBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
-		
-		try
+		super(filename);
+
+		for(int i = 0; i < horizontal_size; i++)
 		{
-			for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
+			for(int j = 0; j < vertical_size; j++)
 			{
-				for(int v = 0; v < baseBoard.getVertical_size(); v++)
-				{
-					result.pieceAt(h, v).setType(baseBoard.pieceAt(h,v).getType().charAt(0));
-				}
+				board[i][j] = new BoardPiece(i, j, 
+						baseBoard.getTypeAt(i, j).charAt(0));
 			}
-			//return result;
 		}
-		catch(NumberFormatException e)
-		{
-			//return null;
-		}*/
 	}
 }

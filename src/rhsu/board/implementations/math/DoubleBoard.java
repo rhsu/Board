@@ -34,30 +34,25 @@ public class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
 		
 		this.horizontal_size = baseBoard.getHorizontal_size();
 		this.vertical_size = baseBoard.getVertical_size();
-		this.board = new BoardPiece[horizontal_size][vertical_size];
-		
-		try
+		this.board = new BoardPiece[horizontal_size][vertical_size];		
+
+		for(int i = 0; i < baseBoard.getHorizontal_size(); i++)
 		{
-			for(int i = 0; i < baseBoard.getHorizontal_size(); i++)
+			for(int j = 0; j < baseBoard.getVertical_size(); j++)
 			{
-				for(int j = 0; j < baseBoard.getVertical_size(); j++)
+				try
 				{
-					board[i][j] = new BoardPiece(i,j,
-							Double.parseDouble(baseBoard.getTypeAt(i, j)));
+				board[i][j] = new BoardPiece(i,j,
+						Double.parseDouble(baseBoard.getTypeAt(i, j)));
+				}
+				catch(NumberFormatException e)
+				{
+					board[i][j] = new BoardPiece(i, j, 
+							"ERROR");
 				}
 			}
 		}
-		catch(NumberFormatException e)
-		{
-			board = null;
-		}
 	}
-	
-	/*public DoubleBoard(StringBoard copy)
-	{
-		super(copy);
-		convertFromStringBoard(copy);
-	}*/
 	
 	@Override
 	public Matrix Add(Matrix m) 
@@ -94,27 +89,27 @@ public class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
 
 	@Override
 	public Matrix Subtract(Matrix m) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public Matrix Multiply(Matrix m) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public Matrix Inverse() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public Double Determinant() 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public Matrix Multiply(MatrixPiece piece) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 }

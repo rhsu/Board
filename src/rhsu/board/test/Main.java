@@ -1,5 +1,7 @@
 package rhsu.board.test;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.HashSet;
 import rhsu.board.AbstractBoard;
 import rhsu.board.Board;
@@ -13,8 +15,10 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		BigIntegerBoard b = new BigIntegerBoard("test.txt");
+		Boolean b1 = Boolean.valueOf("abc");
 		
-		System.out.println(b);
+		System.out.println(b1);
+		
+		
 	}
 }
