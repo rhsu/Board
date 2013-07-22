@@ -247,7 +247,6 @@ public class GameBoard extends AbstractBoard<GamePiece>
 		}
 	}
 
-	@Override
 	public void convertFromStringBoard(StringBoard baseBoard) 
 	{
 		throw new UnsupportedOperationException("Not supported yet.");

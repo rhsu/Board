@@ -82,11 +82,5 @@ public interface Board<T>
 	 * @return the vertical size of the board
 	 */
 	public int getVertical_size();
-	
-	/**
-	 * Converts the current board into a board based off of values from the baseBoard
-	 * @param baseBoard the board to convert from
-	 */
-	public void convertFromStringBoard(StringBoard baseBoard);
 }
 

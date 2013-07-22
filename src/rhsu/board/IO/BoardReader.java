@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import rhsu.board.implementations.StringBoard;
 
 /**
@@ -87,9 +89,17 @@ public class BoardReader
 		return outputBoard;
 	}
 	
-	public static StringBoard getBoardFromFile(String filename) throws IOException
+	public static StringBoard getBoardFromFile(String filename)
 	{
 		BoardReader reader = new BoardReader();
-		return reader.buildOutputBoard(filename);
+		
+		try 
+		{
+			return reader.buildOutputBoard(filename);
+		} 
+		catch (IOException ex) 
+		{
+			return new StringBoard(0,0);
+		}
 	}
 }

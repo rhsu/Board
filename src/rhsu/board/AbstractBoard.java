@@ -30,9 +30,14 @@ public abstract class AbstractBoard<T> implements Board<T>
 		vertical_size = v;
 	}
 
+	@SuppressWarnings({"unchecked"})
 	public AbstractBoard(String filename)
 	{
-		
+		StringBoard baseBoard = BoardReader.getBoardFromFile(filename);
+			
+		this.horizontal_size = baseBoard.getHorizontal_size();
+		this.vertical_size = baseBoard.getVertical_size();
+		this.board = new BoardPiece[horizontal_size][vertical_size];
 	}
 	
 	@Override
@@ -118,11 +123,6 @@ public abstract class AbstractBoard<T> implements Board<T>
 		return this.vertical_size;
 	}
 
-	@Override
-	public void convertFromStringBoard(StringBoard baseBoard) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-	
 	@Override
 	public String toString()
 	{

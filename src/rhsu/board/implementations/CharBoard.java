@@ -28,7 +28,6 @@ public class CharBoard extends AbstractBoard<Character>
 		this.convertFromStringBoard(copy);
 	}*/
 	
-	@Override
 	public void convertFromStringBoard(StringBoard baseBoard) 
 	{
 		/*Board<CharPiece> result = new CharBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());

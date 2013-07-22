@@ -33,7 +33,7 @@ public class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
 	{
 		super(filename);
 		
-		try
+		/*try
 		{
 			this.doConvertFromStringBoard(BoardReader.getBoardFromFile(filename));
 		}
@@ -50,7 +50,7 @@ public class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
 					board[i][j] = new BoardPiece(i, j, 0.0);
 				}
 			}
-		}
+		}*/
 	}
 	
 	/*public DoubleBoard(StringBoard copy)
@@ -123,10 +123,9 @@ public class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
 		convertFromStringBoard(baseBoard);
 	}
 	
-	@Override
 	public void convertFromStringBoard(StringBoard baseBoard) 
 	{
-		this.horizontal_size = baseBoard.getHorizontal_size();
+		/*this.horizontal_size = baseBoard.getHorizontal_size();
 		this.vertical_size = baseBoard.getVertical_size();
 		this.board = new BoardPiece[horizontal_size][vertical_size];
 		
@@ -144,6 +143,6 @@ public class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
 		catch(NumberFormatException e)
 		{
 			board = null;
-		}
+		}*/
 	}
 }

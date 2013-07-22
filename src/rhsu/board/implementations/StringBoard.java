@@ -27,7 +27,6 @@ public class StringBoard extends AbstractBoard<String>
 		super(copy);
 	}*/
 	
-	@Override
 	public void convertFromStringBoard(StringBoard baseBoard) 
 	{
 		//return baseBoard;

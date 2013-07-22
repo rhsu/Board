@@ -68,7 +68,6 @@ public class BigDecimalBoard extends AbstractBoard<BigDecimal> implements Matrix
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
-	@Override
 	public void convertFromStringBoard(StringBoard baseBoard) 
 	{
 		/*Board<BigDecimalPiece> result = new BigDecimalBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
