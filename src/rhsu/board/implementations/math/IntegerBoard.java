@@ -30,11 +30,9 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 	
 	@SuppressWarnings({"unchecked"})
 	public IntegerBoard(String filename)
-	{
+	{		
 		super(filename);
-		
-		StringBoard baseBoard = BoardReader.getBoardFromFile(filename);
-		
+
 		try
 		{
 			for(int i = 0; i < horizontal_size; i++)
