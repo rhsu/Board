@@ -13,9 +13,7 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		//IntegerBoard b = new IntegerBoard("test.txt");
-		
-		IntegerBoard b = new IntegerBoard("test.txt");
+		BigIntegerBoard b = new BigIntegerBoard("test.txt");
 		
 		System.out.println(b);
 	}

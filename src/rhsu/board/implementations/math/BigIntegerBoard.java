@@ -6,6 +6,7 @@ import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
 import rhsu.board.implementations.StringBoard;
+import rhsu.board.utilities.UtilityFunctions;
 
 /**
  *A big integer implementation
@@ -25,45 +26,62 @@ public class BigIntegerBoard extends AbstractBoard<BigInteger> implements Matrix
 			}
 		}
 	}
-
-	/*public BigIntegerBoard(StringBoard copy)
-	{
-		super(copy);
-		this.convertFromStringBoard(copy);
-	}*/
 	
+	@SuppressWarnings({"unchecked"})
+	public BigIntegerBoard(String filename)
+	{
+		super(filename);
+		
+		try
+		{
+			for(int i = 0; i < horizontal_size; i++)
+			{
+				for(int j = 0; j < vertical_size; j++)
+				{
+					board[i][j] = UtilityFunctions.isInteger(baseBoard.getTypeAt(i, j)) ?
+							new BoardPiece(i, j, baseBoard.getTypeAt(i, j))
+							: new BoardPiece(i, j, "0");
+				}
+			}
+		}
+		catch(NumberFormatException e)
+		{
+			board = null;
+		}
+	}
+
 	@Override
 	public Matrix Add(Matrix m) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public Matrix Subtract(Matrix m) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public Matrix Multiply(Matrix m) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public Matrix Inverse() 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public BigInteger Determinant() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet."); 
 	}
 
 	@Override
 	public Matrix Multiply(MatrixPiece piece) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	public void convertFromStringBoard(StringBoard baseBoard) 
