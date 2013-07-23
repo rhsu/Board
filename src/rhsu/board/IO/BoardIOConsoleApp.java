@@ -1,11 +1,8 @@
 package rhsu.board.IO;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Scanner;
-import java.util.StringTokenizer;
 import rhsu.board.implementations.StringBoard;
 import rhsu.board.utilities.UtilityFunctions;
 
@@ -16,7 +13,7 @@ import rhsu.board.utilities.UtilityFunctions;
  * By default, the created objects are of type String
  * 
  */
-public final class BoardReaderConsoleApp
+public final class BoardIOConsoleApp
 {	
 	/**
 	 * Private scanner member
@@ -28,7 +25,7 @@ public final class BoardReaderConsoleApp
 	/**
 	 * Constructor for building a reader
 	 */
-	public BoardReaderConsoleApp()
+	public BoardIOConsoleApp()
 	{
 		reader = new BoardReader();
 		in = new Scanner(System.in);
@@ -71,7 +68,41 @@ public final class BoardReaderConsoleApp
 					hasError = true;
 					break;
 			}
+			
 		}while(hasError);
+		
+		writePrompt();
+		
+	}
+	
+	private void writePrompt()
+	{
+		System.out.println("Board successfully created.");
+		System.out.println("Would you like to export?");
+		String line = in.nextLine();
+		
+		switch(line)
+		{
+			case "Yes":
+			case "yes":
+			case "Y":
+			case "y":
+				System.out.println("Enter a filename");
+				String filename = in.nextLine();
+				//BoardWriter writer = new BoardWriter(outputBoard, filename);
+				BoardWriter.write(filename, outputBoard);
+				System.out.println("Exporting board as " + filename);
+				System.out.println("Exiting the application");
+				break;
+			case "No":
+			case "no":
+			case "N":
+			case "n":
+				System.out.println("Not exporting...");
+				System.out.println("The board you created is " + outputBoard);
+				System.out.println("Exiting the application");
+				break;
+		}
 	}
 	
 	/**
@@ -233,7 +264,7 @@ public final class BoardReaderConsoleApp
 	
 	public static void LaunchApp()
 	{
-		BoardReaderConsoleApp app = new BoardReaderConsoleApp();
+		BoardIOConsoleApp app = new BoardIOConsoleApp();
 		app.mainPrompt();
 		
 		StringBoard test = app.getOutputBoard();

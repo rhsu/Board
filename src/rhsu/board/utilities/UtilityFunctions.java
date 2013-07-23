@@ -72,5 +72,4 @@ public class UtilityFunctions
 	{
 		return s.matches("-?[0-9]+");
 	}
-
 }

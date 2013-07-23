@@ -7,31 +7,12 @@ import java.io.IOException;
 import rhsu.board.AbstractBoard;
  
 public class BoardWriter 
-{
-	/**
-	 * The content to write to the reader
-	 */
-	private String content;
-	
-	/**
-	 * 
-	 * @return the content that the reader wrote to the file
-	 */
-	public String getContent()
-	{
-		return content;
-	}
-	
-	/**
-	 * Suggested Constructor for BoardWriter
-	 * @param the board to write
-	 * @param filename the name of the file to output
-	 */
-	public BoardWriter(AbstractBoard board, String filename)
+{	
+	public void writeBoardToFile(String filename, AbstractBoard board)
 	{
 		try 
 		{	
-			content = board.toString();
+			String content = board.toString();
 			
 			File file = new File(filename);
  
@@ -51,15 +32,17 @@ public class BoardWriter
 		catch (IOException e) 
 		{
 			System.out.println(e);
-		}
+		}		
 	}
 	
-	/**
-	 * Makes the filename to be output.txt
-	 * @param board the board to write
-	 */
-	public BoardWriter(AbstractBoard board)
+	public void writeBoardToFile(AbstractBoard board)
 	{
-		this(board, "output.txt");
+		writeBoardToFile("output.txt", board);
+	}
+	
+	public static void write(String filename, AbstractBoard board)
+	{
+		BoardWriter writer = new BoardWriter();
+		writer.writeBoardToFile(filename, board);
 	}
 }
