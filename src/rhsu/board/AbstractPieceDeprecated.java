@@ -6,6 +6,7 @@ package rhsu.board;
  * access in the AbstractBoard object
  * @param <T> Generic Type (any valid object)
  */
+@Deprecated
 public abstract class AbstractPieceDeprecated<T>
 {
 	//<editor-fold  defaultstate="collpased" desc="MEMBER VARIABLES">
