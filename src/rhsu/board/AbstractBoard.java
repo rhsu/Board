@@ -1,5 +1,7 @@
 package rhsu.board;
 
+import rhsu.board.IO.BoardReader;
+import rhsu.board.IO.BoardWriter;
 import rhsu.board.implementations.StringBoard;
 
 /**
@@ -21,6 +23,24 @@ public abstract class AbstractBoard<T> implements Board<T>
 	 */
 	protected int vertical_size;
 	
+	protected StringBoard baseBoard;
+	
+	public AbstractBoard(int h, int v)
+	{
+		horizontal_size = h;
+		vertical_size = v;
+	}
+	
+	@SuppressWarnings({"unchecked"})
+	public AbstractBoard(String filename)
+	{
+		baseBoard = BoardReader.getBoardFromFile(filename);
+		
+		this.horizontal_size = baseBoard.getHorizontal_size();
+		this.vertical_size = baseBoard.getVertical_size();
+		this.board = new BoardPiece[horizontal_size][vertical_size];
+	}
+	
 	@Override
 	public BoardPiece<T> pieceAt(int i, int j)
 	{
@@ -39,12 +59,11 @@ public abstract class AbstractBoard<T> implements Board<T>
 		board[i][j].setType(t);
 	}
 	
-	public AbstractBoard(int h, int v)
+	public void export(String filename)
 	{
-		horizontal_size = h;
-		vertical_size = v;
+		BoardWriter.write(filename, this);
 	}
-
+	
 	@Override
 	public BoardPiece<T> getLeftPiece(int i, int j) 
 	{
@@ -78,7 +97,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	@Override
 	public BoardPiece<T> getDownPiece(BoardPiece<T> p) 
 	{
-		return pieceAt(p.getHorizontal(), p.getVertical());
+		return getDownPiece(p.getHorizontal(), p.getVertical());
 	}
 
 	@Override
@@ -90,7 +109,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	@Override
 	public BoardPiece<T> getUpPiece(BoardPiece<T> p) 
 	{
-		return pieceAt(p.getHorizontal(), p.getVertical());
+		return getUpPiece(p.getHorizontal(), p.getVertical());
 	}
 
 	@Override
@@ -105,11 +124,6 @@ public abstract class AbstractBoard<T> implements Board<T>
 		return this.vertical_size;
 	}
 
-	@Override
-	public void convertFromStringBoard(StringBoard baseBoard) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-	
 	@Override
 	public String toString()
 	{

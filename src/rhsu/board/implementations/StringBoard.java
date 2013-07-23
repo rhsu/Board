@@ -22,14 +22,18 @@ public class StringBoard extends AbstractBoard<String>
 		}
 	}
 	
-	/*public StringBoard(StringBoard copy)
+	@SuppressWarnings({"unchecked"})
+	public StringBoard(String filename)
 	{
-		super(copy);
-	}*/
-	
-	@Override
-	public void convertFromStringBoard(StringBoard baseBoard) 
-	{
-		//return baseBoard;
+		super(filename);
+
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				board[i][j] = new BoardPiece(i, j, 
+						baseBoard.getTypeAt(i, j));
+			}
+		}
 	}
 }

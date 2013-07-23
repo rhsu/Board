@@ -89,7 +89,8 @@ public final class BoardIOConsoleApp
 			case "y":
 				System.out.println("Enter a filename");
 				String filename = in.nextLine();
-				BoardWriter writer = new BoardWriter(outputBoard, filename);
+				//BoardWriter writer = new BoardWriter(outputBoard, filename);
+				BoardWriter.write(filename, outputBoard);
 				System.out.println("Exporting board as " + filename);
 				System.out.println("Exiting the application");
 				break;

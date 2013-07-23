@@ -6,7 +6,6 @@ import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
-import rhsu.board.implementations.StringBoard;
 
 /**
  * An integer implementation
@@ -26,12 +25,40 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 			}
 		}
 	}
+	
+	@SuppressWarnings({"unchecked"})
+	public IntegerBoard(String filename)
+	{		
+		super(filename);
 
-	/*public IntegerBoard(StringBoard copy)
-	{
-		super(copy);
-		convertFromStringBoard(copy);
-	}*/
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				if(baseBoard.pieceAt(i,j).getType().equalsIgnoreCase("true"))
+				{
+					board[i][j] = new BoardPiece(i, j, 1);
+				}
+				else if(baseBoard.pieceAt(i, j).getType().equalsIgnoreCase("false"))
+				{
+					board[i][j] = new BoardPiece(i, j, 0);
+				}
+				else
+				{
+					try
+					{
+					board[i][j] = new BoardPiece(i, j, 
+							Integer.parseInt(baseBoard.getTypeAt(i, j)));
+					}
+					catch(NumberFormatException e)
+					{
+						board[i][j] = new BoardPiece(i, j,
+								"ERROR");
+					}
+				}
+			}
+		}
+	}
 	
 	@Override
 	public Matrix Add(Matrix m) 
@@ -87,47 +114,12 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 	@Override
 	public Integer Determinant() 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public Matrix Multiply(MatrixPiece piece) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-	
-	@Override
-	public void convertFromStringBoard(StringBoard baseBoard)
-	{
-		/*int h = baseBoard.getHorizontal_size();
-		int v = baseBoard.getVertical_size();
-		board = new IntegerPiece[h][v];
-				
-		try
-		{
-			for(int i = 0; i < h; i++)
-			{
-				for(int j = 0; j < v; j++)
-				{
-					if(baseBoard.pieceAt(i,j).getType().equalsIgnoreCase("true"))
-					{
-						board[i][j] = new IntegerPiece(i, j, 1);
-					}
-					else if(baseBoard.pieceAt(i, j).getType().equalsIgnoreCase("false"))
-					{
-						board[i][j] = new IntegerPiece(i, j, 0);
-					}
-					else
-					{
-						board[i][j] = new IntegerPiece(i, j, 
-								Integer.parseInt(baseBoard.pieceAt(i, j).getType()));
-					}
-				}
-			}
-		}
-		catch(NumberFormatException e)
-		{
-			board = null;
-		}*/
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 }

@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
-import rhsu.board.implementations.StringBoard;
+import rhsu.board.utilities.UtilityFunctions;
 
 /**
  *A big decimal implementation
@@ -25,12 +25,29 @@ public class BigDecimalBoard extends AbstractBoard<BigDecimal> implements Matrix
 			}
 		}
 	}
-
-	/*public BigDecimalBoard(StringBoard copy)
+	
+	@SuppressWarnings({"unchecked"})
+	public BigDecimalBoard(String filename)
 	{
-		super(copy);
-		this.convertFromStringBoard(copy);
-	}*/
+		super(filename);
+		
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				try
+				{
+					board[i][j] = new BoardPiece(i, j, 
+							new BigDecimal(baseBoard.getTypeAt(i, j)));
+				}
+				catch(NumberFormatException e)
+				{
+					board[i][j] = new BoardPiece(i, j, 
+							"ERROR");
+				}
+			}
+		}
+	}
 	
 	@Override
 	public Matrix Add(Matrix m) 
@@ -65,30 +82,6 @@ public class BigDecimalBoard extends AbstractBoard<BigDecimal> implements Matrix
 	@Override
 	public Matrix Multiply(MatrixPiece piece) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public void convertFromStringBoard(StringBoard baseBoard) 
-	{
-		/*Board<BigDecimalPiece> result = new BigDecimalBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
-		
-		try
-		{
-			for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
-			{
-				for(int v = 0; v < baseBoard.getVertical_size(); v++)
-				{
-					//int i = Integer.parseInt(baseBoard.pieceAt(h,v).getType());
-					result.pieceAt(h, v).setType(
-							new BigDecimal(baseBoard.pieceAt(h,v).getType()));
-				}
-			}
-			//return result;
-		}
-		catch(NumberFormatException e)
-		{
-			//return null;
-		}*/
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 }

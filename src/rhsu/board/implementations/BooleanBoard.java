@@ -22,40 +22,19 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 		}
 	}
 
-	/*public BooleanBoard(StringBoard copy)
+	@SuppressWarnings({"unchecked"})
+	public BooleanBoard(String filename)
 	{
-		//super(copy);
-		//this.convertFromStringBoard(copy);
-	}*/
-	
-	/*
-	public BooleanBoard(AbstractBoard<BooleanPiece> other)
-	{
-		super(other);
-		int h = other.getHorizontal_size();
-		int v = other.getVertical_size();
-		board = new BooleanPiece[h][v];
-		for(int i = 0; i < h; i++)
-		{
-			for(int j = 0; j < v; j++)
-			{
-				board[i][j] = other.pieceAt(i, j);
-			}
-		}
-	}*/
-	
-	@Override
-	public void convertFromStringBoard(StringBoard baseBoard) 
-	{	
-		BooleanBoard result = new BooleanBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
+		super(filename);
 		
-		for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
+		for(int i = 0; i < horizontal_size; i++)
 		{
-			for(int v = 0; v < baseBoard.getVertical_size(); v++)
+			for(int j = 0; j < vertical_size; j++)
 			{
-				/*Boolean b = (baseBoard.pieceAt(h, v).getType().equals("1")) ? true
-						: Boolean.valueOf(baseBoard.pieceAt(h, v).toString());
-				result.pieceAt(h, v).setType(b);*/
+				board[i][j] = new BoardPiece(i, j, 
+						baseBoard.getTypeAt(i, j).equals("1")
+						? true
+						: Boolean.valueOf(baseBoard.getTypeAt(i, j)));
 			}
 		}
 	}
