@@ -4,10 +4,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
-import rhsu.board.IO.BoardReader;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
-import rhsu.board.implementations.StringBoard;
 
 /**
  * An integer implementation

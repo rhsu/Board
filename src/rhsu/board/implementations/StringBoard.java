@@ -22,6 +22,7 @@ public class StringBoard extends AbstractBoard<String>
 		}
 	}
 	
+	@SuppressWarnings({"unchecked"})
 	public StringBoard(String filename)
 	{
 		super(filename);

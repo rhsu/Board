@@ -15,10 +15,8 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		Boolean b1 = Boolean.valueOf("abc");
+		CharBoard b = new CharBoard("test.txt");
 		
-		System.out.println(b1);
-		
-		
+		System.out.println(b);
 	}
 }

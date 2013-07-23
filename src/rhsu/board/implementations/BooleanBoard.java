@@ -22,6 +22,7 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 		}
 	}
 
+	@SuppressWarnings({"unchecked"})
 	public BooleanBoard(String filename)
 	{
 		super(filename);

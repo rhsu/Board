@@ -6,7 +6,6 @@ import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
-import rhsu.board.implementations.StringBoard;
 
 /**
  *A double implementation
