@@ -31,6 +31,14 @@ public abstract class AbstractBoard<T> implements Board<T>
 		vertical_size = v;
 	}
 	
+	public AbstractBoard(Class<T> c, int h, int v)
+	{
+		horizontal_size = h;
+		vertical_size = v;
+		//testArray = c.cast(Array.
+		//		newInstance(c.getComponentType(), ));
+	}
+	
 	@SuppressWarnings({"unchecked"})
 	public AbstractBoard(String filename)
 	{
