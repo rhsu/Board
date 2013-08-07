@@ -6,7 +6,7 @@ package rhsu.board;
  */
 public interface Board<T>
 {
-	public BoardPiece<T> pieceAt(int i, int j);
+	public Object pieceAt(int i, int j);
 	
 	/**
 	 * 
@@ -14,41 +14,41 @@ public interface Board<T>
 	 * @param j vertical index
 	 * @return The piece to the left of the given index
 	 */
-	public BoardPiece<T> getLeftPiece(int i, int j);
+	public Object getLeftPiece(int i, int j);
 	
 	/**
 	 * 
 	 * @param p Piece
 	 * @return The piece to the left of the given piece
 	 */
-	public BoardPiece<T> getLeftPiece(BoardPiece<T> p);	
+	public Object getLeftPiece(Object p);	
 	
 	/**
 	 * 
 	 * @param p Piece
 	 * @return The piece to the left of the given piece
 	 */
-	public BoardPiece<T> getRightPiece(int i, int j);
+	public Object getRightPiece(int i, int j);
 	
 	/**
 	 * 
 	 * @param p Piece
 	 * @return The piece to the right of the given piece
 	 */
-	public BoardPiece<T> getRightPiece(BoardPiece<T> p);
+	public Object getRightPiece(Object p);
 	
 	/**
 	 * @param p piece
 	 * @return The piece below the given piece
 	 */
-	public BoardPiece<T> getDownPiece(int i, int j);
+	public Object getDownPiece(int i, int j);
 	
 	/**
 	 * 
 	 * @param p piece
 	 * @return The piece above the given piece
 	 */
-	public BoardPiece<T> getDownPiece(BoardPiece<T> p);
+	public Object getDownPiece(Object p);
 	
 	/**
 	 * 
@@ -56,14 +56,14 @@ public interface Board<T>
 	 * @param j vertical index
 	 * @return The piece above the given index
 	 */
-	public BoardPiece<T> getUpPiece(int i, int j);
+	public Object getUpPiece(int i, int j);
 	
 	/**
 	 * 
 	 * @param p piece
 	 * @return The piece above the given piece
 	 */
-	public BoardPiece<T> getUpPiece(BoardPiece<T> p);
+	public Object getUpPiece(Object p);
 		
 	public T getTypeAt(int i, int j);
 	

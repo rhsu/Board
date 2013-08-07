@@ -71,9 +71,10 @@ public abstract class AbstractBoard<T> implements Board<T>
 	}
 
 	@Override
-	public BoardPiece<T> getLeftPiece(BoardPiece<T> p) 
+	public BoardPiece<T> getLeftPiece(Object p) 
 	{
-		return getLeftPiece(p.getHorizontal(), p.getVertical());
+		BoardPiece<T> bp = (BoardPiece<T>)p;
+		return getLeftPiece(bp.getHorizontal(), bp.getVertical());
 	}
 
 	@Override
@@ -83,9 +84,10 @@ public abstract class AbstractBoard<T> implements Board<T>
 	}
 
 	@Override
-	public BoardPiece<T> getRightPiece(BoardPiece<T> p) 
+	public BoardPiece<T> getRightPiece(Object p) 
 	{
-		return getRightPiece(p.getHorizontal(), p.getVertical());
+		BoardPiece<T> bp = (BoardPiece<T>)p;
+		return getRightPiece(bp.getHorizontal(), bp.getVertical());
 	}
 
 	@Override
@@ -95,9 +97,10 @@ public abstract class AbstractBoard<T> implements Board<T>
 	}
 
 	@Override
-	public BoardPiece<T> getDownPiece(BoardPiece<T> p) 
+	public BoardPiece<T> getDownPiece(Object p) 
 	{
-		return getDownPiece(p.getHorizontal(), p.getVertical());
+		BoardPiece<T> bp = (BoardPiece<T>)p;
+		return getDownPiece(bp.getHorizontal(), bp.getVertical());
 	}
 
 	@Override
@@ -107,9 +110,10 @@ public abstract class AbstractBoard<T> implements Board<T>
 	}
 
 	@Override
-	public BoardPiece<T> getUpPiece(BoardPiece<T> p) 
+	public BoardPiece<T> getUpPiece(Object p) 
 	{
-		return getUpPiece(p.getHorizontal(), p.getVertical());
+		BoardPiece<T> bp = (BoardPiece<T>)p;
+		return getUpPiece(bp.getHorizontal(), bp.getVertical());
 	}
 
 	@Override

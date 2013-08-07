@@ -23,7 +23,7 @@ public class ObjectObjectBoard implements Board
 	}
 
 	@Override
-	public BoardPiece getLeftPiece(BoardPiece p) 
+	public BoardPiece getLeftPiece(Object p) 
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
@@ -35,7 +35,7 @@ public class ObjectObjectBoard implements Board
 	}
 
 	@Override
-	public BoardPiece getRightPiece(BoardPiece p) 
+	public BoardPiece getRightPiece(Object p) 
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
@@ -47,7 +47,7 @@ public class ObjectObjectBoard implements Board
 	}
 
 	@Override
-	public BoardPiece getDownPiece(BoardPiece p) 
+	public BoardPiece getDownPiece(Object p) 
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
@@ -59,7 +59,7 @@ public class ObjectObjectBoard implements Board
 	}
 
 	@Override
-	public BoardPiece getUpPiece(BoardPiece p) 
+	public BoardPiece getUpPiece(Object p) 
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
