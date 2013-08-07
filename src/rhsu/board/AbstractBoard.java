@@ -43,8 +43,10 @@ public abstract class AbstractBoard<T> implements Board<T>
 	
 	@Override
 	public BoardPiece<T> pieceAt(int i, int j)
-	{
-		return board[i][j];
+	{		
+		return ((i >= this.horizontal_size || j >= this.vertical_size || i < 0 || j < 0))
+				? null
+				: board[i][j];
 	}
 	
 	@Override
