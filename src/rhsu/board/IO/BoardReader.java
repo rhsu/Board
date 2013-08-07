@@ -5,8 +5,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import rhsu.board.implementations.StringBoard;
 
 /**
@@ -69,7 +67,6 @@ public class BoardReader
 		}
 		catch (IOException e)
 		{
-			//return new StringBoard(0,0);
 			throw new IOException("File not found");
 		}
 		

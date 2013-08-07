@@ -15,8 +15,6 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		CharBoard b = new CharBoard("test.txt");
-		
-		System.out.println(b);
+
 	}
 }
