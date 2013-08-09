@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
-import rhsu.board.arithmetic.MatrixPiece;
 
 /**
  *A big decimal implementation
@@ -79,7 +78,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	}
 
 	@Override
-	public Matrix Multiply(MatrixPiece piece) 
+	public Matrix Multiply(BigDecimal piece) 
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}

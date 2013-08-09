@@ -2,11 +2,9 @@ package rhsu.board.implementations.math;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
-import rhsu.board.arithmetic.MatrixPiece;
 
 /**
  *A double implementation
@@ -109,7 +107,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 
 	@Override
-	public Matrix Multiply(MatrixPiece piece) {
+	public Matrix Multiply(Double piece) {
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 }

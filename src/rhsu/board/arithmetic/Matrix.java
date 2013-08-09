@@ -11,7 +11,7 @@ public interface Matrix<T> extends Board<T>
 	public Matrix Add(Matrix m);
 	public Matrix Subtract(Matrix m);
 	public Matrix Multiply(Matrix m);
-	public Matrix Multiply(MatrixPiece piece);
+	public Matrix Multiply(T t);
 	public Matrix Inverse();
 	public T Determinant();
 }

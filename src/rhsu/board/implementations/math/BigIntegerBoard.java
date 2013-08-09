@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
-import rhsu.board.arithmetic.MatrixPiece;
 import rhsu.board.implementations.StringBoard;
 import rhsu.board.utilities.UtilityFunctions;
 
@@ -127,7 +126,8 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 
 	@Override
-	public Matrix Multiply(MatrixPiece piece) {
+	public Matrix Multiply(BigInteger piece) 
+	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
