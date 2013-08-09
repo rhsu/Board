@@ -4,13 +4,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
+import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
 
 /**
  * An integer implementation
  */
-public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integer>
+public class IntegerBoard extends AbstractMatrix<Integer>
 {
 	@SuppressWarnings({"unchecked"})
 	public IntegerBoard(int h, int v)

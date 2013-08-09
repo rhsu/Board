@@ -1,10 +1,10 @@
 package rhsu.board.implementations.math;
 
-import rhsu.board.AbstractBoard;
 import java.math.BigInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import rhsu.board.BoardPiece;
+import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
 import rhsu.board.implementations.StringBoard;
@@ -13,7 +13,7 @@ import rhsu.board.utilities.UtilityFunctions;
 /**
  *A big integer implementation
  */
-public class BigIntegerBoard extends AbstractBoard<BigInteger> implements Matrix<BigInteger>
+public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 {
 	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(int h, int v)

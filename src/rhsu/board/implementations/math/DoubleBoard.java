@@ -4,13 +4,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
+import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
 
 /**
  *A double implementation
  */
-public class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
+public class DoubleBoard extends AbstractMatrix<Double>
 {
 	@SuppressWarnings({"unchecked"})
 	public DoubleBoard(int h, int v)

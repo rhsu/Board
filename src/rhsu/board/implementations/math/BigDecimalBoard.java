@@ -1,16 +1,15 @@
 package rhsu.board.implementations.math;
 
-import rhsu.board.AbstractBoard;
 import java.math.BigDecimal;
 import rhsu.board.BoardPiece;
+import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
-import rhsu.board.utilities.UtilityFunctions;
 
 /**
  *A big decimal implementation
  */
-public class BigDecimalBoard extends AbstractBoard<BigDecimal> implements Matrix<BigDecimal>
+public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 {
 	@SuppressWarnings({"unchecked"})
 	public BigDecimalBoard(int h, int v)
