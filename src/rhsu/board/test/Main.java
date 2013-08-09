@@ -2,7 +2,6 @@ package rhsu.board.test;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.HashSet;
 import rhsu.board.*;
 import rhsu.board.IO.*;
 import rhsu.board.arithmetic.*;
@@ -23,6 +22,6 @@ public class Main
 		
 		//Matrix c = a.Add(b);
 		
-		System.out.println(a.Add(b));
+		System.out.println(a.Subtract(b));
 	}
 }

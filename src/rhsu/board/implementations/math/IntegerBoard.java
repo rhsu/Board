@@ -80,9 +80,25 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	}
 
 	@Override
-	public Matrix Subtract(Matrix m) 
+	public Matrix Subtract(Matrix<Integer> m) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		CheckDimensions(m);
+		
+		int h = m.getHorizontal_size();
+		int v = m.getVertical_size();
+		IntegerBoard result =  new IntegerBoard(h,v);
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				Integer a = this.getTypeAt(i, j);
+				Integer b = m.getTypeAt(i, j);		
+				result.setTypeAt(i, j, a-b);
+			}
+		}
+		
+		return result;
 	}
 
 	@Override
