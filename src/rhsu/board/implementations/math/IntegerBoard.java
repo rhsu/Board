@@ -1,7 +1,5 @@
 package rhsu.board.implementations.math;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
@@ -61,18 +59,13 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	
 	@Override
 	public Matrix Add(Matrix m) 
-	{
+	{	
+		m = (IntegerBoard)m;
+
 		if(m.getHorizontal_size() != this.getHorizontal_size() 
 			|| m.getVertical_size() != this.getVertical_size())
-		{
-			try 
-			{			
-				throw new Exception("Invalid Dimensions");
-			} 
-			catch (Exception ex) 
-			{
-				Logger.getLogger(IntegerBoard.class.getName()).log(Level.SEVERE, null, ex);
-			}
+		{		
+			throw new ArrayIndexOutOfBoundsException("The dimensions do not match");
 		}
 		
 		int h = m.getHorizontal_size();
@@ -83,9 +76,9 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				//Integer a = (Integer) this.getTypeAt(i, j);
-				//Integer b = (Integer) m.getTypeAt(i, j);
-				//result.setTypeAt(i,j, a+b);				
+				Integer a = this.getTypeAt(i, j);
+				Integer b = (Integer) m.getTypeAt(i, j);		
+				result.setTypeAt(i, j, a+b);
 			}
 		}
 		
