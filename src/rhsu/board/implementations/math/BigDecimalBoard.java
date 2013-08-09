@@ -48,15 +48,47 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	}
 	
 	@Override
-	public Matrix Add(Matrix m) 
+	public Matrix Add(Matrix<BigDecimal> m) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		CheckDimensions(m);
+				
+		int h = m.getHorizontal_size();
+		int v = m.getVertical_size();
+		BigDecimalBoard result =  new BigDecimalBoard(h,v);
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				BigDecimal a = this.getTypeAt(i, j);
+				BigDecimal b = m.getTypeAt(i, j);		
+				result.setTypeAt(i, j, a.add(b));
+			}
+		}
+		
+		return result;
 	}
 
 	@Override
-	public Matrix Subtract(Matrix m) 
+	public Matrix Subtract(Matrix<BigDecimal> m) 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		CheckDimensions(m);
+				
+		int h = m.getHorizontal_size();
+		int v = m.getVertical_size();
+		BigDecimalBoard result =  new BigDecimalBoard(h,v);
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				BigDecimal a = this.getTypeAt(i, j);
+				BigDecimal b = m.getTypeAt(i, j);		
+				result.setTypeAt(i, j, a.subtract(b));
+			}
+		}
+		
+		return result;
 	}
 
 	@Override

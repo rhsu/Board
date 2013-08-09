@@ -1,7 +1,5 @@
 package rhsu.board.implementations.math;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
@@ -53,32 +51,21 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 	
 	@Override
-	public Matrix Add(Matrix m) 
+	public Matrix Add(Matrix<Double> m) 
 	{
-		if(m.getHorizontal_size() != this.getHorizontal_size() 
-			|| m.getVertical_size() != this.getVertical_size())
-		{
-			try 
-			{			
-				throw new Exception("Invalid Dimensions");
-			} 
-			catch (Exception ex) 
-			{
-				Logger.getLogger(IntegerBoard.class.getName()).log(Level.SEVERE, null, ex);
-			}
-		}
-		
+		CheckDimensions(m);
+				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
-		IntegerBoard result =  new IntegerBoard(h,v);
+		DoubleBoard result =  new DoubleBoard(h,v);
 		
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				//Double a = (Double) this.getTypeAt(i, j);
-				//Double b = (Double) m.getTypeAt(i, j);
-				//result.setTypeAt(i,j, a+b);				
+				Double a = this.getTypeAt(i, j);
+				Double b = m.getTypeAt(i, j);		
+				result.setTypeAt(i, j, a+b);
 			}
 		}
 		
@@ -86,8 +73,25 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 
 	@Override
-	public Matrix Subtract(Matrix m) {
-		throw new UnsupportedOperationException("Not supported yet.");
+	public Matrix Subtract(Matrix<Double> m) 
+	{
+		CheckDimensions(m);
+				
+		int h = m.getHorizontal_size();
+		int v = m.getVertical_size();
+		DoubleBoard result =  new DoubleBoard(h,v);
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				Double a = this.getTypeAt(i, j);
+				Double b = m.getTypeAt(i, j);		
+				result.setTypeAt(i, j, a-b);
+			}
+		}
+		
+		return result;
 	}
 
 	@Override

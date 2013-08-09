@@ -69,33 +69,21 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 
 	@Override
-	public Matrix Add(Matrix m) 
+	public Matrix Add(Matrix<BigInteger> m) 
 	{
-
-		if(m.getHorizontal_size() != this.getHorizontal_size() 
-			|| m.getVertical_size() != this.getVertical_size())
-		{
-			try 
-			{			
-				throw new Exception("Invalid Dimensions");
-			} 
-			catch (Exception ex) 
-			{
-				Logger.getLogger(IntegerBoard.class.getName()).log(Level.SEVERE, null, ex);
-			}
-		}
-		
+		CheckDimensions(m);
+				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
-		IntegerBoard result =  new IntegerBoard(h,v);
+		BigIntegerBoard result =  new BigIntegerBoard(h,v);
 		
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				BigInteger a = (BigInteger) this.getTypeAt(i, j);
-				BigInteger b = (BigInteger) m.getTypeAt(i, j);
-				//result.setTypeAt(i,j, a.add(b));
+				BigInteger a = this.getTypeAt(i, j);
+				BigInteger b = m.getTypeAt(i, j);		
+				result.setTypeAt(i, j, a.add(b));
 			}
 		}
 		
@@ -103,9 +91,25 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 
 	@Override
-	public Matrix Subtract(Matrix m) 
+	public Matrix Subtract(Matrix<BigInteger> m) 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		CheckDimensions(m);
+				
+		int h = m.getHorizontal_size();
+		int v = m.getVertical_size();
+		BigIntegerBoard result =  new BigIntegerBoard(h,v);
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				BigInteger a = this.getTypeAt(i, j);
+				BigInteger b = m.getTypeAt(i, j);		
+				result.setTypeAt(i, j, a.subtract(b));
+			}
+		}
+		
+		return result;
 	}
 
 	@Override
