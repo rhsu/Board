@@ -58,16 +58,10 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	}
 	
 	@Override
-	public Matrix Add(Matrix m) 
+	public Matrix Add(Matrix<Integer> m) 
 	{	
-		m = (IntegerBoard)m;
-
-		if(m.getHorizontal_size() != this.getHorizontal_size() 
-			|| m.getVertical_size() != this.getVertical_size())
-		{		
-			throw new ArrayIndexOutOfBoundsException("The dimensions do not match");
-		}
-		
+		CheckDimensions(m);
+				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
 		IntegerBoard result =  new IntegerBoard(h,v);
@@ -77,7 +71,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 			for(int j = 0; j < v; j++)
 			{
 				Integer a = this.getTypeAt(i, j);
-				Integer b = (Integer) m.getTypeAt(i, j);		
+				Integer b = m.getTypeAt(i, j);		
 				result.setTypeAt(i, j, a+b);
 			}
 		}

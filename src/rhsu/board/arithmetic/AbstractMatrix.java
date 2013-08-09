@@ -1,9 +1,6 @@
 package rhsu.board.arithmetic;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import rhsu.board.AbstractBoard;
-import rhsu.board.implementations.math.IntegerBoard;
 
 /**
  *
@@ -19,5 +16,14 @@ public abstract class AbstractMatrix<T> extends AbstractBoard<T> implements Matr
 	public AbstractMatrix(String filename)
 	{
 		super(filename);
+	}
+	
+	protected void CheckDimensions(Matrix m)
+	{
+		if(m.getHorizontal_size() != this.getHorizontal_size() 
+			|| m.getVertical_size() != this.getVertical_size())
+		{		
+			throw new ArrayIndexOutOfBoundsException("The dimensions do not match");
+		}
 	}
 }

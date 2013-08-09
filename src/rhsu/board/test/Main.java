@@ -18,11 +18,11 @@ public class Main
 		
 		//b.compareTo((Integer) s);
 		
-		Matrix a = new IntegerBoard("test.txt");
-		Matrix b = new IntegerBoard("test.txt");
+		IntegerBoard a = new IntegerBoard("test.txt");
+		IntegerBoard b = new IntegerBoard("test.txt");
 		
-		Matrix c = a.Add(b);
+		//Matrix c = a.Add(b);
 		
-		System.out.println(c);
+		System.out.println(a.Add(b));
 	}
 }
