@@ -98,6 +98,24 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	}
 
 	@Override
+	public Matrix Multiply(BigDecimal scalar) 
+	{
+		BigDecimalBoard result = new BigDecimalBoard(this.horizontal_size,
+				this.vertical_size);
+		
+		for(int h = 0; h < this.horizontal_size; h++)
+		{
+			for(int v = 0; v < this.vertical_size; v++)
+			{
+				BigDecimal m = this.getTypeAt(h, v);
+				this.setTypeAt(h, v, m.multiply(scalar));
+			}
+		}
+		
+		return result;
+	}
+	
+	@Override
 	public Matrix Inverse() 
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
@@ -105,12 +123,6 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 
 	@Override
 	public BigDecimal Determinant() 
-	{
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
-	@Override
-	public Matrix Multiply(BigDecimal piece) 
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}

@@ -100,6 +100,24 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 
 	@Override
+	public Matrix Multiply(Double scalar) 
+	{
+		DoubleBoard result = new DoubleBoard(this.horizontal_size, 
+				this.vertical_size);
+		
+		for(int h = 0; h < this.horizontal_size; h++)
+		{
+			for(int v = 0; v < this.vertical_size; v++)
+			{
+				double m = this.getTypeAt(h, v);
+				result.setTypeAt(h, v, m*scalar);
+			}
+		}
+		
+		return result;
+	}
+	
+	@Override
 	public Matrix Inverse() {
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
@@ -107,11 +125,6 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	@Override
 	public Double Determinant() 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
-	@Override
-	public Matrix Multiply(Double piece) {
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 }
