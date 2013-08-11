@@ -22,6 +22,6 @@ public class Main
 		
 		//Matrix c = a.Add(b);
 		
-		System.out.println(a.Subtract(b));
+		System.out.println(a.Multiply(10));
 	}
 }
