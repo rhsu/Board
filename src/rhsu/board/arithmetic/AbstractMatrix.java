@@ -18,11 +18,20 @@ public abstract class AbstractMatrix<T> extends AbstractBoard<T> implements Matr
 		super(filename);
 	}
 	
-	protected void CheckDimensions(Matrix m)
+	protected void CheckAddDimensions(Matrix m)
 	{
 		if(m.getHorizontal_size() != this.getHorizontal_size() 
 			|| m.getVertical_size() != this.getVertical_size())
 		{		
+			throw new ArrayIndexOutOfBoundsException("The dimensions do not match");
+		}
+	}
+	
+	protected void CheckMultiplyDimensions(Matrix m)
+	{
+		if(this.getHorizontal_size() != m.getVertical_size()
+			|| this.getVertical_size() != m.getHorizontal_size())
+		{
 			throw new ArrayIndexOutOfBoundsException("The dimensions do not match");
 		}
 	}

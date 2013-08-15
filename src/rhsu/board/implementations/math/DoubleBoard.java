@@ -51,9 +51,9 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 	
 	@Override
-	public Matrix Add(Matrix<Double> m) 
+	public DoubleBoard Add(Matrix<Double> m) 
 	{
-		CheckDimensions(m);
+		CheckAddDimensions(m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -73,9 +73,9 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 
 	@Override
-	public Matrix Subtract(Matrix<Double> m) 
+	public DoubleBoard Subtract(Matrix<Double> m) 
 	{
-		CheckDimensions(m);
+		CheckAddDimensions(m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -95,12 +95,12 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 
 	@Override
-	public Matrix Multiply(Matrix m) {
+	public DoubleBoard Multiply(Matrix m) {
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
-	public Matrix Multiply(Double scalar) 
+	public DoubleBoard Multiply(Double scalar) 
 	{
 		DoubleBoard result = new DoubleBoard(this.horizontal_size, 
 				this.vertical_size);
@@ -118,7 +118,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 	
 	@Override
-	public Matrix Inverse() {
+	public DoubleBoard Inverse() {
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 

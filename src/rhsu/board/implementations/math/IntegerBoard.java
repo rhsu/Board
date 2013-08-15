@@ -58,9 +58,9 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	}
 	
 	@Override
-	public Matrix Add(Matrix<Integer> m) 
+	public IntegerBoard Add(Matrix<Integer> m) 
 	{	
-		CheckDimensions(m);
+		CheckAddDimensions(m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -80,9 +80,9 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	}
 
 	@Override
-	public Matrix Subtract(Matrix<Integer> m) 
+	public IntegerBoard Subtract(Matrix<Integer> m) 
 	{
-		CheckDimensions(m);
+		CheckAddDimensions(m);
 		
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -102,13 +102,33 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	}
 
 	@Override
-	public Matrix Multiply(Matrix m) 
+	public IntegerBoard Multiply(Matrix<Integer> m) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		CheckMultiplyDimensions(m);
+		int h = this.getHorizontal_size();
+		int v = m.getVertical_size();
+		
+		IntegerBoard result = new IntegerBoard(h, v);
+		
+		for(int i = 0 ; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				int sum = 0;
+				for(int k = 0; k < this.getVertical_size(); k++)
+				{
+					sum += result.getTypeAt(i, j) 
+							+ this.getTypeAt(i, k) * m.getTypeAt(k, j);
+				}
+				m.setTypeAt(i, j, sum);
+			}
+		}
+		
+		return result;
 	}
 
 	@Override
-	public Matrix Multiply(Integer scalar) 
+	public IntegerBoard Multiply(Integer scalar) 
 	{
 		IntegerBoard result = new IntegerBoard(this.horizontal_size, this.vertical_size);
 		
@@ -125,7 +145,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	}
         
 	@Override
-	public Matrix Inverse() 
+	public IntegerBoard Inverse() 
 	{
 		throw new UnsupportedOperationException("Not supported yet."); 
 	}

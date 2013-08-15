@@ -20,8 +20,11 @@ public class Main
 		IntegerBoard a = new IntegerBoard("test.txt");
 		IntegerBoard b = new IntegerBoard("test.txt");
 		
-		//Matrix c = a.Add(b);
+		//IntegerBoard result = a.Multiply(b);
 		
-		System.out.println(a.Multiply(10));
+		IntegerBoard result = a.Add(b);
+		
+		
+		//System.out.println(result);
 	}
 }

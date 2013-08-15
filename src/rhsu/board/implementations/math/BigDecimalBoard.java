@@ -48,9 +48,9 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	}
 	
 	@Override
-	public Matrix Add(Matrix<BigDecimal> m) 
+	public BigDecimalBoard Add(Matrix<BigDecimal> m) 
 	{
-		CheckDimensions(m);
+		CheckAddDimensions(m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -70,9 +70,9 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	}
 
 	@Override
-	public Matrix Subtract(Matrix<BigDecimal> m) 
+	public BigDecimalBoard Subtract(Matrix<BigDecimal> m) 
 	{
-		CheckDimensions(m);
+		CheckAddDimensions(m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -92,13 +92,13 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	}
 
 	@Override
-	public Matrix Multiply(Matrix m) 
+	public BigDecimalBoard Multiply(Matrix m) 
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
-	public Matrix Multiply(BigDecimal scalar) 
+	public BigDecimalBoard Multiply(BigDecimal scalar) 
 	{
 		BigDecimalBoard result = new BigDecimalBoard(this.horizontal_size,
 				this.vertical_size);
@@ -116,7 +116,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	}
 	
 	@Override
-	public Matrix Inverse() 
+	public BigDecimalBoard Inverse() 
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
