@@ -105,6 +105,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	public IntegerBoard Multiply(Matrix<Integer> m) 
 	{
 		CheckMultiplyDimensions(m);
+		
 		int h = this.getHorizontal_size();
 		int v = m.getVertical_size();
 		
@@ -121,6 +122,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 							+ this.getTypeAt(i, k) * m.getTypeAt(k, j);
 				}
 				m.setTypeAt(i, j, sum);
+				System.out.println(sum);
 			}
 		}
 		

@@ -22,9 +22,8 @@ public class Main
 		
 		//IntegerBoard result = a.Multiply(b);
 		
-		IntegerBoard result = a.Add(b);
+		IntegerBoard result = a.Multiply(b);
 		
-		
-		//System.out.println(result);
+		System.out.println(result);
 	}
 }
