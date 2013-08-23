@@ -230,7 +230,7 @@ public final class BoardIOConsoleApp
 			{
 				outputBoard = reader.buildOutputBoard(filename);
 			}
-			catch(IOException e)
+			catch(Exception exception)
 			{
 				outputBoard = null;
 				hasError = true;
