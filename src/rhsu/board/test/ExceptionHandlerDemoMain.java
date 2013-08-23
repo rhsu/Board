@@ -3,6 +3,7 @@ package rhsu.board.test;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.exceptionHandler.HandleType;
 
 /**
  *
@@ -19,8 +20,7 @@ public class ExceptionHandlerDemoMain
 		}
 		catch(Exception exception)
 		{
-			ExceptionHandler.Handle(exception);
-			//System.out.println(IOException);
+			ExceptionHandler.Handle(exception, HandleType.Ignore);
 		}
 	}
 }
