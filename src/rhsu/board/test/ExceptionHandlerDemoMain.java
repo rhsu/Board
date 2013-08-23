@@ -2,6 +2,7 @@ package rhsu.board.test;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import rhsu.board.exceptionHandler.ExceptionHandler;
 
 /**
  *
@@ -18,7 +19,7 @@ public class ExceptionHandlerDemoMain
 		}
 		catch(Exception exception)
 		{
-			ExceptionHandlerDemo.Handle(exception);
+			ExceptionHandler.Handle(exception);
 			//System.out.println(IOException);
 		}
 	}

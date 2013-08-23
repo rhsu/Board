@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 import rhsu.board.implementations.StringBoard;
-import rhsu.board.test.ExceptionHandlerDemo;
+import rhsu.board.exceptionHandler.ExceptionHandler;
 
 /**
  *
@@ -67,7 +67,7 @@ public class BoardReader
 		}
 		catch (Exception exception)
 		{
-			ExceptionHandlerDemo.Handle(exception);
+			ExceptionHandler.Handle(exception);
 		}
 		
 		StringBoard outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);

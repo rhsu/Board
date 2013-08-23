@@ -1,10 +1,10 @@
-package rhsu.board.test;
+package rhsu.board.exceptionHandler;
 
 /**
  *
  * @author rhsu
  */
-public class ExceptionHandlerDemo 
+public class ExceptionHandler 
 {
 	public static void Handle(Exception ex)
 	{
