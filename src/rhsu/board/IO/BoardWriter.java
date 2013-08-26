@@ -8,6 +8,11 @@ import rhsu.board.exceptionHandler.ExceptionHandler;
  
 public class BoardWriter 
 {	
+	/**
+	 * 
+	 * @param filename
+	 * @param board 
+	 */
 	public void writeBoardToFile(String filename, AbstractBoard board)
 	{
 		try 
@@ -35,11 +40,20 @@ public class BoardWriter
 		}		
 	}
 	
+	/**
+	 * 
+	 * @param board 
+	 */
 	public void writeBoardToFile(AbstractBoard board)
 	{
 		writeBoardToFile("output.txt", board);
 	}
 	
+	/**
+	 * 
+	 * @param filename
+	 * @param board 
+	 */
 	public static void write(String filename, AbstractBoard board)
 	{
 		BoardWriter writer = new BoardWriter();

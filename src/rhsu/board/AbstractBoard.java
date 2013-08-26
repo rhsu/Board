@@ -23,14 +23,26 @@ public abstract class AbstractBoard<T> implements Board<T>
 	 */
 	protected int vertical_size;
 	
+	/**
+	 * A private string board variable used for constructing an instance from a file
+	 */
 	protected StringBoard baseBoard;
 	
+	/**
+	 * General Constructor for creating an abstract board.
+	 * @param h the height of the abstract board to create
+	 * @param v the width of the abstract board to create
+	 */
 	public AbstractBoard(int h, int v)
 	{
 		horizontal_size = h;
 		vertical_size = v;
 	}
 	
+	/**
+	 * Constructor for building an instance of an abstract board from a file.
+	 * @param filename 
+	 */
 	@SuppressWarnings({"unchecked"})
 	public AbstractBoard(String filename)
 	{
@@ -41,6 +53,12 @@ public abstract class AbstractBoard<T> implements Board<T>
 		this.board = new BoardPiece[horizontal_size][vertical_size];
 	}
 	
+	/**
+	 * 
+	 * @param i
+	 * @param j
+	 * @return 
+	 */
 	@Override
 	public BoardPiece<T> pieceAt(int i, int j)
 	{		
