@@ -4,7 +4,11 @@ A wrapper class for a 2D array of objects (implemented as a generic).
 
 #Release 1.0 Is Available
 
-Run the ANT script to build
+To use, checkout to the Release 1.0 branch.
+
+Run the ANT script to build. 
+
+For best results, open the project with Netbeans7.3.
 
 #Features
 
