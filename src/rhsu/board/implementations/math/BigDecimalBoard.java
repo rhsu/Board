@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
+import rhsu.board.exceptionHandler.ExceptionHandler;
 
 /**
  *A big decimal implementation
@@ -36,12 +37,13 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 				try
 				{
 					board[i][j] = new BoardPiece(i, j, 
-							new BigDecimal(baseBoard.getTypeAt(i, j)));
+							new BigDecimal(baseBoard.getValueAt(i, j)));
 				}
-				catch(NumberFormatException e)
+				catch(Exception exception)
 				{
-					board[i][j] = new BoardPiece(i, j, 
-							"ERROR");
+					//board[i][j] = new BoardPiece(i, j, 
+					//		"ERROR");
+					ExceptionHandler.Handle(exception);
 				}
 			}
 		}
@@ -60,9 +62,9 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				BigDecimal a = this.getTypeAt(i, j);
-				BigDecimal b = m.getTypeAt(i, j);		
-				result.setTypeAt(i, j, a.add(b));
+				BigDecimal a = this.getValueAt(i, j);
+				BigDecimal b = m.getValueAt(i, j);		
+				result.setValueAt(i, j, a.add(b));
 			}
 		}
 		
@@ -82,9 +84,9 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				BigDecimal a = this.getTypeAt(i, j);
-				BigDecimal b = m.getTypeAt(i, j);		
-				result.setTypeAt(i, j, a.subtract(b));
+				BigDecimal a = this.getValueAt(i, j);
+				BigDecimal b = m.getValueAt(i, j);		
+				result.setValueAt(i, j, a.subtract(b));
 			}
 		}
 		
@@ -107,8 +109,8 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 		{
 			for(int v = 0; v < this.vertical_size; v++)
 			{
-				BigDecimal m = this.getTypeAt(h, v);
-				this.setTypeAt(h, v, m.multiply(scalar));
+				BigDecimal m = this.getValueAt(h, v);
+				this.setValueAt(h, v, m.multiply(scalar));
 			}
 		}
 		

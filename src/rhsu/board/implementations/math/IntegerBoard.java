@@ -3,6 +3,7 @@ package rhsu.board.implementations.math;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
+import rhsu.board.exceptionHandler.ExceptionHandler;
 
 /**
  * An integer implementation
@@ -44,13 +45,12 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 				{
 					try
 					{
-					board[i][j] = new BoardPiece(i, j, 
-							Integer.parseInt(baseBoard.getTypeAt(i, j)));
+						board[i][j] = new BoardPiece(i, j, 
+							Integer.parseInt(baseBoard.getValueAt(i, j)));
 					}
-					catch(NumberFormatException e)
+					catch(Exception exception)
 					{
-						board[i][j] = new BoardPiece(i, j,
-								"ERROR");
+						ExceptionHandler.Handle(exception);
 					}
 				}
 			}
@@ -70,9 +70,9 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				Integer a = this.getTypeAt(i, j);
-				Integer b = m.getTypeAt(i, j);		
-				result.setTypeAt(i, j, a+b);
+				Integer a = this.getValueAt(i, j);
+				Integer b = m.getValueAt(i, j);		
+				result.setValueAt(i, j, a+b);
 			}
 		}
 		
@@ -92,9 +92,9 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				Integer a = this.getTypeAt(i, j);
-				Integer b = m.getTypeAt(i, j);		
-				result.setTypeAt(i, j, a-b);
+				Integer a = this.getValueAt(i, j);
+				Integer b = m.getValueAt(i, j);		
+				result.setValueAt(i, j, a-b);
 			}
 		}
 		
@@ -118,10 +118,10 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 				int sum = 0;
 				for(int k = 0; k < this.getVertical_size(); k++)
 				{
-					sum += result.getTypeAt(i, j) 
-							+ this.getTypeAt(i, k) * m.getTypeAt(k, j);
+					sum += result.getValueAt(i, j) 
+							+ this.getValueAt(i, k) * m.getValueAt(k, j);
 				}
-				m.setTypeAt(i, j, sum);
+				m.setValueAt(i, j, sum);
 				System.out.println(sum);
 			}
 		}
@@ -138,8 +138,8 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		{
 			for(int v = 0; v < this.vertical_size; v ++)
 			{
-				Integer m = this.getTypeAt(h, v);
-				result.setTypeAt(h, v, m*scalar);
+				Integer m = this.getValueAt(h, v);
+				result.setValueAt(h, v, m*scalar);
 			}
 		}
 		

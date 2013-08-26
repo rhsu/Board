@@ -1,13 +1,11 @@
 package rhsu.board.implementations.math;
 
 import java.math.BigInteger;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
+import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board.implementations.StringBoard;
-import rhsu.board.utilities.UtilityFunctions;
 
 /**
  *A big integer implementation
@@ -33,23 +31,6 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	{
 		super(filename);
 		
-		try
-		{
-			for(int i = 0; i < horizontal_size; i++)
-			{
-				for(int j = 0; j < vertical_size; j++)
-				{
-					board[i][j] = UtilityFunctions.isInteger(baseBoard.getTypeAt(i, j)) ?
-							new BoardPiece(i, j, baseBoard.getTypeAt(i, j))
-							: new BoardPiece(i, j, "0");
-				}
-			}
-		}
-		catch(NumberFormatException e)
-		{
-			board = null;
-		}
-		
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
@@ -57,12 +38,11 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 				try
 				{
 					board[i][j] = new BoardPiece(i, j, 
-							new BigInteger(baseBoard.getTypeAt(i, j)));
+							new BigInteger(baseBoard.getValueAt(i, j)));
 				}
-				catch(NumberFormatException e)
+				catch(Exception exception)
 				{
-					board[i][j] = new BoardPiece(i, j, 
-							"ERROR");
+					ExceptionHandler.Handle(exception);
 				}
 			}
 		}
@@ -81,9 +61,9 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				BigInteger a = this.getTypeAt(i, j);
-				BigInteger b = m.getTypeAt(i, j);		
-				result.setTypeAt(i, j, a.add(b));
+				BigInteger a = this.getValueAt(i, j);
+				BigInteger b = m.getValueAt(i, j);		
+				result.setValueAt(i, j, a.add(b));
 			}
 		}
 		
@@ -103,9 +83,9 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				BigInteger a = this.getTypeAt(i, j);
-				BigInteger b = m.getTypeAt(i, j);		
-				result.setTypeAt(i, j, a.subtract(b));
+				BigInteger a = this.getValueAt(i, j);
+				BigInteger b = m.getValueAt(i, j);		
+				result.setValueAt(i, j, a.subtract(b));
 			}
 		}
 		
@@ -128,9 +108,8 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 		{
 			for(int v = 0; v < this.vertical_size; v++)
 			{
-						
-				BigInteger m = this.getTypeAt(h, v);
-				result.setTypeAt(h, v, m.multiply(scalar));
+				BigInteger m = this.getValueAt(h, v);
+				result.setValueAt(h, v, m.multiply(scalar));
 			}
 		}
 		

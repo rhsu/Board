@@ -2,10 +2,10 @@ package rhsu.board.IO;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 import rhsu.board.implementations.StringBoard;
+import rhsu.board.exceptionHandler.ExceptionHandler;
 
 /**
  *
@@ -32,7 +32,7 @@ public class BoardReader
 		{
 			for(int j = 0; j < v; j++)
 			{
-				outputBoard.setTypeAt(i, j, items.remove());
+				outputBoard.setValueAt(i, j, items.remove());
 			}
 		}
 		
@@ -42,7 +42,7 @@ public class BoardReader
 	/**
 	 * Reads in from file
 	 */
-	public StringBoard buildOutputBoard(String filename) throws IOException
+	public StringBoard buildOutputBoard(String filename)
 	{		
 		LinkedList<String[]> fileContent = new LinkedList<>();
 		
@@ -65,9 +65,9 @@ public class BoardReader
 				fileContent.add(delimitedLines);
 			}
 		}
-		catch (IOException e)
+		catch (Exception exception)
 		{
-			throw new IOException("File not found");
+			ExceptionHandler.Handle(exception);
 		}
 		
 		StringBoard outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
@@ -78,7 +78,7 @@ public class BoardReader
 		{
 			for(int i = 0; i < item.length; i++)
 			{
-				outputBoard.setTypeAt(boardCounter, i, item[i]);
+				outputBoard.setValueAt(boardCounter, i, item[i]);
 			}
 			boardCounter++;
 		}
@@ -90,13 +90,6 @@ public class BoardReader
 	{
 		BoardReader reader = new BoardReader();
 		
-		try 
-		{
-			return reader.buildOutputBoard(filename);
-		} 
-		catch (IOException ex) 
-		{
-			return new StringBoard(0,0);
-		}
+		return reader.buildOutputBoard(filename);
 	}
 }

@@ -3,6 +3,7 @@ package rhsu.board.implementations.math;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
+import rhsu.board.exceptionHandler.ExceptionHandler;
 
 /**
  *A double implementation
@@ -39,12 +40,11 @@ public class DoubleBoard extends AbstractMatrix<Double>
 				try
 				{
 				board[i][j] = new BoardPiece(i,j,
-						Double.parseDouble(baseBoard.getTypeAt(i, j)));
+						Double.parseDouble(baseBoard.getValueAt(i, j)));
 				}
-				catch(NumberFormatException e)
+				catch(Exception exception)
 				{
-					board[i][j] = new BoardPiece(i, j, 
-							"ERROR");
+					ExceptionHandler.Handle(exception);
 				}
 			}
 		}
@@ -63,9 +63,9 @@ public class DoubleBoard extends AbstractMatrix<Double>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				Double a = this.getTypeAt(i, j);
-				Double b = m.getTypeAt(i, j);		
-				result.setTypeAt(i, j, a+b);
+				Double a = this.getValueAt(i, j);
+				Double b = m.getValueAt(i, j);		
+				result.setValueAt(i, j, a+b);
 			}
 		}
 		
@@ -85,9 +85,9 @@ public class DoubleBoard extends AbstractMatrix<Double>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				Double a = this.getTypeAt(i, j);
-				Double b = m.getTypeAt(i, j);		
-				result.setTypeAt(i, j, a-b);
+				Double a = this.getValueAt(i, j);
+				Double b = m.getValueAt(i, j);		
+				result.setValueAt(i, j, a-b);
 			}
 		}
 		
@@ -109,8 +109,8 @@ public class DoubleBoard extends AbstractMatrix<Double>
 		{
 			for(int v = 0; v < this.vertical_size; v++)
 			{
-				double m = this.getTypeAt(h, v);
-				result.setTypeAt(h, v, m*scalar);
+				double m = this.getValueAt(h, v);
+				result.setValueAt(h, v, m*scalar);
 			}
 		}
 		

@@ -50,13 +50,13 @@ public abstract class AbstractBoard<T> implements Board<T>
 	}
 	
 	@Override
-	public T getTypeAt(int i, int j)
+	public T getValueAt(int i, int j)
 	{
 		return board[i][j].getType();
 	}
 	
 	@Override
-	public void setTypeAt(int i, int j, T t)
+	public void setValueAt(int i, int j, T t)
 	{
 		board[i][j].setType(t);
 	}

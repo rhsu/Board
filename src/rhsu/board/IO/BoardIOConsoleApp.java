@@ -1,8 +1,9 @@
 package rhsu.board.IO;
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Scanner;
+import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.exceptionHandler.HandleType;
 import rhsu.board.implementations.StringBoard;
 import rhsu.board.utilities.UtilityFunctions;
 
@@ -230,8 +231,10 @@ public final class BoardIOConsoleApp
 			{
 				outputBoard = reader.buildOutputBoard(filename);
 			}
-			catch(IOException e)
+			catch(Exception exception)
 			{
+				ExceptionHandler.Handle(exception, HandleType.Ignore);
+				
 				outputBoard = null;
 				hasError = true;
 				System.out.println("Invalid Filename: Try again");

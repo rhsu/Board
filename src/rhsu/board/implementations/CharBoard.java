@@ -32,7 +32,7 @@ public class CharBoard extends AbstractBoard<Character>
 			for(int j = 0; j < vertical_size; j++)
 			{
 				board[i][j] = new BoardPiece(i, j, 
-						baseBoard.getTypeAt(i, j).charAt(0));
+						baseBoard.getValueAt(i, j).charAt(0));
 			}
 		}
 	}
