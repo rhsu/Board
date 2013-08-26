@@ -65,9 +65,9 @@ public interface Board<T>
 	 */
 	public BoardPiece<T> getUpPiece(BoardPiece<T> p);
 		
-	public T getTypeAt(int i, int j);
+	public T getValueAt(int i, int j);
 	
-	public void setTypeAt(int i, int j, T t);	
+	public void setValueAt(int i, int j, T t);	
 	
 	/**
 	 * 

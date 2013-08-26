@@ -38,7 +38,7 @@ public class BigDecimalBoard extends AbstractBoard<BigDecimal> implements Matrix
 				try
 				{
 					board[i][j] = new BoardPiece(i, j, 
-							new BigDecimal(baseBoard.getTypeAt(i, j)));
+							new BigDecimal(baseBoard.getValueAt(i, j)));
 				}
 				catch(NumberFormatException e)
 				{

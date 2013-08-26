@@ -38,8 +38,8 @@ public class BigIntegerBoard extends AbstractBoard<BigInteger> implements Matrix
 			{
 				for(int j = 0; j < vertical_size; j++)
 				{
-					board[i][j] = UtilityFunctions.isInteger(baseBoard.getTypeAt(i, j)) ?
-							new BoardPiece(i, j, baseBoard.getTypeAt(i, j))
+					board[i][j] = UtilityFunctions.isInteger(baseBoard.getValueAt(i, j)) ?
+							new BoardPiece(i, j, baseBoard.getValueAt(i, j))
 							: new BoardPiece(i, j, "0");
 				}
 			}
@@ -56,7 +56,7 @@ public class BigIntegerBoard extends AbstractBoard<BigInteger> implements Matrix
 				try
 				{
 					board[i][j] = new BoardPiece(i, j, 
-							new BigInteger(baseBoard.getTypeAt(i, j)));
+							new BigInteger(baseBoard.getValueAt(i, j)));
 				}
 				catch(NumberFormatException e)
 				{
