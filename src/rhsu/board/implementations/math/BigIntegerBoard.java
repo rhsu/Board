@@ -32,15 +32,15 @@ public class BigIntegerBoard extends AbstractBoard<BigInteger> implements Matrix
 	public BigIntegerBoard(String filename)
 	{
 		super(filename);
-
+		
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
 			{
 				try
 				{
-					board[i][j] = new BoardPiece(i, j,
-							new BigInteger(baseBoard.getTypeAt(i, j)));
+					board[i][j] = new BoardPiece(i, j, 
+							new BigInteger(baseBoard.getValueAt(i, j)));
 				}
 				catch(Exception exception)
 				{

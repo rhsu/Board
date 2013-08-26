@@ -48,7 +48,7 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 					try
 					{
 					board[i][j] = new BoardPiece(i, j, 
-							Integer.parseInt(baseBoard.getTypeAt(i, j)));
+							Integer.parseInt(baseBoard.getValueAt(i, j)));
 					}
 					catch(NumberFormatException e)
 					{

@@ -32,9 +32,9 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 			for(int j = 0; j < vertical_size; j++)
 			{
 				board[i][j] = new BoardPiece(i, j, 
-						baseBoard.getTypeAt(i, j).equals("1")
+						baseBoard.getValueAt(i, j).equals("1")
 						? true
-						: Boolean.valueOf(baseBoard.getTypeAt(i, j)));
+						: Boolean.valueOf(baseBoard.getValueAt(i, j)));
 			}
 		}
 	}

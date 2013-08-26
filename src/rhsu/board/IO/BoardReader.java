@@ -32,7 +32,7 @@ public class BoardReader
 		{
 			for(int j = 0; j < v; j++)
 			{
-				outputBoard.setTypeAt(i, j, items.remove());
+				outputBoard.setValueAt(i, j, items.remove());
 			}
 		}
 		
@@ -78,7 +78,7 @@ public class BoardReader
 		{
 			for(int i = 0; i < item.length; i++)
 			{
-				outputBoard.setTypeAt(boardCounter, i, item[i]);
+				outputBoard.setValueAt(boardCounter, i, item[i]);
 			}
 			boardCounter++;
 		}

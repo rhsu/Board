@@ -42,7 +42,7 @@ public class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
 				try
 				{
 				board[i][j] = new BoardPiece(i,j,
-						Double.parseDouble(baseBoard.getTypeAt(i, j)));
+						Double.parseDouble(baseBoard.getValueAt(i, j)));
 				}
 				catch(NumberFormatException e)
 				{
