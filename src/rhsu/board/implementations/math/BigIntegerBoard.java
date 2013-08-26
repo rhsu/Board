@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
+import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board.implementations.StringBoard;
 import rhsu.board.utilities.UtilityFunctions;
 
@@ -31,37 +32,19 @@ public class BigIntegerBoard extends AbstractBoard<BigInteger> implements Matrix
 	public BigIntegerBoard(String filename)
 	{
 		super(filename);
-		
-		try
-		{
-			for(int i = 0; i < horizontal_size; i++)
-			{
-				for(int j = 0; j < vertical_size; j++)
-				{
-					board[i][j] = UtilityFunctions.isInteger(baseBoard.getTypeAt(i, j)) ?
-							new BoardPiece(i, j, baseBoard.getTypeAt(i, j))
-							: new BoardPiece(i, j, "0");
-				}
-			}
-		}
-		catch(NumberFormatException e)
-		{
-			board = null;
-		}
-		
+
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
 			{
 				try
 				{
-					board[i][j] = new BoardPiece(i, j, 
+					board[i][j] = new BoardPiece(i, j,
 							new BigInteger(baseBoard.getTypeAt(i, j)));
 				}
-				catch(NumberFormatException e)
+				catch(Exception exception)
 				{
-					board[i][j] = new BoardPiece(i, j, 
-							"ERROR");
+					ExceptionHandler.Handle(exception);
 				}
 			}
 		}

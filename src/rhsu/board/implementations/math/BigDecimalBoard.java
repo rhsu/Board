@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
-import rhsu.board.utilities.UtilityFunctions;
+import rhsu.board.exceptionHandler.ExceptionHandler;
 
 /**
  *A big decimal implementation
@@ -40,10 +40,11 @@ public class BigDecimalBoard extends AbstractBoard<BigDecimal> implements Matrix
 					board[i][j] = new BoardPiece(i, j, 
 							new BigDecimal(baseBoard.getTypeAt(i, j)));
 				}
-				catch(NumberFormatException e)
+				catch(Exception exception)
 				{
-					board[i][j] = new BoardPiece(i, j, 
-							"ERROR");
+					//board[i][j] = new BoardPiece(i, j, 
+					//		"ERROR");
+					ExceptionHandler.Handle(exception);
 				}
 			}
 		}

@@ -6,14 +6,19 @@ package rhsu.board.exceptionHandler;
  */
 public class ExceptionHandler 
 {
-	public static void Handle(Exception ex, HandleType type)
+	public static void Handle(Exception exception)
+	{
+		Handle(exception, HandleType.RuntimeError);
+	}
+	
+	public static void Handle(Exception exception, HandleType type)
 	{
 		switch(type)
 		{
 			case Ignore:
 				break;
 			case RuntimeError:
-				throw new RuntimeException(ex);
+				throw new RuntimeException(exception);
 		}
 	}
 }
