@@ -15,6 +15,8 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		BoardIOConsoleApp.LaunchApp();
+		BigDecimalBoard test = new BigDecimalBoard("test.txt");
+		
+		System.out.println(test);
 	}
 }

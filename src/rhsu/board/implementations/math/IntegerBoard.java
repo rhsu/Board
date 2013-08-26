@@ -6,6 +6,7 @@ import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
+import rhsu.board.exceptionHandler.ExceptionHandler;
 
 /**
  * An integer implementation
@@ -47,13 +48,12 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 				{
 					try
 					{
-					board[i][j] = new BoardPiece(i, j, 
+						board[i][j] = new BoardPiece(i, j, 
 							Integer.parseInt(baseBoard.getValueAt(i, j)));
 					}
-					catch(NumberFormatException e)
+					catch(Exception exception)
 					{
-						board[i][j] = new BoardPiece(i, j,
-								"ERROR");
+						ExceptionHandler.Handle(exception);
 					}
 				}
 			}

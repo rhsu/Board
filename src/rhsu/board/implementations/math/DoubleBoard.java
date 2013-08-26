@@ -6,6 +6,8 @@ import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
+import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.exceptionHandler.HandleType;
 
 /**
  *A double implementation
@@ -44,10 +46,9 @@ public class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
 				board[i][j] = new BoardPiece(i,j,
 						Double.parseDouble(baseBoard.getValueAt(i, j)));
 				}
-				catch(NumberFormatException e)
+				catch(Exception exception)
 				{
-					board[i][j] = new BoardPiece(i, j, 
-							"ERROR");
+					ExceptionHandler.Handle(exception);
 				}
 			}
 		}

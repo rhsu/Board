@@ -7,7 +7,6 @@ import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board.implementations.StringBoard;
-import rhsu.board.utilities.UtilityFunctions;
 
 /**
  *A big integer implementation
