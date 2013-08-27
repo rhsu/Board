@@ -86,6 +86,11 @@ public class BoardReader
 		return outputBoard;
 	}
 	
+	/**
+	 * Constructs a string board based off of a file
+	 * @param filename
+	 * @return a String Board constructed by a given file
+	 */
 	public static StringBoard getBoardFromFile(String filename)
 	{
 		BoardReader reader = new BoardReader();

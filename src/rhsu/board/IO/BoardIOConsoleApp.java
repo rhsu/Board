@@ -32,6 +32,10 @@ public final class BoardIOConsoleApp
 		in = new Scanner(System.in);
 	}
 	
+	/**
+	 * 
+	 * @return the output board
+	 */
 	public StringBoard getOutputBoard()
 	{
 		return outputBoard;
@@ -76,6 +80,9 @@ public final class BoardIOConsoleApp
 		
 	}
 	
+	/**
+	 * displays the prompt for the board writer
+	 */
 	private void writePrompt()
 	{
 		System.out.println("Board successfully created.");
@@ -265,6 +272,9 @@ public final class BoardIOConsoleApp
 		System.out.println("This is the help option");
 	}
 	
+	/**
+	 * Launches the BoardIOConsole application
+	 */
 	public static void LaunchApp()
 	{
 		BoardIOConsoleApp app = new BoardIOConsoleApp();

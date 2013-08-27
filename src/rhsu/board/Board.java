@@ -6,6 +6,12 @@ package rhsu.board;
  */
 public interface Board<T>
 {
+	/**
+	 * 
+	 * @param i horizontal index
+	 * @param j vertical index
+	 * @return The piece at the given coordinate
+	 */
 	public BoardPiece<T> pieceAt(int i, int j);
 	
 	/**
@@ -64,9 +70,21 @@ public interface Board<T>
 	 * @return The piece above the given piece
 	 */
 	public BoardPiece<T> getUpPiece(BoardPiece<T> p);
-		
+	
+	/**
+	 * 
+	 * @param i the horizontal index
+	 * @param j the vertical index
+	 * @return the value of the piece at the given coordinate
+	 */
 	public T getValueAt(int i, int j);
 	
+	/**
+	 * Sets the value of a piece by specifying a coordinate
+	 * @param i the horizontal index
+	 * @param j the vertical index
+	 * @param t the value of the piece to set
+	 */
 	public void setValueAt(int i, int j, T t);	
 	
 	/**
