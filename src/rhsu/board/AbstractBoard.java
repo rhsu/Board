@@ -92,92 +92,48 @@ public abstract class AbstractBoard<T> implements Board<T>
 		board[i][j].setType(t);
 	}
 		
-	/**
-	 * Method for retrieving the piece left of (i, j)
-	 * @param i  the horizontal index
-	 * @param j the vertical index
-	 * @return the left piece of (i, j). Returns null if invalid location
-	 */
 	@Override
 	public BoardPiece<T> getLeftPiece(int i, int j) 
 	{
 		return pieceAt(i,j - 1);
 	}
 
-	/**
-	 * Method for retrieving the piece left of p
-	 * @param p
-	 * @return The piece left of p. Returns null if invalid location
-	 */
 	@Override
 	public BoardPiece<T> getLeftPiece(BoardPiece<T> p) 
 	{	
 		return getLeftPiece(p.getHorizontal(), p.getVertical());
 	}
 
-	/**
-	 * Method for retrieving the piece left of (i, j)
-	 * @param i the horizontal index
-	 * @param j the vertical index
-	 * @return The piece left of (i, j). Returns null if invalid location
-	 */
 	@Override
 	public BoardPiece<T> getRightPiece(int i, int j) 
 	{
 		return pieceAt(i, j + 1);
 	}
 
-	/**
-	 * Method for retrieving the piece right of p
-	 * @param p
-	 * @return The piece right of p. Returns null if invalid location
-	 */
 	@Override
 	public BoardPiece<T> getRightPiece(BoardPiece<T> p) 
 	{
 		return getRightPiece(p.getHorizontal(), p.getVertical());
 	}
 
-	/**
-	 * Method for retrieving the piece above (i, j)
-	 * @param i the horizontal index
-	 * @param j the vertical index
-	 * @return The piece above (i, j). Returns null if invalid location
-	 */
 	@Override
 	public BoardPiece<T> getDownPiece(int i, int j) 
 	{
 		return pieceAt(i + 1, j);
 	}
 
-	/**
-	 * Method for retrieving the piece below p
-	 * @param p
-	 * @return The piece below p. Returns null if invalid location
-	 */
 	@Override
 	public BoardPiece<T> getDownPiece(BoardPiece<T> p) 
 	{
 		return getDownPiece(p.getHorizontal(), p.getVertical());
 	}
 
-	/**
-	 * Method for retrieving the piece left of (i, j)
-	 * @param i the horizontal index
-	 * @param j the vertical index
-	 * @return The piece left of (i, j). Returns null if invalid location
-	 */
 	@Override
 	public BoardPiece<T> getUpPiece(int i, int j) 
 	{
 		return pieceAt(i - 1, j);
 	}
 
-	/**
-	 * Method for retrieving the piece above p
-	 * @param p
-	 * @return The piece above p. Returns null if invalid location
-	 */
 	@Override
 	public BoardPiece<T> getUpPiece(BoardPiece<T> p) 
 	{
