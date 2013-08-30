@@ -19,10 +19,11 @@ public class BoardReader
 	private final static String DELIMITERS = " |,;:\t";
 		
 	/**
-	 * Creates an output board based off of user inputted items
+	 * Creates an output board based off of user input
 	 * @param h the horizontal size of the board
 	 * @param v the vertical size of the board
 	 * @param items the user inputted items (as a queue)
+	 * @return a string board based off of the user input 
 	 */
 	public StringBoard buildOutputBoard(int h, int v, LinkedList<String> items)
 	{
@@ -40,7 +41,9 @@ public class BoardReader
 	}
 	
 	/**
-	 * Reads in from file
+	 * Constructs a string board from the given file
+	 * @param filename the name of the file to read from
+	 * @return a string board based off of the given file
 	 */
 	public StringBoard buildOutputBoard(String filename)
 	{		
