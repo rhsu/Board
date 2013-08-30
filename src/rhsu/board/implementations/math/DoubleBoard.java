@@ -152,4 +152,20 @@ public class DoubleBoard extends AbstractMatrix<Double>
 		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+	
+	@Override
+	public DoubleBoard Transpose()
+	{
+		int h = this.horizontal_size;
+		int v = this.vertical_size;
+		DoubleBoard result = new DoubleBoard(h, v);
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				result.setValueAt(j, i, this.getValueAt(i, j));
+			}
+		}
+		return result;
+	}
 }

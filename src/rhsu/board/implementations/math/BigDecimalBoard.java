@@ -154,4 +154,20 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+	
+	@Override
+	public BigDecimalBoard Transpose()
+	{
+		int h = this.horizontal_size;
+		int v = this.vertical_size;
+		BigDecimalBoard result = new BigDecimalBoard(h, v);
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				result.setValueAt(j, i, this.getValueAt(i, j));
+			}
+		}
+		return result;
+	}
 }

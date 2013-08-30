@@ -5,7 +5,6 @@ import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.exceptionHandler.ExceptionHandler;
-import rhsu.board.implementations.StringBoard;
 
 /**
  *A big integer implementation
@@ -150,5 +149,21 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	{
 		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
 		throw new UnsupportedOperationException("Not supported yet."); 
+	}
+	
+	@Override
+	public BigIntegerBoard Transpose()
+	{
+		int h = this.horizontal_size;
+		int v = this.vertical_size;
+		BigIntegerBoard result = new BigIntegerBoard(h, v);
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				result.setValueAt(j, i, this.getValueAt(i, j));
+			}
+		}
+		return result;
 	}
 }

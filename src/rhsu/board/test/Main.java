@@ -20,7 +20,7 @@ public class Main
 		IntegerBoard a = new IntegerBoard("test.txt");
 		IntegerBoard b = new IntegerBoard("test.txt");
 	
-		a = a.Transpose();
+		//a = a.Transpose();
 		
 		print(a);
 	}

@@ -1,6 +1,5 @@
 package rhsu.board.implementations.math;
 
-import java.util.Set;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
@@ -160,6 +159,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 	
+	@Override
 	public IntegerBoard Transpose()
 	{
 		int h = this.horizontal_size;
