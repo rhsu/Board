@@ -19,14 +19,9 @@ public class Main
 	{
 		IntegerBoard a = new IntegerBoard("test.txt");
 		IntegerBoard b = new IntegerBoard("test.txt");
+	
+		IntegerBoard result = a.Multiply(b);
 		
-		System.out.println(a);
-		
-		//print(a);
-		//print(b);
-		
-		//IntegerBoard result = a.Multiply(b);
-		
-		//System.out.println(result);
+		System.out.println(result);
 	}
 }

@@ -121,8 +121,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 					sum += result.getValueAt(i, j) 
 							+ this.getValueAt(i, k) * m.getValueAt(k, j);
 				}
-				m.setValueAt(i, j, sum);
-				System.out.println(sum);
+				result.setValueAt(i, j, sum);
 			}
 		}
 		
