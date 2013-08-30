@@ -1,13 +1,14 @@
 package rhsu.board;
 
 /**
- *
- * @author RHsu
+ * The root interface in the board hierarchy. This interface contains definitions for finding a specific piece on a 2-Dimensional array.
+ * 
+ * @param <T> The type of the board
  */
 public interface Board<T>
 {
 	/**
-	 * 
+	 * Returns the piece at the location specified
 	 * @param i horizontal index
 	 * @param j vertical index
 	 * @return The piece at the given coordinate
