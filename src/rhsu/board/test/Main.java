@@ -10,20 +10,23 @@ import rhsu.board.implementations.*;
 
 public class Main
 {
+	public static void print(Object o)
+	{
+		System.out.println(o);
+	}
+	
 	public static void main(String[] args)
 	{
-		//Integer b = new Integer(6);
-		//Object s = "abcdefg";
-		
-		//b.compareTo((Integer) s);
-		
 		IntegerBoard a = new IntegerBoard("test.txt");
 		IntegerBoard b = new IntegerBoard("test.txt");
 		
+		System.out.println(a);
+		
+		//print(a);
+		//print(b);
+		
 		//IntegerBoard result = a.Multiply(b);
 		
-		IntegerBoard result = a.Multiply(b);
-		
-		System.out.println(result);
+		//System.out.println(result);
 	}
 }
