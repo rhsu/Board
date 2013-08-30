@@ -60,7 +60,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	@Override
 	public IntegerBoard Add(Matrix<Integer> m) 
 	{	
-		CheckAddDimensions(m);
+		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -82,7 +82,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	@Override
 	public IntegerBoard Subtract(Matrix<Integer> m) 
 	{
-		CheckAddDimensions(m);
+		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
 		
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -104,7 +104,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	@Override
 	public IntegerBoard Multiply(Matrix<Integer> m) 
 	{
-		CheckMultiplyDimensions(m);
+		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
 		
 		int h = this.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -148,12 +148,14 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	@Override
 	public IntegerBoard Inverse() 
 	{
+		CheckDimensions(AbstractMatrix.OperationType.INVERSE);
 		throw new UnsupportedOperationException("Not supported yet."); 
 	}
 
 	@Override
 	public Integer Determinant() 
-	{
+	{	
+		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 }

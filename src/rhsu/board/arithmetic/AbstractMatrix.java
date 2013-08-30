@@ -27,12 +27,12 @@ public abstract class AbstractMatrix<T> extends AbstractBoard<T> implements Matr
 		super(filename);
 	}
 	
-	protected void Check(OperationType type)
+	protected void CheckDimensions(OperationType type)
 	{
-		Check(type, null);
+		CheckDimensions(type, null);
 	}
 	
-	protected void Check(OperationType type, Matrix<T> otherMatrix)
+	protected void CheckDimensions(OperationType type, Matrix<T> otherMatrix)
 	{
 		switch(type)
 		{
@@ -55,24 +55,6 @@ public abstract class AbstractMatrix<T> extends AbstractBoard<T> implements Matr
 				{
 					throw new ArrayIndexOutOfBoundsException("The dimensions do not match");
 				}
-		}
-	}
-	
-	protected void CheckAddDimensions(Matrix<T> m)
-	{
-		if(m.getHorizontal_size() != this.getHorizontal_size() 
-			|| m.getVertical_size() != this.getVertical_size())
-		{		
-			throw new ArrayIndexOutOfBoundsException("The dimensions do not match");
-		}
-	}
-	
-	protected void CheckMultiplyDimensions(Matrix<T> m)
-	{
-		if(this.getHorizontal_size() != m.getVertical_size()
-			|| this.getVertical_size() != m.getHorizontal_size())
-		{
-			throw new ArrayIndexOutOfBoundsException("The dimensions do not match");
 		}
 	}
 }

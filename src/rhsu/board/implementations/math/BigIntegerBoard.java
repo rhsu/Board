@@ -51,7 +51,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public BigIntegerBoard Add(Matrix<BigInteger> m) 
 	{
-		CheckAddDimensions(m);
+		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -73,7 +73,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public BigIntegerBoard Subtract(Matrix<BigInteger> m) 
 	{
-		CheckAddDimensions(m);
+		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -95,7 +95,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public BigIntegerBoard Multiply(Matrix<BigInteger> m) 
 	{
-		CheckMultiplyDimensions(m);
+		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
 		
 		int h = this.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -146,30 +146,9 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 
 	@Override
-	public BigInteger Determinant() {
-		throw new UnsupportedOperationException("Not supported yet."); 
-	}
-
-	public void convertFromStringBoard(StringBoard baseBoard) 
+	public BigInteger Determinant() 
 	{
-		/*Board<BigIntegerPiece> result = new BigIntegerBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
-		
-		try
-		{
-			for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
-			{
-				for(int v = 0; v < baseBoard.getVertical_size(); v++)
-				{
-					//int i = Integer.parseInt(baseBoard.pieceAt(h,v).getType());
-					result.pieceAt(h, v).setType(
-							new BigInteger(baseBoard.pieceAt(h,v).getType()));
-				}
-			}
-			//return result;
-		}
-		catch(NumberFormatException e)
-		{
-			//return null;
-		}*/
+		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
+		throw new UnsupportedOperationException("Not supported yet."); 
 	}
 }
