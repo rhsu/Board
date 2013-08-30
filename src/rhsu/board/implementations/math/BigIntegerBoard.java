@@ -93,9 +93,32 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 
 	@Override
-	public BigIntegerBoard Multiply(Matrix m) 
+	public BigIntegerBoard Multiply(Matrix<BigInteger> m) 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		CheckMultiplyDimensions(m);
+		
+		int h = this.getHorizontal_size();
+		int v = m.getVertical_size();
+		
+		BigIntegerBoard result = new BigIntegerBoard(h, v);
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				BigInteger sum = BigInteger.ZERO;
+				
+				for(int k = 0; k < this.getVertical_size(); k++)
+				{
+					BigInteger tempValue = this.getValueAt(i, k).multiply(m.getValueAt(k, j));
+					sum = sum.add(result.getValueAt(i, j))
+							.add(tempValue);
+				}
+				
+				result.setValueAt(i, j, sum);
+			}
+		}
+		return result;
 	}
 
 	@Override

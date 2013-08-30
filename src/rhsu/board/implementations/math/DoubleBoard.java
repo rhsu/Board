@@ -95,8 +95,30 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 
 	@Override
-	public DoubleBoard Multiply(Matrix m) {
-		throw new UnsupportedOperationException("Not supported yet.");
+	public DoubleBoard Multiply(Matrix<Double> m) 
+	{
+		CheckMultiplyDimensions(m);
+		
+		int h = this.getHorizontal_size();
+		int v = m.getVertical_size();
+		
+		DoubleBoard result = new DoubleBoard(h, v);
+		
+		for(int i = 0 ; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				double sum = 0.0;
+				for(int k = 0; k < this.getVertical_size(); k++)
+				{
+					sum += result.getValueAt(i, j) 
+							+ this.getValueAt(i, k) * m.getValueAt(k, j);
+				}
+				result.setValueAt(i, j, sum);
+			}
+		}
+		
+		return result;
 	}
 
 	@Override
