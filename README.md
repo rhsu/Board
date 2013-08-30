@@ -4,7 +4,7 @@ A wrapper class for a 2D array of objects (implemented as a generic).
 
 #Release 1.0 Is Available
 
-To use, checkout to the Release 1.0 branch.
+To use, checkout to the version1.0 branch.
 
 Run the ANT script to build. 
 
