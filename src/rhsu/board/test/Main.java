@@ -17,11 +17,11 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		BigDecimalBoard a = new BigDecimalBoard("test.txt");
-		BigDecimalBoard b = new BigDecimalBoard("test.txt");
+		IntegerBoard a = new IntegerBoard("test.txt");
+		IntegerBoard b = new IntegerBoard("test.txt");
 	
-		BigDecimalBoard result = a.Multiply(b);
+		a = a.Transpose();
 		
-		System.out.println(result);
+		print(a);
 	}
 }
