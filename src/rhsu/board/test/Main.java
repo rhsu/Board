@@ -2,21 +2,24 @@ package rhsu.board.test;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.HashSet;
-import rhsu.board.AbstractBoard;
-import rhsu.board.Board;
-import rhsu.board.BoardPiece;
+import rhsu.board.*;
 import rhsu.board.IO.*;
-import rhsu.board.arithmetic.Matrix;
+import rhsu.board.arithmetic.*;
 import rhsu.board.implementations.math.*;
 import rhsu.board.implementations.*;
 
 public class Main
 {
+	public static void print(Object o)
+	{
+		System.out.println(o);
+	}
+	
 	public static void main(String[] args)
 	{
 		IntegerBoard test = new IntegerBoard("test.txt", -1);
 		
 		//System.out.println(test);
+		print(test);
 	}
 }

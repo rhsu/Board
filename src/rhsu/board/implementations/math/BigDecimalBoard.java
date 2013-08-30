@@ -1,16 +1,15 @@
 package rhsu.board.implementations.math;
 
-import rhsu.board.AbstractBoard;
 import java.math.BigDecimal;
 import rhsu.board.BoardPiece;
+import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
-import rhsu.board.arithmetic.MatrixPiece;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 
 /**
  *A big decimal implementation
  */
-public class BigDecimalBoard extends AbstractBoard<BigDecimal> implements Matrix<BigDecimal>
+public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 {
 	@SuppressWarnings({"unchecked"})
 	public BigDecimalBoard(int h, int v)
@@ -51,38 +50,124 @@ public class BigDecimalBoard extends AbstractBoard<BigDecimal> implements Matrix
 	}
 	
 	@Override
-	public Matrix Add(Matrix m) 
+	public BigDecimalBoard Add(Matrix<BigDecimal> m) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
+				
+		int h = m.getHorizontal_size();
+		int v = m.getVertical_size();
+		BigDecimalBoard result =  new BigDecimalBoard(h,v);
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				BigDecimal a = this.getValueAt(i, j);
+				BigDecimal b = m.getValueAt(i, j);		
+				result.setValueAt(i, j, a.add(b));
+			}
+		}
+		
+		return result;
 	}
 
 	@Override
-	public Matrix Subtract(Matrix m) 
+	public BigDecimalBoard Subtract(Matrix<BigDecimal> m) 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
+				
+		int h = m.getHorizontal_size();
+		int v = m.getVertical_size();
+		BigDecimalBoard result =  new BigDecimalBoard(h,v);
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				BigDecimal a = this.getValueAt(i, j);
+				BigDecimal b = m.getValueAt(i, j);		
+				result.setValueAt(i, j, a.subtract(b));
+			}
+		}
+		
+		return result;
 	}
 
 	@Override
-	public Matrix Multiply(Matrix m) 
+	public BigDecimalBoard Multiply(Matrix<BigDecimal> m) 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
+		
+		int h = this.getHorizontal_size();
+		int v = m.getVertical_size();
+		
+		BigDecimalBoard result = new BigDecimalBoard(h, v);
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				BigDecimal sum = BigDecimal.ZERO;
+				
+				for(int k = 0; k < this.getVertical_size(); k++)
+				{
+					BigDecimal tempValue = this.getValueAt(i, k).multiply(m.getValueAt(k, j));
+					sum = sum.add(result.getValueAt(i, j))
+							.add(tempValue);
+				}
+				
+				result.setValueAt(i, j, sum);
+			}
+		}
+		
+		return result;
 	}
 
 	@Override
-	public Matrix Inverse() 
+	public BigDecimalBoard Multiply(BigDecimal scalar) 
 	{
+		BigDecimalBoard result = new BigDecimalBoard(this.horizontal_size,
+				this.vertical_size);
+		
+		for(int h = 0; h < this.horizontal_size; h++)
+		{
+			for(int v = 0; v < this.vertical_size; v++)
+			{
+				BigDecimal m = this.getValueAt(h, v);
+				this.setValueAt(h, v, m.multiply(scalar));
+			}
+		}
+		
+		return result;
+	}
+	
+	@Override
+	public BigDecimalBoard Inverse() 
+	{
+		CheckDimensions(AbstractMatrix.OperationType.INVERSE);
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public BigDecimal Determinant() 
 	{
+		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
-
+	
 	@Override
-	public Matrix Multiply(MatrixPiece piece) 
+	public BigDecimalBoard Transpose()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		int h = this.horizontal_size;
+		int v = this.vertical_size;
+		BigDecimalBoard result = new BigDecimalBoard(v, h);
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				result.setValueAt(j, i, this.getValueAt(i, j));
+			}
+		}
+		return result;
 	}
 }

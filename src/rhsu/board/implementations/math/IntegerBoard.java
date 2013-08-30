@@ -1,18 +1,15 @@
 package rhsu.board.implementations.math;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
+import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
-import rhsu.board.arithmetic.MatrixPiece;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board.exceptionHandler.HandleType;
 
 /**
  * An integer implementation
  */
-public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integer>
+public class IntegerBoard extends AbstractMatrix<Integer>
 {
 	@SuppressWarnings({"unchecked"})
 	public IntegerBoard(int h, int v)
@@ -74,20 +71,31 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 	}
 	
 	@Override
-	public Matrix Add(Matrix m) 
-	{
-		if(m.getHorizontal_size() != this.getHorizontal_size() 
-			|| m.getVertical_size() != this.getVertical_size())
+	public IntegerBoard Add(Matrix<Integer> m) 
+	{	
+		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
+				
+		int h = m.getHorizontal_size();
+		int v = m.getVertical_size();
+		IntegerBoard result =  new IntegerBoard(h,v);
+		
+		for(int i = 0; i < h; i++)
 		{
-			try 
-			{			
-				throw new Exception("Invalid Dimensions");
-			} 
-			catch (Exception ex) 
+			for(int j = 0; j < v; j++)
 			{
-				Logger.getLogger(IntegerBoard.class.getName()).log(Level.SEVERE, null, ex);
+				Integer a = this.getValueAt(i, j);
+				Integer b = m.getValueAt(i, j);		
+				result.setValueAt(i, j, a+b);
 			}
 		}
+		
+		return result;
+	}
+
+	@Override
+	public IntegerBoard Subtract(Matrix<Integer> m) 
+	{
+		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
 		
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -97,9 +105,9 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 		{
 			for(int j = 0; j < v; j++)
 			{
-				//Integer a = (Integer) this.getTypeAt(i, j);
-				//Integer b = (Integer) m.getTypeAt(i, j);
-				//result.setTypeAt(i,j, a+b);				
+				Integer a = this.getValueAt(i, j);
+				Integer b = m.getValueAt(i, j);		
+				result.setValueAt(i, j, a-b);
 			}
 		}
 		
@@ -107,32 +115,76 @@ public class IntegerBoard extends AbstractBoard<Integer> implements Matrix<Integ
 	}
 
 	@Override
-	public Matrix Subtract(Matrix m) 
+	public IntegerBoard Multiply(Matrix<Integer> m) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
+		
+		int h = this.getHorizontal_size();
+		int v = m.getVertical_size();
+		
+		IntegerBoard result = new IntegerBoard(h, v);
+		
+		for(int i = 0 ; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				int sum = 0;
+				for(int k = 0; k < this.getVertical_size(); k++)
+				{
+					sum += result.getValueAt(i, j) 
+							+ this.getValueAt(i, k) * m.getValueAt(k, j);
+				}
+				result.setValueAt(i, j, sum);
+			}
+		}
+		
+		return result;
 	}
 
 	@Override
-	public Matrix Multiply(Matrix m) 
+	public IntegerBoard Multiply(Integer scalar) 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); 
+		IntegerBoard result = new IntegerBoard(this.horizontal_size, this.vertical_size);
+		
+		for(int h = 0; h < this.horizontal_size; h++)
+		{
+			for(int v = 0; v < this.vertical_size; v ++)
+			{
+				Integer m = this.getValueAt(h, v);
+				result.setValueAt(h, v, m*scalar);
+			}
+		}
+		
+		return result;
 	}
-
+        
 	@Override
-	public Matrix Inverse() 
+	public IntegerBoard Inverse() 
 	{
+		CheckDimensions(AbstractMatrix.OperationType.INVERSE);
 		throw new UnsupportedOperationException("Not supported yet."); 
 	}
 
 	@Override
 	public Integer Determinant() 
-	{
+	{	
+		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
-
+	
 	@Override
-	public Matrix Multiply(MatrixPiece piece) 
+	public IntegerBoard Transpose()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		int h = this.horizontal_size;
+		int v = this.vertical_size;
+		IntegerBoard result = new IntegerBoard(v, h);
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				result.setValueAt(j, i, this.getValueAt(i, j));
+			}
+		}
+		return result;
 	}
 }
