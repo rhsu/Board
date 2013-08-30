@@ -164,7 +164,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	{
 		int h = this.horizontal_size;
 		int v = this.vertical_size;
-		IntegerBoard result = new IntegerBoard(h, v);
+		IntegerBoard result = new IntegerBoard(v, h);
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)

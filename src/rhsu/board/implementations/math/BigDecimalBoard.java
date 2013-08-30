@@ -160,7 +160,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	{
 		int h = this.horizontal_size;
 		int v = this.vertical_size;
-		BigDecimalBoard result = new BigDecimalBoard(h, v);
+		BigDecimalBoard result = new BigDecimalBoard(v, h);
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)

@@ -158,7 +158,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	{
 		int h = this.horizontal_size;
 		int v = this.vertical_size;
-		DoubleBoard result = new DoubleBoard(h, v);
+		DoubleBoard result = new DoubleBoard(v, h);
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
