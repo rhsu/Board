@@ -22,6 +22,8 @@ public class Main
 	
 		//a = a.Transpose();
 		
+		IntegerBoard c = a.Multiply(b);
+		
 		print(a);
 	}
 }
