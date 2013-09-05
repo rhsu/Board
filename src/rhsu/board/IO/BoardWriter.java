@@ -6,12 +6,15 @@ import java.io.FileWriter;
 import rhsu.board.AbstractBoard;
 import rhsu.board.exceptionHandler.ExceptionHandler;
  
+/**
+ *The board writer class contains methods to write board objects to a file
+ */
 public class BoardWriter 
 {	
 	/**
-	 * 
-	 * @param filename
-	 * @param board 
+	 * Writes a board to a file
+	 * @param filename  the name of the file to create
+	 * @param board the board to export to a file
 	 */
 	public void writeBoardToFile(String filename, AbstractBoard board)
 	{
@@ -41,8 +44,8 @@ public class BoardWriter
 	}
 	
 	/**
-	 * 
-	 * @param board 
+	 * Writes a board to the default filename "output.txt"
+	 * @param board the board to export to a file
 	 */
 	public void writeBoardToFile(AbstractBoard board)
 	{
@@ -50,9 +53,9 @@ public class BoardWriter
 	}
 	
 	/**
-	 * 
-	 * @param filename
-	 * @param board 
+	 * Initializes a BoardWriter object to write the given board to a file
+	 * @param filename the name of the file to create
+	 * @param board the board object to export to a file
 	 */
 	public static void write(String filename, AbstractBoard board)
 	{

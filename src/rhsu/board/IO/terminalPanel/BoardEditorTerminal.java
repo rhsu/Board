@@ -4,10 +4,6 @@ import com.terminalPanelGUI.AbstractTerminal;
 import com.terminalPanelGUI.UniversalPanelLauncher;
 import rhsu.board.utilities.UtilityFunctions;
 
-/**
- *
- * @author rhsu
- */
 public class BoardEditorTerminal extends AbstractTerminal
 {
 	public BoardEditorTerminal()
