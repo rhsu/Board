@@ -12,6 +12,11 @@ import rhsu.board.exceptionHandler.HandleType;
  */
 public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 {
+	/**
+	 * Constructor to create a BigDecimalBoard with the given parameters
+	 * @param h the horizontal size 
+	 * @param v the vertical size
+	 */
 	@SuppressWarnings({"unchecked"})
 	public BigDecimalBoard(int h, int v)
 	{
@@ -26,6 +31,11 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 		}
 	}
 	
+	/**
+	 * Constructor to create a BigDecimalBoard based off of a file 
+	 * @param filename the name of the file to create a BigDecimalBoard from
+	 */
+	@SuppressWarnings({"unchecked"})
 	public BigDecimalBoard(String filename)
 	{
 		this(filename, HandleType.RuntimeError, null);

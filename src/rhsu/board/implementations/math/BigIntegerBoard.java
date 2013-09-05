@@ -12,6 +12,11 @@ import rhsu.board.exceptionHandler.HandleType;
  */
 public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 {
+	/**
+	 * Constructor to create a BigIntegerBoard with the given parameters
+	 * @param h the horizontal size 
+	 * @param v the vertical size
+	 */
 	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(int h, int v)
 	{
@@ -26,7 +31,11 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 		}
 	}
 	
-
+	/**
+	 * Constructor to create a BigIntegerBoard based off of a file 
+	 * @param filename the name of the file to create a BigIntegerBoard from
+	 */
+	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(String filename)
 	{
 		this(filename, HandleType.RuntimeError, null);
