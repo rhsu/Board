@@ -36,7 +36,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 	
 	@SuppressWarnings({"unchecked"})
-	private DoubleBoard(String filename, HandleType handleType, Double defaultValue)
+	public DoubleBoard(String filename, HandleType handleType, Double defaultValue)
 	{
 		super(filename);
 		

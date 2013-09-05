@@ -36,9 +36,9 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	{
 		this(filename, HandleType.Ignore, defaultValue);
 	}
-
+	
 	@SuppressWarnings({"unchecked"})
-	private BigIntegerBoard(String filename, HandleType handleType, BigInteger defaultValue)
+	public BigIntegerBoard(String filename, HandleType handleType, BigInteger defaultValue)
 	{
 		super(filename);
 		

@@ -37,7 +37,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	}
 	
 	@SuppressWarnings({"unchecked"})
-	private BigDecimalBoard(String filename, HandleType handletype, BigDecimal defaultValue)
+	public BigDecimalBoard(String filename, HandleType handletype, BigDecimal defaultValue)
 	{
 		super(filename);
 		

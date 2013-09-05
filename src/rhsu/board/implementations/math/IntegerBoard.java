@@ -36,7 +36,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	}
 		
 	@SuppressWarnings({"unchecked"})
-	private IntegerBoard(String filename, HandleType handleType, Integer defaultValue)
+	public IntegerBoard(String filename, HandleType handleType, Integer defaultValue)
 	{
 		super(filename);
 
