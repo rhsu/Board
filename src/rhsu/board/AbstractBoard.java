@@ -54,12 +54,6 @@ public abstract class AbstractBoard<T> implements Board<T>
 		this.board = new BoardPiece[horizontal_size][vertical_size];
 	}
 	
-	/**
-	 * Returns the piece at the location specified
-	 * @param i the horizontal index
-	 * @param j the vertical index
-	 * @return The piece at the location (i, j). Returns null if invalid location
-	 */
 	@Override
 	public BoardPiece<T> pieceAt(int i, int j)
 	{		
@@ -68,24 +62,12 @@ public abstract class AbstractBoard<T> implements Board<T>
 				: board[i][j];
 	}
 	
-	/**
-	 * Method for returning the value at a location
-	 * @param i the horizontal index
-	 * @param j the vertical index
-	 * @return The value at the location (i,j)
-	 */
 	@Override
 	public T getValueAt(int i, int j)
 	{
 		return board[i][j].getType();
 	}
 	
-	/**
-	 * Method for setting a value t at a specific location (i,j)
-	 * @param i the horizontal index
-	 * @param j the vertical index
-	 * @param t the value to set
-	 */
 	@Override
 	public void setValueAt(int i, int j, T t)
 	{

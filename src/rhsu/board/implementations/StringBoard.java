@@ -8,6 +8,16 @@ import rhsu.board.BoardPiece;
  */
 public class StringBoard extends AbstractBoard<String>
 {
+	/**
+	 * Constructor to create a StringBoard with the given parameters
+	 * @param h the horizontal size 
+	 * @param v the vertical size
+	 */
+	/**
+	 *
+	 * @param h
+	 * @param v
+	 */
 	@SuppressWarnings({"unchecked"})
 	public StringBoard(int h, int v)
 	{
@@ -22,6 +32,14 @@ public class StringBoard extends AbstractBoard<String>
 		}
 	}
 	
+	/**
+	 * Constructor to create a StringBoard based off of a file 
+	 * @param filename the name of the file to create a StringBoard from
+	 */
+	/**
+	 *
+	 * @param filename
+	 */
 	@SuppressWarnings({"unchecked"})
 	public StringBoard(String filename)
 	{

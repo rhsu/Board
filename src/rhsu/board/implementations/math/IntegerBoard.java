@@ -11,6 +11,11 @@ import rhsu.board.exceptionHandler.HandleType;
  */
 public class IntegerBoard extends AbstractMatrix<Integer>
 {
+	/**
+	 * Constructor to create a IntegerBoard with the given parameters
+	 * @param h the horizontal size 
+	 * @param v the vertical size
+	 */
 	@SuppressWarnings({"unchecked"})
 	public IntegerBoard(int h, int v)
 	{
@@ -25,6 +30,11 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		}
 	}
 	
+	/**
+	 * Constructor to create a IntegerBoard based off of a file 
+	 * @param filename the name of the file to create a IntegerBoard from
+	 */
+	@SuppressWarnings({"unchecked"})
 	public IntegerBoard(String filename)
 	{		
 		this(filename, HandleType.RuntimeError, null);

@@ -8,6 +8,11 @@ import rhsu.board.BoardPiece;
  */
 public class BooleanBoard extends AbstractBoard<Boolean>
 {
+	/**
+	 * Constructor to create a BooleanBoard with the given parameters
+	 * @param h the horizontal size 
+	 * @param v the vertical size
+	 */
 	@SuppressWarnings({"unchecked"})
 	public BooleanBoard(int h, int v)
 	{
@@ -22,6 +27,10 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 		}
 	}
 
+	/**
+	 * Constructor to create a BooleanBoard based off of a file 
+	 * @param filename the name of the file to create a BooleanBoard from
+	 */
 	@SuppressWarnings({"unchecked"})
 	public BooleanBoard(String filename)
 	{
