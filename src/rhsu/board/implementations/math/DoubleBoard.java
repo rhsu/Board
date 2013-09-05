@@ -7,13 +7,17 @@ import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.arithmetic.MatrixPiece;
 import rhsu.board.exceptionHandler.ExceptionHandler;
-import rhsu.board.exceptionHandler.HandleType;
 
 /**
  *A double implementation
  */
 public class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
 {
+	/**
+	 * Constructor to create a DoubleBoard with the given parameters
+	 * @param h the horizontal size 
+	 * @param v the vertical size
+	 */
 	@SuppressWarnings({"unchecked"})
 	public DoubleBoard(int h, int v)
 	{
@@ -28,6 +32,10 @@ public class DoubleBoard extends AbstractBoard<Double> implements Matrix<Double>
 		}
 	}
 
+	/**
+	 * Constructor to create a DoubleBoard based off of a file 
+	 * @param filename the name of the file to create a DoubleBoard from
+	 */
 	@SuppressWarnings({"unchecked"})
 	public DoubleBoard(String filename)
 	{

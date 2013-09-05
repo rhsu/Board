@@ -13,6 +13,11 @@ import rhsu.board.implementations.StringBoard;
  */
 public class BigIntegerBoard extends AbstractBoard<BigInteger> implements Matrix<BigInteger>
 {
+	/**
+	 * Constructor to create a BigIntegerBoard with the given parameters
+	 * @param h the horizontal size 
+	 * @param v the vertical size
+	 */
 	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(int h, int v)
 	{
@@ -27,6 +32,10 @@ public class BigIntegerBoard extends AbstractBoard<BigInteger> implements Matrix
 		}
 	}
 	
+	/**
+	 * Constructor to create a BigIntegerBoard based off of a file 
+	 * @param filename the name of the file to create a BigIntegerBoard from
+	 */
 	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(String filename)
 	{
