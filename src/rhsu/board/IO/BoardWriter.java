@@ -3,11 +3,16 @@ package rhsu.board.IO;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import rhsu.board.AbstractBoard;
+import rhsu.board.exceptionHandler.ExceptionHandler;
  
 public class BoardWriter 
 {	
+	/**
+	 * 
+	 * @param filename
+	 * @param board 
+	 */
 	public void writeBoardToFile(String filename, AbstractBoard board)
 	{
 		try 
@@ -29,17 +34,26 @@ public class BoardWriter
  
 			System.out.println("Done creating file: " + filename);
 		} 
-		catch (IOException e) 
+		catch (Exception exception) 
 		{
-			System.out.println(e);
+			ExceptionHandler.Handle(exception);
 		}		
 	}
 	
+	/**
+	 * 
+	 * @param board 
+	 */
 	public void writeBoardToFile(AbstractBoard board)
 	{
 		writeBoardToFile("output.txt", board);
 	}
 	
+	/**
+	 * 
+	 * @param filename
+	 * @param board 
+	 */
 	public static void write(String filename, AbstractBoard board)
 	{
 		BoardWriter writer = new BoardWriter();

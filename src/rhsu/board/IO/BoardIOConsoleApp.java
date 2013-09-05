@@ -1,8 +1,9 @@
 package rhsu.board.IO;
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Scanner;
+import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.exceptionHandler.HandleType;
 import rhsu.board.implementations.StringBoard;
 import rhsu.board.utilities.UtilityFunctions;
 
@@ -31,6 +32,10 @@ public final class BoardIOConsoleApp
 		in = new Scanner(System.in);
 	}
 	
+	/**
+	 * 
+	 * @return the output board
+	 */
 	public StringBoard getOutputBoard()
 	{
 		return outputBoard;
@@ -75,6 +80,9 @@ public final class BoardIOConsoleApp
 		
 	}
 	
+	/**
+	 * displays the prompt for the board writer
+	 */
 	private void writePrompt()
 	{
 		System.out.println("Board successfully created.");
@@ -230,8 +238,10 @@ public final class BoardIOConsoleApp
 			{
 				outputBoard = reader.buildOutputBoard(filename);
 			}
-			catch(IOException e)
+			catch(Exception exception)
 			{
+				ExceptionHandler.Handle(exception, HandleType.Ignore);
+				
 				outputBoard = null;
 				hasError = true;
 				System.out.println("Invalid Filename: Try again");
@@ -262,6 +272,9 @@ public final class BoardIOConsoleApp
 		System.out.println("This is the help option");
 	}
 	
+	/**
+	 * Launches the BoardIOConsole application
+	 */
 	public static void LaunchApp()
 	{
 		BoardIOConsoleApp app = new BoardIOConsoleApp();

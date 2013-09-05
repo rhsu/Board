@@ -1,17 +1,16 @@
 package rhsu.board.implementations.math;
 
-import rhsu.board.AbstractBoard;
 import java.math.BigInteger;
 import rhsu.board.BoardPiece;
+import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
-import rhsu.board.arithmetic.MatrixPiece;
-import rhsu.board.implementations.StringBoard;
-import rhsu.board.utilities.UtilityFunctions;
+import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.exceptionHandler.HandleType;
 
 /**
  *A big integer implementation
  */
-public class BigIntegerBoard extends AbstractBoard<BigInteger> implements Matrix<BigInteger>
+public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 {
 	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(int h, int v)
@@ -27,27 +26,21 @@ public class BigIntegerBoard extends AbstractBoard<BigInteger> implements Matrix
 		}
 	}
 	
-	@SuppressWarnings({"unchecked"})
+
 	public BigIntegerBoard(String filename)
 	{
-		super(filename);
+		this(filename, HandleType.RuntimeError, null);
+	}
 		
-		try
-		{
-			for(int i = 0; i < horizontal_size; i++)
-			{
-				for(int j = 0; j < vertical_size; j++)
-				{
-					board[i][j] = UtilityFunctions.isInteger(baseBoard.getTypeAt(i, j)) ?
-							new BoardPiece(i, j, baseBoard.getTypeAt(i, j))
-							: new BoardPiece(i, j, "0");
-				}
-			}
-		}
-		catch(NumberFormatException e)
-		{
-			board = null;
-		}
+	public BigIntegerBoard(String filename, BigInteger defaultValue)
+	{
+		this(filename, HandleType.Ignore, defaultValue);
+	}
+	
+	@SuppressWarnings({"unchecked"})
+	public BigIntegerBoard(String filename, HandleType handleType, BigInteger defaultValue)
+	{
+		super(filename);
 		
 		for(int i = 0; i < horizontal_size; i++)
 		{
@@ -56,71 +49,136 @@ public class BigIntegerBoard extends AbstractBoard<BigInteger> implements Matrix
 				try
 				{
 					board[i][j] = new BoardPiece(i, j, 
-							new BigInteger(baseBoard.getTypeAt(i, j)));
+							new BigInteger(baseBoard.getValueAt(i, j)));
 				}
-				catch(NumberFormatException e)
+				catch(Exception exception)
 				{
-					board[i][j] = new BoardPiece(i, j, 
-							"ERROR");
+					ExceptionHandler<BigInteger> exceptionHandler = new ExceptionHandler<>();
+					
+					board[i][j] = new BoardPiece(i, j,
+						exceptionHandler.AssignDefault(exception, handleType, defaultValue));
 				}
 			}
 		}
 	}
+	
+	@Override
+	public BigIntegerBoard Add(Matrix<BigInteger> m) 
+	{
+		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
+				
+		int h = m.getHorizontal_size();
+		int v = m.getVertical_size();
+		BigIntegerBoard result =  new BigIntegerBoard(h,v);
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				BigInteger a = this.getValueAt(i, j);
+				BigInteger b = m.getValueAt(i, j);		
+				result.setValueAt(i, j, a.add(b));
+			}
+		}
+		
+		return result;
+	}
 
 	@Override
-	public Matrix Add(Matrix m) 
+	public BigIntegerBoard Subtract(Matrix<BigInteger> m) 
+	{
+		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
+				
+		int h = m.getHorizontal_size();
+		int v = m.getVertical_size();
+		BigIntegerBoard result =  new BigIntegerBoard(h,v);
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				BigInteger a = this.getValueAt(i, j);
+				BigInteger b = m.getValueAt(i, j);		
+				result.setValueAt(i, j, a.subtract(b));
+			}
+		}
+		
+		return result;
+	}
+
+	@Override
+	public BigIntegerBoard Multiply(Matrix<BigInteger> m) 
+	{
+		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
+		
+		int h = this.getHorizontal_size();
+		int v = m.getVertical_size();
+		
+		BigIntegerBoard result = new BigIntegerBoard(h, v);
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				BigInteger sum = BigInteger.ZERO;
+				
+				for(int k = 0; k < this.getVertical_size(); k++)
+				{
+					BigInteger tempValue = this.getValueAt(i, k).multiply(m.getValueAt(k, j));
+					sum = sum.add(result.getValueAt(i, j))
+							.add(tempValue);
+				}
+				
+				result.setValueAt(i, j, sum);
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public BigIntegerBoard Multiply(BigInteger scalar) 
+	{
+		BigIntegerBoard result = new BigIntegerBoard(this.horizontal_size,
+				this.vertical_size);
+		
+		for(int h = 0; h < this.horizontal_size; h++)
+		{
+			for(int v = 0; v < this.vertical_size; v++)
+			{
+				BigInteger m = this.getValueAt(h, v);
+				result.setValueAt(h, v, m.multiply(scalar));
+			}
+		}
+		
+		return result;
+	}
+	
+	@Override
+	public BigIntegerBoard Inverse() 
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
-	public Matrix Subtract(Matrix m) 
+	public BigInteger Determinant() 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
-	@Override
-	public Matrix Multiply(Matrix m) 
-	{
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
-	@Override
-	public Matrix Inverse() 
-	{
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
-	@Override
-	public BigInteger Determinant() {
+		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
 		throw new UnsupportedOperationException("Not supported yet."); 
 	}
-
+	
 	@Override
-	public Matrix Multiply(MatrixPiece piece) {
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
-	public void convertFromStringBoard(StringBoard baseBoard) 
+	public BigIntegerBoard Transpose()
 	{
-		/*Board<BigIntegerPiece> result = new BigIntegerBoard(baseBoard.getHorizontal_size(), baseBoard.getVertical_size());
-		
-		try
+		int h = this.horizontal_size;
+		int v = this.vertical_size;
+		BigIntegerBoard result = new BigIntegerBoard(v, h);
+		for(int i = 0; i < h; i++)
 		{
-			for(int h = 0; h < baseBoard.getHorizontal_size(); h++)
+			for(int j = 0; j < v; j++)
 			{
-				for(int v = 0; v < baseBoard.getVertical_size(); v++)
-				{
-					//int i = Integer.parseInt(baseBoard.pieceAt(h,v).getType());
-					result.pieceAt(h, v).setType(
-							new BigInteger(baseBoard.pieceAt(h,v).getType()));
-				}
+				result.setValueAt(j, i, this.getValueAt(i, j));
 			}
-			//return result;
 		}
-		catch(NumberFormatException e)
-		{
-			//return null;
-		}*/
+		return result;
 	}
 }

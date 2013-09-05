@@ -5,8 +5,9 @@ import rhsu.board.IO.BoardWriter;
 import rhsu.board.implementations.StringBoard;
 
 /**
- *
- * @author rhsu
+ * This class provides skeletal implementations of some of Board operations.This class also contains an export method, for putting all entries of a board object into a file.
+ * 
+ * @param <T> Tye type of elements for the abstract board
  */
 public abstract class AbstractBoard<T> implements Board<T>
 {		
@@ -23,14 +24,26 @@ public abstract class AbstractBoard<T> implements Board<T>
 	 */
 	protected int vertical_size;
 	
+	/**
+	 * A private string board variable used for constructing an instance from a file
+	 */
 	protected StringBoard baseBoard;
 	
+	/**
+	 * General Constructor for creating an abstract board.
+	 * @param h the height of the abstract board to create
+	 * @param v the width of the abstract board to create
+	 */
 	public AbstractBoard(int h, int v)
 	{
 		horizontal_size = h;
 		vertical_size = v;
 	}
 	
+	/**
+	 * Constructor for building an instance of an abstract board from a file.
+	 * @param filename 
+	 */
 	@SuppressWarnings({"unchecked"})
 	public AbstractBoard(String filename)
 	{
@@ -41,6 +54,12 @@ public abstract class AbstractBoard<T> implements Board<T>
 		this.board = new BoardPiece[horizontal_size][vertical_size];
 	}
 	
+	/**
+	 * Returns the piece at the location specified
+	 * @param i the horizontal index
+	 * @param j the vertical index
+	 * @return The piece at the location (i, j). Returns null if invalid location
+	 */
 	@Override
 	public BoardPiece<T> pieceAt(int i, int j)
 	{		
@@ -49,23 +68,30 @@ public abstract class AbstractBoard<T> implements Board<T>
 				: board[i][j];
 	}
 	
+	/**
+	 * Method for returning the value at a location
+	 * @param i the horizontal index
+	 * @param j the vertical index
+	 * @return The value at the location (i,j)
+	 */
 	@Override
-	public T getTypeAt(int i, int j)
+	public T getValueAt(int i, int j)
 	{
 		return board[i][j].getType();
 	}
 	
+	/**
+	 * Method for setting a value t at a specific location (i,j)
+	 * @param i the horizontal index
+	 * @param j the vertical index
+	 * @param t the value to set
+	 */
 	@Override
-	public void setTypeAt(int i, int j, T t)
+	public void setValueAt(int i, int j, T t)
 	{
 		board[i][j].setType(t);
 	}
-	
-	public void export(String filename)
-	{
-		BoardWriter.write(filename, this);
-	}
-	
+		
 	@Override
 	public BoardPiece<T> getLeftPiece(int i, int j) 
 	{
@@ -126,6 +152,10 @@ public abstract class AbstractBoard<T> implements Board<T>
 		return this.vertical_size;
 	}
 
+	/**
+	 * Method to allow the object to be printed
+	 * @return a string representation of the abstract board
+	 */
 	@Override
 	public String toString()
 	{
@@ -141,19 +171,12 @@ public abstract class AbstractBoard<T> implements Board<T>
 		return builder.toString();
 	}
 	
-	public String printString()
+	/**
+	 * Exports the board object
+	 * @param filename the name of the file to be exported
+	 */
+	public void export(String filename)
 	{
-		StringBuilder builder = new StringBuilder();
-		builder.append("==============").append("\n");		
-		for (int i = 0; i < horizontal_size; i++)
-		{
-			for (int j = 0 ; j < vertical_size; j++)
-			{				
-				builder.append(pieceAt(i,j).toString()).append(" ");
-			}
-			builder.append("\n");
-		}
-		builder.append("==============");
-		return builder.toString();
+		BoardWriter.write(filename, this);
 	}
 }

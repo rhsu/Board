@@ -32,7 +32,7 @@ public class StringBoard extends AbstractBoard<String>
 			for(int j = 0; j < vertical_size; j++)
 			{
 				board[i][j] = new BoardPiece(i, j, 
-						baseBoard.getTypeAt(i, j));
+						baseBoard.getValueAt(i, j));
 			}
 		}
 	}

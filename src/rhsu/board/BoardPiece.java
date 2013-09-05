@@ -1,5 +1,9 @@
 package rhsu.board;
 
+/**
+ * A wrapper class for objects. Contains two additional int properties (horizontal index and vertical index)
+ * @param <T> The type of the BoardPiece to wrap
+ */
 public class BoardPiece<T>
 {
 	private int horizontal;
@@ -43,6 +47,12 @@ public class BoardPiece<T>
 	}
 	//</editor-fold>
 
+	/**
+	 * General constructor for a board piece
+	 * @param i the horizontal index
+	 * @param j the vertical index
+	 * @param t The value of the board piece.
+	 */
 	public BoardPiece(int i, int j, T t)
 	{
 		this.horizontal = i;
@@ -50,6 +60,10 @@ public class BoardPiece<T>
 		this.t = t;
 	}
 
+	/**
+	 * 
+	 * @return a string representation of a board piece
+	 */
 	@Override
 	public String toString()
 	{
