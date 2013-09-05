@@ -4,6 +4,7 @@ import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.exceptionHandler.HandleType;
 
 /**
  *A double implementation
@@ -24,27 +25,36 @@ public class DoubleBoard extends AbstractMatrix<Double>
 		}
 	}
 
-	@SuppressWarnings({"unchecked"})
 	public DoubleBoard(String filename)
+	{
+		this(filename, HandleType.RuntimeError, null);
+	}
+	
+	public DoubleBoard(String filename, Double defaultValue)
+	{
+		this(filename, HandleType.Ignore, defaultValue);
+	}
+	
+	@SuppressWarnings({"unchecked"})
+	public DoubleBoard(String filename, HandleType handleType, Double defaultValue)
 	{
 		super(filename);
 		
-		this.horizontal_size = baseBoard.getHorizontal_size();
-		this.vertical_size = baseBoard.getVertical_size();
-		this.board = new BoardPiece[horizontal_size][vertical_size];		
-
-		for(int i = 0; i < baseBoard.getHorizontal_size(); i++)
+		for(int i = 0; i < horizontal_size; i++)
 		{
-			for(int j = 0; j < baseBoard.getVertical_size(); j++)
+			for(int j = 0; j < vertical_size; j++)
 			{
 				try
 				{
-				board[i][j] = new BoardPiece(i,j,
+					board[i][j] = new BoardPiece(i, j,
 						Double.parseDouble(baseBoard.getValueAt(i, j)));
 				}
 				catch(Exception exception)
 				{
-					ExceptionHandler.Handle(exception);
+					ExceptionHandler<Double> handler = new ExceptionHandler<>();
+					
+					board[i][j] = new BoardPiece(i, j,
+							handler.AssignDefault(exception, handleType, defaultValue));
 				}
 			}
 		}

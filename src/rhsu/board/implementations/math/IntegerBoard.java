@@ -4,6 +4,7 @@ import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.exceptionHandler.HandleType;
 
 /**
  * An integer implementation
@@ -24,9 +25,19 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		}
 	}
 	
-	@SuppressWarnings({"unchecked"})
 	public IntegerBoard(String filename)
 	{		
+		this(filename, HandleType.RuntimeError, null);
+	}
+	
+	public IntegerBoard(String filename, Integer defaultValue)
+	{
+		this(filename, HandleType.Ignore, defaultValue);
+	}
+		
+	@SuppressWarnings({"unchecked"})
+	public IntegerBoard(String filename, HandleType handleType, Integer defaultValue)
+	{
 		super(filename);
 
 		for(int i = 0; i < horizontal_size; i++)
@@ -50,7 +61,10 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 					}
 					catch(Exception exception)
 					{
-						ExceptionHandler.Handle(exception);
+						ExceptionHandler<Integer> handler = new ExceptionHandler<>();
+						
+						board[i][j] = new BoardPiece(i, j,
+							handler.AssignDefault(exception, handleType, defaultValue));
 					}
 				}
 			}

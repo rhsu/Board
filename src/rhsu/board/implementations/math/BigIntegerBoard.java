@@ -5,6 +5,7 @@ import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.exceptionHandler.HandleType;
 
 /**
  *A big integer implementation
@@ -25,8 +26,19 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 		}
 	}
 	
-	@SuppressWarnings({"unchecked"})
+
 	public BigIntegerBoard(String filename)
+	{
+		this(filename, HandleType.RuntimeError, null);
+	}
+		
+	public BigIntegerBoard(String filename, BigInteger defaultValue)
+	{
+		this(filename, HandleType.Ignore, defaultValue);
+	}
+	
+	@SuppressWarnings({"unchecked"})
+	public BigIntegerBoard(String filename, HandleType handleType, BigInteger defaultValue)
 	{
 		super(filename);
 		
@@ -41,12 +53,15 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 				}
 				catch(Exception exception)
 				{
-					ExceptionHandler.Handle(exception);
+					ExceptionHandler<BigInteger> exceptionHandler = new ExceptionHandler<>();
+					
+					board[i][j] = new BoardPiece(i, j,
+						exceptionHandler.AssignDefault(exception, handleType, defaultValue));
 				}
 			}
 		}
 	}
-
+	
 	@Override
 	public BigIntegerBoard Add(Matrix<BigInteger> m) 
 	{

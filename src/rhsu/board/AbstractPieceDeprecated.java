@@ -5,6 +5,7 @@ package rhsu.board;
  * This class is adds two index properties to a given object for easy
  * access in the AbstractBoard object
  * @param <T> Generic Type (any valid object)
+ * @deprecated 
  */
 @Deprecated
 public abstract class AbstractPieceDeprecated<T>

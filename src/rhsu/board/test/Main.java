@@ -17,13 +17,9 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		IntegerBoard a = new IntegerBoard("test.txt");
-		IntegerBoard b = new IntegerBoard("test.txt");
-	
-		//a = a.Transpose();
+		//IntegerBoard test = new IntegerBoard("test.txt", -1);
+		BigDecimalBoard test = new BigDecimalBoard("test.txt");
 		
-		IntegerBoard c = a.Multiply(b);
-		
-		print(a);
+		print(test);
 	}
 }
