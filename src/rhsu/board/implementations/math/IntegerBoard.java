@@ -25,7 +25,6 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		}
 	}
 	
-	@SuppressWarnings({"unchecked"})
 	public IntegerBoard(String filename)
 	{		
 		this(filename, HandleType.RuntimeError, null);

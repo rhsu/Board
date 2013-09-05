@@ -5,6 +5,7 @@ import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.exceptionHandler.HandleType;
 
 /**
  *A big decimal implementation
@@ -25,8 +26,18 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 		}
 	}
 	
-	@SuppressWarnings({"unchecked"})
 	public BigDecimalBoard(String filename)
+	{
+		this(filename, HandleType.RuntimeError, null);
+	}
+	
+	public BigDecimalBoard(String filename, BigDecimal defaultValue)
+	{
+		this(filename, HandleType.Ignore, defaultValue);
+	}
+	
+	@SuppressWarnings({"unchecked"})
+	private BigDecimalBoard(String filename, HandleType handletype, BigDecimal defaultValue)
 	{
 		super(filename);
 		
@@ -41,9 +52,10 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 				}
 				catch(Exception exception)
 				{
-					//board[i][j] = new BoardPiece(i, j, 
-					//		"ERROR");
-					ExceptionHandler.Handle(exception);
+					ExceptionHandler<BigDecimal> handler = new ExceptionHandler<>();
+					
+					board[i][j] = new BoardPiece(i, j, 
+							handler.AssignDefault(exception, handletype, defaultValue));
 				}
 			}
 		}
