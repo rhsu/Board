@@ -18,8 +18,7 @@ public class Main
 	public static void main(String[] args)
 	{
 		IntegerBoard test = new IntegerBoard("test.txt", -1);
-		
-		//System.out.println(test);
+
 		print(test);
 	}
 }
