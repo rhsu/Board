@@ -1,5 +1,9 @@
 package rhsu.board;
 
+/**
+ * A wrapper class for objects. Contains two additional int properties (horizontal index and vertical index)
+ * @param <T> The type of the BoardPiece to wrap
+ */
 public class BoardPiece<T>
 {
 	private int horizontal;
