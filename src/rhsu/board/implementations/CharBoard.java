@@ -8,6 +8,11 @@ import rhsu.board.BoardPiece;
  */
 public class CharBoard extends AbstractBoard<Character>
 {
+	/**
+	 * Constructor to create a Character Board with the given parameters
+	 * @param h the horizontal size 
+	 * @param v the vertical size
+	 */
 	@SuppressWarnings({"unchecked"})
 	public CharBoard(int h, int v)
 	{
@@ -22,6 +27,10 @@ public class CharBoard extends AbstractBoard<Character>
 		}
 	}
 
+	/**
+	 * Constructor to create a Character Board based off of a file 
+	 * @param filename the name of the file to create a Character Board from
+	 */
 	@SuppressWarnings({"unchecked"})
 	public CharBoard(String filename)
 	{
