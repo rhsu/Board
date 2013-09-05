@@ -17,8 +17,9 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		IntegerBoard test = new IntegerBoard("test.txt", -1);
-
+		//IntegerBoard test = new IntegerBoard("test.txt", -1);
+		IntegerBoard test = new IntegerBoard("test.txt");
+		
 		print(test);
 	}
 }

@@ -26,7 +26,18 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	}
 	
 	@SuppressWarnings({"unchecked"})
-	public IntegerBoard(String filename, HandleType handleType, Integer defaultValue)
+	public IntegerBoard(String filename)
+	{		
+		this(filename, HandleType.RuntimeError, null);
+	}
+	
+	public IntegerBoard(String filename, Integer defaultValue)
+	{
+		this(filename, HandleType.Ignore, defaultValue);
+	}
+		
+	@SuppressWarnings({"unchecked"})
+	private IntegerBoard(String filename, HandleType handleType, Integer defaultValue)
 	{
 		super(filename);
 
@@ -52,22 +63,13 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 					catch(Exception exception)
 					{
 						ExceptionHandler<Integer> handler = new ExceptionHandler<>();
-						handler.AssignDefault(exception, handleType, defaultValue);
+						
+						board[i][j] = new BoardPiece(i, j,
+							handler.AssignDefault(exception, handleType, defaultValue));
 					}
 				}
 			}
 		}
-	}
-	
-	public IntegerBoard(String filename, Integer defaultValue)
-	{
-		this(filename, HandleType.Ignore, defaultValue);
-	}
-	
-	@SuppressWarnings({"unchecked"})
-	public IntegerBoard(String filename)
-	{		
-		this(filename, HandleType.RuntimeError, null);
 	}
 	
 	@Override
