@@ -59,8 +59,6 @@ public class DoubleBoard extends AbstractMatrix<Double>
 				}
 				catch(Exception exception)
 				{
-					ExceptionHandler<Double> handler = new ExceptionHandler<>();
-					
 					value = handler.AssignDefault(exception, handleType, defaultValue);
 				}
 				finally

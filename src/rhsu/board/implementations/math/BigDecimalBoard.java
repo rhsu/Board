@@ -59,9 +59,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 					value = new BigDecimal(baseBoard.getValueAt(i, j));
 				}
 				catch(Exception exception)
-				{
-					ExceptionHandler<BigDecimal> handler = new ExceptionHandler<>();
-					
+				{					
 					value = handler.AssignDefault(exception, handletype, defaultValue);
 				}
 				finally

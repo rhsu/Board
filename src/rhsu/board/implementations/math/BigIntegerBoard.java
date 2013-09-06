@@ -60,9 +60,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 				}
 				catch(Exception exception)
 				{
-					ExceptionHandler<BigInteger> exceptionHandler = new ExceptionHandler<>();
-
-					value = exceptionHandler.AssignDefault(exception, handleType, defaultValue);
+					value = handler.AssignDefault(exception, handleType, defaultValue);
 				}
 				finally
 				{

@@ -69,8 +69,6 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 					}
 					catch(Exception exception)
 					{
-						ExceptionHandler<Integer> handler = new ExceptionHandler<>();
-
 						value = handler.AssignDefault(exception, handleType, defaultValue);
 					}
 					finally
