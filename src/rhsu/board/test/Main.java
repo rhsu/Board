@@ -17,8 +17,10 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		//IntegerBoard test = new IntegerBoard("test.txt", -1);
-		BigDecimalBoard test = new BigDecimalBoard("test.txt");
+		DoubleBoard test = new DoubleBoard("test.txt", -1.5);
+		//BooleanBoard test = new BooleanBoard("test.txt");
+		
+		//IntegerBoard test = new IntegerBoard(3,3, 600);
 		
 		print(test);
 	}

@@ -17,19 +17,16 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	 * @param v the vertical size
 	 */
 	@SuppressWarnings({"unchecked"})
-	public DoubleBoard(int h, int v)
+	public DoubleBoard(int h, int v, Double defaultValue)
 	{
-		super(h, v);
-		board = new BoardPiece[h][v];
-		for(int i = 0; i < h; i++)
-		{
-			for(int j = 0; j < v; j++)
-			{
-				board[i][j] = new BoardPiece(i, j, 0.0);
-			}
-		}
+		super(h, v, defaultValue);
 	}
 
+	public DoubleBoard(int h, int v)
+	{
+		this(h, v, 0.0);
+	}
+	
 	/**
 	 * Constructor to create a DoubleBoard based off of a file 
 	 * @param filename the name of the file to create a DoubleBoard from
@@ -50,21 +47,25 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	{
 		super(filename);
 		
+		Double value = null;
+		
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
 			{
 				try
 				{
-					board[i][j] = new BoardPiece(i, j,
-						Double.parseDouble(baseBoard.getValueAt(i, j)));
+					value = Double.parseDouble(baseBoard.getValueAt(i, j));
 				}
 				catch(Exception exception)
 				{
 					ExceptionHandler<Double> handler = new ExceptionHandler<>();
 					
-					board[i][j] = new BoardPiece(i, j,
-							handler.AssignDefault(exception, handleType, defaultValue));
+					value = handler.AssignDefault(exception, handleType, defaultValue);
+				}
+				finally
+				{
+					board[i][j] = new BoardPiece(i, j, value);
 				}
 			}
 		}

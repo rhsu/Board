@@ -17,17 +17,14 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	 * @param v the vertical size
 	 */
 	@SuppressWarnings({"unchecked"})
+	public IntegerBoard(int h, int v, Integer defaultValue)
+	{
+		super(h, v, defaultValue);
+	}
+	
 	public IntegerBoard(int h, int v)
 	{
-		super(h, v);
-		board = new BoardPiece[h][v];
-		for(int i = 0; i < h; i++)
-		{
-			for(int j = 0; j < v; j++)
-			{
-				board[i][j] = new BoardPiece(i, j, 0);
-			}
-		}
+		this(h, v, 0);
 	}
 	
 	/**
@@ -50,31 +47,35 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	{
 		super(filename);
 
+		Integer value = null;
+		
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
-			{
+			{				
 				if(baseBoard.pieceAt(i,j).getType().equalsIgnoreCase("true"))
 				{
-					board[i][j] = new BoardPiece(i, j, 1);
+					value = 1;
 				}
 				else if(baseBoard.pieceAt(i, j).getType().equalsIgnoreCase("false"))
 				{
-					board[i][j] = new BoardPiece(i, j, 0);
+					value = 0;
 				}
 				else
 				{
 					try
 					{
-						board[i][j] = new BoardPiece(i, j, 
-							Integer.parseInt(baseBoard.getValueAt(i, j)));
+						value = Integer.parseInt(baseBoard.getValueAt(i, j));
 					}
 					catch(Exception exception)
 					{
 						ExceptionHandler<Integer> handler = new ExceptionHandler<>();
-						
-						board[i][j] = new BoardPiece(i, j,
-							handler.AssignDefault(exception, handleType, defaultValue));
+
+						value = handler.AssignDefault(exception, handleType, defaultValue);
+					}
+					finally
+					{
+						board[i][j] = new BoardPiece(i, j, value);
 					}
 				}
 			}
