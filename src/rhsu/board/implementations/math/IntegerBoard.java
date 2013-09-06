@@ -3,7 +3,6 @@ package rhsu.board.implementations.math;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
-import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board.exceptionHandler.HandleType;
 
 /**
@@ -53,11 +52,11 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		{
 			for(int j = 0; j < vertical_size; j++)
 			{				
-				if(baseBoard.pieceAt(i,j).getType().equalsIgnoreCase("true"))
+				if(baseBoard.pieceAt(i,j).getValue().equalsIgnoreCase("true"))
 				{
 					value = 1;
 				}
-				else if(baseBoard.pieceAt(i, j).getType().equalsIgnoreCase("false"))
+				else if(baseBoard.pieceAt(i, j).getValue().equalsIgnoreCase("false"))
 				{
 					value = 0;
 				}
@@ -69,8 +68,6 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 					}
 					catch(Exception exception)
 					{
-						ExceptionHandler<Integer> handler = new ExceptionHandler<>();
-
 						value = handler.AssignDefault(exception, handleType, defaultValue);
 					}
 					finally

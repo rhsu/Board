@@ -32,7 +32,7 @@ public class BoardPiece<T>
 	 * 
 	 * @return the object itself
 	 */
-	public T getType()
+	public T getValue()
 	{
 		return t;
 	}
@@ -41,7 +41,7 @@ public class BoardPiece<T>
 	 * Modifies the object to be the same as the parameter
 	 * @param t the value to change into
 	 */
-	public void setType(T t)
+	public void setValue(T t)
 	{
 		this.t = t;
 	}

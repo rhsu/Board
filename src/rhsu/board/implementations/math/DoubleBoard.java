@@ -3,7 +3,6 @@ package rhsu.board.implementations.math;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
-import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board.exceptionHandler.HandleType;
 
 /**
@@ -59,8 +58,6 @@ public class DoubleBoard extends AbstractMatrix<Double>
 				}
 				catch(Exception exception)
 				{
-					ExceptionHandler<Double> handler = new ExceptionHandler<>();
-					
 					value = handler.AssignDefault(exception, handleType, defaultValue);
 				}
 				finally

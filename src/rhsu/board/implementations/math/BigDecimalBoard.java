@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
-import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board.exceptionHandler.HandleType;
 
 /**
@@ -59,9 +58,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 					value = new BigDecimal(baseBoard.getValueAt(i, j));
 				}
 				catch(Exception exception)
-				{
-					ExceptionHandler<BigDecimal> handler = new ExceptionHandler<>();
-					
+				{					
 					value = handler.AssignDefault(exception, handletype, defaultValue);
 				}
 				finally
