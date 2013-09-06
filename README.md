@@ -10,6 +10,20 @@ Run the ANT script to build.
 
 For best results, open the project with Netbeans7.3.
 
+#Release 2 Beta is Available!
+
+To use, checkout to the version2beta branch.
+
+Run the ANT script to build.
+
+For best results, open the project with Netbeans7.3
+
+#Release 2 Beta Features
+
+*Implementations of Abstract Matrix
+*Contains simple Matrix Operations such as Add, Subtract, Transpose, and More!
+*Contains Exception Handler for board to allow user or programmer to either ignore warnings or to handle errors.
+
 #Features
 
 * Implementations for all basic primitive types and strings!
@@ -20,4 +34,4 @@ For best results, open the project with Netbeans7.3.
 
 * Updated JavaDocs
 * A better GUI for the ConsoleApplication
-* Implementation for Matrix operations.
+
