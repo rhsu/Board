@@ -19,15 +19,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	@SuppressWarnings({"unchecked"})
 	public DoubleBoard(int h, int v, Double defaultValue)
 	{
-		super(h, v);
-		board = new BoardPiece[h][v];
-		for(int i = 0; i < h; i++)
-		{
-			for(int j = 0; j < v; j++)
-			{
-				board[i][j] = new BoardPiece(i, j, defaultValue);
-			}
-		}
+		super(h, v, defaultValue);
 	}
 
 	public DoubleBoard(int h, int v)

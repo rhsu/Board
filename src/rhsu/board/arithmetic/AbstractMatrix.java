@@ -22,6 +22,11 @@ public abstract class AbstractMatrix<T> extends AbstractBoard<T> implements Matr
 		super(h, v);
 	}
 	
+	public AbstractMatrix(int h, int v, T defaultValue)
+	{
+		super(h, v, defaultValue);
+	}
+			
 	public AbstractMatrix(String filename)
 	{
 		super(filename);

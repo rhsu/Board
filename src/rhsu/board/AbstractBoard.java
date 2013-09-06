@@ -40,6 +40,23 @@ public abstract class AbstractBoard<T> implements Board<T>
 		vertical_size = v;
 	}
 	
+	@SuppressWarnings({"unchecked"})
+	public AbstractBoard(int h, int v, T defaultValue)
+	{
+		horizontal_size = h;
+		vertical_size = v;
+		
+		board = new BoardPiece[h][v];
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				board[i][j] = new BoardPiece(i, j, defaultValue);
+			}
+		}
+	}
+	
 	/**
 	 * Constructor for building an instance of an abstract board from a file.
 	 * @param filename 
