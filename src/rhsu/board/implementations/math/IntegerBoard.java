@@ -17,7 +17,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	 * @param v the vertical size
 	 */
 	@SuppressWarnings({"unchecked"})
-	public IntegerBoard(int h, int v)
+	public IntegerBoard(int h, int v, int defaultValue)
 	{
 		super(h, v);
 		board = new BoardPiece[h][v];
@@ -25,9 +25,14 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new BoardPiece(i, j, 0);
+				board[i][j] = new BoardPiece(i, j, defaultValue);
 			}
 		}
+	}
+	
+	public IntegerBoard(int h, int v)
+	{
+		this(h, v, 0);
 	}
 	
 	/**

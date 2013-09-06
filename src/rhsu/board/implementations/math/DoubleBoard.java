@@ -17,7 +17,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	 * @param v the vertical size
 	 */
 	@SuppressWarnings({"unchecked"})
-	public DoubleBoard(int h, int v)
+	public DoubleBoard(int h, int v, Double defaultValue)
 	{
 		super(h, v);
 		board = new BoardPiece[h][v];
@@ -25,11 +25,16 @@ public class DoubleBoard extends AbstractMatrix<Double>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new BoardPiece(i, j, 0.0);
+				board[i][j] = new BoardPiece(i, j, defaultValue);
 			}
 		}
 	}
 
+	public DoubleBoard(int h, int v)
+	{
+		this(h, v, 0.0);
+	}
+	
 	/**
 	 * Constructor to create a DoubleBoard based off of a file 
 	 * @param filename the name of the file to create a DoubleBoard from

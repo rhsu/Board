@@ -8,13 +8,8 @@ import rhsu.board.BoardPiece;
  */
 public class CharBoard extends AbstractBoard<Character>
 {
-	/**
-	 * Constructor to create a Character Board with the given parameters
-	 * @param h the horizontal size 
-	 * @param v the vertical size
-	 */
 	@SuppressWarnings({"unchecked"})
-	public CharBoard(int h, int v)
+	public CharBoard(int h, int v, char defaultValue)
 	{
 		super(h, v);
 		board = new BoardPiece[h][v];
@@ -22,9 +17,19 @@ public class CharBoard extends AbstractBoard<Character>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new BoardPiece(i, j, ' ');
+				board[i][j] = new BoardPiece(i, j, defaultValue);
 			}
 		}
+	}
+	
+	/**
+	 * Constructor to create a Character Board with the given parameters
+	 * @param h the horizontal size 
+	 * @param v the vertical size
+	 */
+	public CharBoard(int h, int v)
+	{
+		this(h, v, ' ');
 	}
 
 	/**

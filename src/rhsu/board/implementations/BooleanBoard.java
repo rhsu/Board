@@ -8,13 +8,8 @@ import rhsu.board.BoardPiece;
  */
 public class BooleanBoard extends AbstractBoard<Boolean>
 {
-	/**
-	 * Constructor to create a BooleanBoard with the given parameters
-	 * @param h the horizontal size 
-	 * @param v the vertical size
-	 */
 	@SuppressWarnings({"unchecked"})
-	public BooleanBoard(int h, int v)
+	public BooleanBoard(int h, int v, boolean defaultValue)
 	{
 		super(h, v);
 		board = new BoardPiece[h][v];
@@ -22,9 +17,19 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new BoardPiece(i, j, false);
+				board[i][j] = new BoardPiece(i, j, defaultValue);
 			}
 		}
+	}
+	
+	/**
+	 * Constructor to create a BooleanBoard with the given parameters
+	 * @param h the horizontal size 
+	 * @param v the vertical size
+	 */
+	public BooleanBoard(int h, int v)
+	{
+		this(h, v, false);
 	}
 
 	/**

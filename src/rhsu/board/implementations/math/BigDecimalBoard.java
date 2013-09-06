@@ -11,14 +11,19 @@ import rhsu.board.exceptionHandler.HandleType;
  *A big decimal implementation
  */
 public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
-{
+{	
 	/**
 	 * Constructor to create a BigDecimalBoard with the given parameters
 	 * @param h the horizontal size 
 	 * @param v the vertical size
 	 */
-	@SuppressWarnings({"unchecked"})
 	public BigDecimalBoard(int h, int v)
+	{
+		this(h, v, BigDecimal.ZERO);
+	}
+	
+	@SuppressWarnings({"unchecked"})
+	public BigDecimalBoard(int h, int v, BigDecimal defaultValue)
 	{
 		super(h, v);
 		board = new BoardPiece[h][v];
@@ -26,7 +31,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new BoardPiece(i, j, BigDecimal.ZERO);
+				board[i][j] = new BoardPiece(i, j, defaultValue);
 			}
 		}
 	}

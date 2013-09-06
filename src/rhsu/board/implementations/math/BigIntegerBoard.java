@@ -17,8 +17,13 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	 * @param h the horizontal size 
 	 * @param v the vertical size
 	 */
-	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(int h, int v)
+	{
+		this(h, v, BigInteger.ZERO);
+	}
+	
+	@SuppressWarnings({"unchecked"})
+	public BigIntegerBoard(int h, int v, BigInteger defaultValue)
 	{
 		super(h, v);
 		board = new BoardPiece[h][v];
@@ -26,7 +31,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new BoardPiece(i, j, BigInteger.ZERO);
+				board[i][j] = new BoardPiece(i, j, defaultValue);
 			}
 		}
 	}
