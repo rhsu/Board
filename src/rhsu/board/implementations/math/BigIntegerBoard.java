@@ -188,4 +188,30 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 		}
 		return result;
 	}
+	
+	private BigIntegerBoard createSubMatrix(BigIntegerBoard matrix, 
+			int excluding_row, int excluding_column)
+	{
+		BigIntegerBoard mat = new BigIntegerBoard(this.horizontal_size-1,
+				this.vertical_size-1);
+	
+		int r = -1;
+		
+		for(int i = 0; i < this.horizontal_size; i++)
+		{
+			if(i == excluding_row) continue;
+			r++;
+			
+			int c = -1;
+			
+			for(int j = 0; j < this.vertical_size; j++)
+			{
+				if(j == excluding_column) continue;
+				
+				mat.setValueAt(r, c, matrix.getValueAt(i,j));
+			}
+		}
+		
+		return mat;
+	}
 }
