@@ -47,31 +47,35 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	{
 		super(filename);
 
+		Integer value = null;
+		
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
-			{
+			{				
 				if(baseBoard.pieceAt(i,j).getType().equalsIgnoreCase("true"))
 				{
-					board[i][j] = new BoardPiece(i, j, 1);
+					value = 1;
 				}
 				else if(baseBoard.pieceAt(i, j).getType().equalsIgnoreCase("false"))
 				{
-					board[i][j] = new BoardPiece(i, j, 0);
+					value = 0;
 				}
 				else
 				{
 					try
 					{
-						board[i][j] = new BoardPiece(i, j, 
-							Integer.parseInt(baseBoard.getValueAt(i, j)));
+						value = Integer.parseInt(baseBoard.getValueAt(i, j));
 					}
 					catch(Exception exception)
 					{
 						ExceptionHandler<Integer> handler = new ExceptionHandler<>();
-						
-						board[i][j] = new BoardPiece(i, j,
-							handler.AssignDefault(exception, handleType, defaultValue));
+
+						value = handler.AssignDefault(exception, handleType, defaultValue);
+					}
+					finally
+					{
+						board[i][j] = new BoardPiece(i, j, value);
 					}
 				}
 			}

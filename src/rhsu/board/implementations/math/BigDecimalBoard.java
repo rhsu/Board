@@ -48,21 +48,25 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	{
 		super(filename);
 		
+		BigDecimal value = null;
+		
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
 			{
 				try
 				{
-					board[i][j] = new BoardPiece(i, j, 
-							new BigDecimal(baseBoard.getValueAt(i, j)));
+					value = new BigDecimal(baseBoard.getValueAt(i, j));
 				}
 				catch(Exception exception)
 				{
 					ExceptionHandler<BigDecimal> handler = new ExceptionHandler<>();
 					
-					board[i][j] = new BoardPiece(i, j, 
-							handler.AssignDefault(exception, handletype, defaultValue));
+					value = handler.AssignDefault(exception, handletype, defaultValue);
+				}
+				finally
+				{
+					board[i][j] = new BoardPiece(i, j, value);
 				}
 			}
 		}

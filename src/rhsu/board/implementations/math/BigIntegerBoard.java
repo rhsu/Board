@@ -48,21 +48,25 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	{
 		super(filename);
 		
+		BigInteger value = null;
+		
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
 			{
 				try
 				{
-					board[i][j] = new BoardPiece(i, j, 
-							new BigInteger(baseBoard.getValueAt(i, j)));
+					value = new BigInteger(baseBoard.getValueAt(i,j));
 				}
 				catch(Exception exception)
 				{
 					ExceptionHandler<BigInteger> exceptionHandler = new ExceptionHandler<>();
-					
-					board[i][j] = new BoardPiece(i, j,
-						exceptionHandler.AssignDefault(exception, handleType, defaultValue));
+
+					value = exceptionHandler.AssignDefault(exception, handleType, defaultValue);
+				}
+				finally
+				{
+					board[i][j] = new BoardPiece(i, j, value);
 				}
 			}
 		}

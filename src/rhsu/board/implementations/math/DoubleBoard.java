@@ -47,21 +47,25 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	{
 		super(filename);
 		
+		Double value = null;
+		
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
 			{
 				try
 				{
-					board[i][j] = new BoardPiece(i, j,
-						Double.parseDouble(baseBoard.getValueAt(i, j)));
+					value = Double.parseDouble(baseBoard.getValueAt(i, j));
 				}
 				catch(Exception exception)
 				{
 					ExceptionHandler<Double> handler = new ExceptionHandler<>();
 					
-					board[i][j] = new BoardPiece(i, j,
-							handler.AssignDefault(exception, handleType, defaultValue));
+					value = handler.AssignDefault(exception, handleType, defaultValue);
+				}
+				finally
+				{
+					board[i][j] = new BoardPiece(i, j, value);
 				}
 			}
 		}
