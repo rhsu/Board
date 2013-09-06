@@ -178,4 +178,52 @@ public abstract class AbstractBoard<T> implements Board<T>
 	{
 		BoardWriter.write(filename, this);
 	}
+	
+	@Override
+	public T getLeftValue(BoardPiece<T> p)
+	{
+		return this.getLeftPiece(p).getType();
+	}
+	
+	@Override
+	public T getLeftValue(int i, int j)
+	{
+		return this.getLeftPiece(i, j).getType();
+	}
+	
+	@Override
+	public T getRightValue(BoardPiece<T> p)
+	{
+		return this.getRightPiece(p).getType();
+	}
+	
+	@Override
+	public T getRightValue(int i, int j)
+	{
+		return this.getRightPiece(i, j).getType();
+	}
+	
+	@Override
+	public T getUpValue(BoardPiece<T> p)
+	{
+		return this.getUpPiece(p).getType();
+	}
+	
+	@Override
+	public T getUpValue(int i, int j)
+	{
+		return this.getUpPiece(i, j).getType();
+	}
+	
+	@Override
+	public T getDownValue(BoardPiece<T> p)
+	{
+		return this.getDownPiece(p).getType();
+	}
+	
+	@Override
+	public T getDownValue(int i, int j)
+	{
+		return this.getDownPiece(i, j).getType();
+	}
 }
