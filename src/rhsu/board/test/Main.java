@@ -7,6 +7,8 @@ import rhsu.board.IO.*;
 import rhsu.board.arithmetic.*;
 import rhsu.board.implementations.math.*;
 import rhsu.board.implementations.*;
+import rhsu.board.testObjects.gameObjects.overhaul.Drop7Board;
+import rhsu.board.testObjects.gameObjects.overhaul.Drop7Piece;
 
 public class Main
 {
@@ -17,11 +19,10 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		DoubleBoard test = new DoubleBoard("test.txt", -1.5);
-		//BooleanBoard test = new BooleanBoard("test.txt");
+		Drop7Board board = new Drop7Board(5,5);
 		
-		//IntegerBoard test = new IntegerBoard(3,3, 600);
+		board.setValueAt(0, 0, Drop7Piece.SET);
 		
-		print(test);
+		print(board);
 	}
 }

@@ -1,8 +1,6 @@
 package rhsu.board.testObjects.gameObjects;
 
-import rhsu.board.AbstractBoard;
 import java.util.ArrayList;
-import rhsu.board.BoardPiece;
 import rhsu.board.implementations.StringBoard;
 
 /**
