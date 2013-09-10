@@ -1,6 +1,7 @@
 package rhsu.board.testObjects.gameObjects.overhaul;
 
 import java.util.ArrayList;
+import java.util.Set;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
 
@@ -150,9 +151,33 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 		return pieces;
 	}
 	
+	/**
+	* @return A list of pieces that are marked as remove
+	*/
+	public ArrayList<BoardPiece<Drop7Piece>> getAllRemovePieces()
+	{
+		ArrayList<BoardPiece<Drop7Piece>> pieces = new ArrayList<>();
+
+		for(int i = 0; i < 7; i++)
+		{
+			for(int j = 0; j < 7; j++)
+			{
+				BoardPiece<Drop7Piece> piece = this.pieceAt(i, j);
+				
+				if(piece.getValue().checkRemove())
+				{
+					pieces.add(piece);
+				}
+			}
+		}
+		return pieces;
+	}
+	
 	public void checkForRemoval(BoardPiece<Drop7Piece> piece)
 	{
 		ArrayList<BoardPiece<Drop7Piece>> rows = this.getAllPiecesInRow(piece);
+		//TODO: For Columns also 
+		//ArrayList<BoardPiece<Drop7Piece>> columns = this.getAllPiecesInColumn(piece);
 		
 		for(BoardPiece<Drop7Piece> item: rows)
 		{
@@ -160,16 +185,23 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 			
 			if(value == this.getNumberColumnAdjacent(item))
 			{
-				//item.setremove true
+				item.getValue().setRemove();
 			}
 		}
+		
+		removePieces();
 	}
 	
-	//getAllMarkedAsRemoved
-	
-	//checkForRemoval
-	
-	//removeMarked
+	private void removePieces()
+	{
+		ArrayList<BoardPiece<Drop7Piece>> removePieces = this.getAllRemovePieces();
+		
+		for(BoardPiece<Drop7Piece> item : removePieces)
+		{
+			item.setValue(Drop7Piece.EMPTY);
+			item.getValue().setEmpty();
+		}
+	}
 	
 	//insert
 }

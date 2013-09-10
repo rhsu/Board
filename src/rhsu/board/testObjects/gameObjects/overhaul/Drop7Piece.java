@@ -37,6 +37,13 @@ public enum Drop7Piece
 		this.remove = true;
 	}
 	
+	public void setEmpty()
+	{
+		this.typeValue = 0;
+		this.pieceValue = 0;
+		this.remove = false;
+	}
+	
 	private Drop7Piece(int typeValue, int pieceValue)
 	{
 		this.typeValue = typeValue;
