@@ -29,17 +29,6 @@ public abstract class AbstractBoard<T> implements Board<T>
 	 */
 	protected StringBoard baseBoard;
 	
-	/**
-	 * General Constructor for creating an abstract board.
-	 * @param h the height of the abstract board to create
-	 * @param v the width of the abstract board to create
-	 */
-	public AbstractBoard(int h, int v)
-	{
-		horizontal_size = h;
-		vertical_size = v;
-	}
-	
 	@SuppressWarnings({"unchecked"})
 	public AbstractBoard(int h, int v, T defaultValue)
 	{
