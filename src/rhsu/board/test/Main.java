@@ -22,7 +22,18 @@ public class Main
 		Drop7Board board = new Drop7Board(5,5);
 		
 		board.setValueAt(0, 0, Drop7Piece.SET);
+		board.setValueAt(0, 1, Drop7Piece.SET);
+		board.setValueAt(1, 0, Drop7Piece.SET);
 		
 		print(board);
+		
+		print("testing getColumnAdjacent functions...");
+		
+		BoardPiece<Drop7Piece> test = board.pieceAt(0, 0);
+		
+		print(test);
+		
+		int i = board.getNumberRowAdjacent(test);
+		print(i);
 	}
 }

@@ -9,7 +9,6 @@ import rhsu.board.implementations.StringBoard;
  */
 public class GameBoard //extends AbstractBoard<GamePiece>
 {
-	//<editor-fold defaultstate="collapsed" desc="RETRIEVAL FUNCTIONS">
 	/**
 	* calculates the number of adjacent pieces in the same (horizontal) row as a
 	* given parameter piece (Including itself: e.g. A piece with no pieces next to it
@@ -155,8 +154,6 @@ public class GameBoard //extends AbstractBoard<GamePiece>
 		}
 		return list;
 	}
-        
-	//</editor-fold>
 	
 	/**
 	 *Constructor.
