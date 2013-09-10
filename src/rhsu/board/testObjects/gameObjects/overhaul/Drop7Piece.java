@@ -15,6 +15,7 @@ public enum Drop7Piece
 	
 	private int pieceValue;
 	private int typeValue;
+	private boolean remove;
 	
 	public int getPieceValue()
 	{
@@ -26,9 +27,20 @@ public enum Drop7Piece
 		return typeValue;
 	}
 	
+	public boolean checkRemove()
+	{
+		return remove;
+	}
+	
+	public void setRemove()
+	{
+		this.remove = true;
+	}
+	
 	private Drop7Piece(int typeValue, int pieceValue)
 	{
 		this.typeValue = typeValue;
 		this.pieceValue = pieceValue;
+		this.remove = false;
 	}
 }
