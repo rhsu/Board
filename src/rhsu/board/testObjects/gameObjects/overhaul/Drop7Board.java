@@ -1,5 +1,6 @@
 package rhsu.board.testObjects.gameObjects.overhaul;
 
+import java.util.ArrayList;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
 
@@ -97,7 +98,57 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 		return ++numAdjacent; //increment to include self
 	}
 	
-	//getAllPiecesInColumn
+	/**
+	* @param p The piece to perform the method on
+	* @return A list of pieces that are in the same column as the parameter piece
+	*/
+	public ArrayList<BoardPiece<Drop7Piece>> getAllPiecesInColumn(BoardPiece<Drop7Piece> piece)
+	{
+		if(piece == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		int column = piece.getVertical();
+		
+		ArrayList<BoardPiece<Drop7Piece>> pieces = new ArrayList<>();
+			
+		for(int i = 0; i < 7; i++)
+		{
+			BoardPiece<Drop7Piece> current = this.pieceAt(i, column);
+			
+			if((current != null) && (current.getValue() != Drop7Piece.EMPTY))
+			{
+				pieces.add(current);
+			}
+		}
+	
+		return pieces;
+	}
+				
+	public ArrayList<BoardPiece<Drop7Piece>> getAllPiecesInRow(BoardPiece<Drop7Piece> piece)
+	{
+		if(piece == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		int row = piece.getHorizontal();
+		
+		ArrayList<BoardPiece<Drop7Piece>> pieces = new ArrayList<>();
+		
+		for(int i = 0; i < 7; i++)
+		{
+			BoardPiece<Drop7Piece> current = this.pieceAt(row, i);
+			
+			if((current != null) && (current.getValue() != Drop7Piece.EMPTY))
+			{
+				pieces.add(current);
+			}
+		}
+		
+		return pieces;
+	}
 	
 	//getAllPiecesInRow
 	

@@ -2,6 +2,7 @@ package rhsu.board.test;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.List;
 import rhsu.board.*;
 import rhsu.board.IO.*;
 import rhsu.board.arithmetic.*;
@@ -27,13 +28,10 @@ public class Main
 		
 		print(board);
 		
-		print("testing getColumnAdjacent functions...");
+		BoardPiece<Drop7Piece> ref = board.pieceAt(0, 0);
 		
-		BoardPiece<Drop7Piece> test = board.pieceAt(0, 0);
+		List<BoardPiece<Drop7Piece>> test = board.getAllPiecesInRow(ref);
 		
 		print(test);
-		
-		int i = board.getNumberRowAdjacent(test);
-		print(i);
 	}
 }
