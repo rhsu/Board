@@ -22,9 +22,19 @@ public enum Drop7Piece
 		return pieceValue;
 	}
 	
+	public void setPieceValue(int value)
+	{
+		this.pieceValue = value;
+	}
+	
 	public int getTypeValue()
 	{
 		return typeValue;
+	}
+	
+	public void setTypeValue(int value)
+	{
+		this.typeValue = value;
 	}
 	
 	public boolean checkRemove()

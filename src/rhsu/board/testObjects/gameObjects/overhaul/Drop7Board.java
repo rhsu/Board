@@ -203,5 +203,36 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 		}
 	}
 	
-	//insert
+	/**
+	 * Given a position, this function will create a new piece and update the piece
+	 * If the insert is successful, then a check will be performed to determine if 
+	 * @param position The column number to insert the piece. Do not use with array indexes
+	 * @param value 
+	 * @return True if the insert was successful, else returns false
+	 * @throws IllegalArgumentException If an incorrect position or value is given+
+	 */
+	public boolean insert(int position, int value)
+	{
+		if((position < 1) || (position > 7) || (value > 8))
+		{
+			throw new IllegalArgumentException();
+		}
+		
+		//subtracting one to calibrate the position to work with array indexes
+		position--;
+		
+		for (int index = 6; index >= 0; index--)
+		{
+			BoardPiece<Drop7Piece> current = this.pieceAt(index, position);
+			
+			if(current.getValue() == Drop7Piece.EMPTY)
+			{
+				current.setValue(Drop7Piece.SET);
+				current.getValue().setTypeValue(value);
+				current.getValue().setPieceValue(0);
+				return true;
+			}
+		}
+		return false;
+	}
 }
