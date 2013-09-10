@@ -150,7 +150,20 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 		return pieces;
 	}
 	
-	//getAllPiecesInRow
+	public void checkForRemoval(BoardPiece<Drop7Piece> piece)
+	{
+		ArrayList<BoardPiece<Drop7Piece>> rows = this.getAllPiecesInRow(piece);
+		
+		for(BoardPiece<Drop7Piece> item: rows)
+		{
+			int value = item.getValue().getPieceValue();
+			
+			if(value == this.getNumberColumnAdjacent(item))
+			{
+				//item.setremove true
+			}
+		}
+	}
 	
 	//getAllMarkedAsRemoved
 	
