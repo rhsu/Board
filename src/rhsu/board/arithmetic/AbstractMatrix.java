@@ -19,12 +19,7 @@ public abstract class AbstractMatrix<T> extends AbstractBoard<T> implements Matr
 	}
 	
 	protected ExceptionHandler<T> handler;
-	
-	public AbstractMatrix(int h, int v)
-	{
-		super(h, v);
-	}
-	
+		
 	public AbstractMatrix(int h, int v, T defaultValue)
 	{
 		super(h, v, defaultValue);

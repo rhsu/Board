@@ -9,7 +9,7 @@ import rhsu.board.implementations.StringBoard;
  *An implementation of AbstractBoard that takes in GamePiece as the
  * genetic type.
  */
-public class GameBoard extends AbstractBoard<GamePiece>
+public class GameBoard //extends AbstractBoard<GamePiece>
 {
 	//<editor-fold defaultstate="collapsed" desc="RETRIEVAL FUNCTIONS">
 	/**
@@ -166,7 +166,7 @@ public class GameBoard extends AbstractBoard<GamePiece>
 	@SuppressWarnings({"unchecked"})
 	public GameBoard(int h, int v)
 	{
-		super(h, v);
+		/*super(h, v);
 		board = new BoardPiece[h][v];
 		for(int i = 0; i < h; i++)
 		{
@@ -175,7 +175,7 @@ public class GameBoard extends AbstractBoard<GamePiece>
 				//board[i][j] = (i < 6) ? new GamePiece(PieceType.EMPTY, i, j) 
 				//		: new GamePiece(PieceType.SET, i, j);
 			}
-		}
+		}*/
 	}
 
 	/**

@@ -2,6 +2,9 @@
 
 A wrapper class for a 2D array of objects (implemented as a generic). 
 
+#Release 2 Beta Updated!
+*Release of Drop7Board and Drop7Piece for usage with the Project Drop7.
+
 #Release 2 Beta is Available!
 
 * To use, checkout to the version2beta branch.
