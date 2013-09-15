@@ -19,10 +19,10 @@ public class Main
 	
 	public static void main(String[] args)
 	{		
-		IntegerBoard test = new IntegerBoard(3,3, 5);
+		StringBoard test = new StringBoard("test.txt");
 		
 		print(test);
 		
-		UniversalPanelLauncher.Launch(new BoardPanelGUI());
+		UniversalPanelLauncher.Launch(new BoardPanelGUIExtender(test));
 	}
 }
