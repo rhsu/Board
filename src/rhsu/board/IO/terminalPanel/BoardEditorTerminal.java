@@ -1,8 +1,9 @@
 package rhsu.board.IO.terminalPanel;
 
-import com.terminalPanelGUI.AbstractTerminal;
-import com.terminalPanelGUI.UniversalPanelLauncher;
+
 import rhsu.board.utilities.UtilityFunctions;
+import rhsu.terminalPanelGUI.AbstractTerminal;
+import rhsu.terminalPanelGUI.UniversalPanelLauncher;
 
 public class BoardEditorTerminal extends AbstractTerminal
 {
