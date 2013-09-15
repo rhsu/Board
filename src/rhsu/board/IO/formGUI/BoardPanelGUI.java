@@ -8,12 +8,13 @@ package rhsu.board.IO.formGUI;
  *
  * @author Robert
  */
-public class BoardPanelGUI extends javax.swing.JPanel {
-
+public class BoardPanelGUI extends javax.swing.JPanel 
+{
 	/**
 	 * Creates new form BoardPanelGUI
 	 */
-	public BoardPanelGUI() {
+	public BoardPanelGUI() 
+	{
 		initComponents();
 	}
 
