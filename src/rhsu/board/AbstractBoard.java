@@ -29,15 +29,21 @@ public abstract class AbstractBoard<T> implements Board<T>
 	 */
 	protected StringBoard baseBoard;
 	
-	/**
-	 * General Constructor for creating an abstract board.
-	 * @param h the height of the abstract board to create
-	 * @param v the width of the abstract board to create
-	 */
-	public AbstractBoard(int h, int v)
+	@SuppressWarnings({"unchecked"})
+	public AbstractBoard(int h, int v, T defaultValue)
 	{
 		horizontal_size = h;
 		vertical_size = v;
+		
+		board = new BoardPiece[h][v];
+		
+		for(int i = 0; i < h; i++)
+		{
+			for(int j = 0; j < v; j++)
+			{
+				board[i][j] = new BoardPiece(i, j, defaultValue);
+			}
+		}
 	}
 	
 	/**
@@ -65,13 +71,13 @@ public abstract class AbstractBoard<T> implements Board<T>
 	@Override
 	public T getValueAt(int i, int j)
 	{
-		return board[i][j].getType();
+		return board[i][j].getValue();
 	}
 	
 	@Override
 	public void setValueAt(int i, int j, T t)
 	{
-		board[i][j].setType(t);
+		board[i][j].setValue(t);
 	}
 		
 	@Override
@@ -160,5 +166,53 @@ public abstract class AbstractBoard<T> implements Board<T>
 	public void export(String filename)
 	{
 		BoardWriter.write(filename, this);
+	}
+	
+	@Override
+	public T getLeftValue(BoardPiece<T> p)
+	{
+		return this.getLeftPiece(p).getValue();
+	}
+	
+	@Override
+	public T getLeftValue(int i, int j)
+	{
+		return this.getLeftPiece(i, j).getValue();
+	}
+	
+	@Override
+	public T getRightValue(BoardPiece<T> p)
+	{
+		return this.getRightPiece(p).getValue();
+	}
+	
+	@Override
+	public T getRightValue(int i, int j)
+	{
+		return this.getRightPiece(i, j).getValue();
+	}
+	
+	@Override
+	public T getUpValue(BoardPiece<T> p)
+	{
+		return this.getUpPiece(p).getValue();
+	}
+	
+	@Override
+	public T getUpValue(int i, int j)
+	{
+		return this.getUpPiece(i, j).getValue();
+	}
+	
+	@Override
+	public T getDownValue(BoardPiece<T> p)
+	{
+		return this.getDownPiece(p).getValue();
+	}
+	
+	@Override
+	public T getDownValue(int i, int j)
+	{
+		return this.getDownPiece(i, j).getValue();
 	}
 }

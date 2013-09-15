@@ -1,6 +1,7 @@
 package rhsu.board.arithmetic;
 
 import rhsu.board.AbstractBoard;
+import rhsu.board.exceptionHandler.ExceptionHandler;
 
 /**
  *
@@ -17,14 +18,17 @@ public abstract class AbstractMatrix<T> extends AbstractBoard<T> implements Matr
 		INVERSE
 	}
 	
-	public AbstractMatrix(int h, int v)
+	protected ExceptionHandler<T> handler;
+		
+	public AbstractMatrix(int h, int v, T defaultValue)
 	{
-		super(h, v);
+		super(h, v, defaultValue);
 	}
-	
+			
 	public AbstractMatrix(String filename)
 	{
 		super(filename);
+		handler = new ExceptionHandler<>();
 	}
 	
 	protected void CheckDimensions(OperationType type)

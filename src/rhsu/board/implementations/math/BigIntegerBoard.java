@@ -4,7 +4,6 @@ import java.math.BigInteger;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
-import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board.exceptionHandler.HandleType;
 
 /**
@@ -17,18 +16,15 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	 * @param h the horizontal size 
 	 * @param v the vertical size
 	 */
-	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(int h, int v)
 	{
-		super(h, v);
-		board = new BoardPiece[h][v];
-		for(int i = 0; i < h; i++)
-		{
-			for(int j = 0; j < v; j++)
-			{
-				board[i][j] = new BoardPiece(i, j, BigInteger.ZERO);
-			}
-		}
+		this(h, v, BigInteger.ZERO);
+	}
+	
+	@SuppressWarnings({"unchecked"})
+	public BigIntegerBoard(int h, int v, BigInteger defaultValue)
+	{
+		super(h, v, defaultValue);
 	}
 	
 	/**
@@ -51,21 +47,23 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	{
 		super(filename);
 		
+		BigInteger value = null;
+		
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
 			{
 				try
 				{
-					board[i][j] = new BoardPiece(i, j, 
-							new BigInteger(baseBoard.getValueAt(i, j)));
+					value = new BigInteger(baseBoard.getValueAt(i,j));
 				}
 				catch(Exception exception)
 				{
-					ExceptionHandler<BigInteger> exceptionHandler = new ExceptionHandler<>();
-					
-					board[i][j] = new BoardPiece(i, j,
-						exceptionHandler.AssignDefault(exception, handleType, defaultValue));
+					value = handler.AssignDefault(exception, handleType, defaultValue);
+				}
+				finally
+				{
+					board[i][j] = new BoardPiece(i, j, value);
 				}
 			}
 		}

@@ -101,5 +101,21 @@ public interface Board<T>
 	 * @return the vertical size of the board
 	 */
 	public int getVertical_size();
+	
+	public T getLeftValue(BoardPiece<T> p);
+	
+	public T getLeftValue(int i, int j);
+	
+	public T getRightValue(BoardPiece<T> p);
+	
+	public T getRightValue(int i, int j);
+	
+	public T getUpValue(BoardPiece<T> p);
+	
+	public T getUpValue(int i, int j);	
+	
+	public T getDownValue(BoardPiece<T> p);
+	
+	public T getDownValue(int i, int j);
 }
 

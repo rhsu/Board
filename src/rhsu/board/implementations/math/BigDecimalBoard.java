@@ -4,31 +4,27 @@ import java.math.BigDecimal;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
-import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board.exceptionHandler.HandleType;
 
 /**
  *A big decimal implementation
  */
 public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
-{
+{	
 	/**
 	 * Constructor to create a BigDecimalBoard with the given parameters
 	 * @param h the horizontal size 
 	 * @param v the vertical size
 	 */
-	@SuppressWarnings({"unchecked"})
 	public BigDecimalBoard(int h, int v)
 	{
-		super(h, v);
-		board = new BoardPiece[h][v];
-		for(int i = 0; i < h; i++)
-		{
-			for(int j = 0; j < v; j++)
-			{
-				board[i][j] = new BoardPiece(i, j, BigDecimal.ZERO);
-			}
-		}
+		this(h, v, BigDecimal.ZERO);
+	}
+	
+	@SuppressWarnings({"unchecked"})
+	public BigDecimalBoard(int h, int v, BigDecimal defaultValue)
+	{
+		super(h, v, defaultValue);
 	}
 	
 	/**
@@ -51,21 +47,23 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	{
 		super(filename);
 		
+		BigDecimal value = null;
+		
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
 			{
 				try
 				{
-					board[i][j] = new BoardPiece(i, j, 
-							new BigDecimal(baseBoard.getValueAt(i, j)));
+					value = new BigDecimal(baseBoard.getValueAt(i, j));
 				}
 				catch(Exception exception)
+				{					
+					value = handler.AssignDefault(exception, handletype, defaultValue);
+				}
+				finally
 				{
-					ExceptionHandler<BigDecimal> handler = new ExceptionHandler<>();
-					
-					board[i][j] = new BoardPiece(i, j, 
-							handler.AssignDefault(exception, handletype, defaultValue));
+					board[i][j] = new BoardPiece(i, j, value);
 				}
 			}
 		}
