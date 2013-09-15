@@ -1,6 +1,5 @@
 package rhsu.board.test;
 
-import com.terminalPanelGUI.UniversalPanelLauncher;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import rhsu.board.*;
@@ -9,6 +8,7 @@ import rhsu.board.IO.formGUI.BoardPanelGUI;
 import rhsu.board.arithmetic.*;
 import rhsu.board.implementations.math.*;
 import rhsu.board.implementations.*;
+import rhsu.terminalPanelGUI.UniversalPanelLauncher;
 
 public class Main
 {
