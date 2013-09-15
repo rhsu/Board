@@ -16,11 +16,8 @@ public class Main
 	}
 	
 	public static void main(String[] args)
-	{
-		DoubleBoard test = new DoubleBoard("test.txt", -1.5);
-		//BooleanBoard test = new BooleanBoard("test.txt");
-		
-		//IntegerBoard test = new IntegerBoard(3,3, 600);
+	{		
+		IntegerBoard test = new IntegerBoard(3,3, 5);
 		
 		print(test);
 	}
