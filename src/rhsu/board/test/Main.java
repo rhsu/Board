@@ -8,8 +8,8 @@ import rhsu.board.IO.*;
 import rhsu.board.arithmetic.*;
 import rhsu.board.implementations.math.*;
 import rhsu.board.implementations.*;
-import rhsu.board.testObjects.gameObjects.overhaul.Drop7Board;
-import rhsu.board.testObjects.gameObjects.overhaul.Drop7Piece;
+import rhsu.board.gameObjects.Drop7Board;
+import rhsu.board.gameObjects.Drop7Piece;
 
 public class Main
 {

@@ -1,4 +1,4 @@
-package rhsu.board.testObjects.gameObjects.overhaul;
+package rhsu.board.gameObjects;
 
 import rhsu.board.utilities.UtilityFunctions;
 
