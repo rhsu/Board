@@ -2,6 +2,7 @@ package rhsu.board.test;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.List;
 import rhsu.board.*;
 import rhsu.board.IO.*;
 import rhsu.board.IO.formGUI.*;
@@ -20,8 +21,6 @@ public class Main
 	public static void main(String[] args)
 	{		
 		StringBoard test = new StringBoard("test.txt");
-		
-		print(test);
 		
 		UniversalPanelLauncher.Launch(new BoardPanelGUIExtender(test));
 	}
