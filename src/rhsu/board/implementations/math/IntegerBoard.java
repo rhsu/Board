@@ -213,8 +213,8 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		return result;
 	}
 	
-	protected static IntegerBoard createSubMatrix(IntegerBoard matrix, 
-		int excluding_row, int excluding_column)
+	public IntegerBoard createSubMatrix(IntegerBoard matrix, int excluding_row, 
+		int excluding_column)
 	{
 		IntegerBoard result = new IntegerBoard(this.horizontal_size-1,
 				this.vertical_size-1);
@@ -223,10 +223,10 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		
 		for(int i = 0; i < this.horizontal_size; i++)
 		{
-			if(i == excluding_row) continue;
-			r++;
-			
-			int c = -1;
+			if(i == excluding_row) 
+				continue;
+				r++;	
+				int c = -1;
 			
 			for(int j = 0; j < this.vertical_size; j++)
 			{
@@ -237,5 +237,10 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		}
 		
 		return result;
+	}
+	
+	public IntegerBoard cofactor()
+	{
+		return new IntegerBoard(1,1);
 	}
 }
