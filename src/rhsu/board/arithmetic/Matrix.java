@@ -50,4 +50,8 @@ public interface Matrix<T> extends Board<T>
 	public T determinant();
 	
 	public Matrix<T> transpose();
+	
+	public Matrix<T> createSubMatrix(int excluding_row, int excluding_column);
+	
+	public Matrix<T> cofactor();
 }

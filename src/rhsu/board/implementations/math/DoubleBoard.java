@@ -186,4 +186,16 @@ public class DoubleBoard extends AbstractMatrix<Double>
 		}
 		return result;
 	}
+
+	@Override
+	public Matrix<Double> createSubMatrix(int excluding_row, int excluding_column) 
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	@Override
+	public Matrix<Double> cofactor() 
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }

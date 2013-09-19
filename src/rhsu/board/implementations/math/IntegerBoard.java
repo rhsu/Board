@@ -218,6 +218,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		return result;
 	}
 	
+	@Override
 	public IntegerBoard createSubMatrix(int excluding_row, int excluding_column)
 	{
 		IntegerBoard result = new IntegerBoard(this.horizontal_size-1,
@@ -243,6 +244,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		return result;
 	}
 	
+	@Override
 	public IntegerBoard cofactor()
 	{
 		IntegerBoard result = new IntegerBoard(this.horizontal_size, 

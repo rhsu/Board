@@ -190,4 +190,16 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 		}
 		return result;
 	}
+
+	@Override
+	public Matrix<BigDecimal> createSubMatrix(int excluding_row, int excluding_column) 
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	@Override
+	public Matrix<BigDecimal> cofactor() 
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
