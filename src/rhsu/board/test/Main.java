@@ -11,6 +11,7 @@ import rhsu.board.implementations.math.*;
 import rhsu.board.implementations.*;
 import rhsu.terminalPanelGUI.UniversalPanelLauncher;
 
+
 public class Main
 {
 	public static void print(Object o)

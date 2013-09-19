@@ -72,4 +72,9 @@ public class UtilityFunctions
 	{
 		return s.matches("-?[0-9]+");
 	}
+	
+	public static int changeSign(int i)
+	{
+		return (i % 2 == 0) ? 1 : -1;
+	}
 }

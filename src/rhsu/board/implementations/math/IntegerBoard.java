@@ -4,6 +4,7 @@ import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
+import rhsu.board.utilities.UtilityFunctions;
 
 /**
  * An integer implementation
@@ -80,7 +81,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	}
 	
 	@Override
-	public IntegerBoard Add(Matrix<Integer> m) 
+	public IntegerBoard add(Matrix<Integer> m) 
 	{	
 		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
 				
@@ -102,7 +103,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	}
 
 	@Override
-	public IntegerBoard Subtract(Matrix<Integer> m) 
+	public IntegerBoard subtract(Matrix<Integer> m) 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
 		
@@ -124,7 +125,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	}
 
 	@Override
-	public IntegerBoard Multiply(Matrix<Integer> m) 
+	public IntegerBoard multiply(Matrix<Integer> m) 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
 		
@@ -151,7 +152,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	}
 
 	@Override
-	public IntegerBoard Multiply(Integer scalar) 
+	public IntegerBoard multiply(Integer scalar) 
 	{
 		IntegerBoard result = new IntegerBoard(this.horizontal_size, this.vertical_size);
 		
@@ -168,21 +169,41 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	}
         
 	@Override
-	public IntegerBoard Inverse() 
+	public IntegerBoard inverse() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.INVERSE);
-		throw new UnsupportedOperationException("Not supported yet."); 
+		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+
+		IntegerBoard inverseMatrix = this.cofactor().transpose();
+		
+		return inverseMatrix.multiply(1/this.determinant());
 	}
 
 	@Override
-	public Integer Determinant() 
+	public Integer determinant() 
 	{	
-		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
-		throw new UnsupportedOperationException("Not supported yet.");
+		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+
+		if(this.horizontal_size == 1) return this.getValueAt(0, 0);
+		
+		if(this.horizontal_size == 2)
+		{
+			return (this.getValueAt(0, 0) * this.getValueAt(1, 1)) - ( this.getValueAt(0, 1) * this.getValueAt(1, 0));
+		}
+		
+		Integer sum = 0;
+		
+		for (int i = 0; i < this.horizontal_size; i++) 
+		{
+			sum += UtilityFunctions.changeSign(i) 
+					* this.getValueAt(0, i) 
+					* createSubMatrix(0, i).determinant();
+		}
+		
+		return sum;
 	}
 	
 	@Override
-	public IntegerBoard Transpose()
+	public IntegerBoard transpose()
 	{
 		int h = this.horizontal_size;
 		int v = this.vertical_size;
@@ -194,6 +215,52 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 				result.setValueAt(j, i, this.getValueAt(i, j));
 			}
 		}
+		return result;
+	}
+	
+	@Override
+	public IntegerBoard createSubMatrix(int excluding_row, int excluding_column)
+	{
+		IntegerBoard result = new IntegerBoard(this.horizontal_size-1,
+				this.vertical_size-1);
+	
+		int r = -1;
+		
+		for(int i = 0; i < this.horizontal_size; i++)
+		{
+			if(i == excluding_row) 
+				continue;
+				r++;	
+				int c = -1;
+			
+			for(int j = 0; j < this.vertical_size; j++)
+			{
+				if(j == excluding_column) continue;
+				
+				result.setValueAt(r, ++c, this.getValueAt(i,j));
+			}
+		}
+		
+		return result;
+	}
+	
+	@Override
+	public IntegerBoard cofactor()
+	{
+		IntegerBoard result = new IntegerBoard(this.horizontal_size, 
+				this.vertical_size);
+		
+		for(int i = 0; i < this.horizontal_size; i++)
+		{
+			for(int j = 0; j < this.vertical_size; j++)
+			{
+				result.setValueAt(i, j, 
+						UtilityFunctions.changeSign(i) 
+								* UtilityFunctions.changeSign(j)
+								* createSubMatrix(i, j).determinant());
+			}
+		}
+		
 		return result;
 	}
 }

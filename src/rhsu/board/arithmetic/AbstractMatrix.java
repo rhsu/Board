@@ -14,8 +14,7 @@ public abstract class AbstractMatrix<T> extends AbstractBoard<T> implements Matr
 		ADD,
 		SUBTRACT,
 		MULTIPLY,
-		DETERMINANT,
-		INVERSE
+		SQUAREMATRIX
 	}
 	
 	protected ExceptionHandler<T> handler;
@@ -47,18 +46,20 @@ public abstract class AbstractMatrix<T> extends AbstractBoard<T> implements Matr
 				{
 					throw new ArrayIndexOutOfBoundsException("The dimensions do no match");
 				}
+				break;
 			case MULTIPLY:
 				if(this.getHorizontal_size() != otherMatrix.getVertical_size()
 					|| this.getVertical_size() != otherMatrix.getHorizontal_size())
 				{
 					throw new ArrayIndexOutOfBoundsException("The dimensions do no match");
 				}
-			case DETERMINANT:
-			case INVERSE:
+				break;
+			case SQUAREMATRIX:
 				if(this.getVertical_size() != this.getHorizontal_size())
 				{
 					throw new ArrayIndexOutOfBoundsException("The dimensions do not match");
 				}
+				break;
 		}
 	}
 }

@@ -5,6 +5,7 @@ import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
+import rhsu.board.utilities.UtilityFunctions;
 
 /**
  *A big integer implementation
@@ -70,7 +71,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 	
 	@Override
-	public BigIntegerBoard Add(Matrix<BigInteger> m) 
+	public BigIntegerBoard add(Matrix<BigInteger> m) 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
 				
@@ -92,7 +93,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 
 	@Override
-	public BigIntegerBoard Subtract(Matrix<BigInteger> m) 
+	public BigIntegerBoard subtract(Matrix<BigInteger> m) 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
 				
@@ -114,7 +115,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 
 	@Override
-	public BigIntegerBoard Multiply(Matrix<BigInteger> m) 
+	public BigIntegerBoard multiply(Matrix<BigInteger> m) 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
 		
@@ -143,7 +144,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 
 	@Override
-	public BigIntegerBoard Multiply(BigInteger scalar) 
+	public BigIntegerBoard multiply(BigInteger scalar) 
 	{
 		BigIntegerBoard result = new BigIntegerBoard(this.horizontal_size,
 				this.vertical_size);
@@ -161,20 +162,60 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 	
 	@Override
-	public BigIntegerBoard Inverse() 
+	public BigIntegerBoard inverse() 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+
+		BigIntegerBoard inverseMatrix = this.cofactor().transpose();
+		
+		return inverseMatrix.multiply(BigInteger.ONE.divide(this.determinant()));
 	}
 
 	@Override
-	public BigInteger Determinant() 
+	public BigInteger determinant() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
-		throw new UnsupportedOperationException("Not supported yet."); 
+		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+
+		if(this.horizontal_size == 1) return this.getValueAt(0, 0);
+		
+		if(this.horizontal_size == 2)
+		{
+			BigInteger a = this.getValueAt(0, 0);
+			BigInteger b = this.getValueAt(1, 1);
+			BigInteger c = this.getValueAt(0, 1);
+			BigInteger d = this.getValueAt(1, 0);
+			
+			BigInteger result = a.multiply(b);
+			BigInteger result2 = c.multiply(d);
+			
+			return result.subtract(result2);
+			
+			//return (this.getValueAt(0, 0) * this.getValueAt(1, 1)) - ( this.getValueAt(0, 1) * this.getValueAt(1, 0));
+		}
+		
+		BigInteger sum = BigInteger.ZERO;
+		
+		for (int i = 0; i < this.horizontal_size; i++) 
+		{
+			Integer x = UtilityFunctions.changeSign(i);
+			sum = sum.add(new BigInteger(x.toString()));
+			//sum = sum 
+			//		+ UtilityFunctions.changeSign(i) 
+			//		* this.getValueAt(0, i) 
+			//		* createSubMatrix(0, i).determinant();
+			
+			BigInteger b1 = this.getValueAt(0, i);			
+			BigInteger b2 = createSubMatrix(0,i).determinant();
+			BigInteger b3 = b1.multiply(b2);
+			
+			sum = sum.multiply(b3);
+		}
+		
+		return sum;
 	}
 	
 	@Override
-	public BigIntegerBoard Transpose()
+	public BigIntegerBoard transpose()
 	{
 		int h = this.horizontal_size;
 		int v = this.vertical_size;
@@ -186,6 +227,63 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 				result.setValueAt(j, i, this.getValueAt(i, j));
 			}
 		}
+		return result;
+	}
+	
+	@Override
+	public BigIntegerBoard createSubMatrix(int excluding_row, int excluding_column) 
+	{
+		BigIntegerBoard result = new BigIntegerBoard(this.horizontal_size-1,
+				this.vertical_size-1);
+	
+		int r = -1;
+		
+		for(int i = 0; i < this.horizontal_size; i++)
+		{
+			if(i == excluding_row) 
+				continue;
+				r++;	
+				int c = -1;
+			
+			for(int j = 0; j < this.vertical_size; j++)
+			{
+				if(j == excluding_column) continue;
+				
+				result.setValueAt(r, ++c, this.getValueAt(i,j));
+			}
+		}
+		
+		return result;
+	}
+
+	@Override
+	public BigIntegerBoard cofactor() 
+	{
+		BigIntegerBoard result = new BigIntegerBoard(this.horizontal_size, 
+				this.vertical_size);
+		
+		for(int i = 0; i < this.horizontal_size; i++)
+		{
+			for(int j = 0; j < this.vertical_size; j++)
+			{
+				//result.setValueAt(i, j, 
+				//		UtilityFunctions.changeSign(i) 
+				//		* UtilityFunctions.changeSign(j)
+				//		* createSubMatrix(i, j).determinant());
+				
+				Integer signI = UtilityFunctions.changeSign(i);
+				BigInteger bSignI = new BigInteger(signI.toString());
+				Integer signJ = UtilityFunctions.changeSign(j);
+				BigInteger bSignJ = new BigInteger(signJ.toString());
+				
+				BigInteger value = bSignI
+						.multiply(bSignJ)
+						.multiply(createSubMatrix(i, j).determinant());
+				
+				result.setValueAt(i, j, value);
+			}
+		}
+		
 		return result;
 	}
 }

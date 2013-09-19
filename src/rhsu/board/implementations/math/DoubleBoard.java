@@ -4,6 +4,7 @@ import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
+import rhsu.board.utilities.UtilityFunctions;
 
 /**
  *A double implementation
@@ -69,7 +70,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 	
 	@Override
-	public DoubleBoard Add(Matrix<Double> m) 
+	public DoubleBoard add(Matrix<Double> m) 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
 				
@@ -91,7 +92,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 
 	@Override
-	public DoubleBoard Subtract(Matrix<Double> m) 
+	public DoubleBoard subtract(Matrix<Double> m) 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
 				
@@ -113,7 +114,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 
 	@Override
-	public DoubleBoard Multiply(Matrix<Double> m) 
+	public DoubleBoard multiply(Matrix<Double> m) 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
 		
@@ -140,7 +141,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 
 	@Override
-	public DoubleBoard Multiply(Double scalar) 
+	public DoubleBoard multiply(Double scalar) 
 	{
 		DoubleBoard result = new DoubleBoard(this.horizontal_size, 
 				this.vertical_size);
@@ -158,21 +159,41 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 	
 	@Override
-	public DoubleBoard Inverse() 
+	public DoubleBoard inverse() 
 	{	
-		CheckDimensions(AbstractMatrix.OperationType.INVERSE);
-		throw new UnsupportedOperationException("Not supported yet.");
+		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+
+		DoubleBoard inverseMatrix = this.cofactor().transpose();
+		
+		return inverseMatrix.multiply(1/this.determinant());
 	}
 
 	@Override
-	public Double Determinant() 
+	public Double determinant() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
-		throw new UnsupportedOperationException("Not supported yet.");
+		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+
+		if(this.horizontal_size == 1) return this.getValueAt(0, 0);
+		
+		if(this.horizontal_size == 2)
+		{
+			return (this.getValueAt(0, 0) * this.getValueAt(1, 1)) - ( this.getValueAt(0, 1) * this.getValueAt(1, 0));
+		}
+		
+		Double sum = 0.0;
+		
+		for (int i = 0; i < this.horizontal_size; i++) 
+		{
+			sum += UtilityFunctions.changeSign(i) 
+					* this.getValueAt(0, i) 
+					* createSubMatrix(0, i).determinant();
+		}
+		
+		return sum;
 	}
 	
 	@Override
-	public DoubleBoard Transpose()
+	public DoubleBoard transpose()
 	{
 		int h = this.horizontal_size;
 		int v = this.vertical_size;
@@ -184,6 +205,52 @@ public class DoubleBoard extends AbstractMatrix<Double>
 				result.setValueAt(j, i, this.getValueAt(i, j));
 			}
 		}
+		return result;
+	}
+
+	@Override
+	public DoubleBoard createSubMatrix(int excluding_row, int excluding_column) 
+	{
+		DoubleBoard result = new DoubleBoard(this.horizontal_size-1,
+				this.vertical_size-1);
+	
+		int r = -1;
+		
+		for(int i = 0; i < this.horizontal_size; i++)
+		{
+			if(i == excluding_row) 
+				continue;
+				r++;	
+				int c = -1;
+			
+			for(int j = 0; j < this.vertical_size; j++)
+			{
+				if(j == excluding_column) continue;
+				
+				result.setValueAt(r, ++c, this.getValueAt(i,j));
+			}
+		}
+		
+		return result;
+	}
+
+	@Override
+	public DoubleBoard cofactor() 
+	{
+		DoubleBoard result = new DoubleBoard(this.horizontal_size, 
+				this.vertical_size);
+		
+		for(int i = 0; i < this.horizontal_size; i++)
+		{
+			for(int j = 0; j < this.vertical_size; j++)
+			{
+				result.setValueAt(i, j, 
+						UtilityFunctions.changeSign(i) 
+								* UtilityFunctions.changeSign(j)
+								* createSubMatrix(i, j).determinant());
+			}
+		}
+		
 		return result;
 	}
 }
