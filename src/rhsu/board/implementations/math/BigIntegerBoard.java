@@ -193,9 +193,18 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 		
 		for (int i = 0; i < this.horizontal_size; i++) 
 		{
-			//sum += UtilityFunctions.changeSign(i) 
+			Integer x = UtilityFunctions.changeSign(i);
+			sum = sum.add(new BigInteger(x.toString()));
+			//sum = sum 
+			//		+ UtilityFunctions.changeSign(i) 
 			//		* this.getValueAt(0, i) 
 			//		* createSubMatrix(0, i).determinant();
+			
+			BigInteger b1 = this.getValueAt(0, i);			
+			BigInteger b2 = createSubMatrix(0,i).determinant();
+			BigInteger b3 = b1.multiply(b2);
+			
+			sum = sum.multiply(b3);
 		}
 		
 		return sum;
@@ -220,12 +229,57 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public BigIntegerBoard createSubMatrix(int excluding_row, int excluding_column) 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		BigIntegerBoard result = new BigIntegerBoard(this.horizontal_size-1,
+				this.vertical_size-1);
+	
+		int r = -1;
+		
+		for(int i = 0; i < this.horizontal_size; i++)
+		{
+			if(i == excluding_row) 
+				continue;
+				r++;	
+				int c = -1;
+			
+			for(int j = 0; j < this.vertical_size; j++)
+			{
+				if(j == excluding_column) continue;
+				
+				result.setValueAt(r, ++c, this.getValueAt(i,j));
+			}
+		}
+		
+		return result;
 	}
 
 	@Override
 	public BigIntegerBoard cofactor() 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		BigIntegerBoard result = new BigIntegerBoard(this.horizontal_size, 
+				this.vertical_size);
+		
+		for(int i = 0; i < this.horizontal_size; i++)
+		{
+			for(int j = 0; j < this.vertical_size; j++)
+			{
+				//result.setValueAt(i, j, 
+				//		UtilityFunctions.changeSign(i) 
+				//		* UtilityFunctions.changeSign(j)
+				//		* createSubMatrix(i, j).determinant());
+				
+				Integer signI = UtilityFunctions.changeSign(i);
+				BigInteger bSignI = new BigInteger(signI.toString());
+				Integer signJ = UtilityFunctions.changeSign(j);
+				BigInteger bSignJ = new BigInteger(signJ.toString());
+				
+				BigInteger value = bSignI
+						.multiply(bSignJ)
+						.multiply(createSubMatrix(i, j).determinant());
+				
+				result.setValueAt(i, j, value);
+			}
+		}
+		
+		return result;
 	}
 }
