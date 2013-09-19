@@ -4,6 +4,7 @@ import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
+import rhsu.board.utilities.UtilityFunctions;
 
 /**
  *A double implementation
@@ -168,7 +169,24 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	public Double determinant() 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
-		throw new UnsupportedOperationException("Not supported yet.");
+
+		if(this.horizontal_size == 1) return this.getValueAt(0, 0);
+		
+		if(this.horizontal_size == 2)
+		{
+			return (this.getValueAt(0, 0) * this.getValueAt(1, 1)) - ( this.getValueAt(0, 1) * this.getValueAt(1, 0));
+		}
+		
+		Double sum = 0.0;
+		
+		for (int i = 0; i < this.horizontal_size; i++) 
+		{
+			sum += UtilityFunctions.changeSign(i) 
+					* this.getValueAt(0, i) 
+					* createSubMatrix(0, i).determinant();
+		}
+		
+		return sum;
 	}
 	
 	@Override
@@ -188,14 +206,48 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	}
 
 	@Override
-	public Matrix<Double> createSubMatrix(int excluding_row, int excluding_column) 
+	public DoubleBoard createSubMatrix(int excluding_row, int excluding_column) 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		DoubleBoard result = new DoubleBoard(this.horizontal_size-1,
+				this.vertical_size-1);
+	
+		int r = -1;
+		
+		for(int i = 0; i < this.horizontal_size; i++)
+		{
+			if(i == excluding_row) 
+				continue;
+				r++;	
+				int c = -1;
+			
+			for(int j = 0; j < this.vertical_size; j++)
+			{
+				if(j == excluding_column) continue;
+				
+				result.setValueAt(r, ++c, this.getValueAt(i,j));
+			}
+		}
+		
+		return result;
 	}
 
 	@Override
-	public Matrix<Double> cofactor() 
+	public DoubleBoard cofactor() 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		DoubleBoard result = new DoubleBoard(this.horizontal_size, 
+				this.vertical_size);
+		
+		for(int i = 0; i < this.horizontal_size; i++)
+		{
+			for(int j = 0; j < this.vertical_size; j++)
+			{
+				result.setValueAt(i, j, 
+						UtilityFunctions.changeSign(i) 
+								* UtilityFunctions.changeSign(j)
+								* createSubMatrix(i, j).determinant());
+			}
+		}
+		
+		return result;
 	}
 }

@@ -5,6 +5,7 @@ import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
+import rhsu.board.utilities.UtilityFunctions;
 
 /**
  *A big integer implementation
@@ -170,7 +171,34 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	public BigInteger determinant() 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
-		throw new UnsupportedOperationException("Not supported yet."); 
+
+		if(this.horizontal_size == 1) return this.getValueAt(0, 0);
+		
+		if(this.horizontal_size == 2)
+		{
+			BigInteger a = this.getValueAt(0, 0);
+			BigInteger b = this.getValueAt(1, 1);
+			BigInteger c = this.getValueAt(0, 1);
+			BigInteger d = this.getValueAt(1, 0);
+			
+			BigInteger result = a.multiply(b);
+			BigInteger result2 = c.multiply(d);
+			
+			return result.subtract(result2);
+			
+			//return (this.getValueAt(0, 0) * this.getValueAt(1, 1)) - ( this.getValueAt(0, 1) * this.getValueAt(1, 0));
+		}
+		
+		BigInteger sum = BigInteger.ZERO;
+		
+		for (int i = 0; i < this.horizontal_size; i++) 
+		{
+			//sum += UtilityFunctions.changeSign(i) 
+			//		* this.getValueAt(0, i) 
+			//		* createSubMatrix(0, i).determinant();
+		}
+		
+		return sum;
 	}
 	
 	@Override
@@ -190,13 +218,13 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 	
 	@Override
-	public Matrix<BigInteger> createSubMatrix(int excluding_row, int excluding_column) 
+	public BigIntegerBoard createSubMatrix(int excluding_row, int excluding_column) 
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
-	public Matrix<BigInteger> cofactor() 
+	public BigIntegerBoard cofactor() 
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
