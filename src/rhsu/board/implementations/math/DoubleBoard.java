@@ -160,14 +160,14 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	@Override
 	public DoubleBoard inverse() 
 	{	
-		CheckDimensions(AbstractMatrix.OperationType.INVERSE);
+		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public Double determinant() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
+		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 	

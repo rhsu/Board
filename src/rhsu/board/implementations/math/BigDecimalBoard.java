@@ -164,14 +164,14 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	@Override
 	public BigDecimalBoard inverse() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.INVERSE);
+		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
 	public BigDecimal determinant() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
+		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 	

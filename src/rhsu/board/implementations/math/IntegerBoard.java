@@ -171,14 +171,17 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	@Override
 	public IntegerBoard inverse() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.INVERSE);
-		throw new UnsupportedOperationException("Not supported yet."); 
+		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+
+		IntegerBoard inverseMatrix = this.cofactor().transpose();
+		
+		return inverseMatrix.multiply(1/this.determinant());
 	}
 
 	@Override
 	public Integer determinant() 
 	{	
-		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
+		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
 
 		if(this.horizontal_size == 1) return this.getValueAt(0, 0);
 		
@@ -191,8 +194,9 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		
 		for (int i = 0; i < this.horizontal_size; i++) 
 		{
-			//sum += 
-			//		changeSign(i) * this.getValueAt(0, i) * determinant(createSubMatrix(this, 0, i));
+			sum += UtilityFunctions.changeSign(i) 
+					* this.getValueAt(0, i) 
+					* createSubMatrix(0, i).determinant();
 		}
 		
 		return sum;
@@ -250,8 +254,8 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 			{
 				result.setValueAt(i, j, 
 						UtilityFunctions.changeSign(i) 
-								* UtilityFunctions.changeSign(j) 
-								* determinant(createSubMatrix(i,j)));
+								* UtilityFunctions.changeSign(j)
+								* createSubMatrix(i, j).determinant());
 			}
 		}
 		

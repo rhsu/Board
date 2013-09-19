@@ -169,7 +169,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public BigInteger determinant() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
+		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
 		throw new UnsupportedOperationException("Not supported yet."); 
 	}
 	
