@@ -70,7 +70,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	}
 	
 	@Override
-	public BigDecimalBoard Add(Matrix<BigDecimal> m) 
+	public BigDecimalBoard add(Matrix<BigDecimal> m) 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
 				
@@ -92,7 +92,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	}
 
 	@Override
-	public BigDecimalBoard Subtract(Matrix<BigDecimal> m) 
+	public BigDecimalBoard subtract(Matrix<BigDecimal> m) 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
 				
@@ -114,7 +114,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	}
 
 	@Override
-	public BigDecimalBoard Multiply(Matrix<BigDecimal> m) 
+	public BigDecimalBoard multiply(Matrix<BigDecimal> m) 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
 		
@@ -144,7 +144,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	}
 
 	@Override
-	public BigDecimalBoard Multiply(BigDecimal scalar) 
+	public BigDecimalBoard multiply(BigDecimal scalar) 
 	{
 		BigDecimalBoard result = new BigDecimalBoard(this.horizontal_size,
 				this.vertical_size);
@@ -162,21 +162,21 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	}
 	
 	@Override
-	public BigDecimalBoard Inverse() 
+	public BigDecimalBoard inverse() 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.INVERSE);
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
-	public BigDecimal Determinant() 
+	public BigDecimal determinant() 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 	
 	@Override
-	public BigDecimalBoard Transpose()
+	public BigDecimalBoard transpose()
 	{
 		int h = this.horizontal_size;
 		int v = this.vertical_size;
