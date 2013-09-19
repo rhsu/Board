@@ -70,7 +70,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 	
 	@Override
-	public BigIntegerBoard Add(Matrix<BigInteger> m) 
+	public BigIntegerBoard add(Matrix<BigInteger> m) 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
 				
@@ -92,7 +92,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 
 	@Override
-	public BigIntegerBoard Subtract(Matrix<BigInteger> m) 
+	public BigIntegerBoard subtract(Matrix<BigInteger> m) 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
 				
@@ -114,7 +114,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 
 	@Override
-	public BigIntegerBoard Multiply(Matrix<BigInteger> m) 
+	public BigIntegerBoard multiply(Matrix<BigInteger> m) 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
 		
@@ -143,7 +143,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 
 	@Override
-	public BigIntegerBoard Multiply(BigInteger scalar) 
+	public BigIntegerBoard multiply(BigInteger scalar) 
 	{
 		BigIntegerBoard result = new BigIntegerBoard(this.horizontal_size,
 				this.vertical_size);
@@ -161,20 +161,20 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 	
 	@Override
-	public BigIntegerBoard Inverse() 
+	public BigIntegerBoard inverse() 
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
-	public BigInteger Determinant() 
+	public BigInteger determinant() 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.DETERMINANT);
 		throw new UnsupportedOperationException("Not supported yet."); 
 	}
 	
 	@Override
-	public BigIntegerBoard Transpose()
+	public BigIntegerBoard transpose()
 	{
 		int h = this.horizontal_size;
 		int v = this.vertical_size;
