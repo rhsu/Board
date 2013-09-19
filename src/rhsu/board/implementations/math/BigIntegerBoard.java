@@ -164,7 +164,11 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public BigIntegerBoard inverse() 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+
+		BigIntegerBoard inverseMatrix = this.cofactor().transpose();
+		
+		return inverseMatrix.multiply(BigInteger.ONE.divide(this.determinant()));
 	}
 
 	@Override

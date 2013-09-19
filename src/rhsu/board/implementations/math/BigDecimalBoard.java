@@ -166,7 +166,10 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	public BigDecimalBoard inverse() 
 	{
 		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
-		throw new UnsupportedOperationException("Not supported yet.");
+
+		BigDecimalBoard inverseMatrix = this.cofactor().transpose();
+		
+		return inverseMatrix.multiply(BigDecimal.ONE.divide(this.determinant()));
 	}
 
 	@Override

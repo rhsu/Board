@@ -162,7 +162,10 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	public DoubleBoard inverse() 
 	{	
 		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
-		throw new UnsupportedOperationException("Not supported yet.");
+
+		DoubleBoard inverseMatrix = this.cofactor().transpose();
+		
+		return inverseMatrix.multiply(1/this.determinant());
 	}
 
 	@Override
