@@ -1,10 +1,10 @@
 package rhsu.board.implementations.math;
 
-import java.util.HashSet;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
+import rhsu.board.utilities.UtilityFunctions;
 
 /**
  * An integer implementation
@@ -248,13 +248,13 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		{
 			for(int j = 0; j < this.vertical_size; j++)
 			{
-				//result.setValueAt(i, j, 
-				//		changeSign(i) * changeSign(j) * determinant(createSubMatrix(i,j)));
+				result.setValueAt(i, j, 
+						UtilityFunctions.changeSign(i) 
+								* UtilityFunctions.changeSign(j) 
+								* determinant(createSubMatrix(i,j)));
 			}
 		}
 		
 		return result;
 	}
-	
-	
 }
