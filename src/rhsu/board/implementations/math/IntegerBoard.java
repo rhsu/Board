@@ -236,7 +236,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 			{
 				if(j == excluding_column) continue;
 				
-				result.setValueAt(r, c, this.getValueAt(i,j));
+				result.setValueAt(r, ++c, this.getValueAt(i,j));
 			}
 		}
 		

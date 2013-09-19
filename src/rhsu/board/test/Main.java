@@ -21,7 +21,9 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		int i = UtilityFunctions.changeSign(25);
-		print(i);
+		IntegerBoard test = new IntegerBoard("test.txt");
+		Integer t = test.determinant();
+		
+		print(t);
 	}
 }
