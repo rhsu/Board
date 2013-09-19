@@ -1,5 +1,6 @@
 package rhsu.board.implementations.math;
 
+import java.util.HashSet;
 import rhsu.board.BoardPiece;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
@@ -213,8 +214,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		return result;
 	}
 	
-	public IntegerBoard createSubMatrix(IntegerBoard matrix, int excluding_row, 
-		int excluding_column)
+	public IntegerBoard createSubMatrix(int excluding_row, int excluding_column)
 	{
 		IntegerBoard result = new IntegerBoard(this.horizontal_size-1,
 				this.vertical_size-1);
@@ -232,7 +232,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 			{
 				if(j == excluding_column) continue;
 				
-				result.setValueAt(r, c, matrix.getValueAt(i,j));
+				result.setValueAt(r, c, this.getValueAt(i,j));
 			}
 		}
 		
@@ -241,6 +241,20 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	
 	public IntegerBoard cofactor()
 	{
-		return new IntegerBoard(1,1);
+		IntegerBoard result = new IntegerBoard(this.horizontal_size, 
+				this.vertical_size);
+		
+		for(int i = 0; i < this.horizontal_size; i++)
+		{
+			for(int j = 0; j < this.vertical_size; j++)
+			{
+				//result.setValueAt(i, j, 
+				//		changeSign(i) * changeSign(j) * determinant(createSubMatrix(i,j)));
+			}
+		}
+		
+		return result;
 	}
+	
+	
 }
