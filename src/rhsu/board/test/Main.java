@@ -10,6 +10,7 @@ import rhsu.board.implementations.math.*;
 import rhsu.board.implementations.*;
 import rhsu.board.gameObjects.Drop7Board;
 import rhsu.board.gameObjects.Drop7Piece;
+import rhsu.board.utilities.UtilityFunctions;
 
 public class Main
 {
@@ -20,18 +21,7 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		Drop7Board board = new Drop7Board(5,5);
-		
-		board.setValueAt(0, 0, Drop7Piece.SET);
-		board.setValueAt(0, 1, Drop7Piece.SET);
-		board.setValueAt(1, 0, Drop7Piece.SET);
-		
-		print(board);
-		
-		BoardPiece<Drop7Piece> ref = board.pieceAt(0, 0);
-		
-		List<BoardPiece<Drop7Piece>> test = board.getAllPiecesInRow(ref);
-		
-		print(test);
+		int i = UtilityFunctions.changeSign(25);
+		print(i);
 	}
 }
