@@ -23,6 +23,8 @@ public class Main
 	{		
 		StringBoard test = new StringBoard("test.txt");
 		
+		
+		//print(test);
 		UniversalPanelLauncher.Launch(new BoardPanelGUIExtender(test));
 	}
 }
