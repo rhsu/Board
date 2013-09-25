@@ -1,4 +1,4 @@
-package rhsu.board.gameObjects;
+package rhsu.board.implementations.gameObjects;
 
 import java.util.ArrayList;
 import rhsu.board.AbstractBoard;
