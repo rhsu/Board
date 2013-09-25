@@ -10,6 +10,7 @@ import rhsu.board.arithmetic.*;
 import rhsu.board.implementations.*;
 import rhsu.board.implementations.gameObjects.Drop7Board;
 import rhsu.board.implementations.gameObjects.Drop7Piece;
+import rhsu.board.random.*;
 import rhsu.board.utilities.UtilityFunctions;
 
 public class Main
@@ -21,9 +22,9 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		IntegerBoard test = new IntegerBoard("test.txt");
-		Integer t = test.determinant();
-		
-		print(t);
+		for(int i = 0; i < 5; i++)
+		{
+			print(new BooleanRandomGenerator().getRandom());
+		}
 	}
 }
