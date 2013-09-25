@@ -1,5 +1,7 @@
 package rhsu.board;
 
+import rhsu.board.random.RandomGenerator;
+
 /**
  * A wrapper class for objects. Contains two additional int properties (horizontal index and vertical index)
  * @param <T> The type of the BoardPiece to wrap
@@ -60,10 +62,17 @@ public class BoardPiece<T>
 		this.t = t;
 	}
 
+	public BoardPiece(int i, int j, RandomGenerator<T> randomGenerator)
+	{
+		this.horizontal = i;
+		this.vertical = j;
+		this.t = randomGenerator.getRandom();
+	}
+	
 	/**
 	 * 
 	 * @return a string representation of a board piece
-	 */
+	 */		
 	@Override
 	public String toString()
 	{
