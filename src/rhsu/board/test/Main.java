@@ -4,6 +4,7 @@ import rhsu.board.implementations.arithmetic.IntegerBoard;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
+import java.util.Random;
 import rhsu.board.*;
 import rhsu.board.IO.*;
 import rhsu.board.arithmetic.*;
@@ -22,9 +23,12 @@ public class Main
 	
 	public static void main(String[] args)
 	{
+		IntegerRandomGenerator test = new IntegerRandomGenerator(156);
+		test.setLimit(10);
+		
 		for(int i = 0; i < 5; i++)
 		{
-			print(new BooleanRandomGenerator().getRandom());
+			print(test.getRandom());
 		}
 	}
 }

@@ -4,11 +4,22 @@ package rhsu.board.random;
  *
  * @author rhsu
  */
-public class DoubleRandomGenerator implements RandomGenerator<Double>
-{
+public class DoubleRandomGenerator extends AbstractRandomGenerator<Double>
+{	
+	public DoubleRandomGenerator()
+	{
+		super();
+	}
+	
+	public DoubleRandomGenerator(int seed)
+	{
+		super(seed);
+	}
+	
+	
 	@Override
 	public Double getRandom() 
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return (limit == null) ? random.nextDouble(): random.nextDouble();
 	}	
 }
