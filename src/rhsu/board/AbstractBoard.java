@@ -1,5 +1,6 @@
 package rhsu.board;
 
+import java.util.Iterator;
 import rhsu.board.IO.BoardReader;
 import rhsu.board.IO.BoardWriter;
 import rhsu.board.implementations.StringBoard;
@@ -9,7 +10,8 @@ import rhsu.board.implementations.StringBoard;
  * 
  * @param <T> Tye type of elements for the abstract board
  */
-public abstract class AbstractBoard<T> implements Board<T>
+public abstract class AbstractBoard<T> 
+	implements Board<T>, Iterable<T>
 {		
 	/**
 	 * the board object to allocate in the constructor
@@ -214,5 +216,33 @@ public abstract class AbstractBoard<T> implements Board<T>
 	public T getDownValue(int i, int j)
 	{
 		return this.getDownPiece(i, j).getValue();
+	}
+
+	@Override
+	public Iterator<T> iterator() 
+	{
+		Iterator<T> it = new Iterator<T>()
+		{
+
+			@Override
+			public boolean hasNext() 
+			{
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+			}
+
+			@Override
+			public T next() 
+			{
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+			}
+
+			@Override
+			public void remove() 
+			{
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+			}		
+		};
+		
+		return it;
 	}
 }

@@ -8,7 +8,6 @@ import java.util.Iterator;
  */
 public class BoardIterator<T> implements Iterable<T> 
 {
-
 	@Override
 	public Iterator<T> iterator() 
 	{
@@ -42,5 +41,4 @@ public class BoardIterator<T> implements Iterable<T>
 				
 		return it;
 	}
-	
 }
