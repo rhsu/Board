@@ -53,7 +53,7 @@ public class Test2DArray implements Iterable<Integer>
 			public Object next() 
 			{
 				currentIndex++;				
-				return board[currentIndex/h][currentIndex/v];
+				return board[currentIndex%h][currentIndex+1/v];
 			}
 
 			@Override
@@ -75,8 +75,12 @@ public class Test2DArray implements Iterable<Integer>
 		{
 			for(int j = 0; j < v; j++)
 			{
-				String output = String.format("%d(%d, %d) ", 
-						board[i][j], i, j);
+				int ctr = board[i][j];
+				
+				String output = String.format("%d(%d, %d):::%d***%d ", 
+						board[i][j], i, j, (ctr+1)/h, ctr%v);
+				
+				//String output = String.format("%d ", board[i][j]);
 				
 				builder.append(output);
 			}
@@ -87,17 +91,16 @@ public class Test2DArray implements Iterable<Integer>
 	
 	public static void main(String[] args)
 	{
-		Test2DArray test = new Test2DArray(2,2);
+		Test2DArray test = new Test2DArray(5,3);
 		
 		Iterator testI = test.iterator();
 		
 		System.out.println(test);
 		
-		while(testI.hasNext())
+		/*while(testI.hasNext())
 		{
 			testI.next();
 			System.out.println("here");
-		}
-		
+		}*/
 	}
 }
