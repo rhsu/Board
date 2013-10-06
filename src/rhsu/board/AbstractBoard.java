@@ -223,6 +223,7 @@ public abstract class AbstractBoard<T>
 	{
 		Iterator<T> it = new Iterator<T>()
 		{
+			private int currentIndex = 0;
 
 			@Override
 			public boolean hasNext() 
