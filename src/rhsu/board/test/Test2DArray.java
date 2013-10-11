@@ -50,10 +50,10 @@ public class Test2DArray implements Iterable<Integer>
 			}
 
 			@Override
-			public Object next() 
+			public Integer next() 
 			{
 				currentIndex++;				
-				return board[currentIndex%h][currentIndex+1/v];
+				return board[(currentIndex-1)/v][(currentIndex-1)%v];
 			}
 
 			@Override
@@ -95,12 +95,17 @@ public class Test2DArray implements Iterable<Integer>
 		
 		Iterator testI = test.iterator();
 		
-		System.out.println(test);
+		//System.out.println(test);
 		
 		/*while(testI.hasNext())
 		{
-			testI.next();
-			System.out.println("here");
+			System.out.println(testI.next());
+			//System.out.println("here");
 		}*/
+		
+		while(testI.hasNext())
+		{
+			
+		}
 	}
 }
