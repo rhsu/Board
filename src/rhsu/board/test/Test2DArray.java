@@ -78,7 +78,7 @@ public class Test2DArray implements Iterable<Integer>
 				int ctr = board[i][j];
 				
 				String output = String.format("%d(%d, %d):::%d***%d ", 
-						board[i][j], i, j, (ctr-1)/h, ctr%v);
+						board[i][j], i, j, ctr/v, ctr%v);
 				
 				//String output = String.format("%d ", board[i][j]);
 				
