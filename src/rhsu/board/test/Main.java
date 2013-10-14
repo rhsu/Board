@@ -31,7 +31,7 @@ public class Main
 		int ctr = 0;
 		while(t.hasNext())
 		{
-			BoardPiece item = (BoardPiece) t.next();
+			BoardPiece<Integer> item = (BoardPiece<Integer>) t.next();
 			print(ctr++ + " " + item);
 		}
 	}
