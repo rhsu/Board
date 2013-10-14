@@ -10,8 +10,7 @@ import rhsu.board.implementations.StringBoard;
  * 
  * @param <T> Tye type of elements for the abstract board
  */
-public abstract class AbstractBoard<T> 
-	implements Board<T>, Iterable<T>
+public abstract class AbstractBoard<T> implements Board<T>
 {		
 	/**
 	 * the board object to allocate in the constructor
@@ -25,25 +24,26 @@ public abstract class AbstractBoard<T>
 	 * The vertical size of the board
 	 */
 	protected int vertical_size;
-	
 	/**
 	 * A private string board variable used for constructing an instance from a file
 	 */
 	protected StringBoard baseBoard;
 	
+	protected int size;
+	
 	@SuppressWarnings({"unchecked"})
 	public AbstractBoard(int h, int v, T defaultValue)
 	{
-		horizontal_size = h;
-		vertical_size = v;
-		
-		board = new BoardPiece[h][v];
+		this.horizontal_size = h;
+		this.vertical_size = v;
+		this.size = h*v;
+		this.board = new BoardPiece[h][v];
 		
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new BoardPiece(i, j, defaultValue);
+				this.board[i][j] = new BoardPiece(i, j, defaultValue);
 			}
 		}
 	}
@@ -55,11 +55,12 @@ public abstract class AbstractBoard<T>
 	@SuppressWarnings({"unchecked"})
 	public AbstractBoard(String filename)
 	{
-		baseBoard = BoardReader.getBoardFromFile(filename);
+		this.baseBoard = BoardReader.getBoardFromFile(filename);
 		
 		this.horizontal_size = baseBoard.getHorizontal_size();
 		this.vertical_size = baseBoard.getVertical_size();
 		this.board = new BoardPiece[horizontal_size][vertical_size];
+		this.size = this.horizontal_size * this.vertical_size;
 	}
 	
 	@Override
@@ -142,6 +143,12 @@ public abstract class AbstractBoard<T>
 		return this.vertical_size;
 	}
 
+	@Override
+	public int getSize()
+	{
+		return this.size;
+	}
+	
 	/**
 	 * Method to allow the object to be printed
 	 * @return a string representation of the abstract board
@@ -218,32 +225,32 @@ public abstract class AbstractBoard<T>
 		return this.getDownPiece(i, j).getValue();
 	}
 
-	@Override
-	public Iterator<T> iterator() 
+	public Iterator<BoardPiece<T>> iter()
 	{
-		Iterator<T> it = new Iterator<T>()
+		Iterator<BoardPiece<T>> retIter = new Iterator()
 		{
 			private int currentIndex = 0;
-
+			
 			@Override
 			public boolean hasNext() 
 			{
-				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+				return currentIndex < size;
 			}
 
 			@Override
-			public T next() 
+			public BoardPiece<T> next() 
 			{
-				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+				BoardPiece<T> retPiece = board[currentIndex/vertical_size][currentIndex % vertical_size];
+				currentIndex++;
+				return retPiece;
 			}
 
 			@Override
 			public void remove() 
 			{
-				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-			}		
+				throw new UnsupportedOperationException("Not supported yet.");
+			}
 		};
-		
-		return it;
+		return retIter;
 	}
 }

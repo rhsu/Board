@@ -102,6 +102,8 @@ public interface Board<T>
 	 */
 	public int getVertical_size();
 	
+	public int getSize();
+	
 	public T getLeftValue(BoardPiece<T> p);
 	
 	public T getLeftValue(int i, int j);

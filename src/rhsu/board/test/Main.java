@@ -3,6 +3,7 @@ package rhsu.board.test;
 import rhsu.board.implementations.arithmetic.IntegerBoard;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Iterator;
 import java.util.List;
 import rhsu.board.*;
 import rhsu.board.IO.*;
@@ -22,8 +23,16 @@ public class Main
 	public static void main(String[] args)
 	{
 		IntegerBoard test = new IntegerBoard("test.txt");
-		Integer t = test.determinant();
+		//Integer t = test.determinant();
 		
-		print(t);
+		//IntegerBoard test = new IntegerBoard(3,3);
+		
+		Iterator t = test.iter();
+		int ctr = 0;
+		while(t.hasNext())
+		{
+			BoardPiece item = (BoardPiece) t.next();
+			print(ctr++ + " " + item);
+		}
 	}
 }
