@@ -225,7 +225,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 		return this.getDownPiece(i, j).getValue();
 	}
 
-	public Iterator<BoardPiece<T>> iter()
+	public Iterator<BoardPiece<T>> iterBoard()
 	{
 		Iterator<BoardPiece<T>> retIter = new Iterator()
 		{

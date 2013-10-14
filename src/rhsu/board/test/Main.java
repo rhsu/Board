@@ -27,7 +27,7 @@ public class Main
 		
 		//IntegerBoard test = new IntegerBoard(3,3);
 		
-		Iterator t = test.iter();
+		Iterator t = test.iterBoard();
 		int ctr = 0;
 		while(t.hasNext())
 		{
