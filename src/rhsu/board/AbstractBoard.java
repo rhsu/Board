@@ -1,6 +1,8 @@
 package rhsu.board;
 
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import rhsu.board.IO.BoardReader;
 import rhsu.board.IO.BoardWriter;
 import rhsu.board.implementations.StringBoard;
@@ -275,5 +277,24 @@ public abstract class AbstractBoard<T> implements Board<T>
 			}
 		}
 		return null;
+	}
+	
+	@Override
+	public List<BoardPiece<T>> findAll(T t)
+	{
+		Iterator iter = this.iterBoard();
+		
+		LinkedList<BoardPiece<T>> list = new LinkedList<>();
+		
+		while(iter.hasNext())
+		{
+			BoardPiece<T> nextItem = (BoardPiece<T>) iter.next();
+			
+			if(nextItem.getValue() == t)
+			{
+				list.add(nextItem);
+			}
+		}
+		return list;
 	}
 }

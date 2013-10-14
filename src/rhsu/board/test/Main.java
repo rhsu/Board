@@ -35,6 +35,6 @@ public class Main
 			print(ctr++ + " " + item);
 		}*/
 		
-		print(test.find(-2));
+		print(test.findAll(1));
 	}
 }
