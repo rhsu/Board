@@ -253,4 +253,27 @@ public abstract class AbstractBoard<T> implements Board<T>
 		};
 		return retIter;
 	}
+	
+	/**
+	 * Iterates through the board to find the specified object. Returns the result
+	 * as a board piece to preserve it's horizontal and vertical indices
+	 * @param t the object to find
+	 * @return the first instance of the object in the Board. Null if nothing is found
+	 */
+	@Override
+	public BoardPiece<T> find(T t)
+	{
+		Iterator iter = this.iterBoard();
+		
+		while(iter.hasNext())
+		{
+			BoardPiece<T> nextItem = (BoardPiece<T>) iter.next();
+			
+			if(nextItem.getValue() == t)
+			{
+				return nextItem;
+			}
+		}
+		return null;
+	}
 }

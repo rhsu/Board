@@ -27,12 +27,14 @@ public class Main
 		
 		//IntegerBoard test = new IntegerBoard(3,3);
 		
-		Iterator t = test.iterBoard();
+		/*Iterator t = test.iterBoard();
 		int ctr = 0;
 		while(t.hasNext())
 		{
 			BoardPiece<Integer> item = (BoardPiece<Integer>) t.next();
 			print(ctr++ + " " + item);
-		}
+		}*/
+		
+		print(test.find(-2));
 	}
 }

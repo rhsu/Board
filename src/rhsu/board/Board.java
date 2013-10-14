@@ -119,5 +119,7 @@ public interface Board<T>
 	public T getDownValue(BoardPiece<T> p);
 	
 	public T getDownValue(int i, int j);
+	
+	public BoardPiece<T> find(T t);
 }
 
