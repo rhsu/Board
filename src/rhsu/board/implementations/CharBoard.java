@@ -1,7 +1,9 @@
 package rhsu.board.implementations;
 
+import java.util.Random;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
+import rhsu.board.RandomGenerator;
 
 /**
  *A character implementation
@@ -41,5 +43,24 @@ public class CharBoard extends AbstractBoard<Character>
 						baseBoard.getValueAt(i, j).charAt(0));
 			}
 		}
+	}
+
+	@Override
+	public RandomGenerator<Character> randomGenerator() 
+	{
+		RandomGenerator<Character> generator = new RandomGenerator()
+		{
+			final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+			final int N = ALPHABET.length();
+			
+			Random random = new Random();
+			
+			@Override
+			public Character getRandom() 
+			{
+				return ALPHABET.charAt(random.nextInt(N));
+			}
+		};
+		return generator;
 	}
 }

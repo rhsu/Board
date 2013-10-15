@@ -1,7 +1,9 @@
 package rhsu.board.implementations.arithmetic;
 
 import java.math.BigDecimal;
+import java.util.Random;
 import rhsu.board.BoardPiece;
+import rhsu.board.RandomGenerator;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
@@ -286,5 +288,21 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 		}
 		
 		return result;
+	}
+
+	@Override
+	public RandomGenerator<BigDecimal> randomGenerator() 
+	{
+		RandomGenerator<BigDecimal> generator = new RandomGenerator()
+		{
+			Random random = new Random();
+			
+			@Override
+			public BigDecimal getRandom() 
+			{
+				return new BigDecimal(random.nextDouble());
+			}
+		};
+		return generator;
 	}
 }

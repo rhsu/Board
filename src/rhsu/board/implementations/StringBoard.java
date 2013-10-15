@@ -1,7 +1,9 @@
 package rhsu.board.implementations;
 
+import java.util.UUID;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
+import rhsu.board.RandomGenerator;
 
 /**
  * A string implementation
@@ -42,5 +44,19 @@ public class StringBoard extends AbstractBoard<String>
 						baseBoard.getValueAt(i, j));
 			}
 		}
+	}
+
+	@Override
+	public RandomGenerator<String> randomGenerator() 
+	{
+		RandomGenerator<String> generator = new RandomGenerator()
+		{
+			@Override
+			public String getRandom() 
+			{
+				return UUID.randomUUID().toString();
+			}
+		};
+		return generator;
 	}
 }

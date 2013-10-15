@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 import rhsu.board.*;
 import rhsu.board.IO.*;
 import rhsu.board.IO.formGUI.*;
@@ -36,20 +37,24 @@ public class Main
 		UniversalPanelLauncher.Launch(new BoardPanelGUIExtender(test));
 =======
 	{
-		IntegerBoard test = new IntegerBoard("test.txt");
-		//Integer t = test.determinant();
-		
-		//IntegerBoard test = new IntegerBoard(3,3);
-		
-		/*Iterator t = test.iterBoard();
-		int ctr = 0;
-		while(t.hasNext())
+		/*IntegerRandomGenerator test = new IntegerRandomGenerator(156);
+				
+		for(int i = 0; i < 5; i++)
 		{
-			BoardPiece<Integer> item = (BoardPiece<Integer>) t.next();
-			print(ctr++ + " " + item);
+			print(test.getRandom());
 		}*/
 		
+<<<<<<< HEAD
 		print(test.findAll(1));
+>>>>>>> dev
+=======
+		IntegerBoard test = new IntegerBoard(5,5);
+		
+		RandomGenerator rg = test.randomGenerator();
+		
+		Integer i = (Integer) rg.getRandom();
+		
+		print(i);
 >>>>>>> dev
 	}
 }

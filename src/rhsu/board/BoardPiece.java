@@ -60,10 +60,17 @@ public class BoardPiece<T>
 		this.t = t;
 	}
 
+	public BoardPiece(int i, int j, RandomGenerator<T> randomGenerator)
+	{
+		this.horizontal = i;
+		this.vertical = j;
+		this.t = randomGenerator.getRandom();
+	}
+	
 	/**
 	 * 
 	 * @return a string representation of a board piece
-	 */
+	 */		
 	@Override
 	public String toString()
 	{

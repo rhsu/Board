@@ -1,6 +1,8 @@
 package rhsu.board.implementations.arithmetic;
 
+import java.util.Random;
 import rhsu.board.BoardPiece;
+import rhsu.board.RandomGenerator;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
@@ -252,5 +254,22 @@ public class DoubleBoard extends AbstractMatrix<Double>
 		}
 		
 		return result;
+	}
+
+	@Override
+	public RandomGenerator<Double> randomGenerator() 
+	{
+		RandomGenerator<Double> generator = new RandomGenerator()
+		{
+			Random random = new Random();
+			
+			@Override
+			public Double getRandom() 
+			{
+				return random.nextDouble();
+			}	
+		};
+		
+		return generator;
 	}
 }
