@@ -25,9 +25,14 @@ public class Main
 	public static void main(String[] args)
 	{
 <<<<<<< HEAD
+<<<<<<< HEAD
 		IntegerRandomGenerator test = new IntegerRandomGenerator(156);
 		test.setLimit(10);
 		
+=======
+		RandomGenerator test = new StringRandomGenerator();
+				
+>>>>>>> 33270c21397159fddcfc33b555db8cdd0dd9f8b3
 		for(int i = 0; i < 5; i++)
 		{
 			print(test.getRandom());

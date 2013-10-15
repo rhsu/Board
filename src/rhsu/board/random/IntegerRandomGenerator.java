@@ -4,7 +4,7 @@ package rhsu.board.random;
  *
  * @author rhsu
  */
-public class IntegerRandomGenerator extends AbstractRandomGenerator<Integer>
+public class IntegerRandomGenerator extends AbstractNumberRandomGenerator<Integer>
 {	
 	public IntegerRandomGenerator()
 	{
@@ -19,6 +19,6 @@ public class IntegerRandomGenerator extends AbstractRandomGenerator<Integer>
 	@Override
 	public Integer getRandom() 
 	{
-		return (limit == null) ? random.nextInt() : random.nextInt(limit);
+		return random.nextInt();
 	}
 }
