@@ -1,6 +1,7 @@
 package rhsu.board.implementations.arithmetic;
 
 import rhsu.board.BoardPiece;
+import rhsu.board.RandomGenerator;
 import rhsu.board.arithmetic.AbstractMatrix;
 import rhsu.board.arithmetic.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
@@ -252,5 +253,11 @@ public class DoubleBoard extends AbstractMatrix<Double>
 		}
 		
 		return result;
+	}
+
+	@Override
+	public RandomGenerator<Double> randomGenerator() 
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }

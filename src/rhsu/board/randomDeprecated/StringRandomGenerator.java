@@ -1,5 +1,6 @@
-package rhsu.board.random;
+package rhsu.board.randomDeprecated;
 
+import rhsu.board.RandomGenerator;
 import java.util.UUID;
 
 /**

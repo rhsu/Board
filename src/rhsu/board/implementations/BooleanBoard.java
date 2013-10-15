@@ -2,6 +2,7 @@ package rhsu.board.implementations;
 
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
+import rhsu.board.RandomGenerator;
 
 /**
  *A boolean implementation
@@ -43,5 +44,19 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 						: Boolean.valueOf(baseBoard.getValueAt(i, j)));
 			}
 		}
+	}
+	
+	@Override
+	public RandomGenerator randomGenerator()
+	{
+		RandomGenerator generator = new RandomGenerator()
+		{
+			@Override
+			public Boolean getRandom() 
+			{
+				return true;
+			}
+		};
+		return generator;
 	}
 }

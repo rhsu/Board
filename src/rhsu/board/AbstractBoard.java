@@ -227,6 +227,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 		return this.getDownPiece(i, j).getValue();
 	}
 
+	@Override
 	public Iterator<BoardPiece<T>> iterBoard()
 	{
 		Iterator<BoardPiece<T>> retIter = new Iterator()
@@ -297,4 +298,21 @@ public abstract class AbstractBoard<T> implements Board<T>
 		}
 		return list;
 	}
+	
+	@Override
+	public abstract RandomGenerator<T> randomGenerator();
+	
+	/*public RandomGenerator randomGenerator()
+	{
+		RandomGenerator generator = new RandomGenerator()
+		{
+			@Override
+			public T getRandom() 
+			{
+				return null;
+			}
+		};
+		return generator;
+	}*/
 }
+

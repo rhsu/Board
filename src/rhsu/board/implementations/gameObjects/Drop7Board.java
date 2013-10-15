@@ -3,6 +3,7 @@ package rhsu.board.implementations.gameObjects;
 import java.util.ArrayList;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
+import rhsu.board.RandomGenerator;
 
 /**
  *
@@ -233,5 +234,10 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public RandomGenerator<Drop7Piece> randomGenerator() {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }

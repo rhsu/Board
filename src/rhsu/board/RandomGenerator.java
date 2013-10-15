@@ -1,4 +1,4 @@
-package rhsu.board.random;
+package rhsu.board;
 
 /**
  *

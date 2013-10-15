@@ -2,6 +2,7 @@ package rhsu.board.implementations;
 
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
+import rhsu.board.RandomGenerator;
 
 /**
  *A character implementation
@@ -41,5 +42,19 @@ public class CharBoard extends AbstractBoard<Character>
 						baseBoard.getValueAt(i, j).charAt(0));
 			}
 		}
+	}
+
+	@Override
+	public RandomGenerator<Character> randomGenerator() 
+	{
+		RandomGenerator<Character> generator = new RandomGenerator()
+		{
+			@Override
+			public Character getRandom() 
+			{
+				return 'A';
+			}
+		};
+		return generator;
 	}
 }

@@ -1,5 +1,6 @@
 package rhsu.board;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -125,5 +126,9 @@ public interface Board<T>
 	public BoardPiece<T> find(T t);
 	
 	public List<BoardPiece<T>> findAll(T t);
+	
+	public Iterator<BoardPiece<T>> iterBoard();
+	
+	public RandomGenerator randomGenerator();
 }
 
