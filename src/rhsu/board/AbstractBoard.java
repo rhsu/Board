@@ -301,18 +301,5 @@ public abstract class AbstractBoard<T> implements Board<T>
 	
 	@Override
 	public abstract RandomGenerator<T> randomGenerator();
-	
-	/*public RandomGenerator randomGenerator()
-	{
-		RandomGenerator generator = new RandomGenerator()
-		{
-			@Override
-			public T getRandom() 
-			{
-				return null;
-			}
-		};
-		return generator;
-	}*/
 }
 
