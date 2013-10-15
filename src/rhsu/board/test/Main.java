@@ -11,14 +11,7 @@ import rhsu.board.IO.*;
 import rhsu.board.IO.formGUI.*;
 import rhsu.board.arithmetic.*;
 import rhsu.board.implementations.*;
-<<<<<<< HEAD
 import rhsu.terminalPanelGUI.UniversalPanelLauncher;
-
-=======
-import rhsu.board.implementations.gameObjects.Drop7Board;
-import rhsu.board.implementations.gameObjects.Drop7Piece;
-import rhsu.board.utilities.UtilityFunctions;
->>>>>>> dev
 
 public class Main
 {
@@ -28,33 +21,10 @@ public class Main
 	}
 	
 	public static void main(String[] args)
-<<<<<<< HEAD
 	{		
 		StringBoard test = new StringBoard("test.txt");
 		
-		
 		//print(test);
 		UniversalPanelLauncher.Launch(new BoardPanelGUIExtender(test));
-=======
-	{
-		/*IntegerRandomGenerator test = new IntegerRandomGenerator(156);
-				
-		for(int i = 0; i < 5; i++)
-		{
-			print(test.getRandom());
-		}*/
-		
-<<<<<<< HEAD
-		print(test.findAll(1));
->>>>>>> dev
-=======
-		IntegerBoard test = new IntegerBoard(5,5);
-		
-		RandomGenerator rg = test.randomGenerator();
-		
-		Integer i = (Integer) rg.getRandom();
-		
-		print(i);
->>>>>>> dev
 	}
 }
