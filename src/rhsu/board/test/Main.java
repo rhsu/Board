@@ -24,34 +24,14 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-<<<<<<< HEAD
-<<<<<<< HEAD
 		IntegerRandomGenerator test = new IntegerRandomGenerator(156);
-		test.setLimit(10);
+		//test.setLimit(10);
 		
-=======
-		RandomGenerator test = new StringRandomGenerator();
+		//RandomGenerator test = new StringRandomGenerator();
 				
->>>>>>> 33270c21397159fddcfc33b555db8cdd0dd9f8b3
 		for(int i = 0; i < 5; i++)
 		{
 			print(test.getRandom());
 		}
-=======
-		IntegerBoard test = new IntegerBoard("test.txt");
-		//Integer t = test.determinant();
-		
-		//IntegerBoard test = new IntegerBoard(3,3);
-		
-		/*Iterator t = test.iterBoard();
-		int ctr = 0;
-		while(t.hasNext())
-		{
-			BoardPiece<Integer> item = (BoardPiece<Integer>) t.next();
-			print(ctr++ + " " + item);
-		}*/
-		
-		print(test.findAll(1));
->>>>>>> dev
 	}
 }
