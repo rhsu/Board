@@ -1,5 +1,7 @@
 package rhsu.board;
 
+import java.util.List;
+
 /**
  * The root interface in the board hierarchy. This interface contains definitions for finding a specific piece on a 2-Dimensional array.
  * @param <T> The type of the board
@@ -102,6 +104,8 @@ public interface Board<T>
 	 */
 	public int getVertical_size();
 	
+	public int getSize();
+	
 	public T getLeftValue(BoardPiece<T> p);
 	
 	public T getLeftValue(int i, int j);
@@ -117,5 +121,9 @@ public interface Board<T>
 	public T getDownValue(BoardPiece<T> p);
 	
 	public T getDownValue(int i, int j);
+	
+	public BoardPiece<T> find(T t);
+	
+	public List<BoardPiece<T>> findAll(T t);
 }
 

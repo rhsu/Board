@@ -1,4 +1,4 @@
-package rhsu.board.implementations.math;
+package rhsu.board.implementations.arithmetic;
 
 import java.math.BigDecimal;
 import rhsu.board.BoardPiece;

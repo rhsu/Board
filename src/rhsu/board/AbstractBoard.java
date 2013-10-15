@@ -1,5 +1,8 @@
 package rhsu.board;
 
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import rhsu.board.IO.BoardReader;
 import rhsu.board.IO.BoardWriter;
 import rhsu.board.implementations.StringBoard;
@@ -23,25 +26,26 @@ public abstract class AbstractBoard<T> implements Board<T>
 	 * The vertical size of the board
 	 */
 	protected int vertical_size;
-	
 	/**
 	 * A private string board variable used for constructing an instance from a file
 	 */
 	protected StringBoard baseBoard;
 	
+	protected int size;
+	
 	@SuppressWarnings({"unchecked"})
 	public AbstractBoard(int h, int v, T defaultValue)
 	{
-		horizontal_size = h;
-		vertical_size = v;
-		
-		board = new BoardPiece[h][v];
+		this.horizontal_size = h;
+		this.vertical_size = v;
+		this.size = h*v;
+		this.board = new BoardPiece[h][v];
 		
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				board[i][j] = new BoardPiece(i, j, defaultValue);
+				this.board[i][j] = new BoardPiece(i, j, defaultValue);
 			}
 		}
 	}
@@ -53,11 +57,12 @@ public abstract class AbstractBoard<T> implements Board<T>
 	@SuppressWarnings({"unchecked"})
 	public AbstractBoard(String filename)
 	{
-		baseBoard = BoardReader.getBoardFromFile(filename);
+		this.baseBoard = BoardReader.getBoardFromFile(filename);
 		
 		this.horizontal_size = baseBoard.getHorizontal_size();
 		this.vertical_size = baseBoard.getVertical_size();
 		this.board = new BoardPiece[horizontal_size][vertical_size];
+		this.size = this.horizontal_size * this.vertical_size;
 	}
 	
 	@Override
@@ -140,6 +145,12 @@ public abstract class AbstractBoard<T> implements Board<T>
 		return this.vertical_size;
 	}
 
+	@Override
+	public int getSize()
+	{
+		return this.size;
+	}
+	
 	/**
 	 * Method to allow the object to be printed
 	 * @return a string representation of the abstract board
@@ -214,5 +225,76 @@ public abstract class AbstractBoard<T> implements Board<T>
 	public T getDownValue(int i, int j)
 	{
 		return this.getDownPiece(i, j).getValue();
+	}
+
+	public Iterator<BoardPiece<T>> iterBoard()
+	{
+		Iterator<BoardPiece<T>> retIter = new Iterator()
+		{
+			private int currentIndex = 0;
+			
+			@Override
+			public boolean hasNext() 
+			{
+				return currentIndex < size;
+			}
+
+			@Override
+			public BoardPiece<T> next() 
+			{
+				BoardPiece<T> retPiece = board[currentIndex/vertical_size][currentIndex % vertical_size];
+				currentIndex++;
+				return retPiece;
+			}
+
+			@Override
+			public void remove() 
+			{
+				throw new UnsupportedOperationException("Not supported yet.");
+			}
+		};
+		return retIter;
+	}
+	
+	/**
+	 * Iterates through the board to find the specified object. Returns the result
+	 * as a board piece to preserve it's horizontal and vertical indices
+	 * @param t the object to find
+	 * @return the first instance of the object in the Board. Null if nothing is found
+	 */
+	@Override
+	public BoardPiece<T> find(T t)
+	{
+		Iterator iter = this.iterBoard();
+		
+		while(iter.hasNext())
+		{
+			BoardPiece<T> nextItem = (BoardPiece<T>) iter.next();
+			
+			if(nextItem.getValue() == t)
+			{
+				return nextItem;
+			}
+		}
+		return null;
+	}
+	
+	@Override
+	public List<BoardPiece<T>> findAll(T t)
+	{
+		Iterator iter = this.iterBoard();
+		
+		LinkedList<BoardPiece<T>> list = new LinkedList<>();
+		
+		while(iter.hasNext())
+		{
+			BoardPiece<T> nextItem = (BoardPiece<T>) iter.next();
+			
+			if(nextItem.getValue() == t)
+			{
+				list.add(nextItem);
+			}
+		}
+		return list;
 	}
 }
