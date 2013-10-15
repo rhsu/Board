@@ -1,6 +1,7 @@
 package rhsu.board.implementations.arithmetic;
 
 import java.math.BigInteger;
+import java.util.Random;
 import rhsu.board.BoardPiece;
 import rhsu.board.RandomGenerator;
 import rhsu.board.arithmetic.AbstractMatrix;
@@ -291,6 +292,16 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public RandomGenerator<BigInteger> randomGenerator() 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		RandomGenerator<BigInteger> generator = new RandomGenerator()
+		{
+			Random random = new Random();
+			
+			@Override
+			public BigInteger getRandom() 
+			{
+				return new BigInteger(new Integer(random.nextInt()).toString());
+			}	
+		};
+		return generator;
 	}
 }

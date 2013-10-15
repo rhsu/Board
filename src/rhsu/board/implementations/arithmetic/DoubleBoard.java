@@ -1,5 +1,6 @@
 package rhsu.board.implementations.arithmetic;
 
+import java.util.Random;
 import rhsu.board.BoardPiece;
 import rhsu.board.RandomGenerator;
 import rhsu.board.arithmetic.AbstractMatrix;
@@ -258,6 +259,17 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	@Override
 	public RandomGenerator<Double> randomGenerator() 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		RandomGenerator<Double> generator = new RandomGenerator()
+		{
+			Random random = new Random();
+			
+			@Override
+			public Double getRandom() 
+			{
+				return random.nextDouble();
+			}	
+		};
+		
+		return generator;
 	}
 }

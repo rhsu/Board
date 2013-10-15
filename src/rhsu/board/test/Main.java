@@ -1,6 +1,5 @@
 package rhsu.board.test;
 
-import rhsu.board.randomDeprecated.IntegerRandomGenerator;
 import rhsu.board.implementations.arithmetic.IntegerBoard;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -24,11 +23,19 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		IntegerRandomGenerator test = new IntegerRandomGenerator(156);
+		/*IntegerRandomGenerator test = new IntegerRandomGenerator(156);
 				
 		for(int i = 0; i < 5; i++)
 		{
 			print(test.getRandom());
-		}
+		}*/
+		
+		IntegerBoard test = new IntegerBoard(5,5);
+		
+		RandomGenerator rg = test.randomGenerator();
+		
+		Integer i = (Integer) rg.getRandom();
+		
+		print(i);
 	}
 }

@@ -1,5 +1,6 @@
 package rhsu.board.implementations;
 
+import java.util.Random;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
 import rhsu.board.RandomGenerator;
@@ -51,10 +52,12 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 	{
 		RandomGenerator generator = new RandomGenerator()
 		{
+			Random random = new Random();
+			
 			@Override
 			public Boolean getRandom() 
 			{
-				return true;
+				return random.nextBoolean();
 			}
 		};
 		return generator;

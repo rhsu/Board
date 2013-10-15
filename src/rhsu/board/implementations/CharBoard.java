@@ -1,5 +1,6 @@
 package rhsu.board.implementations;
 
+import java.util.Random;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
 import rhsu.board.RandomGenerator;
@@ -49,10 +50,15 @@ public class CharBoard extends AbstractBoard<Character>
 	{
 		RandomGenerator<Character> generator = new RandomGenerator()
 		{
+			final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+			final int N = ALPHABET.length();
+			
+			Random random = new Random();
+			
 			@Override
 			public Character getRandom() 
 			{
-				return 'A';
+				return ALPHABET.charAt(random.nextInt(N));
 			}
 		};
 		return generator;

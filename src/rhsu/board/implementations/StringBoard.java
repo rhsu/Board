@@ -1,5 +1,6 @@
 package rhsu.board.implementations;
 
+import java.util.UUID;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
 import rhsu.board.RandomGenerator;
@@ -53,7 +54,7 @@ public class StringBoard extends AbstractBoard<String>
 			@Override
 			public String getRandom() 
 			{
-				return "abcdefg";
+				return UUID.randomUUID().toString();
 			}
 		};
 		return generator;
