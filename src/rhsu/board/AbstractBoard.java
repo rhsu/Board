@@ -167,7 +167,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 			}
 			builder.append("\n");
 		}
-		return builder.toString();
+		return builder.toString().trim();
 	}
 	
 	/**
