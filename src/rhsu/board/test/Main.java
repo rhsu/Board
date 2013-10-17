@@ -1,18 +1,14 @@
 package rhsu.board.test;
 
-import rhsu.board.implementations.arithmetic.IntegerBoard;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
+		
 import rhsu.board.*;
 import rhsu.board.IO.*;
 import rhsu.board.arithmetic.*;
 import rhsu.board.implementations.*;
-import rhsu.board.implementations.gameObjects.Drop7Board;
-import rhsu.board.implementations.gameObjects.Drop7Piece;
-import rhsu.board.utilities.UtilityFunctions;
+import rhsu.board.implementations.arithmetic.*;
 
 public class Main
 {
