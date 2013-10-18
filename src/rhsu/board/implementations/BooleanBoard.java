@@ -48,9 +48,9 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 	}
 	
 	@Override
-	public RandomGenerator randomGenerator()
+	public RandomGenerator<Boolean> randomGenerator()
 	{
-		RandomGenerator generator = new RandomGenerator()
+		RandomGenerator<Boolean> generator = new RandomGenerator()
 		{
 			Random random = new Random();
 			
