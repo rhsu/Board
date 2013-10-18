@@ -19,7 +19,14 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		IntegerBoard b = new IntegerBoard(3,3);
-		print(b);
+		//IntegerBoard b = new IntegerBoard(3,3);
+		//print(b);
+		
+		AbstractBoard test = AbstractBoard.CreateRandomBoard(new BigIntegerBoard(3,3));
+		AbstractBoard test2 = AbstractBoard.CreateRandomBoard(new StringBoard(3,3));
+		
+		print(test);
+		print("\n");
+		print(test2);
 	}
 }
