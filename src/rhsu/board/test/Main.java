@@ -19,7 +19,7 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		IntegerBoard b = new IntegerBoard(3,3);
+		IntegerBoard b = new IntegerBoard("test.txt");
 		print(b);
 	}
 }
