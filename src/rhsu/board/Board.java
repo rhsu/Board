@@ -10,6 +10,20 @@ import java.util.List;
 public interface Board<T>
 {
 	/**
+	 * Method for retrieving the horizontal capacity of the board
+	 * @return the horizontal size of the board
+	 */
+	public int getHorizontal_size();
+	
+	/**
+	 * Method for retrieving the horizontal capacity of the board
+	 * @return the vertical size of the board
+	 */
+	public int getVertical_size();
+	
+	public int getSize();
+	
+	/**
 	 * Returns the piece at the location specified
 	 * @param i horizontal index
 	 * @param j vertical index
@@ -92,21 +106,7 @@ public interface Board<T>
 	 * @param t the value of the piece to set
 	 */
 	public void setValueAt(int i, int j, T t);	
-	
-	/**
-	 * Method for retrieving the horizontal capacity of the board
-	 * @return the horizontal size of the board
-	 */
-	public int getHorizontal_size();
-	
-	/**
-	 * Method for retrieving the horizontal capacity of the board
-	 * @return the vertical size of the board
-	 */
-	public int getVertical_size();
-	
-	public int getSize();
-	
+		
 	public T getLeftValue(BoardPiece<T> p);
 	
 	public T getLeftValue(int i, int j);
