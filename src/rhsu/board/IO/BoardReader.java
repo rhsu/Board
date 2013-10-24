@@ -40,6 +40,18 @@ public class BoardReader
 		return outputBoard;
 	}
 	
+	private String DetermineDelimiter(String line)
+	{
+		char[] test = DELIMITERS.toCharArray();
+		
+		for(char item : test) 
+		{
+			if(line.contains(String.valueOf(item))) return String.valueOf(item);
+		}
+		
+		return "";
+	}
+	
 	/**
 	 * Constructs a string board from the given file
 	 * @param filename the name of the file to read from
@@ -54,18 +66,9 @@ public class BoardReader
 			String line;
 			while ((line = br.readLine()) != null)
 			{
-				StringTokenizer tokenizer = new StringTokenizer(line, DELIMITERS);
-				String[] delimitedLines = new String[tokenizer.countTokens()];
-
-				int index = 0;
-
-				while(tokenizer.hasMoreTokens())
-				{
-					delimitedLines[index] = tokenizer.nextToken().trim();
-					index++;
-				}
-
-				fileContent.add(delimitedLines);
+				String[] row = line.split(DetermineDelimiter(line));
+				
+				fileContent.add(row);
 			}
 		}
 		catch (Exception exception)

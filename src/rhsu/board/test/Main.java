@@ -20,5 +20,15 @@ public class Main
 	{
 		IntegerBoard b = new IntegerBoard("test.txt");
 		print(b);
+	
+		print(b.getSize());
+		
+		/*String s = "a b c d";
+		
+		char c = '\0';
+		
+		String[] split = s.split(String.valueOf(c));
+		
+		for(String str : split) System.out.println("item " + s);*/
 	}
 }
