@@ -64,7 +64,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 		this.board = new BoardPiece[horizontal_size][vertical_size];
 		this.size = this.horizontal_size * this.vertical_size;
 	}
-	
+		
 	@Override
 	public BoardPiece<T> pieceAt(int i, int j)
 	{		
@@ -301,5 +301,20 @@ public abstract class AbstractBoard<T> implements Board<T>
 	
 	@Override
 	public abstract RandomGenerator<T> randomGenerator();
+	
+	public static AbstractBoard CreateRandomBoard(AbstractBoard board)
+	{
+		RandomGenerator generator = board.randomGenerator();
+		
+		for(int i = 0; i < board.getHorizontal_size(); i++)
+		{
+			for(int j = 0; j < board.getVertical_size(); j++)
+			{
+				board.setValueAt(i, j, generator.getRandom());
+			}
+		}
+		
+		return board;
+	}
 }
 
