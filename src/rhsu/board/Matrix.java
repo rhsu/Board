@@ -1,6 +1,4 @@
-package rhsu.board.arithmetic;
-
-import rhsu.board.Board;
+package rhsu.board;
 
 /**
  * A extension of the Board Interface to allow mathematical/matrix operations. This extension allows a board to be viewed as a 2 dimensional Matrix

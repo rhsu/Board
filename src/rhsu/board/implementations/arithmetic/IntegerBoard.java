@@ -3,8 +3,8 @@ package rhsu.board.implementations.arithmetic;
 import java.util.Random;
 import rhsu.board.BoardPiece;
 import rhsu.board.RandomGenerator;
-import rhsu.board.arithmetic.AbstractMatrix;
-import rhsu.board.arithmetic.Matrix;
+import rhsu.board.AbstractMatrix;
+import rhsu.board.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
 import rhsu.board.utilities.UtilityFunctions;
 
