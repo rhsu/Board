@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface Board<T>
 {
-	//<editor-fold desc="Accessors">
+	//<editor-fold desc="Accessors" defaultstate="collapsed">
 	/**
 	 * Method for retrieving the horizontal capacity of the board
 	 * @return the horizontal size of the board
@@ -30,7 +30,7 @@ public interface Board<T>
 	public int getSize();
 	//</editor-fold>
 	
-	//<editor-fold desc="BoardPiece Retrieval Methods">
+	//<editor-fold desc="BoardPiece Retrieval Methods" defaultstate="collapsed">
 	/**
 	 * Returns the piece at the location specified
 	 * @param i horizontal index
@@ -101,7 +101,7 @@ public interface Board<T>
 	
 	//</editor-fold>
 	
-	//<editor-fold desc="Value Retrieval Methods">
+	//<editor-fold desc="Value Retrieval Methods" defaultstate="collapsed">
 	
 	/**
 	 * Method for retrieving a value at the given coordinate
