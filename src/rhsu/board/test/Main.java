@@ -6,7 +6,6 @@ import java.util.*;
 		
 import rhsu.board.*;
 import rhsu.board.IO.*;
-import rhsu.board.arithmetic.*;
 import rhsu.board.implementations.*;
 import rhsu.board.implementations.arithmetic.*;
 

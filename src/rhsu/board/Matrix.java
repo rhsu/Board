@@ -1,4 +1,4 @@
-package rhsu.board.arithmetic;
+package rhsu.board;
 
 import rhsu.board.Board;
 
