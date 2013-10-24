@@ -10,6 +10,7 @@ import java.util.List;
  */
 public interface Board<T>
 {
+	//<editor-fold desc="Accessors">
 	/**
 	 * Method for retrieving the horizontal capacity of the board
 	 * @return the horizontal size of the board
@@ -22,8 +23,14 @@ public interface Board<T>
 	 */
 	public int getVertical_size();
 	
+	/**
+	 * Method for retrieving the total capacity of the board
+	 * @return the total size of the board
+	 */
 	public int getSize();
+	//</editor-fold>
 	
+	//<editor-fold desc="BoardPiece Retrieval Methods">
 	/**
 	 * Returns the piece at the location specified
 	 * @param i horizontal index
@@ -92,6 +99,10 @@ public interface Board<T>
 	 */
 	public BoardPiece<T> getUpPiece(BoardPiece<T> p);
 	
+	//</editor-fold>
+	
+	//<editor-fold desc="Value Retrieval Methods">
+	
 	/**
 	 * Method for retrieving a value at the given coordinate
 	 * @param i the horizontal index
@@ -107,34 +118,12 @@ public interface Board<T>
 	 * @param t the value of the piece to set
 	 */
 	public void setValueAt(int i, int j, T t);	
-<<<<<<< HEAD
-		
-=======
-	
-	/**
-	 * Method for retrieving the horizontal capacity of the board
-	 * @return the horizontal size of the board
-	 */
-	public int getHorizontal_size();
-	
-	/**
-	 * Method for retrieving the horizontal capacity of the board
-	 * @return the vertical size of the board
-	 */
-	public int getVertical_size();
-	
-	/**
-	 * Method for retrieving the total capacity of the board
-	 * @return the total size of the board
-	 */
-	public int getSize();
 	
 	/**
 	 * Method for retrieving the value of the piece left of the given piece
 	 * @param p the board piece to check
 	 * @return the value of the piece left of the parameter piece
 	 */
->>>>>>> master
 	public T getLeftValue(BoardPiece<T> p);
 	
 	/**
@@ -168,6 +157,8 @@ public interface Board<T>
 	
 	public T getDownValue(int i, int j);
 	
+	//</editor-fold>
+	
 	public BoardPiece<T> find(T t);
 	
 	public List<BoardPiece<T>> findAll(T t);
@@ -176,4 +167,3 @@ public interface Board<T>
 	
 	public RandomGenerator<T> randomGenerator();
 }
-
