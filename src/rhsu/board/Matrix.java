@@ -1,7 +1,5 @@
 package rhsu.board;
 
-import rhsu.board.Board;
-
 /**
  * A extension of the Board Interface to allow mathematical/matrix operations. This extension allows a board to be viewed as a 2 dimensional Matrix
  * @param <T> The type of the matrix object

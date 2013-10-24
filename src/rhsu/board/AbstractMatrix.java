@@ -1,6 +1,5 @@
 package rhsu.board;
 
-import rhsu.board.AbstractBoard;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 
 /**
