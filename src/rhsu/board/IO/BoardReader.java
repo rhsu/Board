@@ -52,6 +52,48 @@ public class BoardReader
 		return "";
 	}
 	
+	public StringBoard buildOputputBoard2(String filename, String delimiter)
+	{
+		LinkedList<String[]> fileContent = new LinkedList<>();
+		
+		try (BufferedReader br = new BufferedReader(new FileReader(filename)))
+		{
+			String line;
+			while ((line = br.readLine()) != null)
+			{			
+				String [] row = line.split( delimiter == null 
+						? DetermineDelimiter(line)
+						: delimiter);
+				
+				fileContent.add(row);
+			}
+		}
+		catch (Exception exception)
+		{
+			ExceptionHandler.Handle(exception);
+		}
+		
+		StringBoard outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
+		
+		int boardCounter = 0;
+		
+		for(String[] item : fileContent)
+		{
+			for(int i = 0; i < item.length; i++)
+			{
+				outputBoard.setValueAt(boardCounter, i, item[i]);
+			}
+			boardCounter++;
+		}
+		
+		return outputBoard;
+	}
+	
+	public StringBoard buildOutputBoard2(String filename)
+	{
+		return buildOputputBoard2(filename, null);
+	}
+	
 	/**
 	 * Constructs a string board from the given file
 	 * @param filename the name of the file to read from

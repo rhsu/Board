@@ -18,17 +18,10 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		IntegerBoard b = new IntegerBoard("test.txt");
-		print(b);
-	
-		print(b.getSize());
+		//IntegerBoard b = new IntegerBoard("test.txt");
+		//print(b);
 		
-		/*String s = "a b c d";
-		
-		char c = '\0';
-		
-		String[] split = s.split(String.valueOf(c));
-		
-		for(String str : split) System.out.println("item " + s);*/
+		BoardReader reader = new BoardReader();
+		print(reader.buildOutputBoard2("test.txt"));
 	}
 }
