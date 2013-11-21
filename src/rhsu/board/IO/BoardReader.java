@@ -62,7 +62,7 @@ public class BoardReader
 	 * @param delimiter the delimiter to split each line of the file on
 	 * @return a String Board representing the output
 	 */
-	public StringBoard buildOutputBoard(String filename, String delimiter)
+	private StringBoard buildOutputBoard(String filename, String delimiter)
 	{
 		LinkedList<String[]> fileContent = new LinkedList<>();
 		
@@ -104,7 +104,7 @@ public class BoardReader
 	 * @param filename the name of the file
 	 * @return a String Board representing the output
 	 */
-	public StringBoard buildOutputBoard(String filename)
+	StringBoard buildOutputBoard(String filename)
 	{
 		return buildOutputBoard(filename, "");
 	}
