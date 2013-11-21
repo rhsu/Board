@@ -16,7 +16,7 @@ public class BoardReader
 	/**
 	 * All the supported delimiters: space, pipe, comma, semicolon, colon, tab
 	 */
-	private final static String DELIMITERS = " |,;:\t";
+	private final static String DELIMITERS = "|,;:\t";
 		
 	/**
 	 * Creates an output board based off of user input
@@ -49,7 +49,7 @@ public class BoardReader
 			if(line.contains(String.valueOf(item))) return String.valueOf(item);
 		}
 		
-		return "";
+		return " ";
 	}
 	
 	public StringBoard buildOputputBoard2(String filename, String delimiter)
@@ -61,7 +61,7 @@ public class BoardReader
 			String line;
 			while ((line = br.readLine()) != null)
 			{			
-				String [] row = line.split( delimiter == null 
+				String[] row = line.split( delimiter == null 
 						? DetermineDelimiter(line)
 						: delimiter);
 				
@@ -81,7 +81,7 @@ public class BoardReader
 		{
 			for(int i = 0; i < item.length; i++)
 			{
-				outputBoard.setValueAt(boardCounter, i, item[i]);
+				outputBoard.setValueAt(boardCounter, i, item[i].trim());
 			}
 			boardCounter++;
 		}
