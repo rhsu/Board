@@ -22,6 +22,16 @@ public class Main
 		//print(b);
 		
 		BoardReader reader = new BoardReader();
-		print(reader.buildOutputBoard2("test.txt"));
+		//print(reader.buildOutputBoard2("test.txt"));
+		Board<String> test = reader.buildOutputBoard2("test.txt");
+		
+		//print(test.getSize());
+		Iterator iter = test.iterBoard();
+		
+		while(iter.hasNext())
+		{
+			BoardPiece<String> item = (BoardPiece<String>) iter.next();
+			print(item);
+		}
 	}
 }
