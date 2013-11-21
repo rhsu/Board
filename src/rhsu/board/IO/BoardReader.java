@@ -60,7 +60,7 @@ public class BoardReader
 			String line;
 			while ((line = br.readLine()) != null)
 			{			
-				String[] row = line.split( delimiter == null 
+				String[] row = line.split( "".equals(delimiter) 
 						? DetermineDelimiter(line)
 						: delimiter);
 				
@@ -90,7 +90,7 @@ public class BoardReader
 	
 	public StringBoard buildOutputBoard(String filename)
 	{
-		return buildOutputBoard(filename, null);
+		return buildOutputBoard(filename, "");
 	}
 	
 	/**
@@ -100,7 +100,7 @@ public class BoardReader
 	 */
 	public static StringBoard getBoardFromFile(String filename)
 	{
-		return getBoardFromFile(filename, null);
+		return getBoardFromFile(filename, "");
 	}
 	
 	public static StringBoard getBoardFromFile(String filename, String delimiter)

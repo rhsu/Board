@@ -26,7 +26,7 @@ public class Main
 		//Board<String> test = BoardReader.getBoardFromFile("test.txt");
 		//reader.buildOutputBoard2("test.txt");
 		
-		Board<String> test = reader.buildOutputBoard("test.txt", ",");
+		Board<String> test = reader.buildOutputBoard("test.txt");
 		
 		//print(test.getSize());
 		Iterator iter = test.iterBoard();
