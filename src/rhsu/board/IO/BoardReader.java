@@ -3,7 +3,6 @@ package rhsu.board.IO;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.LinkedList;
-import java.util.StringTokenizer;
 import rhsu.board.implementations.StringBoard;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 
@@ -52,7 +51,7 @@ public class BoardReader
 		return " ";
 	}
 	
-	public StringBoard buildOputputBoard2(String filename, String delimiter)
+	public StringBoard buildOputputBoard(String filename, String delimiter)
 	{
 		LinkedList<String[]> fileContent = new LinkedList<>();
 		
@@ -89,49 +88,9 @@ public class BoardReader
 		return outputBoard;
 	}
 	
-	public StringBoard buildOutputBoard2(String filename)
-	{
-		return buildOputputBoard2(filename, null);
-	}
-	
-	/**
-	 * Constructs a string board from the given file
-	 * @param filename the name of the file to read from
-	 * @return a string board based off of the given file
-	 */
 	public StringBoard buildOutputBoard(String filename)
-	{		
-		LinkedList<String[]> fileContent = new LinkedList<>();
-		
-		try (BufferedReader br = new BufferedReader(new FileReader(filename)))
-		{
-			String line;
-			while ((line = br.readLine()) != null)
-			{
-				String[] row = line.split(DetermineDelimiter(line));
-				
-				fileContent.add(row);
-			}
-		}
-		catch (Exception exception)
-		{
-			ExceptionHandler.Handle(exception);
-		}
-		
-		StringBoard outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
-		
-		int boardCounter = 0;
-		
-		for(String[] item : fileContent)
-		{
-			for(int i = 0; i < item.length; i++)
-			{
-				outputBoard.setValueAt(boardCounter, i, item[i]);
-			}
-			boardCounter++;
-		}
-		
-		return outputBoard;
+	{
+		return buildOputputBoard(filename, null);
 	}
 	
 	/**
