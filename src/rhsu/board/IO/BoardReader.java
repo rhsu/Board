@@ -51,7 +51,7 @@ public class BoardReader
 		return " ";
 	}
 	
-	public StringBoard buildOputputBoard(String filename, String delimiter)
+	public StringBoard buildOutputBoard(String filename, String delimiter)
 	{
 		LinkedList<String[]> fileContent = new LinkedList<>();
 		
@@ -90,7 +90,7 @@ public class BoardReader
 	
 	public StringBoard buildOutputBoard(String filename)
 	{
-		return buildOputputBoard(filename, null);
+		return buildOutputBoard(filename, null);
 	}
 	
 	/**
@@ -100,8 +100,13 @@ public class BoardReader
 	 */
 	public static StringBoard getBoardFromFile(String filename)
 	{
+		return getBoardFromFile(filename, null);
+	}
+	
+	public static StringBoard getBoardFromFile(String filename, String delimiter)
+	{
 		BoardReader reader = new BoardReader();
 		
-		return reader.buildOutputBoard(filename);
+		return reader.buildOutputBoard(filename, delimiter);
 	}
 }
