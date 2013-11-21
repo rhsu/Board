@@ -39,6 +39,11 @@ public class BoardReader
 		return outputBoard;
 	}
 	
+	/**
+	 * Method to determine the delimiter of a line in a file
+	 * @param line the line to determine the delimiter of
+	 * @return a string that represents the delimiter of the file
+	 */
 	private String DetermineDelimiter(String line)
 	{
 		char[] test = DELIMITERS.toCharArray();
@@ -51,6 +56,12 @@ public class BoardReader
 		return " ";
 	}
 	
+	/**
+	 * Constructs the output board given a filename and a delimiter
+	 * @param filename the name of the file
+	 * @param delimiter the delimiter to split each line of the file on
+	 * @return a String Board representing the output
+	 */
 	public StringBoard buildOutputBoard(String filename, String delimiter)
 	{
 		LinkedList<String[]> fileContent = new LinkedList<>();
@@ -88,6 +99,11 @@ public class BoardReader
 		return outputBoard;
 	}
 	
+	/**
+	 * Constructs the output board given a filename. The delimiter will be assumed to be the default of space
+	 * @param filename the name of the file
+	 * @return a String Board representing the output
+	 */
 	public StringBoard buildOutputBoard(String filename)
 	{
 		return buildOutputBoard(filename, "");
@@ -95,7 +111,7 @@ public class BoardReader
 	
 	/**
 	 * Constructs a string board based off of a file
-	 * @param filename
+	 * @param filename the name of the file
 	 * @return a String Board constructed by a given file
 	 */
 	public static StringBoard getBoardFromFile(String filename)
@@ -103,6 +119,12 @@ public class BoardReader
 		return getBoardFromFile(filename, "");
 	}
 	
+	/**
+	 * Constructs a string board based off of a file
+	 * @param filename the name of the file
+	 * @param delimiter the delimiter to split the file on
+	 * @return a String Board constructed by a given file
+	 */
 	public static StringBoard getBoardFromFile(String filename, String delimiter)
 	{
 		BoardReader reader = new BoardReader();
