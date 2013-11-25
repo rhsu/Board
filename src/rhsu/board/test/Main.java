@@ -14,19 +14,48 @@ public class Main
 	{
 		System.out.println(o);
 	}
-	
-	public static void main()
-	{
-		IntegerBoard b = new IntegerBoard(1000,1000, -1);
-		//System.out.println(b);
-	}
-	
-	public static void main(String[] args)
-	{
+		
+	public static long main1()
+	{		
 		long startTime = System.currentTimeMillis();
-		main();
+		Iterator<BoardPiece<Integer>> iter = test.iterBoard();
+		
+		while(iter.hasNext())
+		{
+			BoardPiece<Integer> item = (BoardPiece<Integer>) iter.next();
+			print(item);
+		}
 		long endTime = System.currentTimeMillis();
 		long duration = endTime - startTime;
-		System.out.println("The duration is: " + duration);
+		
+		return duration;
+	}
+	
+	public static long main2()
+	{
+		long startTime = System.currentTimeMillis();
+		for(int i = 0; i < test.getHorizontal_size(); i++)
+		{
+			for(int j = 0; j< test.getVertical_size(); j++)
+			{
+				print(test.pieceAt(i, j));
+			}
+		}
+		
+		long endTime = System.currentTimeMillis();
+		long duration = endTime - startTime;
+		
+		return duration;
+	}
+	
+	static IntegerBoard test = new IntegerBoard(100,100, 1);
+	
+	public static void main(String[] args)
+	{	
+		long i = main1();
+		long j = main2();
+		
+		print(i);
+		print(j);
 	}
 }
