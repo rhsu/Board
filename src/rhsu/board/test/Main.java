@@ -52,10 +52,6 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		long i = main1();
-		long j = main2();
-		
-		print(i);
-		print(j);
+		BenchmarkTest.Test();
 	}
 }
