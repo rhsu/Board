@@ -17,8 +17,8 @@ public class Main
 	
 	public static void main()
 	{
-		IntegerBoard b = new IntegerBoard(10,10, -1);
-		System.out.println(b);
+		IntegerBoard b = new IntegerBoard(1000,1000, -1);
+		//System.out.println(b);
 	}
 	
 	public static void main(String[] args)
