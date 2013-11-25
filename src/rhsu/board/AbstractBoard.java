@@ -266,7 +266,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	@Override
 	public BoardPiece<T> find(T t)
 	{
-		Iterator iter = this.iterBoard();
+		Iterator<BoardPiece<T>> iter = this.iterBoard();
 		
 		while(iter.hasNext())
 		{
@@ -283,7 +283,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	@Override
 	public List<BoardPiece<T>> findAll(T t)
 	{
-		Iterator iter = this.iterBoard();
+		Iterator<BoardPiece<T>> iter = this.iterBoard();
 		
 		LinkedList<BoardPiece<T>> list = new LinkedList<>();
 		
