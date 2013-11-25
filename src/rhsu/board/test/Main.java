@@ -15,8 +15,18 @@ public class Main
 		System.out.println(o);
 	}
 	
+	public static void main()
+	{
+		IntegerBoard b = new IntegerBoard(10,10, -1);
+		System.out.println(b);
+	}
+	
 	public static void main(String[] args)
 	{
-		
+		long startTime = System.currentTimeMillis();
+		main();
+		long endTime = System.currentTimeMillis();
+		long duration = endTime - startTime;
+		System.out.println("The duration is: " + duration);
 	}
 }
