@@ -20,12 +20,15 @@ public class Main
 {
 	public Main()
 	{
-		try 
+		try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader( getClass().getResourceAsStream(
+					"/rhsu/board/resources/resource.txt"))))
 		{	
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader( getClass().getResourceAsStream(
-					"/rhsu/board/resources/resource.txt")));
+			String line;
 			
-			
+			while ((line = bufferedReader.readLine()) != null)
+			{
+				System.out.println(line);
+			}
 		} 
 		catch (Exception ex) 
 		{
