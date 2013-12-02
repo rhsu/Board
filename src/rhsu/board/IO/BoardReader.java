@@ -16,7 +16,24 @@ public class BoardReader
 	 * All the supported delimiters: space, pipe, comma, semicolon, colon, tab
 	 */
 	private final static String DELIMITERS = "|,;:\t";
+	
+	/**
+	 * Method to determine the delimiter of a line in a file
+	 * @param line the line to determine the delimiter of
+	 * @return a string that represents the delimiter of the file
+	 */
+	private String DetermineDelimiter(String line)
+	{
+		char[] test = DELIMITERS.toCharArray();
 		
+		for(char item : test) 
+		{
+			if(line.contains(String.valueOf(item))) return String.valueOf(item);
+		}
+		
+		return " ";
+	}
+	
 	/**
 	 * Creates an output board based off of user input
 	 * @param h the horizontal size of the board
@@ -37,23 +54,6 @@ public class BoardReader
 		}
 		
 		return outputBoard;
-	}
-	
-	/**
-	 * Method to determine the delimiter of a line in a file
-	 * @param line the line to determine the delimiter of
-	 * @return a string that represents the delimiter of the file
-	 */
-	private String DetermineDelimiter(String line)
-	{
-		char[] test = DELIMITERS.toCharArray();
-		
-		for(char item : test) 
-		{
-			if(line.contains(String.valueOf(item))) return String.valueOf(item);
-		}
-		
-		return " ";
 	}
 	
 	/**
