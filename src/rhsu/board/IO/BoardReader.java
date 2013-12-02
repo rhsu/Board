@@ -6,14 +6,11 @@ import java.util.LinkedList;
 import rhsu.board.implementations.StringBoard;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 
-/**
- *
- * @author robert
- */
 public class BoardReader 
 {
 	/**
-	 * All the supported delimiters: space, pipe, comma, semicolon, colon, tab
+	 * A string representing all the supported delimiters. A supported delimiter
+	 * will be automatically picked up.
 	 */
 	private final static String DELIMITERS = "|,;:\t";
 	
@@ -36,18 +33,18 @@ public class BoardReader
 	
 	/**
 	 * Creates an output board based off of user input
-	 * @param h the horizontal size of the board
-	 * @param v the vertical size of the board
+	 * @param horizontal_index the horizontal size of the board
+	 * @param vertical_index the vertical size of the board
 	 * @param items the user inputted items (as a queue)
 	 * @return a string board based off of the user input 
 	 */
-	public StringBoard buildOutputBoard(int h, int v, LinkedList<String> items)
+	public StringBoard buildOutputBoard(int horizontal_index, int vertical_index, LinkedList<String> items)
 	{
-		StringBoard outputBoard = new StringBoard(h, v);
+		StringBoard outputBoard = new StringBoard(horizontal_index, vertical_index);
 
-		for(int i = 0; i < h; i++)
+		for(int i = 0; i < horizontal_index; i++)
 		{
-			for(int j = 0; j < v; j++)
+			for(int j = 0; j < vertical_index; j++)
 			{
 				outputBoard.setValueAt(i, j, items.remove());
 			}
@@ -60,7 +57,7 @@ public class BoardReader
 	 * Constructs the output board given a filename and a delimiter
 	 * @param filename the name of the file
 	 * @param delimiter the delimiter to split each line of the file on
-	 * @return a String Board representing the output
+	 * @return a String Board Object representing the output
 	 */
 	private StringBoard buildOutputBoard(String filename, String delimiter)
 	{
@@ -180,7 +177,6 @@ public class BoardReader
 		
 		return reader.buildOutputBoard(bufferedReader);
 	}
-	
 	
 	public static StringBoard getBoardFromFile(BufferedReader bufferedReader, String delimiter)
 	{
