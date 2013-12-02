@@ -27,18 +27,6 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		try(BufferedReader br = ResourceRetriever.GetResource("test.txt"))
-		{
-			String line;
-
-			while((line = br.readLine()) != null)
-			{
-				System.out.println(line);
-			}
-		}
-		catch(Exception ex)
-		{
-			ExceptionHandler.Handle(ex);
-		}
+		IntegerBoard board = new IntegerBoard(ResourceRetriever.GetResource("ExampleIntegerBoard"));
 	}
 }

@@ -109,6 +109,48 @@ public class BoardReader
 		return buildOutputBoard(filename, "");
 	}
 	
+	public StringBoard buildOutputBoard(BufferedReader reader)
+	{
+		return buildOutputBoard(reader, "");
+	}
+	
+	public StringBoard buildOutputBoard(BufferedReader reader, String delimiter)
+	{
+		LinkedList<String[]> fileContent = new LinkedList<>();
+		
+		try
+		{
+			String line;
+			while ((line = reader.readLine()) != null)
+			{			
+				String[] row = line.split( "".equals(delimiter) 
+						? DetermineDelimiter(line)
+						: delimiter);
+				
+				fileContent.add(row);
+			}
+		}
+		catch (Exception exception)
+		{
+			ExceptionHandler.Handle(exception);
+		}
+		
+		StringBoard outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
+		
+		int boardCounter = 0;
+		
+		for(String[] item : fileContent)
+		{
+			for(int i = 0; i < item.length; i++)
+			{
+				outputBoard.setValueAt(boardCounter, i, item[i].trim());
+			}
+			boardCounter++;
+		}
+		
+		return outputBoard;
+	}
+	
 	/**
 	 * Constructs a string board based off of a file
 	 * @param filename the name of the file
@@ -130,5 +172,20 @@ public class BoardReader
 		BoardReader reader = new BoardReader();
 		
 		return reader.buildOutputBoard(filename, delimiter);
+	}
+	
+	public static StringBoard getBoardFromFile(BufferedReader bufferedReader)
+	{
+		BoardReader reader = new BoardReader();
+		
+		return reader.buildOutputBoard(bufferedReader);
+	}
+	
+	
+	public static StringBoard getBoardFromFile(BufferedReader bufferedReader, String delimiter)
+	{
+		BoardReader reader = new BoardReader();
+		
+		return reader.buildOutputBoard(bufferedReader, delimiter);
 	}
 }
