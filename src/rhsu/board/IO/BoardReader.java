@@ -1,8 +1,11 @@
 package rhsu.board.IO;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import rhsu.board.implementations.StringBoard;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 
@@ -32,7 +35,8 @@ public class BoardReader
 	}
 	
 	/**
-	 * Creates an output board based off of user input
+	 * Creates an output board based off of user input. This is called from the 
+	 * console application.
 	 * @param horizontal_index the horizontal size of the board
 	 * @param vertical_index the vertical size of the board
 	 * @param items the user inputted items (as a queue)
@@ -61,39 +65,15 @@ public class BoardReader
 	 */
 	private StringBoard buildOutputBoard(String filename, String delimiter)
 	{
-		LinkedList<String[]> fileContent = new LinkedList<>();
-		
-		try (BufferedReader br = new BufferedReader(new FileReader(filename)))
+		try 
 		{
-			String line;
-			while ((line = br.readLine()) != null)
-			{			
-				String[] row = line.split( "".equals(delimiter) 
-						? DetermineDelimiter(line)
-						: delimiter);
-				
-				fileContent.add(row);
-			}
-		}
-		catch (Exception exception)
+			return buildOutputBoard(new BufferedReader(new FileReader(filename)), delimiter);		
+		} 
+		catch (Exception exception) 
 		{
 			ExceptionHandler.Handle(exception);
+			return new StringBoard(0,0);
 		}
-		
-		StringBoard outputBoard = new StringBoard(fileContent.size(), fileContent.get(0).length);
-		
-		int boardCounter = 0;
-		
-		for(String[] item : fileContent)
-		{
-			for(int i = 0; i < item.length; i++)
-			{
-				outputBoard.setValueAt(boardCounter, i, item[i].trim());
-			}
-			boardCounter++;
-		}
-		
-		return outputBoard;
 	}
 	
 	/**
