@@ -19,25 +19,7 @@ import rhsu.board.implementations.arithmetic.*;
 import rhsu.board.resources.ResourceRetriever;
 
 public class Main
-{
-	public Main()
-	{
-		/*try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader( getClass().getResourceAsStream(
-					"/rhsu/board/resources/resource.txt"))))
-		{	
-			String line;
-			
-			while ((line = bufferedReader.readLine()) != null)
-			{
-				System.out.println(line);
-			}
-		} 
-		catch (Exception ex) 
-		{
-			Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-		}*/		
-	}
-	
+{	
 	public static void print(Object o)
 	{
 		System.out.println(o);
