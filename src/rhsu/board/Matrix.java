@@ -12,21 +12,21 @@ public interface Matrix<T> extends Board<T>
 	 * @param m the other matrix
 	 * @return the result after the add operation
 	 */
-	public Matrix<T> add(Matrix<T> m);
+	public Matrix<T> add(Matrix<T> matrix);
 	
 	/**
 	 * Performs the subtract operation
 	 * @param m the other matrix
 	 * @return the result after the subtract operation
 	 */
-	public Matrix<T> subtract(Matrix<T> m);
+	public Matrix<T> subtract(Matrix<T> matrix);
 	
 	/**
 	 * Performs the multiply operation
 	 * @param m the other matrix
 	 * @return the result after the multiply operation
 	 */
-	public Matrix<T> multiply(Matrix<T> m);
+	public Matrix<T> multiply(Matrix<T> matrix);
 	
 	/**
 	 * Performs the multiply scalar operation
