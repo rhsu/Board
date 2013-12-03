@@ -99,7 +99,7 @@ public class BoardPiece<T> implements Mockable
 		int hash = 3;
 		hash = 59 * hash + this.horizontal;
 		hash = 59 * hash + this.vertical;
-		hash = 59 * hash + Objects.hashCode(this.t);
+		hash = 59 * hash + Objects.hashCode(this.value);
 		return hash;
 	}
 
