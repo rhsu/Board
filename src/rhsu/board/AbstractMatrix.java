@@ -19,9 +19,9 @@ public abstract class AbstractMatrix<T> extends AbstractBoard<T> implements Matr
 	
 	protected ExceptionHandler<T> handler;
 		
-	public AbstractMatrix(int h, int v, T defaultValue)
+	public AbstractMatrix(int horizontal, int vertical, T defaultValue)
 	{
-		super(h, v, defaultValue);
+		super(horizontal, vertical, defaultValue);
 	}
 			
 	public AbstractMatrix(String filename)

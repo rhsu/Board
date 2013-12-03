@@ -35,16 +35,16 @@ public abstract class AbstractBoard<T> implements Board<T>
 	protected int size;
 	
 	@SuppressWarnings({"unchecked"})
-	public AbstractBoard(int h, int v, T defaultValue)
+	public AbstractBoard(int horizontal, int vertical, T defaultValue)
 	{
-		this.horizontal_size = h;
-		this.vertical_size = v;
-		this.size = h*v;
-		this.board = new BoardPiece[h][v];
+		this.horizontal_size = horizontal;
+		this.vertical_size = vertical;
+		this.size = horizontal*vertical;
+		this.board = new BoardPiece[horizontal][vertical];
 		
-		for(int i = 0; i < h; i++)
+		for(int i = 0; i < horizontal; i++)
 		{
-			for(int j = 0; j < v; j++)
+			for(int j = 0; j < vertical; j++)
 			{
 				this.board[i][j] = new BoardPiece(i, j, defaultValue);
 			}
@@ -77,71 +77,71 @@ public abstract class AbstractBoard<T> implements Board<T>
 	}
 		
 	@Override
-	public BoardPiece<T> pieceAt(int i, int j)
+	public BoardPiece<T> pieceAt(int horizontal, int vertical)
 	{		
-		return ((i >= this.horizontal_size || j >= this.vertical_size || i < 0 || j < 0))
+		return ((horizontal >= this.horizontal_size || vertical >= this.vertical_size || horizontal < 0 || vertical < 0))
 				? null
-				: board[i][j];
+				: board[horizontal][vertical];
 	}
 	
 	@Override
-	public T getValueAt(int i, int j)
+	public T getValueAt(int horizontal, int vertical)
 	{
-		return board[i][j].getValue();
+		return board[horizontal][vertical].getValue();
 	}
 	
 	@Override
-	public void setValueAt(int i, int j, T t)
+	public void setValueAt(int horizontal, int vertical, T value)
 	{
-		board[i][j].setValue(t);
+		board[horizontal][vertical].setValue(value);
 	}
 		
 	@Override
-	public BoardPiece<T> getLeftPiece(int i, int j) 
+	public BoardPiece<T> getLeftPiece(int horizontal, int vertical) 
 	{
-		return pieceAt(i,j - 1);
+		return pieceAt(horizontal,vertical - 1);
 	}
 
 	@Override
-	public BoardPiece<T> getLeftPiece(BoardPiece<T> p) 
+	public BoardPiece<T> getLeftPiece(BoardPiece<T> piece) 
 	{	
-		return getLeftPiece(p.getHorizontal(), p.getVertical());
+		return getLeftPiece(piece.getHorizontal(), piece.getVertical());
 	}
 
 	@Override
-	public BoardPiece<T> getRightPiece(int i, int j) 
+	public BoardPiece<T> getRightPiece(int horizontal, int vertical) 
 	{
-		return pieceAt(i, j + 1);
+		return pieceAt(horizontal, vertical + 1);
 	}
 
 	@Override
-	public BoardPiece<T> getRightPiece(BoardPiece<T> p) 
+	public BoardPiece<T> getRightPiece(BoardPiece<T> piece) 
 	{
-		return getRightPiece(p.getHorizontal(), p.getVertical());
+		return getRightPiece(piece.getHorizontal(), piece.getVertical());
 	}
 
 	@Override
-	public BoardPiece<T> getDownPiece(int i, int j) 
+	public BoardPiece<T> getDownPiece(int horizontal, int vertical) 
 	{
-		return pieceAt(i + 1, j);
+		return pieceAt(horizontal + 1, vertical);
 	}
 
 	@Override
-	public BoardPiece<T> getDownPiece(BoardPiece<T> p) 
+	public BoardPiece<T> getDownPiece(BoardPiece<T> piece) 
 	{
-		return getDownPiece(p.getHorizontal(), p.getVertical());
+		return getDownPiece(piece.getHorizontal(), piece.getVertical());
 	}
 
 	@Override
-	public BoardPiece<T> getUpPiece(int i, int j) 
+	public BoardPiece<T> getUpPiece(int horizontal, int vertical) 
 	{
-		return pieceAt(i - 1, j);
+		return pieceAt(horizontal - 1, vertical);
 	}
 
 	@Override
-	public BoardPiece<T> getUpPiece(BoardPiece<T> p) 
+	public BoardPiece<T> getUpPiece(BoardPiece<T> piece) 
 	{
-		return getUpPiece(p.getHorizontal(), p.getVertical());
+		return getUpPiece(piece.getHorizontal(), piece.getVertical());
 	}
 
 	@Override
@@ -191,51 +191,51 @@ public abstract class AbstractBoard<T> implements Board<T>
 	}
 	
 	@Override
-	public T getLeftValue(BoardPiece<T> p)
+	public T getLeftValue(BoardPiece<T> piece)
 	{
-		return this.getLeftPiece(p).getValue();
+		return this.getLeftPiece(piece).getValue();
 	}
 	
 	@Override
-	public T getLeftValue(int i, int j)
+	public T getLeftValue(int horizontal, int vertical)
 	{
-		return this.getLeftPiece(i, j).getValue();
+		return this.getLeftPiece(horizontal, vertical).getValue();
 	}
 	
 	@Override
-	public T getRightValue(BoardPiece<T> p)
+	public T getRightValue(BoardPiece<T> piece)
 	{
-		return this.getRightPiece(p).getValue();
+		return this.getRightPiece(piece).getValue();
 	}
 	
 	@Override
-	public T getRightValue(int i, int j)
+	public T getRightValue(int horizontal, int vertical)
 	{
-		return this.getRightPiece(i, j).getValue();
+		return this.getRightPiece(horizontal, vertical).getValue();
 	}
 	
 	@Override
-	public T getUpValue(BoardPiece<T> p)
+	public T getUpValue(BoardPiece<T> piece)
 	{
-		return this.getUpPiece(p).getValue();
+		return this.getUpPiece(piece).getValue();
 	}
 	
 	@Override
-	public T getUpValue(int i, int j)
+	public T getUpValue(int horizontal, int vertical)
 	{
-		return this.getUpPiece(i, j).getValue();
+		return this.getUpPiece(horizontal, vertical).getValue();
 	}
 	
 	@Override
-	public T getDownValue(BoardPiece<T> p)
+	public T getDownValue(BoardPiece<T> piece)
 	{
-		return this.getDownPiece(p).getValue();
+		return this.getDownPiece(piece).getValue();
 	}
 	
 	@Override
-	public T getDownValue(int i, int j)
+	public T getDownValue(int horizontal, int vertical)
 	{
-		return this.getDownPiece(i, j).getValue();
+		return this.getDownPiece(horizontal, vertical).getValue();
 	}
 
 	@Override
@@ -271,11 +271,11 @@ public abstract class AbstractBoard<T> implements Board<T>
 	/**
 	 * Iterates through the board to find the specified object. Returns the result
 	 * as a board piece to preserve it's horizontal and vertical indices
-	 * @param t the object to find
+	 * @param value the object to find
 	 * @return the first instance of the object in the Board. Null if nothing is found
 	 */
 	@Override
-	public BoardPiece<T> find(T t)
+	public BoardPiece<T> find(T value)
 	{
 		Iterator<BoardPiece<T>> iter = this.iterBoard();
 		
@@ -283,7 +283,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 		{
 			BoardPiece<T> nextItem = (BoardPiece<T>) iter.next();
 			
-			if(nextItem.getValue() == t)
+			if(nextItem.getValue() == value)
 			{
 				return nextItem;
 			}
@@ -292,7 +292,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	}
 	
 	@Override
-	public List<BoardPiece<T>> findAll(T t)
+	public List<BoardPiece<T>> findAll(T value)
 	{
 		Iterator<BoardPiece<T>> iter = this.iterBoard();
 		
@@ -302,7 +302,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 		{
 			BoardPiece<T> nextItem = (BoardPiece<T>) iter.next();
 			
-			if(nextItem.getValue() == t)
+			if(nextItem.getValue() == value)
 			{
 				list.add(nextItem);
 			}
