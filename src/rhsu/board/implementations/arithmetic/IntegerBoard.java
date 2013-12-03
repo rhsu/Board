@@ -1,5 +1,6 @@
 package rhsu.board.implementations.arithmetic;
 
+import java.io.BufferedReader;
 import java.util.Random;
 import rhsu.board.BoardPiece;
 import rhsu.board.RandomGenerator;
@@ -80,6 +81,11 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 				}
 			}
 		}
+	}
+	
+	public IntegerBoard(BufferedReader bufferedReader)
+	{
+		super(bufferedReader);
 	}
 	
 	@Override
