@@ -1,12 +1,13 @@
 package rhsu.board;
 
 import java.util.Objects;
+import rhsu.board.test.Mockable;
 
 /**
  * A wrapper class for objects. Contains two additional int properties (horizontal index and vertical index)
  * @param <T> The type of the BoardPiece to wrap
  */
-public class BoardPiece<T>
+public class BoardPiece<T> implements Mockable
 {
 	private int horizontal;
 	private int vertical;
@@ -49,6 +50,11 @@ public class BoardPiece<T>
 	}
 	//</editor-fold>
 
+	public BoardPiece()
+	{
+		
+	}
+	
 	/**
 	 * General constructor for a board piece
 	 * @param i the horizontal index
@@ -95,5 +101,11 @@ public class BoardPiece<T>
 		hash = 59 * hash + this.vertical;
 		hash = 59 * hash + Objects.hashCode(this.t);
 		return hash;
+	}
+
+	@Override
+	public Object getMockObject() 
+	{
+		return new BoardPiece<>(-1, -1, 5);
 	}
 }
