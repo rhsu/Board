@@ -33,26 +33,26 @@ public interface Board<T>
 	//<editor-fold desc="BoardPiece Retrieval Methods" defaultstate="collapsed">
 	/**
 	 * Returns the piece at the location specified
-	 * @param i horizontal index
-	 * @param j vertical index
+	 * @param horizontal horizontal index
+	 * @param vertical vertical index
 	 * @return the piece at the coordinate (i, j)
 	 */
-	public BoardPiece<T> pieceAt(int i, int j);
+	public BoardPiece<T> pieceAt(int horizontal, int vertical);
 	
 	/**
 	 * Method for retrieving the board piece left of a given coordinate
-	 * @param i  the horizontal index
-	 * @param j the vertical index
+	 * @param horizontal  the horizontal index
+	 * @param vertical the vertical index
 	 * @return the left piece of (i, j). returns null if invalid location
 	 */
-	public BoardPiece<T> getLeftPiece(int i, int j);
+	public BoardPiece<T> getLeftPiece(int horizontal, int vertical);
 	
 	/**
 	 * Method for retrieving the board piece left of the parameter piece
-	 * @param p the piece to check
+	 * @param piece the piece to check
 	 * @return the piece left of p. returns null if invalid location
 	 */
-	public BoardPiece<T> getLeftPiece(BoardPiece<T> p);	
+	public BoardPiece<T> getLeftPiece(BoardPiece<T> piece);	
 	
 	/**
 	 * Method for retrieving the piece right of a given coordinate
@@ -159,9 +159,9 @@ public interface Board<T>
 	
 	//</editor-fold>
 	
-	public BoardPiece<T> find(T t);
+	public BoardPiece<T> find(T value);
 	
-	public List<BoardPiece<T>> findAll(T t);
+	public List<BoardPiece<T>> findAll(T value);
 	
 	public Iterator<BoardPiece<T>> iterBoard();
 	

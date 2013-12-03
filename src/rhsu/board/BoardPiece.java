@@ -11,7 +11,7 @@ public class BoardPiece<T> implements Mockable
 {
 	private int horizontal;
 	private int vertical;
-	private T t;
+	private T value;
 
 	//<editor-fold defaultstate="collapsed" desc="ACCESSORS">
 	/**
@@ -37,16 +37,16 @@ public class BoardPiece<T> implements Mockable
 	 */
 	public T getValue()
 	{
-		return t;
+		return value;
 	}
 
 	/**
 	 * Modifies the object to be the same as the parameter
 	 * @param t the value to change into
 	 */
-	public void setValue(T t)
+	public void setValue(T value)
 	{
-		this.t = t;
+		this.value = value;
 	}
 	//</editor-fold>
 
@@ -61,18 +61,18 @@ public class BoardPiece<T> implements Mockable
 	 * @param j the vertical index
 	 * @param t The value of the board piece.
 	 */
-	public BoardPiece(int i, int j, T t)
+	public BoardPiece(int horizontal, int vertical, T value)
 	{
-		this.horizontal = i;
-		this.vertical = j;
-		this.t = t;
+		this.horizontal = horizontal;
+		this.vertical = vertical;
+		this.value = value;
 	}
 
-	public BoardPiece(int i, int j, RandomGenerator<T> randomGenerator)
+	public BoardPiece(int horizontal, int vertical, RandomGenerator<T> randomGenerator)
 	{
-		this.horizontal = i;
-		this.vertical = j;
-		this.t = randomGenerator.getRandom();
+		this.horizontal = horizontal;
+		this.vertical = vertical;
+		this.value = randomGenerator.getRandom();
 	}
 	
 	/**
@@ -82,7 +82,7 @@ public class BoardPiece<T> implements Mockable
 	@Override
 	public String toString()
 	{
-		return t.toString();
+		return value.toString();
 	}
 	
 	@Override
