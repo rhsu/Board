@@ -1,5 +1,7 @@
 package rhsu.board;
 
+import java.util.Objects;
+
 /**
  * A wrapper class for objects. Contains two additional int properties (horizontal index and vertical index)
  * @param <T> The type of the BoardPiece to wrap
@@ -75,5 +77,28 @@ public class BoardPiece<T>
 	public String toString()
 	{
 		return t.toString();
+	}
+	
+	/**
+	 *
+	 * @param object
+	 * @return
+	 */
+	@Override
+	public final boolean equals(Object object)
+	{
+		if(!(object instanceof BoardPiece<?>)) return false;
+		
+		return this.hashCode() == object.hashCode();
+	}
+
+	@Override
+	public int hashCode() 
+	{
+		int hash = 3;
+		hash = 59 * hash + this.horizontal;
+		hash = 59 * hash + this.vertical;
+		hash = 59 * hash + Objects.hashCode(this.t);
+		return hash;
 	}
 }
