@@ -13,30 +13,14 @@ import rhsu.board.BoardPiece;
  *
  * @author rhsu
  */
-public class GSNodeTest {
-
-    public GSNodeTest() 
-	{
-    }
-
+public class GSNodeTest 
+{
+	static GSNode<Integer> mockGSNode;
+	
     @BeforeClass
     public static void setUpClass() 
 	{
-    }
-
-    @AfterClass
-    public static void tearDownClass() 
-	{
-    }
-
-    @Before
-    public void setUp() 
-	{
-    }
-
-    @After
-    public void tearDown() 
-	{
+		mockGSNode = new GSNode<>(-1, -1, 5);
     }
 
 	/**
@@ -46,9 +30,8 @@ public class GSNodeTest {
 	public void testGetItem() 
 	{
 		System.out.println("getItem");
-		GSNode<Integer> mockInstance = new GSNode<>(-1, -1, 5);
 		BoardPiece<Integer> expResult = new BoardPiece<>(-1, -1, 5);
-		BoardPiece<Integer> result = mockInstance.getItem();
+		BoardPiece<Integer> result = mockGSNode.getItem();
 		assertEquals(expResult, result);
 	}
 
@@ -59,10 +42,8 @@ public class GSNodeTest {
 	public void testGetValue() 
 	{
 		System.out.println("getValue");
-		GSNode<Integer> mockInstance = new GSNode<>(-1, -1, 5);
 		Integer expResult = 5;
-		Integer result = mockInstance.getValue();
+		Integer result = mockGSNode.getValue();
 		assertEquals(expResult, result);
 	}
-
 }
