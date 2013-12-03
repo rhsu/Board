@@ -9,18 +9,24 @@ import rhsu.board.BoardPiece;
  */
 public class GSNode<T>
 {
-	private BoardPiece<T> item;
+	private BoardPiece<T> piece;
 	private GSNode<T> next;
 	
-	public GSNode(int horizontal, int vertical, T t)
+	public GSNode(int horizontal, int vertical, T value)
 	{
-		item = new BoardPiece(horizontal, vertical, t);
-		next = null;
+		this.piece = new BoardPiece(horizontal, vertical, value);
+		this.next = null;
+	}
+	
+	public GSNode(BoardPiece<T> piece)
+	{
+		this.piece = piece;
+		this.next = null;
 	}
 	
 	public BoardPiece<T> getItem()
 	{
-		return item;
+		return piece;
 	}
 	
 	public T getValue()
@@ -51,7 +57,7 @@ public class GSNode<T>
 	public int hashCode() 
 	{
 		int hash = 5;
-		hash = 67 * hash + Objects.hashCode(this.item);
+		hash = 67 * hash + Objects.hashCode(this.piece);
 		hash = 67 * hash + Objects.hashCode(this.next);
 		return hash;
 	}
