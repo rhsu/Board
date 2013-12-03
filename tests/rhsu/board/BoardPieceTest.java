@@ -16,7 +16,7 @@ public class BoardPieceTest
 	@BeforeClass
     public static void setUpClass() 
 	{
-		mockBoardPiece = (BoardPiece<Integer>) MockFactory.mock(new BoardPiece());
+		mockBoardPiece = MockFactory.mockBoardPiece();
     }
 	
 	/**
@@ -85,8 +85,7 @@ public class BoardPieceTest
 	public void testEquals() 
 	{
 		System.out.println("equals");
-		BoardPiece<Integer> other = new BoardPiece<>(-1, -1, 5);
-		assertEquals(mockBoardPiece, other);
+		assertEquals(mockBoardPiece, MockFactory.mockBoardPiece());
 	}
 
 	/**
@@ -96,7 +95,6 @@ public class BoardPieceTest
 	public void testGetMockObject() 
 	{
 		System.out.println("getMockObject");
-		BoardPiece<Integer> result = (BoardPiece<Integer>) mockBoardPiece.getMockObject();
-		assertEquals(mockBoardPiece, result);
+		assertEquals(mockBoardPiece, MockFactory.mockBoardPiece());
 	}
 }

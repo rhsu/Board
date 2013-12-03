@@ -4,14 +4,16 @@
  */
 package rhsu.board.test;
 
+import rhsu.board.BoardPiece;
+
 /**
  *
  * @author rhsu
  */
 public class MockFactory 
 {
-	public static Object mock(Mockable mockable)
+	public static BoardPiece<Integer> mockBoardPiece()
 	{
-		return mockable.getMockObject();
+		return new BoardPiece<>(-1, -1, 5);
 	}
 }
