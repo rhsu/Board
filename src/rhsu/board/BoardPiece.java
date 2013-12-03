@@ -79,17 +79,12 @@ public class BoardPiece<T>
 		return t.toString();
 	}
 	
-	/**
-	 *
-	 * @param object
-	 * @return
-	 */
 	@Override
-	public final boolean equals(Object object)
+	public final boolean equals(Object other)
 	{
-		if(!(object instanceof BoardPiece<?>)) return false;
+		if(!(other instanceof BoardPiece<?>)) return false;
 		
-		return this.hashCode() == object.hashCode();
+		return this.hashCode() == other.hashCode();
 	}
 
 	@Override

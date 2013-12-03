@@ -46,4 +46,27 @@ public class GSNodeTest
 		Integer result = mockGSNode.getValue();
 		assertEquals(expResult, result);
 	}
+	
+	@Test
+	public void testEquals()
+	{
+		System.out.println("equals");
+		GSNode<Integer> other = new GSNode<>(-1, -1, 5);
+		assertEquals(mockGSNode, other);
+	}
+	
+	@Test
+	public void testGetNextNull()
+	{
+		System.out.println("getNextNull");
+		assertNull(mockGSNode.getNext());
+	}
+	
+	@Test
+	public void testGetNextNotNull()
+	{
+		System.out.println("getNextNotNull");
+		mockGSNode.setNext(mockGSNode);
+		assertNotNull(mockGSNode.getNext());
+	}
 }

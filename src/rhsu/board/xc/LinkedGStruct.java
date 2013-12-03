@@ -1,5 +1,7 @@
 package rhsu.board.xc;
 
+import rhsu.board.BoardPiece;
+
 /**
  *
  * @author rhsu
@@ -13,7 +15,7 @@ public class LinkedGStruct<T>
 		head = null;
 	}
 	
-	public void insert(T t)
+	public void insert(BoardPiece<T> piece)
 	{
 		if(head == null)
 		{
@@ -21,7 +23,7 @@ public class LinkedGStruct<T>
 		}
 		else
 		{
-	
+			
 		}
 	}
 }
