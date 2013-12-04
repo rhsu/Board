@@ -1,11 +1,8 @@
 package rhsu.board.IO;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.LinkedList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import rhsu.board.implementations.StringBoard;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 
@@ -42,7 +39,7 @@ public class BoardReader
 	 * @param items the user inputted items (as a queue)
 	 * @return a string board based off of the user input 
 	 */
-	public StringBoard buildOutputBoard(int horizontal_index, int vertical_index, LinkedList<String> items)
+	private StringBoard buildOutputBoard(int horizontal_index, int vertical_index, LinkedList<String> items)
 	{
 		StringBoard outputBoard = new StringBoard(horizontal_index, vertical_index);
 
@@ -76,22 +73,7 @@ public class BoardReader
 		}
 	}
 	
-	/**
-	 * Constructs the output board given a filename. The delimiter will be assumed to be the default of space
-	 * @param filename the name of the file
-	 * @return a String Board representing the output
-	 */
-	StringBoard buildOutputBoard(String filename)
-	{
-		return buildOutputBoard(filename, "");
-	}
-	
-	public StringBoard buildOutputBoard(BufferedReader reader)
-	{
-		return buildOutputBoard(reader, "");
-	}
-	
-	public StringBoard buildOutputBoard(BufferedReader reader, String delimiter)
+	private StringBoard buildOutputBoard(BufferedReader reader, String delimiter)
 	{
 		LinkedList<String[]> fileContent = new LinkedList<>();
 		
@@ -131,16 +113,6 @@ public class BoardReader
 	/**
 	 * Constructs a string board based off of a file
 	 * @param filename the name of the file
-	 * @return a String Board constructed by a given file
-	 */
-	public static StringBoard getBoardFromFile(String filename)
-	{
-		return getBoardFromFile(filename, "");
-	}
-	
-	/**
-	 * Constructs a string board based off of a file
-	 * @param filename the name of the file
 	 * @param delimiter the delimiter to split the file on
 	 * @return a String Board constructed by a given file
 	 */
@@ -151,11 +123,18 @@ public class BoardReader
 		return reader.buildOutputBoard(filename, delimiter);
 	}
 	
+	public static StringBoard getBoardFromFile(String filename)
+	{
+		BoardReader reader = new BoardReader();
+		
+		return reader.buildOutputBoard(filename, "");
+	}
+	
 	public static StringBoard getBoardFromFile(BufferedReader bufferedReader)
 	{
 		BoardReader reader = new BoardReader();
 		
-		return reader.buildOutputBoard(bufferedReader);
+		return reader.buildOutputBoard(bufferedReader, "");
 	}
 	
 	public static StringBoard getBoardFromFile(BufferedReader bufferedReader, String delimiter)
@@ -163,5 +142,11 @@ public class BoardReader
 		BoardReader reader = new BoardReader();
 		
 		return reader.buildOutputBoard(bufferedReader, delimiter);
+	}
+	
+	public static StringBoard getOutputBoard(int horizontal_index, int vertical_index, LinkedList<String> items)
+	{
+		BoardReader reader = new BoardReader();
+		return reader.buildOutputBoard(horizontal_index, vertical_index, items);
 	}
 }

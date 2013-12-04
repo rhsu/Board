@@ -20,7 +20,6 @@ public final class BoardIOConsoleApp
 	 * Private scanner member
 	 */
 	private Scanner in;
-	private BoardReader reader;
 	private StringBoard outputBoard;
 	
 	/**
@@ -28,7 +27,6 @@ public final class BoardIOConsoleApp
 	 */
 	public BoardIOConsoleApp()
 	{
-		reader = new BoardReader();
 		in = new Scanner(System.in);
 	}
 	
@@ -212,7 +210,7 @@ public final class BoardIOConsoleApp
 				items.offer(inNextLine);
 			}
 		}
-		outputBoard = reader.buildOutputBoard(h, v, items);
+		outputBoard = BoardReader.getOutputBoard(h, v, items);
 	}
 	
 	/**
@@ -236,7 +234,7 @@ public final class BoardIOConsoleApp
 
 			try
 			{
-				outputBoard = reader.buildOutputBoard(filename);
+				outputBoard = BoardReader.getBoardFromFile(filename);
 			}
 			catch(Exception exception)
 			{
