@@ -1,5 +1,7 @@
 package rhsu.board;
 
+import java.util.Objects;
+
 /**
  * A wrapper class for objects. Contains two additional int properties (horizontal index and vertical index)
  * @param <T> The type of the BoardPiece to wrap
@@ -8,7 +10,7 @@ public class BoardPiece<T>
 {
 	private int horizontal;
 	private int vertical;
-	private T t;
+	private T value;
 
 	//<editor-fold defaultstate="collapsed" desc="ACCESSORS">
 	/**
@@ -34,37 +36,37 @@ public class BoardPiece<T>
 	 */
 	public T getValue()
 	{
-		return t;
+		return value;
 	}
 
 	/**
 	 * Modifies the object to be the same as the parameter
 	 * @param t the value to change into
 	 */
-	public void setValue(T t)
+	public void setValue(T value)
 	{
-		this.t = t;
+		this.value = value;
 	}
 	//</editor-fold>
-
+	
 	/**
 	 * General constructor for a board piece
 	 * @param i the horizontal index
 	 * @param j the vertical index
 	 * @param t The value of the board piece.
 	 */
-	public BoardPiece(int i, int j, T t)
+	public BoardPiece(int horizontal, int vertical, T value)
 	{
-		this.horizontal = i;
-		this.vertical = j;
-		this.t = t;
+		this.horizontal = horizontal;
+		this.vertical = vertical;
+		this.value = value;
 	}
 
-	public BoardPiece(int i, int j, RandomGenerator<T> randomGenerator)
+	public BoardPiece(int horizontal, int vertical, RandomGenerator<T> randomGenerator)
 	{
-		this.horizontal = i;
-		this.vertical = j;
-		this.t = randomGenerator.getRandom();
+		this.horizontal = horizontal;
+		this.vertical = vertical;
+		this.value = randomGenerator.getRandom();
 	}
 	
 	/**
@@ -74,6 +76,24 @@ public class BoardPiece<T>
 	@Override
 	public String toString()
 	{
-		return t.toString();
+		return value.toString();
+	}
+	
+	@Override
+	public final boolean equals(Object other)
+	{
+		if(!(other instanceof BoardPiece<?>)) return false;
+		
+		return this.hashCode() == other.hashCode();
+	}
+
+	@Override
+	public int hashCode() 
+	{
+		int hash = 3;
+		hash = 59 * hash + this.horizontal;
+		hash = 59 * hash + this.vertical;
+		hash = 59 * hash + Objects.hashCode(this.value);
+		return hash;
 	}
 }

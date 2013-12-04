@@ -16,7 +16,7 @@ public class BoardWriter
 	 * @param filename  the name of the file to create
 	 * @param board the board to export to a file
 	 */
-	public void writeBoardToFile(String filename, AbstractBoard board)
+	private void writeBoardToFile(String filename, AbstractBoard board)
 	{
 		try 
 		{	
@@ -42,16 +42,7 @@ public class BoardWriter
 			ExceptionHandler.Handle(exception);
 		}		
 	}
-	
-	/**
-	 * Writes a board to the default filename "output.txt"
-	 * @param board the board to export to a file
-	 */
-	public void writeBoardToFile(AbstractBoard board)
-	{
-		writeBoardToFile("output.txt", board);
-	}
-	
+		
 	/**
 	 * Initializes a BoardWriter object to write the given board to a file
 	 * @param filename the name of the file to create
@@ -61,5 +52,11 @@ public class BoardWriter
 	{
 		BoardWriter writer = new BoardWriter();
 		writer.writeBoardToFile(filename, board);
+	}
+	
+	public static void write(AbstractBoard board)
+	{
+		BoardWriter writer = new BoardWriter();
+		writer.writeBoardToFile("output.txt", board);
 	}
 }

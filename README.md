@@ -2,9 +2,20 @@
 
 A wrapper class for a 2D array of objects (implemented as a generic). 
 
+#Version 1.3 Is Available!
+
+* Improvements over 1.2beta
+* Version 1.2beta is no longer supported
+* The console application has been determined as not very useful and has been stripped. It may be repackaged in the future with better features.
+
+#Iterator Warning!
+
+* It seems that the iterator is not as fast as anticipated. While it is still usable, it is not as efficient as originally advertised.
+
+
 #Introducing the Iterator!
 
-A easier and quicker way to loop through a Board object.
+A easier way loop through a Board object.
 
 Example code:
 
@@ -18,11 +29,6 @@ while(iter.HasNext())
 }
 ```
 
-#Version 1.2beta is Available!
-
-* Created new Iterator for the Board!
-* As well as Find, FindAll methods for all instances of AbstractBoard
-
 #Version 1.1 Is Available!
 
 * The previous Version1.0 is no longer supported.
@@ -35,4 +41,4 @@ while(iter.HasNext())
 #Coming soon...
 
 * Updated JavaDocs
-* A better GUI for the ConsoleApplication
+* Improvements to the iterator

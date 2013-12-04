@@ -1,6 +1,6 @@
-package rhsu.board.arithmetic;
+package rhsu.board;
 
-import rhsu.board.AbstractBoard;
+import java.io.BufferedReader;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 
 /**
@@ -19,15 +19,20 @@ public abstract class AbstractMatrix<T> extends AbstractBoard<T> implements Matr
 	
 	protected ExceptionHandler<T> handler;
 		
-	public AbstractMatrix(int h, int v, T defaultValue)
+	public AbstractMatrix(int horizontal, int vertical, T defaultValue)
 	{
-		super(h, v, defaultValue);
+		super(horizontal, vertical, defaultValue);
 	}
 			
 	public AbstractMatrix(String filename)
 	{
 		super(filename);
 		handler = new ExceptionHandler<>();
+	}
+	
+	public AbstractMatrix(BufferedReader bufferedReader)
+	{
+		super(bufferedReader);
 	}
 	
 	protected void CheckDimensions(OperationType type)

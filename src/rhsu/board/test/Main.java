@@ -1,20 +1,22 @@
 package rhsu.board.test;
 
-import rhsu.board.implementations.arithmetic.IntegerBoard;
+import java.io.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import rhsu.board.*;
 import rhsu.board.IO.*;
 import rhsu.board.IO.formGUI.*;
-import rhsu.board.arithmetic.*;
 import rhsu.board.implementations.*;
 import rhsu.terminalPanelGUI.UniversalPanelLauncher;
+import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.implementations.*;
+import rhsu.board.implementations.arithmetic.*;
+import rhsu.board.resources.ResourceRetriever;
+import rhsu.board.xc.*;
 
 public class Main
-{
+{	
 	public static void print(Object o)
 	{
 		System.out.println(o);
@@ -24,7 +26,7 @@ public class Main
 	{		
 		StringBoard test = new StringBoard("test.txt");
 		
-		//print(test);
+
 		UniversalPanelLauncher.Launch(new BoardPanelGUIExtender(test));
 	}
 }
