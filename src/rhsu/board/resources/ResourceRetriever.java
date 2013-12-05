@@ -11,15 +11,15 @@ import rhsu.board.exceptionHandler.ExceptionHandler;
 public class ResourceRetriever 
 {
 	private BufferedReader bufferedReader;
-	
-	public ResourceRetriever(String filename)
+		
+	private ResourceRetriever(String filename, String location)
 	{
 		try
-		{	
+		{
 			bufferedReader = new BufferedReader(new InputStreamReader( getClass().getResourceAsStream(
-					"/rhsu/board/resources/" + filename)));
-		} 
-		catch (Exception ex) 
+					location + filename)));
+		}
+		catch (Exception ex)
 		{
 			ExceptionHandler.Handle(ex);
 		}
@@ -32,7 +32,12 @@ public class ResourceRetriever
 	
 	public static BufferedReader GetResource(String filename)
 	{
-		ResourceRetriever retriever = new ResourceRetriever(filename);
+		return GetResource(filename, "rhsu/board/resources");
+	}
+	
+	public static BufferedReader GetResource(String filename, String location)
+	{		
+		ResourceRetriever retriever = new ResourceRetriever(filename, location);
 		return retriever.GetReader();
 	}
 }

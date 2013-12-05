@@ -22,7 +22,8 @@ public class Main
 	public static void main(String[] args)
 	{	
 		//IntegerBoard board = new IntegerBoard(ResourceRetriever.GetResource("ExampleIntegerBoard"));
-		IntegerBoard board = new IntegerBoard("test.txt");
+		//IntegerBoard board = new IntegerBoard("test.txt");
+		CharBoard board = new CharBoard(2,2);
 		print(board);
 	}
 }

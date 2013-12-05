@@ -162,26 +162,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	{
 		return this.size;
 	}
-	
-	/**
-	 * Method to allow the object to be printed
-	 * @return a string representation of the abstract board
-	 */
-	@Override
-	public String toString()
-	{
-		StringBuilder builder = new StringBuilder();
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for (int j = 0; j < vertical_size; j++)
-			{
-				builder.append(pieceAt(i,j).toString()).append(" ");
-			}
-			builder.append("\n");
-		}
-		return builder.toString().trim();
-	}
-	
+		
 	/**
 	 * Exports the board object
 	 * @param filename the name of the file to be exported
@@ -327,6 +308,25 @@ public abstract class AbstractBoard<T> implements Board<T>
 		}
 		
 		return board;
+	}
+	
+	/**
+	 * Method to allow the object to be printed
+	 * @return a string representation of the abstract board
+	 */
+	@Override
+	public String toString()
+	{
+		StringBuilder builder = new StringBuilder();
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for (int j = 0; j < vertical_size; j++)
+			{
+				builder.append(pieceAt(i,j).toString()).append(" ");
+			}
+			builder.append("\n");
+		}
+		return builder.toString().trim();
 	}
 }
 

@@ -3,24 +3,27 @@ package rhsu.board.implementations;
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board.resources.ResourceRetriever;
-import rhsu.board.test.MockFactory;
 
 /**
  *
  * @author rhsu
  */
-public class BooleanBoardTest 
+public class TestResourceRetrieverConstructors 
 {
-	BooleanBoard mockBoard = MockFactory.mockBooleanBoard();
+	private static final String testResource = "rhsu/board/resources/test";
 	
-    public BooleanBoardTest() 
-	{
-    }
-
 	@Test
-	public void test()
+	public void testBooleanBoard()
 	{
-		BooleanBoard testBoard = new BooleanBoard(ResourceRetriever.GetResource("test.txt"));
-		assertEquals(testBoard, mockBoard);
+		BooleanBoard testBoard = new BooleanBoard(ResourceRetriever.GetResource("ExampleBooleanBoard"));
+		//assertEquals(testBoard.toString(), new BooleanBoard(2,2).toString());
+		assertNotNull(testBoard);
+	}
+	
+	@Ignore
+	public void testCharBoard()
+	{
+		CharBoard testBoard = new CharBoard(ResourceRetriever.GetResource("testCharBoard", testResource));
+		assertEquals(testBoard.toString(), new CharBoard(2,2).toString());
 	}
 }

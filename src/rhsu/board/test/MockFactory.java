@@ -25,9 +25,4 @@ public class MockFactory
 	{
 		return new GSNode<>(-1, -1, 5);
 	}
-	
-	public static BooleanBoard mockBooleanBoard()
-	{
-		return new BooleanBoard(2,2);
-	}
 }
