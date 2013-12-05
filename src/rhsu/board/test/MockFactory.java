@@ -1,6 +1,7 @@
 package rhsu.board.test;
 
 import rhsu.board.BoardPiece;
+import rhsu.board.implementations.BooleanBoard;
 import rhsu.board.xc.GSNode;
 import rhsu.board.xc.LinkedGStruct;
 
@@ -23,5 +24,10 @@ public class MockFactory
 	public static GSNode<Integer> mockGSNode()
 	{
 		return new GSNode<>(-1, -1, 5);
+	}
+	
+	public static BooleanBoard mockBooleanBoard()
+	{
+		return new BooleanBoard(2,2);
 	}
 }
