@@ -59,23 +59,24 @@ public abstract class AbstractBoard<T> implements Board<T>
 	public AbstractBoard(String filename)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(filename);
-		
+		initializeBaseBoard();
+	}
+	
+	@SuppressWarnings({"unchecked"})
+	public AbstractBoard(BufferedReader reader)
+	{
+		this.baseBoard = BoardReader.getBoardFromFile(reader);
+		initializeBaseBoard();
+	}
+	
+	private void initializeBaseBoard()
+	{
 		this.horizontal_size = baseBoard.getHorizontal_size();
 		this.vertical_size = baseBoard.getVertical_size();
 		this.board = new BoardPiece[horizontal_size][vertical_size];
 		this.size = this.horizontal_size * this.vertical_size;
 	}
 	
-	public AbstractBoard(BufferedReader reader)
-	{
-		this.baseBoard = BoardReader.getBoardFromFile(reader);
-		
-		this.horizontal_size = baseBoard.getHorizontal_size();
-		this.vertical_size = baseBoard.getVertical_size();
-		this.board = new BoardPiece[horizontal_size][vertical_size];
-		this.size = this.horizontal_size * this.vertical_size;
-	}
-		
 	@Override
 	public BoardPiece<T> pieceAt(int horizontal, int vertical)
 	{		

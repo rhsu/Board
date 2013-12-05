@@ -1,5 +1,6 @@
 package rhsu.board.implementations;
 
+import java.io.BufferedReader;
 import java.util.Random;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
@@ -34,7 +35,17 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 	public BooleanBoard(String filename)
 	{
 		super(filename);
-		
+		initializeFromBaseBoard();
+	}
+	
+	public BooleanBoard(BufferedReader bufferedReader)
+	{
+		super(bufferedReader);
+		initializeFromBaseBoard();
+	}
+	
+	private void initializeFromBaseBoard()
+	{
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
