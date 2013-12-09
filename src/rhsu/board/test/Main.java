@@ -29,7 +29,6 @@ public class Main
 		//BooleanBoard testBoard = new BooleanBoard(ResourceRetriever.GetResource("ExampleBooleanBoard"));
 		
 		StringBoard board = new StringBoard(2,2);
-		
 		print(board);
 	}
 }

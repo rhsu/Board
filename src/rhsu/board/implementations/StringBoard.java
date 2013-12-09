@@ -1,5 +1,6 @@
 package rhsu.board.implementations;
 
+import java.io.BufferedReader;
 import java.util.UUID;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
@@ -27,6 +28,13 @@ public class StringBoard extends AbstractBoard<String>
 		this(h, v, "++");
 	}
 	
+	@SuppressWarnings({"unchecked"})
+	public StringBoard(BufferedReader bufferedReader)
+	{
+		super(bufferedReader);
+		initializeFromBaseBoard();
+	}
+	
 	/**
 	 * Constructor to create a StringBoard based off of a file 
 	 * @param filename the name of the file to create a StringBoard from
@@ -35,7 +43,11 @@ public class StringBoard extends AbstractBoard<String>
 	public StringBoard(String filename)
 	{
 		super(filename);
-
+		initializeFromBaseBoard();
+	}
+	
+	private void initializeFromBaseBoard()
+	{		
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
