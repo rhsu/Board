@@ -24,7 +24,7 @@ public class StringBoard extends AbstractBoard<String>
 	@SuppressWarnings({"unchecked"})
 	public StringBoard(int h, int v)
 	{
-		this(h, v, "+");
+		this(h, v, "++");
 	}
 	
 	/**
