@@ -26,7 +26,10 @@ public class Main
 		/*CharBoard board = new CharBoard(2,2);
 		print(board);*/
 		
-		BooleanBoard testBoard = new BooleanBoard(ResourceRetriever.GetResource("ExampleBooleanBoard"));
-		print(testBoard);
+		//BooleanBoard testBoard = new BooleanBoard(ResourceRetriever.GetResource("ExampleBooleanBoard"));
+		
+		StringBoard board = new StringBoard(2,2);
+		
+		print(board);
 	}
 }
