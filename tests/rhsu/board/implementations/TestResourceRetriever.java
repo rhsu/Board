@@ -8,7 +8,7 @@ import rhsu.board.resources.ResourceRetriever;
  *
  * @author rhsu
  */
-public class TestResourceRetrieverConstructors 
+public class TestResourceRetriever 
 {
 	private static final String testResource = "/rhsu/board/resources/test/";
 	

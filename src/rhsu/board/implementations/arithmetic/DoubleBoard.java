@@ -1,5 +1,6 @@
 package rhsu.board.implementations.arithmetic;
 
+import java.io.BufferedReader;
 import java.util.Random;
 import rhsu.board.BoardPiece;
 import rhsu.board.RandomGenerator;
@@ -48,7 +49,28 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	public DoubleBoard(String filename, HandleType handleType, Double defaultValue)
 	{
 		super(filename);
-		
+		initialializeFromBaseBoard(handleType, defaultValue);
+	}
+	
+	public DoubleBoard(BufferedReader bufferedReader)
+	{
+		this(bufferedReader, HandleType.RuntimeError, null);
+	}
+	
+	public DoubleBoard(BufferedReader bufferedReader, Double defaultValue)
+	{
+		this(bufferedReader, HandleType.Ignore, defaultValue);
+	}
+	
+	@SuppressWarnings({"unchecked"})
+	public DoubleBoard(BufferedReader bufferedReader, HandleType handleType, Double defaultValue)
+	{
+		super(bufferedReader);
+		initialializeFromBaseBoard(handleType, defaultValue);
+	}
+	
+	private void initialializeFromBaseBoard(HandleType handleType, Double defaultValue)
+	{
 		Double value = null;
 		
 		for(int i = 0; i < horizontal_size; i++)
