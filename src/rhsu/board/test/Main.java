@@ -23,7 +23,10 @@ public class Main
 	{	
 		//IntegerBoard board = new IntegerBoard(ResourceRetriever.GetResource("ExampleIntegerBoard"));
 		//IntegerBoard board = new IntegerBoard("test.txt");
-		CharBoard board = new CharBoard(2,2);
-		print(board);
+		/*CharBoard board = new CharBoard(2,2);
+		print(board);*/
+		
+		BooleanBoard testBoard = new BooleanBoard(ResourceRetriever.GetResource("ExampleBooleanBoard"));
+		print(testBoard);
 	}
 }

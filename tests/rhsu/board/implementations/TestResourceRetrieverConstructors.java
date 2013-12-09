@@ -10,17 +10,16 @@ import rhsu.board.resources.ResourceRetriever;
  */
 public class TestResourceRetrieverConstructors 
 {
-	private static final String testResource = "rhsu/board/resources/test";
+	private static final String testResource = "/rhsu/board/resources/test/";
 	
 	@Test
 	public void testBooleanBoard()
 	{
-		BooleanBoard testBoard = new BooleanBoard(ResourceRetriever.GetResource("ExampleBooleanBoard"));
-		//assertEquals(testBoard.toString(), new BooleanBoard(2,2).toString());
-		assertNotNull(testBoard);
+		BooleanBoard testBoard = new BooleanBoard(ResourceRetriever.GetResource("testBooleanBoard", testResource));
+		assertEquals(testBoard.toString(), new BooleanBoard(2,2).toString());
 	}
 	
-	@Ignore
+	@Test
 	public void testCharBoard()
 	{
 		CharBoard testBoard = new CharBoard(ResourceRetriever.GetResource("testCharBoard", testResource));

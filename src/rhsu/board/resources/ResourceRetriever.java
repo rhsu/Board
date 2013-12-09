@@ -32,7 +32,7 @@ public class ResourceRetriever
 	
 	public static BufferedReader GetResource(String filename)
 	{
-		return GetResource(filename, "rhsu/board/resources");
+		return GetResource(filename, "/rhsu/board/resources/");
 	}
 	
 	public static BufferedReader GetResource(String filename, String location)
