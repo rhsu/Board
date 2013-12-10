@@ -14,6 +14,8 @@ import rhsu.board.utilities.UtilityFunctions;
  */
 public class IntegerBoard extends AbstractMatrix<Integer>
 {
+	private static final Integer DEFAULT_VALUE = 0;
+	
 	/**
 	 * Constructor to create a IntegerBoard with the given parameters
 	 * @param h the horizontal size 
@@ -27,7 +29,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	
 	public IntegerBoard(int h, int v)
 	{
-		this(h, v, 0);
+		this(h, v, DEFAULT_VALUE);
 	}
 	
 	/**
@@ -37,7 +39,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	@SuppressWarnings({"unchecked"})
 	public IntegerBoard(String filename)
 	{		
-		this(filename, HandleType.RuntimeError, null);
+		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
 	}
 	
 	public IntegerBoard(String filename, Integer defaultValue)

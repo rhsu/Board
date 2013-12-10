@@ -15,6 +15,8 @@ import rhsu.board.utilities.UtilityFunctions;
  */
 public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 {
+	private static final BigInteger DEFAULT_VALUE = BigInteger.ZERO;
+	
 	/**
 	 * Constructor to create a BigIntegerBoard with the given parameters
 	 * @param h the horizontal size 
@@ -22,7 +24,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	 */
 	public BigIntegerBoard(int h, int v)
 	{
-		this(h, v, BigInteger.ZERO);
+		this(h, v, DEFAULT_VALUE);
 	}
 	
 	@SuppressWarnings({"unchecked"})
@@ -38,7 +40,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(String filename)
 	{
-		this(filename, HandleType.RuntimeError, null);
+		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
 	}
 		
 	public BigIntegerBoard(String filename, BigInteger defaultValue)

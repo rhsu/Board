@@ -11,6 +11,8 @@ import rhsu.board.RandomGenerator;
  */
 public class StringBoard extends AbstractBoard<String>
 {
+	private static final String DEFAULT_VALUE = "++";
+	
 	@SuppressWarnings({"unchecked"})
 	public StringBoard(int h, int v, String defaultValue)
 	{
