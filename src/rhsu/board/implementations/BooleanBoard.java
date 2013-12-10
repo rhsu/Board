@@ -10,6 +10,8 @@ import rhsu.board.RandomGenerator;
  */
 public class BooleanBoard extends AbstractBoard<Boolean>
 {
+	private static final boolean DEFAULT_VALUE = false;
+	
 	@SuppressWarnings({"unchecked"})
 	public BooleanBoard(int h, int v, boolean defaultValue)
 	{
@@ -23,7 +25,7 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 	 */
 	public BooleanBoard(int h, int v)
 	{
-		this(h, v, false);
+		this(h, v, DEFAULT_VALUE);
 	}
 
 	/**

@@ -13,6 +13,8 @@ import rhsu.board.utilities.UtilityFunctions;
  */
 public class DoubleBoard extends AbstractMatrix<Double>
 {
+	private static final Double DEFAULT_VALUE = 0.0;
+	
 	/**
 	 * Constructor to create a DoubleBoard with the given parameters
 	 * @param h the horizontal size 
@@ -26,7 +28,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 
 	public DoubleBoard(int h, int v)
 	{
-		this(h, v, 0.0);
+		this(h, v, DEFAULT_VALUE);
 	}
 	
 	/**
@@ -36,7 +38,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	@SuppressWarnings({"unchecked"})
 	public DoubleBoard(String filename)
 	{
-		this(filename, HandleType.RuntimeError, null);
+		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
 	}
 	
 	public DoubleBoard(String filename, Double defaultValue)
