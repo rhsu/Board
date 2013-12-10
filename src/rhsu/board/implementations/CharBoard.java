@@ -10,6 +10,8 @@ import rhsu.board.RandomGenerator;
  */
 public class CharBoard extends AbstractBoard<Character>
 {
+	private static final Character DEFAULT_VALUE = '+';
+	
 	@SuppressWarnings({"unchecked"})
 	public CharBoard(int h, int v, char defaultValue)
 	{
@@ -23,7 +25,7 @@ public class CharBoard extends AbstractBoard<Character>
 	 */
 	public CharBoard(int h, int v)
 	{
-		this(h, v, ' ');
+		this(h, v, DEFAULT_VALUE);
 	}
 
 	/**

@@ -14,6 +14,8 @@ import rhsu.board.utilities.UtilityFunctions;
  */
 public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 {	
+	private static final BigDecimal DEFAULT_VALUE = BigDecimal.ZERO;
+	
 	/**
 	 * Constructor to create a BigDecimalBoard with the given parameters
 	 * @param h the horizontal size 
@@ -37,7 +39,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	@SuppressWarnings({"unchecked"})
 	public BigDecimalBoard(String filename)
 	{
-		this(filename, HandleType.RuntimeError, null);
+		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
 	}
 	
 	public BigDecimalBoard(String filename, BigDecimal defaultValue)
