@@ -15,14 +15,17 @@ public class TestResourceRetrieverArithmetic
 	@Test
 	public void testBigDoubleBoard()
 	{
-		DoubleBoard testBoard = new DoubleBoard(ResourceRetriever.GetResource("testZeroBoard", testResource));
+		DoubleBoard testBoard = new DoubleBoard(
+				ResourceRetriever.GetResource("testZeroBoard", testResource));
 		assertEquals(testBoard.toString(), new DoubleBoard(2,2).toString());
 	}
 	
 	@Test
 	public void testBigIntegerBoard()
 	{
-		fail("fail not implemented yet");
+		BigIntegerBoard testBoard = new BigIntegerBoard(
+				ResourceRetriever.GetResource("testZeroBoard", testResource));
+		assertEquals(testBoard.toString(), new BigIntegerBoard(2,2).toString());
 	}
 	
 	@Test

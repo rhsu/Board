@@ -1,5 +1,6 @@
 package rhsu.board.implementations.arithmetic;
 
+import java.io.BufferedReader;
 import java.math.BigInteger;
 import java.util.Random;
 import rhsu.board.BoardPiece;
@@ -44,12 +45,32 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	{
 		this(filename, HandleType.Ignore, defaultValue);
 	}
-	
+		
 	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(String filename, HandleType handleType, BigInteger defaultValue)
 	{
 		super(filename);
-		
+		initializeFromBaseBoard(handleType, defaultValue);
+	}
+	
+	public BigIntegerBoard(BufferedReader bufferedReader)
+	{
+		this(bufferedReader, HandleType.RuntimeError, null);
+	}
+	
+	public BigIntegerBoard(BufferedReader bufferedReader, BigInteger defaultValue)
+	{
+		this(bufferedReader, HandleType.Ignore, defaultValue);
+	}
+			
+	public BigIntegerBoard(BufferedReader bufferedReader, HandleType handleType, BigInteger defaultValue)
+	{
+		super(bufferedReader);
+		initializeFromBaseBoard(handleType, defaultValue);
+	}
+	
+	private void initializeFromBaseBoard(HandleType handleType, BigInteger defaultValue)
+	{
 		BigInteger value = null;
 		
 		for(int i = 0; i < horizontal_size; i++)
