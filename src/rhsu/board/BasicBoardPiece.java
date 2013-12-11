@@ -6,7 +6,7 @@ import java.util.Objects;
  * A wrapper class for objects. Contains two additional int properties (horizontal index and vertical index)
  * @param <T> The type of the BoardPiece to wrap
  */
-public class BasicBoardPiece<T>
+public class BasicBoardPiece<T> implements BoardPiece<T>
 {
 	private int horizontal;
 	private int vertical;
@@ -16,6 +16,7 @@ public class BasicBoardPiece<T>
 	/**
 	* @return the horizontal index
 	*/
+	@Override
 	public int getHorizontal()
 	{
 		return this.horizontal;
@@ -25,6 +26,7 @@ public class BasicBoardPiece<T>
 	 * 
 	 * @return the vertical index
 	 */
+	@Override
 	public int getVertical()
 	{
 		return this.vertical;
@@ -34,6 +36,7 @@ public class BasicBoardPiece<T>
 	 * 
 	 * @return the object itself
 	 */
+	@Override
 	public T getValue()
 	{
 		return value;
@@ -43,6 +46,7 @@ public class BasicBoardPiece<T>
 	 * Modifies the object to be the same as the parameter
 	 * @param t the value to change into
 	 */
+	@Override
 	public void setValue(T value)
 	{
 		this.value = value;
