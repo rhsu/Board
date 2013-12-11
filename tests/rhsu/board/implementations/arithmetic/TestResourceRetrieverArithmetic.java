@@ -39,6 +39,8 @@ public class TestResourceRetrieverArithmetic
 	@Test
 	public void testIntegerBoard()
 	{
-		fail("Not implemented yet");
+		IntegerBoard testBoard = new IntegerBoard(
+				ResourceRetriever.GetResource("testZeroBoard", testResource));
+		assertEquals(testBoard.toString(), new IntegerBoard(2,2).toString());
 	}
 }

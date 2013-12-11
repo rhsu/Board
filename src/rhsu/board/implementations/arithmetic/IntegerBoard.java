@@ -51,7 +51,27 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	public IntegerBoard(String filename, HandleType handleType, Integer defaultValue)
 	{
 		super(filename);
+		initializeFromBaseBoard(handleType, defaultValue);
+	}
 
+	public IntegerBoard(BufferedReader bufferedReader)
+	{
+		this(bufferedReader, HandleType.RuntimeError, DEFAULT_VALUE);
+	}
+	
+	public IntegerBoard(BufferedReader bufferedReader, Integer defaultValue)
+	{
+		this(bufferedReader, HandleType.Ignore, defaultValue);
+	}
+	
+	public IntegerBoard(BufferedReader bufferedReader, HandleType handleType, Integer defaultValue)
+	{
+		super(bufferedReader);
+		initializeFromBaseBoard(handleType, defaultValue);
+	}
+	
+	private void initializeFromBaseBoard(HandleType handleType, Integer defaultValue)
+	{
 		Integer value = null;
 		
 		for(int i = 0; i < horizontal_size; i++)
@@ -83,11 +103,6 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 				}
 			}
 		}
-	}
-	
-	public IntegerBoard(BufferedReader bufferedReader)
-	{
-		super(bufferedReader);
 	}
 	
 	@Override
