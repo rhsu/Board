@@ -37,7 +37,7 @@ public interface Board<T>
 	 * @param vertical vertical index
 	 * @return the piece at the coordinate (i, j)
 	 */
-	public BasicBoardPiece<T> pieceAt(int horizontal, int vertical);
+	public BoardPiece<T> pieceAt(int horizontal, int vertical);
 	
 	/**
 	 * Method for retrieving the board piece left of a given coordinate
@@ -45,14 +45,14 @@ public interface Board<T>
 	 * @param vertical the vertical index
 	 * @return the left piece of (i, j). returns null if invalid location
 	 */
-	public BasicBoardPiece<T> getLeftPiece(int horizontal, int vertical);
+	public BoardPiece<T> getLeftPiece(int horizontal, int vertical);
 	
 	/**
 	 * Method for retrieving the board piece left of the parameter piece
 	 * @param piece the piece to check
 	 * @return the piece left of p. returns null if invalid location
 	 */
-	public BasicBoardPiece<T> getLeftPiece(BasicBoardPiece<T> piece);	
+	public BoardPiece<T> getLeftPiece(BoardPiece<T> piece);	
 	
 	/**
 	 * Method for retrieving the piece right of a given coordinate
@@ -60,14 +60,14 @@ public interface Board<T>
 	 * @param j the vertical index
 	 * @return the piece right of (i, j). returns null if invalid location
 	 */
-	public BasicBoardPiece<T> getRightPiece(int i, int j);
+	public BoardPiece<T> getRightPiece(int i, int j);
 	
 	/**
 	 * Method for retrieving the board piece right of the parameter piece
 	 * @param p the piece to check
 	 * @return The piece right of p. Returns null if invalid location
 	 */
-	public BasicBoardPiece<T> getRightPiece(BasicBoardPiece<T> p);
+	public BoardPiece<T> getRightPiece(BoardPiece<T> p);
 	
 	/**
 	 * Method for retrieving the board piece below a given coordinate
@@ -75,14 +75,14 @@ public interface Board<T>
 	 * @param j the vertical index
 	 * @return The piece below the piece at (i, j);
 	 */
-	public BasicBoardPiece<T> getDownPiece(int i, int j);
+	public BoardPiece<T> getDownPiece(int i, int j);
 	
 	/**
 	 * Method for retrieving the board piece below the parameter piece
 	 * @param p the piece to check
 	 * @return the piece below the given piece
 	 */
-	public BasicBoardPiece<T> getDownPiece(BasicBoardPiece<T> p);
+	public BoardPiece<T> getDownPiece(BoardPiece<T> p);
 	
 	/**
 	 * Method for retrieving the board piece above the given coordinate
@@ -90,14 +90,14 @@ public interface Board<T>
 	 * @param j vertical index
 	 * @return the piece above the given index (i, j)
 	 */
-	public BasicBoardPiece<T> getUpPiece(int i, int j);
+	public BoardPiece<T> getUpPiece(int i, int j);
 	
 	/**
 	 * Method for retrieving the board piece above the parameter piece
 	 * @param p the piece to check
 	 * @return the piece above the given piece
 	 */
-	public BasicBoardPiece<T> getUpPiece(BasicBoardPiece<T> p);
+	public BoardPiece<T> getUpPiece(BoardPiece<T> p);
 	
 	//</editor-fold>
 	
@@ -124,7 +124,7 @@ public interface Board<T>
 	 * @param p the board piece to check
 	 * @return the value of the piece left of the parameter piece
 	 */
-	public T getLeftValue(BasicBoardPiece<T> p);
+	public T getLeftValue(BoardPiece<T> p);
 	
 	/**
 	 * Method for retrieving the value of the piece left of the given coordinate
@@ -139,7 +139,7 @@ public interface Board<T>
 	 * @param p the board piece to check
 	 * @return the value of the piece right of the parameter piece
 	 */
-	public T getRightValue(BasicBoardPiece<T> p);
+	public T getRightValue(BoardPiece<T> p);
 	
 	/**
 	 * Method for retrieving the value of the piece right of the given coordinate
@@ -149,21 +149,21 @@ public interface Board<T>
 	 */
 	public T getRightValue(int i, int j);
 	
-	public T getUpValue(BasicBoardPiece<T> p);
+	public T getUpValue(BoardPiece<T> p);
 	
 	public T getUpValue(int i, int j);	
 	
-	public T getDownValue(BasicBoardPiece<T> p);
+	public T getDownValue(BoardPiece<T> p);
 	
 	public T getDownValue(int i, int j);
 	
 	//</editor-fold>
 	
-	public BasicBoardPiece<T> find(T value);
+	public BoardPiece<T> find(T value);
 	
-	public List<BasicBoardPiece<T>> findAll(T value);
+	public List<BoardPiece<T>> findAll(T value);
 	
-	public Iterator<BasicBoardPiece<T>> iterBoard();
+	public Iterator<BoardPiece<T>> iterBoard();
 	
 	public RandomGenerator<T> randomGenerator();
 }

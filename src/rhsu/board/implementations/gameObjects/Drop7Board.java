@@ -3,6 +3,7 @@ package rhsu.board.implementations.gameObjects;
 import java.util.ArrayList;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BasicBoardPiece;
+import rhsu.board.BoardPiece;
 import rhsu.board.RandomGenerator;
 
 /**
@@ -28,14 +29,14 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 	* @param p the parameter piece to perform the calculation on
 	* @return the number of pieces that are in the same row as the parameter piece.
 	*/
-	public int getNumberRowAdjacent(BasicBoardPiece<Drop7Piece> piece)
+	public int getNumberRowAdjacent(BoardPiece<Drop7Piece> piece)
 	{
 		if((piece == null) || (piece.getValue() == Drop7Piece.EMPTY))
 		{
 			return 0;
 		}
 		
-		BasicBoardPiece<Drop7Piece> current = piece;
+		BoardPiece<Drop7Piece> current = piece;
 		int numAdjacent = 0;
 		
 		//Check Left
@@ -74,7 +75,7 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 			return 0;
 		}
 		
-		BasicBoardPiece<Drop7Piece> current = piece;
+		BoardPiece<Drop7Piece> current = piece;
 		int numAdjacent = 0;
 		
 		//Check up
@@ -140,11 +141,11 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 		
 		for(int i = 0; i < 7; i++)
 		{
-			BasicBoardPiece<Drop7Piece> current = this.pieceAt(row, i);
+			BoardPiece<Drop7Piece> current = this.pieceAt(row, i);
 			
 			if((current != null) && (current.getValue() != Drop7Piece.EMPTY))
 			{
-				pieces.add(current);
+				pieces.add((BasicBoardPiece<Drop7Piece>) current);
 			}
 		}
 		
@@ -196,7 +197,7 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 	{
 		ArrayList<BasicBoardPiece<Drop7Piece>> removePieces = this.getAllRemovePieces();
 		
-		for(BasicBoardPiece<Drop7Piece> item : removePieces)
+		for(BoardPiece<Drop7Piece> item : removePieces)
 		{
 			item.setValue(Drop7Piece.EMPTY);
 			item.getValue().setEmpty();
