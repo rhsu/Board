@@ -14,6 +14,10 @@ import rhsu.board.utilities.UtilityFunctions;
  */
 public class IntegerBoard extends AbstractMatrix<Integer>
 {
+	private static final Integer DEFAULT_VALUE = 0;
+	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
+	
 	/**
 	 * Constructor to create a IntegerBoard with the given parameters
 	 * @param h the horizontal size 
@@ -27,7 +31,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	
 	public IntegerBoard(int h, int v)
 	{
-		this(h, v, 0);
+		this(h, v, DEFAULT_VALUE);
 	}
 	
 	/**
@@ -37,7 +41,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	@SuppressWarnings({"unchecked"})
 	public IntegerBoard(String filename)
 	{		
-		this(filename, HandleType.RuntimeError, null);
+		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
 	}
 	
 	public IntegerBoard(String filename, Integer defaultValue)
@@ -49,7 +53,29 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	public IntegerBoard(String filename, HandleType handleType, Integer defaultValue)
 	{
 		super(filename);
+		initializeFromBaseBoard(handleType, defaultValue);
+	}
 
+	public IntegerBoard(BufferedReader bufferedReader)
+	{
+		this(bufferedReader, HandleType.RuntimeError, DEFAULT_VALUE);
+	}
+	
+	public IntegerBoard(BufferedReader bufferedReader, Integer defaultValue)
+	{
+		this(bufferedReader, HandleType.Ignore, defaultValue);
+	}
+	
+	public IntegerBoard(BufferedReader bufferedReader, HandleType handleType, Integer defaultValue)
+	{
+		super(bufferedReader);
+		initializeFromBaseBoard(handleType, defaultValue);
+	}
+	
+	//</editor-fold>	
+	
+	private void initializeFromBaseBoard(HandleType handleType, Integer defaultValue)
+	{
 		Integer value = null;
 		
 		for(int i = 0; i < horizontal_size; i++)
@@ -81,11 +107,6 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 				}
 			}
 		}
-	}
-	
-	public IntegerBoard(BufferedReader bufferedReader)
-	{
-		super(bufferedReader);
 	}
 	
 	@Override

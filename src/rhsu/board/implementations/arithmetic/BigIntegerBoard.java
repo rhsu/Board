@@ -1,5 +1,6 @@
 package rhsu.board.implementations.arithmetic;
 
+import java.io.BufferedReader;
 import java.math.BigInteger;
 import java.util.Random;
 import rhsu.board.BoardPiece;
@@ -14,6 +15,10 @@ import rhsu.board.utilities.UtilityFunctions;
  */
 public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 {
+	private static final BigInteger DEFAULT_VALUE = BigInteger.ZERO;
+	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
+	
 	/**
 	 * Constructor to create a BigIntegerBoard with the given parameters
 	 * @param h the horizontal size 
@@ -21,7 +26,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	 */
 	public BigIntegerBoard(int h, int v)
 	{
-		this(h, v, BigInteger.ZERO);
+		this(h, v, DEFAULT_VALUE);
 	}
 	
 	@SuppressWarnings({"unchecked"})
@@ -37,19 +42,40 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(String filename)
 	{
-		this(filename, HandleType.RuntimeError, null);
+		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
 	}
 		
 	public BigIntegerBoard(String filename, BigInteger defaultValue)
 	{
 		this(filename, HandleType.Ignore, defaultValue);
 	}
-	
+		
 	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(String filename, HandleType handleType, BigInteger defaultValue)
 	{
 		super(filename);
-		
+		initializeFromBaseBoard(handleType, defaultValue);
+	}
+	
+	public BigIntegerBoard(BufferedReader bufferedReader)
+	{
+		this(bufferedReader, HandleType.RuntimeError, null);
+	}
+	
+	public BigIntegerBoard(BufferedReader bufferedReader, BigInteger defaultValue)
+	{
+		this(bufferedReader, HandleType.Ignore, defaultValue);
+	}
+			
+	public BigIntegerBoard(BufferedReader bufferedReader, HandleType handleType, BigInteger defaultValue)
+	{
+		super(bufferedReader);
+		initializeFromBaseBoard(handleType, defaultValue);
+	}
+	//</editor-fold>
+	
+	private void initializeFromBaseBoard(HandleType handleType, BigInteger defaultValue)
+	{
 		BigInteger value = null;
 		
 		for(int i = 0; i < horizontal_size; i++)

@@ -1,5 +1,6 @@
 package rhsu.board.implementations;
 
+import java.io.BufferedReader;
 import java.util.UUID;
 import rhsu.board.AbstractBoard;
 import rhsu.board.BoardPiece;
@@ -10,6 +11,10 @@ import rhsu.board.RandomGenerator;
  */
 public class StringBoard extends AbstractBoard<String>
 {
+	private static final String DEFAULT_VALUE = "++";
+	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
+	
 	@SuppressWarnings({"unchecked"})
 	public StringBoard(int h, int v, String defaultValue)
 	{
@@ -24,7 +29,14 @@ public class StringBoard extends AbstractBoard<String>
 	@SuppressWarnings({"unchecked"})
 	public StringBoard(int h, int v)
 	{
-		this(h, v, " ");
+		this(h, v, "++");
+	}
+	
+	@SuppressWarnings({"unchecked"})
+	public StringBoard(BufferedReader bufferedReader)
+	{
+		super(bufferedReader);
+		initializeFromBaseBoard();
 	}
 	
 	/**
@@ -35,7 +47,13 @@ public class StringBoard extends AbstractBoard<String>
 	public StringBoard(String filename)
 	{
 		super(filename);
-
+		initializeFromBaseBoard();
+	}
+	
+	//</editor-fold>
+	
+	private void initializeFromBaseBoard()
+	{		
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)

@@ -1,5 +1,6 @@
 package rhsu.board.implementations.arithmetic;
 
+import java.io.BufferedReader;
 import java.math.BigDecimal;
 import java.util.Random;
 import rhsu.board.BoardPiece;
@@ -14,6 +15,10 @@ import rhsu.board.utilities.UtilityFunctions;
  */
 public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 {	
+	private static final BigDecimal DEFAULT_VALUE = BigDecimal.ZERO;
+	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
+	
 	/**
 	 * Constructor to create a BigDecimalBoard with the given parameters
 	 * @param h the horizontal size 
@@ -21,7 +26,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	 */
 	public BigDecimalBoard(int h, int v)
 	{
-		this(h, v, BigDecimal.ZERO);
+		this(h, v, DEFAULT_VALUE);
 	}
 	
 	@SuppressWarnings({"unchecked"})
@@ -37,7 +42,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	@SuppressWarnings({"unchecked"})
 	public BigDecimalBoard(String filename)
 	{
-		this(filename, HandleType.RuntimeError, null);
+		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
 	}
 	
 	public BigDecimalBoard(String filename, BigDecimal defaultValue)
@@ -46,10 +51,31 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	}
 	
 	@SuppressWarnings({"unchecked"})
-	public BigDecimalBoard(String filename, HandleType handletype, BigDecimal defaultValue)
+	public BigDecimalBoard(String filename, HandleType handleType, BigDecimal defaultValue)
 	{
 		super(filename);
-		
+		initializeFromBaseBoard(handleType, defaultValue);
+	}
+	
+	public BigDecimalBoard(BufferedReader bufferedReader)
+	{
+		this(bufferedReader, HandleType.RuntimeError, DEFAULT_VALUE);
+	}		
+			
+	public BigDecimalBoard(BufferedReader bufferedReader, BigDecimal defaultValue)
+	{
+		this(bufferedReader, HandleType.Ignore, defaultValue);
+	}
+			
+	public BigDecimalBoard(BufferedReader bufferedReader, HandleType handleType, BigDecimal defaultValue)
+	{
+		super(bufferedReader);
+		initializeFromBaseBoard(handleType, defaultValue);
+	}
+	//</editor-fold>
+	
+	private void initializeFromBaseBoard(HandleType handleType, BigDecimal defaultValue)
+	{
 		BigDecimal value = null;
 		
 		for(int i = 0; i < horizontal_size; i++)
@@ -62,7 +88,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 				}
 				catch(Exception exception)
 				{					
-					value = handler.AssignDefault(exception, handletype, defaultValue);
+					value = handler.AssignDefault(exception, handleType, defaultValue);
 				}
 				finally
 				{
