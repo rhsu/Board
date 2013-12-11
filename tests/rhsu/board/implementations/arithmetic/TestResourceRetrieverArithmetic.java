@@ -13,7 +13,7 @@ public class TestResourceRetrieverArithmetic
 	private static final String testResource = "/rhsu/board/resources/test/";
 	
 	@Test
-	public void testBigDoubleBoard()
+	public void testDoubleBoard()
 	{
 		DoubleBoard testBoard = new DoubleBoard(
 				ResourceRetriever.GetResource("testZeroBoard", testResource));
@@ -29,9 +29,11 @@ public class TestResourceRetrieverArithmetic
 	}
 	
 	@Test
-	public void testDoubleBoard()
+	public void testBigDecimalBoard()
 	{
-		fail("Not implemented yet");
+		BigDecimalBoard testBoard = new BigDecimalBoard(
+				ResourceRetriever.GetResource("testZeroBoard", testResource));
+		assertEquals(testBoard.toString(), new BigDecimalBoard(2,2).toString());
 	}
 	
 	@Test
