@@ -13,6 +13,8 @@ public class CharBoard extends AbstractBoard<Character>
 {
 	private static final Character DEFAULT_VALUE = '+';
 	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
+	
 	@SuppressWarnings({"unchecked"})
 	public CharBoard(int h, int v, char defaultValue)
 	{
@@ -46,6 +48,7 @@ public class CharBoard extends AbstractBoard<Character>
 		super(bufferedReader);
 		initializeFromBaseBoard();
 	}
+	//</editor-fold>
 	
 	private void initializeFromBaseBoard()
 	{

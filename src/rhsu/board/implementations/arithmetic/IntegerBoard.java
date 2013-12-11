@@ -16,6 +16,8 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 {
 	private static final Integer DEFAULT_VALUE = 0;
 	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
+	
 	/**
 	 * Constructor to create a IntegerBoard with the given parameters
 	 * @param h the horizontal size 
@@ -69,6 +71,8 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		super(bufferedReader);
 		initializeFromBaseBoard(handleType, defaultValue);
 	}
+	
+	//</editor-fold>	
 	
 	private void initializeFromBaseBoard(HandleType handleType, Integer defaultValue)
 	{

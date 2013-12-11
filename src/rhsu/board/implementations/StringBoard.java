@@ -13,6 +13,8 @@ public class StringBoard extends AbstractBoard<String>
 {
 	private static final String DEFAULT_VALUE = "++";
 	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
+	
 	@SuppressWarnings({"unchecked"})
 	public StringBoard(int h, int v, String defaultValue)
 	{
@@ -47,6 +49,8 @@ public class StringBoard extends AbstractBoard<String>
 		super(filename);
 		initializeFromBaseBoard();
 	}
+	
+	//</editor-fold>
 	
 	private void initializeFromBaseBoard()
 	{		

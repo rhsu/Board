@@ -16,6 +16,8 @@ public class DoubleBoard extends AbstractMatrix<Double>
 {
 	private static final Double DEFAULT_VALUE = 0.0;
 	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
+	
 	/**
 	 * Constructor to create a DoubleBoard with the given parameters
 	 * @param h the horizontal size 
@@ -70,6 +72,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 		super(bufferedReader);
 		initialializeFromBaseBoard(handleType, defaultValue);
 	}
+	//</editor-fold>
 	
 	private void initialializeFromBaseBoard(HandleType handleType, Double defaultValue)
 	{

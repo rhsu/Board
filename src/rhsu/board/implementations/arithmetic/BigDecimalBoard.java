@@ -17,6 +17,8 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 {	
 	private static final BigDecimal DEFAULT_VALUE = BigDecimal.ZERO;
 	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
+	
 	/**
 	 * Constructor to create a BigDecimalBoard with the given parameters
 	 * @param h the horizontal size 
@@ -70,6 +72,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 		super(bufferedReader);
 		initializeFromBaseBoard(handleType, defaultValue);
 	}
+	//</editor-fold>
 	
 	private void initializeFromBaseBoard(HandleType handleType, BigDecimal defaultValue)
 	{

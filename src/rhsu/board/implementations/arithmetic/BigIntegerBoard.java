@@ -17,6 +17,8 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 {
 	private static final BigInteger DEFAULT_VALUE = BigInteger.ZERO;
 	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
+	
 	/**
 	 * Constructor to create a BigIntegerBoard with the given parameters
 	 * @param h the horizontal size 
@@ -70,6 +72,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 		super(bufferedReader);
 		initializeFromBaseBoard(handleType, defaultValue);
 	}
+	//</editor-fold>
 	
 	private void initializeFromBaseBoard(HandleType handleType, BigInteger defaultValue)
 	{

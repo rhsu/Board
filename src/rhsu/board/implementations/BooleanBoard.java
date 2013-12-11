@@ -13,6 +13,7 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 {
 	private static final boolean DEFAULT_VALUE = false;
 	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
 	@SuppressWarnings({"unchecked"})
 	public BooleanBoard(int h, int v, boolean defaultValue)
 	{
@@ -45,6 +46,7 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 		super(bufferedReader);
 		initializeFromBaseBoard();
 	}
+	//</editor-fold>
 	
 	private void initializeFromBaseBoard()
 	{
