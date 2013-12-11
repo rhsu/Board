@@ -1,7 +1,7 @@
 package rhsu.board.test;
 
 import java.util.Iterator;
-import rhsu.board.BoardPiece;
+import rhsu.board.BasicBoardPiece;
 import rhsu.board.implementations.arithmetic.IntegerBoard;
 
 /**
@@ -20,11 +20,11 @@ public class BenchmarkTest
 	private static long main1()
 	{		
 		long startTime = System.currentTimeMillis();
-		Iterator<BoardPiece<Integer>> iter = testboard.iterBoard();
+		Iterator<BasicBoardPiece<Integer>> iter = testboard.iterBoard();
 		
 		while(iter.hasNext())
 		{
-			BoardPiece<Integer> item = (BoardPiece<Integer>) iter.next();
+			BasicBoardPiece<Integer> item = (BasicBoardPiece<Integer>) iter.next();
 			print(item);
 		}
 		long endTime = System.currentTimeMillis();

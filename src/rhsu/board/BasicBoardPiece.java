@@ -6,7 +6,7 @@ import java.util.Objects;
  * A wrapper class for objects. Contains two additional int properties (horizontal index and vertical index)
  * @param <T> The type of the BoardPiece to wrap
  */
-public class BoardPiece<T>
+public class BasicBoardPiece<T>
 {
 	private int horizontal;
 	private int vertical;
@@ -55,14 +55,14 @@ public class BoardPiece<T>
 	 * @param j the vertical index
 	 * @param t The value of the board piece.
 	 */
-	public BoardPiece(int horizontal, int vertical, T value)
+	public BasicBoardPiece(int horizontal, int vertical, T value)
 	{
 		this.horizontal = horizontal;
 		this.vertical = vertical;
 		this.value = value;
 	}
 
-	public BoardPiece(int horizontal, int vertical, RandomGenerator<T> randomGenerator)
+	public BasicBoardPiece(int horizontal, int vertical, RandomGenerator<T> randomGenerator)
 	{
 		this.horizontal = horizontal;
 		this.vertical = vertical;
@@ -82,7 +82,7 @@ public class BoardPiece<T>
 	@Override
 	public final boolean equals(Object other)
 	{
-		if(!(other instanceof BoardPiece<?>)) return false;
+		if(!(other instanceof BasicBoardPiece<?>)) return false;
 		
 		return this.hashCode() == other.hashCode();
 	}

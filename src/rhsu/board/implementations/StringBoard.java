@@ -3,7 +3,7 @@ package rhsu.board.implementations;
 import java.io.BufferedReader;
 import java.util.UUID;
 import rhsu.board.AbstractBoard;
-import rhsu.board.BoardPiece;
+import rhsu.board.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
 
 /**
@@ -58,7 +58,7 @@ public class StringBoard extends AbstractBoard<String>
 		{
 			for(int j = 0; j < vertical_size; j++)
 			{
-				board[i][j] = new BoardPiece(i, j, 
+				board[i][j] = new BasicBoardPiece(i, j, 
 						baseBoard.getValueAt(i, j));
 			}
 		}

@@ -18,7 +18,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	/**
 	 * the board object to allocate in the constructor
 	 */
-	protected BoardPiece<T>[][] board;
+	protected BasicBoardPiece<T>[][] board;
 	/**
 	 * The horizontal size of the board
 	 */
@@ -40,13 +40,13 @@ public abstract class AbstractBoard<T> implements Board<T>
 		this.horizontal_size = horizontal;
 		this.vertical_size = vertical;
 		this.size = horizontal*vertical;
-		this.board = new BoardPiece[horizontal][vertical];
+		this.board = new BasicBoardPiece[horizontal][vertical];
 		
 		for(int i = 0; i < horizontal; i++)
 		{
 			for(int j = 0; j < vertical; j++)
 			{
-				this.board[i][j] = new BoardPiece(i, j, defaultValue);
+				this.board[i][j] = new BasicBoardPiece(i, j, defaultValue);
 			}
 		}
 	}
@@ -73,12 +73,12 @@ public abstract class AbstractBoard<T> implements Board<T>
 	{
 		this.horizontal_size = baseBoard.getHorizontal_size();
 		this.vertical_size = baseBoard.getVertical_size();
-		this.board = new BoardPiece[horizontal_size][vertical_size];
+		this.board = new BasicBoardPiece[horizontal_size][vertical_size];
 		this.size = this.horizontal_size * this.vertical_size;
 	}
 	
 	@Override
-	public BoardPiece<T> pieceAt(int horizontal, int vertical)
+	public BasicBoardPiece<T> pieceAt(int horizontal, int vertical)
 	{		
 		return ((horizontal >= this.horizontal_size || vertical >= this.vertical_size || horizontal < 0 || vertical < 0))
 				? null
@@ -98,49 +98,49 @@ public abstract class AbstractBoard<T> implements Board<T>
 	}
 		
 	@Override
-	public BoardPiece<T> getLeftPiece(int horizontal, int vertical) 
+	public BasicBoardPiece<T> getLeftPiece(int horizontal, int vertical) 
 	{
 		return pieceAt(horizontal,vertical - 1);
 	}
 
 	@Override
-	public BoardPiece<T> getLeftPiece(BoardPiece<T> piece) 
+	public BasicBoardPiece<T> getLeftPiece(BasicBoardPiece<T> piece) 
 	{	
 		return getLeftPiece(piece.getHorizontal(), piece.getVertical());
 	}
 
 	@Override
-	public BoardPiece<T> getRightPiece(int horizontal, int vertical) 
+	public BasicBoardPiece<T> getRightPiece(int horizontal, int vertical) 
 	{
 		return pieceAt(horizontal, vertical + 1);
 	}
 
 	@Override
-	public BoardPiece<T> getRightPiece(BoardPiece<T> piece) 
+	public BasicBoardPiece<T> getRightPiece(BasicBoardPiece<T> piece) 
 	{
 		return getRightPiece(piece.getHorizontal(), piece.getVertical());
 	}
 
 	@Override
-	public BoardPiece<T> getDownPiece(int horizontal, int vertical) 
+	public BasicBoardPiece<T> getDownPiece(int horizontal, int vertical) 
 	{
 		return pieceAt(horizontal + 1, vertical);
 	}
 
 	@Override
-	public BoardPiece<T> getDownPiece(BoardPiece<T> piece) 
+	public BasicBoardPiece<T> getDownPiece(BasicBoardPiece<T> piece) 
 	{
 		return getDownPiece(piece.getHorizontal(), piece.getVertical());
 	}
 
 	@Override
-	public BoardPiece<T> getUpPiece(int horizontal, int vertical) 
+	public BasicBoardPiece<T> getUpPiece(int horizontal, int vertical) 
 	{
 		return pieceAt(horizontal - 1, vertical);
 	}
 
 	@Override
-	public BoardPiece<T> getUpPiece(BoardPiece<T> piece) 
+	public BasicBoardPiece<T> getUpPiece(BasicBoardPiece<T> piece) 
 	{
 		return getUpPiece(piece.getHorizontal(), piece.getVertical());
 	}
@@ -173,7 +173,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	}
 	
 	@Override
-	public T getLeftValue(BoardPiece<T> piece)
+	public T getLeftValue(BasicBoardPiece<T> piece)
 	{
 		return this.getLeftPiece(piece).getValue();
 	}
@@ -185,7 +185,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	}
 	
 	@Override
-	public T getRightValue(BoardPiece<T> piece)
+	public T getRightValue(BasicBoardPiece<T> piece)
 	{
 		return this.getRightPiece(piece).getValue();
 	}
@@ -197,7 +197,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	}
 	
 	@Override
-	public T getUpValue(BoardPiece<T> piece)
+	public T getUpValue(BasicBoardPiece<T> piece)
 	{
 		return this.getUpPiece(piece).getValue();
 	}
@@ -209,7 +209,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	}
 	
 	@Override
-	public T getDownValue(BoardPiece<T> piece)
+	public T getDownValue(BasicBoardPiece<T> piece)
 	{
 		return this.getDownPiece(piece).getValue();
 	}
@@ -221,9 +221,9 @@ public abstract class AbstractBoard<T> implements Board<T>
 	}
 
 	@Override
-	public Iterator<BoardPiece<T>> iterBoard()
+	public Iterator<BasicBoardPiece<T>> iterBoard()
 	{
-		Iterator<BoardPiece<T>> retIter = new Iterator()
+		Iterator<BasicBoardPiece<T>> retIter = new Iterator()
 		{
 			private int currentIndex = 0;
 			
@@ -234,9 +234,9 @@ public abstract class AbstractBoard<T> implements Board<T>
 			}
 
 			@Override
-			public BoardPiece<T> next() 
+			public BasicBoardPiece<T> next() 
 			{
-				BoardPiece<T> retPiece = board[currentIndex/vertical_size][currentIndex % vertical_size];
+				BasicBoardPiece<T> retPiece = board[currentIndex/vertical_size][currentIndex % vertical_size];
 				currentIndex++;
 				return retPiece;
 			}
@@ -257,13 +257,13 @@ public abstract class AbstractBoard<T> implements Board<T>
 	 * @return the first instance of the object in the Board. Null if nothing is found
 	 */
 	@Override
-	public BoardPiece<T> find(T value)
+	public BasicBoardPiece<T> find(T value)
 	{
-		Iterator<BoardPiece<T>> iter = this.iterBoard();
+		Iterator<BasicBoardPiece<T>> iter = this.iterBoard();
 		
 		while(iter.hasNext())
 		{
-			BoardPiece<T> nextItem = (BoardPiece<T>) iter.next();
+			BasicBoardPiece<T> nextItem = (BasicBoardPiece<T>) iter.next();
 			
 			if(nextItem.getValue() == value)
 			{
@@ -274,15 +274,15 @@ public abstract class AbstractBoard<T> implements Board<T>
 	}
 	
 	@Override
-	public List<BoardPiece<T>> findAll(T value)
+	public List<BasicBoardPiece<T>> findAll(T value)
 	{
-		Iterator<BoardPiece<T>> iter = this.iterBoard();
+		Iterator<BasicBoardPiece<T>> iter = this.iterBoard();
 		
-		LinkedList<BoardPiece<T>> list = new LinkedList<>();
+		LinkedList<BasicBoardPiece<T>> list = new LinkedList<>();
 		
 		while(iter.hasNext())
 		{
-			BoardPiece<T> nextItem = (BoardPiece<T>) iter.next();
+			BasicBoardPiece<T> nextItem = (BasicBoardPiece<T>) iter.next();
 			
 			if(nextItem.getValue() == value)
 			{

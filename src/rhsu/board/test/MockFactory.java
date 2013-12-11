@@ -1,6 +1,6 @@
 package rhsu.board.test;
 
-import rhsu.board.BoardPiece;
+import rhsu.board.BasicBoardPiece;
 import rhsu.board.implementations.BooleanBoard;
 import rhsu.board.xc.GSNode;
 import rhsu.board.xc.LinkedGStruct;
@@ -11,9 +11,9 @@ import rhsu.board.xc.LinkedGStruct;
  */
 public class MockFactory 
 {
-	public static BoardPiece<Integer> mockBoardPiece()
+	public static BasicBoardPiece<Integer> mockBoardPiece()
 	{
-		return new BoardPiece<>(-1, -1, 5);
+		return new BasicBoardPiece<>(-1, -1, 5);
 	}
 	
 	public static LinkedGStruct<Integer> mockLinkedGStruct()

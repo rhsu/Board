@@ -3,7 +3,7 @@ package rhsu.board.implementations;
 import java.io.BufferedReader;
 import java.util.Random;
 import rhsu.board.AbstractBoard;
-import rhsu.board.BoardPiece;
+import rhsu.board.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
 
 /**
@@ -54,7 +54,7 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 		{
 			for(int j = 0; j < vertical_size; j++)
 			{
-				board[i][j] = new BoardPiece(i, j, 
+				board[i][j] = new BasicBoardPiece(i, j, 
 						baseBoard.getValueAt(i, j).equals("1")
 						? true
 						: Boolean.valueOf(baseBoard.getValueAt(i, j)));

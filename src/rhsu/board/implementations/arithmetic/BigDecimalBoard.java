@@ -3,7 +3,7 @@ package rhsu.board.implementations.arithmetic;
 import java.io.BufferedReader;
 import java.math.BigDecimal;
 import java.util.Random;
-import rhsu.board.BoardPiece;
+import rhsu.board.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
 import rhsu.board.AbstractMatrix;
 import rhsu.board.Matrix;
@@ -92,7 +92,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 				}
 				finally
 				{
-					board[i][j] = new BoardPiece(i, j, value);
+					board[i][j] = new BasicBoardPiece(i, j, value);
 				}
 			}
 		}
