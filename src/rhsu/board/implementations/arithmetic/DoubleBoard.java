@@ -1,7 +1,8 @@
 package rhsu.board.implementations.arithmetic;
 
+import java.io.BufferedReader;
 import java.util.Random;
-import rhsu.board.BoardPiece;
+import rhsu.board.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
 import rhsu.board.AbstractMatrix;
 import rhsu.board.Matrix;
@@ -14,6 +15,8 @@ import rhsu.board.utilities.UtilityFunctions;
 public class DoubleBoard extends AbstractMatrix<Double>
 {
 	private static final Double DEFAULT_VALUE = 0.0;
+	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
 	
 	/**
 	 * Constructor to create a DoubleBoard with the given parameters
@@ -50,7 +53,29 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	public DoubleBoard(String filename, HandleType handleType, Double defaultValue)
 	{
 		super(filename);
-		
+		initialializeFromBaseBoard(handleType, defaultValue);
+	}
+	
+	public DoubleBoard(BufferedReader bufferedReader)
+	{
+		this(bufferedReader, HandleType.RuntimeError, null);
+	}
+	
+	public DoubleBoard(BufferedReader bufferedReader, Double defaultValue)
+	{
+		this(bufferedReader, HandleType.Ignore, defaultValue);
+	}
+	
+	@SuppressWarnings({"unchecked"})
+	public DoubleBoard(BufferedReader bufferedReader, HandleType handleType, Double defaultValue)
+	{
+		super(bufferedReader);
+		initialializeFromBaseBoard(handleType, defaultValue);
+	}
+	//</editor-fold>
+	
+	private void initialializeFromBaseBoard(HandleType handleType, Double defaultValue)
+	{
 		Double value = null;
 		
 		for(int i = 0; i < horizontal_size; i++)
@@ -67,7 +92,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 				}
 				finally
 				{
-					board[i][j] = new BoardPiece(i, j, value);
+					board[i][j] = new BasicBoardPiece(i, j, value);
 				}
 			}
 		}

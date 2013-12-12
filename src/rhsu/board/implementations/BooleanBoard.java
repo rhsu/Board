@@ -1,8 +1,9 @@
 package rhsu.board.implementations;
 
+import java.io.BufferedReader;
 import java.util.Random;
 import rhsu.board.AbstractBoard;
-import rhsu.board.BoardPiece;
+import rhsu.board.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
 
 /**
@@ -12,6 +13,7 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 {
 	private static final boolean DEFAULT_VALUE = false;
 	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
 	@SuppressWarnings({"unchecked"})
 	public BooleanBoard(int h, int v, boolean defaultValue)
 	{
@@ -36,12 +38,23 @@ public class BooleanBoard extends AbstractBoard<Boolean>
 	public BooleanBoard(String filename)
 	{
 		super(filename);
-		
+		initializeFromBaseBoard();
+	}
+	
+	public BooleanBoard(BufferedReader bufferedReader)
+	{
+		super(bufferedReader);
+		initializeFromBaseBoard();
+	}
+	//</editor-fold>
+	
+	private void initializeFromBaseBoard()
+	{
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
 			{
-				board[i][j] = new BoardPiece(i, j, 
+				board[i][j] = new BasicBoardPiece(i, j, 
 						baseBoard.getValueAt(i, j).equals("1")
 						? true
 						: Boolean.valueOf(baseBoard.getValueAt(i, j)));

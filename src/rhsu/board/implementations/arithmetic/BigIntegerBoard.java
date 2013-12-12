@@ -1,8 +1,9 @@
 package rhsu.board.implementations.arithmetic;
 
+import java.io.BufferedReader;
 import java.math.BigInteger;
 import java.util.Random;
-import rhsu.board.BoardPiece;
+import rhsu.board.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
 import rhsu.board.AbstractMatrix;
 import rhsu.board.Matrix;
@@ -15,6 +16,8 @@ import rhsu.board.utilities.UtilityFunctions;
 public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 {
 	private static final BigInteger DEFAULT_VALUE = BigInteger.ZERO;
+	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
 	
 	/**
 	 * Constructor to create a BigIntegerBoard with the given parameters
@@ -46,12 +49,33 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	{
 		this(filename, HandleType.Ignore, defaultValue);
 	}
-	
+		
 	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(String filename, HandleType handleType, BigInteger defaultValue)
 	{
 		super(filename);
-		
+		initializeFromBaseBoard(handleType, defaultValue);
+	}
+	
+	public BigIntegerBoard(BufferedReader bufferedReader)
+	{
+		this(bufferedReader, HandleType.RuntimeError, null);
+	}
+	
+	public BigIntegerBoard(BufferedReader bufferedReader, BigInteger defaultValue)
+	{
+		this(bufferedReader, HandleType.Ignore, defaultValue);
+	}
+			
+	public BigIntegerBoard(BufferedReader bufferedReader, HandleType handleType, BigInteger defaultValue)
+	{
+		super(bufferedReader);
+		initializeFromBaseBoard(handleType, defaultValue);
+	}
+	//</editor-fold>
+	
+	private void initializeFromBaseBoard(HandleType handleType, BigInteger defaultValue)
+	{
 		BigInteger value = null;
 		
 		for(int i = 0; i < horizontal_size; i++)
@@ -68,7 +92,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 				}
 				finally
 				{
-					board[i][j] = new BoardPiece(i, j, value);
+					board[i][j] = new BasicBoardPiece(i, j, value);
 				}
 			}
 		}

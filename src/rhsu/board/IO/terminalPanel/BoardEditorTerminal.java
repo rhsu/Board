@@ -71,7 +71,7 @@ public class BoardEditorTerminal extends AbstractTerminal
 	
 	private void readInputState()
 	{
-		boolean hasError = false;
+		boolean hasError;
 
 		String text = textField.getText();
 		

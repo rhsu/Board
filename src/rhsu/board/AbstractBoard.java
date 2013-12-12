@@ -18,7 +18,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	/**
 	 * the board object to allocate in the constructor
 	 */
-	protected BoardPiece<T>[][] board;
+	protected BasicBoardPiece<T>[][] board;
 	/**
 	 * The horizontal size of the board
 	 */
@@ -40,13 +40,13 @@ public abstract class AbstractBoard<T> implements Board<T>
 		this.horizontal_size = horizontal;
 		this.vertical_size = vertical;
 		this.size = horizontal*vertical;
-		this.board = new BoardPiece[horizontal][vertical];
+		this.board = new BasicBoardPiece[horizontal][vertical];
 		
 		for(int i = 0; i < horizontal; i++)
 		{
 			for(int j = 0; j < vertical; j++)
 			{
-				this.board[i][j] = new BoardPiece(i, j, defaultValue);
+				this.board[i][j] = new BasicBoardPiece(i, j, defaultValue);
 			}
 		}
 	}
@@ -59,25 +59,26 @@ public abstract class AbstractBoard<T> implements Board<T>
 	public AbstractBoard(String filename)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(filename);
-		
-		this.horizontal_size = baseBoard.getHorizontal_size();
-		this.vertical_size = baseBoard.getVertical_size();
-		this.board = new BoardPiece[horizontal_size][vertical_size];
-		this.size = this.horizontal_size * this.vertical_size;
+		initializeBaseBoard();
 	}
 	
+	@SuppressWarnings({"unchecked"})
 	public AbstractBoard(BufferedReader reader)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(reader);
-		
+		initializeBaseBoard();
+	}
+	
+	private void initializeBaseBoard()
+	{
 		this.horizontal_size = baseBoard.getHorizontal_size();
 		this.vertical_size = baseBoard.getVertical_size();
-		this.board = new BoardPiece[horizontal_size][vertical_size];
+		this.board = new BasicBoardPiece[horizontal_size][vertical_size];
 		this.size = this.horizontal_size * this.vertical_size;
 	}
-		
+	
 	@Override
-	public BoardPiece<T> pieceAt(int horizontal, int vertical)
+	public BasicBoardPiece<T> pieceAt(int horizontal, int vertical)
 	{		
 		return ((horizontal >= this.horizontal_size || vertical >= this.vertical_size || horizontal < 0 || vertical < 0))
 				? null
@@ -161,26 +162,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	{
 		return this.size;
 	}
-	
-	/**
-	 * Method to allow the object to be printed
-	 * @return a string representation of the abstract board
-	 */
-	@Override
-	public String toString()
-	{
-		StringBuilder builder = new StringBuilder();
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for (int j = 0; j < vertical_size; j++)
-			{
-				builder.append(pieceAt(i,j).toString()).append(" ");
-			}
-			builder.append("\n");
-		}
-		return builder.toString().trim();
-	}
-	
+		
 	/**
 	 * Exports the board object
 	 * @param filename the name of the file to be exported
@@ -275,13 +257,13 @@ public abstract class AbstractBoard<T> implements Board<T>
 	 * @return the first instance of the object in the Board. Null if nothing is found
 	 */
 	@Override
-	public BoardPiece<T> find(T value)
+	public BasicBoardPiece<T> find(T value)
 	{
 		Iterator<BoardPiece<T>> iter = this.iterBoard();
 		
 		while(iter.hasNext())
 		{
-			BoardPiece<T> nextItem = (BoardPiece<T>) iter.next();
+			BasicBoardPiece<T> nextItem = (BasicBoardPiece<T>) iter.next();
 			
 			if(nextItem.getValue() == value)
 			{
@@ -300,7 +282,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 		
 		while(iter.hasNext())
 		{
-			BoardPiece<T> nextItem = (BoardPiece<T>) iter.next();
+			BoardPiece<T> nextItem = (BasicBoardPiece<T>) iter.next();
 			
 			if(nextItem.getValue() == value)
 			{
@@ -326,6 +308,25 @@ public abstract class AbstractBoard<T> implements Board<T>
 		}
 		
 		return board;
+	}
+	
+	/**
+	 * Method to allow the object to be printed
+	 * @return a string representation of the abstract board
+	 */
+	@Override
+	public String toString()
+	{
+		StringBuilder builder = new StringBuilder();
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for (int j = 0; j < vertical_size; j++)
+			{
+				builder.append(pieceAt(i,j).toString()).append(" ");
+			}
+			builder.append("\n");
+		}
+		return builder.toString().trim();
 	}
 }
 

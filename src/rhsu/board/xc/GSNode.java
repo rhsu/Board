@@ -1,7 +1,7 @@
 package rhsu.board.xc;
 
 import java.util.Objects;
-import rhsu.board.BoardPiece;
+import rhsu.board.BasicBoardPiece;
 
 /**
  *
@@ -9,22 +9,22 @@ import rhsu.board.BoardPiece;
  */
 public class GSNode<T>
 {
-	private BoardPiece<T> piece;
+	private BasicBoardPiece<T> piece;
 	private GSNode<T> next;
 	
 	public GSNode(int horizontal, int vertical, T value)
 	{
-		this.piece = new BoardPiece(horizontal, vertical, value);
+		this.piece = new BasicBoardPiece(horizontal, vertical, value);
 		this.next = null;
 	}
 	
-	public GSNode(BoardPiece<T> piece)
+	public GSNode(BasicBoardPiece<T> piece)
 	{
 		this.piece = piece;
 		this.next = null;
 	}
 	
-	public BoardPiece<T> getItem()
+	public BasicBoardPiece<T> getItem()
 	{
 		return piece;
 	}

@@ -2,7 +2,7 @@ package rhsu.board.xc;
 
 import org.junit.*;
 import static org.junit.Assert.*;
-import rhsu.board.BoardPiece;
+import rhsu.board.BasicBoardPiece;
 import rhsu.board.test.MockFactory;
 
 /**
@@ -12,7 +12,7 @@ import rhsu.board.test.MockFactory;
 public class LinkedGStructTest 
 {
 	static LinkedGStruct<Integer> mockLinkedGStruct;
-	static BoardPiece<Integer> mockBoardPiece;
+	static BasicBoardPiece<Integer> mockBoardPiece;
 	static GSNode<Integer> mockGSNode;
 	
 	@BeforeClass

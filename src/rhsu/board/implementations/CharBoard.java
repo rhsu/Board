@@ -1,8 +1,9 @@
 package rhsu.board.implementations;
 
+import java.io.BufferedReader;
 import java.util.Random;
 import rhsu.board.AbstractBoard;
-import rhsu.board.BoardPiece;
+import rhsu.board.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
 
 /**
@@ -11,6 +12,8 @@ import rhsu.board.RandomGenerator;
 public class CharBoard extends AbstractBoard<Character>
 {
 	private static final Character DEFAULT_VALUE = '+';
+	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
 	
 	@SuppressWarnings({"unchecked"})
 	public CharBoard(int h, int v, char defaultValue)
@@ -36,17 +39,29 @@ public class CharBoard extends AbstractBoard<Character>
 	public CharBoard(String filename)
 	{
 		super(filename);
+		initializeFromBaseBoard();
+	}
 
+	@SuppressWarnings({"unchecked"})
+	public CharBoard(BufferedReader bufferedReader)
+	{
+		super(bufferedReader);
+		initializeFromBaseBoard();
+	}
+	//</editor-fold>
+	
+	private void initializeFromBaseBoard()
+	{
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
 			{
-				board[i][j] = new BoardPiece(i, j, 
+				board[i][j] = new BasicBoardPiece(i, j, 
 						baseBoard.getValueAt(i, j).charAt(0));
 			}
 		}
 	}
-
+			
 	@Override
 	public RandomGenerator<Character> randomGenerator() 
 	{

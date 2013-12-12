@@ -11,7 +11,7 @@ import rhsu.board.test.MockFactory;
  */
 public class BoardPieceTest 
 {
-	static BoardPiece<Integer> mockBoardPiece;
+	static BasicBoardPiece<Integer> mockBoardPiece;
 	
 	@BeforeClass
     public static void setUpClass() 

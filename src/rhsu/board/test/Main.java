@@ -25,8 +25,6 @@ public class Main
 	public static void main(String[] args)
 	{		
 		StringBoard test = new StringBoard("test.txt");
-		
-
 		UniversalPanelLauncher.Launch(new BoardPanelGUIExtender(test));
 	}
 }

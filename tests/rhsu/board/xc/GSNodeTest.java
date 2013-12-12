@@ -2,7 +2,7 @@ package rhsu.board.xc;
 
 import org.junit.*;
 import static org.junit.Assert.*;
-import rhsu.board.BoardPiece;
+import rhsu.board.BasicBoardPiece;
 
 /**
  *
@@ -25,8 +25,8 @@ public class GSNodeTest
 	public void testGetItem() 
 	{
 		System.out.println("getItem");
-		BoardPiece<Integer> expResult = new BoardPiece<>(-1, -1, 5);
-		BoardPiece<Integer> result = mockGSNode.getItem();
+		BasicBoardPiece<Integer> expResult = new BasicBoardPiece<>(-1, -1, 5);
+		BasicBoardPiece<Integer> result = mockGSNode.getItem();
 		assertEquals(expResult, result);
 	}
 

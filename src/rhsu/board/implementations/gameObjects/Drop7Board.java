@@ -2,6 +2,7 @@ package rhsu.board.implementations.gameObjects;
 
 import java.util.ArrayList;
 import rhsu.board.AbstractBoard;
+import rhsu.board.BasicBoardPiece;
 import rhsu.board.BoardPiece;
 import rhsu.board.RandomGenerator;
 
@@ -67,7 +68,7 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 	* @param p the parameter piece to perform the calculation on
 	* @return the number of pieces that are in the same column as the parameter piece.
 	*/
-	public int getNumberColumnAdjacent(BoardPiece<Drop7Piece> piece)
+	public int getNumberColumnAdjacent(BasicBoardPiece<Drop7Piece> piece)
 	{
 		if((piece == null) || (piece.getValue() == Drop7Piece.EMPTY))
 		{
@@ -103,7 +104,7 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 	* @param p The piece to perform the method on
 	* @return A list of pieces that are in the same column as the parameter piece
 	*/
-	public ArrayList<BoardPiece<Drop7Piece>> getAllPiecesInColumn(BoardPiece<Drop7Piece> piece)
+	public ArrayList<BasicBoardPiece<Drop7Piece>> getAllPiecesInColumn(BasicBoardPiece<Drop7Piece> piece)
 	{
 		if(piece == null)
 		{
@@ -112,11 +113,11 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 		
 		int column = piece.getVertical();
 		
-		ArrayList<BoardPiece<Drop7Piece>> pieces = new ArrayList<>();
+		ArrayList<BasicBoardPiece<Drop7Piece>> pieces = new ArrayList<>();
 			
 		for(int i = 0; i < 7; i++)
 		{
-			BoardPiece<Drop7Piece> current = this.pieceAt(i, column);
+			BasicBoardPiece<Drop7Piece> current = this.pieceAt(i, column);
 			
 			if((current != null) && (current.getValue() != Drop7Piece.EMPTY))
 			{
@@ -127,7 +128,7 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 		return pieces;
 	}
 				
-	public ArrayList<BoardPiece<Drop7Piece>> getAllPiecesInRow(BoardPiece<Drop7Piece> piece)
+	public ArrayList<BasicBoardPiece<Drop7Piece>> getAllPiecesInRow(BasicBoardPiece<Drop7Piece> piece)
 	{
 		if(piece == null)
 		{
@@ -136,7 +137,7 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 		
 		int row = piece.getHorizontal();
 		
-		ArrayList<BoardPiece<Drop7Piece>> pieces = new ArrayList<>();
+		ArrayList<BasicBoardPiece<Drop7Piece>> pieces = new ArrayList<>();
 		
 		for(int i = 0; i < 7; i++)
 		{
@@ -144,7 +145,7 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 			
 			if((current != null) && (current.getValue() != Drop7Piece.EMPTY))
 			{
-				pieces.add(current);
+				pieces.add((BasicBoardPiece<Drop7Piece>) current);
 			}
 		}
 		
@@ -154,15 +155,15 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 	/**
 	* @return A list of pieces that are marked as remove
 	*/
-	public ArrayList<BoardPiece<Drop7Piece>> getAllRemovePieces()
+	public ArrayList<BasicBoardPiece<Drop7Piece>> getAllRemovePieces()
 	{
-		ArrayList<BoardPiece<Drop7Piece>> pieces = new ArrayList<>();
+		ArrayList<BasicBoardPiece<Drop7Piece>> pieces = new ArrayList<>();
 
 		for(int i = 0; i < 7; i++)
 		{
 			for(int j = 0; j < 7; j++)
 			{
-				BoardPiece<Drop7Piece> piece = this.pieceAt(i, j);
+				BasicBoardPiece<Drop7Piece> piece = this.pieceAt(i, j);
 				
 				if(piece.getValue().checkRemove())
 				{
@@ -173,13 +174,13 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 		return pieces;
 	}
 	
-	public void checkForRemoval(BoardPiece<Drop7Piece> piece)
+	public void checkForRemoval(BasicBoardPiece<Drop7Piece> piece)
 	{
-		ArrayList<BoardPiece<Drop7Piece>> rows = this.getAllPiecesInRow(piece);
+		ArrayList<BasicBoardPiece<Drop7Piece>> rows = this.getAllPiecesInRow(piece);
 		//TODO: For Columns also 
 		//ArrayList<BoardPiece<Drop7Piece>> columns = this.getAllPiecesInColumn(piece);
 		
-		for(BoardPiece<Drop7Piece> item: rows)
+		for(BasicBoardPiece<Drop7Piece> item: rows)
 		{
 			int value = item.getValue().getPieceValue();
 			
@@ -194,7 +195,7 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 	
 	private void removePieces()
 	{
-		ArrayList<BoardPiece<Drop7Piece>> removePieces = this.getAllRemovePieces();
+		ArrayList<BasicBoardPiece<Drop7Piece>> removePieces = this.getAllRemovePieces();
 		
 		for(BoardPiece<Drop7Piece> item : removePieces)
 		{
@@ -223,7 +224,7 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 		
 		for (int index = 6; index >= 0; index--)
 		{
-			BoardPiece<Drop7Piece> current = this.pieceAt(index, position);
+			BasicBoardPiece<Drop7Piece> current = this.pieceAt(index, position);
 			
 			if(current.getValue() == Drop7Piece.EMPTY)
 			{

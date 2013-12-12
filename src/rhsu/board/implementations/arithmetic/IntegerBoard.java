@@ -2,7 +2,7 @@ package rhsu.board.implementations.arithmetic;
 
 import java.io.BufferedReader;
 import java.util.Random;
-import rhsu.board.BoardPiece;
+import rhsu.board.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
 import rhsu.board.AbstractMatrix;
 import rhsu.board.Matrix;
@@ -15,6 +15,8 @@ import rhsu.board.utilities.UtilityFunctions;
 public class IntegerBoard extends AbstractMatrix<Integer>
 {
 	private static final Integer DEFAULT_VALUE = 0;
+	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
 	
 	/**
 	 * Constructor to create a IntegerBoard with the given parameters
@@ -51,7 +53,29 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	public IntegerBoard(String filename, HandleType handleType, Integer defaultValue)
 	{
 		super(filename);
+		initializeFromBaseBoard(handleType, defaultValue);
+	}
 
+	public IntegerBoard(BufferedReader bufferedReader)
+	{
+		this(bufferedReader, HandleType.RuntimeError, DEFAULT_VALUE);
+	}
+	
+	public IntegerBoard(BufferedReader bufferedReader, Integer defaultValue)
+	{
+		this(bufferedReader, HandleType.Ignore, defaultValue);
+	}
+	
+	public IntegerBoard(BufferedReader bufferedReader, HandleType handleType, Integer defaultValue)
+	{
+		super(bufferedReader);
+		initializeFromBaseBoard(handleType, defaultValue);
+	}
+	
+	//</editor-fold>	
+	
+	private void initializeFromBaseBoard(HandleType handleType, Integer defaultValue)
+	{
 		Integer value = null;
 		
 		for(int i = 0; i < horizontal_size; i++)
@@ -78,16 +102,11 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 					}
 					finally
 					{
-						board[i][j] = new BoardPiece(i, j, value);
+						board[i][j] = new BasicBoardPiece(i, j, value);
 					}
 				}
 			}
 		}
-	}
-	
-	public IntegerBoard(BufferedReader bufferedReader)
-	{
-		super(bufferedReader);
 	}
 	
 	@Override

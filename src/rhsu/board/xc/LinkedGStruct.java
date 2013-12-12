@@ -1,6 +1,6 @@
 package rhsu.board.xc;
 
-import rhsu.board.BoardPiece;
+import rhsu.board.BasicBoardPiece;
 
 /**
  *
@@ -27,7 +27,7 @@ public class LinkedGStruct<T>
 		return count;
 	}
 		
-	public void insertFront(BoardPiece<T> piece)
+	public void insertFront(BasicBoardPiece<T> piece)
 	{		
 		insertFront(new GSNode(piece));
 	}
@@ -45,7 +45,7 @@ public class LinkedGStruct<T>
 		}
 	}
 	
-	public void insertLast(BoardPiece<T> piece)
+	public void insertLast(BasicBoardPiece<T> piece)
 	{
 
 	}
