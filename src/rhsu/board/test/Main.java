@@ -21,14 +21,15 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		//IntegerBoard board = new IntegerBoard(ResourceRetriever.GetResource("ExampleIntegerBoard"));
-		//IntegerBoard board = new IntegerBoard("test.txt");
-		/*CharBoard board = new CharBoard(2,2);
-		print(board);*/
-		
-		//BooleanBoard testBoard = new BooleanBoard(ResourceRetriever.GetResource("ExampleBooleanBoard"));
-		
 		StringBoard board = new StringBoard(2,2);
-		print(board);
+		StringBoard board3 = new StringBoard(2,2);
+		CharBoard board2 = new CharBoard(2,2);
+		
+		//print(board.getClass());
+		//print(board2.getClass());
+		
+		//print(board.getClass().equals(board2.getClass()));
+		
+		print(board.equals(board2));
 	}
 }

@@ -9,7 +9,7 @@ public class TestStringBoard
 	//<editor-fold desc="Private Variables" defaultstate="collapsed">
 	private static final String testResource = "/rhsu/board/resources/test/";
 	private static final StringBoard TEST_BOARD = new StringBoard(
-				ResourceRetriever.GetResource("testStringBoard", testResource));
+		ResourceRetriever.GetResource("testStringBoard", testResource));
 	//</editor-fold>
 	
 	@Test
@@ -41,7 +41,8 @@ public class TestStringBoard
 	{
 		assertFalse
 		(
-			TEST_BOARD.equals(new CharBoard(ResourceRetriever.GetResource("testStringBoard", testResource)))
+			TEST_BOARD.equals(
+				new CharBoard(ResourceRetriever.GetResource("testStringBoard", testResource)))
 		);
 	}
 }

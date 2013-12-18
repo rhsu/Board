@@ -345,7 +345,9 @@ public abstract class AbstractBoard<T> implements Board<T>
 	{
 		if (other == null) return false; 
 		if (other == this) return true;
-		if (!(other instanceof AbstractBoard)) return false;
+		
+		if (!this.getClass().equals(other.getClass())) return false;
+		
 		AbstractBoard otherAbstractBoard = (AbstractBoard) other;
 		
 		return (otherAbstractBoard.hashCode() == other.hashCode());
