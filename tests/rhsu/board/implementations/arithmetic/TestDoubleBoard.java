@@ -17,4 +17,28 @@ public class TestDoubleBoard
 				ResourceRetriever.GetResource("testZeroBoard", testResource));
 		assertEquals(testBoard.toString(), new DoubleBoard(2,2).toString());
 	}
+	
+	@Test
+	public void testAdd()
+	{
+		
+	}
+		
+	@Test
+	public void testSubtract()
+	{
+		
+	}
+	
+	@Test
+	public void testMultiply()
+	{
+		
+	}
+	
+	@Test
+	public void testMultiplyScalar()
+	{
+		
+	}
 }

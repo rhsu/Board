@@ -28,7 +28,14 @@ public class Main
 		
 		//BooleanBoard testBoard = new BooleanBoard(ResourceRetriever.GetResource("ExampleBooleanBoard"));
 		
-		StringBoard board = new StringBoard(2,2);
-		print(board);
+		//StringBoard board = new StringBoard(2,2);
+		//print(board);
+		
+		String TEST_RESOURCE = "/rhsu/board/resources/test/";
+		
+		BigDecimalBoard ARITHMETIC_OP1 = new BigDecimalBoard(
+			ResourceRetriever.GetResource("arithmeticOp1", TEST_RESOURCE));
+		
+		print(ARITHMETIC_OP1);
 	}
 }
