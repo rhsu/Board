@@ -343,7 +343,8 @@ public abstract class AbstractBoard<T> implements Board<T>
 	@Override
 	public boolean equals(Object other)
 	{
-		if((other == null) || (other == this)) return false;
+		if (other == null) return false; 
+		if (other == this) return true;
 		if (!(other instanceof AbstractBoard)) return false;
 		AbstractBoard otherAbstractBoard = (AbstractBoard) other;
 		

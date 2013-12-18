@@ -8,6 +8,8 @@ public class TestCharBoard
 {
 	//<editor-fold desc="Private Variables" defaultstate="collapsed">
 	private static final String testResource = "/rhsu/board/resources/test/";
+	private static final StringBoard TEST_BOARD = new StringBoard(
+				ResourceRetriever.GetResource("testStringBoard", testResource));
 	//</editor-fold>
 	
 	@Test
