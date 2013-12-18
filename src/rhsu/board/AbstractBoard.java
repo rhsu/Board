@@ -1,6 +1,7 @@
 package rhsu.board;
 
 import java.io.BufferedReader;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -327,6 +328,29 @@ public abstract class AbstractBoard<T> implements Board<T>
 			builder.append("\n");
 		}
 		return builder.toString().trim();
+	}
+
+	@Override
+	public int hashCode() 
+	{
+		int hash = 7;
+		hash = 59 * hash + Arrays.deepHashCode(this.board);
+		hash = 59 * hash + this.horizontal_size;
+		hash = 59 * hash + this.vertical_size;
+		return hash;
+	}
+	
+	@Override
+	public boolean equals(Object other)
+	{
+		if (other == null) return false; 
+		if (other == this) return true;
+		
+		if (!this.getClass().equals(other.getClass())) return false;
+		
+		AbstractBoard otherAbstractBoard = (AbstractBoard) other;
+		
+		return (otherAbstractBoard.hashCode() == other.hashCode());
 	}
 }
 

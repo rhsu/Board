@@ -21,21 +21,6 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		//IntegerBoard board = new IntegerBoard(ResourceRetriever.GetResource("ExampleIntegerBoard"));
-		//IntegerBoard board = new IntegerBoard("test.txt");
-		/*CharBoard board = new CharBoard(2,2);
-		print(board);*/
 		
-		//BooleanBoard testBoard = new BooleanBoard(ResourceRetriever.GetResource("ExampleBooleanBoard"));
-		
-		//StringBoard board = new StringBoard(2,2);
-		//print(board);
-		
-		String TEST_RESOURCE = "/rhsu/board/resources/test/";
-		
-		BigDecimalBoard ARITHMETIC_OP1 = new BigDecimalBoard(
-			ResourceRetriever.GetResource("arithmeticOp1", TEST_RESOURCE));
-		
-		print(ARITHMETIC_OP1);
 	}
 }
