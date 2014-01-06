@@ -23,22 +23,9 @@ public class Main
 	}
 	
 	public static void main(String[] args)
-<<<<<<< HEAD
 	{		
 		StringBoard test = new StringBoard("test.txt");
 		UniversalPanelLauncher.Launch(new BoardPanelGUIExtender(test));
-=======
-	{	
-		StringBoard board = new StringBoard(2,2);
-		StringBoard board3 = new StringBoard(2,2);
-		CharBoard board2 = new CharBoard(2,2);
-		
-		//print(board.getClass());
-		//print(board2.getClass());
-		
-		//print(board.getClass().equals(board2.getClass()));
-		
-		print(board.equals(board2));
->>>>>>> dev
+
 	}
 }
