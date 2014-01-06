@@ -41,7 +41,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	/**
 	 * the string board variable used for constructing an instance from a file
 	 */
-	protected StringBoard baseBoard;
+	protected Board<String> baseBoard;
 	
 	//</editor-fold>
 	
