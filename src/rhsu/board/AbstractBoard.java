@@ -1,6 +1,7 @@
 package rhsu.board;
 
 import java.io.BufferedReader;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,25 +15,37 @@ import rhsu.board.implementations.StringBoard;
  * @param <T> Tye type of elements for the abstract board
  */
 public abstract class AbstractBoard<T> implements Board<T>
-{		
+{	
+	//<editor-fold desc="Member Variables" defaultstate="collapsed">
+	
 	/**
 	 * the board object to allocate in the constructor
 	 */
 	protected BasicBoardPiece<T>[][] board;
+	
 	/**
-	 * The horizontal size of the board
+	 * the horizontal size of the board
 	 */
 	protected int horizontal_size;
+	
 	/**
-	 * The vertical size of the board
+	 * the vertical size of the board
 	 */
 	protected int vertical_size;
+	
 	/**
-	 * A private string board variable used for constructing an instance from a file
+	 * the total size of the board. this variable is equal to horizontal_size times vertical_size.
+	 */
+	protected int size;
+	
+	/**
+	 * the string board variable used for constructing an instance from a file
 	 */
 	protected StringBoard baseBoard;
 	
-	protected int size;
+	//</editor-fold>
+	
+	//<editor-fold defaultstate="collapsed" desc="Constructors">
 	
 	@SuppressWarnings({"unchecked"})
 	public AbstractBoard(int horizontal, int vertical, T defaultValue)
@@ -77,6 +90,10 @@ public abstract class AbstractBoard<T> implements Board<T>
 		this.size = this.horizontal_size * this.vertical_size;
 	}
 	
+	//</editor-fold>
+	
+	//<editor-fold desc="Inheirited from Board Interface: Piece Retrieval Methods" defaultstate="collapsed">
+	
 	@Override
 	public BasicBoardPiece<T> pieceAt(int horizontal, int vertical)
 	{		
@@ -85,18 +102,6 @@ public abstract class AbstractBoard<T> implements Board<T>
 				: board[horizontal][vertical];
 	}
 	
-	@Override
-	public T getValueAt(int horizontal, int vertical)
-	{
-		return board[horizontal][vertical].getValue();
-	}
-	
-	@Override
-	public void setValueAt(int horizontal, int vertical, T value)
-	{
-		board[horizontal][vertical].setValue(value);
-	}
-		
 	@Override
 	public BoardPiece<T> getLeftPiece(int horizontal, int vertical) 
 	{
@@ -144,34 +149,23 @@ public abstract class AbstractBoard<T> implements Board<T>
 	{
 		return getUpPiece(piece.getHorizontal(), piece.getVertical());
 	}
-
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="Inheirited from Board Interface: Value Retrieval Methods" defaultstate="collapsed">
+	
 	@Override
-	public int getHorizontal_size() 
+	public T getValueAt(int horizontal, int vertical)
 	{
-		return this.horizontal_size;
-	}
-
-	@Override
-	public int getVertical_size() 
-	{
-		return this.vertical_size;
-	}
-
-	@Override
-	public int getSize()
-	{
-		return this.size;
-	}
-		
-	/**
-	 * Exports the board object
-	 * @param filename the name of the file to be exported
-	 */
-	public void export(String filename)
-	{
-		BoardWriter.write(filename, this);
+		return board[horizontal][vertical].getValue();
 	}
 	
+	@Override
+	public void setValueAt(int horizontal, int vertical, T value)
+	{
+		board[horizontal][vertical].setValue(value);
+	}
+
 	@Override
 	public T getLeftValue(BoardPiece<T> piece)
 	{
@@ -219,7 +213,32 @@ public abstract class AbstractBoard<T> implements Board<T>
 	{
 		return this.getDownPiece(horizontal, vertical).getValue();
 	}
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="Inheirited from Board Interface: Accessors" defaultstate="collapsed">
+	
+	@Override
+	public int getHorizontal_size() 
+	{
+		return this.horizontal_size;
+	}
 
+	@Override
+	public int getVertical_size() 
+	{
+		return this.vertical_size;
+	}
+
+	@Override
+	public int getSize()
+	{
+		return this.size;
+	}
+		
+	//</editor-fold>
+	
+	//<editor-fold desc="Inheirited from Board Interface" defaultstate="collapsed">
 	@Override
 	public Iterator<BoardPiece<T>> iterBoard()
 	{
@@ -295,6 +314,17 @@ public abstract class AbstractBoard<T> implements Board<T>
 	@Override
 	public abstract RandomGenerator<T> randomGenerator();
 	
+	//</editor-fold>
+	
+	/**
+	 * Exports the board object
+	 * @param filename the name of the file to be exported
+	 */
+	public void export(String filename)
+	{
+		BoardWriter.write(filename, this);
+	}
+		
 	public static AbstractBoard CreateRandomBoard(AbstractBoard board)
 	{
 		RandomGenerator generator = board.randomGenerator();
@@ -309,6 +339,8 @@ public abstract class AbstractBoard<T> implements Board<T>
 		
 		return board;
 	}
+	
+	//<editor-fold desc="Inheirited from Class Object">
 	
 	/**
 	 * Method to allow the object to be printed
@@ -328,5 +360,30 @@ public abstract class AbstractBoard<T> implements Board<T>
 		}
 		return builder.toString().trim();
 	}
+
+	@Override
+	public int hashCode() 
+	{
+		int hash = 7;
+		hash = 59 * hash + Arrays.deepHashCode(this.board);
+		hash = 59 * hash + this.horizontal_size;
+		hash = 59 * hash + this.vertical_size;
+		return hash;
+	}
+	
+	@Override
+	public boolean equals(Object other)
+	{
+		if (other == null) return false; 
+		if (other == this) return true;
+		
+		if (!this.getClass().equals(other.getClass())) return false;
+		
+		AbstractBoard otherAbstractBoard = (AbstractBoard) other;
+		
+		return (otherAbstractBoard.hashCode() == other.hashCode());
+	}
+	
+	//</editor-fold>
 }
 

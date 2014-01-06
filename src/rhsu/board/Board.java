@@ -30,7 +30,7 @@ public interface Board<T>
 	public int getSize();
 	//</editor-fold>
 	
-	//<editor-fold desc="BoardPiece Retrieval Methods" defaultstate="collapsed">
+	//<editor-fold desc="Piece Retrieval Methods" defaultstate="collapsed">
 	/**
 	 * Returns the piece at the location specified
 	 * @param horizontal horizontal index
