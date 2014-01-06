@@ -8,24 +8,30 @@ import rhsu.board.resources.ResourceRetriever;
 public class TestBigDecimalBoard 
 {
 	//<editor-fold desc="Private Variables" defaultstate="collapsed">
+	
 	private static final String TEST_RESOURCE = "/rhsu/board/resources/test/";
+	
+	private static final BigDecimalBoard TEST_BOARD = new BigDecimalBoard(
+			ResourceRetriever.GetResource("testZeroBoard", TEST_RESOURCE));
 	
 	private static final BigDecimalBoard ARITHMETIC_OP1 = new BigDecimalBoard(
 			ResourceRetriever.GetResource("arithmeticOp1", TEST_RESOURCE));
+	
 	private static final BigDecimalBoard ARITHMETIC_OP2 = new BigDecimalBoard(
 			ResourceRetriever.GetResource("arithmeticOp2", TEST_RESOURCE));
+	
 	private static final BigDecimalBoard EXPECTED_SUM = new BigDecimalBoard(
 			ResourceRetriever.GetResource("expectedSum", TEST_RESOURCE));
+	
 	private static final BigDecimalBoard EXPECTED_DIFFERENCE = new BigDecimalBoard(
 			ResourceRetriever.GetResource("expectedDifference", TEST_RESOURCE));
+	
 	//</editor-fold>
 	
 	@Test
 	public void testResourceRetriever()
 	{
-		BigDecimalBoard testBoard = new BigDecimalBoard(
-			ResourceRetriever.GetResource("testZeroBoard", TEST_RESOURCE));
-		assertEquals(testBoard.toString(), new BigDecimalBoard(2,2).toString());
+		assertEquals(TEST_BOARD, new BigDecimalBoard(2,2));
 	}
 	
 	@Test
@@ -35,7 +41,7 @@ public class TestBigDecimalBoard
 		assertEquals(sum, EXPECTED_SUM);
 	}
 	
-	/*
+	
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
 	
@@ -43,8 +49,9 @@ public class TestBigDecimalBoard
 	public void testAddException()
 	{
 		exception.expect(ArrayIndexOutOfBoundsException.class);
+		TEST_BOARD.add(new BigDecimalBoard(6,6));
 	}
-			
+	
 	@Test
 	public void testSubtract()
 	{
@@ -67,5 +74,5 @@ public class TestBigDecimalBoard
 	public void testMultiplyScalar()
 	{
 		
-	}*/
+	}
 }
