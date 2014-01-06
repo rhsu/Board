@@ -29,6 +29,6 @@ public class MockFactory
 	
 	public static MobilityBoard<Integer> mockMobilityBoard()
 	{
-		
+		return null;
 	}
 }
