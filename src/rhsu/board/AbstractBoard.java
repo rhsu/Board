@@ -340,7 +340,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 		return board;
 	}
 	
-	//<editor-fold desc="Inheirited from Class Object">
+	//<editor-fold desc="Inheirited from Class Object" defaultstate="collapsed">
 	
 	/**
 	 * Method to allow the object to be printed
