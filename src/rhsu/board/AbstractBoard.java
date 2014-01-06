@@ -47,6 +47,14 @@ public abstract class AbstractBoard<T> implements Board<T>
 	
 	//<editor-fold defaultstate="collapsed" desc="Constructors">
 	
+	/**
+	 * Dummy Constructor
+	 */
+	protected AbstractBoard()
+	{
+		
+	}
+	
 	@SuppressWarnings({"unchecked"})
 	public AbstractBoard(int horizontal, int vertical, T defaultValue)
 	{
