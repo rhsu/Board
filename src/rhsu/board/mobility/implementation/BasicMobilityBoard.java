@@ -21,5 +21,16 @@ public class BasicMobilityBoard<T> extends AbstractBoard<T>
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
-	
+
+	@Override
+	public boolean move(int horizontal, int vertical) 
+	{
+		throw new UnsupportedOperationException("Not supported yet.");	
+	}
+
+	@Override
+	public boolean move(int horizontal, int vertical, MobilityBoard board) 
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
