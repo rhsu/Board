@@ -1,12 +1,9 @@
-package rhsu.board.mobility;
+package rhsu.board.mobility.implementation;
 
 import rhsu.board.AbstractBoard;
 import rhsu.board.RandomGenerator;
+import rhsu.board.mobility.MobilityBoard;
 
-/**
- *
- * @author rhsu
- */
 public class BasicMobilityBoard<T> extends AbstractBoard<T> 
 	implements MobilityBoard<T>
 {
@@ -22,7 +19,7 @@ public class BasicMobilityBoard<T> extends AbstractBoard<T>
 	@Override
 	public RandomGenerator<T> randomGenerator() 
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 	
 }

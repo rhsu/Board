@@ -2,7 +2,7 @@ package rhsu.board.test;
 
 import rhsu.board.BasicBoardPiece;
 import rhsu.board.implementations.BooleanBoard;
-import rhsu.board.mobility.BasicMobilityBoard;
+import rhsu.board.mobility.implementation.BasicMobilityBoard;
 import rhsu.board.mobility.MobilityBoard;
 import rhsu.board.xc.GSNode;
 import rhsu.board.xc.LinkedGStruct;

@@ -1,7 +1,8 @@
-package rhsu.board.mobility;
+package rhsu.board.mobility.implementation;
 
 import rhsu.board.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
+import rhsu.board.mobility.MobilityStatus;
 
 public class BasicMobilityPiece<T> extends BasicBoardPiece<T>
 {
