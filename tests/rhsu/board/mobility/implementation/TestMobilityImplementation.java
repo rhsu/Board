@@ -31,7 +31,7 @@ public class TestMobilityImplementation
 	@Test
 	public void testMove()
 	{
-		MobilityPiece<Integer> pieceZero = (MobilityPiece) mockMobilityBoard.pieceAt(0, 0);
+		MobilityPiece<Integer> pieceZero = (MobilityPiece<Integer>) mockMobilityBoard.pieceAt(0, 0);
 		pieceZero.setValue(55);
 		
 		mockMobilityBoard.move(pieceZero, 1, 1);
