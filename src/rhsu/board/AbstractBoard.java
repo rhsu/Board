@@ -21,7 +21,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	/**
 	 * the board object to allocate in the constructor
 	 */
-	protected BasicBoardPiece<T>[][] board;
+	protected BoardPiece<T>[][] board;
 	
 	/**
 	 * the horizontal size of the board
@@ -41,7 +41,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	/**
 	 * the string board variable used for constructing an instance from a file
 	 */
-	protected StringBoard baseBoard;
+	protected Board<String> baseBoard;
 	
 	//</editor-fold>
 	
@@ -95,7 +95,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	//<editor-fold desc="Inheirited from Board Interface: Piece Retrieval Methods" defaultstate="collapsed">
 	
 	@Override
-	public BasicBoardPiece<T> pieceAt(int horizontal, int vertical)
+	public BoardPiece<T> pieceAt(int horizontal, int vertical)
 	{		
 		return ((horizontal >= this.horizontal_size || vertical >= this.vertical_size || horizontal < 0 || vertical < 0))
 				? null
@@ -340,7 +340,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 		return board;
 	}
 	
-	//<editor-fold desc="Inheirited from Class Object">
+	//<editor-fold desc="Inheirited from Class Object" defaultstate="collapsed">
 	
 	/**
 	 * Method to allow the object to be printed
