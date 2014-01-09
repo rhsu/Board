@@ -1,5 +1,8 @@
 package rhsu.board.utilities;
 
+import rhsu.board.AbstractBoard;
+import rhsu.board.RandomGenerator;
+
 /**
  *Various static functions
  */
@@ -14,44 +17,6 @@ public class UtilityFunctions
 	public static boolean isValidPosition(int position, int size)
 	{
 		return ((position >= 0) && (position < size));
-	}
-	
-   /**
-	* Creates a matrix to make envisioning indices easier
-	*/
-	public static void testMatrix()
-	{
-		int[][] matrix = new int[5][5];
-		int ctr = 1;
-		for (int i = 0; i < 5; i++)
-		{
-			for (int j = 0; j < 5; j++)
-			{
-				matrix[i][j] = ctr++;
-			}
-		}
-		
-		System.out.println("done allocating");
-		for (int i = 0; i < 5; i++)
-		{
-			for (int j = 0 ; j < 5; j++)
-			{
-				System.out.print(matrix[i][j] + " ");
-			}
-			System.out.println();
-		}
-		
-		System.out.println("Hold i constant: get all vertical");
-		for (int i = 0; i < 5; i++)
-		{
-			System.out.print(matrix[i][0] + " ");
-		}
-		System.out.println();
-		System.out.println("Hold j constant: get all horizontal");
-		for (int j = 0; j < 5; j++)
-		{
-			System.out.print(matrix[0][j] + " ");
-		}
 	}
 	
 	/**
@@ -76,5 +41,20 @@ public class UtilityFunctions
 	public static int changeSign(int i)
 	{
 		return (i % 2 == 0) ? 1 : -1;
+	}
+	
+	public static AbstractBoard CreateRandomBoard(AbstractBoard board)
+	{
+		RandomGenerator generator = board.randomGenerator();
+		
+		for(int i = 0; i < board.getHorizontal_size(); i++)
+		{
+			for(int j = 0; j < board.getVertical_size(); j++)
+			{
+				board.setValueAt(i, j, generator.getRandom());
+			}
+		}
+		
+		return board;
 	}
 }

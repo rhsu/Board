@@ -7,7 +7,6 @@ import java.util.LinkedList;
 import java.util.List;
 import rhsu.board.IO.BoardReader;
 import rhsu.board.IO.BoardWriter;
-import rhsu.board.implementations.StringBoard;
 
 /**
  * This class provides skeletal implementations of some of Board operations.This class also contains an export method, for putting all entries of a board object into a file.
@@ -325,21 +324,6 @@ public abstract class AbstractBoard<T> implements Board<T>
 		BoardWriter.write(filename, this);
 	}
 		
-	public static AbstractBoard CreateRandomBoard(AbstractBoard board)
-	{
-		RandomGenerator generator = board.randomGenerator();
-		
-		for(int i = 0; i < board.getHorizontal_size(); i++)
-		{
-			for(int j = 0; j < board.getVertical_size(); j++)
-			{
-				board.setValueAt(i, j, generator.getRandom());
-			}
-		}
-		
-		return board;
-	}
-	
 	//<editor-fold desc="Inheirited from Class Object" defaultstate="collapsed">
 	
 	/**
