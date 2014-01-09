@@ -1,7 +1,7 @@
 package rhsu.board.implementations.gameObjects;
 
 import java.util.ArrayList;
-import rhsu.board.AbstractBoard;
+import rhsu.board.AbstractBasicBoard;
 import rhsu.board.BasicBoardPiece;
 import rhsu.board.BoardPiece;
 import rhsu.board.RandomGenerator;
@@ -10,7 +10,7 @@ import rhsu.board.RandomGenerator;
  *
  * @author rhsu
  */
-public class Drop7Board extends AbstractBoard<Drop7Piece>
+public class Drop7Board extends AbstractBasicBoard<Drop7Piece>
 {
 	public Drop7Board(int h, int v)
 	{
@@ -117,11 +117,11 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 			
 		for(int i = 0; i < 7; i++)
 		{
-			BasicBoardPiece<Drop7Piece> current = this.pieceAt(i, column);
+			BoardPiece<Drop7Piece> current = this.pieceAt(i, column);
 			
 			if((current != null) && (current.getValue() != Drop7Piece.EMPTY))
 			{
-				pieces.add(current);
+				pieces.add((BasicBoardPiece<Drop7Piece>) current);
 			}
 		}
 	
@@ -163,11 +163,11 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 		{
 			for(int j = 0; j < 7; j++)
 			{
-				BasicBoardPiece<Drop7Piece> piece = this.pieceAt(i, j);
+				BoardPiece<Drop7Piece> piece = this.pieceAt(i, j);
 				
 				if(piece.getValue().checkRemove())
 				{
-					pieces.add(piece);
+					pieces.add((BasicBoardPiece<Drop7Piece>) piece);
 				}
 			}
 		}
@@ -224,7 +224,7 @@ public class Drop7Board extends AbstractBoard<Drop7Piece>
 		
 		for (int index = 6; index >= 0; index--)
 		{
-			BasicBoardPiece<Drop7Piece> current = this.pieceAt(index, position);
+			BoardPiece<Drop7Piece> current = this.pieceAt(index, position);
 			
 			if(current.getValue() == Drop7Piece.EMPTY)
 			{

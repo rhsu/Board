@@ -2,14 +2,14 @@ package rhsu.board.implementations;
 
 import java.io.BufferedReader;
 import java.util.UUID;
-import rhsu.board.AbstractBoard;
+import rhsu.board.AbstractBasicBoard;
 import rhsu.board.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
 
 /**
  * A string implementation
  */
-public class StringBoard extends AbstractBoard<String>
+public class StringBoard extends AbstractBasicBoard<String>
 {
 	private static final String DEFAULT_VALUE = "++";
 	
@@ -29,7 +29,7 @@ public class StringBoard extends AbstractBoard<String>
 	@SuppressWarnings({"unchecked"})
 	public StringBoard(int h, int v)
 	{
-		this(h, v, "++");
+		this(h, v, DEFAULT_VALUE);
 	}
 	
 	@SuppressWarnings({"unchecked"})
