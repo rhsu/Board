@@ -8,9 +8,9 @@ import java.util.Objects;
  */
 public class BasicBoardPiece<T> implements BoardPiece<T>
 {
-	private int horizontal;
-	private int vertical;
-	private T value;
+	protected int horizontal;
+	protected int vertical;
+	protected T value;
 
 	//<editor-fold defaultstate="collapsed" desc="ACCESSORS">
 	/**
