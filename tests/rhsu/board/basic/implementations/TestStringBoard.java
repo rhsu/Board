@@ -44,7 +44,7 @@ public class TestStringBoard
 		assertFalse
 		(
 			TEST_BOARD.equals(
-				new CharBoard(ResourceRetriever.GetResource("testStringBoard", testResource)))
+				new StringBoard(ResourceRetriever.GetResource("ExampleIntegerBoard")))
 		);
 	}
 }
