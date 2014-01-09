@@ -1,4 +1,4 @@
-package rhsu.board.implementations.arithmetic;
+package rhsu.board.basic.implementations.arithmetic;
 
 import rhsu.board.implementations.basic.arithmetic.BigDecimalBoard;
 import rhsu.board.implementations.basic.arithmetic.BigIntegerBoard;

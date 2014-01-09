@@ -1,4 +1,4 @@
-package rhsu.board.implementations;
+package rhsu.board.basic.implementations;
 
 import rhsu.board.basic.implementations.BooleanBoard;
 import static org.junit.Assert.*;

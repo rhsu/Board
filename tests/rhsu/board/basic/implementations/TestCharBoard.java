@@ -1,4 +1,4 @@
-package rhsu.board.implementations;
+package rhsu.board.basic.implementations;
 
 import rhsu.board.basic.implementations.CharBoard;
 import rhsu.board.basic.implementations.StringBoard;

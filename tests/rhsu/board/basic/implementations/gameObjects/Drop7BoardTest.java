@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package rhsu.board.implementations.gameObjects;
+package rhsu.board.basic.implementations.gameObjects;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
