@@ -4,6 +4,7 @@ import rhsu.board.AbstractBoard;
 import rhsu.board.RandomGenerator;
 import rhsu.board.mobility.MobilityBoard;
 import rhsu.board.mobility.MobilityPiece;
+import rhsu.board.mobility.MobilityStatus;
 
 public class BasicMobilityBoard<T> extends AbstractBoard<T> 
 	implements MobilityBoard<T>
@@ -34,10 +35,17 @@ public class BasicMobilityBoard<T> extends AbstractBoard<T>
 	@Override
 	public boolean move(MobilityPiece<T> piece, int horizontal, int vertical) 
 	{
+		MobilityPiece<T> other = (MobilityPiece<T>) this.pieceAt(horizontal, vertical);
 		
+		if(other == null) return false;
 		
+		if(other.getStatus() != MobilityStatus.Free) return false;
 		
-		throw new UnsupportedOperationException("Not supported yet.");
+		MobilityPiece<T> temp = piece;
+		piece.copy(other);
+		other.copy(temp);
+		
+		return true;
 	}
 
 	@Override
