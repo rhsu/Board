@@ -35,4 +35,14 @@ public class TestBooleanBoard
 	{
 		assertEquals(TEST_BOARD, new BooleanBoard(2,2));
 	}
+	
+	@Test
+	public void testNotEqualsDifferentBoard()
+	{
+		assertFalse
+		(
+			TEST_BOARD.equals(
+				new BooleanBoard(ResourceRetriever.GetResource("testStringBoard", TEST_RESOURCE)))
+		);
+	}
 }
