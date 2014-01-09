@@ -2,9 +2,11 @@ package rhsu.board.mobility.implementation;
 
 import rhsu.board.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
+import rhsu.board.mobility.MobilityPiece;
 import rhsu.board.mobility.MobilityStatus;
 
 public class BasicMobilityPiece<T> extends BasicBoardPiece<T>
+	implements MobilityPiece<T>
 {
 	MobilityStatus mobilityStatus;
 	
@@ -29,4 +31,10 @@ public class BasicMobilityPiece<T> extends BasicBoardPiece<T>
 	}
 	
 	//</editor-fold>
+
+	@Override
+	public boolean move(int horizontal, int vertical) 
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }

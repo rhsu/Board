@@ -9,19 +9,21 @@ import rhsu.board.Board;
 public interface MobilityBoard<T> extends Board<T>
 {
 	/**
-	 * moves the piece to the specified coordinates
-	 * @param horizontal the horizontal coordinate
-	 * @param vertical the vertical coordinate
-	 * @return a boolean value on whether the move was successful. Moving to self is considered unsuccessful since no move was made
+	 * Moves a specified piece to a new horizontal and vertical location on the same board
+	 * @param piece
+	 * @param horizontal
+	 * @param vertical
+	 * @return a boolean representing whether the move was successful
 	 */
-	public boolean move(int horizontal, int vertical);
+	public boolean move(MobilityPiece piece, int horizontal, int vertical);
 	
 	/**
-	 * moves the piece to the specified coordinates on the specified board
+	 * Moves a specified piece to a new horizontal and vertical location to a different board
+	 * @param piece
 	 * @param horizontal
 	 * @param vertical
 	 * @param board
-	 * @return 
+	 * @return a boolean representing whether the move was successful
 	 */
-	public boolean move(int horizontal, int vertical, MobilityBoard board);
+	public boolean move(MobilityPiece piece, int horizontal, int vertical, MobilityBoard board);
 }
