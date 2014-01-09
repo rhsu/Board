@@ -3,7 +3,7 @@ package rhsu.board.IO;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.LinkedList;
-import rhsu.board.implementations.StringBoard;
+import rhsu.board.basic.implementations.StringBoard;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 
 public class BoardReader 
