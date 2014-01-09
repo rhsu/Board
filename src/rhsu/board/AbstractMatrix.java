@@ -7,7 +7,7 @@ import rhsu.board.exceptionHandler.ExceptionHandler;
  *
  * @author rhsu
  */
-public abstract class AbstractMatrix<T> extends AbstractBoard<T> implements Matrix<T>
+public abstract class AbstractMatrix<T> extends AbstractBasicBoard<T> implements Matrix<T>
 {
 	protected enum OperationType
 	{

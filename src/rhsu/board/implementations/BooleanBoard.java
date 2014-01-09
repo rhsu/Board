@@ -2,14 +2,14 @@ package rhsu.board.implementations;
 
 import java.io.BufferedReader;
 import java.util.Random;
-import rhsu.board.AbstractBoard;
+import rhsu.board.AbstractBasicBoard;
 import rhsu.board.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
 
 /**
  *A boolean implementation
  */
-public class BooleanBoard extends AbstractBoard<Boolean>
+public class BooleanBoard extends AbstractBasicBoard<Boolean>
 {
 	private static final boolean DEFAULT_VALUE = false;
 	

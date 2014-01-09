@@ -3,7 +3,7 @@ package rhsu.board.IO;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import rhsu.board.AbstractBoard;
+import rhsu.board.AbstractBasicBoard;
 import rhsu.board.exceptionHandler.ExceptionHandler;
  
 /**
@@ -16,7 +16,7 @@ public class BoardWriter
 	 * @param filename  the name of the file to create
 	 * @param board the board to export to a file
 	 */
-	private void writeBoardToFile(String filename, AbstractBoard board)
+	private void writeBoardToFile(String filename, AbstractBasicBoard board)
 	{
 		try 
 		{	
@@ -48,13 +48,13 @@ public class BoardWriter
 	 * @param filename the name of the file to create
 	 * @param board the board object to export to a file
 	 */
-	public static void write(String filename, AbstractBoard board)
+	public static void write(String filename, AbstractBasicBoard board)
 	{
 		BoardWriter writer = new BoardWriter();
 		writer.writeBoardToFile(filename, board);
 	}
 	
-	public static void write(AbstractBoard board)
+	public static void write(AbstractBasicBoard board)
 	{
 		BoardWriter writer = new BoardWriter();
 		writer.writeBoardToFile("output.txt", board);
