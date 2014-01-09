@@ -1,7 +1,7 @@
 package rhsu.board.implementations.gameObjects;
 
 import java.util.ArrayList;
-import rhsu.board.AbstractBoard;
+import rhsu.board.AbstractBasicBoard;
 import rhsu.board.BasicBoardPiece;
 import rhsu.board.BoardPiece;
 import rhsu.board.RandomGenerator;
@@ -10,7 +10,7 @@ import rhsu.board.RandomGenerator;
  *
  * @author rhsu
  */
-public class Drop7Board extends AbstractBoard<Drop7Piece>
+public class Drop7Board extends AbstractBasicBoard<Drop7Piece>
 {
 	public Drop7Board(int h, int v)
 	{

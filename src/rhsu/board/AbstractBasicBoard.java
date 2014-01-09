@@ -13,7 +13,7 @@ import rhsu.board.IO.BoardWriter;
  * 
  * @param <T> Tye type of elements for the abstract board
  */
-public abstract class AbstractBoard<T> implements Board<T>
+public abstract class AbstractBasicBoard<T> implements Board<T>
 {	
 	//<editor-fold desc="Member Variables" defaultstate="collapsed">
 	
@@ -47,7 +47,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 	//<editor-fold defaultstate="collapsed" desc="Constructors">
 	
 	@SuppressWarnings({"unchecked"})
-	public AbstractBoard(int horizontal, int vertical, T defaultValue)
+	public AbstractBasicBoard(int horizontal, int vertical, T defaultValue)
 	{
 		this.horizontal_size = horizontal;
 		this.vertical_size = vertical;
@@ -68,14 +68,14 @@ public abstract class AbstractBoard<T> implements Board<T>
 	 * @param filename 
 	 */
 	@SuppressWarnings({"unchecked"})
-	public AbstractBoard(String filename)
+	public AbstractBasicBoard(String filename)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(filename);
 		initializeBaseBoard();
 	}
 	
 	@SuppressWarnings({"unchecked"})
-	public AbstractBoard(BufferedReader reader)
+	public AbstractBasicBoard(BufferedReader reader)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(reader);
 		initializeBaseBoard();
@@ -363,7 +363,7 @@ public abstract class AbstractBoard<T> implements Board<T>
 		
 		if (!this.getClass().equals(other.getClass())) return false;
 		
-		AbstractBoard otherAbstractBoard = (AbstractBoard) other;
+		AbstractBasicBoard otherAbstractBoard = (AbstractBasicBoard) other;
 		
 		return (otherAbstractBoard.hashCode() == other.hashCode());
 	}

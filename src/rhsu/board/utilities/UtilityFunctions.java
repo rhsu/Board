@@ -1,6 +1,6 @@
 package rhsu.board.utilities;
 
-import rhsu.board.AbstractBoard;
+import rhsu.board.AbstractBasicBoard;
 import rhsu.board.RandomGenerator;
 
 /**
@@ -43,7 +43,7 @@ public class UtilityFunctions
 		return (i % 2 == 0) ? 1 : -1;
 	}
 	
-	public static AbstractBoard CreateRandomBoard(AbstractBoard board)
+	public static AbstractBasicBoard CreateRandomBoard(AbstractBasicBoard board)
 	{
 		RandomGenerator generator = board.randomGenerator();
 		
