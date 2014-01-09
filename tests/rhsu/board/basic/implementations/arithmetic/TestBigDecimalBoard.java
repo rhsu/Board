@@ -1,4 +1,4 @@
-package rhsu.board.implementations.arithmetic;
+package rhsu.board.basic.implementations.arithmetic;
 
 import org.junit.*;
 import static org.junit.Assert.*;

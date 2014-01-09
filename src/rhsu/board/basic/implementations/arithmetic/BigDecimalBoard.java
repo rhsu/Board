@@ -1,82 +1,82 @@
-package rhsu.board.implementations.arithmetic;
+package rhsu.board.basic.implementations.arithmetic;
 
 import java.io.BufferedReader;
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.util.Random;
-import rhsu.board.BasicBoardPiece;
+import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
-import rhsu.board.AbstractMatrix;
+import rhsu.board.basic.AbstractBasicMatrix;
 import rhsu.board.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
 import rhsu.board.utilities.UtilityFunctions;
 
 /**
- *A big integer implementation
+ *A big decimal implementation
  */
-public class BigIntegerBoard extends AbstractMatrix<BigInteger>
-{
-	private static final BigInteger DEFAULT_VALUE = BigInteger.ZERO;
+public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
+{	
+	private static final BigDecimal DEFAULT_VALUE = BigDecimal.ZERO;
 	
 	//<editor-fold desc="Constructors" defaultstate="collapsed">
 	
 	/**
-	 * Constructor to create a BigIntegerBoard with the given parameters
+	 * Constructor to create a BigDecimalBoard with the given parameters
 	 * @param h the horizontal size 
 	 * @param v the vertical size
 	 */
-	public BigIntegerBoard(int h, int v)
+	public BigDecimalBoard(int h, int v)
 	{
 		this(h, v, DEFAULT_VALUE);
 	}
 	
 	@SuppressWarnings({"unchecked"})
-	public BigIntegerBoard(int h, int v, BigInteger defaultValue)
+	public BigDecimalBoard(int h, int v, BigDecimal defaultValue)
 	{
 		super(h, v, defaultValue);
 	}
 	
 	/**
-	 * Constructor to create a BigIntegerBoard based off of a file 
-	 * @param filename the name of the file to create a BigIntegerBoard from
+	 * Constructor to create a BigDecimalBoard based off of a file 
+	 * @param filename the name of the file to create a BigDecimalBoard from
 	 */
 	@SuppressWarnings({"unchecked"})
-	public BigIntegerBoard(String filename)
+	public BigDecimalBoard(String filename)
 	{
 		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
 	}
-		
-	public BigIntegerBoard(String filename, BigInteger defaultValue)
+	
+	public BigDecimalBoard(String filename, BigDecimal defaultValue)
 	{
 		this(filename, HandleType.Ignore, defaultValue);
 	}
-		
+	
 	@SuppressWarnings({"unchecked"})
-	public BigIntegerBoard(String filename, HandleType handleType, BigInteger defaultValue)
+	public BigDecimalBoard(String filename, HandleType handleType, BigDecimal defaultValue)
 	{
 		super(filename);
 		initializeFromBaseBoard(handleType, defaultValue);
 	}
 	
-	public BigIntegerBoard(BufferedReader bufferedReader)
+	public BigDecimalBoard(BufferedReader bufferedReader)
 	{
-		this(bufferedReader, HandleType.RuntimeError, null);
-	}
-	
-	public BigIntegerBoard(BufferedReader bufferedReader, BigInteger defaultValue)
+		this(bufferedReader, HandleType.RuntimeError, DEFAULT_VALUE);
+	}		
+			
+	public BigDecimalBoard(BufferedReader bufferedReader, BigDecimal defaultValue)
 	{
 		this(bufferedReader, HandleType.Ignore, defaultValue);
 	}
 			
-	public BigIntegerBoard(BufferedReader bufferedReader, HandleType handleType, BigInteger defaultValue)
+	public BigDecimalBoard(BufferedReader bufferedReader, HandleType handleType, BigDecimal defaultValue)
 	{
 		super(bufferedReader);
 		initializeFromBaseBoard(handleType, defaultValue);
 	}
 	//</editor-fold>
 	
-	private void initializeFromBaseBoard(HandleType handleType, BigInteger defaultValue)
+	private void initializeFromBaseBoard(HandleType handleType, BigDecimal defaultValue)
 	{
-		BigInteger value = null;
+		BigDecimal value = null;
 		
 		for(int i = 0; i < horizontal_size; i++)
 		{
@@ -84,10 +84,10 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 			{
 				try
 				{
-					value = new BigInteger(baseBoard.getValueAt(i,j));
+					value = new BigDecimal(baseBoard.getValueAt(i, j));
 				}
 				catch(Exception exception)
-				{
+				{					
 					value = handler.AssignDefault(exception, handleType, defaultValue);
 				}
 				finally
@@ -99,20 +99,20 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 	
 	@Override
-	public BigIntegerBoard add(Matrix<BigInteger> m) 
+	public BigDecimalBoard add(Matrix<BigDecimal> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.ADD, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
-		BigIntegerBoard result =  new BigIntegerBoard(h,v);
+		BigDecimalBoard result =  new BigDecimalBoard(h,v);
 		
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				BigInteger a = this.getValueAt(i, j);
-				BigInteger b = m.getValueAt(i, j);		
+				BigDecimal a = this.getValueAt(i, j);
+				BigDecimal b = m.getValueAt(i, j);		
 				result.setValueAt(i, j, a.add(b));
 			}
 		}
@@ -121,20 +121,20 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 
 	@Override
-	public BigIntegerBoard subtract(Matrix<BigInteger> m) 
+	public BigDecimalBoard subtract(Matrix<BigDecimal> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SUBTRACT, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
-		BigIntegerBoard result =  new BigIntegerBoard(h,v);
+		BigDecimalBoard result =  new BigDecimalBoard(h,v);
 		
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				BigInteger a = this.getValueAt(i, j);
-				BigInteger b = m.getValueAt(i, j);		
+				BigDecimal a = this.getValueAt(i, j);
+				BigDecimal b = m.getValueAt(i, j);		
 				result.setValueAt(i, j, a.subtract(b));
 			}
 		}
@@ -143,24 +143,24 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 
 	@Override
-	public BigIntegerBoard multiply(Matrix<BigInteger> m) 
+	public BigDecimalBoard multiply(Matrix<BigDecimal> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.MULTIPLY, m);
 		
 		int h = this.getHorizontal_size();
 		int v = m.getVertical_size();
 		
-		BigIntegerBoard result = new BigIntegerBoard(h, v);
+		BigDecimalBoard result = new BigDecimalBoard(h, v);
 		
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				BigInteger sum = BigInteger.ZERO;
+				BigDecimal sum = BigDecimal.ZERO;
 				
 				for(int k = 0; k < this.getVertical_size(); k++)
 				{
-					BigInteger tempValue = this.getValueAt(i, k).multiply(m.getValueAt(k, j));
+					BigDecimal tempValue = this.getValueAt(i, k).multiply(m.getValueAt(k, j));
 					sum = sum.add(result.getValueAt(i, j))
 							.add(tempValue);
 				}
@@ -168,21 +168,22 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 				result.setValueAt(i, j, sum);
 			}
 		}
+		
 		return result;
 	}
 
 	@Override
-	public BigIntegerBoard multiply(BigInteger scalar) 
+	public BigDecimalBoard multiply(BigDecimal scalar) 
 	{
-		BigIntegerBoard result = new BigIntegerBoard(this.horizontal_size,
+		BigDecimalBoard result = new BigDecimalBoard(this.horizontal_size,
 				this.vertical_size);
 		
 		for(int h = 0; h < this.horizontal_size; h++)
 		{
 			for(int v = 0; v < this.vertical_size; v++)
 			{
-				BigInteger m = this.getValueAt(h, v);
-				result.setValueAt(h, v, m.multiply(scalar));
+				BigDecimal m = this.getValueAt(h, v);
+				this.setValueAt(h, v, m.multiply(scalar));
 			}
 		}
 		
@@ -190,51 +191,51 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 	
 	@Override
-	public BigIntegerBoard inverse() 
+	public BigDecimalBoard inverse() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
-		BigIntegerBoard inverseMatrix = this.cofactor().transpose();
+		BigDecimalBoard inverseMatrix = this.cofactor().transpose();
 		
-		return inverseMatrix.multiply(BigInteger.ONE.divide(this.determinant()));
+		return inverseMatrix.multiply(BigDecimal.ONE.divide(this.determinant()));
 	}
 
 	@Override
-	public BigInteger determinant() 
+	public BigDecimal determinant() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		if(this.horizontal_size == 1) return this.getValueAt(0, 0);
 		
 		if(this.horizontal_size == 2)
 		{
-			BigInteger a = this.getValueAt(0, 0);
-			BigInteger b = this.getValueAt(1, 1);
-			BigInteger c = this.getValueAt(0, 1);
-			BigInteger d = this.getValueAt(1, 0);
+			BigDecimal a = this.getValueAt(0, 0);
+			BigDecimal b = this.getValueAt(1, 1);
+			BigDecimal c = this.getValueAt(0, 1);
+			BigDecimal d = this.getValueAt(1, 0);
 			
-			BigInteger result = a.multiply(b);
-			BigInteger result2 = c.multiply(d);
+			BigDecimal result = a.multiply(b);
+			BigDecimal result2 = c.multiply(d);
 			
 			return result.subtract(result2);
 			
 			//return (this.getValueAt(0, 0) * this.getValueAt(1, 1)) - ( this.getValueAt(0, 1) * this.getValueAt(1, 0));
 		}
 		
-		BigInteger sum = BigInteger.ZERO;
+		BigDecimal sum = BigDecimal.ZERO;
 		
 		for (int i = 0; i < this.horizontal_size; i++) 
 		{
 			Integer x = UtilityFunctions.changeSign(i);
-			sum = sum.add(new BigInteger(x.toString()));
+			sum = sum.add(new BigDecimal(x.toString()));
 			//sum = sum 
 			//		+ UtilityFunctions.changeSign(i) 
 			//		* this.getValueAt(0, i) 
 			//		* createSubMatrix(0, i).determinant();
 			
-			BigInteger b1 = this.getValueAt(0, i);			
-			BigInteger b2 = createSubMatrix(0,i).determinant();
-			BigInteger b3 = b1.multiply(b2);
+			BigDecimal b1 = this.getValueAt(0, i);			
+			BigDecimal b2 = createSubMatrix(0,i).determinant();
+			BigDecimal b3 = b1.multiply(b2);
 			
 			sum = sum.multiply(b3);
 		}
@@ -243,11 +244,11 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 	
 	@Override
-	public BigIntegerBoard transpose()
+	public BigDecimalBoard transpose()
 	{
 		int h = this.horizontal_size;
 		int v = this.vertical_size;
-		BigIntegerBoard result = new BigIntegerBoard(v, h);
+		BigDecimalBoard result = new BigDecimalBoard(v, h);
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
@@ -257,11 +258,11 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 		}
 		return result;
 	}
-	
+
 	@Override
-	public BigIntegerBoard createSubMatrix(int excluding_row, int excluding_column) 
+	public BigDecimalBoard createSubMatrix(int excluding_row, int excluding_column) 
 	{
-		BigIntegerBoard result = new BigIntegerBoard(this.horizontal_size-1,
+		BigDecimalBoard result = new BigDecimalBoard(this.horizontal_size-1,
 				this.vertical_size-1);
 	
 		int r = -1;
@@ -285,9 +286,9 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 
 	@Override
-	public BigIntegerBoard cofactor() 
+	public BigDecimalBoard cofactor() 
 	{
-		BigIntegerBoard result = new BigIntegerBoard(this.horizontal_size, 
+		BigDecimalBoard result = new BigDecimalBoard(this.horizontal_size, 
 				this.vertical_size);
 		
 		for(int i = 0; i < this.horizontal_size; i++)
@@ -300,11 +301,11 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 				//		* createSubMatrix(i, j).determinant());
 				
 				Integer signI = UtilityFunctions.changeSign(i);
-				BigInteger bSignI = new BigInteger(signI.toString());
+				BigDecimal bSignI = new BigDecimal(signI.toString());
 				Integer signJ = UtilityFunctions.changeSign(j);
-				BigInteger bSignJ = new BigInteger(signJ.toString());
+				BigDecimal bSignJ = new BigDecimal(signJ.toString());
 				
-				BigInteger value = bSignI
+				BigDecimal value = bSignI
 						.multiply(bSignJ)
 						.multiply(createSubMatrix(i, j).determinant());
 				
@@ -316,17 +317,17 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	}
 
 	@Override
-	public RandomGenerator<BigInteger> randomGenerator() 
+	public RandomGenerator<BigDecimal> randomGenerator() 
 	{
-		RandomGenerator<BigInteger> generator = new RandomGenerator()
+		RandomGenerator<BigDecimal> generator = new RandomGenerator()
 		{
 			Random random = new Random();
 			
 			@Override
-			public BigInteger getRandom() 
+			public BigDecimal getRandom() 
 			{
-				return new BigInteger(new Integer(random.nextInt()).toString());
-			}	
+				return new BigDecimal(random.nextDouble());
+			}
 		};
 		return generator;
 	}

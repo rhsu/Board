@@ -1,9 +1,9 @@
-package rhsu.board.implementations;
+package rhsu.board.basic.implementations;
 
 import java.io.BufferedReader;
 import java.util.Random;
-import rhsu.board.AbstractBasicBoard;
-import rhsu.board.BasicBoardPiece;
+import rhsu.board.basic.AbstractBasicBoard;
+import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
 
 /**

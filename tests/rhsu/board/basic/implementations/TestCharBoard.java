@@ -1,21 +1,23 @@
-package rhsu.board.implementations;
+package rhsu.board.basic.implementations;
 
+import rhsu.board.basic.implementations.CharBoard;
+import rhsu.board.basic.implementations.StringBoard;
 import static org.junit.Assert.*;
 import org.junit.*;
 import rhsu.board.resources.ResourceRetriever;
 
-public class TestStringBoard 
+public class TestCharBoard 
 {
 	//<editor-fold desc="Private Variables" defaultstate="collapsed">
-	private static final String testResource = "/rhsu/board/resources/test/";
-	private static final StringBoard TEST_BOARD = new StringBoard(
-		ResourceRetriever.GetResource("testStringBoard", testResource));
+	private static final String TEST_RESOURCE = "/rhsu/board/resources/test/";
+	private static final CharBoard TEST_BOARD = new CharBoard(
+		ResourceRetriever.GetResource("testCharBoard", TEST_RESOURCE));
 	//</editor-fold>
 	
 	@Test
 	public void testResourceRetriever()
 	{
-		assertEquals(TEST_BOARD, new StringBoard(2,2));
+		assertEquals(TEST_BOARD, new CharBoard(2,2));
 	}
 	
 	@Test
@@ -33,7 +35,7 @@ public class TestStringBoard
 	@Test
 	public void testEquals()
 	{
-		assertEquals(TEST_BOARD, new StringBoard(2,2));
+		assertEquals(TEST_BOARD, new CharBoard(2,2));
 	}
 	
 	@Test
@@ -42,8 +44,7 @@ public class TestStringBoard
 		assertFalse
 		(
 			TEST_BOARD.equals(
-				new CharBoard(ResourceRetriever.GetResource("testStringBoard", testResource)))
+				new StringBoard(ResourceRetriever.GetResource("testStringBoard", TEST_RESOURCE)))
 		);
 	}
 }
-

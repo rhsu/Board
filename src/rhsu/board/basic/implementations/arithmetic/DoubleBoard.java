@@ -1,10 +1,10 @@
-package rhsu.board.implementations.arithmetic;
+package rhsu.board.basic.implementations.arithmetic;
 
 import java.io.BufferedReader;
 import java.util.Random;
-import rhsu.board.BasicBoardPiece;
+import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
-import rhsu.board.AbstractMatrix;
+import rhsu.board.basic.AbstractBasicMatrix;
 import rhsu.board.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
 import rhsu.board.utilities.UtilityFunctions;
@@ -12,7 +12,7 @@ import rhsu.board.utilities.UtilityFunctions;
 /**
  *A double implementation
  */
-public class DoubleBoard extends AbstractMatrix<Double>
+public class DoubleBoard extends AbstractBasicMatrix<Double>
 {
 	private static final Double DEFAULT_VALUE = 0.0;
 	
@@ -101,7 +101,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	@Override
 	public DoubleBoard add(Matrix<Double> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.ADD, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -123,7 +123,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	@Override
 	public DoubleBoard subtract(Matrix<Double> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SUBTRACT, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -145,7 +145,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	@Override
 	public DoubleBoard multiply(Matrix<Double> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.MULTIPLY, m);
 		
 		int h = this.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -190,7 +190,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	@Override
 	public DoubleBoard inverse() 
 	{	
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		DoubleBoard inverseMatrix = this.cofactor().transpose();
 		
@@ -200,7 +200,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	@Override
 	public Double determinant() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		if(this.horizontal_size == 1) return this.getValueAt(0, 0);
 		

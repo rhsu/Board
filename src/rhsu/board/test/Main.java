@@ -1,5 +1,7 @@
 package rhsu.board.test;
 
+import rhsu.board.basic.implementations.StringBoard;
+import rhsu.board.basic.implementations.CharBoard;
 import java.io.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -7,8 +9,6 @@ import java.util.*;
 import rhsu.board.*;
 import rhsu.board.IO.*;
 import rhsu.board.exceptionHandler.ExceptionHandler;
-import rhsu.board.implementations.*;
-import rhsu.board.implementations.arithmetic.*;
 import rhsu.board.resources.ResourceRetriever;
 import rhsu.board.xc.*;
 

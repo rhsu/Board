@@ -1,6 +1,8 @@
-package rhsu.board;
+package rhsu.board.basic;
 
 import java.util.Objects;
+import rhsu.board.BoardPiece;
+import rhsu.board.RandomGenerator;
 
 /**
  * A wrapper class for objects. Contains two additional int properties (horizontal index and vertical index)

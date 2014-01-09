@@ -2,7 +2,7 @@ package rhsu.board.xc;
 
 import org.junit.*;
 import static org.junit.Assert.*;
-import rhsu.board.BasicBoardPiece;
+import rhsu.board.basic.BasicBoardPiece;
 
 /**
  *

@@ -1,5 +1,6 @@
 package rhsu.board;
 
+import rhsu.board.basic.BasicBoardPiece;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;

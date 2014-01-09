@@ -1,12 +1,15 @@
-package rhsu.board;
+package rhsu.board.basic;
 
 import java.io.BufferedReader;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import rhsu.board.Board;
+import rhsu.board.BoardPiece;
 import rhsu.board.IO.BoardReader;
 import rhsu.board.IO.BoardWriter;
+import rhsu.board.RandomGenerator;
 
 /**
  * This class provides skeletal implementations of some of Board operations.This class also contains an export method, for putting all entries of a board object into a file.
