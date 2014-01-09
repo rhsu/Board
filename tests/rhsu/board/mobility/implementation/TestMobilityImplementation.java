@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import rhsu.board.test.MockFactory;
+import rhsu.board.utilities.PrintUtilityDebugger;
 
 /**
  *
@@ -31,20 +32,20 @@ public class TestMobilityImplementation
 	@Test
 	public void testMove()
 	{
+		PrintUtilityDebugger debugger = new PrintUtilityDebugger();
+		
 		MobilityPiece<Integer> pieceZero = (MobilityPiece<Integer>) mockMobilityBoard.pieceAt(0, 0);
 		pieceZero.setValue(55);
-		
-		System.out.println("1: " + pieceZero);
-		System.out.println("2 : " + mockMobilityBoard.pieceAt(0,0));
+				
+		debugger.print(pieceZero);
+		debugger.print(mockMobilityBoard.pieceAt(0,0));
 		
 		boolean b = mockMobilityBoard.move(pieceZero, 1, 1);
 		
-		System.out.println("3: " + pieceZero);
-		System.out.println("4: " + mockMobilityBoard.pieceAt(0, 0));
-		
-		System.out.println("5: " + mockMobilityBoard.pieceAt(1, 1));
-		
-		System.out.println("6: " + mockMobilityBoard);
+		debugger.print(pieceZero);
+		debugger.print(mockMobilityBoard.pieceAt(0,0));
+		debugger.print(mockMobilityBoard.pieceAt(1,1));
+		debugger.print(mockMobilityBoard);
 		
 		//this will fail but it should pass fix this later.
 		//assertEquals(mockMobilityBoard.pieceAt(1, 1), pieceZero);
