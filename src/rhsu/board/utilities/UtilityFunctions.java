@@ -1,6 +1,6 @@
 package rhsu.board.utilities;
 
-import rhsu.board.AbstractBasicBoard;
+import rhsu.board.basic.AbstractBasicBoard;
 import rhsu.board.RandomGenerator;
 
 /**

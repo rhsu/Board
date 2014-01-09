@@ -3,9 +3,9 @@ package rhsu.board.implementations.arithmetic;
 import java.io.BufferedReader;
 import java.math.BigInteger;
 import java.util.Random;
-import rhsu.board.BasicBoardPiece;
+import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
-import rhsu.board.AbstractMatrix;
+import rhsu.board.basic.AbstractBasicMatrix;
 import rhsu.board.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
 import rhsu.board.utilities.UtilityFunctions;
@@ -13,7 +13,7 @@ import rhsu.board.utilities.UtilityFunctions;
 /**
  *A big integer implementation
  */
-public class BigIntegerBoard extends AbstractMatrix<BigInteger>
+public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 {
 	private static final BigInteger DEFAULT_VALUE = BigInteger.ZERO;
 	
@@ -101,7 +101,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public BigIntegerBoard add(Matrix<BigInteger> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.ADD, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -123,7 +123,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public BigIntegerBoard subtract(Matrix<BigInteger> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SUBTRACT, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -145,7 +145,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public BigIntegerBoard multiply(Matrix<BigInteger> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.MULTIPLY, m);
 		
 		int h = this.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -192,7 +192,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public BigIntegerBoard inverse() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		BigIntegerBoard inverseMatrix = this.cofactor().transpose();
 		
@@ -202,7 +202,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public BigInteger determinant() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		if(this.horizontal_size == 1) return this.getValueAt(0, 0);
 		

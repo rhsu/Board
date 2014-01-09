@@ -1,6 +1,6 @@
 package rhsu.board.xc;
 
-import rhsu.board.BasicBoardPiece;
+import rhsu.board.basic.BasicBoardPiece;
 
 /**
  *

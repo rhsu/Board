@@ -1,8 +1,8 @@
 package rhsu.board.implementations.gameObjects;
 
 import java.util.ArrayList;
-import rhsu.board.AbstractBasicBoard;
-import rhsu.board.BasicBoardPiece;
+import rhsu.board.basic.AbstractBasicBoard;
+import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.BoardPiece;
 import rhsu.board.RandomGenerator;
 

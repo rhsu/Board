@@ -3,7 +3,7 @@ package rhsu.board.IO;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import rhsu.board.AbstractBasicBoard;
+import rhsu.board.basic.AbstractBasicBoard;
 import rhsu.board.exceptionHandler.ExceptionHandler;
  
 /**

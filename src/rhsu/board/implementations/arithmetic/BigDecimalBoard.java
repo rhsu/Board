@@ -3,9 +3,9 @@ package rhsu.board.implementations.arithmetic;
 import java.io.BufferedReader;
 import java.math.BigDecimal;
 import java.util.Random;
-import rhsu.board.BasicBoardPiece;
+import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
-import rhsu.board.AbstractMatrix;
+import rhsu.board.basic.AbstractBasicMatrix;
 import rhsu.board.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
 import rhsu.board.utilities.UtilityFunctions;
@@ -13,7 +13,7 @@ import rhsu.board.utilities.UtilityFunctions;
 /**
  *A big decimal implementation
  */
-public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
+public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 {	
 	private static final BigDecimal DEFAULT_VALUE = BigDecimal.ZERO;
 	
@@ -101,7 +101,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	@Override
 	public BigDecimalBoard add(Matrix<BigDecimal> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.ADD, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -123,7 +123,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	@Override
 	public BigDecimalBoard subtract(Matrix<BigDecimal> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SUBTRACT, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -145,7 +145,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	@Override
 	public BigDecimalBoard multiply(Matrix<BigDecimal> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.MULTIPLY, m);
 		
 		int h = this.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -193,7 +193,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	@Override
 	public BigDecimalBoard inverse() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		BigDecimalBoard inverseMatrix = this.cofactor().transpose();
 		
@@ -203,7 +203,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	@Override
 	public BigDecimal determinant() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		if(this.horizontal_size == 1) return this.getValueAt(0, 0);
 		
