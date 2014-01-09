@@ -1,6 +1,5 @@
 package rhsu.board.basic.implementations;
 
-import rhsu.board.basic.implementations.BooleanBoard;
 import static org.junit.Assert.*;
 import org.junit.*;
 import rhsu.board.resources.ResourceRetriever;
@@ -38,7 +37,7 @@ public class TestBooleanBoard
 	}
 	
 	@Test
-	public void testNotEqualsDifferentBoard()
+	public void testNotEquals()
 	{
 		assertFalse
 		(
