@@ -31,19 +31,23 @@ public class TestDoubleBoard
 	@Test
 	public void testNotEqualsNull()
 	{
-		
+		assertFalse(TEST_BOARD.equals(null));
 	}
 	
 	@Test
 	public void testEquals()
 	{
-		
+		assertEquals(TEST_BOARD, new DoubleBoard(2,2));
 	}
 	
 	@Test
 	public void testNotEquals()
 	{
-		
+		assertFalse
+		(
+			TEST_BOARD.equals(
+				  new DoubleBoard(ResourceRetriever.GetResource("ExampleIntegerBoard")))
+		);
 	}
 	
 	//</editor-fold>
