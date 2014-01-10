@@ -18,6 +18,34 @@ public class TestIntegerBoard
 		assertEquals(testBoard.toString(), new IntegerBoard(2,2).toString());
 	}
 	
+	//<editor-fold desc="Unit Tests for Equals" defaultstate="collapsed">
+	
+	@Test
+	public void testEqeualsSelf()
+	{
+		
+	}
+	
+	@Test
+	public void testNotEqualsNull()
+	{
+		
+	}
+	
+	@Test
+	public void testEquals()
+	{
+		
+	}
+	
+	@Test
+	public void testNotEquals()
+	{
+		
+	}
+	
+	//</editor-fold>
+	
 	@Test
 	public void testAdd()
 	{

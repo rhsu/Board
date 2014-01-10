@@ -34,13 +34,40 @@ public class TestBigDecimalBoard
 		assertEquals(TEST_BOARD, new BigDecimalBoard(2,2));
 	}
 	
+	//<editor-fold desc="Unit Tests for Equals" defaultstate="collapsed">
+	
+	@Test
+	public void testEqeualsSelf()
+	{
+		
+	}
+	
+	@Test
+	public void testNotEqualsNull()
+	{
+		
+	}
+	
+	@Test
+	public void testEquals()
+	{
+		
+	}
+	
+	@Test
+	public void testNotEquals()
+	{
+		
+	}
+	
+	//</editor-fold>
+	
 	@Test
 	public void testAdd()
 	{
 		BigDecimalBoard sum = ARITHMETIC_OP1.add(ARITHMETIC_OP2);
 		assertEquals(sum, EXPECTED_SUM);
 	}
-	
 	
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
