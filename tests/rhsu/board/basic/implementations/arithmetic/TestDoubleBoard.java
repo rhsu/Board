@@ -7,15 +7,17 @@ import rhsu.board.resources.ResourceRetriever;
 public class TestDoubleBoard 
 {
 	//<editor-fold desc="Private Variables" defaultstate="collapsed">
-	private static final String testResource = "/rhsu/board/resources/test/";
+	private static final String TEST_RESOURCE = "/rhsu/board/resources/test/";
+	
+	private static final DoubleBoard TEST_BOARD = new DoubleBoard(
+			ResourceRetriever.GetResource("testZeroBoard", TEST_RESOURCE));
+	
 	//</editor-fold>
 	
 	@Test
 	public void testResourceRetriever()
 	{
-		DoubleBoard testBoard = new DoubleBoard(
-				ResourceRetriever.GetResource("testZeroBoard", testResource));
-		assertEquals(testBoard.toString(), new DoubleBoard(2,2).toString());
+		assertEquals(TEST_BOARD, new DoubleBoard(2,2));
 	}
 	
 	//<editor-fold desc="Unit Tests for Equals" defaultstate="collapsed">
