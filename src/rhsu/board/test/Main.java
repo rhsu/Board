@@ -25,7 +25,20 @@ public class Main
 		BooleanBoard b1 = new BooleanBoard(ResourceRetriever.GetResource("testCharBoard", TEST_RESOURCE));
 		BooleanBoard b2 = new BooleanBoard(ResourceRetriever.GetResource("ExampleIntegerBoard"));
 		
-		print(b1);
-		print(b2);
+		//print(b1);
+		//print(b2);
+		
+		b1.equals(b2);
+		
+		//boolean[] test  = new boolean[5];
+		//boolean[] test2 = new boolean[3];
+		
+		//for(int i = 0; i < test.length; i++) test[i] = true;
+		
+		//for(int i = 0; i < test2.length; i++) test2[i] = false;
+		
+		//print(Arrays.deepHashCode(test));
+		
+		//Arrays.deepHashCode(test2));
 	}
 }
