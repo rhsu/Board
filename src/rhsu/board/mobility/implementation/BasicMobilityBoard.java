@@ -5,6 +5,7 @@ import rhsu.board.basic.AbstractBasicBoard;
 import rhsu.board.mobility.MobilityBoard;
 import rhsu.board.mobility.MobilityPiece;
 import rhsu.board.mobility.MobilityStatus;
+import rhsu.board.utilities.PrintUtilityDebugger;
 
 public class BasicMobilityBoard<T> extends AbstractBasicBoard<T> 
 	implements MobilityBoard<T>
@@ -42,8 +43,18 @@ public class BasicMobilityBoard<T> extends AbstractBasicBoard<T>
 		if(other.getStatus() != MobilityStatus.Free) return false;
 		
 		MobilityPiece<T> temp = piece;
+		
+		
+		PrintUtilityDebugger debugger = new PrintUtilityDebugger();
+		
+		
 		piece.copy(other);
 		other.copy(temp);
+		
+		
+		
+		//piece = other;
+		//other = temp;
 		
 		return true;
 	}
