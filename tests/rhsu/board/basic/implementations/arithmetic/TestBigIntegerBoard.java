@@ -30,19 +30,23 @@ public class TestBigIntegerBoard
 	@Test
 	public void testNotEqualsNull()
 	{
-		
+		assertFalse(TEST_BOARD.equals(null));
 	}
 	
 	@Test
 	public void testEquals()
 	{
-		
+		assertEquals(TEST_BOARD, new BigIntegerBoard(2,2));
 	}
 	
 	@Test
 	public void testNotEquals()
 	{
-		
+		assertFalse
+		(
+			TEST_BOARD.equals(
+				  new BigIntegerBoard(ResourceRetriever.GetResource("ExampleIntegerBoard")))
+		);
 	}
 	
 	//</editor-fold>
