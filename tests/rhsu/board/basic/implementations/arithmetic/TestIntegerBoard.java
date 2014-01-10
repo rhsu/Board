@@ -22,27 +22,31 @@ public class TestIntegerBoard
 	//<editor-fold desc="Unit Tests for Equals" defaultstate="collapsed">
 	
 	@Test
-	public void testEqeualsSelf()
+	public void testEqualsSelf()
 	{
-		
+		assertEquals(TEST_BOARD, TEST_BOARD);
 	}
 	
 	@Test
 	public void testNotEqualsNull()
 	{
-		
+		assertFalse(TEST_BOARD.equals(null));
 	}
 	
 	@Test
 	public void testEquals()
 	{
-		
+		assertEquals(TEST_BOARD, new IntegerBoard(2,2));
 	}
 	
 	@Test
 	public void testNotEquals()
 	{
-		
+		assertFalse
+		(
+			TEST_BOARD.equals(
+				  new IntegerBoard(ResourceRetriever.GetResource("ExampleIntegerBoard")))
+		);
 	}
 	
 	//</editor-fold>
