@@ -7,6 +7,7 @@ import java.util.*;
 import rhsu.board.*;
 import rhsu.board.IO.*;
 import rhsu.board.basic.implementations.*;
+import rhsu.board.basic.implementations.arithmetic.*;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board.resources.ResourceRetriever;
 import rhsu.board.xc.*;
@@ -22,23 +23,18 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		BooleanBoard b1 = new BooleanBoard(ResourceRetriever.GetResource("testCharBoard", TEST_RESOURCE));
-		BooleanBoard b2 = new BooleanBoard(ResourceRetriever.GetResource("ExampleIntegerBoard"));
+		BigDecimalBoard test = new BigDecimalBoard(3,3, new BigDecimal("6"));
 		
-		//print(b1);
-		//print(b2);
+		//print(test);
 		
-		b1.equals(b2);
+		//BigDecimalBoard temp = test.multiply( new BigDecimal("6"));
 		
-		//boolean[] test  = new boolean[5];
-		//boolean[] test2 = new boolean[3];
+		BigDecimal asdf = new BigDecimal("6");
 		
-		//for(int i = 0; i < test.length; i++) test[i] = true;
+		print(asdf);
 		
-		//for(int i = 0; i < test2.length; i++) test2[i] = false;
+		Object o = asdf.multiply(asdf);
 		
-		//print(Arrays.deepHashCode(test));
-		
-		//Arrays.deepHashCode(test2));
+		print(o);
 	}
 }
