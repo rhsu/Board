@@ -21,9 +21,9 @@ public class TestDoubleBoard
 	//<editor-fold desc="Unit Tests for Equals" defaultstate="collapsed">
 	
 	@Test
-	public void testEqeualsSelf()
+	public void testEqualsSelf()
 	{
-		
+		assertEquals(TEST_BOARD, TEST_BOARD);
 	}
 	
 	@Test
