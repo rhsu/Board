@@ -1,7 +1,7 @@
 package rhsu.board.mobility.implementation;
 
-import rhsu.board.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
+import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.mobility.MobilityPiece;
 import rhsu.board.mobility.MobilityStatus;
 

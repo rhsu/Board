@@ -1,13 +1,14 @@
-package rhsu.board;
+package rhsu.board.basic;
 
 import java.io.BufferedReader;
+import rhsu.board.Matrix;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 
 /**
  *
  * @author rhsu
  */
-public abstract class AbstractMatrix<T> extends AbstractBoard<T> implements Matrix<T>
+public abstract class AbstractBasicMatrix<T> extends AbstractBasicBoard<T> implements Matrix<T>
 {
 	protected enum OperationType
 	{
@@ -19,18 +20,18 @@ public abstract class AbstractMatrix<T> extends AbstractBoard<T> implements Matr
 	
 	protected ExceptionHandler<T> handler;
 		
-	public AbstractMatrix(int horizontal, int vertical, T defaultValue)
+	public AbstractBasicMatrix(int horizontal, int vertical, T defaultValue)
 	{
 		super(horizontal, vertical, defaultValue);
 	}
 			
-	public AbstractMatrix(String filename)
+	public AbstractBasicMatrix(String filename)
 	{
 		super(filename);
 		handler = new ExceptionHandler<>();
 	}
 	
-	public AbstractMatrix(BufferedReader bufferedReader)
+	public AbstractBasicMatrix(BufferedReader bufferedReader)
 	{
 		super(bufferedReader);
 	}

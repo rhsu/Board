@@ -1,15 +1,15 @@
-package rhsu.board.implementations;
+package rhsu.board.basic.implementations;
 
 import java.io.BufferedReader;
 import java.util.Random;
-import rhsu.board.AbstractBoard;
-import rhsu.board.BasicBoardPiece;
+import rhsu.board.basic.AbstractBasicBoard;
+import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
 
 /**
  *A character implementation
  */
-public class CharBoard extends AbstractBoard<Character>
+public class CharBoard extends AbstractBasicBoard<Character>
 {
 	private static final Character DEFAULT_VALUE = '+';
 	

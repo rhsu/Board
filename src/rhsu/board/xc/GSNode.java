@@ -1,7 +1,7 @@
 package rhsu.board.xc;
 
 import java.util.Objects;
-import rhsu.board.BasicBoardPiece;
+import rhsu.board.basic.BasicBoardPiece;
 
 /**
  *

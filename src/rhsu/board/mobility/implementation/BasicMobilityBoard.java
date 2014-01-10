@@ -1,12 +1,12 @@
 package rhsu.board.mobility.implementation;
 
-import rhsu.board.AbstractBoard;
 import rhsu.board.RandomGenerator;
+import rhsu.board.basic.AbstractBasicBoard;
 import rhsu.board.mobility.MobilityBoard;
 import rhsu.board.mobility.MobilityPiece;
 import rhsu.board.mobility.MobilityStatus;
 
-public class BasicMobilityBoard<T> extends AbstractBoard<T> 
+public class BasicMobilityBoard<T> extends AbstractBasicBoard<T> 
 	implements MobilityBoard<T>
 {
 	@SuppressWarnings({"unchecked"})

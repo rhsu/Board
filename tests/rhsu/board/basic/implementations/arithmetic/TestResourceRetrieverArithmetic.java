@@ -1,5 +1,9 @@
-package rhsu.board.implementations.arithmetic;
+package rhsu.board.basic.implementations.arithmetic;
 
+import rhsu.board.implementations.basic.arithmetic.BigDecimalBoard;
+import rhsu.board.implementations.basic.arithmetic.BigIntegerBoard;
+import rhsu.board.implementations.basic.arithmetic.DoubleBoard;
+import rhsu.board.implementations.basic.arithmetic.IntegerBoard;
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board.resources.ResourceRetriever;
