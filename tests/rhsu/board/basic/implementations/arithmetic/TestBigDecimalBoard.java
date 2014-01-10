@@ -88,13 +88,15 @@ public class TestBigDecimalBoard
 	@Test
 	public void testSubtract()
 	{
-		
+		BigDecimalBoard difference = ARITHMETIC_OP1.subtract(ARITHMETIC_OP2);
+		assertEquals(difference, EXPECTED_DIFFERENCE);
 	}
 	
 	@Test
 	public void testSubtractException()
 	{
-		//exception.expect(ArrayIndexOutOfBoundsException.class);
+		exception.expect(ArrayIndexOutOfBoundsException.class);
+		TEST_BOARD.subtract(new BigDecimalBoard(6,6));
 	}
 	
 	@Test
