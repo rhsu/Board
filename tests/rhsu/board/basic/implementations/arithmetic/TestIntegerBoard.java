@@ -7,15 +7,16 @@ import rhsu.board.resources.ResourceRetriever;
 public class TestIntegerBoard 
 {
 	//<editor-fold desc="Private Variables" defaultstate="collapsed">
-	private static final String testResource = "/rhsu/board/resources/test/";
+	private static final String TEST_RESOURCE = "/rhsu/board/resources/test/";
+	
+	private static final IntegerBoard TEST_BOARD = new IntegerBoard(
+		ResourceRetriever.GetResource("testZeroBoard", TEST_RESOURCE));
 	//</editor-fold>
 	
 	@Test
 	public void testResourceRetriever()
 	{
-		IntegerBoard testBoard = new IntegerBoard(
-				ResourceRetriever.GetResource("testZeroBoard", testResource));
-		assertEquals(testBoard.toString(), new IntegerBoard(2,2).toString());
+		assertEquals(TEST_BOARD, new IntegerBoard(2,2));
 	}
 	
 	//<editor-fold desc="Unit Tests for Equals" defaultstate="collapsed">
