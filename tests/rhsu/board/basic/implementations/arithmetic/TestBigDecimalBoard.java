@@ -62,6 +62,8 @@ public class TestBigDecimalBoard
 	
 	//</editor-fold>
 	
+	//<editor-fold desc="Unit Tests for Arithmetic" defaultstate="collapsed">
+	
 	@Test
 	public void testAdd()
 	{
@@ -102,4 +104,6 @@ public class TestBigDecimalBoard
 	{
 		
 	}
+	
+	//</editor-fold>
 }
