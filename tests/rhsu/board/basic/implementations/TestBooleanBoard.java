@@ -18,6 +18,8 @@ public class TestBooleanBoard
 		assertEquals(TEST_BOARD, new BooleanBoard(2,2));
 	}
 	
+	//<editor-fold desc="Unit Tests For Equals" defaultstate="collapsed">
+	
 	@Test
 	public void testEqualsSelf()
 	{
@@ -45,4 +47,6 @@ public class TestBooleanBoard
 				  new BooleanBoard(ResourceRetriever.GetResource("ExampleIntegerBoard")))
 		);
 	}
+	
+	//</editor-fold>
 }

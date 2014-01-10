@@ -18,6 +18,8 @@ public class TestCharBoard
 		assertEquals(TEST_BOARD, new CharBoard(2,2));
 	}
 	
+	//<editor-fold desc="Unit Tests For Equals" defaultstate="collapsed">
+	
 	@Test
 	public void testEqualsSelf()
 	{
@@ -47,4 +49,6 @@ public class TestCharBoard
 			)
 		);
 	}
+	
+	//</editor-fold>
 }
