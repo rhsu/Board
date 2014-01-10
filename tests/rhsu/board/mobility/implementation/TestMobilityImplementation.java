@@ -35,24 +35,13 @@ public class TestMobilityImplementation
 		PrintUtilityDebugger debugger = new PrintUtilityDebugger();
 		
 		MobilityPiece<Integer> pieceZero = (MobilityPiece<Integer>) mockMobilityBoard.pieceAt(0, 0);
-		pieceZero.setValue(55);
+		pieceZero.setValue(-99);
 				
-		debugger.print(pieceZero);
-		debugger.print(mockMobilityBoard.pieceAt(0,0));
-		
 		boolean b = mockMobilityBoard.move(pieceZero, 1, 1);
 		
-		debugger.print(pieceZero);
-		debugger.print(mockMobilityBoard.pieceAt(0,0));
-		debugger.print(mockMobilityBoard.pieceAt(1,1));
-		debugger.print(mockMobilityBoard);
+		System.out.println(pieceZero);
 		
-		//this will fail but it should pass fix this later.
-		//assertEquals(mockMobilityBoard.pieceAt(1, 1), pieceZero);
+		assertEquals((int)mockMobilityBoard.pieceAt(1, 1).getValue(), -99);
 		
-		//assertEquals(mockMobilityBoard.pieceAt(1, 1).getValue(), pieceZero.getValue());
-		
-		//System.out.println(pieceZero);
-		//System.out.println(mockMobilityBoard.pieceAt(1, 1));
 	}
 }

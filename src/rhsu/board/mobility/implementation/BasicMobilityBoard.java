@@ -5,7 +5,6 @@ import rhsu.board.basic.AbstractBasicBoard;
 import rhsu.board.mobility.MobilityBoard;
 import rhsu.board.mobility.MobilityPiece;
 import rhsu.board.mobility.MobilityStatus;
-import rhsu.board.utilities.PrintUtilityDebugger;
 
 public class BasicMobilityBoard<T> extends AbstractBasicBoard<T> 
 	implements MobilityBoard<T>
@@ -44,11 +43,13 @@ public class BasicMobilityBoard<T> extends AbstractBasicBoard<T>
 		
 		MobilityPiece<T> temp = piece;
 			
-		//PrintUtilityDebugger debugger = new PrintUtilityDebugger();
-		
+		//swap the pieces
 		T tempValue = piece.getValue();
 		piece.setValue(other.getValue());
 		other.setValue(tempValue);
+		
+		//mark the destination as occupied
+		other.setStatus(MobilityStatus.Occupied);
 		
 		return true;
 	}

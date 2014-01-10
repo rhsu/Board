@@ -37,4 +37,10 @@ public class BasicMobilityPiece<T> extends BasicBoardPiece<T>
 	{
 		return this.mobilityStatus;
 	}
+	
+	@Override
+	public void setStatus(MobilityStatus status)
+	{
+		this.mobilityStatus = status;
+	}
 }
