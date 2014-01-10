@@ -11,6 +11,19 @@ public class TestBigIntegerBoard
 	
 	private static final BigIntegerBoard TEST_BOARD = new BigIntegerBoard(
 			ResourceRetriever.GetResource("testZeroBoard", TEST_RESOURCE));
+	
+	private static final BigIntegerBoard ARITHMETIC_OP1 = new BigIntegerBoard(
+			ResourceRetriever.GetResource("arithmeticOp1", TEST_RESOURCE));
+	
+	private static final BigIntegerBoard ARITHMETIC_OP2 = new BigIntegerBoard(
+			ResourceRetriever.GetResource("arithmeticOp2", TEST_RESOURCE));
+	
+	private static final BigIntegerBoard EXPECTED_SUM = new BigIntegerBoard(
+			ResourceRetriever.GetResource("expectedSum", TEST_RESOURCE));
+	
+	private static final BigIntegerBoard EXPECTED_DIFFERENCE = new BigIntegerBoard(
+			ResourceRetriever.GetResource("expectedDifference", TEST_RESOURCE));
+	
 	//</editor-fold>
 	
 	@Test

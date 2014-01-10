@@ -12,6 +12,18 @@ public class TestDoubleBoard
 	private static final DoubleBoard TEST_BOARD = new DoubleBoard(
 			ResourceRetriever.GetResource("testZeroBoard", TEST_RESOURCE));
 	
+	private static final DoubleBoard ARITHMETIC_OP1 = new DoubleBoard(
+			ResourceRetriever.GetResource("arithmeticOp1", TEST_RESOURCE));
+	
+	private static final DoubleBoard ARITHMETIC_OP2 = new DoubleBoard(
+			ResourceRetriever.GetResource("arithmeticOp2", TEST_RESOURCE));
+	
+	private static final DoubleBoard EXPECTED_SUM = new DoubleBoard(
+			ResourceRetriever.GetResource("expectedSum", TEST_RESOURCE));
+	
+	private static final DoubleBoard EXPECTED_DIFFERENCE = new DoubleBoard(
+			ResourceRetriever.GetResource("expectedDifference", TEST_RESOURCE));
+	
 	//</editor-fold>
 	
 	@Test

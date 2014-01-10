@@ -11,6 +11,19 @@ public class TestIntegerBoard
 	
 	private static final IntegerBoard TEST_BOARD = new IntegerBoard(
 		ResourceRetriever.GetResource("testZeroBoard", TEST_RESOURCE));
+	
+	private static final IntegerBoard ARITHMETIC_OP1 = new IntegerBoard(
+			ResourceRetriever.GetResource("arithmeticOp1", TEST_RESOURCE));
+	
+	private static final IntegerBoard ARITHMETIC_OP2 = new IntegerBoard(
+			ResourceRetriever.GetResource("arithmeticOp2", TEST_RESOURCE));
+	
+	private static final IntegerBoard EXPECTED_SUM = new IntegerBoard(
+			ResourceRetriever.GetResource("expectedSum", TEST_RESOURCE));
+	
+	private static final IntegerBoard EXPECTED_DIFFERENCE = new IntegerBoard(
+			ResourceRetriever.GetResource("expectedDifference", TEST_RESOURCE));
+	
 	//</editor-fold>
 	
 	@Test
