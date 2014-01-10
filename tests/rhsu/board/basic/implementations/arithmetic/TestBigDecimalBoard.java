@@ -1,5 +1,6 @@
 package rhsu.board.basic.implementations.arithmetic;
 
+import java.math.BigDecimal;
 import org.junit.*;
 import static org.junit.Assert.*;
 import org.junit.rules.ExpectedException;
@@ -25,6 +26,9 @@ public class TestBigDecimalBoard
 	
 	private static final BigDecimalBoard EXPECTED_DIFFERENCE = new BigDecimalBoard(
 			ResourceRetriever.GetResource("expectedDifference", TEST_RESOURCE));
+	
+	private static final BigDecimalBoard EXPECTED_MULTIPLY_SCALAR = new BigDecimalBoard(
+			ResourceRetriever.GetResource("expectedMultiplyScalar", TEST_RESOURCE));
 	
 	//</editor-fold>
 	
@@ -108,7 +112,12 @@ public class TestBigDecimalBoard
 	@Test
 	public void testMultiplyScalar()
 	{
+		BigDecimalBoard result = ARITHMETIC_OP1.multiply(new BigDecimal(2));
+	
+		System.out.println(ARITHMETIC_OP1);
+		System.out.println(result);
 		
+		//	assertEquals(result, EXPECTED_MULTIPLY_SCALAR);
 	}
 	
 	//</editor-fold>
