@@ -43,18 +43,12 @@ public class BasicMobilityBoard<T> extends AbstractBasicBoard<T>
 		if(other.getStatus() != MobilityStatus.Free) return false;
 		
 		MobilityPiece<T> temp = piece;
+			
+		//PrintUtilityDebugger debugger = new PrintUtilityDebugger();
 		
-		
-		PrintUtilityDebugger debugger = new PrintUtilityDebugger();
-		
-		
-		piece.copy(other);
-		other.copy(temp);
-		
-		
-		
-		//piece = other;
-		//other = temp;
+		T tempValue = piece.getValue();
+		piece.setValue(other.getValue());
+		other.setValue(tempValue);
 		
 		return true;
 	}

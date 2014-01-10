@@ -23,12 +23,14 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		PrintUtilityDebugger debugger = new PrintUtilityDebugger();
+		PrintUtilityDebugger debugger = new PrintUtilityDebugger(true);
 		
 		BasicMobilityBoard<Integer> test = new BasicMobilityBoard(5,5, 0);
 		
 		BasicMobilityPiece<Integer> pieceZero = (BasicMobilityPiece<Integer>) test.pieceAt(0,0);
 		pieceZero.setValue(-99);
+		
+		test.move(pieceZero, 1, 1);
 		
 		debugger.print(test);
 		debugger.print(pieceZero);

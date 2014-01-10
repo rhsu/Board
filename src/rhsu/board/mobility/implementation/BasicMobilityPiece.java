@@ -37,13 +37,4 @@ public class BasicMobilityPiece<T> extends BasicBoardPiece<T>
 	{
 		return this.mobilityStatus;
 	}
-	
-	@Override
-	public void copy(MobilityPiece<T> other)
-	{		
-		this.vertical = other.getVertical();
-		this.horizontal = other.getHorizontal();
-		this.value = other.getValue();
-		this.mobilityStatus = other.getStatus();
-	}
 }
