@@ -30,13 +30,13 @@ public class Main
 		BasicMobilityPiece<Integer> pieceZero = (BasicMobilityPiece<Integer>) test.pieceAt(0,0);
 		
 		pieceZero.setValue(-99);
-		pieceZero.setHorizontal(55);
-		pieceZero.setVertical(55);
+		//pieceZero.setHorizontal(55);
+		//pieceZero.setVertical(55);
 		
 		
 		
 		
-		//test.move(pieceZero, 1, 1);
+		test.move(pieceZero, 1, 1);
 		
 		debugger.print(test);
 		

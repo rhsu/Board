@@ -42,11 +42,10 @@ public class BasicMobilityBoard<T> extends AbstractBasicBoard<T>
 		if(other.getStatus() != MobilityStatus.Free) return false;
 		
 		MobilityPiece<T> temp = piece;
-			
-		//swap the pieces
-		T tempValue = piece.getValue();
-		piece.setValue(other.getValue());
-		other.setValue(tempValue);
+	
+		//swap the values
+		this.board[other.getHorizontal()][other.getVertical()] = piece;
+		this.board[piece.getHorizontal()][piece.getVertical()] = other;
 		
 		//mark the destination as occupied
 		other.setStatus(MobilityStatus.Occupied);
