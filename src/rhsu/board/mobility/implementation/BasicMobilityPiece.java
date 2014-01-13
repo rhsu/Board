@@ -43,4 +43,15 @@ public class BasicMobilityPiece<T> extends BasicBoardPiece<T>
 	{
 		this.mobilityStatus = status;
 	}
+	
+	//temporary methods
+	public void setHorizontal(int horizontal)
+	{
+		this.horizontal = horizontal;
+	}
+	
+	public void setVertical(int vertical)
+	{
+		this.vertical = vertical;
+	}
 }

@@ -28,11 +28,19 @@ public class Main
 		BasicMobilityBoard<Integer> test = new BasicMobilityBoard(5,5, 0);
 		
 		BasicMobilityPiece<Integer> pieceZero = (BasicMobilityPiece<Integer>) test.pieceAt(0,0);
-		pieceZero.setValue(-99);
 		
-		test.move(pieceZero, 1, 1);
+		pieceZero.setValue(-99);
+		pieceZero.setHorizontal(55);
+		pieceZero.setVertical(55);
+		
+		
+		
+		
+		//test.move(pieceZero, 1, 1);
 		
 		debugger.print(test);
-		debugger.print(pieceZero);
+		
+		debugger.print(test.pieceAt(0,0));
+		//debugger.print(pieceZero);
 	}
 }
