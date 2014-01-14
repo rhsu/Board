@@ -1,9 +1,8 @@
 package rhsu.board.mobility.implementation;
 
 import rhsu.board.mobility.*;
-import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.BeforeClass;
+import org.junit.*;
 import rhsu.board.test.MockFactory;
 
 /**
@@ -12,45 +11,38 @@ import rhsu.board.test.MockFactory;
  */
 public class TestMobilityImplementation 
 {
-	static MobilityBoard<Integer> mockMobilityBoard;
+	private static MobilityBoard<Integer> mockMobilityBoard;
+	private static MobilityPiece<Integer> mockMobilityPieceZero;
+	private static MobilityPiece<Integer> mockMobilityPieceDestination;
 	
-	@BeforeClass
-    public static void setUpClass() 
+	@Before
+    public void setUpClass() 
 	{
 		mockMobilityBoard = MockFactory.mockMobilityBoard();
-    }
+		mockMobilityPieceZero = (MobilityPiece<Integer>) mockMobilityBoard.pieceAt(0,0);
+		mockMobilityPieceZero.setValue(-99);
+		mockMobilityPieceDestination = (MobilityPiece<Integer>) mockMobilityBoard.pieceAt(1,1);
+		mockMobilityPieceDestination.setValue(-999);
+	}
 
 	@Test
 	public void testMove()
-	{
-		MobilityBoard<Integer> testBoard = new BasicMobilityBoard<>(5,5,0);
+	{	
+		assertTrue(mockMobilityBoard.move(mockMobilityPieceZero, 1, 1));
 		
-		MobilityPiece<Integer> pieceZero = (MobilityPiece<Integer>) testBoard.pieceAt(0, 0);
-		MobilityPiece<Integer> destinationPiece = (MobilityPiece<Integer>) testBoard.pieceAt(2,3);
+		assertTrue(mockMobilityPieceZero.getValue() == -99);
+		assertTrue(mockMobilityPieceZero.getHorizontal() == 1);
+		assertTrue(mockMobilityPieceZero.getVertical() == 1);
 		
-		pieceZero.setValue(-99);
-		destinationPiece.setValue(-999);
-		
-		assertTrue(testBoard.move(pieceZero, 2, 3));
-		
-		assertTrue(pieceZero.getValue() == -99);
-		assertTrue(pieceZero.getHorizontal() == 2);
-		assertTrue(pieceZero.getVertical() == 3);
-		
-		assertTrue(destinationPiece.getValue() == -999);
-		assertTrue(destinationPiece.getHorizontal() == 0);
-		assertTrue(destinationPiece.getVertical() == 0);
+		assertTrue(mockMobilityPieceDestination.getValue() == -999);
+		assertTrue(mockMobilityPieceDestination.getHorizontal() == 0);
+		assertTrue(mockMobilityPieceDestination.getVertical() == 0);
 	}
 	
 	@Test
 	public void testMoveFail_Occupied()
-	{
-		MobilityBoard<Integer> testBoard = new BasicMobilityBoard<>(5,5,0);
-		MobilityPiece<Integer> pieceZero = (MobilityPiece<Integer>) testBoard.pieceAt(0, 0);
-		MobilityPiece<Integer> destination = (MobilityPiece<Integer>) testBoard.pieceAt(1,1);
-		
-		destination.setStatus(MobilityStatus.Occupied);
-		
-		assertFalse(testBoard.move(pieceZero, 1,1));
+	{		
+		mockMobilityPieceDestination.setStatus(MobilityStatus.Occupied);	
+		assertFalse(mockMobilityBoard.move(mockMobilityPieceZero, 1,1));
 	}
 }

@@ -3,6 +3,7 @@ package rhsu.board.test;
 import rhsu.board.mobility.implementation.BasicMobilityBoard;
 import rhsu.board.mobility.MobilityBoard;
 import rhsu.board.basic.BasicBoardPiece;
+import rhsu.board.mobility.MobilityPiece;
 import rhsu.board.xc.GSNode;
 import rhsu.board.xc.LinkedGStruct;
 
@@ -29,6 +30,6 @@ public class MockFactory
 	
 	public static MobilityBoard<Integer> mockMobilityBoard()
 	{
-		return new BasicMobilityBoard<>(5,5,-1);
+		return new BasicMobilityBoard<>(5,5,0);
 	}
 }
