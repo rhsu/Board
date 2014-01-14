@@ -35,23 +35,25 @@ public class BasicMobilityBoard<T> extends AbstractBasicBoard<T>
 	@Override
 	public boolean move(MobilityPiece<T> piece, int horizontal, int vertical) 
 	{
-		MobilityPiece<T> temp = (MobilityPiece) this.pieceAt(horizontal, vertical);
+		MobilityPiece<T> target = (MobilityPiece<T>) this.pieceAt(horizontal, vertical);
+		int tempHorizontal = piece.getHorizontal();
+		int tempVertical = piece.getVertical();
 		
+	
 		//perform a swap.
 		this.board[horizontal][vertical] = piece;
-		this.board[piece.getHorizontal()][piece.getVertical()] = temp;
+		this.board[piece.getHorizontal()][piece.getVertical()] = target;
 		
 		//update the indices
-		piece.setHorizontal(1);
-		piece.setVertical(1);
+		piece.setHorizontal(horizontal);
+		piece.setVertical(vertical);
 		
-		temp.setHorizontal(0);
-		temp.setVertical(0);
-		
-		//System.out.println(this);
+		//System.out.println("???? " + temp.getHorizontal());
+		//System.out.println(temp.getVertical());
+		target.setHorizontal(tempHorizontal);
+		target.setVertical(tempVertical);
 		
 		return false;
-		//throw new UnsupportedOperationException("Not Supported Yet");
 	}
 
 	@Override

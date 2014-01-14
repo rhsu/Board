@@ -31,15 +31,26 @@ public class Main
 		
 		BasicMobilityPiece<Integer> pieceZero = (BasicMobilityPiece<Integer>) test.pieceAt(0,0);
 		BasicMobilityPiece<Integer> destination = (BasicMobilityPiece<Integer>) test.pieceAt(1,1);
-		destination.setValue(-999);
-		
 		pieceZero.setValue(-99);
+		destination.setValue(-999);
+
+		//print(test);
 		
-		print(test);
+		//print(UtilityFunctions.getCoordinate(destination));
 		
-		print(UtilityFunctions.getCoordinate(destination));
+		//test.move(pieceZero, 1, 1);
+		
+		//print(destination);
+		//print(UtilityFunctions.getCoordinate(destination));
+		
+		print(pieceZero);
+		print(destination);
 		
 		test.move(pieceZero, 1, 1);
+		
+		
+		print(pieceZero);
+		print(UtilityFunctions.getCoordinate(pieceZero));
 		
 		print(destination);
 		print(UtilityFunctions.getCoordinate(destination));
