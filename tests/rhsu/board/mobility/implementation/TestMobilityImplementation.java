@@ -31,28 +31,6 @@ public class TestMobilityImplementation
 	@Test
 	public void testMove()
 	{
-		MobilityBoard<Integer> testBoard = new BasicMobilityBoard<>(2,2,0);
-		
-		MobilityPiece<Integer> pieceZero = (MobilityPiece<Integer>) testBoard.pieceAt(0, 0);
-		MobilityPiece<Integer> destinationPiece = (MobilityPiece<Integer>) testBoard.pieceAt(1,1);
-		
-		pieceZero.setValue(-99);
-		destinationPiece.setValue(-999);
-		
-		testBoard.move(pieceZero, 1, 1);
-		
-		assertTrue(pieceZero.getValue() == -99);
-		assertTrue(pieceZero.getHorizontal() == 1);
-		assertTrue(pieceZero.getVertical() == 1);
-		
-		assertTrue(destinationPiece.getValue() == -999);
-		assertTrue(destinationPiece.getHorizontal() == 0);
-		assertTrue(destinationPiece.getVertical() == 0);
-	}
-	
-	@Test
-	public void testMove2()
-	{
 		MobilityBoard<Integer> testBoard = new BasicMobilityBoard<>(5,5,0);
 		
 		MobilityPiece<Integer> pieceZero = (MobilityPiece<Integer>) testBoard.pieceAt(0, 0);
@@ -61,7 +39,7 @@ public class TestMobilityImplementation
 		pieceZero.setValue(-99);
 		destinationPiece.setValue(-999);
 		
-		testBoard.move(pieceZero, 2, 3);
+		assertTrue(testBoard.move(pieceZero, 2, 3));
 		
 		assertTrue(pieceZero.getValue() == -99);
 		assertTrue(pieceZero.getHorizontal() == 2);
@@ -70,5 +48,19 @@ public class TestMobilityImplementation
 		assertTrue(destinationPiece.getValue() == -999);
 		assertTrue(destinationPiece.getHorizontal() == 0);
 		assertTrue(destinationPiece.getVertical() == 0);
+	}
+	
+	@Test
+	public void testMoveFail_Occupied()
+	{
+		MobilityBoard<Integer> testBoard = new BasicMobilityBoard<>(5,5,0);
+		MobilityPiece<Integer> pieceZero = (MobilityPiece<Integer>) testBoard.pieceAt(0, 0);
+		MobilityPiece<Integer> destinationPiece = (MobilityPiece<Integer>) testBoard.pieceAt(2,3);
+		
+		pieceZero.setValue(-99);
+		destinationPiece.setValue(-999);
+		
+		assertTrue(testBoard.move(pieceZero, 1,1));
+		assertFalse(testBoard.move(pieceZero, 1,1));
 	}
 }
