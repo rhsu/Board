@@ -30,8 +30,21 @@ public class Main
 		BasicMobilityBoard<Integer> test = new BasicMobilityBoard<>(2,2, 0);
 		
 		BasicMobilityPiece<Integer> pieceZero = (BasicMobilityPiece<Integer>) test.pieceAt(0,0);
+		BasicMobilityPiece<Integer> destination = (BasicMobilityPiece<Integer>) test.pieceAt(1,1);
+		destination.setValue(-999);
+		
 		pieceZero.setValue(-99);
 		
+		print(test);
+		
+		print(UtilityFunctions.getCoordinate(destination));
+		
+		test.move(pieceZero, 1, 1);
+		
+		print(destination);
+		print(UtilityFunctions.getCoordinate(destination));
+		
+		/*
 		print(test);
 		print("The coordinate of pieceZero is " + UtilityFunctions.getCoordinate(pieceZero));
 		
@@ -44,6 +57,6 @@ public class Main
 		
 		print("The coordinate of pieceZero is " + UtilityFunctions.getCoordinate(pieceZero));
 		
-		print(test);
+		print(test);*/
 	}
 }
