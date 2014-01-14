@@ -5,7 +5,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import rhsu.board.test.MockFactory;
-import rhsu.board.utilities.PrintUtilityDebugger;
 
 /**
  *
@@ -32,16 +31,22 @@ public class TestMobilityImplementation
 	@Test
 	public void testMove()
 	{
-		PrintUtilityDebugger debugger = new PrintUtilityDebugger();
+		MobilityBoard<Integer> testBoard = new BasicMobilityBoard<>(2,2,0);
 		
-		MobilityPiece<Integer> pieceZero = (MobilityPiece<Integer>) mockMobilityBoard.pieceAt(0, 0);
+		MobilityPiece<Integer> pieceZero = (MobilityPiece<Integer>) testBoard.pieceAt(0, 0);
+		MobilityPiece<Integer> destinationPiece = (MobilityPiece<Integer>) testBoard.pieceAt(1,1);
+		
 		pieceZero.setValue(-99);
-				
-		boolean b = mockMobilityBoard.move(pieceZero, 1, 1);
+		destinationPiece.setValue(-999);
 		
-		System.out.println(pieceZero);
+		testBoard.move(pieceZero, 1, 1);
 		
-		assertEquals((int)mockMobilityBoard.pieceAt(1, 1).getValue(), -99);
+		assertTrue(pieceZero.getValue() == -99);
+		assertTrue(pieceZero.getHorizontal() == 1);
+		assertTrue(pieceZero.getVertical() == 1);
 		
+		assertTrue(destinationPiece.getValue() == -999);
+		assertTrue(destinationPiece.getHorizontal() == 0);
+		assertTrue(destinationPiece.getVertical() == 0);
 	}
 }
