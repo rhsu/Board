@@ -41,11 +41,26 @@ public class BasicMobilityBoard<T> extends AbstractBasicBoard<T>
 		
 		if(other.getStatus() != MobilityStatus.Free) return false;
 		
-		MobilityPiece<T> temp = piece;
+		//MobilityPiece<T> temp = piece;
 	
 		//swap the values
 		this.board[other.getHorizontal()][other.getVertical()] = piece;
+		
+		String pieceString = String.format("The coordinates of piece is (%d,%d)", 
+				piece.getHorizontal(), piece.getVertical());
+		System.out.println(pieceString);
+		
+		//piece.setHorizontal(other.getHorizontal());
+		//piece.setVertical(other.getVertical());
+		
 		this.board[piece.getHorizontal()][piece.getVertical()] = other;
+		String otherString = String.format("The coordinates of other is (%d,%d)", 
+				other.getHorizontal(), other.getVertical());
+		System.out.println(otherString);
+		
+		
+		//other.setHorizontal(temp.getHorizontal());
+		//other.setVertical(temp.getVertical());
 		
 		//mark the destination as occupied
 		other.setStatus(MobilityStatus.Occupied);

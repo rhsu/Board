@@ -6,4 +6,6 @@ public interface MobilityPiece<T> extends BoardPiece<T>
 {	
 	public MobilityStatus getStatus();
 	public void setStatus(MobilityStatus status);
+	public void setHorizontal(int horizontal);
+	public void setVertical(int vertical);
 }

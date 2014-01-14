@@ -40,7 +40,12 @@ public class Main
 		
 		debugger.print(test);
 		
-		debugger.print(test.pieceAt(0,0));
+		String testString = String.format("The coordinates of pieceZero is (%d,%d)", 
+				pieceZero.getHorizontal(), pieceZero.getVertical());
+		
+		System.out.println(testString);
+		
+		//debugger.print(test.pieceAt(0,0));
 		//debugger.print(pieceZero);
 	}
 }
