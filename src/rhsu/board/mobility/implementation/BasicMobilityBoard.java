@@ -58,7 +58,7 @@ public class BasicMobilityBoard<T> extends AbstractBasicBoard<T>
 	}
 
 	@Override
-	public boolean move(MobilityPiece<T> piece, int horizontal, int vertical, MobilityBoard board) 
+	public boolean move(MobilityPiece<T> piece, int horizontal, int vertical, MobilityBoard<T> board) 
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
