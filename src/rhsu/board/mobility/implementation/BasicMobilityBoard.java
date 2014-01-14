@@ -54,9 +54,6 @@ public class BasicMobilityBoard<T> extends AbstractBasicBoard<T>
 		target.setHorizontal(tempHorizontal);
 		target.setVertical(tempVertical);
 		
-		//mark the destination as occupied
-		piece.setStatus(MobilityStatus.Occupied);
-		
 		return true;
 	}
 

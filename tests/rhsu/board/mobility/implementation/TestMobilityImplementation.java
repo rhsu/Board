@@ -47,8 +47,10 @@ public class TestMobilityImplementation
 	{
 		MobilityBoard<Integer> testBoard = new BasicMobilityBoard<>(5,5,0);
 		MobilityPiece<Integer> pieceZero = (MobilityPiece<Integer>) testBoard.pieceAt(0, 0);
+		MobilityPiece<Integer> destination = (MobilityPiece<Integer>) testBoard.pieceAt(1,1);
 		
-		assertTrue(testBoard.move(pieceZero, 1,1));
+		destination.setStatus(MobilityStatus.Occupied);
+		
 		assertFalse(testBoard.move(pieceZero, 1,1));
 	}
 }
