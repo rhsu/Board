@@ -19,15 +19,7 @@ public class TestMobilityImplementation
 	{
 		mockMobilityBoard = MockFactory.mockMobilityBoard();
     }
-	
-	@Test
-	public void works()
-	{
-		assertNotNull(mockMobilityBoard);
-		assertEquals(mockMobilityBoard.getHorizontal_size(), 5);
-		assertEquals(mockMobilityBoard.getVertical_size(), 5);
-	}
-	
+
 	@Test
 	public void testMove()
 	{
@@ -55,10 +47,6 @@ public class TestMobilityImplementation
 	{
 		MobilityBoard<Integer> testBoard = new BasicMobilityBoard<>(5,5,0);
 		MobilityPiece<Integer> pieceZero = (MobilityPiece<Integer>) testBoard.pieceAt(0, 0);
-		MobilityPiece<Integer> destinationPiece = (MobilityPiece<Integer>) testBoard.pieceAt(2,3);
-		
-		pieceZero.setValue(-99);
-		destinationPiece.setValue(-999);
 		
 		assertTrue(testBoard.move(pieceZero, 1,1));
 		assertFalse(testBoard.move(pieceZero, 1,1));
