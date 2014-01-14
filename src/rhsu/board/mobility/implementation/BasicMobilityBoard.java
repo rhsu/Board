@@ -36,24 +36,28 @@ public class BasicMobilityBoard<T> extends AbstractBasicBoard<T>
 	public boolean move(MobilityPiece<T> piece, int horizontal, int vertical) 
 	{
 		MobilityPiece<T> target = (MobilityPiece<T>) this.pieceAt(horizontal, vertical);
+		
+		if(target == null) return false;
+		
+		if(target.getStatus() != MobilityStatus.Free) return false;
+		
 		int tempHorizontal = piece.getHorizontal();
 		int tempVertical = piece.getVertical();
 		
-	
 		//perform a swap.
 		this.board[horizontal][vertical] = piece;
 		this.board[piece.getHorizontal()][piece.getVertical()] = target;
 		
 		//update the indices
 		piece.setHorizontal(horizontal);
-		piece.setVertical(vertical);
-		
-		//System.out.println("???? " + temp.getHorizontal());
-		//System.out.println(temp.getVertical());
+		piece.setVertical(vertical);		
 		target.setHorizontal(tempHorizontal);
 		target.setVertical(tempVertical);
 		
-		return false;
+		//mark the destination as occupied
+		target.setStatus(MobilityStatus.Occupied);
+		
+		return true;
 	}
 
 	@Override
