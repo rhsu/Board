@@ -12,6 +12,7 @@ import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board.mobility.implementation.*;
 import rhsu.board.resources.ResourceRetriever;
 import rhsu.board.utilities.PrintUtilityDebugger;
+import rhsu.board.utilities.UtilityFunctions;
 import rhsu.board.xc.*;
 
 public class Main
@@ -21,31 +22,28 @@ public class Main
 		System.out.println(o);
 	}
 	
+	
 	public static void main(String[] args)
 	{	
 		PrintUtilityDebugger debugger = new PrintUtilityDebugger(true);
 		
-		BasicMobilityBoard<Integer> test = new BasicMobilityBoard(5,5, 0);
+		BasicMobilityBoard<Integer> test = new BasicMobilityBoard<>(2,2, 0);
 		
 		BasicMobilityPiece<Integer> pieceZero = (BasicMobilityPiece<Integer>) test.pieceAt(0,0);
-		
 		pieceZero.setValue(-99);
-		//pieceZero.setHorizontal(55);
-		//pieceZero.setVertical(55);
 		
+		print(test);
+		print("The coordinate of pieceZero is " + UtilityFunctions.getCoordinate(pieceZero));
 		
+		print("Setting coordinates to (1,1)");
+		pieceZero.setHorizontal(1);
+		pieceZero.setVertical(1);
 		
+		print("Moving pieceZero to (1,1)");
+		print("Moving (1,1) to (0,0)");
 		
-		test.move(pieceZero, 1, 1);
+		print("The coordinate of pieceZero is " + UtilityFunctions.getCoordinate(pieceZero));
 		
-		debugger.print(test);
-		
-		String testString = String.format("The coordinates of pieceZero is (%d,%d)", 
-				pieceZero.getHorizontal(), pieceZero.getVertical());
-		
-		System.out.println(testString);
-		
-		//debugger.print(test.pieceAt(0,0));
-		//debugger.print(pieceZero);
+		print(test);
 	}
 }

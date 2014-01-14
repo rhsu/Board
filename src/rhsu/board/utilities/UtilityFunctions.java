@@ -1,5 +1,6 @@
 package rhsu.board.utilities;
 
+import rhsu.board.BoardPiece;
 import rhsu.board.basic.AbstractBasicBoard;
 import rhsu.board.RandomGenerator;
 
@@ -56,5 +57,12 @@ public class UtilityFunctions
 		}
 		
 		return board;
+	}
+	
+	public static String getCoordinate(BoardPiece piece)
+	{
+		return String.format("(%d, %d)", 
+				piece.getHorizontal(),
+				piece.getVertical());
 	}
 }
