@@ -15,6 +15,9 @@ public class TestMobilityImplementation
 	private static MobilityPiece<Integer> mockMobilityPieceZero;
 	private static MobilityPiece<Integer> mockMobilityPieceDestination;
 	
+	private static MobilityBoard<Integer> mockOtherBoard;
+	private static MobilityPiece<Integer> mockOtherMobilityPiece;
+	
 	@Before
     public void setUpClass() 
 	{
@@ -23,6 +26,8 @@ public class TestMobilityImplementation
 		mockMobilityPieceZero.setValue(-99);
 		mockMobilityPieceDestination = (MobilityPiece<Integer>) mockMobilityBoard.pieceAt(1,1);
 		mockMobilityPieceDestination.setValue(-999);
+		
+		mockOtherBoard = MockFactory.mockMobilityBoard();
 	}
 
 	@Test
@@ -44,5 +49,19 @@ public class TestMobilityImplementation
 	{		
 		mockMobilityPieceDestination.setStatus(MobilityStatus.Occupied);	
 		assertFalse(mockMobilityBoard.move(mockMobilityPieceZero, 1,1));
+	}
+	
+	@Test
+	public void testMoveOtherBoard()
+	{
+		assertTrue(mockMobilityBoard.move(mockMobilityPieceZero, 1, 1, mockOtherBoard));
+		
+		assertTrue(mockMobilityPieceZero.getValue() == -99);
+		assertTrue(mockMobilityPieceZero.getHorizontal() == 1);
+		assertTrue(mockMobilityPieceZero.getVertical() == 1);
+		
+		assertTrue(mockOtherMobilityPiece.getValue() == -999);
+		assertTrue(mockOtherMobilityPiece.getHorizontal() == 0);
+		assertTrue(mockOtherMobilityPiece.getVertical() == 0);
 	}
 }
