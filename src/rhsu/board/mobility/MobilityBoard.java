@@ -25,5 +25,5 @@ public interface MobilityBoard<T> extends Board<T>
 	 * @param board
 	 * @return a boolean representing whether the move was successful
 	 */
-	public boolean move(MobilityPiece<T> piece, int horizontal, int vertical, MobilityBoard<T> board);
+	public boolean move(MobilityPiece<T> piece, int horizontal, int vertical, MobilityBoard<T> otherBoard);
 }
