@@ -159,13 +159,7 @@ public interface Board<T>
 	
 	//</editor-fold>
 	
-	public BoardPiece<T> find(T value);
-	
-	public List<BoardPiece<T>> findAll(T value);
-	
-	public Iterator<BoardPiece<T>> iterBoard();
-	
-	public RandomGenerator<T> randomGenerator();
+	//<editor-fold desc="Piece Setting Methods" defaultstate="collpased">
 	
 	/**
 	 * modifies the piece at the given horizontal and vertical location to have the given value
@@ -173,7 +167,7 @@ public interface Board<T>
 	 * @param vertical the vertical index
 	 * @param value the value of the piece to set
 	 */
-	public void modifyPieceAt(int horizontal, int vertical, T value);
+	public void setPieceAt(int horizontal, int vertical, T value);
 	
 	/**
 	 * modifies the piece at the given horizontal and vertical location to be the parameter piece
@@ -181,5 +175,15 @@ public interface Board<T>
 	 * @param vertical the vertical index
 	 * @param piece the piece to set at that location
 	 */
-	public void modifyPieceAt(int horizontal, int vertical, BoardPiece<T> piece);
+	public void setPieceAt(int horizontal, int vertical, BoardPiece<T> piece);
+	
+	//</editor-fold>
+	
+	public BoardPiece<T> find(T value);
+	
+	public List<BoardPiece<T>> findAll(T value);
+	
+	public Iterator<BoardPiece<T>> iterBoard();
+	
+	public RandomGenerator<T> randomGenerator();
 }

@@ -308,7 +308,7 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	public abstract RandomGenerator<T> randomGenerator();
 	
 	@Override
-	public void modifyPieceAt(int horizontal, int vertical, T value)
+	public void setPieceAt(int horizontal, int vertical, T value)
 	{
 		if(horizontal > this.horizontal_size || horizontal < 0 || vertical > this.vertical_size || vertical < 0)
 			throw new RuntimeException();
@@ -317,7 +317,7 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	}
 	
 	@Override
-	public void modifyPieceAt(int horizontal, int vertical, BoardPiece<T> piece)
+	public void setPieceAt(int horizontal, int vertical, BoardPiece<T> piece)
 	{
 		if(horizontal > this.horizontal_size || horizontal < 0 || vertical > this.vertical_size || vertical < 0)
 			throw new RuntimeException();
