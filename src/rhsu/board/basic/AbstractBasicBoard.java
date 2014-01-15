@@ -237,11 +237,6 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	{
 		return this.size;
 	}
-	
-	public BoardPiece<T>[][] getBoard()
-	{
-		return this.board;
-	}
 		
 	//</editor-fold>
 	
@@ -313,7 +308,7 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	public abstract RandomGenerator<T> randomGenerator();
 	
 	@Override
-	public void modifyPiece(int horizontal, int vertical, T value)
+	public void modifyPieceAt(int horizontal, int vertical, T value)
 	{
 		if(horizontal > this.horizontal_size || horizontal < 0 || vertical > this.vertical_size || vertical < 0)
 			throw new RuntimeException();
@@ -322,7 +317,7 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	}
 	
 	@Override
-	public void modifyPiece(int horizontal, int vertical, BoardPiece<T> piece)
+	public void modifyPieceAt(int horizontal, int vertical, BoardPiece<T> piece)
 	{
 		if(horizontal > this.horizontal_size || horizontal < 0 || vertical > this.vertical_size || vertical < 0)
 			throw new RuntimeException();

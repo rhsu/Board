@@ -167,7 +167,19 @@ public interface Board<T>
 	
 	public RandomGenerator<T> randomGenerator();
 	
-	public void modifyPiece(int horizontal, int vertical, T value);
+	/**
+	 * modifies the piece at the given horizontal and vertical location to have the given value
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @param value the value of the piece to set
+	 */
+	public void modifyPieceAt(int horizontal, int vertical, T value);
 	
-	public void modifyPiece(int horizontal, int vertical, BoardPiece<T> piece);
+	/**
+	 * modifies the piece at the given horizontal and vertical location to be the parameter piece
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @param piece the piece to set at that location
+	 */
+	public void modifyPieceAt(int horizontal, int vertical, BoardPiece<T> piece);
 }
