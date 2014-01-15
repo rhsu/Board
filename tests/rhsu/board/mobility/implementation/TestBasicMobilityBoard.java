@@ -9,7 +9,7 @@ import rhsu.board.test.MockFactory;
  *
  * @author rhsu
  */
-public class TestMobilityImplementation 
+public class TestBasicMobilityBoard 
 {
 	private static MobilityBoard<Integer> mockMobilityBoard;
 	private static MobilityPiece<Integer> mockMobilityPieceZero;
