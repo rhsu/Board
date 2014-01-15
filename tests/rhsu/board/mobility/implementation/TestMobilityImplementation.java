@@ -51,7 +51,7 @@ public class TestMobilityImplementation
 		assertFalse(mockMobilityBoard.move(mockMobilityPieceZero, 1,1));
 	}
 	
-	@Test
+	@Ignore
 	public void testMoveOtherBoard()
 	{
 		assertTrue(mockMobilityBoard.move(mockMobilityPieceZero, 1, 1, mockOtherBoard));
