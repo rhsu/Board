@@ -8,7 +8,9 @@ import java.math.BigInteger;
 import java.util.*;
 import rhsu.board.*;
 import rhsu.board.IO.*;
+import rhsu.board.basic.AbstractBasicBoard;
 import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.implementations.basic.arithmetic.IntegerBoard;
 import rhsu.board.resources.ResourceRetriever;
 import rhsu.board.xc.*;
 
@@ -21,15 +23,10 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		StringBoard board = new StringBoard(2,2);
-		StringBoard board3 = new StringBoard(2,2);
-		CharBoard board2 = new CharBoard(2,2);
+		AbstractBasicBoard<Integer> board = new IntegerBoard(5,5,0);
 		
-		//print(board.getClass());
-		//print(board2.getClass());
+		BoardPiece<Integer>[][] test = board.getBoard();
 		
-		//print(board.getClass().equals(board2.getClass()));
-		
-		print(board.equals(board2));
+		//test[0][0] = 99;
 	}
 }
