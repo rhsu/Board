@@ -23,10 +23,6 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		AbstractBasicBoard<Integer> board = new IntegerBoard(5,5,0);
 		
-		BoardPiece<Integer>[][] test = board.getBoard();
-		
-		//test[0][0] = 99;
 	}
 }
