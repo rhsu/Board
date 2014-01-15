@@ -44,7 +44,6 @@ public class BasicMobilityBoard<T> extends AbstractBasicBoard<T>
 		int tempHorizontal = piece.getHorizontal();
 		int tempVertical = piece.getVertical();
 
-		
 		this.setPieceAt(horizontal, vertical, piece);
 		this.setPieceAt(tempHorizontal, tempVertical, target);
 		
@@ -63,19 +62,8 @@ public class BasicMobilityBoard<T> extends AbstractBasicBoard<T>
 		int tempHorizontal = piece.getHorizontal();
 		int tempVertical = piece.getVertical();
 		
-		//perform a swap.
-		//this.board[horizontal][vertical] = piece;
-		//this.board[piece.getHorizontal()][piece.getVertical()] = target;
-		
-		this.board[horizontal][vertical] = piece;
-		//otherBoard.
-		
-		
-		//update the indices
-		piece.setHorizontal(horizontal);
-		piece.setVertical(vertical);		
-		target.setHorizontal(tempHorizontal);
-		target.setVertical(tempVertical);
+		otherBoard.setPieceAt(horizontal, vertical, piece);
+		this.setPieceAt(tempHorizontal, tempVertical, target);
 		
 		return true;
 	}
