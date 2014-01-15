@@ -283,20 +283,11 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	 * @return the first instance of the object in the Board. Null if nothing is found
 	 */
 	@Override
-	public BasicBoardPiece<T> find(T value)
+	public BoardPiece<T> find(T value)
 	{
-		Iterator<BoardPiece<T>> iter = this.iterBoard();
+		List<BoardPiece<T>> result = findAll(value);
 		
-		while(iter.hasNext())
-		{
-			BasicBoardPiece<T> nextItem = (BasicBoardPiece<T>) iter.next();
-			
-			if(nextItem.getValue() == value)
-			{
-				return nextItem;
-			}
-		}
-		return null;
+		return result.isEmpty() ? null : result.get(0);
 	}
 	
 	@Override
