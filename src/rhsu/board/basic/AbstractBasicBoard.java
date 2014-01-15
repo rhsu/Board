@@ -237,7 +237,7 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	{
 		return this.size;
 	}
-		
+	
 	//</editor-fold>
 	
 	//<editor-fold desc="Inheirited from Board Interface" defaultstate="collapsed">

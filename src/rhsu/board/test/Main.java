@@ -24,22 +24,6 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		AbstractBasicBoard<Integer> board = new IntegerBoard(5,5,0);
 		
-		board.pieceAt(0,0).setValue(-99);
-		
-		board.modifyPieceAt(1, 1, board.pieceAt(0,0));
-		
-		//BoardPiece<Integer>[][] test = board.getBoard();
-		
-		//test[0][0] = new BasicBoardPiece<>(0,0, -99);
-		
-		//print(board.pieceAt(0,0).getHorizontal());
-		//print(board.pieceAt(0,0).getVertical());
-		
-		board.pieceAt(0,0).setValue(55);
-		print(board.pieceAt(0,0) == board.pieceAt(1,1));
-		
-		print(board);
 	}
 }
