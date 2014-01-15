@@ -319,7 +319,7 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	public void setPieceAt(int horizontal, int vertical, T value)
 	{
 		if(horizontal > this.horizontal_size || horizontal < 0 || vertical > this.vertical_size || vertical < 0)
-			throw new RuntimeException();
+			throw new RuntimeException("Out of Bounds");
 		
 		this.board[horizontal][vertical] = new BasicBoardPiece(horizontal, vertical, value);
 	}
@@ -328,7 +328,7 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	public void setPieceAt(int horizontal, int vertical, BoardPiece<T> piece)
 	{
 		if(horizontal > this.horizontal_size || horizontal < 0 || vertical > this.vertical_size || vertical < 0)
-			throw new RuntimeException();
+			throw new RuntimeException("Out of Bounds");
 		
 		this.board[horizontal][vertical] = piece;
 		piece.setHorizontal(horizontal);
