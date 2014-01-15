@@ -9,6 +9,8 @@ import java.util.*;
 import rhsu.board.*;
 import rhsu.board.IO.*;
 import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.mobility.MobilityBoard;
+import rhsu.board.mobility.MobilityPiece;
 import rhsu.board.mobility.implementation.*;
 import rhsu.board.resources.ResourceRetriever;
 import rhsu.board.utilities.PrintUtilityDebugger;
@@ -27,47 +29,19 @@ public class Main
 	{	
 		PrintUtilityDebugger debugger = new PrintUtilityDebugger(true);
 		
-		BasicMobilityBoard<Integer> test = new BasicMobilityBoard<>(2,2, 0);
+		MobilityBoard<Integer> board1 = MockFactory.mockMobilityBoard();
+		MobilityBoard<Integer> board2 = MockFactory.mockMobilityBoard();
 		
-		BasicMobilityPiece<Integer> pieceZero = (BasicMobilityPiece<Integer>) test.pieceAt(0,0);
-		BasicMobilityPiece<Integer> destination = (BasicMobilityPiece<Integer>) test.pieceAt(1,1);
+		MobilityPiece<Integer> pieceZero = (MobilityPiece<Integer>) board1.pieceAt(0, 0);
 		pieceZero.setValue(-99);
-		destination.setValue(-999);
-
-		//print(test);
 		
-		//print(UtilityFunctions.getCoordinate(destination));
+		print(board1);
 		
-		//test.move(pieceZero, 1, 1);
+		print("line break");
+		board1.move(pieceZero, 0, 0, board2);
 		
-		//print(destination);
-		//print(UtilityFunctions.getCoordinate(destination));
-		
-		print(pieceZero);
-		print(destination);
-		
-		test.move(pieceZero, 1, 1);
-		
-		
-		print(pieceZero);
-		print(UtilityFunctions.getCoordinate(pieceZero));
-		
-		print(destination);
-		print(UtilityFunctions.getCoordinate(destination));
-		
-		/*
-		print(test);
-		print("The coordinate of pieceZero is " + UtilityFunctions.getCoordinate(pieceZero));
-		
-		print("Setting coordinates to (1,1)");
-		pieceZero.setHorizontal(1);
-		pieceZero.setVertical(1);
-		
-		print("Moving pieceZero to (1,1)");
-		print("Moving (1,1) to (0,0)");
-		
-		print("The coordinate of pieceZero is " + UtilityFunctions.getCoordinate(pieceZero));
-		
-		print(test);*/
+		print(board1);
+		print("line break");
+		print(board2);
 	}
 }
