@@ -8,7 +8,7 @@ import java.util.List;
  * The retrieval methods are separated into two types. One type returns the object wrapper itself (the board piece). The other returns the physical value. Use the GetPieceAt and similar methods when working with boardPieces and the GetValueAt and similar methods when working with values.
  * @param <T> The type of the board
  */
-public interface Board<T>
+public interface Board<T>	
 {
 	//<editor-fold desc="Accessors" defaultstate="collapsed">
 	/**
@@ -166,4 +166,8 @@ public interface Board<T>
 	public Iterator<BoardPiece<T>> iterBoard();
 	
 	public RandomGenerator<T> randomGenerator();
+	
+	public void modifyPiece(int horizontal, int vertical, T value);
+	
+	public void modifyPiece(int horizontal, int vertical, BoardPiece<T> piece);
 }

@@ -312,6 +312,26 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	@Override
 	public abstract RandomGenerator<T> randomGenerator();
 	
+	@Override
+	public void modifyPiece(int horizontal, int vertical, T value)
+	{
+		if(horizontal > this.horizontal_size || horizontal < 0 || vertical > this.vertical_size || vertical < 0)
+			throw new RuntimeException();
+		
+		this.board[horizontal][vertical] = new BasicBoardPiece(horizontal, vertical, value);
+	}
+	
+	@Override
+	public void modifyPiece(int horizontal, int vertical, BoardPiece<T> piece)
+	{
+		if(horizontal > this.horizontal_size || horizontal < 0 || vertical > this.vertical_size || vertical < 0)
+			throw new RuntimeException();
+		
+		this.board[horizontal][vertical] = piece;
+		piece.setHorizontal(horizontal);
+		piece.setVertical(vertical);
+	}
+	
 	//</editor-fold>
 	
 	/**

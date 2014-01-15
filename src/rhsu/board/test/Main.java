@@ -9,6 +9,7 @@ import java.util.*;
 import rhsu.board.*;
 import rhsu.board.IO.*;
 import rhsu.board.basic.AbstractBasicBoard;
+import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board.implementations.basic.arithmetic.IntegerBoard;
 import rhsu.board.resources.ResourceRetriever;
@@ -27,6 +28,8 @@ public class Main
 		
 		BoardPiece<Integer>[][] test = board.getBoard();
 		
-		//test[0][0] = 99;
+		test[0][0] = new BasicBoardPiece<>(0,0, -99);
+		
+		print(board);
 	}
 }
