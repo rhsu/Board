@@ -6,4 +6,6 @@ public interface BoardPiece<T>
 	public T getValue();
 	public int getHorizontal();
 	public int getVertical();
+	public void setHorizontal(int horizontal);
+	public void setVertical(int vertical);
 }

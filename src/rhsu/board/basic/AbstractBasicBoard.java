@@ -245,11 +245,6 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	{
 		return this.size;
 	}
-	
-	public BoardPiece<T>[][] getBoard()
-	{
-		return this.board;
-	}
 		
 	//</editor-fold>
 	
@@ -291,20 +286,11 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	 * @return the first instance of the object in the Board. Null if nothing is found
 	 */
 	@Override
-	public BasicBoardPiece<T> find(T value)
+	public BoardPiece<T> find(T value)
 	{
-		Iterator<BoardPiece<T>> iter = this.iterBoard();
+		List<BoardPiece<T>> result = findAll(value);
 		
-		while(iter.hasNext())
-		{
-			BasicBoardPiece<T> nextItem = (BasicBoardPiece<T>) iter.next();
-			
-			if(nextItem.getValue() == value)
-			{
-				return nextItem;
-			}
-		}
-		return null;
+		return result.isEmpty() ? null : result.get(0);
 	}
 	
 	@Override
@@ -328,6 +314,26 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	
 	@Override
 	public abstract RandomGenerator<T> randomGenerator();
+	
+	@Override
+	public void modifyPieceAt(int horizontal, int vertical, T value)
+	{
+		if(horizontal > this.horizontal_size || horizontal < 0 || vertical > this.vertical_size || vertical < 0)
+			throw new RuntimeException();
+		
+		this.board[horizontal][vertical] = new BasicBoardPiece(horizontal, vertical, value);
+	}
+	
+	@Override
+	public void modifyPieceAt(int horizontal, int vertical, BoardPiece<T> piece)
+	{
+		if(horizontal > this.horizontal_size || horizontal < 0 || vertical > this.vertical_size || vertical < 0)
+			throw new RuntimeException();
+		
+		this.board[horizontal][vertical] = piece;
+		piece.setHorizontal(horizontal);
+		piece.setVertical(vertical);
+	}
 	
 	//</editor-fold>
 	

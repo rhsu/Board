@@ -53,6 +53,18 @@ public class BasicBoardPiece<T> implements BoardPiece<T>
 	{
 		this.value = value;
 	}
+	
+	@Override
+	public void setHorizontal(int horizontal)
+	{
+		this.horizontal = horizontal;
+	}
+	
+	@Override
+	public void setVertical(int vertical)
+	{
+		this.vertical = vertical;
+	}
 	//</editor-fold>
 	
 	/**
