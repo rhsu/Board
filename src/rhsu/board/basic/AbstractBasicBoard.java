@@ -237,6 +237,11 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	{
 		return this.size;
 	}
+	
+	public BoardPiece<T>[][] getBoard()
+	{
+		return this.board;
+	}
 		
 	//</editor-fold>
 	
