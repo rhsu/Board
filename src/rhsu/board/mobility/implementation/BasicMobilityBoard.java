@@ -25,7 +25,7 @@ public class BasicMobilityBoard<T> extends AbstractBasicBoard<T>
 			}
 		}
 	}
-	
+
 	@Override
 	public RandomGenerator<T> randomGenerator() 
 	{

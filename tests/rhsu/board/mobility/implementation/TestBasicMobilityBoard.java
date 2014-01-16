@@ -4,6 +4,7 @@ import rhsu.board.mobility.*;
 import static org.junit.Assert.*;
 import org.junit.*;
 import rhsu.board.test.MockFactory;
+import rhsu.board.resources.ResourceRetriever;
 
 /**
  *
@@ -14,7 +15,6 @@ public class TestBasicMobilityBoard
 	/**
 	 * The main board that will be tested throughout this unit test
 	 */
-	
 	private static MobilityBoard<Integer> mockMobilityBoard;
 	
 	/**
@@ -38,6 +38,8 @@ public class TestBasicMobilityBoard
 	 * the piece at location (1,1) of mockOtherBoard
 	 */
 	private static MobilityPiece<Integer> mockOtherMobilityPiece;
+	
+	private static final String TEST_RESOURCE = "/rhsu/board/resources/test/";
 	
 	@Before
     public void setUpClass() 
@@ -98,12 +100,18 @@ public class TestBasicMobilityBoard
 		assertTrue(mockMobilityPieceZero.getHorizontal() == 1);
 		assertTrue(mockMobilityPieceZero.getVertical() == 1);
 		
-		
 		//ensures that the destination piece maintains its value
 		//This will be modified: currently a swap is performed and everything works properly.
 		//However with issue 111, this functionality will change
 		assertTrue(mockOtherMobilityPiece.getValue() == -999);
 		assertTrue(mockOtherMobilityPiece.getHorizontal() == 0);
 		assertTrue(mockOtherMobilityPiece.getVertical() == 0);
+	}
+
+	@Test
+	public void test112()
+	{
+		MobilityBoard<Integer> test112Board 
+			= new BasicIntegerMobilityBoard(ResourceRetriever.GetResource("testMobilityBoard", TEST_RESOURCE));
 	}
 }
