@@ -27,5 +27,7 @@ public class Main
 		BufferedReader reader = ResourceRetriever.GetResource("ExampleCharBoard");
 		
 		CharBoard test = new CharBoard(reader);
+		
+		print(test);
 	}
 }
