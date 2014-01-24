@@ -1,4 +1,4 @@
-package rhsu.board.basic.implementations;
+package rhsu.board.implementations.basic;
 
 import java.io.BufferedReader;
 import java.util.Random;
