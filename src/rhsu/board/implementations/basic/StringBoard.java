@@ -48,18 +48,6 @@ public class StringBoard extends AbstractBasicBoard<String>
 	
 	//</editor-fold>
 	
-	/*private void initializeFromBaseBoard()
-	{		
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for(int j = 0; j < vertical_size; j++)
-			{
-				board[i][j] = new BasicBoardPiece(i, j, 
-						baseBoard.getValueAt(i, j));
-			}
-		}
-	}*/
-
 	@Override
 	public RandomGenerator<String> randomGenerator() 
 	{
@@ -73,4 +61,21 @@ public class StringBoard extends AbstractBasicBoard<String>
 		};
 		return generator;
 	}
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+
+	@Override
+	public void initializeFromBaseBoard()
+	{		
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				board[i][j] = new BasicBoardPiece(i, j, 
+						baseBoard.getValueAt(i, j));
+			}
+		}
+	}
+	
+	//</editor-fold>
 }

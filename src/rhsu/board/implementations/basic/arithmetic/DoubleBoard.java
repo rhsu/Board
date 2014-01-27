@@ -296,4 +296,14 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 		
 		return generator;
 	}
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+
+	@Override
+	public void initializeFromBaseBoard()
+	{		
+
+	}
+	
+	//</editor-fold>
 }

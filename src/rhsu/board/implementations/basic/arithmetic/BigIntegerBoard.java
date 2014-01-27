@@ -327,4 +327,14 @@ public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 		};
 		return generator;
 	}
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+
+	@Override
+	public void initializeFromBaseBoard()
+	{		
+
+	}
+	
+	//</editor-fold>
 }

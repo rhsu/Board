@@ -304,4 +304,14 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 		};
 		return generator;
 	}
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+
+	@Override
+	public void initializeFromBaseBoard()
+	{		
+
+	}
+	
+	//</editor-fold>
 }

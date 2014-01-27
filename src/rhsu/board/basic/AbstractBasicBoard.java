@@ -387,12 +387,6 @@ public abstract class AbstractBasicBoard<T>
 		this.initializeFromBaseBoard();
 	}
 	
-	@Override
-	public void initializeFromBaseBoard()
-	{
-		
-	}
-	
 	private void initializeBaseBoard()
 	{
 		this.horizontal_size = baseBoard.getHorizontal_size();
