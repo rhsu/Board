@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import rhsu.board.Board;
 import rhsu.board.BoardPiece;
+import rhsu.board.IO.BoardIO;
 import rhsu.board.IO.BoardWriter;
 import rhsu.board.RandomGenerator;
 
@@ -14,7 +15,8 @@ import rhsu.board.RandomGenerator;
  * 
  * @param <T> Tye type of elements for the abstract board
  */
-public abstract class AbstractBasicBoard<T> implements Board<T>
+public abstract class AbstractBasicBoard<T> 
+	implements Board<T>, BoardIO
 {	
 	//<editor-fold desc="Member Variables" defaultstate="collapsed">
 	
