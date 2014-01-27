@@ -320,17 +320,7 @@ public abstract class AbstractBasicBoard<T>
 	}
 	
 	//</editor-fold>
-	
-	/**
-	 * Exports the board object
-	 * @param filename the name of the file to be exported
-	 */
-	@Override
-	public void export(String filename)
-	{
-		BoardWriter.write(filename, this);
-	}
-		
+			
 	//<editor-fold desc="Inheirited from Class Object" defaultstate="collapsed">
 	
 	/**
@@ -388,6 +378,18 @@ public abstract class AbstractBasicBoard<T>
 		this.baseBoard = BoardReader.getBoardFromFile(reader);
 	}
 	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+	
+	/**
+	 * Exports the board object
+	 * @param filename the name of the file to be exported
+	 */
+	@Override
+	public void export(String filename)
+	{
+		BoardWriter.write(filename, this);
+	}
+	
 	@Override
 	public void populateFromFile(String filename)
 	{
@@ -415,5 +417,7 @@ public abstract class AbstractBasicBoard<T>
 		this.board = new BasicBoardPiece[horizontal_size][vertical_size];
 		this.size = this.horizontal_size * this.vertical_size;
 	}
+	
+	//</editor-fold>
 }
 
