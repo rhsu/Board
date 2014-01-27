@@ -90,7 +90,8 @@ public class CharBoard extends AbstractBasicBoard<Character>
 		this.populateFromResource(resource);
 	}
 	
-	private void initializeFromBaseBoard()
+	@Override
+	public void initializeFromBaseBoard()
 	{
 		for(int i = 0; i < horizontal_size; i++)
 		{

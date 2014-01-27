@@ -6,4 +6,5 @@ public interface BoardIO
 {
 	public void populateFromFile(String filename);
 	public void populateFromResource(BufferedReader reader);
+	public void initializeFromBaseBoard();
 }

@@ -14,6 +14,7 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 	private static final boolean DEFAULT_VALUE = false;
 	
 	//<editor-fold desc="Constructors" defaultstate="collapsed">
+	
 	@SuppressWarnings({"unchecked"})
 	public BooleanBoard(int h, int v, boolean defaultValue)
 	{
@@ -66,7 +67,6 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 	{
 		super.populateFromFile(filename);
 		System.out.println("In boolean board... Calling initializeFromBaseBoard");
-		this.initializeFromBaseBoard();
 	}
 	
 	@Override
@@ -74,20 +74,10 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 	{
 		super.populateFromResource(resource);
 		System.out.println("In boolean board... Calling initializeFromBaseBoard");
-		this.initializeFromBaseBoard();
 	}
 	
-	private void doPopulateFromFile(String filename)
-	{
-		this.populateFromFile(filename);
-	}
-	
-	private void doPopulateFromResource(BufferedReader resource)
-	{
-		this.populateFromResource(resource);
-	}
-	
-	private void initializeFromBaseBoard()
+	@Override
+	public void initializeFromBaseBoard()
 	{
 		for(int i = 0; i < horizontal_size; i++)
 		{
@@ -99,6 +89,16 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 						: Boolean.valueOf(baseBoard.getValueAt(i, j)));
 			}
 		}
+	}
+	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename);
+	}
+	
+	private void doPopulateFromResource(BufferedReader resource)
+	{
+		this.populateFromResource(resource);
 	}
 	
 	//</editor-fold>

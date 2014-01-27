@@ -392,6 +392,7 @@ public abstract class AbstractBasicBoard<T>
 	{
 		System.out.println("In abstract basic board... Calling initalize base board");
 		initializeBaseBoard();
+		this.initializeFromBaseBoard();
 	}
 	
 	@Override
@@ -399,6 +400,13 @@ public abstract class AbstractBasicBoard<T>
 	{
 		System.out.println("In abstract basic board... Calling initalize base board");
 		initializeBaseBoard();
+		this.initializeFromBaseBoard();
+	}
+	
+	@Override
+	public void initializeFromBaseBoard()
+	{
+		
 	}
 	
 	private void initializeBaseBoard()
