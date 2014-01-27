@@ -31,11 +31,7 @@ public class CharBoard extends AbstractBasicBoard<Character>
 		this(h, v, DEFAULT_VALUE);
 	}
 
-	/**
-	 * Constructor to create a Character Board based off of a file 
-	 * @param filename the name of the file to create a Character Board from
-	 */
-	@SuppressWarnings({"unchecked"})
+	/*@SuppressWarnings({"unchecked"})
 	public CharBoard(String filename)
 	{
 		super(filename);
@@ -47,10 +43,10 @@ public class CharBoard extends AbstractBasicBoard<Character>
 	{
 		super(bufferedReader);
 		initializeFromBaseBoard();
-	}
+	}*/
 	//</editor-fold>
 	
-	private void initializeFromBaseBoard()
+	/*private void initializeFromBaseBoard()
 	{
 		for(int i = 0; i < horizontal_size; i++)
 		{
@@ -60,7 +56,7 @@ public class CharBoard extends AbstractBasicBoard<Character>
 						baseBoard.getValueAt(i, j).charAt(0));
 			}
 		}
-	}
+	}*/
 			
 	@Override
 	public RandomGenerator<Character> randomGenerator() 

@@ -35,10 +35,7 @@ public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 		super(h, v, defaultValue);
 	}
 	
-	/**
-	 * Constructor to create a BigIntegerBoard based off of a file 
-	 * @param filename the name of the file to create a BigIntegerBoard from
-	 */
+	/*
 	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(String filename)
 	{
@@ -71,7 +68,7 @@ public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 	{
 		super(bufferedReader);
 		initializeFromBaseBoard(handleType, defaultValue);
-	}
+	}*/
 	//</editor-fold>
 	
 	private void initializeFromBaseBoard(HandleType handleType, BigInteger defaultValue)

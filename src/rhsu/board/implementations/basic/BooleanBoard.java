@@ -30,10 +30,7 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 		this(h, v, DEFAULT_VALUE);
 	}
 
-	/**
-	 * Constructor to create a BooleanBoard based off of a file 
-	 * @param filename the name of the file to create a BooleanBoard from
-	 */
+	/*
 	@SuppressWarnings({"unchecked"})
 	public BooleanBoard(String filename)
 	{
@@ -45,10 +42,10 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 	{
 		super(bufferedReader);
 		initializeFromBaseBoard();
-	}
+	}*/
 	//</editor-fold>
 	
-	private void initializeFromBaseBoard()
+	/*private void initializeFromBaseBoard()
 	{
 		for(int i = 0; i < horizontal_size; i++)
 		{
@@ -60,7 +57,7 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 						: Boolean.valueOf(baseBoard.getValueAt(i, j)));
 			}
 		}
-	}
+	}*/
 	
 	@Override
 	public RandomGenerator<Boolean> randomGenerator()

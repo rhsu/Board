@@ -33,11 +33,8 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	{
 		this(h, v, DEFAULT_VALUE);
 	}
-	
-	/**
-	 * Constructor to create a DoubleBoard based off of a file 
-	 * @param filename the name of the file to create a DoubleBoard from
-	 */
+
+	/*
 	@SuppressWarnings({"unchecked"})
 	public DoubleBoard(String filename)
 	{
@@ -71,7 +68,7 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	{
 		super(bufferedReader);
 		initialializeFromBaseBoard(handleType, defaultValue);
-	}
+	}*/
 	//</editor-fold>
 	
 	private void initialializeFromBaseBoard(HandleType handleType, Double defaultValue)

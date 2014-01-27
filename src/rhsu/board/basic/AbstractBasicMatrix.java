@@ -25,7 +25,7 @@ public abstract class AbstractBasicMatrix<T> extends AbstractBasicBoard<T> imple
 		super(horizontal, vertical, defaultValue);
 	}
 			
-	public AbstractBasicMatrix(String filename)
+	/*public AbstractBasicMatrix(String filename)
 	{
 		super(filename);
 		handler = new ExceptionHandler<>();
@@ -34,7 +34,7 @@ public abstract class AbstractBasicMatrix<T> extends AbstractBasicBoard<T> imple
 	public AbstractBasicMatrix(BufferedReader bufferedReader)
 	{
 		super(bufferedReader);
-	}
+	}*/
 	
 	protected void CheckDimensions(OperationType type)
 	{

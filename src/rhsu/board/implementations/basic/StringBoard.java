@@ -32,27 +32,23 @@ public class StringBoard extends AbstractBasicBoard<String>
 		this(h, v, DEFAULT_VALUE);
 	}
 	
-	@SuppressWarnings({"unchecked"})
+	/*@SuppressWarnings({"unchecked"})
 	public StringBoard(BufferedReader bufferedReader)
 	{
 		super(bufferedReader);
 		initializeFromBaseBoard();
 	}
 	
-	/**
-	 * Constructor to create a StringBoard based off of a file 
-	 * @param filename the name of the file to create a StringBoard from
-	 */
 	@SuppressWarnings({"unchecked"})
 	public StringBoard(String filename)
 	{
 		super(filename);
 		initializeFromBaseBoard();
-	}
+	}*/
 	
 	//</editor-fold>
 	
-	private void initializeFromBaseBoard()
+	/*private void initializeFromBaseBoard()
 	{		
 		for(int i = 0; i < horizontal_size; i++)
 		{
@@ -62,7 +58,7 @@ public class StringBoard extends AbstractBasicBoard<String>
 						baseBoard.getValueAt(i, j));
 			}
 		}
-	}
+	}*/
 
 	@Override
 	public RandomGenerator<String> randomGenerator() 

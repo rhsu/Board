@@ -35,10 +35,7 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 		super(h, v, defaultValue);
 	}
 	
-	/**
-	 * Constructor to create a BigDecimalBoard based off of a file 
-	 * @param filename the name of the file to create a BigDecimalBoard from
-	 */
+	/*
 	@SuppressWarnings({"unchecked"})
 	public BigDecimalBoard(String filename)
 	{
@@ -71,7 +68,7 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 	{
 		super(bufferedReader);
 		initializeFromBaseBoard(handleType, defaultValue);
-	}
+	}*/
 	//</editor-fold>
 	
 	private void initializeFromBaseBoard(HandleType handleType, BigDecimal defaultValue)

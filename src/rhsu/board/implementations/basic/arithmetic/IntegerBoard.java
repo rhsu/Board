@@ -1,6 +1,5 @@
 package rhsu.board.implementations.basic.arithmetic;
 
-import java.io.BufferedReader;
 import java.util.Random;
 import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
@@ -34,10 +33,7 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 		this(h, v, DEFAULT_VALUE);
 	}
 	
-	/**
-	 * Constructor to create a IntegerBoard based off of a file 
-	 * @param filename the name of the file to create a IntegerBoard from
-	 */
+	/*
 	@SuppressWarnings({"unchecked"})
 	public IntegerBoard(String filename)
 	{		
@@ -70,7 +66,7 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 	{
 		super(bufferedReader);
 		initializeFromBaseBoard(handleType, defaultValue);
-	}
+	}*/
 	
 	//</editor-fold>	
 	

@@ -1,13 +1,11 @@
 package rhsu.board.basic;
 
-import java.io.BufferedReader;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import rhsu.board.Board;
 import rhsu.board.BoardPiece;
-import rhsu.board.IO.BoardReader;
 import rhsu.board.IO.BoardWriter;
 import rhsu.board.RandomGenerator;
 
@@ -66,10 +64,8 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 		}
 	}
 	
-	/**
-	 * Constructor for building an instance of an abstract board from a file.
-	 * @param filename 
-	 */
+	
+	/*
 	@SuppressWarnings({"unchecked"})
 	public AbstractBasicBoard(String filename)
 	{
@@ -90,7 +86,7 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 		this.vertical_size = baseBoard.getVertical_size();
 		this.board = new BasicBoardPiece[horizontal_size][vertical_size];
 		this.size = this.horizontal_size * this.vertical_size;
-	}
+	}*/
 	
 	//</editor-fold>
 	
