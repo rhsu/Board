@@ -67,23 +67,17 @@ public abstract class AbstractBasicBoard<T>
 			}
 		}
 	}
-	
-	
-	/*
-	@SuppressWarnings({"unchecked"})
+
 	public AbstractBasicBoard(String filename)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(filename);
-		initializeBaseBoard();
 	}
 	
-	@SuppressWarnings({"unchecked"})
 	public AbstractBasicBoard(BufferedReader reader)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(reader);
-		initializeBaseBoard();
-	}*/
-
+	}
+	
 	//</editor-fold>
 	
 	//<editor-fold desc="Inheirited from Board Interface: Piece Retrieval Methods" defaultstate="collapsed">
@@ -366,17 +360,6 @@ public abstract class AbstractBasicBoard<T>
 	}
 	
 	//</editor-fold>
-	
-	
-	public AbstractBasicBoard(String filename)
-	{
-		this.baseBoard = BoardReader.getBoardFromFile(filename);
-	}
-	
-	public AbstractBasicBoard(BufferedReader reader)
-	{
-		this.baseBoard = BoardReader.getBoardFromFile(reader);
-	}
 	
 	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
 	
