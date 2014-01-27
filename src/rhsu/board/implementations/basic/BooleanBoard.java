@@ -30,19 +30,17 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 		this(h, v, DEFAULT_VALUE);
 	}
 
-	/*
-	@SuppressWarnings({"unchecked"})
 	public BooleanBoard(String filename)
 	{
 		super(filename);
-		initializeFromBaseBoard();
+		this.doPopulateFromFile(filename);
 	}
 	
-	public BooleanBoard(BufferedReader bufferedReader)
+	public BooleanBoard(BufferedReader reader)
 	{
-		super(bufferedReader);
-		initializeFromBaseBoard();
-	}*/
+		super(reader);
+		this.doPopulateFromResource(reader);
+	}
 	//</editor-fold>
 		
 	@Override
@@ -60,30 +58,9 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 		};
 		return generator;
 	}
-	
-	public BooleanBoard(String filename)
-	{
-		super(filename);
-		this.doPopulateFromFile(filename);
-	}
-	
-	public BooleanBoard(BufferedReader reader)
-	{
-		super(reader);
-		this.doPopulateFromResource(reader);
-	}
-	
-	
-	private void doPopulateFromFile(String filename)
-	{
-		this.populateFromFile(filename);
-	}
-	
-	private void doPopulateFromResource(BufferedReader resource)
-	{
-		this.populateFromResource(resource);
-	}
-	
+		
+	//<editor-fold desc="BoardIO methods" defaultstate="collapsed">
+
 	@Override
 	public void populateFromFile(String filename)
 	{
@@ -100,6 +77,16 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 		this.initializeFromBaseBoard();
 	}
 	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename);
+	}
+	
+	private void doPopulateFromResource(BufferedReader resource)
+	{
+		this.populateFromResource(resource);
+	}
+	
 	private void initializeFromBaseBoard()
 	{
 		for(int i = 0; i < horizontal_size; i++)
@@ -113,4 +100,6 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 			}
 		}
 	}
+	
+	//</editor-fold>
 }
