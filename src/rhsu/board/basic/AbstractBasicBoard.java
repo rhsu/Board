@@ -1,5 +1,6 @@
 package rhsu.board.basic;
 
+import java.io.BufferedReader;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -381,5 +382,29 @@ public abstract class AbstractBasicBoard<T>
 	}
 	
 	//</editor-fold>
+	
+	
+	
+	public AbstractBasicBoard(String filename)
+	{
+		
+	}
+	
+	public AbstractBasicBoard(BufferedReader reader)
+	{
+		
+	}
+	
+	@Override
+	public void populateFromFile(String filename)
+	{
+		System.out.println("In abstract basic board... not implemented yet");
+	}
+	
+	@Override
+	public void populateFromResource(BufferedReader reader)
+	{
+		System.out.println("In abstract basic board... not implemented yet");
+	}
 }
 

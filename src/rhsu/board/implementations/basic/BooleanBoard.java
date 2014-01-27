@@ -74,4 +74,41 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 		};
 		return generator;
 	}
+	
+	public BooleanBoard(String filename)
+	{
+		super(filename);
+		this.doPopulateFromFile(filename);
+	}
+	
+	public BooleanBoard(BufferedReader reader)
+	{
+		super(reader);
+		this.doPopulateFromResource(reader);
+	}
+	
+	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename);
+	}
+	
+	private void doPopulateFromResource(BufferedReader resource)
+	{
+		this.populateFromResource(resource);
+	}
+	
+	@Override
+	public void populateFromFile(String filename)
+	{
+		super.populateFromFile(filename);
+		System.out.println("In boolean board... not implemented yet");
+	}
+	
+	@Override
+	public void populateFromResource(BufferedReader resource)
+	{
+		super.populateFromResource(resource);
+		System.out.println("In boolean board... not implemented yet");
+	}
 }

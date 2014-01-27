@@ -1,7 +1,6 @@
 package rhsu.board.test;
 
-import rhsu.board.implementations.basic.StringBoard;
-import rhsu.board.implementations.basic.CharBoard;
+import rhsu.board.implementations.basic.*;
 import java.io.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -11,6 +10,7 @@ import rhsu.board.IO.*;
 import rhsu.board.basic.AbstractBasicBoard;
 import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.implementations.basic.BooleanBoard;
 import rhsu.board.implementations.basic.arithmetic.IntegerBoard;
 import rhsu.board.resources.ResourceRetriever;
 import rhsu.board.xc.*;
@@ -24,9 +24,9 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		//BufferedReader reader = ResourceRetriever.GetResource("ExampleCharBoard");
+		BufferedReader reader = ResourceRetriever.GetResource("ExampleCharBoard");
 		
-		//CharBoard test = new CharBoard(reader);
+		BooleanBoard test = new BooleanBoard(reader);
 		
 		//print(test);
 	}
