@@ -8,6 +8,7 @@ import java.util.List;
 import rhsu.board.Board;
 import rhsu.board.BoardPiece;
 import rhsu.board.IO.BoardIO;
+import rhsu.board.IO.BoardReader;
 import rhsu.board.IO.BoardWriter;
 import rhsu.board.RandomGenerator;
 
@@ -81,16 +82,8 @@ public abstract class AbstractBasicBoard<T>
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(reader);
 		initializeBaseBoard();
-	}
-	
-	private void initializeBaseBoard()
-	{
-		this.horizontal_size = baseBoard.getHorizontal_size();
-		this.vertical_size = baseBoard.getVertical_size();
-		this.board = new BasicBoardPiece[horizontal_size][vertical_size];
-		this.size = this.horizontal_size * this.vertical_size;
 	}*/
-	
+
 	//</editor-fold>
 	
 	//<editor-fold desc="Inheirited from Board Interface: Piece Retrieval Methods" defaultstate="collapsed">
@@ -384,27 +377,40 @@ public abstract class AbstractBasicBoard<T>
 	//</editor-fold>
 	
 	
-	
 	public AbstractBasicBoard(String filename)
 	{
-		
+		this.baseBoard = BoardReader.getBoardFromFile(filename);
 	}
 	
 	public AbstractBasicBoard(BufferedReader reader)
 	{
-		
+		this.baseBoard = BoardReader.getBoardFromFile(reader);
 	}
 	
 	@Override
 	public void populateFromFile(String filename)
 	{
-		System.out.println("In abstract basic board... not implemented yet");
+		System.out.println("In abstract basic board... Calling initalize base board");
+		initializeBaseBoard();
 	}
 	
 	@Override
 	public void populateFromResource(BufferedReader reader)
 	{
-		System.out.println("In abstract basic board... not implemented yet");
+		System.out.println("In abstract basic board... Calling initalize base board");
+		initializeBaseBoard();
+	}
+	
+	private void initializeBaseBoard()
+	{
+		this.horizontal_size = baseBoard.getHorizontal_size();
+		this.vertical_size = baseBoard.getVertical_size();
+		this.board = new BasicBoardPiece[horizontal_size][vertical_size];
+		this.size = this.horizontal_size * this.vertical_size;
+		
+		System.out.println("Testing...");
+		System.out.println("The horizontal size is " + horizontal_size);
+		System.out.println("The vertical size is " + vertical_size);
 	}
 }
 

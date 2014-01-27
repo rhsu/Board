@@ -44,21 +44,7 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 		initializeFromBaseBoard();
 	}*/
 	//</editor-fold>
-	
-	/*private void initializeFromBaseBoard()
-	{
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for(int j = 0; j < vertical_size; j++)
-			{
-				board[i][j] = new BasicBoardPiece(i, j, 
-						baseBoard.getValueAt(i, j).equals("1")
-						? true
-						: Boolean.valueOf(baseBoard.getValueAt(i, j)));
-			}
-		}
-	}*/
-	
+		
 	@Override
 	public RandomGenerator<Boolean> randomGenerator()
 	{
@@ -102,13 +88,29 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 	public void populateFromFile(String filename)
 	{
 		super.populateFromFile(filename);
-		System.out.println("In boolean board... not implemented yet");
+		System.out.println("In boolean board... Calling initializeFromBaseBoard");
+		this.initializeFromBaseBoard();
 	}
 	
 	@Override
 	public void populateFromResource(BufferedReader resource)
 	{
 		super.populateFromResource(resource);
-		System.out.println("In boolean board... not implemented yet");
+		System.out.println("In boolean board... Calling initializeFromBaseBoard");
+		this.initializeFromBaseBoard();
+	}
+	
+	private void initializeFromBaseBoard()
+	{
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				board[i][j] = new BasicBoardPiece(i, j, 
+						baseBoard.getValueAt(i, j).equals("1")
+						? true
+						: Boolean.valueOf(baseBoard.getValueAt(i, j)));
+			}
+		}
 	}
 }

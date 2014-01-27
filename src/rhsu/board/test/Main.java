@@ -24,10 +24,10 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		BufferedReader reader = ResourceRetriever.GetResource("ExampleCharBoard");
+		BufferedReader reader = ResourceRetriever.GetResource("ExampleBooleanBoard");
 		
 		BooleanBoard test = new BooleanBoard(reader);
 		
-		//print(test);
+		print(test);
 	}
 }
