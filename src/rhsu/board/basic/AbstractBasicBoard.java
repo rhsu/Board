@@ -325,6 +325,7 @@ public abstract class AbstractBasicBoard<T>
 	 * Exports the board object
 	 * @param filename the name of the file to be exported
 	 */
+	@Override
 	public void export(String filename)
 	{
 		BoardWriter.write(filename, this);
