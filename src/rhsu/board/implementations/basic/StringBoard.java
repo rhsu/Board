@@ -32,19 +32,19 @@ public class StringBoard extends AbstractBasicBoard<String>
 		this(h, v, DEFAULT_VALUE);
 	}
 	
-	/*@SuppressWarnings({"unchecked"})
+	@SuppressWarnings({"unchecked"})
 	public StringBoard(BufferedReader bufferedReader)
 	{
 		super(bufferedReader);
-		initializeFromBaseBoard();
+		this.doPopulateFromResource(bufferedReader);
 	}
 	
 	@SuppressWarnings({"unchecked"})
 	public StringBoard(String filename)
 	{
 		super(filename);
-		initializeFromBaseBoard();
-	}*/
+		this.doPopulateFromFile(filename);
+	}
 	
 	//</editor-fold>
 	
@@ -63,7 +63,21 @@ public class StringBoard extends AbstractBasicBoard<String>
 	}
 	
 	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
-
+	
+	@Override
+	public void populateFromResource(BufferedReader reader)
+	{
+		super.populateFromResource(reader);
+		this.initializeFromBaseBoard();
+	}
+	
+	@Override
+	public void populateFromFile(String filename)
+	{
+		super.populateFromFile(filename);
+		this.initializeFromBaseBoard();
+	}
+	
 	@Override
 	public void initializeFromBaseBoard()
 	{		
@@ -75,6 +89,16 @@ public class StringBoard extends AbstractBasicBoard<String>
 						baseBoard.getValueAt(i, j));
 			}
 		}
+	}
+	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename);
+	}
+	
+	private void doPopulateFromResource(BufferedReader resource)
+	{
+		this.populateFromResource(resource);
 	}
 	
 	//</editor-fold>
