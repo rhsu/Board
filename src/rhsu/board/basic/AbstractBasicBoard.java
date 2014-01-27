@@ -390,7 +390,6 @@ public abstract class AbstractBasicBoard<T>
 	@Override
 	public void populateFromFile(String filename)
 	{
-		System.out.println("In abstract basic board... Calling initalize base board");
 		initializeBaseBoard();
 		this.initializeFromBaseBoard();
 	}
@@ -398,7 +397,6 @@ public abstract class AbstractBasicBoard<T>
 	@Override
 	public void populateFromResource(BufferedReader reader)
 	{
-		System.out.println("In abstract basic board... Calling initalize base board");
 		initializeBaseBoard();
 		this.initializeFromBaseBoard();
 	}
@@ -415,10 +413,6 @@ public abstract class AbstractBasicBoard<T>
 		this.vertical_size = baseBoard.getVertical_size();
 		this.board = new BasicBoardPiece[horizontal_size][vertical_size];
 		this.size = this.horizontal_size * this.vertical_size;
-		
-		System.out.println("Testing...");
-		System.out.println("The horizontal size is " + horizontal_size);
-		System.out.println("The vertical size is " + vertical_size);
 	}
 }
 
