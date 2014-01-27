@@ -31,33 +31,20 @@ public class CharBoard extends AbstractBasicBoard<Character>
 		this(h, v, DEFAULT_VALUE);
 	}
 
-	/*@SuppressWarnings({"unchecked"})
 	public CharBoard(String filename)
 	{
 		super(filename);
-		initializeFromBaseBoard();
+		this.doPopulateFromFile(filename);
 	}
 
-	@SuppressWarnings({"unchecked"})
 	public CharBoard(BufferedReader bufferedReader)
 	{
 		super(bufferedReader);
-		initializeFromBaseBoard();
-	}*/
-	//</editor-fold>
+		this.doPopulateFromResource(bufferedReader);
+	}
 	
-	/*private void initializeFromBaseBoard()
-	{
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for(int j = 0; j < vertical_size; j++)
-			{
-				board[i][j] = new BasicBoardPiece(i, j, 
-						baseBoard.getValueAt(i, j).charAt(0));
-			}
-		}
-	}*/
-			
+	//</editor-fold>
+				
 	@Override
 	public RandomGenerator<Character> randomGenerator() 
 	{
@@ -76,4 +63,44 @@ public class CharBoard extends AbstractBasicBoard<Character>
 		};
 		return generator;
 	}
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+	
+	@Override
+	public void populateFromFile(String filename)
+	{
+		super.populateFromFile(filename);
+		this.initializeFromBaseBoard();
+	}
+	
+	@Override
+	public void populateFromResource(BufferedReader resource)
+	{
+		super.populateFromResource(resource);
+		this.initializeFromBaseBoard();
+	}
+	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename);
+	}
+	
+	private void doPopulateFromResource(BufferedReader resource)
+	{
+		this.populateFromResource(resource);
+	}
+	
+	private void initializeFromBaseBoard()
+	{
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				board[i][j] = new BasicBoardPiece(i, j, 
+						baseBoard.getValueAt(i, j).charAt(0));
+			}
+		}
+	}
+	
+	//</editor-fold>
 }
