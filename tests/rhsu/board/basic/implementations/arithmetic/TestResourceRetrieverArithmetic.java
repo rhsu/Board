@@ -20,7 +20,7 @@ public class TestResourceRetrieverArithmetic
 	public void testDoubleBoard()
 	{
 		DoubleBoard testBoard = new DoubleBoard(
-				ResourceRetriever.GetResource("testZeroBoard", testResource));
+			ResourceRetriever.GetResource("testZeroBoard", testResource));
 		assertEquals(testBoard.toString(), new DoubleBoard(2,2).toString());
 	}
 	
@@ -36,7 +36,7 @@ public class TestResourceRetrieverArithmetic
 	public void testBigDecimalBoard()
 	{
 		BigDecimalBoard testBoard = new BigDecimalBoard(
-				ResourceRetriever.GetResource("testZeroBoard", testResource));
+			ResourceRetriever.GetResource("testZeroBoard", testResource));
 		assertEquals(testBoard.toString(), new BigDecimalBoard(2,2).toString());
 	}
 	

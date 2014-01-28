@@ -9,10 +9,6 @@ public class ExceptionHandler<T>
 	 * Static function for handling exceptions
 	 * @param exception the exception to handle
 	 */
-	/**
-	 *
-	 * @param exception
-	 */
 	public static void Handle(Exception exception)
 	{
 		Handle(exception, HandleType.RuntimeError);
@@ -22,11 +18,6 @@ public class ExceptionHandler<T>
 	 * Static function for handling exceptions
 	 * @param exception the exception to handler
 	 * @param type the Handling Type on how to handle the exception
-	 */
-	/**
-	 *
-	 * @param exception
-	 * @param type
 	 */
 	public static void Handle(Exception exception, HandleType type)
 	{
