@@ -35,8 +35,6 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 		super(h, v, defaultValue);
 	}
 	
-	/*
-	@SuppressWarnings({"unchecked"})
 	public BigDecimalBoard(String filename)
 	{
 		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
@@ -51,7 +49,7 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 	public BigDecimalBoard(String filename, HandleType handleType, BigDecimal defaultValue)
 	{
 		super(filename);
-		initializeFromBaseBoard(handleType, defaultValue);
+		//initializeFromBaseBoard(handleType, defaultValue);
 	}
 	
 	public BigDecimalBoard(BufferedReader bufferedReader)
@@ -67,34 +65,10 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 	public BigDecimalBoard(BufferedReader bufferedReader, HandleType handleType, BigDecimal defaultValue)
 	{
 		super(bufferedReader);
-		initializeFromBaseBoard(handleType, defaultValue);
-	}*/
-	//</editor-fold>
-	
-	private void initializeFromBaseBoard(HandleType handleType, BigDecimal defaultValue)
-	{
-		BigDecimal value = null;
-		
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for(int j = 0; j < vertical_size; j++)
-			{
-				try
-				{
-					value = new BigDecimal(baseBoard.getValueAt(i, j));
-				}
-				catch(Exception exception)
-				{					
-					value = handler.AssignDefault(exception, handleType, defaultValue);
-				}
-				finally
-				{
-					board[i][j] = new BasicBoardPiece(i, j, value);
-				}
-			}
-		}
+		//initializeFromBaseBoard(handleType, defaultValue);
 	}
-	
+	//</editor-fold>
+		
 	@Override
 	public BigDecimalBoard add(Matrix<BigDecimal> m) 
 	{
@@ -332,9 +306,40 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
 
 	@Override
+	public void populateFromFile(String filename)
+	{
+		super.populateFromFile(filename);
+	}
+	
+	@Override
+	public void populateFromResource(BufferedReader resource)
+	{
+		super.populateFromResource(resource);
+	}
+	
+	@Override
 	public void initializeFromBaseBoard()
 	{		
-
+		BigDecimal value = null;
+		
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				try
+				{
+					value = new BigDecimal(baseBoard.getValueAt(i, j));
+				}
+				catch(Exception exception)
+				{					
+					value = handler.AssignDefault(exception, handleType, defaultValue);
+				}
+				finally
+				{
+					board[i][j] = new BasicBoardPiece(i, j, value);
+				}
+			}
+		}
 	}
 	
 	//</editor-fold>
