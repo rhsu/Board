@@ -65,7 +65,6 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 	@Override
 	public void initializeFromBaseBoard()
 	{
-		System.out.println("HERE???");
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
