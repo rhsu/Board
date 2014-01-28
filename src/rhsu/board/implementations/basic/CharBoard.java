@@ -67,20 +67,6 @@ public class CharBoard extends AbstractBasicBoard<Character>
 	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
 	
 	@Override
-	public void populateFromFile(String filename)
-	{
-		super.populateFromFile(filename);
-		this.initializeFromBaseBoard();
-	}
-	
-	@Override
-	public void populateFromResource(BufferedReader resource)
-	{
-		super.populateFromResource(resource);
-		this.initializeFromBaseBoard();
-	}
-	
-	@Override
 	public void initializeFromBaseBoard()
 	{
 		for(int i = 0; i < horizontal_size; i++)

@@ -61,24 +61,11 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 	}
 		
 	//<editor-fold desc="BoardIO methods" defaultstate="collapsed">
-
-	@Override
-	public void populateFromFile(String filename)
-	{
-		super.populateFromFile(filename);
-		System.out.println("In boolean board... Calling initializeFromBaseBoard");
-	}
-	
-	@Override
-	public void populateFromResource(BufferedReader resource)
-	{
-		super.populateFromResource(resource);
-		System.out.println("In boolean board... Calling initializeFromBaseBoard");
-	}
 	
 	@Override
 	public void initializeFromBaseBoard()
 	{
+		System.out.println("HERE???");
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)

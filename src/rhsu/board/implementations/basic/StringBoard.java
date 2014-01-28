@@ -65,20 +65,6 @@ public class StringBoard extends AbstractBasicBoard<String>
 	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
 	
 	@Override
-	public void populateFromResource(BufferedReader reader)
-	{
-		super.populateFromResource(reader);
-		this.initializeFromBaseBoard();
-	}
-	
-	@Override
-	public void populateFromFile(String filename)
-	{
-		super.populateFromFile(filename);
-		this.initializeFromBaseBoard();
-	}
-	
-	@Override
 	public void initializeFromBaseBoard()
 	{		
 		for(int i = 0; i < horizontal_size; i++)
@@ -86,7 +72,7 @@ public class StringBoard extends AbstractBasicBoard<String>
 			for(int j = 0; j < vertical_size; j++)
 			{
 				board[i][j] = new BasicBoardPiece(i, j, 
-						baseBoard.getValueAt(i, j));
+					baseBoard.getValueAt(i, j));
 			}
 		}
 	}
