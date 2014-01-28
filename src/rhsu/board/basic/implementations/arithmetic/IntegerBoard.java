@@ -34,11 +34,6 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 		this(h, v, DEFAULT_VALUE);
 	}
 	
-	/**
-	 * Constructor to create a IntegerBoard based off of a file 
-	 * @param filename the name of the file to create a IntegerBoard from
-	 */
-	@SuppressWarnings({"unchecked"})
 	public IntegerBoard(String filename)
 	{		
 		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
@@ -53,7 +48,7 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 	public IntegerBoard(String filename, HandleType handleType, Integer defaultValue)
 	{
 		super(filename);
-		initializeFromBaseBoard(handleType, defaultValue);
+		this.doPopulateFromFile(filename);
 	}
 
 	public IntegerBoard(BufferedReader bufferedReader)
@@ -69,45 +64,10 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 	public IntegerBoard(BufferedReader bufferedReader, HandleType handleType, Integer defaultValue)
 	{
 		super(bufferedReader);
-		initializeFromBaseBoard(handleType, defaultValue);
+		this.doPopulateFromResource(bufferedReader);
 	}
 	
 	//</editor-fold>	
-	
-	private void initializeFromBaseBoard(HandleType handleType, Integer defaultValue)
-	{
-		Integer value = null;
-		
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for(int j = 0; j < vertical_size; j++)
-			{				
-				if(baseBoard.pieceAt(i,j).getValue().equalsIgnoreCase("true"))
-				{
-					value = 1;
-				}
-				else if(baseBoard.pieceAt(i, j).getValue().equalsIgnoreCase("false"))
-				{
-					value = 0;
-				}
-				else
-				{
-					try
-					{
-						value = Integer.parseInt(baseBoard.getValueAt(i, j));
-					}
-					catch(Exception exception)
-					{
-						value = handler.AssignDefault(exception, handleType, defaultValue);
-					}
-					finally
-					{
-						board[i][j] = new BasicBoardPiece(i, j, value);
-					}
-				}
-			}
-		}
-	}
 	
 	@Override
 	public IntegerBoard add(Matrix<Integer> m) 
@@ -308,4 +268,54 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 		};
 		return generator;
 	}
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+
+	@Override
+	public void initializeFromBaseBoard()
+	{		
+		Integer value = null;
+		
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{				
+				if(baseBoard.pieceAt(i,j).getValue().equalsIgnoreCase("true"))
+				{
+					value = 1;
+				}
+				else if(baseBoard.pieceAt(i, j).getValue().equalsIgnoreCase("false"))
+				{
+					value = 0;
+				}
+				else
+				{
+					try
+					{
+						value = Integer.parseInt(baseBoard.getValueAt(i, j));
+					}
+					catch(Exception exception)
+					{
+						value = handler.AssignDefault(exception, handleType, defaultValue);
+					}
+					finally
+					{
+						board[i][j] = new BasicBoardPiece(i, j, value);
+					}
+				}
+			}
+		}
+	}
+	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename);
+	}
+	
+	private void doPopulateFromResource(BufferedReader resource)
+	{
+		this.populateFromResource(resource);
+	}
+	
+	//</editor-fold>
 }

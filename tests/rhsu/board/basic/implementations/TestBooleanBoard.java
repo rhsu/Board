@@ -2,6 +2,7 @@ package rhsu.board.basic.implementations;
 
 import static org.junit.Assert.*;
 import org.junit.*;
+import rhsu.board.implementations.basic.BooleanBoard;
 import rhsu.board.resources.ResourceRetriever;
 
 public class TestBooleanBoard 

@@ -3,15 +3,24 @@ package rhsu.board.utilities;
 public final class PrintUtilityDebugger 
 {
 	private int counter;
+	private boolean noCount;
 	
 	public PrintUtilityDebugger()
 	{
-		counter = 0;
+		this.noCount = false;
+		this.counter = 0;
+	}
+	
+	public PrintUtilityDebugger(boolean noCount)
+	{
+		this.noCount = noCount;
+		this.counter = 0;
 	}
 	
 	public void print(Object obj)
 	{
-		String output = String.format("%d: %s", ++counter, obj.toString());
+		String output = noCount ? String.format("%s", obj.toString())
+				: String.format("%d: %s", ++counter, obj.toString());
 		System.out.println(output);
 	}
 }

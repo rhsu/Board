@@ -35,11 +35,6 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 		super(h, v, defaultValue);
 	}
 	
-	/**
-	 * Constructor to create a BigDecimalBoard based off of a file 
-	 * @param filename the name of the file to create a BigDecimalBoard from
-	 */
-	@SuppressWarnings({"unchecked"})
 	public BigDecimalBoard(String filename)
 	{
 		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
@@ -54,7 +49,7 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 	public BigDecimalBoard(String filename, HandleType handleType, BigDecimal defaultValue)
 	{
 		super(filename);
-		initializeFromBaseBoard(handleType, defaultValue);
+		this.doPopulateFromFile(filename);
 	}
 	
 	public BigDecimalBoard(BufferedReader bufferedReader)
@@ -70,34 +65,10 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 	public BigDecimalBoard(BufferedReader bufferedReader, HandleType handleType, BigDecimal defaultValue)
 	{
 		super(bufferedReader);
-		initializeFromBaseBoard(handleType, defaultValue);
+		this.doPopulateFromResource(bufferedReader);
 	}
 	//</editor-fold>
-	
-	private void initializeFromBaseBoard(HandleType handleType, BigDecimal defaultValue)
-	{
-		BigDecimal value = null;
 		
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for(int j = 0; j < vertical_size; j++)
-			{
-				try
-				{
-					value = new BigDecimal(baseBoard.getValueAt(i, j));
-				}
-				catch(Exception exception)
-				{					
-					value = handler.AssignDefault(exception, handleType, defaultValue);
-				}
-				finally
-				{
-					board[i][j] = new BasicBoardPiece(i, j, value);
-				}
-			}
-		}
-	}
-	
 	@Override
 	public BigDecimalBoard add(Matrix<BigDecimal> m) 
 	{
@@ -331,4 +302,43 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 		};
 		return generator;
 	}
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+
+	@Override
+	public void initializeFromBaseBoard()
+	{		
+		BigDecimal value = null;
+		
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				try
+				{
+					value = new BigDecimal(baseBoard.getValueAt(i, j));
+				}
+				catch(Exception exception)
+				{					
+					value = handler.AssignDefault(exception, handleType, defaultValue);
+				}
+				finally
+				{
+					board[i][j] = new BasicBoardPiece(i, j, value);
+				}
+			}
+		}
+	}
+	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename);
+	}
+	
+	private void doPopulateFromResource(BufferedReader resource)
+	{
+		this.populateFromResource(resource);
+	}
+	
+	//</editor-fold>
 }

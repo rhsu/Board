@@ -35,11 +35,6 @@ public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 		super(h, v, defaultValue);
 	}
 	
-	/**
-	 * Constructor to create a BigIntegerBoard based off of a file 
-	 * @param filename the name of the file to create a BigIntegerBoard from
-	 */
-	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(String filename)
 	{
 		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
@@ -50,11 +45,10 @@ public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 		this(filename, HandleType.Ignore, defaultValue);
 	}
 		
-	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(String filename, HandleType handleType, BigInteger defaultValue)
 	{
 		super(filename);
-		initializeFromBaseBoard(handleType, defaultValue);
+		this.doPopulateFromFile(filename);
 	}
 	
 	public BigIntegerBoard(BufferedReader bufferedReader)
@@ -70,34 +64,10 @@ public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 	public BigIntegerBoard(BufferedReader bufferedReader, HandleType handleType, BigInteger defaultValue)
 	{
 		super(bufferedReader);
-		initializeFromBaseBoard(handleType, defaultValue);
+		this.doPopualteFromResource(bufferedReader);
 	}
 	//</editor-fold>
-	
-	private void initializeFromBaseBoard(HandleType handleType, BigInteger defaultValue)
-	{
-		BigInteger value = null;
 		
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for(int j = 0; j < vertical_size; j++)
-			{
-				try
-				{
-					value = new BigInteger(baseBoard.getValueAt(i,j));
-				}
-				catch(Exception exception)
-				{
-					value = handler.AssignDefault(exception, handleType, defaultValue);
-				}
-				finally
-				{
-					board[i][j] = new BasicBoardPiece(i, j, value);
-				}
-			}
-		}
-	}
-	
 	@Override
 	public BigIntegerBoard add(Matrix<BigInteger> m) 
 	{
@@ -330,4 +300,43 @@ public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 		};
 		return generator;
 	}
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+
+	@Override
+	public void initializeFromBaseBoard()
+	{		
+		BigInteger value = null;
+		
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				try
+				{
+					value = new BigInteger(baseBoard.getValueAt(i,j));
+				}
+				catch(Exception exception)
+				{
+					value = handler.AssignDefault(exception, handleType, defaultValue);
+				}
+				finally
+				{
+					board[i][j] = new BasicBoardPiece(i, j, value);
+				}
+			}
+		}
+	}
+	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename);
+	}
+	
+	private void doPopualteFromResource(BufferedReader resource)
+	{
+		this.populateFromResource(resource);
+	}
+	
+	//</editor-fold>
 }
