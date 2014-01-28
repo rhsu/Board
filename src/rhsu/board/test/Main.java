@@ -1,14 +1,17 @@
 package rhsu.board.test;
 
-import rhsu.board.basic.implementations.StringBoard;
-import rhsu.board.basic.implementations.CharBoard;
+import rhsu.board.implementations.basic.*;
 import java.io.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.*;
 import rhsu.board.*;
 import rhsu.board.IO.*;
+import rhsu.board.basic.AbstractBasicBoard;
+import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.implementations.basic.BooleanBoard;
+import rhsu.board.implementations.basic.arithmetic.*;
 import rhsu.board.resources.ResourceRetriever;
 import rhsu.board.xc.*;
 
@@ -21,15 +24,10 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		StringBoard board = new StringBoard(2,2);
-		StringBoard board3 = new StringBoard(2,2);
-		CharBoard board2 = new CharBoard(2,2);
+		BufferedReader reader = ResourceRetriever.GetResource("ExampleIntegerBoard");
 		
-		//print(board.getClass());
-		//print(board2.getClass());
+		Board test = new IntegerBoard(reader);
 		
-		//print(board.getClass().equals(board2.getClass()));
-		
-		print(board.equals(board2));
+		print(test);
 	}
 }
