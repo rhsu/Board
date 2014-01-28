@@ -1,19 +1,9 @@
 package rhsu.board.test;
 
-import rhsu.board.implementations.basic.*;
-import java.io.*;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.*;
-import rhsu.board.*;
-import rhsu.board.IO.*;
-import rhsu.board.basic.AbstractBasicBoard;
-import rhsu.board.basic.BasicBoardPiece;
-import rhsu.board.exceptionHandler.ExceptionHandler;
-import rhsu.board.implementations.basic.BooleanBoard;
-import rhsu.board.implementations.basic.arithmetic.*;
+import java.io.BufferedReader;
+import rhsu.board.Board;
+import rhsu.board.implementations.basic.arithmetic.IntegerBoard;
 import rhsu.board.resources.ResourceRetriever;
-import rhsu.board.xc.*;
 
 public class Main
 {	
