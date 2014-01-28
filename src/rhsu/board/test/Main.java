@@ -11,7 +11,7 @@ import rhsu.board.basic.AbstractBasicBoard;
 import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board.implementations.basic.BooleanBoard;
-import rhsu.board.implementations.basic.arithmetic.IntegerBoard;
+import rhsu.board.implementations.basic.arithmetic.*;
 import rhsu.board.resources.ResourceRetriever;
 import rhsu.board.xc.*;
 
@@ -24,9 +24,9 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		BufferedReader reader = ResourceRetriever.GetResource("ExampleStringBoard");
+		BufferedReader reader = ResourceRetriever.GetResource("ExampleBigDoubleBoard");
 		
-		StringBoard test = new StringBoard(reader);
+		Board test = new BigDecimalBoard(reader);
 		
 		print(test);
 	}
