@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import rhsu.board.Board;
 import rhsu.board.BoardPiece;
+import rhsu.board.IO.BoardIO;
 import rhsu.board.IO.BoardReader;
 import rhsu.board.IO.BoardWriter;
 import rhsu.board.RandomGenerator;
@@ -16,7 +17,8 @@ import rhsu.board.RandomGenerator;
  * 
  * @param <T> Tye type of elements for the abstract board
  */
-public abstract class AbstractBasicBoard<T> implements Board<T>
+public abstract class AbstractBasicBoard<T> 
+	implements Board<T>, BoardIO
 {	
 	//<editor-fold desc="Member Variables" defaultstate="collapsed">
 	
@@ -73,31 +75,15 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 			}
 		}
 	}
-	
-	/**
-	 * Constructor for building an instance of an abstract board from a file.
-	 * @param filename 
-	 */
-	@SuppressWarnings({"unchecked"})
+
 	public AbstractBasicBoard(String filename)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(filename);
-		initializeBaseBoard();
 	}
 	
-	@SuppressWarnings({"unchecked"})
 	public AbstractBasicBoard(BufferedReader reader)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(reader);
-		initializeBaseBoard();
-	}
-	
-	private void initializeBaseBoard()
-	{
-		this.horizontal_size = baseBoard.getHorizontal_size();
-		this.vertical_size = baseBoard.getVertical_size();
-		this.board = new BasicBoardPiece[horizontal_size][vertical_size];
-		this.size = this.horizontal_size * this.vertical_size;
 	}
 	
 	//</editor-fold>
@@ -336,16 +322,7 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	}
 	
 	//</editor-fold>
-	
-	/**
-	 * Exports the board object
-	 * @param filename the name of the file to be exported
-	 */
-	public void export(String filename)
-	{
-		BoardWriter.write(filename, this);
-	}
-		
+			
 	//<editor-fold desc="Inheirited from Class Object" defaultstate="collapsed">
 	
 	/**
@@ -388,6 +365,42 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 		AbstractBasicBoard otherAbstractBoard = (AbstractBasicBoard) other;
 		
 		return (otherAbstractBoard.hashCode() == other.hashCode());
+	}
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+	
+	/**
+	 * Exports the board object
+	 * @param filename the name of the file to be exported
+	 */
+	@Override
+	public void export(String filename)
+	{
+		BoardWriter.write(filename, this);
+	}
+	
+	@Override
+	public void populateFromFile(String filename)
+	{
+		initializeBaseBoard();
+		this.initializeFromBaseBoard();
+	}
+	
+	@Override
+	public void populateFromResource(BufferedReader reader)
+	{
+		initializeBaseBoard();
+		this.initializeFromBaseBoard();
+	}
+	
+	private void initializeBaseBoard()
+	{
+		this.horizontal_size = baseBoard.getHorizontal_size();
+		this.vertical_size = baseBoard.getVertical_size();
+		this.board = new BasicBoardPiece[horizontal_size][vertical_size];
+		this.size = this.horizontal_size * this.vertical_size;
 	}
 	
 	//</editor-fold>

@@ -67,4 +67,10 @@ public class BasicMobilityBoard<T> extends AbstractBasicBoard<T>
 		
 		return true;
 	}
+
+	@Override
+	public void initializeFromBaseBoard() 
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
