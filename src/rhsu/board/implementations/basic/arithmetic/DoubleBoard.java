@@ -34,8 +34,6 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 		this(h, v, DEFAULT_VALUE);
 	}
 
-	/*
-	@SuppressWarnings({"unchecked"})
 	public DoubleBoard(String filename)
 	{
 		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
@@ -50,7 +48,7 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	public DoubleBoard(String filename, HandleType handleType, Double defaultValue)
 	{
 		super(filename);
-		initialializeFromBaseBoard(handleType, defaultValue);
+		this.doPopulateFromFile(filename);
 	}
 	
 	public DoubleBoard(BufferedReader bufferedReader)
@@ -67,34 +65,10 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	public DoubleBoard(BufferedReader bufferedReader, HandleType handleType, Double defaultValue)
 	{
 		super(bufferedReader);
-		initialializeFromBaseBoard(handleType, defaultValue);
-	}*/
-	//</editor-fold>
-	
-	private void initialializeFromBaseBoard(HandleType handleType, Double defaultValue)
-	{
-		Double value = null;
-		
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for(int j = 0; j < vertical_size; j++)
-			{
-				try
-				{
-					value = Double.parseDouble(baseBoard.getValueAt(i, j));
-				}
-				catch(Exception exception)
-				{
-					value = handler.AssignDefault(exception, handleType, defaultValue);
-				}
-				finally
-				{
-					board[i][j] = new BasicBoardPiece(i, j, value);
-				}
-			}
-		}
+		this.doPopulateFromResource(bufferedReader);
 	}
-	
+	//</editor-fold>
+		
 	@Override
 	public DoubleBoard add(Matrix<Double> m) 
 	{
@@ -302,7 +276,36 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	@Override
 	public void initializeFromBaseBoard()
 	{		
-
+		Double value = null;
+		
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				try
+				{
+					value = Double.parseDouble(baseBoard.getValueAt(i, j));
+				}
+				catch(Exception exception)
+				{
+					value = handler.AssignDefault(exception, handleType, defaultValue);
+				}
+				finally
+				{
+					board[i][j] = new BasicBoardPiece(i, j, value);
+				}
+			}
+		}
+	}
+	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename);
+	}
+	
+	private void doPopulateFromResource(BufferedReader resource)
+	{
+		this.populateFromResource(resource);
 	}
 	
 	//</editor-fold>
