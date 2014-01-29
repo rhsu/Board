@@ -48,7 +48,6 @@ public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 	public BigIntegerBoard(String filename, HandleType handleType, BigInteger defaultValue)
 	{
 		super(filename);
-		this.doPopulateFromFile(filename);
 	}
 	
 	public BigIntegerBoard(BufferedReader bufferedReader)
@@ -64,7 +63,6 @@ public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 	public BigIntegerBoard(BufferedReader bufferedReader, HandleType handleType, BigInteger defaultValue)
 	{
 		super(bufferedReader);
-		this.doPopualteFromResource(bufferedReader);
 	}
 	//</editor-fold>
 		
@@ -326,16 +324,6 @@ public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 				}
 			}
 		}
-	}
-	
-	private void doPopulateFromFile(String filename)
-	{
-		this.populateFromFile(filename);
-	}
-	
-	private void doPopualteFromResource(BufferedReader resource)
-	{
-		this.populateFromResource(resource);
 	}
 	
 	//</editor-fold>
