@@ -3,6 +3,7 @@ package rhsu.board.test;
 import java.io.BufferedReader;
 import rhsu.board.Board;
 import rhsu.board.implementations.basic.*;
+import rhsu.board.implementations.basic.arithmetic.*;
 import rhsu.board.resources.ResourceRetriever;
 
 public class Main
@@ -14,7 +15,7 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		BufferedReader reader = ResourceRetriever.GetResource("ExampleStringBoard");
+		BufferedReader reader = ResourceRetriever.GetResource("ExampleBigDoubleBoard");
 		
 		Board test = new StringBoard(reader);
 		

@@ -49,7 +49,6 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 	public BigDecimalBoard(String filename, HandleType handleType, BigDecimal defaultValue)
 	{
 		super(filename);
-		this.doPopulateFromFile(filename);
 	}
 	
 	public BigDecimalBoard(BufferedReader bufferedReader)
@@ -65,7 +64,6 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 	public BigDecimalBoard(BufferedReader bufferedReader, HandleType handleType, BigDecimal defaultValue)
 	{
 		super(bufferedReader);
-		this.doPopulateFromResource(bufferedReader);
 	}
 	//</editor-fold>
 		
@@ -328,16 +326,6 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 				}
 			}
 		}
-	}
-	
-	private void doPopulateFromFile(String filename)
-	{
-		this.populateFromFile(filename);
-	}
-	
-	private void doPopulateFromResource(BufferedReader resource)
-	{
-		this.populateFromResource(resource);
 	}
 	
 	//</editor-fold>
