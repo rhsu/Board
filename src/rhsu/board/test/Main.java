@@ -15,9 +15,9 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		BufferedReader reader = ResourceRetriever.GetResource("ExampleBigDecimalBoard");
+		BufferedReader reader = ResourceRetriever.GetResource("ExampleBigIntegerBoard");
 		
-		Board test = new StringBoard(reader);
+		Board test = new DoubleBoard(reader);
 		
 		print(test);
 	}
