@@ -48,7 +48,6 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	public DoubleBoard(String filename, HandleType handleType, Double defaultValue)
 	{
 		super(filename);
-		this.doPopulateFromFile(filename);
 	}
 	
 	public DoubleBoard(BufferedReader bufferedReader)
@@ -65,7 +64,6 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	public DoubleBoard(BufferedReader bufferedReader, HandleType handleType, Double defaultValue)
 	{
 		super(bufferedReader);
-		this.doPopulateFromResource(bufferedReader);
 	}
 	//</editor-fold>
 		
@@ -296,16 +294,6 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 				}
 			}
 		}
-	}
-	
-	private void doPopulateFromFile(String filename)
-	{
-		this.populateFromFile(filename);
-	}
-	
-	private void doPopulateFromResource(BufferedReader resource)
-	{
-		this.populateFromResource(resource);
 	}
 	
 	//</editor-fold>

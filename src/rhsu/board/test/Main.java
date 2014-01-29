@@ -4,6 +4,7 @@ import rhsu.board.mobility.MobilityBoard;
 import rhsu.board.mobility.MobilityPiece;
 import rhsu.board.mobility.implementation.BasicMobilityBoard;
 
+
 public class Main
 {	
 	public static void print(Object o)
