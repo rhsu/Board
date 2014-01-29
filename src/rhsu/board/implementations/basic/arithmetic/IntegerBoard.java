@@ -48,7 +48,6 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 	public IntegerBoard(String filename, HandleType handleType, Integer defaultValue)
 	{
 		super(filename);
-		this.doPopulateFromFile(filename);
 	}
 
 	public IntegerBoard(BufferedReader bufferedReader)
@@ -64,7 +63,6 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 	public IntegerBoard(BufferedReader bufferedReader, HandleType handleType, Integer defaultValue)
 	{
 		super(bufferedReader);
-		this.doPopulateFromResource(bufferedReader);
 	}
 	
 	//</editor-fold>	
@@ -305,16 +303,6 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 				}
 			}
 		}
-	}
-	
-	private void doPopulateFromFile(String filename)
-	{
-		this.populateFromFile(filename);
-	}
-	
-	private void doPopulateFromResource(BufferedReader resource)
-	{
-		this.populateFromResource(resource);
 	}
 	
 	//</editor-fold>
