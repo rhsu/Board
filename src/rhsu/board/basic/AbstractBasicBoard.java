@@ -408,7 +408,5 @@ public abstract class AbstractBasicBoard<T>
 	}
 	
 	//</editor-fold>
-	
-	
 }
 

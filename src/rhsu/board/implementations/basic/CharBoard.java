@@ -34,13 +34,11 @@ public class CharBoard extends AbstractBasicBoard<Character>
 	public CharBoard(String filename)
 	{
 		super(filename);
-		this.doPopulateFromFile(filename);
 	}
 
 	public CharBoard(BufferedReader bufferedReader)
 	{
 		super(bufferedReader);
-		this.doPopulateFromResource(bufferedReader);
 	}
 	
 	//</editor-fold>
@@ -77,16 +75,6 @@ public class CharBoard extends AbstractBasicBoard<Character>
 						baseBoard.getValueAt(i, j).charAt(0));
 			}
 		}
-	}
-	
-	private void doPopulateFromFile(String filename)
-	{
-		this.populateFromFile(filename);
-	}
-	
-	private void doPopulateFromResource(BufferedReader resource)
-	{
-		this.populateFromResource(resource);
 	}
 	
 	//</editor-fold>
