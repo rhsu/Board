@@ -1,4 +1,4 @@
 /**
  * Provides sample implementations for Boolean, Character, and String
  */
-package rhsu.board.basic.implementations;
+package rhsu.board.implementations.basic;
