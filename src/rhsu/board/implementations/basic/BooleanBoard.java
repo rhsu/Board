@@ -34,14 +34,13 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 	public BooleanBoard(String filename)
 	{
 		super(filename);
-		this.doPopulateFromFile(filename);
 	}
 	
 	public BooleanBoard(BufferedReader reader)
 	{
 		super(reader);
-		this.doPopulateFromResource(reader);
 	}
+	
 	//</editor-fold>
 		
 	@Override
@@ -75,16 +74,6 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 						: Boolean.valueOf(baseBoard.getValueAt(i, j)));
 			}
 		}
-	}
-	
-	private void doPopulateFromFile(String filename)
-	{
-		this.populateFromFile(filename);
-	}
-	
-	private void doPopulateFromResource(BufferedReader resource)
-	{
-		this.populateFromResource(resource);
 	}
 	
 	//</editor-fold>

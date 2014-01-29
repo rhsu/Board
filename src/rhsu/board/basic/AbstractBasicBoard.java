@@ -71,11 +71,13 @@ public abstract class AbstractBasicBoard<T>
 	public AbstractBasicBoard(String filename)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(filename);
+		this.doPopulateFromFile(filename);
 	}
 	
 	public AbstractBasicBoard(BufferedReader reader)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(reader);
+		this.doPopulateFromResource(reader);
 	}
 	
 	//</editor-fold>
@@ -397,6 +399,16 @@ public abstract class AbstractBasicBoard<T>
 		this.vertical_size = baseBoard.getVertical_size();
 		this.board = new BasicBoardPiece[horizontal_size][vertical_size];
 		this.size = this.horizontal_size * this.vertical_size;
+	}
+	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename);
+	}
+	
+	private void doPopulateFromResource(BufferedReader resource)
+	{
+		this.populateFromResource(resource);
 	}
 	
 	//</editor-fold>
