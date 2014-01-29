@@ -14,9 +14,9 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		BufferedReader reader = ResourceRetriever.GetResource("ExampleCharBoard");
+		BufferedReader reader = ResourceRetriever.GetResource("ExampleStringBoard");
 		
-		Board test = new CharBoard(reader);
+		Board test = new StringBoard(reader);
 		
 		print(test);
 	}
