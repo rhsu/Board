@@ -1,10 +1,10 @@
-package rhsu.board.implementations.arithmetic;
+package rhsu.board.implementations.basic.arithmetic;
 
 import java.io.BufferedReader;
 import java.util.Random;
-import rhsu.board.BasicBoardPiece;
+import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
-import rhsu.board.AbstractMatrix;
+import rhsu.board.basic.AbstractBasicMatrix;
 import rhsu.board.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
 import rhsu.board.utilities.UtilityFunctions;
@@ -12,7 +12,7 @@ import rhsu.board.utilities.UtilityFunctions;
 /**
  *A double implementation
  */
-public class DoubleBoard extends AbstractMatrix<Double>
+public class DoubleBoard extends AbstractBasicMatrix<Double>
 {
 	private static final Double DEFAULT_VALUE = 0.0;
 	
@@ -33,12 +33,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	{
 		this(h, v, DEFAULT_VALUE);
 	}
-	
-	/**
-	 * Constructor to create a DoubleBoard based off of a file 
-	 * @param filename the name of the file to create a DoubleBoard from
-	 */
-	@SuppressWarnings({"unchecked"})
+
 	public DoubleBoard(String filename)
 	{
 		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
@@ -53,7 +48,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	public DoubleBoard(String filename, HandleType handleType, Double defaultValue)
 	{
 		super(filename);
-		initialializeFromBaseBoard(handleType, defaultValue);
+		this.doPopulateFromFile(filename);
 	}
 	
 	public DoubleBoard(BufferedReader bufferedReader)
@@ -70,38 +65,14 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	public DoubleBoard(BufferedReader bufferedReader, HandleType handleType, Double defaultValue)
 	{
 		super(bufferedReader);
-		initialializeFromBaseBoard(handleType, defaultValue);
+		this.doPopulateFromResource(bufferedReader);
 	}
 	//</editor-fold>
-	
-	private void initialializeFromBaseBoard(HandleType handleType, Double defaultValue)
-	{
-		Double value = null;
 		
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for(int j = 0; j < vertical_size; j++)
-			{
-				try
-				{
-					value = Double.parseDouble(baseBoard.getValueAt(i, j));
-				}
-				catch(Exception exception)
-				{
-					value = handler.AssignDefault(exception, handleType, defaultValue);
-				}
-				finally
-				{
-					board[i][j] = new BasicBoardPiece(i, j, value);
-				}
-			}
-		}
-	}
-	
 	@Override
 	public DoubleBoard add(Matrix<Double> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.ADD, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -123,7 +94,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	@Override
 	public DoubleBoard subtract(Matrix<Double> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SUBTRACT, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -145,7 +116,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	@Override
 	public DoubleBoard multiply(Matrix<Double> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.MULTIPLY, m);
 		
 		int h = this.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -190,7 +161,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	@Override
 	public DoubleBoard inverse() 
 	{	
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		DoubleBoard inverseMatrix = this.cofactor().transpose();
 		
@@ -200,7 +171,7 @@ public class DoubleBoard extends AbstractMatrix<Double>
 	@Override
 	public Double determinant() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		if(this.horizontal_size == 1) return this.getValueAt(0, 0);
 		
@@ -299,4 +270,43 @@ public class DoubleBoard extends AbstractMatrix<Double>
 		
 		return generator;
 	}
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+
+	@Override
+	public void initializeFromBaseBoard()
+	{		
+		Double value = null;
+		
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				try
+				{
+					value = Double.parseDouble(baseBoard.getValueAt(i, j));
+				}
+				catch(Exception exception)
+				{
+					value = handler.AssignDefault(exception, handleType, defaultValue);
+				}
+				finally
+				{
+					board[i][j] = new BasicBoardPiece(i, j, value);
+				}
+			}
+		}
+	}
+	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename);
+	}
+	
+	private void doPopulateFromResource(BufferedReader resource)
+	{
+		this.populateFromResource(resource);
+	}
+	
+	//</editor-fold>
 }

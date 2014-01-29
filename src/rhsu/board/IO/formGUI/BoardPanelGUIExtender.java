@@ -2,7 +2,7 @@ package rhsu.board.IO.formGUI;
 
 import java.awt.event.ActionEvent;
 import rhsu.board.IO.BoardWriter;
-import rhsu.board.implementations.StringBoard;
+import rhsu.board.implementations.basic.StringBoard;
 
 /**
  *

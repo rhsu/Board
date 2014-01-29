@@ -1,14 +1,18 @@
-package rhsu.board;
+package rhsu.board.basic;
 
 import java.io.BufferedReader;
+import rhsu.board.Matrix;
 import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.exceptionHandler.HandleType;
 
 /**
  *
  * @author rhsu
  */
-public abstract class AbstractMatrix<T> extends AbstractBasicBoard<T> implements Matrix<T>
+public abstract class AbstractBasicMatrix<T> 
+	extends AbstractBasicBoard<T> implements Matrix<T>
 {
+
 	protected enum OperationType
 	{
 		ADD,
@@ -17,22 +21,29 @@ public abstract class AbstractMatrix<T> extends AbstractBasicBoard<T> implements
 		SQUAREMATRIX
 	}
 	
+	//<editor-fold desc="Properties" defaultstate="collapsed">
+
 	protected ExceptionHandler<T> handler;
-		
-	public AbstractMatrix(int horizontal, int vertical, T defaultValue)
+	protected HandleType handleType;
+	protected T defaultValue;
+	
+	//</editor-fold>
+	
+	public AbstractBasicMatrix(int horizontal, int vertical, T defaultValue)
 	{
 		super(horizontal, vertical, defaultValue);
 	}
 			
-	public AbstractMatrix(String filename)
+	public AbstractBasicMatrix(String filename)
 	{
 		super(filename);
 		handler = new ExceptionHandler<>();
 	}
 	
-	public AbstractMatrix(BufferedReader bufferedReader)
+	public AbstractBasicMatrix(BufferedReader bufferedReader)
 	{
-		super(bufferedReader);
+		super(bufferedReader);		
+		handler = new ExceptionHandler<>();
 	}
 	
 	protected void CheckDimensions(OperationType type)

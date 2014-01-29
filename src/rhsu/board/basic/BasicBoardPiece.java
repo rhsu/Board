@@ -1,6 +1,8 @@
-package rhsu.board;
+package rhsu.board.basic;
 
 import java.util.Objects;
+import rhsu.board.BoardPiece;
+import rhsu.board.RandomGenerator;
 
 /**
  * A wrapper class for objects. Contains two additional int properties (horizontal index and vertical index)
@@ -50,6 +52,18 @@ public class BasicBoardPiece<T> implements BoardPiece<T>
 	public void setValue(T value)
 	{
 		this.value = value;
+	}
+	
+	@Override
+	public void setHorizontal(int horizontal)
+	{
+		this.horizontal = horizontal;
+	}
+	
+	@Override
+	public void setVertical(int vertical)
+	{
+		this.vertical = vertical;
 	}
 	//</editor-fold>
 	

@@ -1,19 +1,8 @@
 package rhsu.board.test;
 
-import java.io.*;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.*;
-import rhsu.board.*;
-import rhsu.board.IO.*;
-import rhsu.board.IO.formGUI.*;
-import rhsu.board.implementations.*;
+import rhsu.board.IO.formGUI.BoardPanelGUIExtender;
+import rhsu.board.implementations.basic.StringBoard;
 import rhsu.terminalPanelGUI.UniversalPanelLauncher;
-import rhsu.board.exceptionHandler.ExceptionHandler;
-import rhsu.board.implementations.*;
-import rhsu.board.implementations.arithmetic.*;
-import rhsu.board.resources.ResourceRetriever;
-import rhsu.board.xc.*;
 
 public class Main
 {	
@@ -26,6 +15,5 @@ public class Main
 	{		
 		StringBoard test = new StringBoard("test.txt");
 		UniversalPanelLauncher.Launch(new BoardPanelGUIExtender(test));
-
 	}
 }

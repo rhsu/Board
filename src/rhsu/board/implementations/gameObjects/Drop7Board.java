@@ -1,8 +1,8 @@
 package rhsu.board.implementations.gameObjects;
 
 import java.util.ArrayList;
-import rhsu.board.AbstractBasicBoard;
-import rhsu.board.BasicBoardPiece;
+import rhsu.board.basic.AbstractBasicBoard;
+import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.BoardPiece;
 import rhsu.board.RandomGenerator;
 
@@ -239,6 +239,12 @@ public class Drop7Board extends AbstractBasicBoard<Drop7Piece>
 
 	@Override
 	public RandomGenerator<Drop7Piece> randomGenerator() {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public void initializeFromBaseBoard() 
+	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }

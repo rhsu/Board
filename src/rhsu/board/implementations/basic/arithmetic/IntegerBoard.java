@@ -1,10 +1,10 @@
-package rhsu.board.implementations.arithmetic;
+package rhsu.board.implementations.basic.arithmetic;
 
 import java.io.BufferedReader;
 import java.util.Random;
-import rhsu.board.BasicBoardPiece;
+import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
-import rhsu.board.AbstractMatrix;
+import rhsu.board.basic.AbstractBasicMatrix;
 import rhsu.board.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
 import rhsu.board.utilities.UtilityFunctions;
@@ -12,7 +12,7 @@ import rhsu.board.utilities.UtilityFunctions;
 /**
  * An integer implementation
  */
-public class IntegerBoard extends AbstractMatrix<Integer>
+public class IntegerBoard extends AbstractBasicMatrix<Integer>
 {
 	private static final Integer DEFAULT_VALUE = 0;
 	
@@ -34,11 +34,6 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		this(h, v, DEFAULT_VALUE);
 	}
 	
-	/**
-	 * Constructor to create a IntegerBoard based off of a file 
-	 * @param filename the name of the file to create a IntegerBoard from
-	 */
-	@SuppressWarnings({"unchecked"})
 	public IntegerBoard(String filename)
 	{		
 		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
@@ -53,7 +48,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	public IntegerBoard(String filename, HandleType handleType, Integer defaultValue)
 	{
 		super(filename);
-		initializeFromBaseBoard(handleType, defaultValue);
+		this.doPopulateFromFile(filename);
 	}
 
 	public IntegerBoard(BufferedReader bufferedReader)
@@ -69,50 +64,15 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	public IntegerBoard(BufferedReader bufferedReader, HandleType handleType, Integer defaultValue)
 	{
 		super(bufferedReader);
-		initializeFromBaseBoard(handleType, defaultValue);
+		this.doPopulateFromResource(bufferedReader);
 	}
 	
 	//</editor-fold>	
 	
-	private void initializeFromBaseBoard(HandleType handleType, Integer defaultValue)
-	{
-		Integer value = null;
-		
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for(int j = 0; j < vertical_size; j++)
-			{				
-				if(baseBoard.pieceAt(i,j).getValue().equalsIgnoreCase("true"))
-				{
-					value = 1;
-				}
-				else if(baseBoard.pieceAt(i, j).getValue().equalsIgnoreCase("false"))
-				{
-					value = 0;
-				}
-				else
-				{
-					try
-					{
-						value = Integer.parseInt(baseBoard.getValueAt(i, j));
-					}
-					catch(Exception exception)
-					{
-						value = handler.AssignDefault(exception, handleType, defaultValue);
-					}
-					finally
-					{
-						board[i][j] = new BasicBoardPiece(i, j, value);
-					}
-				}
-			}
-		}
-	}
-	
 	@Override
 	public IntegerBoard add(Matrix<Integer> m) 
 	{	
-		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.ADD, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -134,7 +94,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	@Override
 	public IntegerBoard subtract(Matrix<Integer> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SUBTRACT, m);
 		
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -156,7 +116,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	@Override
 	public IntegerBoard multiply(Matrix<Integer> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.MULTIPLY, m);
 		
 		int h = this.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -200,7 +160,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	@Override
 	public IntegerBoard inverse() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		IntegerBoard inverseMatrix = this.cofactor().transpose();
 		
@@ -210,7 +170,7 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 	@Override
 	public Integer determinant() 
 	{	
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		if(this.horizontal_size == 1) return this.getValueAt(0, 0);
 		
@@ -308,4 +268,54 @@ public class IntegerBoard extends AbstractMatrix<Integer>
 		};
 		return generator;
 	}
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+
+	@Override
+	public void initializeFromBaseBoard()
+	{		
+		Integer value = null;
+		
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{				
+				if(baseBoard.pieceAt(i,j).getValue().equalsIgnoreCase("true"))
+				{
+					value = 1;
+				}
+				else if(baseBoard.pieceAt(i, j).getValue().equalsIgnoreCase("false"))
+				{
+					value = 0;
+				}
+				else
+				{
+					try
+					{
+						value = Integer.parseInt(baseBoard.getValueAt(i, j));
+					}
+					catch(Exception exception)
+					{
+						value = handler.AssignDefault(exception, handleType, defaultValue);
+					}
+					finally
+					{
+						board[i][j] = new BasicBoardPiece(i, j, value);
+					}
+				}
+			}
+		}
+	}
+	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename);
+	}
+	
+	private void doPopulateFromResource(BufferedReader resource)
+	{
+		this.populateFromResource(resource);
+	}
+	
+	//</editor-fold>
 }

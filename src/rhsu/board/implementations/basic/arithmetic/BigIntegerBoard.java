@@ -1,11 +1,11 @@
-package rhsu.board.implementations.arithmetic;
+package rhsu.board.implementations.basic.arithmetic;
 
 import java.io.BufferedReader;
 import java.math.BigInteger;
 import java.util.Random;
-import rhsu.board.BasicBoardPiece;
+import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
-import rhsu.board.AbstractMatrix;
+import rhsu.board.basic.AbstractBasicMatrix;
 import rhsu.board.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
 import rhsu.board.utilities.UtilityFunctions;
@@ -13,7 +13,7 @@ import rhsu.board.utilities.UtilityFunctions;
 /**
  *A big integer implementation
  */
-public class BigIntegerBoard extends AbstractMatrix<BigInteger>
+public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 {
 	private static final BigInteger DEFAULT_VALUE = BigInteger.ZERO;
 	
@@ -35,11 +35,6 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 		super(h, v, defaultValue);
 	}
 	
-	/**
-	 * Constructor to create a BigIntegerBoard based off of a file 
-	 * @param filename the name of the file to create a BigIntegerBoard from
-	 */
-	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(String filename)
 	{
 		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
@@ -50,11 +45,10 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 		this(filename, HandleType.Ignore, defaultValue);
 	}
 		
-	@SuppressWarnings({"unchecked"})
 	public BigIntegerBoard(String filename, HandleType handleType, BigInteger defaultValue)
 	{
 		super(filename);
-		initializeFromBaseBoard(handleType, defaultValue);
+		this.doPopulateFromFile(filename);
 	}
 	
 	public BigIntegerBoard(BufferedReader bufferedReader)
@@ -70,38 +64,14 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	public BigIntegerBoard(BufferedReader bufferedReader, HandleType handleType, BigInteger defaultValue)
 	{
 		super(bufferedReader);
-		initializeFromBaseBoard(handleType, defaultValue);
+		this.doPopualteFromResource(bufferedReader);
 	}
 	//</editor-fold>
-	
-	private void initializeFromBaseBoard(HandleType handleType, BigInteger defaultValue)
-	{
-		BigInteger value = null;
 		
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for(int j = 0; j < vertical_size; j++)
-			{
-				try
-				{
-					value = new BigInteger(baseBoard.getValueAt(i,j));
-				}
-				catch(Exception exception)
-				{
-					value = handler.AssignDefault(exception, handleType, defaultValue);
-				}
-				finally
-				{
-					board[i][j] = new BasicBoardPiece(i, j, value);
-				}
-			}
-		}
-	}
-	
 	@Override
 	public BigIntegerBoard add(Matrix<BigInteger> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.ADD, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -123,7 +93,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public BigIntegerBoard subtract(Matrix<BigInteger> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SUBTRACT, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -145,7 +115,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public BigIntegerBoard multiply(Matrix<BigInteger> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.MULTIPLY, m);
 		
 		int h = this.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -192,7 +162,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public BigIntegerBoard inverse() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		BigIntegerBoard inverseMatrix = this.cofactor().transpose();
 		
@@ -202,7 +172,7 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 	@Override
 	public BigInteger determinant() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		if(this.horizontal_size == 1) return this.getValueAt(0, 0);
 		
@@ -330,4 +300,43 @@ public class BigIntegerBoard extends AbstractMatrix<BigInteger>
 		};
 		return generator;
 	}
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+
+	@Override
+	public void initializeFromBaseBoard()
+	{		
+		BigInteger value = null;
+		
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				try
+				{
+					value = new BigInteger(baseBoard.getValueAt(i,j));
+				}
+				catch(Exception exception)
+				{
+					value = handler.AssignDefault(exception, handleType, defaultValue);
+				}
+				finally
+				{
+					board[i][j] = new BasicBoardPiece(i, j, value);
+				}
+			}
+		}
+	}
+	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename);
+	}
+	
+	private void doPopualteFromResource(BufferedReader resource)
+	{
+		this.populateFromResource(resource);
+	}
+	
+	//</editor-fold>
 }

@@ -1,5 +1,7 @@
-package rhsu.board.implementations;
+package rhsu.board.basic.implementations;
 
+import rhsu.board.implementations.basic.StringBoard;
+import rhsu.board.implementations.basic.CharBoard;
 import static org.junit.Assert.*;
 import org.junit.*;
 import rhsu.board.resources.ResourceRetriever;

@@ -1,11 +1,11 @@
-package rhsu.board.implementations.arithmetic;
+package rhsu.board.implementations.basic.arithmetic;
 
 import java.io.BufferedReader;
 import java.math.BigDecimal;
 import java.util.Random;
-import rhsu.board.BasicBoardPiece;
+import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
-import rhsu.board.AbstractMatrix;
+import rhsu.board.basic.AbstractBasicMatrix;
 import rhsu.board.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
 import rhsu.board.utilities.UtilityFunctions;
@@ -13,7 +13,7 @@ import rhsu.board.utilities.UtilityFunctions;
 /**
  *A big decimal implementation
  */
-public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
+public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 {	
 	private static final BigDecimal DEFAULT_VALUE = BigDecimal.ZERO;
 	
@@ -35,11 +35,6 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 		super(h, v, defaultValue);
 	}
 	
-	/**
-	 * Constructor to create a BigDecimalBoard based off of a file 
-	 * @param filename the name of the file to create a BigDecimalBoard from
-	 */
-	@SuppressWarnings({"unchecked"})
 	public BigDecimalBoard(String filename)
 	{
 		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
@@ -54,7 +49,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	public BigDecimalBoard(String filename, HandleType handleType, BigDecimal defaultValue)
 	{
 		super(filename);
-		initializeFromBaseBoard(handleType, defaultValue);
+		this.doPopulateFromFile(filename);
 	}
 	
 	public BigDecimalBoard(BufferedReader bufferedReader)
@@ -70,38 +65,14 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	public BigDecimalBoard(BufferedReader bufferedReader, HandleType handleType, BigDecimal defaultValue)
 	{
 		super(bufferedReader);
-		initializeFromBaseBoard(handleType, defaultValue);
+		this.doPopulateFromResource(bufferedReader);
 	}
 	//</editor-fold>
-	
-	private void initializeFromBaseBoard(HandleType handleType, BigDecimal defaultValue)
-	{
-		BigDecimal value = null;
 		
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for(int j = 0; j < vertical_size; j++)
-			{
-				try
-				{
-					value = new BigDecimal(baseBoard.getValueAt(i, j));
-				}
-				catch(Exception exception)
-				{					
-					value = handler.AssignDefault(exception, handleType, defaultValue);
-				}
-				finally
-				{
-					board[i][j] = new BasicBoardPiece(i, j, value);
-				}
-			}
-		}
-	}
-	
 	@Override
 	public BigDecimalBoard add(Matrix<BigDecimal> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.ADD, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.ADD, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -123,7 +94,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	@Override
 	public BigDecimalBoard subtract(Matrix<BigDecimal> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SUBTRACT, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SUBTRACT, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -145,7 +116,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	@Override
 	public BigDecimalBoard multiply(Matrix<BigDecimal> m) 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.MULTIPLY, m);
+		CheckDimensions(AbstractBasicMatrix.OperationType.MULTIPLY, m);
 		
 		int h = this.getHorizontal_size();
 		int v = m.getVertical_size();
@@ -193,7 +164,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	@Override
 	public BigDecimalBoard inverse() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		BigDecimalBoard inverseMatrix = this.cofactor().transpose();
 		
@@ -203,7 +174,7 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 	@Override
 	public BigDecimal determinant() 
 	{
-		CheckDimensions(AbstractMatrix.OperationType.SQUAREMATRIX);
+		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		if(this.horizontal_size == 1) return this.getValueAt(0, 0);
 		
@@ -331,4 +302,43 @@ public class BigDecimalBoard extends AbstractMatrix<BigDecimal>
 		};
 		return generator;
 	}
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+
+	@Override
+	public void initializeFromBaseBoard()
+	{		
+		BigDecimal value = null;
+		
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				try
+				{
+					value = new BigDecimal(baseBoard.getValueAt(i, j));
+				}
+				catch(Exception exception)
+				{					
+					value = handler.AssignDefault(exception, handleType, defaultValue);
+				}
+				finally
+				{
+					board[i][j] = new BasicBoardPiece(i, j, value);
+				}
+			}
+		}
+	}
+	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename);
+	}
+	
+	private void doPopulateFromResource(BufferedReader resource)
+	{
+		this.populateFromResource(resource);
+	}
+	
+	//</editor-fold>
 }

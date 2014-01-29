@@ -1,5 +1,9 @@
-package rhsu.board.implementations.arithmetic;
+package rhsu.board.basic.implementations.arithmetic;
 
+import rhsu.board.implementations.basic.arithmetic.BigDecimalBoard;
+import rhsu.board.implementations.basic.arithmetic.BigIntegerBoard;
+import rhsu.board.implementations.basic.arithmetic.DoubleBoard;
+import rhsu.board.implementations.basic.arithmetic.IntegerBoard;
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board.resources.ResourceRetriever;
@@ -16,7 +20,7 @@ public class TestResourceRetrieverArithmetic
 	public void testDoubleBoard()
 	{
 		DoubleBoard testBoard = new DoubleBoard(
-				ResourceRetriever.GetResource("testZeroBoard", testResource));
+			ResourceRetriever.GetResource("testZeroBoard", testResource));
 		assertEquals(testBoard.toString(), new DoubleBoard(2,2).toString());
 	}
 	
@@ -32,7 +36,7 @@ public class TestResourceRetrieverArithmetic
 	public void testBigDecimalBoard()
 	{
 		BigDecimalBoard testBoard = new BigDecimalBoard(
-				ResourceRetriever.GetResource("testZeroBoard", testResource));
+			ResourceRetriever.GetResource("testZeroBoard", testResource));
 		assertEquals(testBoard.toString(), new BigDecimalBoard(2,2).toString());
 	}
 	
