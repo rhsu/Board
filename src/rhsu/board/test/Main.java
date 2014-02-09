@@ -1,8 +1,10 @@
 package rhsu.board.test;
 
-import java.io.BufferedReader;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import rhsu.board.Board;
-import rhsu.board.implementations.basic.*;
+import rhsu.board.basic.implementations.arithmetic.BigDecimalBoard;
+import rhsu.board.basic.implementations.arithmetic.BigIntegerBoard;
 import rhsu.board.resources.ResourceRetriever;
 
 public class Main
@@ -16,5 +18,11 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
+		BigDecimalBoard test = new BigDecimalBoard(
+			ResourceRetriever.GetResource("arithmeticOp1", TEST_RESOURCE));
+		
+		print(test);
+		print("-----");
+		print(test.multiply(BigDecimal.TEN));
 	}
 }
