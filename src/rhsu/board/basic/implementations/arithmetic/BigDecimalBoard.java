@@ -1,4 +1,4 @@
-package rhsu.board.implementations.basic.arithmetic;
+package rhsu.board.basic.implementations.arithmetic;
 
 import java.io.BufferedReader;
 import java.math.BigDecimal;
@@ -152,7 +152,7 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 			for(int v = 0; v < this.vertical_size; v++)
 			{
 				BigDecimal m = this.getValueAt(h, v);
-				this.setValueAt(h, v, m.multiply(scalar));
+				result.setValueAt(h, v, m.multiply(scalar));
 			}
 		}
 		

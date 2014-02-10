@@ -1,4 +1,4 @@
-package rhsu.board.implementations.basic.arithmetic;
+package rhsu.board.basic.implementations.arithmetic;
 
 import java.io.BufferedReader;
 import java.util.Random;
@@ -10,78 +10,78 @@ import rhsu.board.exceptionHandler.HandleType;
 import rhsu.board.utilities.UtilityFunctions;
 
 /**
- *A double implementation
+ * An integer implementation
  */
-public class DoubleBoard extends AbstractBasicMatrix<Double>
+public class IntegerBoard extends AbstractBasicMatrix<Integer>
 {
-	private static final Double DEFAULT_VALUE = 0.0;
+	private static final Integer DEFAULT_VALUE = 0;
 	
 	//<editor-fold desc="Constructors" defaultstate="collapsed">
 	
 	/**
-	 * Constructor to create a DoubleBoard with the given parameters
+	 * Constructor to create a IntegerBoard with the given parameters
 	 * @param h the horizontal size 
 	 * @param v the vertical size
 	 */
 	@SuppressWarnings({"unchecked"})
-	public DoubleBoard(int h, int v, Double defaultValue)
+	public IntegerBoard(int h, int v, Integer defaultValue)
 	{
 		super(h, v, defaultValue);
 	}
-
-	public DoubleBoard(int h, int v)
+	
+	public IntegerBoard(int h, int v)
 	{
 		this(h, v, DEFAULT_VALUE);
 	}
-
-	public DoubleBoard(String filename)
-	{
+	
+	public IntegerBoard(String filename)
+	{		
 		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
 	}
 	
-	public DoubleBoard(String filename, Double defaultValue)
+	public IntegerBoard(String filename, Integer defaultValue)
 	{
 		this(filename, HandleType.Ignore, defaultValue);
 	}
-	
+		
 	@SuppressWarnings({"unchecked"})
-	public DoubleBoard(String filename, HandleType handleType, Double defaultValue)
+	public IntegerBoard(String filename, HandleType handleType, Integer defaultValue)
 	{
 		super(filename);
 	}
-	
-	public DoubleBoard(BufferedReader bufferedReader)
+
+	public IntegerBoard(BufferedReader bufferedReader)
 	{
-		this(bufferedReader, HandleType.RuntimeError, null);
+		this(bufferedReader, HandleType.RuntimeError, DEFAULT_VALUE);
 	}
 	
-	public DoubleBoard(BufferedReader bufferedReader, Double defaultValue)
+	public IntegerBoard(BufferedReader bufferedReader, Integer defaultValue)
 	{
 		this(bufferedReader, HandleType.Ignore, defaultValue);
 	}
 	
-	@SuppressWarnings({"unchecked"})
-	public DoubleBoard(BufferedReader bufferedReader, HandleType handleType, Double defaultValue)
+	public IntegerBoard(BufferedReader bufferedReader, HandleType handleType, Integer defaultValue)
 	{
 		super(bufferedReader);
 	}
-	//</editor-fold>
-		
+	
+	//</editor-fold>	
+	
 	@Override
-	public DoubleBoard add(Matrix<Double> m) 
-	{
+	public IntegerBoard add(Matrix<Integer> m) 
+	{	
 		CheckDimensions(AbstractBasicMatrix.OperationType.ADD, m);
 				
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
-		DoubleBoard result =  new DoubleBoard(h,v);
+		IntegerBoard result =  new IntegerBoard(h,v);
 		
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				Double a = this.getValueAt(i, j);
-				Double b = m.getValueAt(i, j);		
+				Integer a = this.getValueAt(i, j);
+				Integer b = m.getValueAt(i, j);		
 				result.setValueAt(i, j, a+b);
 			}
 		}
@@ -90,20 +90,20 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	}
 
 	@Override
-	public DoubleBoard subtract(Matrix<Double> m) 
+	public IntegerBoard subtract(Matrix<Integer> m) 
 	{
 		CheckDimensions(AbstractBasicMatrix.OperationType.SUBTRACT, m);
-				
+		
 		int h = m.getHorizontal_size();
 		int v = m.getVertical_size();
-		DoubleBoard result =  new DoubleBoard(h,v);
+		IntegerBoard result =  new IntegerBoard(h,v);
 		
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				Double a = this.getValueAt(i, j);
-				Double b = m.getValueAt(i, j);		
+				Integer a = this.getValueAt(i, j);
+				Integer b = m.getValueAt(i, j);		
 				result.setValueAt(i, j, a-b);
 			}
 		}
@@ -112,20 +112,20 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	}
 
 	@Override
-	public DoubleBoard multiply(Matrix<Double> m) 
+	public IntegerBoard multiply(Matrix<Integer> m) 
 	{
 		CheckDimensions(AbstractBasicMatrix.OperationType.MULTIPLY, m);
 		
 		int h = this.getHorizontal_size();
 		int v = m.getVertical_size();
 		
-		DoubleBoard result = new DoubleBoard(h, v);
+		IntegerBoard result = new IntegerBoard(h, v);
 		
 		for(int i = 0 ; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
 			{
-				double sum = 0.0;
+				int sum = 0;
 				for(int k = 0; k < this.getVertical_size(); k++)
 				{
 					sum += result.getValueAt(i, j) 
@@ -139,36 +139,35 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	}
 
 	@Override
-	public DoubleBoard multiply(Double scalar) 
+	public IntegerBoard multiply(Integer scalar) 
 	{
-		DoubleBoard result = new DoubleBoard(this.horizontal_size, 
-				this.vertical_size);
+		IntegerBoard result = new IntegerBoard(this.horizontal_size, this.vertical_size);
 		
 		for(int h = 0; h < this.horizontal_size; h++)
 		{
-			for(int v = 0; v < this.vertical_size; v++)
+			for(int v = 0; v < this.vertical_size; v ++)
 			{
-				double m = this.getValueAt(h, v);
+				Integer m = this.getValueAt(h, v);
 				result.setValueAt(h, v, m*scalar);
 			}
 		}
 		
 		return result;
 	}
-	
+        
 	@Override
-	public DoubleBoard inverse() 
-	{	
+	public IntegerBoard inverse() 
+	{
 		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
-		DoubleBoard inverseMatrix = this.cofactor().transpose();
+		IntegerBoard inverseMatrix = this.cofactor().transpose();
 		
 		return inverseMatrix.multiply(1/this.determinant());
 	}
 
 	@Override
-	public Double determinant() 
-	{
+	public Integer determinant() 
+	{	
 		CheckDimensions(AbstractBasicMatrix.OperationType.SQUAREMATRIX);
 
 		if(this.horizontal_size == 1) return this.getValueAt(0, 0);
@@ -178,7 +177,7 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 			return (this.getValueAt(0, 0) * this.getValueAt(1, 1)) - ( this.getValueAt(0, 1) * this.getValueAt(1, 0));
 		}
 		
-		Double sum = 0.0;
+		Integer sum = 0;
 		
 		for (int i = 0; i < this.horizontal_size; i++) 
 		{
@@ -191,11 +190,11 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	}
 	
 	@Override
-	public DoubleBoard transpose()
+	public IntegerBoard transpose()
 	{
 		int h = this.horizontal_size;
 		int v = this.vertical_size;
-		DoubleBoard result = new DoubleBoard(v, h);
+		IntegerBoard result = new IntegerBoard(v, h);
 		for(int i = 0; i < h; i++)
 		{
 			for(int j = 0; j < v; j++)
@@ -205,11 +204,11 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 		}
 		return result;
 	}
-
+	
 	@Override
-	public DoubleBoard createSubMatrix(int excluding_row, int excluding_column) 
+	public IntegerBoard createSubMatrix(int excluding_row, int excluding_column)
 	{
-		DoubleBoard result = new DoubleBoard(this.horizontal_size-1,
+		IntegerBoard result = new IntegerBoard(this.horizontal_size-1,
 				this.vertical_size-1);
 	
 		int r = -1;
@@ -231,11 +230,11 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 		
 		return result;
 	}
-
+	
 	@Override
-	public DoubleBoard cofactor() 
+	public IntegerBoard cofactor()
 	{
-		DoubleBoard result = new DoubleBoard(this.horizontal_size, 
+		IntegerBoard result = new IntegerBoard(this.horizontal_size, 
 				this.vertical_size);
 		
 		for(int i = 0; i < this.horizontal_size; i++)
@@ -253,19 +252,18 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	}
 
 	@Override
-	public RandomGenerator<Double> randomGenerator() 
-	{
-		RandomGenerator<Double> generator = new RandomGenerator()
+	public RandomGenerator<Integer> randomGenerator() 
+	{	
+		RandomGenerator<Integer> generator = new RandomGenerator()
 		{
 			Random random = new Random();
 			
 			@Override
-			public Double getRandom() 
+			public Integer getRandom() 
 			{
-				return random.nextDouble();
+				return random.nextInt();
 			}	
 		};
-		
 		return generator;
 	}
 	
@@ -274,23 +272,34 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	@Override
 	public void initializeFromBaseBoard()
 	{		
-		Double value = null;
+		Integer value = null;
 		
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for(int j = 0; j < vertical_size; j++)
-			{
-				try
+			{				
+				if(baseBoard.pieceAt(i,j).getValue().equalsIgnoreCase("true"))
 				{
-					value = Double.parseDouble(baseBoard.getValueAt(i, j));
+					value = 1;
 				}
-				catch(Exception exception)
+				else if(baseBoard.pieceAt(i, j).getValue().equalsIgnoreCase("false"))
 				{
-					value = handler.AssignDefault(exception, handleType, defaultValue);
+					value = 0;
 				}
-				finally
+				else
 				{
-					board[i][j] = new BasicBoardPiece(i, j, value);
+					try
+					{
+						value = Integer.parseInt(baseBoard.getValueAt(i, j));
+					}
+					catch(Exception exception)
+					{
+						value = handler.AssignDefault(exception, handleType, defaultValue);
+					}
+					finally
+					{
+						board[i][j] = new BasicBoardPiece(i, j, value);
+					}
 				}
 			}
 		}

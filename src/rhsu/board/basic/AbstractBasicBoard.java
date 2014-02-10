@@ -353,6 +353,7 @@ public abstract class AbstractBasicBoard<T>
 		hash = 59 * hash + Arrays.deepHashCode(this.board);
 		hash = 59 * hash + this.horizontal_size;
 		hash = 59 * hash + this.vertical_size;
+		
 		return hash;
 	}
 	
@@ -365,8 +366,11 @@ public abstract class AbstractBasicBoard<T>
 		if (!this.getClass().equals(other.getClass())) return false;
 		
 		AbstractBasicBoard otherAbstractBoard = (AbstractBasicBoard) other;
+				
+		if(this.horizontal_size != otherAbstractBoard.getHorizontal_size()) return false;
+		if(this.vertical_size != otherAbstractBoard.getVertical_size()) return false;
 		
-		return (otherAbstractBoard.hashCode() == other.hashCode());
+		return (otherAbstractBoard.hashCode() == this.hashCode());
 	}
 	
 	//</editor-fold>

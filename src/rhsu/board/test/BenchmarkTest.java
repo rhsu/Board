@@ -3,7 +3,7 @@ package rhsu.board.test;
 import java.util.Iterator;
 import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.BoardPiece;
-import rhsu.board.implementations.basic.arithmetic.IntegerBoard;
+import rhsu.board.basic.implementations.arithmetic.IntegerBoard;
 
 /**
  *
