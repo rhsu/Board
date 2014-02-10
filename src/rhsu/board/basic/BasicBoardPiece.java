@@ -80,6 +80,7 @@ public class BasicBoardPiece<T> implements BoardPiece<T>
 		this.horizontal = horizontal;
 		this.vertical = vertical;
 		this.value = value;
+		this.mobilityStatus = MobilityStatus.Free;
 	}
 
 	public BasicBoardPiece(int horizontal, int vertical, RandomGenerator<T> randomGenerator)
@@ -87,6 +88,7 @@ public class BasicBoardPiece<T> implements BoardPiece<T>
 		this.horizontal = horizontal;
 		this.vertical = vertical;
 		this.value = randomGenerator.getRandom();
+		this.mobilityStatus = MobilityStatus.Free;
 	}
 	
 	/**
