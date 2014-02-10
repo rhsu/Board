@@ -10,6 +10,7 @@ import rhsu.board.BoardPiece;
 import rhsu.board.IO.BoardIO;
 import rhsu.board.IO.BoardReader;
 import rhsu.board.IO.BoardWriter;
+import rhsu.board.MobilityDirection;
 import rhsu.board.MobilityStatus;
 import rhsu.board.RandomGenerator;
 
@@ -459,13 +460,13 @@ public abstract class AbstractBasicBoard<T>
 	}
 	
 	@Override
-	public boolean move(BoardPiece<T> piece, int units, int horizontal, int vertical)
+	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction)
 	{
 		return false;
 	}
 	
 	@Override
-	public boolean move(BoardPiece<T> piece, int units, int horizontal, int vertical, Board<T> otherBoard)
+	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction, Board<T> otherBoard)
 	{		
 		return false;
 	}
