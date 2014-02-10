@@ -190,4 +190,8 @@ public interface Board<T>
 	public boolean move(BoardPiece<T> piece, int horizontal, int vertical);
 	
 	public boolean move(BoardPiece<T> piece, int horizontal, int vertical, Board<T> otherBoard);
+	
+	public boolean move(BoardPiece<T> piece, int units, int horizontal, int vertical);
+	
+	public boolean move(BoardPiece<T> piece, int units, int horizontal, int vertical, Board<T> otherBoard);
 }

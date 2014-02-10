@@ -457,5 +457,17 @@ public abstract class AbstractBasicBoard<T>
 		
 		return true;
 	}
+	
+	@Override
+	public boolean move(BoardPiece<T> piece, int units, int horizontal, int vertical)
+	{
+		return false;
+	}
+	
+	@Override
+	public boolean move(BoardPiece<T> piece, int units, int horizontal, int vertical, Board<T> otherBoard)
+	{		
+		return false;
+	}
 }
 
