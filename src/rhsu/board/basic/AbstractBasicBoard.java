@@ -10,6 +10,7 @@ import rhsu.board.BoardPiece;
 import rhsu.board.IO.BoardIO;
 import rhsu.board.IO.BoardReader;
 import rhsu.board.IO.BoardWriter;
+import rhsu.board.MobilityStatus;
 import rhsu.board.RandomGenerator;
 
 /**
@@ -420,5 +421,41 @@ public abstract class AbstractBasicBoard<T>
 	}
 	
 	//</editor-fold>
+	
+	@Override
+	public boolean move(BoardPiece<T> piece, int horizontal, int vertical) 
+	{
+		BoardPiece<T> target = (BoardPiece<T>) this.pieceAt(horizontal, vertical);
+		
+		if(target == null) return false;
+		
+		if(target.getMobilityStatus() != MobilityStatus.Free) return false;
+		
+		int tempHorizontal = piece.getHorizontal();
+		int tempVertical = piece.getVertical();
+
+		this.setPieceAt(horizontal, vertical, piece);
+		this.setPieceAt(tempHorizontal, tempVertical, target);
+		
+		return true;
+	}
+
+	@Override
+	public boolean move(BoardPiece<T> piece, int horizontal, int vertical, Board<T> otherBoard) 
+	{
+		BoardPiece<T> target = (BoardPiece<T>) otherBoard.pieceAt(horizontal, vertical);
+		
+		if(target == null) return false;
+		
+		if(target.getMobilityStatus() != MobilityStatus.Free) return false;
+		
+		int tempHorizontal = piece.getHorizontal();
+		int tempVertical = piece.getVertical();
+		
+		otherBoard.setPieceAt(horizontal, vertical, piece);
+		this.setPieceAt(tempHorizontal, tempVertical, target);
+		
+		return true;
+	}
 }
 

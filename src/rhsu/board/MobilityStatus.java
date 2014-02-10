@@ -1,4 +1,4 @@
-package rhsu.board.mobility;
+package rhsu.board;
 
 public enum MobilityStatus 
 {

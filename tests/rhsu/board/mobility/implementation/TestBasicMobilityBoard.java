@@ -1,5 +1,6 @@
 package rhsu.board.mobility.implementation;
 
+import rhsu.board.MobilityStatus;
 import rhsu.board.mobility.*;
 import static org.junit.Assert.*;
 import org.junit.*;
@@ -12,6 +13,7 @@ import rhsu.board.resources.ResourceRetriever;
  */
 public class TestBasicMobilityBoard 
 {
+<<<<<<< HEAD
 	/**
 	 * The main board that will be tested throughout this unit test
 	 */
@@ -21,6 +23,9 @@ public class TestBasicMobilityBoard
 	 * the piece at location (0,0) of mockMobilityBoard
 	 * has value of -99
 	 */
+=======
+	/*private static MobilityBoard<Integer> mockMobilityBoard;
+>>>>>>> mobility
 	private static MobilityPiece<Integer> mockMobilityPieceZero;
 	
 	/**
@@ -106,6 +111,7 @@ public class TestBasicMobilityBoard
 		assertTrue(mockOtherMobilityPiece.getValue() == -999);
 		assertTrue(mockOtherMobilityPiece.getHorizontal() == 0);
 		assertTrue(mockOtherMobilityPiece.getVertical() == 0);
+<<<<<<< HEAD
 	}
 
 	@Test
@@ -114,4 +120,7 @@ public class TestBasicMobilityBoard
 		MobilityBoard<Integer> test112Board 
 			= new BasicIntegerMobilityBoard(ResourceRetriever.GetResource("testMobilityBoard", TEST_RESOURCE));
 	}
+=======
+	}*/
+>>>>>>> mobility
 }
