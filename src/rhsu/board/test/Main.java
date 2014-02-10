@@ -4,9 +4,10 @@ import rhsu.board.mobility.MobilityBoard;
 import rhsu.board.mobility.MobilityPiece;
 import rhsu.board.mobility.implementation.BasicMobilityBoard;
 
-
 public class Main
 {	
+	private static final String TEST_RESOURCE = "/rhsu/board/resources/test/";
+	
 	public static void print(Object o)
 	{
 		System.out.println(o);

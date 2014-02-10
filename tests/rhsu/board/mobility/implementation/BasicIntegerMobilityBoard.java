@@ -2,7 +2,7 @@ package rhsu.board.mobility.implementation;
 
 import java.io.BufferedReader;
 import rhsu.board.RandomGenerator;
-import rhsu.board.implementations.basic.arithmetic.IntegerBoard;
+import rhsu.board.basic.implementations.arithmetic.IntegerBoard;
 import rhsu.board.mobility.MobilityBoard;
 import rhsu.board.mobility.MobilityPiece;
 
