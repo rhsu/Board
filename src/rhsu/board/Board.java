@@ -11,6 +11,7 @@ import java.util.List;
 public interface Board<T>	
 {
 	//<editor-fold desc="Accessors" defaultstate="collapsed">
+	
 	/**
 	 * Method for retrieving the horizontal capacity of the board
 	 * @return the horizontal size of the board
@@ -28,14 +29,16 @@ public interface Board<T>
 	 * @return the total size of the board
 	 */
 	public int getSize();
+	
 	//</editor-fold>
 	
 	//<editor-fold desc="Piece Retrieval Methods" defaultstate="collapsed">
+	
 	/**
-	 * Returns the piece at the location specified
-	 * @param horizontal horizontal index
-	 * @param vertical vertical index
-	 * @return the piece at the coordinate (i, j)
+	 * Returns the piece at the specified location 
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @return the piece at the coordinate (horizontal, vertical)
 	 */
 	public BoardPiece<T> pieceAt(int horizontal, int vertical);
 	
@@ -43,24 +46,24 @@ public interface Board<T>
 	 * Method for retrieving the board piece left of a given coordinate
 	 * @param horizontal  the horizontal index
 	 * @param vertical the vertical index
-	 * @return the left piece of (i, j). returns null if invalid location
+	 * @return the left piece of (horizontal, vertical). returns null if invalid location
 	 */
 	public BoardPiece<T> getLeftPiece(int horizontal, int vertical);
 	
 	/**
 	 * Method for retrieving the board piece left of the parameter piece
 	 * @param piece the piece to check
-	 * @return the piece left of p. returns null if invalid location
+	 * @return the piece left of piece. returns null if invalid location
 	 */
 	public BoardPiece<T> getLeftPiece(BoardPiece<T> piece);	
 	
 	/**
 	 * Method for retrieving the piece right of a given coordinate
-	 * @param i the horizontal index
-	 * @param j the vertical index
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
 	 * @return the piece right of (i, j). returns null if invalid location
 	 */
-	public BoardPiece<T> getRightPiece(int i, int j);
+	public BoardPiece<T> getRightPiece(int horizontal, int vertical);
 	
 	/**
 	 * Method for retrieving the board piece right of the parameter piece
@@ -191,7 +194,7 @@ public interface Board<T>
 	
 	public boolean move(BoardPiece<T> piece, int horizontal, int vertical, Board<T> otherBoard);
 	
-	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction);
+	public boolean move(BoardPiece<T> piece, int units, Direction direction);
 	
-	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction, Board<T> otherBoard);
+	public boolean move(BoardPiece<T> piece, int units, Direction direction, Board<T> otherBoard);
 }

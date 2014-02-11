@@ -1,8 +1,8 @@
 package rhsu.board;
 
 /**
- *
- * @author rhsu
+ * Interface for generating a random type
+ * @param <T> The random type to generate
  */
 public interface RandomGenerator<T>
 {

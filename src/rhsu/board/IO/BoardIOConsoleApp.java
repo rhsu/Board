@@ -19,7 +19,7 @@ public final class BoardIOConsoleApp
 	/**
 	 * Private scanner member
 	 */
-	private Scanner in;
+	private final Scanner in;
 	private StringBoard outputBoard;
 	
 	/**
