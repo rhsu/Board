@@ -115,50 +115,72 @@ public interface Board<T>
 	public T getValueAt(int horizontal, int vertical);
 	
 	/**
-	 * Sets the value of a piece by specifying a coordinate (i, j)
-	 * @param i the horizontal index
-	 * @param j the vertical index
-	 * @param t the value of the piece to set
+	 * Sets the value of the piece at the coordinate (horizontal, vertical)
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @param value the value of the piece to set
 	 */
-	public void setValueAt(int i, int j, T t);	
+	public void setValueAt(int horizontal, int vertical, T value);	
 	
 	/**
-	 * Method for retrieving the value of the piece left of the given piece
-	 * @param p the board piece to check
+	 * Retrieves the value of the piece located to the left of the parameter piece
+	 * @param piece the parameter piece to check
 	 * @return the value of the piece left of the parameter piece
 	 */
-	public T getLeftValue(BoardPiece<T> p);
+	public T getLeftValue(BoardPiece<T> piece);
 	
 	/**
-	 * Method for retrieving the value of the piece left of the given coordinate
-	 * @param i the horizontal index
-	 * @param j the vertical index
-	 * @return the value of the piece left of the parameter coordinate
+	 * Retrieves the value of the piece left of the given coordinate (horizontal, vertical)
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @return the value of the piece left of the parameter coordinate (horizontal, vertical)
 	 */
-	public T getLeftValue(int i, int j);
+	public T getLeftValue(int horizontal, int vertical);
 	
 	/**
-	 * Method for retrieving the value of the piece right of the given piece
-	 * @param p the board piece to check
+	 * Retrieves the value of the piece located to the left of the parameter piece
+	 * @param piece the parameter piece to check
 	 * @return the value of the piece right of the parameter piece
 	 */
-	public T getRightValue(BoardPiece<T> p);
+	public T getRightValue(BoardPiece<T> piece);
 	
 	/**
-	 * Method for retrieving the value of the piece right of the given coordinate
-	 * @param i the horizontal index
-	 * @param j the vertical index
+	 * Retrieves the value of the piece located to the right of the parameter piece
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
 	 * @return the value of the piece right of the parameter coordinate
 	 */
-	public T getRightValue(int i, int j);
+	public T getRightValue(int horizontal, int vertical);
 	
-	public T getUpValue(BoardPiece<T> p);
+	/**
+	 * Retrieves the value of the piece located to the top of the parameter piece
+	 * @param piece the parameter piece to check
+	 * @return the value of the piece to the top of the parameter piece
+	 */
+	public T getUpValue(BoardPiece<T> piece);
 	
-	public T getUpValue(int i, int j);	
+	/**
+	 * Retrieves the value of the piece located to the top of the given coordinate (horizontal, vertical)
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @return the value of the piece top of the parameter coordinate
+	 */
+	public T getUpValue(int horizontal, int vertical);	
 	
-	public T getDownValue(BoardPiece<T> p);
+	/**
+	 * Retrieves the value of the piece located to the bottom of the given coordinate (horizontal, vertical)
+	 * @param piece the parameter piece to check
+	 * @return the value of the piece to the bottom of the parameter piece
+	 */
+	public T getDownValue(BoardPiece<T> piece);
 	
-	public T getDownValue(int i, int j);
+	/**
+	 * Retrieves the value of the piece located to the bottom of the given coordinate (horizontal, vertical)
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @return the value of the piece bottom of the parameter coordinate
+	 */
+	public T getDownValue(int horizontal, int vertical);
 	
 	//</editor-fold>
 	
