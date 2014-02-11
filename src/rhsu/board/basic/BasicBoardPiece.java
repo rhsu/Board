@@ -2,6 +2,7 @@ package rhsu.board.basic;
 
 import java.util.Objects;
 import rhsu.board.BoardPiece;
+import rhsu.board.MobilityStatus;
 import rhsu.board.RandomGenerator;
 
 /**
@@ -10,10 +11,11 @@ import rhsu.board.RandomGenerator;
  */
 public class BasicBoardPiece<T> implements BoardPiece<T>
 {
-	private int horizontal;
-	private int vertical;
-	private T value;
-
+	protected int horizontal;
+	protected int vertical;
+	protected T value;
+	protected MobilityStatus mobilityStatus;
+	
 	//<editor-fold defaultstate="collapsed" desc="ACCESSORS">
 	/**
 	* @return the horizontal index
@@ -46,7 +48,7 @@ public class BasicBoardPiece<T> implements BoardPiece<T>
 
 	/**
 	 * Modifies the object to be the same as the parameter
-	 * @param t the value to change into
+	 * @param value
 	 */
 	@Override
 	public void setValue(T value)
@@ -69,15 +71,16 @@ public class BasicBoardPiece<T> implements BoardPiece<T>
 	
 	/**
 	 * General constructor for a board piece
-	 * @param i the horizontal index
-	 * @param j the vertical index
-	 * @param t The value of the board piece.
+	 * @param horizontal
+	 * @param vertical
+	 * @param value
 	 */
 	public BasicBoardPiece(int horizontal, int vertical, T value)
 	{
 		this.horizontal = horizontal;
 		this.vertical = vertical;
 		this.value = value;
+		this.mobilityStatus = MobilityStatus.Free;
 	}
 
 	public BasicBoardPiece(int horizontal, int vertical, RandomGenerator<T> randomGenerator)
@@ -85,6 +88,7 @@ public class BasicBoardPiece<T> implements BoardPiece<T>
 		this.horizontal = horizontal;
 		this.vertical = vertical;
 		this.value = randomGenerator.getRandom();
+		this.mobilityStatus = MobilityStatus.Free;
 	}
 	
 	/**
@@ -113,5 +117,17 @@ public class BasicBoardPiece<T> implements BoardPiece<T>
 		hash = 59 * hash + this.vertical;
 		hash = 59 * hash + Objects.hashCode(this.value);
 		return hash;
+	}
+
+	@Override
+	public MobilityStatus getMobilityStatus() 
+	{
+		return this.mobilityStatus;
+	}
+
+	@Override
+	public void setStatus(MobilityStatus status) 
+	{
+		this.mobilityStatus = status;
 	}
 }

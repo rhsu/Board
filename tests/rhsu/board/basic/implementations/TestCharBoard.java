@@ -1,7 +1,6 @@
 package rhsu.board.basic.implementations;
 
 import rhsu.board.implementations.basic.CharBoard;
-import rhsu.board.implementations.basic.StringBoard;
 import static org.junit.Assert.*;
 import org.junit.*;
 import rhsu.board.resources.ResourceRetriever;
@@ -19,6 +18,8 @@ public class TestCharBoard
 	{
 		assertEquals(TEST_BOARD, new CharBoard(2,2));
 	}
+	
+	//<editor-fold desc="Unit Tests For Equals" defaultstate="collapsed">
 	
 	@Test
 	public void testEqualsSelf()
@@ -39,12 +40,16 @@ public class TestCharBoard
 	}
 	
 	@Test
-	public void testNotEqualsDifferentBoard()
+	public void testNotEquals()
 	{
 		assertFalse
 		(
-			TEST_BOARD.equals(
-				new StringBoard(ResourceRetriever.GetResource("testStringBoard", TEST_RESOURCE)))
+			TEST_BOARD.equals
+			(
+				new CharBoard(ResourceRetriever.GetResource("ExampleIntegerBoard"))
+			)
 		);
 	}
+	
+	//</editor-fold>
 }

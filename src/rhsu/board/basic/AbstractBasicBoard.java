@@ -10,6 +10,8 @@ import rhsu.board.BoardPiece;
 import rhsu.board.IO.BoardIO;
 import rhsu.board.IO.BoardReader;
 import rhsu.board.IO.BoardWriter;
+import rhsu.board.MobilityDirection;
+import rhsu.board.MobilityStatus;
 import rhsu.board.RandomGenerator;
 
 /**
@@ -50,6 +52,14 @@ public abstract class AbstractBasicBoard<T>
 	//</editor-fold>
 	
 	//<editor-fold defaultstate="collapsed" desc="Constructors">
+	
+	/**
+	 * Dummy Constructor
+	 */
+	protected AbstractBasicBoard()
+	{
+		
+	}
 	
 	@SuppressWarnings({"unchecked"})
 	public AbstractBasicBoard(int horizontal, int vertical, T defaultValue)
@@ -299,7 +309,7 @@ public abstract class AbstractBasicBoard<T>
 	public void setPieceAt(int horizontal, int vertical, T value)
 	{
 		if(horizontal > this.horizontal_size || horizontal < 0 || vertical > this.vertical_size || vertical < 0)
-			throw new RuntimeException();
+			throw new RuntimeException("Out of Bounds");
 		
 		this.board[horizontal][vertical] = new BasicBoardPiece(horizontal, vertical, value);
 	}
@@ -308,7 +318,7 @@ public abstract class AbstractBasicBoard<T>
 	public void setPieceAt(int horizontal, int vertical, BoardPiece<T> piece)
 	{
 		if(horizontal > this.horizontal_size || horizontal < 0 || vertical > this.vertical_size || vertical < 0)
-			throw new RuntimeException();
+			throw new RuntimeException("Out of Bounds");
 		
 		this.board[horizontal][vertical] = piece;
 		piece.setHorizontal(horizontal);
@@ -345,6 +355,7 @@ public abstract class AbstractBasicBoard<T>
 		hash = 59 * hash + Arrays.deepHashCode(this.board);
 		hash = 59 * hash + this.horizontal_size;
 		hash = 59 * hash + this.vertical_size;
+		
 		return hash;
 	}
 	
@@ -357,8 +368,11 @@ public abstract class AbstractBasicBoard<T>
 		if (!this.getClass().equals(other.getClass())) return false;
 		
 		AbstractBasicBoard otherAbstractBoard = (AbstractBasicBoard) other;
+				
+		if(this.horizontal_size != otherAbstractBoard.getHorizontal_size()) return false;
+		if(this.vertical_size != otherAbstractBoard.getVertical_size()) return false;
 		
-		return (otherAbstractBoard.hashCode() == other.hashCode());
+		return (otherAbstractBoard.hashCode() == this.hashCode());
 	}
 	
 	//</editor-fold>
@@ -408,5 +422,53 @@ public abstract class AbstractBasicBoard<T>
 	}
 	
 	//</editor-fold>
+	
+	@Override
+	public boolean move(BoardPiece<T> piece, int horizontal, int vertical) 
+	{
+		BoardPiece<T> target = (BoardPiece<T>) this.pieceAt(horizontal, vertical);
+		
+		if(target == null) return false;
+		
+		if(target.getMobilityStatus() != MobilityStatus.Free) return false;
+		
+		int tempHorizontal = piece.getHorizontal();
+		int tempVertical = piece.getVertical();
+
+		this.setPieceAt(horizontal, vertical, piece);
+		this.setPieceAt(tempHorizontal, tempVertical, target);
+		
+		return true;
+	}
+
+	@Override
+	public boolean move(BoardPiece<T> piece, int horizontal, int vertical, Board<T> otherBoard) 
+	{
+		BoardPiece<T> target = (BoardPiece<T>) otherBoard.pieceAt(horizontal, vertical);
+		
+		if(target == null) return false;
+		
+		if(target.getMobilityStatus() != MobilityStatus.Free) return false;
+		
+		int tempHorizontal = piece.getHorizontal();
+		int tempVertical = piece.getVertical();
+		
+		otherBoard.setPieceAt(horizontal, vertical, piece);
+		this.setPieceAt(tempHorizontal, tempVertical, target);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction)
+	{
+		return false;
+	}
+	
+	@Override
+	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction, Board<T> otherBoard)
+	{		
+		return false;
+	}
 }
 

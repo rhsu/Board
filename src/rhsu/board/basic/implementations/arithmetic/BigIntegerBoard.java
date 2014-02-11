@@ -1,4 +1,4 @@
-package rhsu.board.implementations.basic.arithmetic;
+package rhsu.board.basic.implementations.arithmetic;
 
 import java.io.BufferedReader;
 import java.math.BigInteger;

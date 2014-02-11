@@ -186,4 +186,12 @@ public interface Board<T>
 	public Iterator<BoardPiece<T>> iterBoard();
 	
 	public RandomGenerator<T> randomGenerator();
+	
+	public boolean move(BoardPiece<T> piece, int horizontal, int vertical);
+	
+	public boolean move(BoardPiece<T> piece, int horizontal, int vertical, Board<T> otherBoard);
+	
+	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction);
+	
+	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction, Board<T> otherBoard);
 }
