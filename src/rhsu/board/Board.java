@@ -204,19 +204,67 @@ public interface Board<T>
 	
 	//</editor-fold>
 	
+	/**
+	 * finds the first instance of the parameter value
+	 * @param value the value to find within the board
+	 * @return the first instance of the found value
+	 */
 	public BoardPiece<T> find(T value);
 	
+	/**
+	 * finds all the values of the parameter value
+	 * @param value the value to find within the board
+	 * @return a collection of the found value
+	 */
 	public List<BoardPiece<T>> findAll(T value);
 	
+	/**
+	 * constructs an iterator to iterate through the board
+	 * @return an iterator object
+	 */
 	public Iterator<BoardPiece<T>> iterBoard();
 	
+	/**
+	 * constructs a RandomGenerator to retrieve a random value within the bounds of the given parameter.
+	 * @return a RandomGenerator object
+	 */
 	public RandomGenerator<T> randomGenerator();
 	
+	/**
+	 * moves the parameter piece to the given coordinate (horizontal, vertical)
+	 * @param piece the parameter piece to move
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @return a boolean value to denote if the move was successful
+	 */
 	public boolean move(BoardPiece<T> piece, int horizontal, int vertical);
 	
+	/**
+	 * moves the parameter piece to the given coordinate horizontal, vertical) on the other board
+	 * @param piece the parameter piece to move
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @param otherBoard the other board to move to
+	 * @return a boolean value to denote if the move was successful
+	 */
 	public boolean move(BoardPiece<T> piece, int horizontal, int vertical, Board<T> otherBoard);
 	
+	/**
+	 * moves the parameter piece a specified number of units in the given direction
+	 * @param piece the parameter piece to move
+	 * @param units the number of units to move
+	 * @param direction the direction to move towards
+	 * @return a boolean value to denote if the move was successful
+	 */
 	public boolean move(BoardPiece<T> piece, int units, Direction direction);
 	
+	/**
+	 * moves the parameter piece a specified number of units in the given direction on the other board
+	 * @param piece the parameter piece to move
+	 * @param units the number of units to move
+	 * @param direction the direction to move towards
+	 * @param otherBoard the other board to move to
+	 * @return a boolean value to denote if the move was successful
+	 */
 	public boolean move(BoardPiece<T> piece, int units, Direction direction, Board<T> otherBoard);
 }
