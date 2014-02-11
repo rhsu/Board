@@ -2,6 +2,8 @@ package rhsu.board;
 
 import org.junit.*;
 import static org.junit.Assert.*;
+import rhsu.board.basic.implementations.arithmetic.IntegerBoard;
+import rhsu.board.resources.ResourceRetriever;
 import rhsu.board.test.MockFactory;
 
 /**
@@ -91,5 +93,24 @@ public class TestMoveFunctions
 		assertTrue(mockOtherBoardPiece.getValue() == -999);
 		assertTrue(mockOtherBoardPiece.getHorizontal() == 0);
 		assertTrue(mockOtherBoardPiece.getVertical() == 0);
+	}
+	
+	/**
+	 * This tests to see if issue 112 works. Tests getting the piece from all directions
+	 */
+	@Test
+	public void testMobility112()
+	{
+		Board<Integer> test112Board = new IntegerBoard(
+				ResourceRetriever.GetResource("testMobilityBoard", TEST_RESOURCE));
+				
+		BoardPiece<Integer> pieceZero = test112Board.pieceAt(0, 0);
+		
+		assertTrue(test112Board.move(pieceZero, 2, 2));
+
+		assertTrue(test112Board.getUpPiece(pieceZero).getValue() == 2);
+		assertTrue(test112Board.getDownPiece(pieceZero).getValue() == 8);
+		assertTrue(test112Board.getLeftPiece(pieceZero).getValue() == 4);
+		assertTrue(test112Board.getRightPiece(pieceZero).getValue() == 6);
 	}
 }
