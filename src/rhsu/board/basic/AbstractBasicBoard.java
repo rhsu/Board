@@ -7,8 +7,11 @@ import java.util.LinkedList;
 import java.util.List;
 import rhsu.board.Board;
 import rhsu.board.BoardPiece;
+import rhsu.board.IO.BoardIO;
 import rhsu.board.IO.BoardReader;
 import rhsu.board.IO.BoardWriter;
+import rhsu.board.MobilityDirection;
+import rhsu.board.MobilityStatus;
 import rhsu.board.RandomGenerator;
 
 /**
@@ -16,7 +19,8 @@ import rhsu.board.RandomGenerator;
  * 
  * @param <T> Tye type of elements for the abstract board
  */
-public abstract class AbstractBasicBoard<T> implements Board<T>
+public abstract class AbstractBasicBoard<T> 
+	implements Board<T>, BoardIO
 {	
 	//<editor-fold desc="Member Variables" defaultstate="collapsed">
 	
@@ -49,6 +53,14 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	
 	//<editor-fold defaultstate="collapsed" desc="Constructors">
 	
+	/**
+	 * Dummy Constructor
+	 */
+	protected AbstractBasicBoard()
+	{
+		
+	}
+	
 	@SuppressWarnings({"unchecked"})
 	public AbstractBasicBoard(int horizontal, int vertical, T defaultValue)
 	{
@@ -65,31 +77,17 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 			}
 		}
 	}
-	
-	/**
-	 * Constructor for building an instance of an abstract board from a file.
-	 * @param filename 
-	 */
-	@SuppressWarnings({"unchecked"})
+
 	public AbstractBasicBoard(String filename)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(filename);
-		initializeBaseBoard();
+		this.doPopulateFromFile(filename);
 	}
 	
-	@SuppressWarnings({"unchecked"})
 	public AbstractBasicBoard(BufferedReader reader)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(reader);
-		initializeBaseBoard();
-	}
-	
-	private void initializeBaseBoard()
-	{
-		this.horizontal_size = baseBoard.getHorizontal_size();
-		this.vertical_size = baseBoard.getVertical_size();
-		this.board = new BasicBoardPiece[horizontal_size][vertical_size];
-		this.size = this.horizontal_size * this.vertical_size;
+		this.doPopulateFromResource(reader);
 	}
 	
 	//</editor-fold>
@@ -237,7 +235,7 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	{
 		return this.size;
 	}
-		
+	
 	//</editor-fold>
 	
 	//<editor-fold desc="Inheirited from Board Interface" defaultstate="collapsed">
@@ -278,20 +276,11 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	 * @return the first instance of the object in the Board. Null if nothing is found
 	 */
 	@Override
-	public BasicBoardPiece<T> find(T value)
+	public BoardPiece<T> find(T value)
 	{
-		Iterator<BoardPiece<T>> iter = this.iterBoard();
+		List<BoardPiece<T>> result = findAll(value);
 		
-		while(iter.hasNext())
-		{
-			BasicBoardPiece<T> nextItem = (BasicBoardPiece<T>) iter.next();
-			
-			if(nextItem.getValue() == value)
-			{
-				return nextItem;
-			}
-		}
-		return null;
+		return result.isEmpty() ? null : result.get(0);
 	}
 	
 	@Override
@@ -316,17 +305,28 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 	@Override
 	public abstract RandomGenerator<T> randomGenerator();
 	
-	//</editor-fold>
-	
-	/**
-	 * Exports the board object
-	 * @param filename the name of the file to be exported
-	 */
-	public void export(String filename)
+	@Override
+	public void setPieceAt(int horizontal, int vertical, T value)
 	{
-		BoardWriter.write(filename, this);
-	}
+		if(horizontal > this.horizontal_size || horizontal < 0 || vertical > this.vertical_size || vertical < 0)
+			throw new RuntimeException("Out of Bounds");
 		
+		this.board[horizontal][vertical] = new BasicBoardPiece(horizontal, vertical, value);
+	}
+	
+	@Override
+	public void setPieceAt(int horizontal, int vertical, BoardPiece<T> piece)
+	{
+		if(horizontal > this.horizontal_size || horizontal < 0 || vertical > this.vertical_size || vertical < 0)
+			throw new RuntimeException("Out of Bounds");
+		
+		this.board[horizontal][vertical] = piece;
+		piece.setHorizontal(horizontal);
+		piece.setVertical(vertical);
+	}
+	
+	//</editor-fold>
+			
 	//<editor-fold desc="Inheirited from Class Object" defaultstate="collapsed">
 	
 	/**
@@ -355,6 +355,7 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 		hash = 59 * hash + Arrays.deepHashCode(this.board);
 		hash = 59 * hash + this.horizontal_size;
 		hash = 59 * hash + this.vertical_size;
+		
 		return hash;
 	}
 	
@@ -367,10 +368,107 @@ public abstract class AbstractBasicBoard<T> implements Board<T>
 		if (!this.getClass().equals(other.getClass())) return false;
 		
 		AbstractBasicBoard otherAbstractBoard = (AbstractBasicBoard) other;
+				
+		if(this.horizontal_size != otherAbstractBoard.getHorizontal_size()) return false;
+		if(this.vertical_size != otherAbstractBoard.getVertical_size()) return false;
 		
-		return (otherAbstractBoard.hashCode() == other.hashCode());
+		return (otherAbstractBoard.hashCode() == this.hashCode());
 	}
 	
 	//</editor-fold>
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+	
+	/**
+	 * Exports the board object
+	 * @param filename the name of the file to be exported
+	 */
+	@Override
+	public void export(String filename)
+	{
+		BoardWriter.write(filename, this);
+	}
+	
+	@Override
+	public void populateFromFile(String filename)
+	{
+		initializeBaseBoard();
+		this.initializeFromBaseBoard();
+	}
+	
+	@Override
+	public void populateFromResource(BufferedReader reader)
+	{
+		initializeBaseBoard();
+		this.initializeFromBaseBoard();
+	}
+	
+	private void initializeBaseBoard()
+	{
+		this.horizontal_size = baseBoard.getHorizontal_size();
+		this.vertical_size = baseBoard.getVertical_size();
+		this.board = new BasicBoardPiece[horizontal_size][vertical_size];
+		this.size = this.horizontal_size * this.vertical_size;
+	}
+	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename);
+	}
+	
+	private void doPopulateFromResource(BufferedReader resource)
+	{
+		this.populateFromResource(resource);
+	}
+	
+	//</editor-fold>
+	
+	@Override
+	public boolean move(BoardPiece<T> piece, int horizontal, int vertical) 
+	{
+		BoardPiece<T> target = (BoardPiece<T>) this.pieceAt(horizontal, vertical);
+		
+		if(target == null) return false;
+		
+		if(target.getMobilityStatus() != MobilityStatus.Free) return false;
+		
+		int tempHorizontal = piece.getHorizontal();
+		int tempVertical = piece.getVertical();
+
+		this.setPieceAt(horizontal, vertical, piece);
+		this.setPieceAt(tempHorizontal, tempVertical, target);
+		
+		return true;
+	}
+
+	@Override
+	public boolean move(BoardPiece<T> piece, int horizontal, int vertical, Board<T> otherBoard) 
+	{
+		BoardPiece<T> target = (BoardPiece<T>) otherBoard.pieceAt(horizontal, vertical);
+		
+		if(target == null) return false;
+		
+		if(target.getMobilityStatus() != MobilityStatus.Free) return false;
+		
+		int tempHorizontal = piece.getHorizontal();
+		int tempVertical = piece.getVertical();
+		
+		otherBoard.setPieceAt(horizontal, vertical, piece);
+		this.setPieceAt(tempHorizontal, tempVertical, target);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction)
+	{
+		return false;
+	}
+	
+	@Override
+	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction, Board<T> otherBoard)
+	{		
+		return false;
+	}
 }
 

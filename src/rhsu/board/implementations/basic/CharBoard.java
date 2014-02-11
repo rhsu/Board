@@ -1,4 +1,4 @@
-package rhsu.board.basic.implementations;
+package rhsu.board.implementations.basic;
 
 import java.io.BufferedReader;
 import java.util.Random;
@@ -31,37 +31,18 @@ public class CharBoard extends AbstractBasicBoard<Character>
 		this(h, v, DEFAULT_VALUE);
 	}
 
-	/**
-	 * Constructor to create a Character Board based off of a file 
-	 * @param filename the name of the file to create a Character Board from
-	 */
-	@SuppressWarnings({"unchecked"})
 	public CharBoard(String filename)
 	{
 		super(filename);
-		initializeFromBaseBoard();
 	}
 
-	@SuppressWarnings({"unchecked"})
 	public CharBoard(BufferedReader bufferedReader)
 	{
 		super(bufferedReader);
-		initializeFromBaseBoard();
 	}
-	//</editor-fold>
 	
-	private void initializeFromBaseBoard()
-	{
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for(int j = 0; j < vertical_size; j++)
-			{
-				board[i][j] = new BasicBoardPiece(i, j, 
-						baseBoard.getValueAt(i, j).charAt(0));
-			}
-		}
-	}
-			
+	//</editor-fold>
+				
 	@Override
 	public RandomGenerator<Character> randomGenerator() 
 	{
@@ -80,4 +61,21 @@ public class CharBoard extends AbstractBasicBoard<Character>
 		};
 		return generator;
 	}
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+	
+	@Override
+	public void initializeFromBaseBoard()
+	{
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				board[i][j] = new BasicBoardPiece(i, j, 
+						baseBoard.getValueAt(i, j).charAt(0));
+			}
+		}
+	}
+	
+	//</editor-fold>
 }

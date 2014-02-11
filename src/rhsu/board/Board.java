@@ -8,7 +8,7 @@ import java.util.List;
  * The retrieval methods are separated into two types. One type returns the object wrapper itself (the board piece). The other returns the physical value. Use the GetPieceAt and similar methods when working with boardPieces and the GetValueAt and similar methods when working with values.
  * @param <T> The type of the board
  */
-public interface Board<T>
+public interface Board<T>	
 {
 	//<editor-fold desc="Accessors" defaultstate="collapsed">
 	/**
@@ -159,6 +159,26 @@ public interface Board<T>
 	
 	//</editor-fold>
 	
+	//<editor-fold desc="Piece Setting Methods" defaultstate="collpased">
+	
+	/**
+	 * modifies the piece at the given horizontal and vertical location to have the given value
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @param value the value of the piece to set
+	 */
+	public void setPieceAt(int horizontal, int vertical, T value);
+	
+	/**
+	 * modifies the piece at the given horizontal and vertical location to be the parameter piece
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @param piece the piece to set at that location
+	 */
+	public void setPieceAt(int horizontal, int vertical, BoardPiece<T> piece);
+	
+	//</editor-fold>
+	
 	public BoardPiece<T> find(T value);
 	
 	public List<BoardPiece<T>> findAll(T value);
@@ -166,4 +186,12 @@ public interface Board<T>
 	public Iterator<BoardPiece<T>> iterBoard();
 	
 	public RandomGenerator<T> randomGenerator();
+	
+	public boolean move(BoardPiece<T> piece, int horizontal, int vertical);
+	
+	public boolean move(BoardPiece<T> piece, int horizontal, int vertical, Board<T> otherBoard);
+	
+	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction);
+	
+	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction, Board<T> otherBoard);
 }

@@ -1,4 +1,4 @@
-package rhsu.board.basic.implementations;
+package rhsu.board.implementations.basic;
 
 import java.io.BufferedReader;
 import java.util.Random;
@@ -14,6 +14,7 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 	private static final boolean DEFAULT_VALUE = false;
 	
 	//<editor-fold desc="Constructors" defaultstate="collapsed">
+	
 	@SuppressWarnings({"unchecked"})
 	public BooleanBoard(int h, int v, boolean defaultValue)
 	{
@@ -30,38 +31,18 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 		this(h, v, DEFAULT_VALUE);
 	}
 
-	/**
-	 * Constructor to create a BooleanBoard based off of a file 
-	 * @param filename the name of the file to create a BooleanBoard from
-	 */
-	@SuppressWarnings({"unchecked"})
 	public BooleanBoard(String filename)
 	{
 		super(filename);
-		initializeFromBaseBoard();
 	}
 	
-	public BooleanBoard(BufferedReader bufferedReader)
+	public BooleanBoard(BufferedReader reader)
 	{
-		super(bufferedReader);
-		initializeFromBaseBoard();
+		super(reader);
 	}
+	
 	//</editor-fold>
-	
-	private void initializeFromBaseBoard()
-	{
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for(int j = 0; j < vertical_size; j++)
-			{
-				board[i][j] = new BasicBoardPiece(i, j, 
-						baseBoard.getValueAt(i, j).equals("1")
-						? true
-						: Boolean.valueOf(baseBoard.getValueAt(i, j)));
-			}
-		}
-	}
-	
+		
 	@Override
 	public RandomGenerator<Boolean> randomGenerator()
 	{
@@ -77,4 +58,23 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 		};
 		return generator;
 	}
+		
+	//<editor-fold desc="BoardIO methods" defaultstate="collapsed">
+	
+	@Override
+	public void initializeFromBaseBoard()
+	{
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				board[i][j] = new BasicBoardPiece(i, j, 
+						baseBoard.getValueAt(i, j).equals("1")
+						? true
+						: Boolean.valueOf(baseBoard.getValueAt(i, j)));
+			}
+		}
+	}
+	
+	//</editor-fold>
 }

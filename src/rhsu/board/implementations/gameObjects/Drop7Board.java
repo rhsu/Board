@@ -241,4 +241,10 @@ public class Drop7Board extends AbstractBasicBoard<Drop7Piece>
 	public RandomGenerator<Drop7Piece> randomGenerator() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
+
+	@Override
+	public void initializeFromBaseBoard() 
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
 }

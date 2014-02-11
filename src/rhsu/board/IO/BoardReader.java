@@ -3,8 +3,9 @@ package rhsu.board.IO;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.LinkedList;
-import rhsu.board.basic.implementations.StringBoard;
+import rhsu.board.Board;
 import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board.implementations.basic.StringBoard;
 
 public class BoardReader 
 {
@@ -39,9 +40,9 @@ public class BoardReader
 	 * @param items the user inputted items (as a queue)
 	 * @return a string board based off of the user input 
 	 */
-	private StringBoard buildOutputBoard(int horizontal_index, int vertical_index, LinkedList<String> items)
+	private Board<String> buildOutputBoard(int horizontal_index, int vertical_index, LinkedList<String> items)
 	{
-		StringBoard outputBoard = new StringBoard(horizontal_index, vertical_index);
+		Board<String> outputBoard = new StringBoard(horizontal_index, vertical_index);
 
 		for(int i = 0; i < horizontal_index; i++)
 		{
@@ -60,7 +61,7 @@ public class BoardReader
 	 * @param delimiter the delimiter to split each line of the file on
 	 * @return a String Board Object representing the output
 	 */
-	private StringBoard buildOutputBoard(String filename, String delimiter)
+	private Board<String> buildOutputBoard(String filename, String delimiter)
 	{
 		try 
 		{
@@ -120,14 +121,14 @@ public class BoardReader
 	{
 		BoardReader reader = new BoardReader();
 		
-		return reader.buildOutputBoard(filename, delimiter);
+		return (StringBoard) reader.buildOutputBoard(filename, delimiter);
 	}
 	
 	public static StringBoard getBoardFromFile(String filename)
 	{
 		BoardReader reader = new BoardReader();
 		
-		return reader.buildOutputBoard(filename, "");
+		return (StringBoard) reader.buildOutputBoard(filename, "");
 	}
 	
 	public static StringBoard getBoardFromFile(BufferedReader bufferedReader)
@@ -147,6 +148,6 @@ public class BoardReader
 	public static StringBoard getOutputBoard(int horizontal_index, int vertical_index, LinkedList<String> items)
 	{
 		BoardReader reader = new BoardReader();
-		return reader.buildOutputBoard(horizontal_index, vertical_index, items);
+		return (StringBoard) reader.buildOutputBoard(horizontal_index, vertical_index, items);
 	}
 }

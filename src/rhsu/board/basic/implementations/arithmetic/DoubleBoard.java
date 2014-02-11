@@ -1,4 +1,4 @@
-package rhsu.board.implementations.basic.arithmetic;
+package rhsu.board.basic.implementations.arithmetic;
 
 import java.io.BufferedReader;
 import java.util.Random;
@@ -33,12 +33,7 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	{
 		this(h, v, DEFAULT_VALUE);
 	}
-	
-	/**
-	 * Constructor to create a DoubleBoard based off of a file 
-	 * @param filename the name of the file to create a DoubleBoard from
-	 */
-	@SuppressWarnings({"unchecked"})
+
 	public DoubleBoard(String filename)
 	{
 		this(filename, HandleType.RuntimeError, DEFAULT_VALUE);
@@ -53,7 +48,6 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	public DoubleBoard(String filename, HandleType handleType, Double defaultValue)
 	{
 		super(filename);
-		initialializeFromBaseBoard(handleType, defaultValue);
 	}
 	
 	public DoubleBoard(BufferedReader bufferedReader)
@@ -70,34 +64,9 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	public DoubleBoard(BufferedReader bufferedReader, HandleType handleType, Double defaultValue)
 	{
 		super(bufferedReader);
-		initialializeFromBaseBoard(handleType, defaultValue);
 	}
 	//</editor-fold>
-	
-	private void initialializeFromBaseBoard(HandleType handleType, Double defaultValue)
-	{
-		Double value = null;
 		
-		for(int i = 0; i < horizontal_size; i++)
-		{
-			for(int j = 0; j < vertical_size; j++)
-			{
-				try
-				{
-					value = Double.parseDouble(baseBoard.getValueAt(i, j));
-				}
-				catch(Exception exception)
-				{
-					value = handler.AssignDefault(exception, handleType, defaultValue);
-				}
-				finally
-				{
-					board[i][j] = new BasicBoardPiece(i, j, value);
-				}
-			}
-		}
-	}
-	
 	@Override
 	public DoubleBoard add(Matrix<Double> m) 
 	{
@@ -299,4 +268,33 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 		
 		return generator;
 	}
+	
+	//<editor-fold desc="BoardIO Methods" defaultstate="collapsed">
+
+	@Override
+	public void initializeFromBaseBoard()
+	{		
+		Double value = null;
+		
+		for(int i = 0; i < horizontal_size; i++)
+		{
+			for(int j = 0; j < vertical_size; j++)
+			{
+				try
+				{
+					value = Double.parseDouble(baseBoard.getValueAt(i, j));
+				}
+				catch(Exception exception)
+				{
+					value = handler.AssignDefault(exception, handleType, defaultValue);
+				}
+				finally
+				{
+					board[i][j] = new BasicBoardPiece(i, j, value);
+				}
+			}
+		}
+	}
+	
+	//</editor-fold>
 }

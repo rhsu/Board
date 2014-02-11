@@ -1,8 +1,8 @@
 package rhsu.board.basic.implementations;
 
-import rhsu.board.basic.implementations.BooleanBoard;
 import static org.junit.Assert.*;
 import org.junit.*;
+import rhsu.board.implementations.basic.BooleanBoard;
 import rhsu.board.resources.ResourceRetriever;
 
 public class TestBooleanBoard 
@@ -18,6 +18,8 @@ public class TestBooleanBoard
 	{
 		assertEquals(TEST_BOARD, new BooleanBoard(2,2));
 	}
+	
+	//<editor-fold desc="Unit Tests For Equals" defaultstate="collapsed">
 	
 	@Test
 	public void testEqualsSelf()
@@ -36,4 +38,16 @@ public class TestBooleanBoard
 	{
 		assertEquals(TEST_BOARD, new BooleanBoard(2,2));
 	}
+	
+	@Test
+	public void testNotEquals()
+	{
+		assertFalse
+		(
+			TEST_BOARD.equals(
+				  new BooleanBoard(ResourceRetriever.GetResource("ExampleIntegerBoard")))
+		);
+	}
+	
+	//</editor-fold>
 }
