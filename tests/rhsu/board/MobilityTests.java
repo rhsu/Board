@@ -108,9 +108,9 @@ public class MobilityTests
 		
 		assertTrue(test112Board.move(pieceZero, 2, 2));
 
-		assertTrue(test112Board.getUpPiece(pieceZero).getValue() == 2);
-		assertTrue(test112Board.getDownPiece(pieceZero).getValue() == 8);
-		assertTrue(test112Board.getLeftPiece(pieceZero).getValue() == 4);
-		assertTrue(test112Board.getRightPiece(pieceZero).getValue() == 6);
+		assertTrue(test112Board.getUpValue(pieceZero) == 2);
+		assertTrue(test112Board.getDownValue(pieceZero) == 8);
+		assertTrue(test112Board.getLeftValue(pieceZero) == 4);
+		assertTrue(test112Board.getRightValue(pieceZero) == 6);
 	}
 }
