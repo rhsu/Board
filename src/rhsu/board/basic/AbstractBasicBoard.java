@@ -72,6 +72,7 @@ public abstract class AbstractBasicBoard<T>
 		this.vertical_size = vertical;
 		this.size = horizontal*vertical;
 		this.board = new BasicBoardPiece[horizontal][vertical];
+		this.defaultValue = defaultValue;
 		
 		for(int i = 0; i < horizontal; i++)
 		{
@@ -238,6 +239,12 @@ public abstract class AbstractBasicBoard<T>
 	public int getSize()
 	{
 		return this.size;
+	}
+	
+	@Override
+	public T getDefaultValue()
+	{
+		return defaultValue;
 	}
 	
 	//</editor-fold>

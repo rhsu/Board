@@ -30,6 +30,8 @@ public interface Board<T>
 	 */
 	public int getSize();
 	
+	public T getDefaultValue();
+	
 	//</editor-fold>
 	
 	//<editor-fold desc="Piece Retrieval Methods" defaultstate="collapsed">
