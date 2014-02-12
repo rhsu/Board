@@ -2,9 +2,10 @@ package rhsu.board.IO;
 
 import java.util.LinkedList;
 import java.util.Scanner;
+import rhsu.board.basic.implementations.StringBoard;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board.exceptionHandler.HandleType;
-import rhsu.board.implementations.basic.StringBoard;
+
 import rhsu.board.utilities.UtilityFunctions;
 
 /**
