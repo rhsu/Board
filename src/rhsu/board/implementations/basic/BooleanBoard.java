@@ -77,4 +77,10 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 	}
 	
 	//</editor-fold>
+	
+	@Override
+	public Boolean getDefaultValue()
+	{
+		return DEFAULT_VALUE;
+	}
 }

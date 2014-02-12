@@ -1,5 +1,8 @@
 package rhsu.board.test;
 
+import rhsu.board.basic.implementations.arithmetic.IntegerBoard;
+import rhsu.board.resources.ResourceRetriever;
+
 
 public class Main
 {	
@@ -12,6 +15,8 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
+		IntegerBoard test = new IntegerBoard(ResourceRetriever.GetResource("ExampleIntegerBoard"));
 		
+		print(test.getDefaultValue());
 	}
 }

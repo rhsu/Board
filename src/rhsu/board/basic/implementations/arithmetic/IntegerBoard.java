@@ -306,4 +306,10 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 	}
 	
 	//</editor-fold>
+	
+	@Override
+	public Integer getDefaultValue()
+	{
+		return DEFAULT_VALUE;
+	}
 }

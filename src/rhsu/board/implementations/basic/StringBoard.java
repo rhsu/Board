@@ -76,4 +76,10 @@ public class StringBoard extends AbstractBasicBoard<String>
 	}
 	
 	//</editor-fold>
+	
+	@Override
+	public String getDefaultValue()
+	{
+		return DEFAULT_VALUE;
+	}
 }

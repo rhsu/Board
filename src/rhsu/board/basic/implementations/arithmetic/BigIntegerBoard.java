@@ -327,4 +327,10 @@ public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 	}
 	
 	//</editor-fold>
+	
+	@Override
+	public BigInteger getDefaultValue()
+	{
+		return DEFAULT_VALUE;
+	}
 }

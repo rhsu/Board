@@ -329,4 +329,10 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 	}
 	
 	//</editor-fold>
+	
+	@Override
+	public BigDecimal getDefaultValue()
+	{
+		return DEFAULT_VALUE;
+	}
 }

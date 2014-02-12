@@ -78,4 +78,10 @@ public class CharBoard extends AbstractBasicBoard<Character>
 	}
 	
 	//</editor-fold>
+	
+	@Override
+	public Character getDefaultValue()
+	{
+		return DEFAULT_VALUE;
+	}
 }
