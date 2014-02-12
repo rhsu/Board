@@ -53,14 +53,6 @@ public abstract class AbstractBasicBoard<T>
 	
 	//<editor-fold defaultstate="collapsed" desc="Constructors">
 	
-	/**
-	 * Dummy Constructor
-	 */
-	protected AbstractBasicBoard()
-	{
-		
-	}
-	
 	@SuppressWarnings({"unchecked"})
 	public AbstractBasicBoard(int horizontal, int vertical, T defaultValue)
 	{
