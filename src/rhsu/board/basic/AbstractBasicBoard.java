@@ -49,10 +49,22 @@ public abstract class AbstractBasicBoard<T>
 	 */
 	protected Board<String> baseBoard;
 	
+	/**
+	 * the default value to be assigned to the board
+	 */
+	protected T defaultValue;
+	
 	//</editor-fold>
 	
 	//<editor-fold defaultstate="collapsed" desc="Constructors">
 	
+	/**
+	 * Creates an abstract basic board object based with dimensions of horizontal by vertical.
+	 * Assigns a default value to all the board pieces
+	 * @param horizontal the horizontal size
+	 * @param vertical the vertical size
+	 * @param defaultValue the defaultValue
+	 */
 	@SuppressWarnings({"unchecked"})
 	public AbstractBasicBoard(int horizontal, int vertical, T defaultValue)
 	{
