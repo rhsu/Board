@@ -11,6 +11,7 @@ import java.util.List;
 public interface Board<T>	
 {
 	//<editor-fold desc="Accessors" defaultstate="collapsed">
+	
 	/**
 	 * Method for retrieving the horizontal capacity of the board
 	 * @return the horizontal size of the board
@@ -28,14 +29,18 @@ public interface Board<T>
 	 * @return the total size of the board
 	 */
 	public int getSize();
+	
+	public T getDefaultValue();
+	
 	//</editor-fold>
 	
 	//<editor-fold desc="Piece Retrieval Methods" defaultstate="collapsed">
+	
 	/**
-	 * Returns the piece at the location specified
-	 * @param horizontal horizontal index
-	 * @param vertical vertical index
-	 * @return the piece at the coordinate (i, j)
+	 * Returns the piece at the specified location 
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @return the piece at the coordinate (horizontal, vertical)
 	 */
 	public BoardPiece<T> pieceAt(int horizontal, int vertical);
 	
@@ -43,61 +48,61 @@ public interface Board<T>
 	 * Method for retrieving the board piece left of a given coordinate
 	 * @param horizontal  the horizontal index
 	 * @param vertical the vertical index
-	 * @return the left piece of (i, j). returns null if invalid location
+	 * @return the left piece of (horizontal, vertical). returns null if invalid location
 	 */
 	public BoardPiece<T> getLeftPiece(int horizontal, int vertical);
 	
 	/**
 	 * Method for retrieving the board piece left of the parameter piece
 	 * @param piece the piece to check
-	 * @return the piece left of p. returns null if invalid location
+	 * @return the piece left of piece. returns null if invalid location
 	 */
 	public BoardPiece<T> getLeftPiece(BoardPiece<T> piece);	
 	
 	/**
 	 * Method for retrieving the piece right of a given coordinate
-	 * @param i the horizontal index
-	 * @param j the vertical index
-	 * @return the piece right of (i, j). returns null if invalid location
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @return the piece right of (horizontal, vertical). returns null if invalid location
 	 */
-	public BoardPiece<T> getRightPiece(int i, int j);
+	public BoardPiece<T> getRightPiece(int horizontal, int vertical);
 	
 	/**
 	 * Method for retrieving the board piece right of the parameter piece
-	 * @param p the piece to check
-	 * @return The piece right of p. Returns null if invalid location
+	 * @param piece the piece to check
+	 * @return The piece right of vertical. Returns null if invalid location
 	 */
-	public BoardPiece<T> getRightPiece(BoardPiece<T> p);
+	public BoardPiece<T> getRightPiece(BoardPiece<T> piece);
 	
 	/**
 	 * Method for retrieving the board piece below a given coordinate
-	 * @param i the horizontal index
-	 * @param j the vertical index
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
 	 * @return The piece below the piece at (i, j);
 	 */
-	public BoardPiece<T> getDownPiece(int i, int j);
+	public BoardPiece<T> getDownPiece(int horizontal, int vertical);
 	
 	/**
 	 * Method for retrieving the board piece below the parameter piece
-	 * @param p the piece to check
+	 * @param piece the piece to check
 	 * @return the piece below the given piece
 	 */
-	public BoardPiece<T> getDownPiece(BoardPiece<T> p);
+	public BoardPiece<T> getDownPiece(BoardPiece<T> piece);
 	
 	/**
 	 * Method for retrieving the board piece above the given coordinate
-	 * @param i horizontal index
-	 * @param j vertical index
-	 * @return the piece above the given index (i, j)
+	 * @param horizontal horizontal index
+	 * @param vertical vertical index
+	 * @return the piece above the given index (horizontal, vertical)
 	 */
-	public BoardPiece<T> getUpPiece(int i, int j);
+	public BoardPiece<T> getUpPiece(int horizontal, int vertical);
 	
 	/**
 	 * Method for retrieving the board piece above the parameter piece
-	 * @param p the piece to check
+	 * @param piece the piece to check
 	 * @return the piece above the given piece
 	 */
-	public BoardPiece<T> getUpPiece(BoardPiece<T> p);
+	public BoardPiece<T> getUpPiece(BoardPiece<T> piece);
 	
 	//</editor-fold>
 	
@@ -105,57 +110,79 @@ public interface Board<T>
 	
 	/**
 	 * Method for retrieving a value at the given coordinate
-	 * @param i the horizontal index
-	 * @param j the vertical index
-	 * @return the value of the piece at the coordinate (i, j)
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @return the value of the piece at the coordinate (horizontal, vertical)
 	 */
-	public T getValueAt(int i, int j);
+	public T getValueAt(int horizontal, int vertical);
 	
 	/**
-	 * Sets the value of a piece by specifying a coordinate (i, j)
-	 * @param i the horizontal index
-	 * @param j the vertical index
-	 * @param t the value of the piece to set
+	 * Sets the value of the piece at the coordinate (horizontal, vertical)
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @param value the value of the piece to set
 	 */
-	public void setValueAt(int i, int j, T t);	
+	public void setValueAt(int horizontal, int vertical, T value);	
 	
 	/**
-	 * Method for retrieving the value of the piece left of the given piece
-	 * @param p the board piece to check
+	 * Retrieves the value of the piece located to the left of the parameter piece
+	 * @param piece the parameter piece to check
 	 * @return the value of the piece left of the parameter piece
 	 */
-	public T getLeftValue(BoardPiece<T> p);
+	public T getLeftValue(BoardPiece<T> piece);
 	
 	/**
-	 * Method for retrieving the value of the piece left of the given coordinate
-	 * @param i the horizontal index
-	 * @param j the vertical index
-	 * @return the value of the piece left of the parameter coordinate
+	 * Retrieves the value of the piece left of the given coordinate (horizontal, vertical)
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @return the value of the piece left of the parameter coordinate (horizontal, vertical)
 	 */
-	public T getLeftValue(int i, int j);
+	public T getLeftValue(int horizontal, int vertical);
 	
 	/**
-	 * Method for retrieving the value of the piece right of the given piece
-	 * @param p the board piece to check
+	 * Retrieves the value of the piece located to the left of the parameter piece
+	 * @param piece the parameter piece to check
 	 * @return the value of the piece right of the parameter piece
 	 */
-	public T getRightValue(BoardPiece<T> p);
+	public T getRightValue(BoardPiece<T> piece);
 	
 	/**
-	 * Method for retrieving the value of the piece right of the given coordinate
-	 * @param i the horizontal index
-	 * @param j the vertical index
+	 * Retrieves the value of the piece located to the right of the parameter piece
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
 	 * @return the value of the piece right of the parameter coordinate
 	 */
-	public T getRightValue(int i, int j);
+	public T getRightValue(int horizontal, int vertical);
 	
-	public T getUpValue(BoardPiece<T> p);
+	/**
+	 * Retrieves the value of the piece located to the top of the parameter piece
+	 * @param piece the parameter piece to check
+	 * @return the value of the piece to the top of the parameter piece
+	 */
+	public T getUpValue(BoardPiece<T> piece);
 	
-	public T getUpValue(int i, int j);	
+	/**
+	 * Retrieves the value of the piece located to the top of the given coordinate (horizontal, vertical)
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @return the value of the piece top of the parameter coordinate
+	 */
+	public T getUpValue(int horizontal, int vertical);	
 	
-	public T getDownValue(BoardPiece<T> p);
+	/**
+	 * Retrieves the value of the piece located to the bottom of the given coordinate (horizontal, vertical)
+	 * @param piece the parameter piece to check
+	 * @return the value of the piece to the bottom of the parameter piece
+	 */
+	public T getDownValue(BoardPiece<T> piece);
 	
-	public T getDownValue(int i, int j);
+	/**
+	 * Retrieves the value of the piece located to the bottom of the given coordinate (horizontal, vertical)
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @return the value of the piece bottom of the parameter coordinate
+	 */
+	public T getDownValue(int horizontal, int vertical);
 	
 	//</editor-fold>
 	
@@ -179,19 +206,67 @@ public interface Board<T>
 	
 	//</editor-fold>
 	
+	/**
+	 * finds the first instance of the parameter value
+	 * @param value the value to find within the board
+	 * @return the first instance of the found value
+	 */
 	public BoardPiece<T> find(T value);
 	
+	/**
+	 * finds all the values of the parameter value
+	 * @param value the value to find within the board
+	 * @return a collection of the found value
+	 */
 	public List<BoardPiece<T>> findAll(T value);
 	
+	/**
+	 * constructs an iterator to iterate through the board
+	 * @return an iterator object
+	 */
 	public Iterator<BoardPiece<T>> iterBoard();
 	
+	/**
+	 * constructs a RandomGenerator to retrieve a random value within the bounds of the given parameter.
+	 * @return a RandomGenerator object
+	 */
 	public RandomGenerator<T> randomGenerator();
 	
+	/**
+	 * moves the parameter piece to the given coordinate (horizontal, vertical)
+	 * @param piece the parameter piece to move
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @return a boolean value to denote if the move was successful
+	 */
 	public boolean move(BoardPiece<T> piece, int horizontal, int vertical);
 	
+	/**
+	 * moves the parameter piece to the given coordinate horizontal, vertical) on the other board
+	 * @param piece the parameter piece to move
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @param otherBoard the other board to move to
+	 * @return a boolean value to denote if the move was successful
+	 */
 	public boolean move(BoardPiece<T> piece, int horizontal, int vertical, Board<T> otherBoard);
 	
-	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction);
+	/**
+	 * moves the parameter piece a specified number of units in the given direction
+	 * @param piece the parameter piece to move
+	 * @param units the number of units to move
+	 * @param direction the direction to move towards
+	 * @return a boolean value to denote if the move was successful
+	 */
+	public boolean move(BoardPiece<T> piece, int units, Direction direction);
 	
-	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction, Board<T> otherBoard);
+	/**
+	 * moves the parameter piece a specified number of units in the given direction on the other board
+	 * @param piece the parameter piece to move
+	 * @param units the number of units to move
+	 * @param direction the direction to move towards
+	 * @param otherBoard the other board to move to
+	 * @return a boolean value to denote if the move was successful
+	 */
+	public boolean move(BoardPiece<T> piece, int units, Direction direction, Board<T> otherBoard);
 }

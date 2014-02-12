@@ -10,7 +10,7 @@ import rhsu.board.BoardPiece;
 import rhsu.board.IO.BoardIO;
 import rhsu.board.IO.BoardReader;
 import rhsu.board.IO.BoardWriter;
-import rhsu.board.MobilityDirection;
+import rhsu.board.Direction;
 import rhsu.board.MobilityStatus;
 import rhsu.board.RandomGenerator;
 
@@ -49,18 +49,22 @@ public abstract class AbstractBasicBoard<T>
 	 */
 	protected Board<String> baseBoard;
 	
+	/**
+	 * the default value to be assigned to the board
+	 */
+	protected T defaultValue;
+	
 	//</editor-fold>
 	
 	//<editor-fold defaultstate="collapsed" desc="Constructors">
 	
 	/**
-	 * Dummy Constructor
+	 * Creates an abstract basic board object based with dimensions of horizontal by vertical.
+	 * Assigns a default value to all the board pieces
+	 * @param horizontal the horizontal size
+	 * @param vertical the vertical size
+	 * @param defaultValue the defaultValue
 	 */
-	protected AbstractBasicBoard()
-	{
-		
-	}
-	
 	@SuppressWarnings({"unchecked"})
 	public AbstractBasicBoard(int horizontal, int vertical, T defaultValue)
 	{
@@ -68,6 +72,7 @@ public abstract class AbstractBasicBoard<T>
 		this.vertical_size = vertical;
 		this.size = horizontal*vertical;
 		this.board = new BasicBoardPiece[horizontal][vertical];
+		this.defaultValue = defaultValue;
 		
 		for(int i = 0; i < horizontal; i++)
 		{
@@ -236,6 +241,64 @@ public abstract class AbstractBasicBoard<T>
 		return this.size;
 	}
 	
+	@Override
+	public T getDefaultValue()
+	{
+		return defaultValue;
+	}
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="Inheirited From Board Interface: Mobility Methods">
+	
+	@Override
+	public boolean move(BoardPiece<T> piece, int horizontal, int vertical) 
+	{
+		BoardPiece<T> target = (BoardPiece<T>) this.pieceAt(horizontal, vertical);
+		
+		if(target == null) return false;
+		
+		if(target.getMobilityStatus() != MobilityStatus.Free) return false;
+		
+		int tempHorizontal = piece.getHorizontal();
+		int tempVertical = piece.getVertical();
+
+		this.setPieceAt(horizontal, vertical, piece);
+		this.setPieceAt(tempHorizontal, tempVertical, target);
+		
+		return true;
+	}
+
+	@Override
+	public boolean move(BoardPiece<T> piece, int horizontal, int vertical, Board<T> otherBoard) 
+	{
+		BoardPiece<T> target = (BoardPiece<T>) otherBoard.pieceAt(horizontal, vertical);
+		
+		if(target == null) return false;
+		
+		if(target.getMobilityStatus() != MobilityStatus.Free) return false;
+		
+		int tempHorizontal = piece.getHorizontal();
+		int tempVertical = piece.getVertical();
+		
+		otherBoard.setPieceAt(horizontal, vertical, piece);
+		this.setPieceAt(tempHorizontal, tempVertical, target);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean move(BoardPiece<T> piece, int units, Direction direction)
+	{
+		return false;
+	}
+	
+	@Override
+	public boolean move(BoardPiece<T> piece, int units, Direction direction, Board<T> otherBoard)
+	{		
+		return false;
+	}
+	
 	//</editor-fold>
 	
 	//<editor-fold desc="Inheirited from Board Interface" defaultstate="collapsed">
@@ -326,7 +389,7 @@ public abstract class AbstractBasicBoard<T>
 	}
 	
 	//</editor-fold>
-			
+	
 	//<editor-fold desc="Inheirited from Class Object" defaultstate="collapsed">
 	
 	/**
@@ -422,53 +485,5 @@ public abstract class AbstractBasicBoard<T>
 	}
 	
 	//</editor-fold>
-	
-	@Override
-	public boolean move(BoardPiece<T> piece, int horizontal, int vertical) 
-	{
-		BoardPiece<T> target = (BoardPiece<T>) this.pieceAt(horizontal, vertical);
-		
-		if(target == null) return false;
-		
-		if(target.getMobilityStatus() != MobilityStatus.Free) return false;
-		
-		int tempHorizontal = piece.getHorizontal();
-		int tempVertical = piece.getVertical();
-
-		this.setPieceAt(horizontal, vertical, piece);
-		this.setPieceAt(tempHorizontal, tempVertical, target);
-		
-		return true;
-	}
-
-	@Override
-	public boolean move(BoardPiece<T> piece, int horizontal, int vertical, Board<T> otherBoard) 
-	{
-		BoardPiece<T> target = (BoardPiece<T>) otherBoard.pieceAt(horizontal, vertical);
-		
-		if(target == null) return false;
-		
-		if(target.getMobilityStatus() != MobilityStatus.Free) return false;
-		
-		int tempHorizontal = piece.getHorizontal();
-		int tempVertical = piece.getVertical();
-		
-		otherBoard.setPieceAt(horizontal, vertical, piece);
-		this.setPieceAt(tempHorizontal, tempVertical, target);
-		
-		return true;
-	}
-	
-	@Override
-	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction)
-	{
-		return false;
-	}
-	
-	@Override
-	public boolean move(BoardPiece<T> piece, int units, MobilityDirection direction, Board<T> otherBoard)
-	{		
-		return false;
-	}
 }
 

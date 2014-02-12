@@ -1,4 +1,4 @@
-package rhsu.board.implementations.basic;
+package rhsu.board.basic.implementations;
 
 import java.io.BufferedReader;
 import java.util.Random;
@@ -77,4 +77,10 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 	}
 	
 	//</editor-fold>
+	
+	@Override
+	public Boolean getDefaultValue()
+	{
+		return DEFAULT_VALUE;
+	}
 }

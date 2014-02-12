@@ -1,8 +1,10 @@
 package rhsu.board.test;
 
 import rhsu.board.IO.formGUI.BoardPanelGUIExtender;
-import rhsu.board.implementations.basic.StringBoard;
+import rhsu.board.basic.implementations.StringBoard;
 import rhsu.terminalPanelGUI.UniversalPanelLauncher;
+import rhsu.board.basic.implementations.arithmetic.IntegerBoard;
+import rhsu.board.resources.ResourceRetriever;
 
 public class Main
 {	

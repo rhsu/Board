@@ -1,4 +1,4 @@
-package rhsu.board.implementations.basic;
+package rhsu.board.basic.implementations;
 
 import java.io.BufferedReader;
 import java.util.UUID;
@@ -76,4 +76,10 @@ public class StringBoard extends AbstractBasicBoard<String>
 	}
 	
 	//</editor-fold>
+	
+	@Override
+	public String getDefaultValue()
+	{
+		return DEFAULT_VALUE;
+	}
 }

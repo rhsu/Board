@@ -1,11 +1,13 @@
 package rhsu.board.IO;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.LinkedList;
 import rhsu.board.Board;
+import rhsu.board.basic.implementations.StringBoard;
 import rhsu.board.exceptionHandler.ExceptionHandler;
-import rhsu.board.implementations.basic.StringBoard;
 
 public class BoardReader 
 {
@@ -67,7 +69,7 @@ public class BoardReader
 		{
 			return buildOutputBoard(new BufferedReader(new FileReader(filename)), delimiter);		
 		} 
-		catch (Exception exception) 
+		catch (FileNotFoundException exception) 
 		{
 			ExceptionHandler.Handle(exception);
 			return new StringBoard(0,0);
@@ -90,7 +92,7 @@ public class BoardReader
 				fileContent.add(row);
 			}
 		}
-		catch (Exception exception)
+		catch (IOException exception)
 		{
 			ExceptionHandler.Handle(exception);
 		}

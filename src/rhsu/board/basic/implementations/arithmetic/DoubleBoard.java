@@ -297,4 +297,10 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	}
 	
 	//</editor-fold>
+	
+	@Override
+	public Double getDefaultValue()
+	{
+		return DEFAULT_VALUE;
+	}
 }

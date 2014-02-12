@@ -2,7 +2,8 @@ package rhsu.board.IO.formGUI;
 
 import java.awt.event.ActionEvent;
 import rhsu.board.IO.BoardWriter;
-import rhsu.board.implementations.basic.StringBoard;
+import rhsu.board.basic.implementations.StringBoard;
+import rhsu.terminalPanelGUI.UniversalPanelLauncher;
 
 /**
  *
@@ -54,5 +55,11 @@ public class BoardPanelGUIExtender extends BoardPanelGUI
 		this.board.setValueAt(2, 2, jTextField9.getText());
 		
 		BoardWriter.write("test.txt", board);
+	}
+	
+	public static void main(String[] args)
+	{	
+		StringBoard test = new StringBoard("test.txt");
+		UniversalPanelLauncher.Launch(new BoardPanelGUIExtender(test));
 	}
 }
