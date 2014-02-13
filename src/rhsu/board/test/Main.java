@@ -1,5 +1,6 @@
 package rhsu.board.test;
 
+import rhsu.board.BoardPiece;
 import rhsu.board.IO.formGUI.BoardPanelGUIExtender;
 import rhsu.board.basic.implementations.StringBoard;
 import rhsu.terminalPanelGUI.UniversalPanelLauncher;
@@ -17,6 +18,15 @@ public class Main
 	
 	public static void main(String[] args)
 	{		
+		IntegerBoard test = new IntegerBoard(5,5, 3);
+		test.setValueAt(0, 0, -99);
 		
+		//print(test);
+		
+		BoardPiece<Integer> zero = test.pieceAt(0, 0);
+		
+		test.move(zero, 1, 1);
+		
+		print(test);
 	}
 }
