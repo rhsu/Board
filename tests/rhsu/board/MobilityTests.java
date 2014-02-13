@@ -53,10 +53,8 @@ public class MobilityTests
 		assertTrue(mockPieceZero.getHorizontal() == 1);
 		assertTrue(mockPieceZero.getVertical() == 1);
 		
-		//ensures that the destination piece maintains its value
-		//This will be modified: currently a swap is performed and everything works properly.
-		//However with issue 111, this functionality will change
-		assertTrue(mockPieceDestination.getValue() == -999);
+		//ensures that the destination piece has the default value
+		assertTrue(mockPieceDestination.getValue() == mockBoard.getDefaultValue());
 		assertTrue(mockPieceDestination.getHorizontal() == 0);
 		assertTrue(mockPieceDestination.getVertical() == 0);
 	}
@@ -86,10 +84,8 @@ public class MobilityTests
 		assertTrue(mockPieceZero.getHorizontal() == 1);
 		assertTrue(mockPieceZero.getVertical() == 1);
 		
-		//ensures that the destination piece maintains its value
-		//This will be modified: currently a swap is performed and everything works properly.
-		//However with issue 111, this functionality will change
-		assertTrue(mockOtherBoardPiece.getValue() == -999);
+		//ensures that the destination piece has the default value
+		assertTrue(mockOtherBoardPiece.getValue() == mockOtherBoard.getDefaultValue());
 		assertTrue(mockOtherBoardPiece.getHorizontal() == 0);
 		assertTrue(mockOtherBoardPiece.getVertical() == 0);
 	}
