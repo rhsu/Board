@@ -114,4 +114,10 @@ public class MobilityTests
 	{
 		System.out.println(mockBoard);
 	}
+	
+	@Test
+	public void testMove_Fail_Not_From_Same_Board()
+	{
+		
+	}
 }
