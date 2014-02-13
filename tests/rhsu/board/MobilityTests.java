@@ -120,4 +120,26 @@ public class MobilityTests
 	{
 		
 	}
+	
+	@Test
+	public void testMove_Down_pass()
+	{
+		
+	}
+	
+	@Test
+	public void testMove_Up_pass()
+	{
+	}
+	
+	@Test
+	public void testMove_Left_pass()
+	{
+	}
+	
+	@Test
+	public void testMove_Right_pass()
+	{
+		
+	}
 }
