@@ -263,6 +263,7 @@ public abstract class AbstractBasicBoard<T>
 		int tempHorizontal = piece.getHorizontal();
 		int tempVertical = piece.getVertical();
 
+		target.setValue(defaultValue);
 		this.setPieceAt(horizontal, vertical, piece);
 		this.setPieceAt(tempHorizontal, tempVertical, target);
 		
@@ -281,6 +282,7 @@ public abstract class AbstractBasicBoard<T>
 		int tempHorizontal = piece.getHorizontal();
 		int tempVertical = piece.getVertical();
 		
+		target.setValue(defaultValue);
 		otherBoard.setPieceAt(horizontal, vertical, piece);
 		this.setPieceAt(tempHorizontal, tempVertical, target);
 		
