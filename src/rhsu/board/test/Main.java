@@ -1,7 +1,7 @@
 package rhsu.board.test;
 
 import rhsu.board.BoardPiece;
-import rhsu.board.IO.formGUI.BoardPanelGUIExtender;
+import rhsu.board.io.formGUI.BoardPanelGUIExtender;
 import rhsu.board.basic.implementations.StringBoard;
 import rhsu.terminalPanelGUI.UniversalPanelLauncher;
 import rhsu.board.basic.implementations.arithmetic.IntegerBoard;

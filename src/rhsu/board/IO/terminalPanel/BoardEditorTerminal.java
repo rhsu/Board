@@ -1,4 +1,4 @@
-package rhsu.board.IO.terminalPanel;
+package rhsu.board.io.terminalPanel;
 
 
 import rhsu.board.utilities.UtilityFunctions;
