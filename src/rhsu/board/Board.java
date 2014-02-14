@@ -104,7 +104,6 @@ public interface Board<T>
 	 */
 	public BoardPiece<T> getUpPiece(BoardPiece<T> piece);
 	
-	//public BoardPiece<T> getPieceAt(int horizontal, int vertical, Direction direction);
 	//public BoardPiece<T> getPieceAt(int horizontal, int vertical, Direction direction, int units);
 	
 	//</editor-fold>
