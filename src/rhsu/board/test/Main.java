@@ -23,9 +23,9 @@ public class Main
 		test.setValueAt(1, 1, 2);
 		print(test);
 		print("+++++++++++");
-		BoardPiece<Integer> zero = test.pieceAt(0, 0);
+		BoardPiece<Integer> zero = test.getPieceAt(0, 0);
 		
-		test.move(test.pieceAt(0, 0), 1, 1);
+		test.move(test.getPieceAt(0, 0), 1, 1);
 		
 		print(test);
 	}

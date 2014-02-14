@@ -42,7 +42,7 @@ public interface Board<T>
 	 * @param vertical the vertical index
 	 * @return the piece at the coordinate (horizontal, vertical)
 	 */
-	public BoardPiece<T> pieceAt(int horizontal, int vertical);
+	public BoardPiece<T> getPieceAt(int horizontal, int vertical);
 	
 	/**
 	 * Method for retrieving the board piece left of a given coordinate
@@ -103,6 +103,9 @@ public interface Board<T>
 	 * @return the piece above the given piece
 	 */
 	public BoardPiece<T> getUpPiece(BoardPiece<T> piece);
+	
+	//public BoardPiece<T> getPieceAt(int horizontal, int vertical, Direction direction);
+	//public BoardPiece<T> getPieceAt(int horizontal, int vertical, Direction direction, int units);
 	
 	//</editor-fold>
 	

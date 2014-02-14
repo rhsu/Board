@@ -278,11 +278,11 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 		{
 			for(int j = 0; j < vertical_size; j++)
 			{				
-				if(baseBoard.pieceAt(i,j).getValue().equalsIgnoreCase("true"))
+				if(baseBoard.getPieceAt(i,j).getValue().equalsIgnoreCase("true"))
 				{
 					value = 1;
 				}
-				else if(baseBoard.pieceAt(i, j).getValue().equalsIgnoreCase("false"))
+				else if(baseBoard.getPieceAt(i, j).getValue().equalsIgnoreCase("false"))
 				{
 					value = 0;
 				}
