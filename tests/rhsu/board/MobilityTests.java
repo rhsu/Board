@@ -111,7 +111,11 @@ public class MobilityTests
 	
 	
 	
-	
+	@Ignore
+	public void testMove_Fail_Not_From_Same_Board()
+	{
+		
+	}
 	
 	@Ignore
 	public void testMove_Direction()
@@ -119,11 +123,6 @@ public class MobilityTests
 		//System.out.println(mockBoard);
 	}
 	
-	@Ignore
-	public void testMove_Fail_Not_From_Same_Board()
-	{
-		
-	}
 	
 	@Ignore
 	public void testMove_Down_pass()
