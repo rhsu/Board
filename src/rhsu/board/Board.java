@@ -104,8 +104,6 @@ public interface Board<T>
 	 */
 	public BoardPiece<T> getUpPiece(BoardPiece<T> piece);
 	
-	//public BoardPiece<T> getPieceAt(int horizontal, int vertical, Direction direction, int units);
-	
 	//</editor-fold>
 	
 	//<editor-fold desc="Value Retrieval Methods" defaultstate="collapsed">
@@ -271,4 +269,11 @@ public interface Board<T>
 	 * @return a boolean value to denote if the move was successful
 	 */
 	public boolean move(BoardPiece<T> piece, int units, Direction direction, Board<T> otherBoard);
+	
+	
+	public BoardPiece<T> getPieceAt(int horizontal, int vertical, Direction direction, int units);
+	public BoardPiece<T> getPieceAt(BoardPiece<T> piece, Direction direction, int units);
+	
+	public T getValueAt(int horizontal, int vertical, Direction direction, int units);
+	public T getValueAt(BoardPiece<T> piece, Direction direction, int units);
 }

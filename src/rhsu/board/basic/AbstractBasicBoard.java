@@ -487,5 +487,51 @@ public abstract class AbstractBasicBoard<T>
 	}
 	
 	//</editor-fold>
+	
+	@Override
+	public BoardPiece<T> getPieceAt(int horizontal, int vertical, Direction direction, int units)
+	{
+		switch(direction)
+		{
+			case UP:
+				return this.getPieceAt(horizontal - 1, vertical);
+			case DOWN:
+				return this.getPieceAt(horizontal + 1, vertical);
+			case LEFT:
+				return this.getPieceAt(horizontal, vertical - 1);
+			default:
+			case RIGHT:
+				return this.getPieceAt(horizontal, vertical + 1);
+		}
+	}
+	
+	@Override
+	public BoardPiece<T> getPieceAt(BoardPiece<T> piece, Direction direction, int units)
+	{
+		return this.getPieceAt(piece.getHorizontal(), piece.getVertical(), direction, units);
+	}
+	
+	@Override
+	public T getValueAt(int horizontal, int vertical, Direction direction, int units)
+	{
+		switch(direction)
+		{
+			case UP:
+				return this.getPieceAt(horizontal - 1, vertical).getValue();
+			case DOWN:
+				return this.getPieceAt(horizontal + 1, vertical).getValue();
+			case LEFT:
+				return this.getPieceAt(horizontal, vertical - 1).getValue();
+			default:
+			case RIGHT:
+				return this.getPieceAt(horizontal, vertical + 1).getValue();
+		}
+	}
+	
+	@Override
+	public T getValueAt(BoardPiece<T> piece, Direction direction, int units)
+	{
+		return this.getValueAt(piece.getHorizontal(), piece.getVertical(), direction, units);
+	}
 }
 
