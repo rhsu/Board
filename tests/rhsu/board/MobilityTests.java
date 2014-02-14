@@ -14,7 +14,6 @@ public class MobilityTests
 {
 	private static Board<Integer> mockBoard;
 	private static BoardPiece<Integer> mockPieceZero;
-	
 	private static BoardPiece<Integer> mockPieceDestination;
 	
 	private static Board<Integer> mockOtherBoard;
@@ -58,17 +57,7 @@ public class MobilityTests
 		assertTrue(mockPieceDestination.getHorizontal() == 0);
 		assertTrue(mockPieceDestination.getVertical() == 0);
 	}
-	
-	/**
-	 * Test to see if a move will fail because the destination is occupied
-	 */
-	@Test
-	public void testMoveFail_Occupied()
-	{
-		mockPieceDestination.setStatus(MobilityStatus.Occupied);	
-		assertFalse(mockBoard.move(mockPieceZero, 1,1));
-	}
-	
+		
 	/**
 	 * Test to see if moving to another board works.
 	 */
@@ -91,6 +80,16 @@ public class MobilityTests
 	}
 	
 	/**
+	 * Test to see if a move will fail because the destination is occupied
+	 */
+	@Test
+	public void testMoveFail_Occupied()
+	{
+		mockBoard.pieceAt(1,1).setStatus(MobilityStatus.Occupied);
+		assertFalse(mockBoard.move(mockBoard.pieceAt(0, 0), 1, 1));
+	}
+	
+	/**
 	 * This tests to see if issue 112 works. Tests getting the piece from all directions
 	 */
 	@Test
@@ -98,46 +97,51 @@ public class MobilityTests
 	{
 		Board<Integer> test112Board = new IntegerBoard(
 				ResourceRetriever.GetResource("testMobilityBoard", TEST_RESOURCE));
-				
+	
+		//create a reference to pieceZero
 		BoardPiece<Integer> pieceZero = test112Board.pieceAt(0, 0);
 		
-		assertTrue(test112Board.move(pieceZero, 2, 2));
-
+		assertTrue(test112Board.move(test112Board.pieceAt(0,0), 2, 2));
+		
 		assertTrue(test112Board.getUpValue(pieceZero) == 2);
 		assertTrue(test112Board.getDownValue(pieceZero) == 8);
 		assertTrue(test112Board.getLeftValue(pieceZero) == 4);
 		assertTrue(test112Board.getRightValue(pieceZero) == 6);
 	}
 	
-	@Test
+	
+	
+	
+	
+	@Ignore
 	public void testMove_Direction()
 	{
-		System.out.println(mockBoard);
+		//System.out.println(mockBoard);
 	}
 	
-	@Test
+	@Ignore
 	public void testMove_Fail_Not_From_Same_Board()
 	{
 		
 	}
 	
-	@Test
+	@Ignore
 	public void testMove_Down_pass()
 	{
 		
 	}
 	
-	@Test
+	@Ignore
 	public void testMove_Up_pass()
 	{
 	}
 	
-	@Test
+	@Ignore
 	public void testMove_Left_pass()
 	{
 	}
 	
-	@Test
+	@Ignore
 	public void testMove_Right_pass()
 	{
 		
