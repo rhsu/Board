@@ -104,55 +104,55 @@ public abstract class AbstractBasicBoard<T>
 	{		
 		return ((horizontal >= this.horizontal_size || vertical >= this.vertical_size || horizontal < 0 || vertical < 0))
 				? null
-				: board[horizontal][vertical];
+				: this.board[horizontal][vertical];
 	}
 	
 	@Override
 	public BoardPiece<T> getLeftPiece(int horizontal, int vertical) 
 	{
-		return pieceAt(horizontal,vertical - 1);
+		return this.pieceAt(horizontal,vertical - 1);
 	}
 
 	@Override
 	public BoardPiece<T> getLeftPiece(BoardPiece<T> piece) 
 	{	
-		return getLeftPiece(piece.getHorizontal(), piece.getVertical());
+		return this.getLeftPiece(piece.getHorizontal(), piece.getVertical());
 	}
 
 	@Override
 	public BoardPiece<T> getRightPiece(int horizontal, int vertical) 
 	{
-		return pieceAt(horizontal, vertical + 1);
+		return this.pieceAt(horizontal, vertical + 1);
 	}
 
 	@Override
 	public BoardPiece<T> getRightPiece(BoardPiece<T> piece) 
 	{
-		return getRightPiece(piece.getHorizontal(), piece.getVertical());
+		return this.getRightPiece(piece.getHorizontal(), piece.getVertical());
 	}
 
 	@Override
 	public BoardPiece<T> getDownPiece(int horizontal, int vertical) 
 	{
-		return pieceAt(horizontal + 1, vertical);
+		return this.pieceAt(horizontal + 1, vertical);
 	}
 
 	@Override
 	public BoardPiece<T> getDownPiece(BoardPiece<T> piece) 
 	{
-		return getDownPiece(piece.getHorizontal(), piece.getVertical());
+		return this.getDownPiece(piece.getHorizontal(), piece.getVertical());
 	}
 
 	@Override
 	public BoardPiece<T> getUpPiece(int horizontal, int vertical) 
 	{
-		return pieceAt(horizontal - 1, vertical);
+		return this.pieceAt(horizontal - 1, vertical);
 	}
 
 	@Override
 	public BoardPiece<T> getUpPiece(BoardPiece<T> piece) 
 	{
-		return getUpPiece(piece.getHorizontal(), piece.getVertical());
+		return this.getUpPiece(piece.getHorizontal(), piece.getVertical());
 	}
 	
 	//</editor-fold>
