@@ -1,6 +1,8 @@
 package rhsu.board.test;
 
+import rhsu.board.Board;
 import rhsu.board.BoardPiece;
+import rhsu.board.Direction;
 import rhsu.board.io.formGUI.BoardPanelGUIExtender;
 import rhsu.board.basic.implementations.StringBoard;
 import rhsu.terminalPanelGUI.UniversalPanelLauncher;
@@ -17,16 +19,10 @@ public class Main
 	}
 	
 	public static void main(String[] args)
-	{		
-		IntegerBoard test = new IntegerBoard(5,5, 3);
-		test.setValueAt(0, 0, -99);
-		test.setValueAt(1, 1, 2);
-		print(test);
-		print("+++++++++++");
-		BoardPiece<Integer> zero = test.pieceAt(0, 0);
+	{
+		Board<Integer> test = new IntegerBoard(
+			ResourceRetriever.GetResource("testMobility", TEST_RESOURCE));
 		
-		test.move(test.pieceAt(0, 0), 1, 1);
-		
-		print(test);
+		print(test.getPieceAt(2, 2, Direction.UP, 0));		
 	}
 }

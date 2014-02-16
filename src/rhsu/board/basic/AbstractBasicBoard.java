@@ -100,7 +100,7 @@ public abstract class AbstractBasicBoard<T>
 	//<editor-fold desc="Inheirited from Board Interface: Piece Retrieval Methods" defaultstate="collapsed">
 	
 	@Override
-	public BoardPiece<T> pieceAt(int horizontal, int vertical)
+	public BoardPiece<T> getPieceAt(int horizontal, int vertical)
 	{		
 		return ((horizontal >= this.horizontal_size || vertical >= this.vertical_size || horizontal < 0 || vertical < 0))
 				? null
@@ -110,7 +110,7 @@ public abstract class AbstractBasicBoard<T>
 	@Override
 	public BoardPiece<T> getLeftPiece(int horizontal, int vertical) 
 	{
-		return this.pieceAt(horizontal,vertical - 1);
+		return this.getPieceAt(horizontal,vertical - 1);
 	}
 
 	@Override
@@ -122,7 +122,7 @@ public abstract class AbstractBasicBoard<T>
 	@Override
 	public BoardPiece<T> getRightPiece(int horizontal, int vertical) 
 	{
-		return this.pieceAt(horizontal, vertical + 1);
+		return this.getPieceAt(horizontal, vertical + 1);
 	}
 
 	@Override
@@ -134,7 +134,7 @@ public abstract class AbstractBasicBoard<T>
 	@Override
 	public BoardPiece<T> getDownPiece(int horizontal, int vertical) 
 	{
-		return this.pieceAt(horizontal + 1, vertical);
+		return this.getPieceAt(horizontal + 1, vertical);
 	}
 
 	@Override
@@ -146,7 +146,7 @@ public abstract class AbstractBasicBoard<T>
 	@Override
 	public BoardPiece<T> getUpPiece(int horizontal, int vertical) 
 	{
-		return this.pieceAt(horizontal - 1, vertical);
+		return this.getPieceAt(horizontal - 1, vertical);
 	}
 
 	@Override
@@ -254,7 +254,7 @@ public abstract class AbstractBasicBoard<T>
 	@Override
 	public boolean move(BoardPiece<T> piece, int horizontal, int vertical) 
 	{
-		BoardPiece<T> target = (BoardPiece<T>) this.pieceAt(horizontal, vertical);
+		BoardPiece<T> target = (BoardPiece<T>) this.getPieceAt(horizontal, vertical);
 		
 		if(target == null) return false;
 		
@@ -273,7 +273,7 @@ public abstract class AbstractBasicBoard<T>
 	@Override
 	public boolean move(BoardPiece<T> piece, int horizontal, int vertical, Board<T> otherBoard) 
 	{
-		BoardPiece<T> target = (BoardPiece<T>) otherBoard.pieceAt(horizontal, vertical);
+		BoardPiece<T> target = (BoardPiece<T>) otherBoard.getPieceAt(horizontal, vertical);
 		
 		if(target == null) return false;
 		
@@ -406,7 +406,7 @@ public abstract class AbstractBasicBoard<T>
 		{
 			for (int j = 0; j < vertical_size; j++)
 			{
-				builder.append(pieceAt(i,j).toString()).append(" ");
+				builder.append(getPieceAt(i,j).toString()).append(" ");
 			}
 			builder.append("\n");
 		}
@@ -487,5 +487,51 @@ public abstract class AbstractBasicBoard<T>
 	}
 	
 	//</editor-fold>
+	
+	@Override
+	public BoardPiece<T> getPieceAt(int horizontal, int vertical, Direction direction, int units)
+	{
+		switch(direction)
+		{
+			case UP:
+				return this.getPieceAt(horizontal - 1, vertical);
+			case DOWN:
+				return this.getPieceAt(horizontal + 1, vertical);
+			case LEFT:
+				return this.getPieceAt(horizontal, vertical - 1);
+			default:
+			case RIGHT:
+				return this.getPieceAt(horizontal, vertical + 1);
+		}
+	}
+	
+	@Override
+	public BoardPiece<T> getPieceAt(BoardPiece<T> piece, Direction direction, int units)
+	{
+		return this.getPieceAt(piece.getHorizontal(), piece.getVertical(), direction, units);
+	}
+	
+	@Override
+	public T getValueAt(int horizontal, int vertical, Direction direction, int units)
+	{
+		switch(direction)
+		{
+			case UP:
+				return this.getPieceAt(horizontal - 1, vertical).getValue();
+			case DOWN:
+				return this.getPieceAt(horizontal + 1, vertical).getValue();
+			case LEFT:
+				return this.getPieceAt(horizontal, vertical - 1).getValue();
+			default:
+			case RIGHT:
+				return this.getPieceAt(horizontal, vertical + 1).getValue();
+		}
+	}
+	
+	@Override
+	public T getValueAt(BoardPiece<T> piece, Direction direction, int units)
+	{
+		return this.getValueAt(piece.getHorizontal(), piece.getVertical(), direction, units);
+	}
 }
 

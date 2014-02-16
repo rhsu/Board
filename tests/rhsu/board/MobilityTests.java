@@ -26,15 +26,15 @@ public class MobilityTests
 	public void setUpClass()
 	{
 		mockBoard = MockFactory.mockBoard();
-		mockPieceZero = mockBoard.pieceAt(0, 0);
+		mockPieceZero = mockBoard.getPieceAt(0, 0);
 		mockPieceZero.setValue(-99);
 				
-		mockPieceDestination = mockBoard.pieceAt(1, 1);
+		mockPieceDestination = mockBoard.getPieceAt(1, 1);
 		mockPieceDestination.setValue(-999);
 		
 		mockOtherBoard = MockFactory.mockBoard();
 		
-		mockOtherBoardPiece = mockOtherBoard.pieceAt(1,1);
+		mockOtherBoardPiece = mockOtherBoard.getPieceAt(1,1);
 		mockOtherBoardPiece.setValue(-999);
 	}
 	
@@ -99,7 +99,7 @@ public class MobilityTests
 		Board<Integer> test112Board = new IntegerBoard(
 				ResourceRetriever.GetResource("testMobilityBoard", TEST_RESOURCE));
 				
-		BoardPiece<Integer> pieceZero = test112Board.pieceAt(0, 0);
+		BoardPiece<Integer> pieceZero = test112Board.getPieceAt(0, 0);
 		
 		assertTrue(test112Board.move(pieceZero, 2, 2));
 
