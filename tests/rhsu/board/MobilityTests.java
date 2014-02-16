@@ -25,15 +25,15 @@ public class MobilityTests
 	public void setUpClass()
 	{
 		mockBoard = MockFactory.mockBoard();
-		mockPieceZero = mockBoard.pieceAt(0, 0);
+		mockPieceZero = mockBoard.getPieceAt(0, 0);
 		mockPieceZero.setValue(-99);
 				
-		mockPieceDestination = mockBoard.pieceAt(1, 1);
+		mockPieceDestination = mockBoard.getPieceAt(1, 1);
 		mockPieceDestination.setValue(-999);
 		
 		mockOtherBoard = MockFactory.mockBoard();
 		
-		mockOtherBoardPiece = mockOtherBoard.pieceAt(1,1);
+		mockOtherBoardPiece = mockOtherBoard.getPieceAt(1,1);
 		mockOtherBoardPiece.setValue(-999);
 	}
 	
@@ -85,8 +85,8 @@ public class MobilityTests
 	@Test
 	public void testMoveFail_Occupied()
 	{
-		mockBoard.pieceAt(1,1).setStatus(MobilityStatus.Occupied);
-		assertFalse(mockBoard.move(mockBoard.pieceAt(0, 0), 1, 1));
+		mockBoard.getPieceAt(1,1).setStatus(MobilityStatus.Occupied);
+		assertFalse(mockBoard.move(mockBoard.getPieceAt(0, 0), 1, 1));
 	}
 	
 	/**
@@ -98,10 +98,11 @@ public class MobilityTests
 		Board<Integer> test112Board = new IntegerBoard(
 				ResourceRetriever.GetResource("testMobilityBoard", TEST_RESOURCE));
 	
-		//create a reference to pieceZero
-		BoardPiece<Integer> pieceZero = test112Board.pieceAt(0, 0);
+		//create a reference to pieceZero			
+		BoardPiece<Integer> pieceZero = test112Board.getPieceAt(0, 0);
+
 		
-		assertTrue(test112Board.move(test112Board.pieceAt(0,0), 2, 2));
+		assertTrue(test112Board.move(test112Board.getPieceAt(0,0), 2, 2));
 		
 		assertTrue(test112Board.getUpValue(pieceZero) == 2);
 		assertTrue(test112Board.getDownValue(pieceZero) == 8);

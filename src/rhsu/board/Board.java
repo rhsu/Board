@@ -42,7 +42,7 @@ public interface Board<T>
 	 * @param vertical the vertical index
 	 * @return the piece at the coordinate (horizontal, vertical)
 	 */
-	public BoardPiece<T> pieceAt(int horizontal, int vertical);
+	public BoardPiece<T> getPieceAt(int horizontal, int vertical);
 	
 	/**
 	 * Method for retrieving the board piece left of a given coordinate
@@ -269,4 +269,11 @@ public interface Board<T>
 	 * @return a boolean value to denote if the move was successful
 	 */
 	public boolean move(BoardPiece<T> piece, int units, Direction direction, Board<T> otherBoard);
+	
+	
+	public BoardPiece<T> getPieceAt(int horizontal, int vertical, Direction direction, int units);
+	public BoardPiece<T> getPieceAt(BoardPiece<T> piece, Direction direction, int units);
+	
+	public T getValueAt(int horizontal, int vertical, Direction direction, int units);
+	public T getValueAt(BoardPiece<T> piece, Direction direction, int units);
 }

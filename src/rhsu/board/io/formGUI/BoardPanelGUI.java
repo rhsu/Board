@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package rhsu.board.IO.formGUI;
+package rhsu.board.io.formGUI;
 
 /**
  *
@@ -25,7 +25,8 @@ public class BoardPanelGUI extends javax.swing.JPanel
 	 */
 	@SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
@@ -39,8 +40,10 @@ public class BoardPanelGUI extends javax.swing.JPanel
         jButtonSave = new javax.swing.JButton();
 
         jButtonSave.setText("Save");
-        jButtonSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButtonSave.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jButtonSaveActionPerformed(evt);
             }
         });

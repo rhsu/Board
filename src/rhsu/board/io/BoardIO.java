@@ -1,4 +1,4 @@
-package rhsu.board.IO;
+package rhsu.board.io;
 
 import java.io.BufferedReader;
 

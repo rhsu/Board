@@ -41,7 +41,7 @@ public class BenchmarkTest
 		{
 			for(int j = 0; j< testboard.getVertical_size(); j++)
 			{
-				print(testboard.pieceAt(i, j));
+				print(testboard.getPieceAt(i, j));
 			}
 		}
 		

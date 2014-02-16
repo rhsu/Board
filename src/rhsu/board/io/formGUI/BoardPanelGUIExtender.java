@@ -1,7 +1,7 @@
-package rhsu.board.IO.formGUI;
+package rhsu.board.io.formGUI;
 
 import java.awt.event.ActionEvent;
-import rhsu.board.IO.BoardWriter;
+import rhsu.board.io.BoardWriter;
 import rhsu.board.basic.implementations.StringBoard;
 import rhsu.terminalPanelGUI.UniversalPanelLauncher;
 
