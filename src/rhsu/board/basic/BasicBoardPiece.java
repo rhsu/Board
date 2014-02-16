@@ -6,7 +6,7 @@ import rhsu.board.MobilityStatus;
 import rhsu.board.RandomGenerator;
 
 /**
- * A wrapper class for objects. Contains two additional int properties (horizontal index and vertical index)
+ * A wrapper class for objects. Contains two additional integer properties (horizontal index and vertical index)
  * @param <T> The type of the BoardPiece to wrap
  */
 public class BasicBoardPiece<T> implements BoardPiece<T>
