@@ -11,12 +11,29 @@ import rhsu.board.resources.ResourceRetriever;
 public class TestIssue110 
 {
 	private static final String TEST_RESOURCE = "/rhsu/board/resources/test/";
+	private static Board<Integer> testBoard;
+	
+	@Before
+	public void setUpClass()
+	{
+		testBoard = new IntegerBoard(
+			ResourceRetriever.GetResource("Test127", TEST_RESOURCE));
+	}
+	
 	
 	@Test
-	public void testMoveUnits()
+	public void testGet0Units()
 	{
-		Board<Integer> test = new IntegerBoard(
-			ResourceRetriever.GetResource("Test127", TEST_RESOURCE));
+		assertEquals
+		(
+			testBoard.getPieceAt(2, 2),
+			testBoard.getPieceAt(2, 2, Direction.DOWN, 0)
+		);
+	}
+	
+	@Test
+	public void testGet2Units()
+	{
 		
 // 0 0 -1 0 0
 // 0 0 1 0 0
@@ -26,12 +43,12 @@ public class TestIssue110
 		
 		//BoardPiece<Integer> testPiece = test.getPieceAt(2, 2);
 		
-		assertEquals(-1, (int)test.getValueAt(2, 2, Direction.UP, 2));
+		assertEquals(-1, (int)testBoard.getValueAt(2, 2, Direction.UP, 2));
 		
-		assertEquals(-4, (int)test.getValueAt(2, 2, Direction.DOWN, 2));
+		assertEquals(-4, (int)testBoard.getValueAt(2, 2, Direction.DOWN, 2));
 		
-		assertEquals(-2, (int)test.getValueAt(2, 2, Direction.LEFT, 2));
+		assertEquals(-2, (int)testBoard.getValueAt(2, 2, Direction.LEFT, 2));
 		
-		assertEquals(-3, (int)test.getValueAt(2, 2, Direction.RIGHT, 2));
+		assertEquals(-3, (int)testBoard.getValueAt(2, 2, Direction.RIGHT, 2));
 	}
 }
