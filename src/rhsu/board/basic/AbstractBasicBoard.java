@@ -491,7 +491,8 @@ public abstract class AbstractBasicBoard<T>
 	@Override
 	public BoardPiece<T> getPieceAt(int horizontal, int vertical, Direction direction, int units)
 	{
-		switch(direction)
+		//This part works
+		/*switch(direction)
 		{
 			case UP:
 				return this.getPieceAt(horizontal - 1, vertical);
@@ -502,6 +503,25 @@ public abstract class AbstractBasicBoard<T>
 			default:
 			case RIGHT:
 				return this.getPieceAt(horizontal, vertical + 1);
+		}*/
+		//End of part that works
+		
+		BoardPiece<T> returnValue = null;
+		
+		switch(direction)
+		{
+			case UP:
+			{
+				returnValue = this.getPieceAt(horizontal - 1, vertical);
+				
+				returnValue = this.getPieceAt(returnValue.getHorizontal() - 1, vertical);
+				
+				return returnValue;
+			}
+			default:
+			{
+				return null;
+			}
 		}
 	}
 	

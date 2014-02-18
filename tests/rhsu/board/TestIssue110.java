@@ -19,8 +19,7 @@ public class TestIssue110
 		testBoard = new IntegerBoard(
 			ResourceRetriever.GetResource("Test127", TEST_RESOURCE));
 	}
-	
-	
+		
 	@Test
 	public void testGet0Units()
 	{

@@ -20,9 +20,11 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		Board<Integer> test = new IntegerBoard(
-			ResourceRetriever.GetResource("testMobility", TEST_RESOURCE));
+		IntegerBoard test = new IntegerBoard(
+			ResourceRetriever.GetResource("Test127", TEST_RESOURCE));
 		
-		print(test.getPieceAt(2, 2, Direction.UP, 0));		
+		print(test);
+		
+		print(test.getPieceAt(2, 2, Direction.UP, 2));		
 	}
 }
