@@ -15,16 +15,18 @@ public class TestIssue127
 		Board<Integer> test = new IntegerBoard(
 			ResourceRetriever.GetResource("Test127", TEST_RESOURCE));
 		
+		//BoardPiece<Integer> testPiece = test.find(9);
+		
 		//UP
-		assertEquals((int)test.getValueAt(2, 2, Direction.UP, 0), 1);
+		assertEquals((int)test.getValueAt(2, 2, Direction.UP, 1), 1);
 		
 		//DOWN
-		assertEquals((int)test.getValueAt(2, 2, Direction.DOWN, 0), 4);
+		assertEquals((int)test.getValueAt(2, 2, Direction.DOWN, 1), 4);
 		
 		//LEFT
-		assertEquals((int)test.getValueAt(2, 2, Direction.LEFT, 0), 2);
+		assertEquals((int)test.getValueAt(2, 2, Direction.LEFT, 1), 2);
 		
 		//RIGHT
-		assertEquals((int)test.getValueAt(2, 2, Direction.RIGHT, 0), 3);
+		assertEquals((int)test.getValueAt(2, 2, Direction.RIGHT, 1), 3);
 	}
 }

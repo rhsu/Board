@@ -25,6 +25,6 @@ public class Main
 		
 		print(test);
 		
-		print(test.getPieceAt(2, 2, Direction.UP, 2));		
+		print(test.getPieceAt(test.find(9), Direction.UP, 0));		
 	}
 }

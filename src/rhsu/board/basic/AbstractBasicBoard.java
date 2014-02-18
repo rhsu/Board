@@ -491,22 +491,26 @@ public abstract class AbstractBasicBoard<T>
 	@Override
 	public BoardPiece<T> getPieceAt(int horizontal, int vertical, Direction direction, int units)
 	{
-		//This part works
-		/*switch(direction)
+		if(units == 0) return this.getPieceAt(horizontal, vertical);
+		if(units < 0)
 		{
-			case UP:
-				return this.getPieceAt(horizontal - 1, vertical);
-			case DOWN:
-				return this.getPieceAt(horizontal + 1, vertical);
-			case LEFT:
-				return this.getPieceAt(horizontal, vertical - 1);
-			default:
-			case RIGHT:
-				return this.getPieceAt(horizontal, vertical + 1);
-		}*/
-		//End of part that works
+			switch(direction)
+			{
+				case UP:
+					direction = Direction.DOWN;
+					break;
+				case DOWN:
+					direction = Direction.DOWN;
+					break;
+				case LEFT:
+					direction = Direction.RIGHT;
+					break;
+				case RIGHT:
+					direction = Direction.LEFT;
+			}
+		}
 		
-		BoardPiece<T> returnValue = null;
+		BoardPiece<T> returnValue;
 		
 		switch(direction)
 		{
@@ -514,13 +518,46 @@ public abstract class AbstractBasicBoard<T>
 			{
 				returnValue = this.getPieceAt(horizontal - 1, vertical);
 				
-				returnValue = this.getPieceAt(returnValue.getHorizontal() - 1, vertical);
+				for(int i = 1; i < units; i++)
+				{
+					returnValue = this.getPieceAt(returnValue.getHorizontal() - 1, vertical);
+				}
+				
+				return returnValue;
+			}
+			case DOWN:
+			{
+				returnValue = this.getPieceAt(horizontal + 1, vertical);
+				
+				for(int i = 1; i < units; i++)
+				{
+					returnValue = this.getPieceAt(returnValue.getHorizontal() + 1, vertical);
+				}
+				
+				return returnValue;
+			}
+			case LEFT:
+			{
+				returnValue = this.getPieceAt(horizontal, vertical - 1);
+				
+				for(int i = 1; i < units; i++)
+				{
+					returnValue = this.getPieceAt(returnValue.getHorizontal(), vertical -1);
+				}
 				
 				return returnValue;
 			}
 			default:
+			case RIGHT:
 			{
-				return null;
+				returnValue = this.getPieceAt(horizontal, vertical + 1);
+				
+				for(int i = 1; i < units; i++)
+				{
+					returnValue = this.getPieceAt(returnValue.getHorizontal(), vertical + 1);
+				}
+				
+				return returnValue;
 			}
 		}
 	}
