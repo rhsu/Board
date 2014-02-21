@@ -110,8 +110,6 @@ public class MobilityTests
 		assertTrue(test112Board.getRightValue(pieceZero) == 6);
 	}
 	
-	
-	
 	@Ignore
 	public void testMove_Fail_Not_From_Same_Board()
 	{
