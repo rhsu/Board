@@ -39,9 +39,7 @@ public class TestIssue110
 // -2 2 9 3 -3
 // 0 0 4 0 0
 // 0 0 -4 0 0
-		
-		//BoardPiece<Integer> testPiece = test.getPieceAt(2, 2);
-		
+				
 		assertEquals(-1, (int)testBoard.getValueAt(2, 2, Direction.UP, 2));
 		
 		assertEquals(-4, (int)testBoard.getValueAt(2, 2, Direction.DOWN, 2));
