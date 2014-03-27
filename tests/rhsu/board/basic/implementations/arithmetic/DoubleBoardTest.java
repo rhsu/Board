@@ -4,24 +4,24 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board.resources.ResourceRetriever;
 
-public class TestIntegerBoard 
+public class DoubleBoardTest 
 {
 	//<editor-fold desc="Private Variables" defaultstate="collapsed">
 	private static final String TEST_RESOURCE = "/rhsu/board/resources/test/";
 	
-	private static final IntegerBoard TEST_BOARD = new IntegerBoard(
-		ResourceRetriever.GetResource("testZeroBoard", TEST_RESOURCE));
+	private static final DoubleBoard TEST_BOARD = new DoubleBoard(
+			ResourceRetriever.GetResource("testZeroBoard", TEST_RESOURCE));
 	
-	private static final IntegerBoard ARITHMETIC_OP1 = new IntegerBoard(
+	private static final DoubleBoard ARITHMETIC_OP1 = new DoubleBoard(
 			ResourceRetriever.GetResource("arithmeticOp1", TEST_RESOURCE));
 	
-	private static final IntegerBoard ARITHMETIC_OP2 = new IntegerBoard(
+	private static final DoubleBoard ARITHMETIC_OP2 = new DoubleBoard(
 			ResourceRetriever.GetResource("arithmeticOp2", TEST_RESOURCE));
 	
-	private static final IntegerBoard EXPECTED_SUM = new IntegerBoard(
+	private static final DoubleBoard EXPECTED_SUM = new DoubleBoard(
 			ResourceRetriever.GetResource("expectedSum", TEST_RESOURCE));
 	
-	private static final IntegerBoard EXPECTED_DIFFERENCE = new IntegerBoard(
+	private static final DoubleBoard EXPECTED_DIFFERENCE = new DoubleBoard(
 			ResourceRetriever.GetResource("expectedDifference", TEST_RESOURCE));
 	
 	//</editor-fold>
@@ -29,7 +29,7 @@ public class TestIntegerBoard
 	@Test
 	public void testResourceRetriever()
 	{
-		assertEquals(TEST_BOARD, new IntegerBoard(2,2));
+		assertEquals(TEST_BOARD, new DoubleBoard(2,2));
 	}
 	
 	//<editor-fold desc="Unit Tests for Equals" defaultstate="collapsed">
@@ -49,7 +49,7 @@ public class TestIntegerBoard
 	@Test
 	public void testEquals()
 	{
-		assertEquals(TEST_BOARD, new IntegerBoard(2,2));
+		assertEquals(TEST_BOARD, new DoubleBoard(2,2));
 	}
 	
 	@Test
@@ -58,7 +58,7 @@ public class TestIntegerBoard
 		assertFalse
 		(
 			TEST_BOARD.equals(
-				  new IntegerBoard(ResourceRetriever.GetResource("ExampleIntegerBoard")))
+				  new DoubleBoard(ResourceRetriever.GetResource("ExampleIntegerBoard")))
 		);
 	}
 	

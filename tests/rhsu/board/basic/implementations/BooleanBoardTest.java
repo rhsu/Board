@@ -4,18 +4,18 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import rhsu.board.resources.ResourceRetriever;
 
-public class TestCharBoard 
+public class BooleanBoardTest 
 {
 	//<editor-fold desc="Private Variables" defaultstate="collapsed">
 	private static final String TEST_RESOURCE = "/rhsu/board/resources/test/";
-	private static final CharBoard TEST_BOARD = new CharBoard(
-		ResourceRetriever.GetResource("testCharBoard", TEST_RESOURCE));
-	//</editor-fold>
+	private static final BooleanBoard TEST_BOARD = new BooleanBoard(
+		ResourceRetriever.GetResource("testBooleanBoard", TEST_RESOURCE));
+	//</editor-fold>	
 	
 	@Test
 	public void testResourceRetriever()
 	{
-		assertEquals(TEST_BOARD, new CharBoard(2,2));
+		assertEquals(TEST_BOARD, new BooleanBoard(2,2));
 	}
 	
 	//<editor-fold desc="Unit Tests For Equals" defaultstate="collapsed">
@@ -35,7 +35,7 @@ public class TestCharBoard
 	@Test
 	public void testEquals()
 	{
-		assertEquals(TEST_BOARD, new CharBoard(2,2));
+		assertEquals(TEST_BOARD, new BooleanBoard(2,2));
 	}
 	
 	@Test
@@ -43,10 +43,8 @@ public class TestCharBoard
 	{
 		assertFalse
 		(
-			TEST_BOARD.equals
-			(
-				new CharBoard(ResourceRetriever.GetResource("ExampleIntegerBoard"))
-			)
+			TEST_BOARD.equals(
+				  new BooleanBoard(ResourceRetriever.GetResource("ExampleIntegerBoard")))
 		);
 	}
 	

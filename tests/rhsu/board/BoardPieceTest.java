@@ -26,7 +26,6 @@ public class BoardPieceTest
 	@Test
 	public void testGetHorizontal() 
 	{
-		System.out.println("getHorizontal");
 		int expResult = -1;
 		int result = mockBoardPiece.getHorizontal();
 		assertEquals(expResult, result);
@@ -38,7 +37,6 @@ public class BoardPieceTest
 	@Test
 	public void testGetVertical() 
 	{
-		System.out.println("getVertical");
 		int expResult = -1;
 		int result = mockBoardPiece.getVertical();
 		assertEquals(expResult, result);
@@ -50,7 +48,6 @@ public class BoardPieceTest
 	@Test
 	public void testGetValue() 
 	{
-		System.out.println("getValue");
 		Integer expResult = 5;
 		Integer result = mockBoardPiece.getValue();
 		assertEquals(expResult, result);
@@ -62,7 +59,6 @@ public class BoardPieceTest
 	@Test
 	public void testSetValue() 
 	{
-		System.out.println("setValue");
 		mockBoardPiece.setValue(5);
 		assertNotNull(mockBoardPiece.getValue());
 	}
@@ -73,7 +69,6 @@ public class BoardPieceTest
 	@Test
 	public void testToString() 
 	{
-		System.out.println("toString");
 		String expResult = "5";
 		String result = mockBoardPiece.toString();
 		assertEquals(expResult, result);
@@ -85,7 +80,6 @@ public class BoardPieceTest
 	@Test
 	public void testEquals() 
 	{
-		System.out.println("equals");
 		assertEquals(mockBoardPiece, MockFactory.mockBoardPiece());
 	}
 
@@ -95,7 +89,6 @@ public class BoardPieceTest
 	@Test
 	public void testGetMockObject() 
 	{
-		System.out.println("getMockObject");
 		assertEquals(mockBoardPiece, MockFactory.mockBoardPiece());
 	}
 }

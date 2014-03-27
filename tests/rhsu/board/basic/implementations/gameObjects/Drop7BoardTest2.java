@@ -12,9 +12,9 @@ import static org.junit.Assert.*;
  *
  * @author rhsu
  */
-public class Drop7BoardTest {
+public class Drop7BoardTest2 {
 
-    public Drop7BoardTest() {
+    public Drop7BoardTest2() {
     }
 
 	@Test

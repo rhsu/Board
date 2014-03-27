@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import rhsu.board.resources.ResourceRetriever;
 
-public class TestStringBoard 
+public class StringBoardTest 
 {
 	//<editor-fold desc="Private Variables" defaultstate="collapsed">
 	private static final String testResource = "/rhsu/board/resources/test/";
