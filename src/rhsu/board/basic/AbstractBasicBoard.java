@@ -542,7 +542,7 @@ public abstract class AbstractBasicBoard<T>
 				
 				for(int i = 1; i < units; i++)
 				{
-					returnValue = this.getPieceAt(returnValue.getHorizontal(), vertical -1);
+					returnValue = this.getPieceAt(horizontal, returnValue.getVertical() - 1);
 				}
 				
 				return returnValue;
@@ -554,7 +554,7 @@ public abstract class AbstractBasicBoard<T>
 				
 				for(int i = 1; i < units; i++)
 				{
-					returnValue = this.getPieceAt(returnValue.getHorizontal(), vertical + 1);
+					returnValue = this.getPieceAt(horizontal, returnValue.getVertical() + 1);
 				}
 				
 				return returnValue;
@@ -571,18 +571,7 @@ public abstract class AbstractBasicBoard<T>
 	@Override
 	public T getValueAt(int horizontal, int vertical, Direction direction, int units)
 	{
-		switch(direction)
-		{
-			case UP:
-				return this.getPieceAt(horizontal - 1, vertical).getValue();
-			case DOWN:
-				return this.getPieceAt(horizontal + 1, vertical).getValue();
-			case LEFT:
-				return this.getPieceAt(horizontal, vertical - 1).getValue();
-			default:
-			case RIGHT:
-				return this.getPieceAt(horizontal, vertical + 1).getValue();
-		}
+		return this.getPieceAt(horizontal, vertical, direction, units).getValue();
 	}
 	
 	@Override

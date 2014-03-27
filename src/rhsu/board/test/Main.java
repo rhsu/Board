@@ -20,11 +20,16 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		IntegerBoard test = new IntegerBoard(
+		Board<Integer> testBoard = new IntegerBoard(
 			ResourceRetriever.GetResource("Test127", TEST_RESOURCE));
 		
-		print(test);
+		print(testBoard);
 		
-		print(test.getPieceAt(test.find(9), Direction.UP, 0));		
+		print(testBoard.getValueAt(2,2));
+		
+		//assertEquals((int)testBoard.getValueAt(2, 2, Direction.LEFT, 1), 2);
+		//assertEquals((int)testBoard.getValueAt(2, 2, Direction.LEFT, 2), -2);
+		
+		print(testBoard.getPieceAt(2, 2, Direction.LEFT, 2));
 	}
 }
