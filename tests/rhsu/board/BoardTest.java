@@ -20,7 +20,9 @@ public class BoardTest
 	
 	private static Board<Integer> mockMoveOtherBoard;
 	private static BoardPiece<Integer> mockMoveOtherPiece;
-		
+	
+	private static Board<Integer> test127Board;
+	
 	@Before
 	public void setUpClass()
 	{
@@ -35,6 +37,9 @@ public class BoardTest
 		
 		mockMoveOtherPiece = mockMoveOtherBoard.getPieceAt(1,1);
 		mockMoveOtherPiece.setValue(-999);
+		
+		test127Board = new IntegerBoard(
+			ResourceRetriever.GetResource("Test127", TEST_RESOURCE));
 	}
 	
 	/**
@@ -141,5 +146,34 @@ public class BoardTest
 	public void testMove_Right_pass()
 	{
 		
+	}
+	
+	@Test
+	public void test_GetValueAt_Up()
+	{
+		//UP
+		assertEquals((int)test127Board.getValueAt(2, 2, Direction.UP, 1), 1);
+		assertEquals((int)test127Board.getValueAt(2, 2, Direction.UP, 2), -1);
+	}	
+	
+	@Test
+	public void test_GetValueAt_Down()
+	{
+		assertEquals((int)test127Board.getValueAt(2, 2, Direction.DOWN, 1), 4);
+		assertEquals((int)test127Board.getValueAt(2, 2, Direction.DOWN, 2), -4);
+	}
+			
+	@Test
+	public void test_GetValueAt_Left()
+	{
+		assertEquals((int)test127Board.getValueAt(2, 2, Direction.LEFT, 1), 2);
+		assertEquals((int)test127Board.getValueAt(2, 2, Direction.LEFT, 2), -2);
+	}
+			
+	@Test
+	public void test_GetValueAt_Right()
+	{
+		assertEquals((int)test127Board.getValueAt(2, 2, Direction.RIGHT, 1), 3);
+		assertEquals((int)test127Board.getValueAt(2, 2, Direction.RIGHT, 2), -3);
 	}
 }
