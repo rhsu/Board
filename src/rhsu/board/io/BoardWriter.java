@@ -3,6 +3,7 @@ package rhsu.board.io;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import rhsu.board.basic.AbstractBasicBoard;
 import rhsu.board.exceptionHandler.ExceptionHandler;
  
@@ -37,7 +38,7 @@ public class BoardWriter
  
 			System.out.println("Done creating file: " + filename);
 		} 
-		catch (Exception exception) 
+		catch (IOException exception) 
 		{
 			ExceptionHandler.Handle(exception);
 		}		
