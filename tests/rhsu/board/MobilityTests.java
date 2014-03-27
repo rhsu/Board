@@ -99,15 +99,13 @@ public class MobilityTests
 				ResourceRetriever.GetResource("testMobilityBoard", TEST_RESOURCE));
 	
 		//create a reference to pieceZero			
-		BoardPiece<Integer> pieceZero = test112Board.getPieceAt(0, 0);
-
-		
+		BoardPiece<Integer> pieceZero = test112Board.getPieceAt(0, 0);		
 		assertTrue(test112Board.move(test112Board.getPieceAt(0,0), 2, 2));
 		
-		assertTrue(test112Board.getUpValue(pieceZero) == 2);
-		assertTrue(test112Board.getDownValue(pieceZero) == 8);
-		assertTrue(test112Board.getLeftValue(pieceZero) == 4);
-		assertTrue(test112Board.getRightValue(pieceZero) == 6);
+		assertTrue(test112Board.getValueAt(pieceZero, Direction.UP, 1) == 2);
+		assertTrue(test112Board.getValueAt(pieceZero, Direction.DOWN, 1) == 8);
+		assertTrue(test112Board.getValueAt(pieceZero, Direction.LEFT, 1) == 4);
+		assertTrue(test112Board.getValueAt(pieceZero, Direction.RIGHT, 1) == 6);
 	}
 	
 	@Ignore
