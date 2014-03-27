@@ -10,31 +10,31 @@ import rhsu.board.test.MockFactory;
  *
  * @author rhsu
  */
-public class MobilityTests 
+public class BoardTest 
 {
-	private static Board<Integer> mockBoard;
-	private static BoardPiece<Integer> mockPieceZero;
-	private static BoardPiece<Integer> mockPieceDestination;
-	
-	private static Board<Integer> mockOtherBoard;
-	private static BoardPiece<Integer> mockOtherBoardPiece;
-	
 	private static final String TEST_RESOURCE = "/rhsu/board/resources/test/";
 	
+	private static Board<Integer> mockMoveBoard;
+	private static BoardPiece<Integer> mockMovePiece;
+	private static BoardPiece<Integer> mockMovePieceDestination;
+	
+	private static Board<Integer> mockMoveOtherBoard;
+	private static BoardPiece<Integer> mockMoveOtherPiece;
+		
 	@Before
 	public void setUpClass()
 	{
-		mockBoard = MockFactory.mockBoard();
-		mockPieceZero = mockBoard.getPieceAt(0, 0);
-		mockPieceZero.setValue(-99);
+		mockMoveBoard = MockFactory.mockBoard();
+		mockMovePiece = mockMoveBoard.getPieceAt(0, 0);
+		mockMovePiece.setValue(-99);
 				
-		mockPieceDestination = mockBoard.getPieceAt(1, 1);
-		mockPieceDestination.setValue(-999);
+		mockMovePieceDestination = mockMoveBoard.getPieceAt(1, 1);
+		mockMovePieceDestination.setValue(-999);
 		
-		mockOtherBoard = MockFactory.mockBoard();
+		mockMoveOtherBoard = MockFactory.mockBoard();
 		
-		mockOtherBoardPiece = mockOtherBoard.getPieceAt(1,1);
-		mockOtherBoardPiece.setValue(-999);
+		mockMoveOtherPiece = mockMoveOtherBoard.getPieceAt(1,1);
+		mockMoveOtherPiece.setValue(-999);
 	}
 	
 	/**
@@ -44,18 +44,18 @@ public class MobilityTests
 	public void testMove()
 	{
 		//check if the move is possible and perform the action
-		assertTrue(mockBoard.move(mockPieceZero, 1, 1));
+		assertTrue(mockMoveBoard.move(mockMovePiece, 1, 1));
 		
 		//ensures that piece zero maintains its same value
 		//ensures that piece zero has the horizontal and vertical values of 1,1
-		assertTrue(mockPieceZero.getValue() == -99);
-		assertTrue(mockPieceZero.getHorizontal() == 1);
-		assertTrue(mockPieceZero.getVertical() == 1);
+		assertTrue(mockMovePiece.getValue() == -99);
+		assertTrue(mockMovePiece.getHorizontal() == 1);
+		assertTrue(mockMovePiece.getVertical() == 1);
 		
 		//ensures that the destination piece has the default value
-		assertTrue(mockPieceDestination.getValue() == mockBoard.getDefaultValue());
-		assertTrue(mockPieceDestination.getHorizontal() == 0);
-		assertTrue(mockPieceDestination.getVertical() == 0);
+		assertTrue(mockMovePieceDestination.getValue() == mockMoveBoard.getDefaultValue());
+		assertTrue(mockMovePieceDestination.getHorizontal() == 0);
+		assertTrue(mockMovePieceDestination.getVertical() == 0);
 	}
 		
 	/**
@@ -65,18 +65,18 @@ public class MobilityTests
 	public void testMoveOtherBoard()
 	{
 		//check if the move is possible and perform the action
-		assertTrue(mockBoard.move(mockPieceZero, 1, 1, mockOtherBoard));
+		assertTrue(mockMoveBoard.move(mockMovePiece, 1, 1, mockMoveOtherBoard));
 		
 		//ensures that piece zero maintains its same value
 		//ensures that piece zero has the horizontal and vertical values of 1,1
-		assertTrue(mockPieceZero.getValue() == -99);
-		assertTrue(mockPieceZero.getHorizontal() == 1);
-		assertTrue(mockPieceZero.getVertical() == 1);
+		assertTrue(mockMovePiece.getValue() == -99);
+		assertTrue(mockMovePiece.getHorizontal() == 1);
+		assertTrue(mockMovePiece.getVertical() == 1);
 		
 		//ensures that the destination piece has the default value
-		assertTrue(mockOtherBoardPiece.getValue() == mockOtherBoard.getDefaultValue());
-		assertTrue(mockOtherBoardPiece.getHorizontal() == 0);
-		assertTrue(mockOtherBoardPiece.getVertical() == 0);
+		assertTrue(mockMoveOtherPiece.getValue() == mockMoveOtherBoard.getDefaultValue());
+		assertTrue(mockMoveOtherPiece.getHorizontal() == 0);
+		assertTrue(mockMoveOtherPiece.getVertical() == 0);
 	}
 	
 	/**
@@ -85,15 +85,15 @@ public class MobilityTests
 	@Test
 	public void testMoveFail_Occupied()
 	{
-		mockBoard.getPieceAt(1,1).setStatus(MobilityStatus.Occupied);
-		assertFalse(mockBoard.move(mockBoard.getPieceAt(0, 0), 1, 1));
+		mockMoveBoard.getPieceAt(1,1).setStatus(MobilityStatus.Occupied);
+		assertFalse(mockMoveBoard.move(mockMoveBoard.getPieceAt(0, 0), 1, 1));
 	}
 	
 	/**
 	 * This tests to see if issue 112 works. Tests getting the piece from all directions
 	 */
 	@Test
-	public void testMobility112()
+	public void testMovePreservesIndices()
 	{
 		Board<Integer> test112Board = new IntegerBoard(
 				ResourceRetriever.GetResource("testMobilityBoard", TEST_RESOURCE));
