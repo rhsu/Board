@@ -39,7 +39,7 @@ public class BoardTest
 		mockMoveOtherPiece.setValue(-999);
 		
 		testMoveDirectionBoard = new IntegerBoard(
-			ResourceRetriever.GetResource("Test127", TEST_RESOURCE));
+			ResourceRetriever.GetResource("testMoveDirectionBoard", TEST_RESOURCE));
 	}
 	
 	/**
