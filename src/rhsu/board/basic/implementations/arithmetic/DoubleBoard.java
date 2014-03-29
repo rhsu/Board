@@ -284,13 +284,13 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 				{
 					value = Double.parseDouble(baseBoard.getValueAt(i, j));
 				}
-				catch(Exception exception)
+				catch(NumberFormatException exception)
 				{
 					value = handler.AssignDefault(exception, handleType, defaultValue);
 				}
 				finally
 				{
-					board[i][j] = new BasicBoardPiece(i, j, value);
+					board[i][j] = new BasicBoardPiece(i, j, value, this.guid);
 				}
 			}
 		}

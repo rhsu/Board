@@ -71,7 +71,8 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 				board[i][j] = new BasicBoardPiece(i, j, 
 						baseBoard.getValueAt(i, j).equals("1")
 						? true
-						: Boolean.valueOf(baseBoard.getValueAt(i, j)));
+						: Boolean.valueOf(baseBoard.getValueAt(i, j)),
+						this.guid);
 			}
 		}
 	}

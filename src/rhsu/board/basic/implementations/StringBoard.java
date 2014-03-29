@@ -70,7 +70,8 @@ public class StringBoard extends AbstractBasicBoard<String>
 			for(int j = 0; j < vertical_size; j++)
 			{
 				board[i][j] = new BasicBoardPiece(i, j, 
-					baseBoard.getValueAt(i, j));
+					baseBoard.getValueAt(i, j),
+					this.guid);
 			}
 		}
 	}

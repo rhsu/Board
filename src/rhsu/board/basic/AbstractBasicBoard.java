@@ -75,30 +75,30 @@ public abstract class AbstractBasicBoard<T>
 		this.size = horizontal*vertical;
 		this.board = new BasicBoardPiece[horizontal][vertical];
 		this.defaultValue = defaultValue;
+		this.guid = UUID.randomUUID();
 		
 		for(int i = 0; i < horizontal; i++)
 		{
 			for(int j = 0; j < vertical; j++)
 			{
-				this.board[i][j] = new BasicBoardPiece(i, j, defaultValue);
+				this.board[i][j] = new BasicBoardPiece(i, j, defaultValue, guid);
 			}
 		}
 		
-		this.guid = UUID.randomUUID();
 	}
 
 	public AbstractBasicBoard(String filename)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(filename);
-		this.doPopulateFromFile(filename);
 		this.guid = UUID.randomUUID();
+		this.doPopulateFromFile(filename);
 	}
 	
 	public AbstractBasicBoard(BufferedReader reader)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(reader);
-		this.doPopulateFromResource(reader);
 		this.guid = UUID.randomUUID();
+		this.doPopulateFromResource(reader);
 	}
 	
 	//</editor-fold>

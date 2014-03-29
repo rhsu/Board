@@ -1,5 +1,7 @@
 package rhsu.board;
 
+import java.util.UUID;
+
 public interface BoardPiece<T>
 {
 	public void setValue(T t);
@@ -10,4 +12,6 @@ public interface BoardPiece<T>
 	public void setVertical(int vertical);
 	public MobilityStatus getMobilityStatus();
 	public void setStatus(MobilityStatus status);
+	public void setGUID(UUID guid);
+	public UUID getGUID();
 }

@@ -292,13 +292,13 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 					{
 						value = Integer.parseInt(baseBoard.getValueAt(i, j));
 					}
-					catch(Exception exception)
+					catch(NumberFormatException exception)
 					{
 						value = handler.AssignDefault(exception, handleType, defaultValue);
 					}
 					finally
 					{
-						board[i][j] = new BasicBoardPiece(i, j, value);
+						board[i][j] = new BasicBoardPiece(i, j, value, this.guid);
 					}
 				}
 			}

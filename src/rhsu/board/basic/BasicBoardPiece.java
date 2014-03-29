@@ -1,6 +1,7 @@
 package rhsu.board.basic;
 
 import java.util.Objects;
+import java.util.UUID;
 import rhsu.board.BoardPiece;
 import rhsu.board.MobilityStatus;
 import rhsu.board.RandomGenerator;
@@ -15,6 +16,7 @@ public class BasicBoardPiece<T> implements BoardPiece<T>
 	protected int vertical;
 	protected T value;
 	protected MobilityStatus mobilityStatus;
+	protected UUID guid;
 	
 	//<editor-fold defaultstate="collapsed" desc="ACCESSORS">
 	/**
@@ -67,7 +69,32 @@ public class BasicBoardPiece<T> implements BoardPiece<T>
 	{
 		this.vertical = vertical;
 	}
+	
+	@Override
+	public UUID getGUID()
+	{
+		return this.guid;
+	}
+	
+	@Override
+	public void setGUID(UUID guid)
+	{
+		this.guid = guid;
+	}
+	
 	//</editor-fold>
+	
+	public BasicBoardPiece(int horizontal, int vertical, T value, UUID guid)
+	{
+		this(horizontal, vertical, value);
+		this.guid = guid;
+	}
+	
+	public BasicBoardPiece(int horizontal, int vertical, RandomGenerator<T> randomGenerator, UUID guid)
+	{
+		this(horizontal, vertical, randomGenerator);
+		this.guid = guid;
+	}
 	
 	/**
 	 * General constructor for a board piece

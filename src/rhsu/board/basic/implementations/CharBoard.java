@@ -72,7 +72,8 @@ public class CharBoard extends AbstractBasicBoard<Character>
 			for(int j = 0; j < vertical_size; j++)
 			{
 				board[i][j] = new BasicBoardPiece(i, j, 
-						baseBoard.getValueAt(i, j).charAt(0));
+						baseBoard.getValueAt(i, j).charAt(0),
+						this.guid);
 			}
 		}
 	}
