@@ -5,14 +5,15 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 import rhsu.board.Board;
 import rhsu.board.BoardPiece;
-import rhsu.board.io.BoardIO;
-import rhsu.board.io.BoardReader;
-import rhsu.board.io.BoardWriter;
 import rhsu.board.Direction;
 import rhsu.board.MobilityStatus;
 import rhsu.board.RandomGenerator;
+import rhsu.board.io.BoardIO;
+import rhsu.board.io.BoardReader;
+import rhsu.board.io.BoardWriter;
 
 /**
  * This class provides skeletal implementations of some of Board operations.This class also contains an export method, for putting all entries of a board object into a file.
@@ -54,16 +55,17 @@ public abstract class AbstractBasicBoard<T>
 	 */
 	protected T defaultValue;
 	
+	protected UUID guid;
+	
 	//</editor-fold>
 	
 	//<editor-fold defaultstate="collapsed" desc="Constructors">
 	
 	/**
-	 * Creates an abstract basic board object based with dimensions of horizontal by vertical.
-	 * Assigns a default value to all the board pieces
+	 * Creates an abstract board based with horizontal size and vertical size
 	 * @param horizontal the horizontal size
 	 * @param vertical the vertical size
-	 * @param defaultValue the defaultValue
+	 * @param defaultValue the default value
 	 */
 	@SuppressWarnings({"unchecked"})
 	public AbstractBasicBoard(int horizontal, int vertical, T defaultValue)
@@ -81,18 +83,22 @@ public abstract class AbstractBasicBoard<T>
 				this.board[i][j] = new BasicBoardPiece(i, j, defaultValue);
 			}
 		}
+		
+		this.guid = UUID.randomUUID();
 	}
 
 	public AbstractBasicBoard(String filename)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(filename);
 		this.doPopulateFromFile(filename);
+		this.guid = UUID.randomUUID();
 	}
 	
 	public AbstractBasicBoard(BufferedReader reader)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(reader);
 		this.doPopulateFromResource(reader);
+		this.guid = UUID.randomUUID();
 	}
 	
 	//</editor-fold>
@@ -482,5 +488,11 @@ public abstract class AbstractBasicBoard<T>
 	}
 	
 	//</editor-fold>
+	
+	@Override
+	public UUID getGUID()
+	{
+		return this.guid;
+	}
 }
 

@@ -2,6 +2,7 @@ package rhsu.board;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * The root interface in the board hierarchy. This interface contains definitions for finding a specific piece on a 2-Dimensional array. Other functionality includes the ability to create an iterator for 1-Dimension traversal of the Board to trim computation time. In addition, a find and a findAll feature is included to allow quick searching.
@@ -187,4 +188,6 @@ public interface Board<T>
 	 * @return a boolean value to denote if the move was successful
 	 */
 	public boolean move(BoardPiece<T> piece, int units, Direction direction, Board<T> otherBoard);
+	
+	public UUID getGUID();
 }
