@@ -19,7 +19,10 @@ public class Main
 	public static void main(String[] args)
 	{
 		AbstractBasicBoard<String> test = new StringBoard("test.txt");
+		//print(test);
+		
 		print(test);
 		
+		test.export("CSV.csv", '\t');
 	}
 }

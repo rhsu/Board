@@ -54,7 +54,7 @@ public class BoardPanelGUIExtender extends BoardPanelGUI
 		this.board.setValueAt(2, 1, jTextField8.getText());
 		this.board.setValueAt(2, 2, jTextField9.getText());
 		
-		BoardWriter.write("test.txt", board);
+		BoardWriter.write("test.txt", board, '\0');
 	}
 	
 	public static void main(String[] args)

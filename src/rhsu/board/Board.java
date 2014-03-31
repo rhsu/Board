@@ -187,4 +187,6 @@ public interface Board<T>
 	 * @return a boolean value to denote if the move was successful
 	 */
 	public boolean move(BoardPiece<T> piece, int units, Direction direction, Board<T> otherBoard);
+	
+	public String toOutputString(char delimiter);
 }

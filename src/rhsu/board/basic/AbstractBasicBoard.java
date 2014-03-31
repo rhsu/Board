@@ -442,11 +442,17 @@ public abstract class AbstractBasicBoard<T>
 	/**
 	 * Exports the board object
 	 * @param filename the name of the file to be exported
+	 * @param delimiter the delimiter to add.
 	 */
 	@Override
+	public void export(String filename, char delimiter)
+	{
+		BoardWriter.write(filename, this, delimiter);
+	}
+	
 	public void export(String filename)
 	{
-		BoardWriter.write(filename, this);
+		BoardWriter.write(filename, this, '\0');
 	}
 	
 	@Override
@@ -461,6 +467,24 @@ public abstract class AbstractBasicBoard<T>
 	{
 		initializeBaseBoard();
 		this.initializeFromBaseBoard();
+	}
+	
+	@Override
+	public String toOutputString(char delimiter)
+	{
+		if (delimiter == '\0') return this.toString();
+		
+		StringBuilder builder = new StringBuilder();
+		
+		for (int i = 0; i < this.horizontal_size; i++)
+		{
+			for (int j = 0; j < this.vertical_size; j++)
+			{
+				builder.append(this.getPieceAt(i, j).toString()).append(delimiter);
+			}
+			builder.append("\n");
+		}
+		return builder.toString().trim();
 	}
 	
 	private void initializeBaseBoard()

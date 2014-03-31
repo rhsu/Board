@@ -18,7 +18,7 @@ public class BoardWriter<T>
 	 * @param filename  the name of the file to create
 	 * @param board the board to export to a file
 	 */
-	private void writeBoardToFile(String filename, Board<T> board)
+	/*private void writeBoardToFile(String filename, Board<T> board)
 	{
 		try 
 		{	
@@ -44,17 +44,46 @@ public class BoardWriter<T>
 		{
 			ExceptionHandler.Handle(exception);
 		}		
+	}*/
+	
+	private void writeBoardToFile(String filename, Board<T> board, char delimiter)
+	{
+		try 
+		{	
+			String content = board.toOutputString(delimiter);
+			
+			File file = new File(filename);
+ 
+			if (!file.exists()) 
+			{
+				file.createNewFile();
+			}
+ 
+			FileWriter fw = new FileWriter(file.getAbsoluteFile());
+			
+			try (BufferedWriter bw = new BufferedWriter(fw))
+			{
+				bw.write(content);
+			}
+ 
+			System.out.println("Done creating file: " + filename);
+		} 
+		catch (IOException exception) 
+		{
+			ExceptionHandler.Handle(exception);
+		}	
 	}
 		
 	/**
 	 * Initializes a BoardWriter object to write the given board to a file
 	 * @param filename the name of the file to create
 	 * @param board the board object to export to a file
+	 * @param delimiter the delimiter to write.
 	 */
-	public static void write(String filename, Board board)
+	public static void write(String filename, Board board, char delimiter)
 	{
 		BoardWriter writer = new BoardWriter();
-		writer.writeBoardToFile(filename, board);
+		writer.writeBoardToFile(filename, board, delimiter);
 	}
 	
 	/**
@@ -62,8 +91,8 @@ public class BoardWriter<T>
 	 * The default name of "output.txt" will be used.
 	 * @param board the board object to export to a file.
 	 */
-	public static void write(Board board)
+	public static void write(Board board, char delimiter)
 	{
-		write("output.txt", board);
+		write("output.txt", board, delimiter);
 	}
 }
