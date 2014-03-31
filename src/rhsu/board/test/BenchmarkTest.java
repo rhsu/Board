@@ -11,7 +11,7 @@ import rhsu.board.basic.implementations.arithmetic.IntegerBoard;
  */
 public class BenchmarkTest 
 {
-	private static IntegerBoard testboard = new IntegerBoard(100,100, 1);
+	private static final IntegerBoard testboard = new IntegerBoard(1000,1000, 1);
 	
 	private static void print(Object o)
 	{
@@ -25,7 +25,9 @@ public class BenchmarkTest
 		
 		while(iter.hasNext())
 		{
-			BasicBoardPiece<Integer> item = (BasicBoardPiece<Integer>) iter.next();
+			Object item = iter.next();
+			//BasicBoardPiece<Integer> item = (BasicBoardPiece<Integer>) iter.next();
+			//print(item);
 			print(item);
 		}
 		long endTime = System.currentTimeMillis();
@@ -41,7 +43,8 @@ public class BenchmarkTest
 		{
 			for(int j = 0; j< testboard.getVertical_size(); j++)
 			{
-				print(testboard.getPieceAt(i, j));
+				Object t = testboard.getPieceAt(i, j);
+				print(t);
 			}
 		}
 		
@@ -51,7 +54,7 @@ public class BenchmarkTest
 		return duration;
 	}
 		
-	public static void Test()
+	public static void main(String[] args)
 	{
 		long i = main1();
 		long j = main2();
@@ -60,3 +63,7 @@ public class BenchmarkTest
 		print(j);
 	}
 }
+
+
+//37762
+//40510
