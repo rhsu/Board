@@ -18,11 +18,12 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		AbstractBasicBoard<String> test = new StringBoard("test.txt");
-		//print(test);
+		Board<String> test = new StringBoard("test.txt");
 		
 		print(test);
 		
-		test.export("CSV.csv", '\t');
+		print(test.getHorizontal_size());
+		
+		print(test.getPieceAt(0, 2));
 	}
 }
