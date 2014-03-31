@@ -1,12 +1,10 @@
 package rhsu.board.test;
 
-import rhsu.board.Board;
-import rhsu.board.BoardPiece;
-import rhsu.board.Direction;
-import rhsu.board.io.formGUI.BoardPanelGUIExtender;
-import rhsu.board.basic.implementations.StringBoard;
-import rhsu.terminalPanelGUI.UniversalPanelLauncher;
-import rhsu.board.basic.implementations.arithmetic.IntegerBoard;
+import rhsu.board.*;
+import rhsu.board.basic.*;
+import rhsu.board.io.*;
+import rhsu.board.basic.implementations.*;
+import rhsu.board.basic.implementations.arithmetic.*;
 import rhsu.board.resources.ResourceRetriever;
 
 public class Main
@@ -20,16 +18,8 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		Board<Integer> testBoard = new IntegerBoard(
-			ResourceRetriever.GetResource("Test127", TEST_RESOURCE));
+		AbstractBasicBoard<String> test = new StringBoard("test.txt");
+		print(test);
 		
-		print(testBoard);
-		
-		print(testBoard.getValueAt(2,2));
-		
-		//assertEquals((int)testBoard.getValueAt(2, 2, Direction.LEFT, 1), 2);
-		//assertEquals((int)testBoard.getValueAt(2, 2, Direction.LEFT, 2), -2);
-		
-		print(testBoard.getPieceAt(2, 2, Direction.LEFT, 2));
 	}
 }
