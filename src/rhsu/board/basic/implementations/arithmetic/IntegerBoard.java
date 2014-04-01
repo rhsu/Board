@@ -22,6 +22,7 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 	 * Constructor to create a IntegerBoard with the given parameters
 	 * @param h the horizontal size 
 	 * @param v the vertical size
+	 * @param defaultValue the default value
 	 */
 	@SuppressWarnings({"unchecked"})
 	public IntegerBoard(int h, int v, Integer defaultValue)
@@ -48,6 +49,7 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 	public IntegerBoard(String filename, HandleType handleType, Integer defaultValue)
 	{
 		super(filename);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 
 	public IntegerBoard(BufferedReader bufferedReader)
@@ -63,6 +65,7 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 	public IntegerBoard(BufferedReader bufferedReader, HandleType handleType, Integer defaultValue)
 	{
 		super(bufferedReader);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	
 	//</editor-fold>	
@@ -217,8 +220,8 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 		{
 			if(i == excluding_row) 
 				continue;
-				r++;	
-				int c = -1;
+			r++;	
+			int c = -1;
 			
 			for(int j = 0; j < this.vertical_size; j++)
 			{

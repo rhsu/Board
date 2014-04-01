@@ -34,11 +34,13 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 	public BooleanBoard(String filename)
 	{
 		super(filename);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	
 	public BooleanBoard(BufferedReader reader)
 	{
 		super(reader);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	
 	//</editor-fold>

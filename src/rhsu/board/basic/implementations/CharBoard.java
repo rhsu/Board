@@ -34,11 +34,13 @@ public class CharBoard extends AbstractBasicBoard<Character>
 	public CharBoard(String filename)
 	{
 		super(filename);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 
 	public CharBoard(BufferedReader bufferedReader)
 	{
 		super(bufferedReader);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	
 	//</editor-fold>

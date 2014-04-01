@@ -22,11 +22,13 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	 * Constructor to create a DoubleBoard with the given parameters
 	 * @param h the horizontal size 
 	 * @param v the vertical size
+	 * @param defaultValue the default value
 	 */
 	@SuppressWarnings({"unchecked"})
 	public DoubleBoard(int h, int v, Double defaultValue)
 	{
 		super(h, v, defaultValue);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 
 	public DoubleBoard(int h, int v)
@@ -48,6 +50,7 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	public DoubleBoard(String filename, HandleType handleType, Double defaultValue)
 	{
 		super(filename);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	
 	public DoubleBoard(BufferedReader bufferedReader)
@@ -64,6 +67,7 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 	public DoubleBoard(BufferedReader bufferedReader, HandleType handleType, Double defaultValue)
 	{
 		super(bufferedReader);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	//</editor-fold>
 		
@@ -218,8 +222,8 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 		{
 			if(i == excluding_row) 
 				continue;
-				r++;	
-				int c = -1;
+			r++;	
+			int c = -1;
 			
 			for(int j = 0; j < this.vertical_size; j++)
 			{

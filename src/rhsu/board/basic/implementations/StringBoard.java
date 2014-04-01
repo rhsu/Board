@@ -36,12 +36,14 @@ public class StringBoard extends AbstractBasicBoard<String>
 	public StringBoard(BufferedReader bufferedReader)
 	{
 		super(bufferedReader);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	
 	@SuppressWarnings({"unchecked"})
 	public StringBoard(String filename)
 	{
 		super(filename);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	
 	//</editor-fold>

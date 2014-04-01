@@ -49,6 +49,7 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 	public BigDecimalBoard(String filename, HandleType handleType, BigDecimal defaultValue)
 	{
 		super(filename);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	
 	public BigDecimalBoard(BufferedReader bufferedReader)
@@ -64,6 +65,7 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 	public BigDecimalBoard(BufferedReader bufferedReader, HandleType handleType, BigDecimal defaultValue)
 	{
 		super(bufferedReader);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	//</editor-fold>
 		

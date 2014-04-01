@@ -33,6 +33,7 @@ public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 	public BigIntegerBoard(int h, int v, BigInteger defaultValue)
 	{
 		super(h, v, defaultValue);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	
 	public BigIntegerBoard(String filename)
@@ -48,6 +49,7 @@ public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 	public BigIntegerBoard(String filename, HandleType handleType, BigInteger defaultValue)
 	{
 		super(filename);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	
 	public BigIntegerBoard(BufferedReader bufferedReader)
@@ -63,6 +65,7 @@ public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 	public BigIntegerBoard(BufferedReader bufferedReader, HandleType handleType, BigInteger defaultValue)
 	{
 		super(bufferedReader);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	//</editor-fold>
 		
