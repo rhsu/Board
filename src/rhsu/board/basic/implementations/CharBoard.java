@@ -7,7 +7,7 @@ import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
 
 /**
- *A character implementation
+ * A character implementation
  */
 public class CharBoard extends AbstractBasicBoard<Character>
 {

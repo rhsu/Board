@@ -15,9 +15,14 @@ import rhsu.board.MobilityStatus;
 import rhsu.board.RandomGenerator;
 
 /**
- * This class provides skeletal implementations of some of Board operations.This class also contains an export method, for putting all entries of a board object into a file.
+ * This class provides skeletal implementations of some of Board operations. 
+ * This class also contains an export method, for putting all entries of a board object into a file.
  * 
  * @param <T> Tye type of elements for the abstract board
+ * 
+ * It is also recommended that all extensions of this class contain a constructor 
+ * that sets the defaultValue member variable. This enables the move methods to set a 
+ * default value once a BoardPiece<T> in the object has been moved.
  */
 public abstract class AbstractBasicBoard<T> 
 	implements Board<T>, BoardIO
