@@ -15,10 +15,17 @@ public class StringBoard extends AbstractBasicBoard<String>
 	
 	//<editor-fold desc="Constructors" defaultstate="collapsed">
 	
+	/**
+	 * Constructs a string board with the given horizontal and vertical values
+	 * and the specified default value
+	 * @param horizontal the horizontal size
+	 * @param vertical the vertical size
+	 * @param defaultValue the defaultValue
+	 */
 	@SuppressWarnings({"unchecked"})
-	public StringBoard(int h, int v, String defaultValue)
+	public StringBoard(int horizontal, int vertical, String defaultValue)
 	{
-		super(h, v, defaultValue);
+		super(horizontal, vertical, defaultValue);
 	}
 	
 	/**
@@ -32,6 +39,12 @@ public class StringBoard extends AbstractBasicBoard<String>
 		this(h, v, DEFAULT_VALUE);
 	}
 	
+	/**
+	 * Constructor to create a StringBoard based off of the values in a bufferedReader
+	 * This constructor is used to build a board off of a resource that exists in the Jar.
+	 * @param bufferedReader 
+	 * @see rhsu.board.resources.ResourceRetriever
+	 */
 	@SuppressWarnings({"unchecked"})
 	public StringBoard(BufferedReader bufferedReader)
 	{
@@ -39,6 +52,10 @@ public class StringBoard extends AbstractBasicBoard<String>
 		this.defaultValue = DEFAULT_VALUE;
 	}
 	
+	/**
+	 * Constructor to create a StringBoard based off of the values in a file
+	 * @param filename the file to construct a board.
+	 */
 	@SuppressWarnings({"unchecked"})
 	public StringBoard(String filename)
 	{
