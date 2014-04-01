@@ -16,13 +16,25 @@ public class Main
 
     public static void print(Object o)
     {
-            System.out.println(o);
+		System.out.println(o);
     }
     
 	public static void main(String[] args)
 	{
-		UUID gina = UUID.randomUUID();
+		Board<Integer> source = new IntegerBoard(
+				ResourceRetriever.GetResource("testMoveBoardSource", TEST_RESOURCE));
 		
-		System.out.println(gina);
+		Board<Integer> destination = new IntegerBoard(
+				ResourceRetriever.GetResource("testMoveBoardDestination",TEST_RESOURCE));
+		
+		Board<Integer> result;
+		
+		print(source);
+		
+		source.move(source.getPieceAt(0,0), 0, 0, destination);
+				
+		print(source);
+		
+		print(destination);
 	} 
 }

@@ -293,13 +293,13 @@ public abstract class AbstractBasicBoard<T>
 	@Override
 	public boolean move(BoardPiece<T> piece, int units, Direction direction)
 	{
-		return false;
+		throw new UnsupportedOperationException("This feature is not build yet");
 	}
 	
 	@Override
 	public boolean move(BoardPiece<T> piece, int units, Direction direction, Board<T> otherBoard)
 	{		
-		return false;
+		throw new UnsupportedOperationException("This feature is not build yet");
 	}
 	
 	//</editor-fold>
