@@ -1,9 +1,8 @@
 package rhsu.board.test;
 
-import rhsu.board.Board;
-import rhsu.board.BoardPiece;
-import rhsu.board.basic.implementations.StringBoard;
-import rhsu.board.basic.implementations.arithmetic.IntegerBoard;
+import rhsu.board.*;
+import rhsu.board.basic.implementations.*;
+import rhsu.board.basic.implementations.arithmetic.*;
 import rhsu.board.resources.ResourceRetriever;
 
 public class Main
@@ -17,21 +16,7 @@ public class Main
     
 	public static void main(String[] args)
 	{
-		Board<Integer> source = new IntegerBoard(
-			ResourceRetriever.GetResource("testMoveBoardSource", TEST_RESOURCE));
 		
-		Board<Integer> destination = new IntegerBoard(
-			ResourceRetriever.GetResource("testMoveBoardDestination",TEST_RESOURCE));
-		
-		source.move(source.getPieceAt(0,0), 0, 0, destination);
-		
-		print(source);
-		print(destination);
-		//print(destination.getDefaultValue());
-		
-		//this should show up in pull request
-		
-		//let's see what this does
 	}
 
 }
