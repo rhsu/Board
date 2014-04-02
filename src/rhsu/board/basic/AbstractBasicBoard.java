@@ -408,6 +408,7 @@ public abstract class AbstractBasicBoard<T>
 	public String toString()
 	{
 		StringBuilder builder = new StringBuilder();
+		
 		for(int i = 0; i < horizontal_size; i++)
 		{
 			for (int j = 0; j < vertical_size; j++)
@@ -416,6 +417,7 @@ public abstract class AbstractBasicBoard<T>
 			}
 			builder.append("\n");
 		}
+		
 		return builder.toString().trim();
 	}
 
