@@ -10,18 +10,19 @@ public class MobilityTest
 {
 	private static final String TEST_RESOURCE = "/rhsu/board/resources/test/";
 	
-	private static Board<Integer> mockMoveBoard;
-	private static BoardPiece<Integer> mockMovePiece;
-	private static BoardPiece<Integer> mockMovePieceDestination;
-	
-	private static Board<Integer> mockMoveOtherBoard;
-	private static BoardPiece<Integer> mockMoveOtherPiece;
-	
-	private static Board<Integer> testMoveDirectionBoard;
+	private static final Board<Integer> source = new IntegerBoard(
+		ResourceRetriever.GetResource("testMoveBoardSource", TEST_RESOURCE));
+		
+	private static final Board<Integer> destination = new IntegerBoard(
+		ResourceRetriever.GetResource("testMoveBoardDestination",TEST_RESOURCE));
 	
 	@Test
 	public void test()
 	{
+		//test that the move is successful
+		assertTrue(source.move(source.getPieceAt(0,0), 0, 0, destination));
 		
+		assertEquals((int)source.getValueAt(0,0), 0);
+		assertEquals((int)destination.getValueAt(0, 0), 1);
 	}
 }

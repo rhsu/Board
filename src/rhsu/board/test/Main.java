@@ -23,19 +23,10 @@ public class Main
 		Board<Integer> destination = new IntegerBoard(
 				ResourceRetriever.GetResource("testMoveBoardDestination",TEST_RESOURCE));
 		
-		//Board<Integer> result;
-		
-		source.move(source.getPieceAt(0,0), 1, 1);
+		source.move(source.getPieceAt(0,0), 0, 0, destination);
 		
 		print(source);
-		
-		//BoardPiece<Integer> x = source.getPieceAt(0, 0);
-		
-		//print(x.getValue());
-		
-		//print(source);
-		
-		//print(source.getDefaultValue());
+		print(destination);
 		//print(destination.getDefaultValue());
 	}
 
