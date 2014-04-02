@@ -2,11 +2,9 @@ package rhsu.board.basic;
 
 import java.io.BufferedReader;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 import rhsu.board.Board;
 import rhsu.board.BoardPiece;
@@ -514,6 +512,7 @@ public abstract class AbstractBasicBoard<T>
 		this.vertical_size = baseBoard.getVertical_size();
 		this.board = new BasicBoardPiece[horizontal_size][vertical_size];
 		this.size = this.horizontal_size * this.vertical_size;
+		this.uuid = baseBoard.getUUID();
 	}
 	
 	private void doPopulateFromFile(String filename)
