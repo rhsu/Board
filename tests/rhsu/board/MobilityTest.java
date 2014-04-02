@@ -18,4 +18,10 @@ public class MobilityTest
 	private static BoardPiece<Integer> mockMoveOtherPiece;
 	
 	private static Board<Integer> testMoveDirectionBoard;
+	
+	@Test
+	public void test()
+	{
+		
+	}
 }

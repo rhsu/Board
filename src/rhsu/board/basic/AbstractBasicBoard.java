@@ -250,7 +250,7 @@ public abstract class AbstractBasicBoard<T>
 	@Override
 	public T getDefaultValue()
 	{
-		return defaultValue;
+		return this.defaultValue;
 	}
 	
 	//</editor-fold>
@@ -268,10 +268,16 @@ public abstract class AbstractBasicBoard<T>
 		
 		int tempHorizontal = piece.getHorizontal();
 		int tempVertical = piece.getVertical();
-
-		target.setValue(defaultValue);
+		
+		target.setValue(this.getDefaultValue());
+System.out.println("def val: " + this.defaultValue);
+System.out.println("HERE 1");		
 		this.setPieceAt(horizontal, vertical, piece);
+System.out.println("HERE 2");
+System.out.println(target.getValue());
 		this.setPieceAt(tempHorizontal, tempVertical, target);
+		
+//System.out.println("print " + this.getPieceAt(0,0).getValue());
 		
 		return true;
 	}
@@ -394,6 +400,7 @@ public abstract class AbstractBasicBoard<T>
 		this.board[horizontal][vertical] = piece;
 		piece.setHorizontal(horizontal);
 		piece.setVertical(vertical);
+System.out.println("At Set Piece At: " + piece.getValue());
 	}
 	
 	//</editor-fold>
