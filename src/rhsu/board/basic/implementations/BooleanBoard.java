@@ -7,7 +7,7 @@ import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
 
 /**
- *A boolean implementation
+ * A boolean implementation
  */
 public class BooleanBoard extends AbstractBasicBoard<Boolean>
 {
@@ -23,6 +23,7 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 	
 	/**
 	 * Constructor to create a BooleanBoard with the given parameters
+	 * and a default value of false
 	 * @param h the horizontal size 
 	 * @param v the vertical size
 	 */
@@ -31,14 +32,26 @@ public class BooleanBoard extends AbstractBasicBoard<Boolean>
 		this(h, v, DEFAULT_VALUE);
 	}
 
+	/**
+	 * Constructor to create a BooleanBoard based off of the values in a file
+	 * @param filename the file to construct a board.
+	 */
 	public BooleanBoard(String filename)
 	{
 		super(filename);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	
+	/**
+	 * Constructor to create a BooleanBoard based off of the values in a bufferedReader
+	 * This constructor is used to build a board off of a resource that exists in the Jar.
+	 * @param reader the BufferedReader object to populate from.
+	 * @see rhsu.board.resources.ResourceRetriever
+	 */
 	public BooleanBoard(BufferedReader reader)
 	{
 		super(reader);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	
 	//</editor-fold>

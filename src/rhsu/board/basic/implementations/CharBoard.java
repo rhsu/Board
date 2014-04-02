@@ -7,7 +7,7 @@ import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board.RandomGenerator;
 
 /**
- *A character implementation
+ * A character implementation
  */
 public class CharBoard extends AbstractBasicBoard<Character>
 {
@@ -15,30 +15,50 @@ public class CharBoard extends AbstractBasicBoard<Character>
 	
 	//<editor-fold desc="Constructors" defaultstate="collapsed">
 	
+	/**
+	 * Constructor to create a CharacterBoard with the given parameters
+	 * and a default value of +
+	 * @param horizontal the horizontal size
+	 * @param vertical the vertical size
+	 * @param defaultValue the default value
+	 */
 	@SuppressWarnings({"unchecked"})
-	public CharBoard(int h, int v, char defaultValue)
+	public CharBoard(int horizontal, int vertical, char defaultValue)
 	{
-		super(h, v, defaultValue);
+		super(horizontal, vertical, defaultValue);
 	}
 	
+
 	/**
-	 * Constructor to create a Character Board with the given parameters
-	 * @param h the horizontal size 
-	 * @param v the vertical size
+	 * Constructs a Character Board with the given horizontal and vertical size
+	 * @param horizontal the horizontal size
+	 * @param vertical the vertical size
 	 */
-	public CharBoard(int h, int v)
+	public CharBoard(int horizontal, int vertical)
 	{
-		this(h, v, DEFAULT_VALUE);
+		this(horizontal, vertical, DEFAULT_VALUE);
 	}
 
+	/**
+	 * Constructor to create a CharBoard based off of the values in a file
+	 * @param filename the file to construct a board
+	 */
 	public CharBoard(String filename)
 	{
 		super(filename);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 
+	/**
+	 * Constructor to create a CharBoard based off of the values in a bufferedReader
+	 * This constructor is used to build a board off of a resource that exists in the Jar
+	 * @param bufferedReader the BufferedReader object to populate from
+	 * @see rhsu.board.resources.ResourceRetriever
+	 */
 	public CharBoard(BufferedReader bufferedReader)
 	{
 		super(bufferedReader);
+		this.defaultValue = DEFAULT_VALUE;
 	}
 	
 	//</editor-fold>

@@ -1,14 +1,9 @@
 package rhsu.board.test;
 
-import java.util.UUID;
 import rhsu.board.Board;
-import rhsu.board.BoardPiece;
-import rhsu.board.Direction;
 import rhsu.board.basic.implementations.StringBoard;
 import rhsu.board.basic.implementations.arithmetic.IntegerBoard;
-import rhsu.board.io.formGUI.BoardPanelGUIExtender;
 import rhsu.board.resources.ResourceRetriever;
-import rhsu.terminalPanelGUI.UniversalPanelLauncher;
 
 public class Main
 {	
@@ -36,5 +31,14 @@ public class Main
 		print(source);
 		
 		print(destination);
-	} 
+
+		Board<String> test = new StringBoard("test.txt");
+		
+		print(test);
+		
+		print(test.getHorizontal_size());
+		
+		print(test.getPieceAt(0, 2));
+	}
+
 }

@@ -16,9 +16,14 @@ import rhsu.board.io.BoardReader;
 import rhsu.board.io.BoardWriter;
 
 /**
- * This class provides skeletal implementations of some of Board operations.This class also contains an export method, for putting all entries of a board object into a file.
+ * This class provides skeletal implementations of some of Board operations. 
+ * This class also contains an export method, for putting all entries of a board object into a file.
  * 
  * @param <T> Tye type of elements for the abstract board
+ * 
+ * It is also recommended that all extensions of this class contain a constructor 
+ * that sets the defaultValue member variable. This enables the move methods to set a 
+ * default value once a BoardPiece<T> in the object has been moved.
  */
 public abstract class AbstractBasicBoard<T> 
 	implements Board<T>, BoardIO
@@ -448,11 +453,17 @@ public abstract class AbstractBasicBoard<T>
 	/**
 	 * Exports the board object
 	 * @param filename the name of the file to be exported
+	 * @param delimiter the delimiter to add.
 	 */
 	@Override
+	public void export(String filename, char delimiter)
+	{
+		BoardWriter.write(filename, this, delimiter);
+	}
+	
 	public void export(String filename)
 	{
-		BoardWriter.write(filename, this);
+		BoardWriter.write(filename, this, '\0');
 	}
 	
 	@Override
@@ -467,6 +478,24 @@ public abstract class AbstractBasicBoard<T>
 	{
 		initializeBaseBoard();
 		this.initializeFromBaseBoard();
+	}
+	
+	@Override
+	public String toOutputString(char delimiter)
+	{
+		if (delimiter == '\0') return this.toString();
+		
+		StringBuilder builder = new StringBuilder();
+		
+		for (int i = 0; i < this.horizontal_size; i++)
+		{
+			for (int j = 0; j < this.vertical_size; j++)
+			{
+				builder.append(this.getPieceAt(i, j).toString()).append(delimiter);
+			}
+			builder.append("\n");
+		}
+		return builder.toString().trim();
 	}
 	
 	private void initializeBaseBoard()

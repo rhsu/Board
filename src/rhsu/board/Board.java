@@ -190,4 +190,6 @@ public interface Board<T>
 	public boolean move(BoardPiece<T> piece, int units, Direction direction, Board<T> otherBoard);
 	
 	public UUID getGUID();
+
+	public String toOutputString(char delimiter);
 }
