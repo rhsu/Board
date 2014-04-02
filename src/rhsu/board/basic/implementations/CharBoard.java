@@ -93,7 +93,7 @@ public class CharBoard extends AbstractBasicBoard<Character>
 			{
 				board[i][j] = new BasicBoardPiece(i, j, 
 						baseBoard.getValueAt(i, j).charAt(0),
-						this.guid);
+						this.uuid);
 			}
 		}
 	}

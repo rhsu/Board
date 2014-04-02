@@ -12,6 +12,6 @@ public interface BoardPiece<T>
 	public void setVertical(int vertical);
 	public MobilityStatus getMobilityStatus();
 	public void setStatus(MobilityStatus status);
-	public void setGUID(UUID guid);
-	public UUID getGUID();
+	public void setUUID(UUID uuid);
+	public UUID getUUID();
 }

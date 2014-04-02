@@ -323,7 +323,7 @@ public class BigIntegerBoard extends AbstractBasicMatrix<BigInteger>
 				}
 				finally
 				{
-					board[i][j] = new BasicBoardPiece(i, j, value, this.guid);
+					board[i][j] = new BasicBoardPiece(i, j, value, this.uuid);
 				}
 			}
 		}

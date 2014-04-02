@@ -16,7 +16,7 @@ public class BasicBoardPiece<T> implements BoardPiece<T>
 	protected int vertical;
 	protected T value;
 	protected MobilityStatus mobilityStatus;
-	protected UUID guid;
+	protected UUID uuid;
 	
 	//<editor-fold defaultstate="collapsed" desc="ACCESSORS">
 	/**
@@ -71,29 +71,29 @@ public class BasicBoardPiece<T> implements BoardPiece<T>
 	}
 	
 	@Override
-	public UUID getGUID()
+	public UUID getUUID()
 	{
-		return this.guid;
+		return this.uuid;
 	}
 	
 	@Override
-	public void setGUID(UUID guid)
+	public void setUUID(UUID uuid)
 	{
-		this.guid = guid;
+		this.uuid = uuid;
 	}
 	
 	//</editor-fold>
 	
-	public BasicBoardPiece(int horizontal, int vertical, T value, UUID guid)
+	public BasicBoardPiece(int horizontal, int vertical, T value, UUID uuid)
 	{
 		this(horizontal, vertical, value);
-		this.guid = guid;
+		this.uuid = uuid;
 	}
 	
-	public BasicBoardPiece(int horizontal, int vertical, RandomGenerator<T> randomGenerator, UUID guid)
+	public BasicBoardPiece(int horizontal, int vertical, RandomGenerator<T> randomGenerator, UUID uuid)
 	{
 		this(horizontal, vertical, randomGenerator);
-		this.guid = guid;
+		this.uuid = uuid;
 	}
 	
 	/**

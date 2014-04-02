@@ -62,7 +62,7 @@ public abstract class AbstractBasicBoard<T>
 	 */
 	protected T defaultValue;
 	
-	protected UUID guid;
+	protected UUID uuid;
 	
 	//</editor-fold>
 	
@@ -82,13 +82,13 @@ public abstract class AbstractBasicBoard<T>
 		this.size = horizontal*vertical;
 		this.board = new BasicBoardPiece[horizontal][vertical];
 		this.defaultValue = defaultValue;
-		this.guid = UUID.randomUUID();
+		this.uuid = UUID.randomUUID();
 		
 		for(int i = 0; i < horizontal; i++)
 		{
 			for(int j = 0; j < vertical; j++)
 			{
-				this.board[i][j] = new BasicBoardPiece(i, j, defaultValue, guid);
+				this.board[i][j] = new BasicBoardPiece(i, j, defaultValue, uuid);
 			}
 		}
 		
@@ -97,14 +97,14 @@ public abstract class AbstractBasicBoard<T>
 	public AbstractBasicBoard(String filename)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(filename);
-		this.guid = UUID.randomUUID();
+		this.uuid = UUID.randomUUID();
 		this.doPopulateFromFile(filename);
 	}
 	
 	public AbstractBasicBoard(BufferedReader reader)
 	{
 		this.baseBoard = BoardReader.getBoardFromFile(reader);
-		this.guid = UUID.randomUUID();
+		this.uuid = UUID.randomUUID();
 		this.doPopulateFromResource(reader);
 	}
 	
@@ -293,9 +293,9 @@ public abstract class AbstractBasicBoard<T>
 		target.setValue(this.getDefaultValue());
 		
 		//swap the UUIDs
-		UUID temp = target.getGUID();
-		target.setGUID(piece.getGUID());
-		piece.setGUID(temp);
+		UUID temp = target.getUUID();
+		target.setUUID(piece.getUUID());
+		piece.setUUID(temp);
 		
 		otherBoard.setPieceAt(horizontal, vertical, piece);
 		this.setPieceAt(tempHorizontal, tempVertical, target);
@@ -529,9 +529,9 @@ public abstract class AbstractBasicBoard<T>
 	//</editor-fold>
 	
 	@Override
-	public UUID getGUID()
+	public UUID getUUID()
 	{
-		return this.guid;
+		return this.uuid;
 	}
 }
 

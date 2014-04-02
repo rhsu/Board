@@ -294,7 +294,7 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 				}
 				finally
 				{
-					board[i][j] = new BasicBoardPiece(i, j, value, this.guid);
+					board[i][j] = new BasicBoardPiece(i, j, value, this.uuid);
 				}
 			}
 		}

@@ -301,7 +301,7 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 					}
 					finally
 					{
-						board[i][j] = new BasicBoardPiece(i, j, value, this.guid);
+						board[i][j] = new BasicBoardPiece(i, j, value, this.uuid);
 					}
 				}
 			}

@@ -20,7 +20,7 @@ public class MobilityTest
 		assertEquals((int)destination.getValueAt(0, 0), 1);
 		
 		//assert that the UUIDs were swapped correctly.
-		assertEquals(source.getPieceAt(0, 0).getGUID(), source.getGUID());
-		assertEquals(destination.getPieceAt(0, 0).getGUID(), destination.getGUID());
+		assertEquals(source.getPieceAt(0, 0).getUUID(), source.getUUID());
+		assertEquals(destination.getPieceAt(0, 0).getUUID(), destination.getUUID());
 	}
 }

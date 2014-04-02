@@ -324,7 +324,7 @@ public class BigDecimalBoard extends AbstractBasicMatrix<BigDecimal>
 				}
 				finally
 				{
-					board[i][j] = new BasicBoardPiece(i, j, value, this.guid);
+					board[i][j] = new BasicBoardPiece(i, j, value, this.uuid);
 				}
 			}
 		}

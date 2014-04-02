@@ -90,7 +90,7 @@ public class StringBoard extends AbstractBasicBoard<String>
 			{
 				board[i][j] = new BasicBoardPiece(i, j, 
 					baseBoard.getValueAt(i, j),
-					this.guid);
+					this.uuid);
 			}
 		}
 	}
