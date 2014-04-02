@@ -24,21 +24,10 @@ public class Main
 		
 		Board<Integer> result;
 		
-		print(source);
 		
 		source.move(source.getPieceAt(0,0), 0, 0, destination);
 				
 		print(source);
-		
-		print(destination);
-
-		Board<String> test = new StringBoard("test.txt");
-		
-		print(test);
-		
-		print(test.getHorizontal_size());
-		
-		print(test.getPieceAt(0, 2));
 	}
 
 }
