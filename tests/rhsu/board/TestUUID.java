@@ -19,7 +19,9 @@ public class TestUUID
 		
 		while(iterator.hasNext())
 		{
-			assertNotNull(iterator.next().getUUID());
+			BoardPiece<Integer> piece = iterator.next();
+			assertNotNull(piece.getUUID());
+			assertEquals(piece.getUUID(), intBoard.getUUID());
 		}
 	}
 }
