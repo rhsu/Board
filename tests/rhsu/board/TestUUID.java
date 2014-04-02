@@ -20,8 +20,20 @@ public class TestUUID
 		while(iterator.hasNext())
 		{
 			BoardPiece<Integer> piece = iterator.next();
+			
+			//Test that a UUID exists 
 			assertNotNull(piece.getUUID());
+			
+			//Test that the UUID is correct.
 			assertEquals(piece.getUUID(), intBoard.getUUID());
 		}
+	}
+	
+	@Test public void foreignPiece_Fail()
+	{
+		Board<Integer> board1 = new IntegerBoard(3,3);
+		Board<Integer> board2 = new IntegerBoard(3,3);
+		
+		assertFalse(board1.move(board2.getPieceAt(0,0), 0, 0, board2));
 	}
 }
