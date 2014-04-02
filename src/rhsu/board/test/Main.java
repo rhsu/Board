@@ -18,10 +18,10 @@ public class Main
 	public static void main(String[] args)
 	{
 		Board<Integer> source = new IntegerBoard(
-				ResourceRetriever.GetResource("testMoveBoardSource", TEST_RESOURCE));
+			ResourceRetriever.GetResource("testMoveBoardSource", TEST_RESOURCE));
 		
 		Board<Integer> destination = new IntegerBoard(
-				ResourceRetriever.GetResource("testMoveBoardDestination",TEST_RESOURCE));
+			ResourceRetriever.GetResource("testMoveBoardDestination",TEST_RESOURCE));
 		
 		source.move(source.getPieceAt(0,0), 0, 0, destination);
 		

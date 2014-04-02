@@ -2,9 +2,11 @@ package rhsu.board.basic;
 
 import java.io.BufferedReader;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import rhsu.board.Board;
 import rhsu.board.BoardPiece;
@@ -289,9 +291,15 @@ public abstract class AbstractBasicBoard<T>
 		int tempVertical = piece.getVertical();
 		
 		target.setValue(this.getDefaultValue());
+		
+		//swap the UUIDs
+		UUID temp = target.getGUID();
+		target.setGUID(piece.getGUID());
+		piece.setGUID(temp);
+		
 		otherBoard.setPieceAt(horizontal, vertical, piece);
 		this.setPieceAt(tempHorizontal, tempVertical, target);
-		
+				
 		return true;
 	}
 	
