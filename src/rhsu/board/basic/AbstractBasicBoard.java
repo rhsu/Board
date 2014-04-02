@@ -262,6 +262,8 @@ public abstract class AbstractBasicBoard<T>
 	{
 		BoardPiece<T> target = (BoardPiece<T>) this.getPieceAt(horizontal, vertical);
 		
+		if (piece.getUUID() != this.getUUID()) return false;
+		
 		if(target == null) return false;
 		
 		if(target.getMobilityStatus() != MobilityStatus.Free) return false;
@@ -280,6 +282,8 @@ public abstract class AbstractBasicBoard<T>
 	public boolean move(BoardPiece<T> piece, int horizontal, int vertical, Board<T> otherBoard) 
 	{
 		BoardPiece<T> target = (BoardPiece<T>) otherBoard.getPieceAt(horizontal, vertical);
+		
+		if (piece.getUUID() != this.getUUID()) return false;
 		
 		if(target == null) return false;
 		
