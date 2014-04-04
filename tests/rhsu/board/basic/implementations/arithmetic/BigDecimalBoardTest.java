@@ -114,8 +114,8 @@ public class BigDecimalBoardTest
 	{
 		BigDecimalBoard result = ARITHMETIC_OP1.multiply(new BigDecimal(2));
 	
-		System.out.println(ARITHMETIC_OP1);
-		System.out.println(result);
+		//System.out.println(ARITHMETIC_OP1);
+		//System.out.println(result);
 		
 		//	assertEquals(result, EXPECTED_MULTIPLY_SCALAR);
 	}
