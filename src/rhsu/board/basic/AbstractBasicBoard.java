@@ -212,7 +212,7 @@ public abstract class AbstractBasicBoard<T>
 	public void setValueAt(int horizontal, int vertical, T value)
 	{
 		//this.board[horizontal][vertical].setValue(value);
-		return this.getPieceAt(horizontal, vertical).setValue(value);
+		this.getPieceAt(horizontal, vertical).setValue(value);
 	}
 	
 	@Override
