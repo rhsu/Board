@@ -2,6 +2,10 @@
 
 A wrapper class for a 2D array of objects (implemented as a generic). 
 
+#Board2... Coming Soon...
+
+* Board contains very bad semantics in how it is implemented. Board2 will be released to fix this. In the meantime, Version 1.3 will be the last release. 
+
 #Version 1.3 Is Available!
 
 * Improvements over 1.2beta
