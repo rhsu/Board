@@ -1,8 +1,8 @@
 package rhsu.board2.basic.implementations.arithmetic;
 
 import org.junit.*;
-import rhsu.board2.Board2;
 import rhsu.board2.basic.Board2IntIntImplTest;
+import rhsu.board2.boardFactory.BoardFactory;
 
 public class IntegerBoard2IntIntTest extends Board2IntIntImplTest
 {
@@ -10,7 +10,11 @@ public class IntegerBoard2IntIntTest extends Board2IntIntImplTest
 	@Override
 	public void createBoard()
 	{
-		board = (Board2) new IntegerBoard2(20,30);
+		int horizontalSize = 20;
+		int verticalSize = 30;
+		
+		boardFactory = new BoardFactory(horizontalSize, verticalSize);		
+		board = boardFactory.createIntegerBoard();
 	}
 	
 	@Test
