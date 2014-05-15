@@ -1,4 +1,6 @@
-package rhsu.board2;
+package rhsu.board2.basic;
+
+import rhsu.board2.Board2;
 
 public class Board2Impl implements Board2
 {	
