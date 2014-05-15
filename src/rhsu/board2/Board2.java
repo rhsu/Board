@@ -8,13 +8,13 @@ public interface Board2<T>
 	 * Method for retrieving the horizontal capacity of the board
 	 * @return the horizontal size of the board
 	 */
-	public int getHorizontal_size();
+	public int getHorizontalSize();
 	
 	/**
 	 * Method for retrieving the horizontal capacity of the board
 	 * @return the vertical size of the board
 	 */
-	public int getVertical_size();
+	public int getVerticalSize();
 	
 	/**
 	 * Method for retrieving the total capacity of the board
