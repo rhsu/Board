@@ -17,7 +17,7 @@ public class Board2ImplTest
 	}
 	
 	@Test
-	public void testBoardConstructorIntInt()
+	public void testBoardIntInt()
 	{
 		assert(board2.getHorizontalSize() == 20);
 		assert(board2.getVerticalSize() == 30);
