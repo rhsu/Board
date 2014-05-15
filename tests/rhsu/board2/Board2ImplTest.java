@@ -6,37 +6,21 @@ import static org.junit.Assert.*;
 public class Board2ImplTest
 {	
 	private Board2Impl board2;
-	
-    public Board2ImplTest() 
-	{
-    }
-	
+		
 	@Before
-	public void beforeTest()
+	public void createBoard()
 	{
-		board2 = new Board2Impl(1,1);
-	}
-
-	@Test
-	public void testGetHorizontalSize()
-	{
-	}
-
-	@Test
-	public void testGetVerticalSize()
-	{
+		int horizontalSize = 20;
+		int verticalSize = 30;
 		
+		board2 = new Board2Impl(horizontalSize,verticalSize);
 	}
 	
 	@Test
-	public void testGetSize()
+	public void testBoardConstructorIntInt()
 	{
-		
-	}
-	
-	@Test
-	public void testGetDefaultValue()
-	{
-		
+		assert(board2.getHorizontalSize() == 20);
+		assert(board2.getVerticalSize() == 30);
+		assert(board2.getSize() == 600);
 	}
 }
