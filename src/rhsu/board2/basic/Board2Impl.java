@@ -10,28 +10,16 @@ public class Board2Impl implements Board2
 	protected Object defaultValue;
 	
 	@Override
-	public int getHorizontalSize()
-	{
-		return horizontalSize;
-	}
+	public int getHorizontalSize() { return horizontalSize; }
 
 	@Override
-	public int getVerticalSize()
-	{
-		return verticalSize;
-	}
+	public int getVerticalSize() { return verticalSize; }
 
 	@Override
-	public int getSize()
-	{
-		return size;
-	}
+	public int getSize() { return size; }
 
 	@Override
-	public Object getDefaultValue()
-	{
-		return null;
-	}
+	public Object getDefaultValue() { return null; }
 	
 	public Board2Impl(int horizontalSize, int verticalSize)
 	{
