@@ -1,6 +1,7 @@
 package rhsu.board2.basic.implementations.arithmetic;
 
 import org.junit.*;
+import static org.junit.Assert.*;
 import rhsu.board2.basic.Board2IntIntImplTest;
 import rhsu.board2.boardFactory.BoardFactory;
 
@@ -21,6 +22,6 @@ public class DoubleBoard2IntIntTest extends Board2IntIntImplTest
 	@Override
 	public void testGetDefaultValue()
 	{
-		assert(board.getDefaultValue() == (Double)0.0);
+		assertEquals(0.0, board.getDefaultValue());
 	}
 }

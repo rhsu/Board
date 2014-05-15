@@ -2,6 +2,7 @@ package rhsu.board2.basic.implementations.arithmetic;
 
 import java.math.BigDecimal;
 import org.junit.*;
+import static org.junit.Assert.assertEquals;
 import rhsu.board2.basic.Board2IntIntImplTest;
 import rhsu.board2.boardFactory.BoardFactory;
 
@@ -22,6 +23,6 @@ public class BigDecimalBoard2IntIntTest extends Board2IntIntImplTest
 	@Override
 	public void testGetDefaultValue()
 	{
-		assert(board.getDefaultValue() == BigDecimal.ZERO);
+		assertEquals(BigDecimal.ZERO, board.getDefaultValue());
 	}
 }
