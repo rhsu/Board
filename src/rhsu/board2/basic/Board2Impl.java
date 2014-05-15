@@ -7,7 +7,7 @@ public class Board2Impl<T> implements Board2<T>
 	protected int horizontalSize;
 	protected int verticalSize;
 	protected int size;
-	protected Object defaultValue;
+	protected T defaultValue;
 	
 	@Override
 	public int getHorizontalSize() { return horizontalSize; }
@@ -19,7 +19,7 @@ public class Board2Impl<T> implements Board2<T>
 	public int getSize() { return size; }
 
 	@Override
-	public T getDefaultValue() { return null; }
+	public T getDefaultValue() { return defaultValue; }
 	
 	public Board2Impl(int horizontalSize, int verticalSize)
 	{

@@ -14,6 +14,6 @@ public class Board2IntIntImplTest extends Board2Test
 		int verticalSize = 30;
 		
 		boardFactory = new BoardFactory(horizontalSize, verticalSize);		
-		board = boardFactory.createBoard2Impl();
+		board = boardFactory.createBoardImpl();
 	}
 }

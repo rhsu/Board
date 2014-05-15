@@ -1,12 +1,12 @@
-package rhsu.board2.basic.implementations.arithmetic;
+package rhsu.board2.basic.implementations;
 
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board2.basic.Board2IntIntImplTest;
 import rhsu.board2.boardFactory.BoardFactory;
 
-public class IntegerBoard2IntIntTest extends Board2IntIntImplTest
-{
+public class CharacterBoard2IntIntTest extends Board2IntIntImplTest
+{	
 	@Before
 	@Override
 	public void createBoard()
@@ -14,14 +14,14 @@ public class IntegerBoard2IntIntTest extends Board2IntIntImplTest
 		int horizontalSize = 20;
 		int verticalSize = 30;
 		
-		boardFactory = new BoardFactory(horizontalSize, verticalSize);		
-		board = boardFactory.createIntegerBoard();
+		boardFactory = new BoardFactory(horizontalSize, verticalSize);
+		board = boardFactory.createBigDecimalBoard();
 	}
 	
 	@Test
 	@Override
 	public void testGetDefaultValue()
 	{
-		assertEquals(0, board.getDefaultValue());
+		assertEquals('+', board.getDefaultValue());
 	}
 }

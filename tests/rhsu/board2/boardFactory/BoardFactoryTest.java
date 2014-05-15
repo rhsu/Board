@@ -30,7 +30,7 @@ public class BoardFactoryTest
 	@Test
 	public void testCreateBoard2ImplReturnsNotNull()
 	{
-		assertNotNull(boardFactory.createBoard2Impl());
+		assertNotNull(boardFactory.createBoardImpl());
 	}
 	
 	@Test
