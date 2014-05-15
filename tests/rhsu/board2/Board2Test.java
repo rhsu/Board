@@ -14,26 +14,27 @@ public class Board2Test
 		
 	}
 	
-	@Ignore
+	@Test
 	public void testGetHorizontalSize() 
 	{ 
 		assert(board.getHorizontalSize() == 20);
 	}
 	
-	@Ignore
+	@Test
 	public void testGetVerticalSize()
 	{
 		assert(board.getVerticalSize() == 30);
 	}
 	
-	@Ignore
+	@Test
 	public void testGetSize()
 	{
 		assert(board.getSize() == 600);
 	}
 	
-	@Ignore
+	@Test
 	public void testGetDefaultValue()
 	{
+		assert(board.getDefaultValue() == null);
 	}
 }
