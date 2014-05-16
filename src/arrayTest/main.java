@@ -12,6 +12,7 @@ public class main
 		
 		for (int[] test1 : test)
 		{
+							System.out.println("HERE");
 			for (int j = 0; j < test1.length; j++)
 			{
 				test1[j] = ctr++;
