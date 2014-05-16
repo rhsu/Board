@@ -13,7 +13,7 @@ public class BoardPieceFactoryTest
 	@Before
 	public void setupBoardPieceFactory()
 	{
-		factory = new BoardPieceFactory(100, 200, 5);
+		factory = new BoardPieceFactory(horizontalSize, verticalSize, value);
 	}
 	
 	@Test
