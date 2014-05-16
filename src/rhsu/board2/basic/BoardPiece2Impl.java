@@ -22,40 +22,22 @@ public class BoardPiece2Impl<T> implements BoardPiece2<T>
 	}
 	
 	@Override
-	public void setValue(Object t)
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
+	public void setValue(T value) { this.value = value; }
 
 	@Override
-	public T getValue()
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
+	public T getValue() { return this.value; }
 
 	@Override
-	public int getHorizontalIndex()
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
+	public int getHorizontalIndex() { return this.horizontalIndex; }
 
 	@Override
-	public int getVerticalIndex()
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
+	public int getVerticalIndex() {return this.verticalIndex;}
 
 	@Override
-	public void setHorizontalIndex(int horizontalIndex)
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
+	public void setHorizontalIndex(int horizontalIndex) { this.horizontalIndex = horizontalIndex; }
 
 	@Override
-	public void setVerticalIndex(int verticalIndex)
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
+	public void setVerticalIndex(int verticalIndex) { this.verticalIndex = verticalIndex; }
 
 	@Override
 	public MobilityStatus2 getMobilityStatus()

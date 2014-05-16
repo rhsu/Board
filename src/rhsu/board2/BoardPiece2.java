@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public interface BoardPiece2<T>
 {
-	public void setValue(T t);
+	public void setValue(T value);
 	public T getValue();
 	public int getHorizontalIndex();
 	public int getVerticalIndex();
