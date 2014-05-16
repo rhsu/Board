@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import org.junit.*;
 import static org.junit.Assert.assertEquals;
 import rhsu.board2.basic.Board2IntIntImplTest;
-import rhsu.board2.boardFactory.BoardFactory;
+import rhsu.board2.factory.BoardFactory;
 
 public class BigDecimalBoard2IntIntTest extends Board2IntIntImplTest
 {
