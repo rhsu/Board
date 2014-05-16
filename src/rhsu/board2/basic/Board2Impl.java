@@ -1,5 +1,7 @@
 package rhsu.board2.basic;
 
+import java.util.Arrays;
+import java.util.Objects;
 import rhsu.board2.Board2;
 
 public class Board2Impl<T> implements Board2<T>
@@ -21,6 +23,34 @@ public class Board2Impl<T> implements Board2<T>
 
 	@Override
 	public T getDefaultValue() { return defaultValue; }
+	
+	public BoardPiece2Impl<T>[][] getBoard() { return this.board; }
+	
+	@Override
+	public boolean equals(Object aInstance)
+	{
+		if (this == aInstance) return true;
+		if ( !(aInstance instanceof Board2Impl ) ) return false;
+		
+		Board2Impl instance = (Board2Impl) aInstance;
+		
+		return
+			instance.getHorizontalSize() == this.getHorizontalSize() &&
+			instance.getVerticalSize() == this.getVerticalSize() &&
+			Arrays.deepEquals(instance.getBoard(), this.getBoard());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int hash = 3;
+		hash = 67 * hash + this.horizontalSize;
+		hash = 67 * hash + this.verticalSize;
+		hash = 67 * hash + this.size;
+		hash = 67 * hash + Objects.hashCode(this.defaultValue);
+		hash = 67 * hash + Arrays.deepHashCode(this.board);
+		return hash;
+	}
 	
 	public Board2Impl(int horizontalSize, int verticalSize)
 	{
