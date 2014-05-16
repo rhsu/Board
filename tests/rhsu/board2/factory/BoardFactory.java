@@ -1,6 +1,6 @@
 package rhsu.board2.factory;
 
-import rhsu.board2.basic.Board2Impl;
+import rhsu.board2.basic.BoardImpl;
 import rhsu.board2.basic.implementations.BooleanBoard2;
 import rhsu.board2.basic.implementations.CharacterBoard2;
 import rhsu.board2.basic.implementations.StringBoard2;
@@ -24,9 +24,9 @@ public class BoardFactory
 	
 	public int getVerticalSize() { return verticalSize; }
 	
-	public Board2Impl createBoardImpl()
+	public BoardImpl createBoardImpl()
 	{
-		return new Board2Impl(horizontalSize, verticalSize);
+		return new BoardImpl(horizontalSize, verticalSize);
 	}
 	
 	public BooleanBoard2 createBooleanBoard()

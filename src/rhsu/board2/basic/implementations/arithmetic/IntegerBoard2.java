@@ -1,8 +1,8 @@
 package rhsu.board2.basic.implementations.arithmetic;
 
-import rhsu.board2.basic.Board2Impl;
+import rhsu.board2.basic.BoardImpl;
 
-public class IntegerBoard2 extends Board2Impl<Integer>
+public class IntegerBoard2 extends BoardImpl<Integer>
 {	
 	private static final Integer DEFAULT_VALUE = 0;
 	

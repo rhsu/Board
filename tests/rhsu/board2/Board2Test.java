@@ -40,4 +40,10 @@ public class Board2Test
 	{
 		assert(board.getDefaultValue() == null);
 	}
+	
+	@Test
+	public void testGetPieceAt()
+	{
+		
+	}
 }

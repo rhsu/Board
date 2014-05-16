@@ -1,8 +1,8 @@
 package rhsu.board2.basic.implementations.arithmetic;
 
-import rhsu.board2.basic.Board2Impl;
+import rhsu.board2.basic.BoardImpl;
 
-public class DoubleBoard2 extends Board2Impl<Double>
+public class DoubleBoard2 extends BoardImpl<Double>
 {
 	private static final double DEFAULT_VALUE = 0.0;
 	

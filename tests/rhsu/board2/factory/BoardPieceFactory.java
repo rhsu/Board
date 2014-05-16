@@ -1,6 +1,6 @@
 package rhsu.board2.factory;
 
-import rhsu.board2.basic.BoardPiece2Impl;
+import rhsu.board2.basic.BoardPieceImpl;
 
 public class BoardPieceFactory
 {
@@ -19,8 +19,8 @@ public class BoardPieceFactory
 		this.boardPieceValue = boardPieceValue; 
 	}
 	
-	public BoardPiece2Impl createBoardPieceImpl()
+	public BoardPieceImpl createBoardPieceImpl()
 	{
-		return new BoardPiece2Impl<>(horizontalIndex, verticalIndex, boardPieceValue);
+		return new BoardPieceImpl<>(horizontalIndex, verticalIndex, boardPieceValue);
 	}
 }

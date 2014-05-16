@@ -2,13 +2,13 @@ package rhsu.board2.basic;
 
 import rhsu.board2.Board2;
 
-public class Board2Impl<T> implements Board2<T>
+public class BoardImpl<T> implements Board2<T>
 {	
 	protected int horizontalSize;
 	protected int verticalSize;
 	protected int size;
 	protected T defaultValue;
-	protected BoardPiece2Impl<T>[][] board;
+	protected BoardPieceImpl<T>[][] board;
 	
 	@Override
 	public int getHorizontalSize() { return horizontalSize; }
@@ -22,21 +22,27 @@ public class Board2Impl<T> implements Board2<T>
 	@Override
 	public T getDefaultValue() { return defaultValue; }
 	
-	public Board2Impl(int horizontalSize, int verticalSize)
+	@Override
+	public BoardPieceImpl<T> getPieceAt(int horizontalIndex, int verticalIndex)
+	{
+		throw new UnsupportedOperationException("This method is not implemented yet");
+	}
+	
+	public BoardImpl(int horizontalSize, int verticalSize)
 	{
 		this.horizontalSize = horizontalSize;
 		this.verticalSize = verticalSize;
 		this.size = horizontalSize * verticalSize;
 		this.defaultValue = null;
 		
-		this.board = new BoardPiece2Impl[verticalSize][horizontalSize];
+		this.board = new BoardPieceImpl[verticalSize][horizontalSize];
 		
 		int columnNumber = 0;
-		for (BoardPiece2Impl<T>[] row : board)
+		for (BoardPieceImpl<T>[] row : board)
 		{
 			for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
 			{ 
-				row[rowNumber] = new BoardPiece2Impl(rowNumber, columnNumber, null);
+				row[rowNumber] = new BoardPieceImpl(rowNumber, columnNumber, null);
 			}
 			columnNumber++;
 		}
@@ -44,6 +50,6 @@ public class Board2Impl<T> implements Board2<T>
 	
 	public static void main(String[] args)
 	{
-		Board2Impl<Object> board = new Board2Impl<>(5,6);
+		BoardImpl<Object> board = new BoardImpl<>(5,6);
 	}
 }
