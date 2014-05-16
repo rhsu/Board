@@ -1,7 +1,7 @@
 package rhsu.board2;
 
 import org.junit.*;
-import rhsu.board2.boardFactory.BoardFactory;
+import rhsu.board2.factory.BoardFactory;
 
 @Ignore
 public class Board2Test

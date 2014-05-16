@@ -2,9 +2,9 @@ package rhsu.board2.basic;
 
 import org.junit.*;
 import rhsu.board2.Board2Test;
-import rhsu.board2.boardFactory.BoardFactory;
+import rhsu.board2.factory.BoardFactory;
 
-public class Board2IntIntImplTest extends Board2Test
+public class Board2ImplIntIntTest extends Board2Test
 {	
 	@Before
 	@Override

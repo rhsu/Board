@@ -1,4 +1,4 @@
-package rhsu.board2.boardFactory;
+package rhsu.board2.factory;
 
 import rhsu.board2.basic.Board2Impl;
 import rhsu.board2.basic.implementations.BooleanBoard2;

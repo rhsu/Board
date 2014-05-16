@@ -1,4 +1,4 @@
-package rhsu.board2.boardFactory;
+package rhsu.board2.factory;
 
 import org.junit.*;
 import static org.junit.Assert.*;
