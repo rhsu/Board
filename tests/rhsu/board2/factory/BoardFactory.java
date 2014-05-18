@@ -24,9 +24,14 @@ public class BoardFactory
 	
 	public int getVerticalSize() { return verticalSize; }
 	
-	public Board2Impl createBoardImpl()
+	public Board2Impl createBoardImpl(int horizontalSize, int verticalSize)
 	{
 		return new Board2Impl(horizontalSize, verticalSize);
+	}
+	
+	public Board2Impl createBoardImpl()
+	{
+		return createBoardImpl(horizontalSize, verticalSize);
 	}
 	
 	public BooleanBoard2 createBooleanBoard()
