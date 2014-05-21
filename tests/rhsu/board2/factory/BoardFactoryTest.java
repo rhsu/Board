@@ -6,7 +6,7 @@ import rhsu.board2.basic.Board2Impl;
 
 public class BoardFactoryTest
 {
-	private BoardFactory<Board2Impl> boardFactory;
+	private BoardFactory boardFactory;
 	private final int horizontalSize = 100;
 	private final int verticalSize = 200;
 	
@@ -26,11 +26,5 @@ public class BoardFactoryTest
 	public void testGetVerticalSize()
 	{
 		assert(boardFactory.getVerticalSize() == verticalSize);
-	}
-	
-	@Test
-	public void testCreateBoard2ImplReturnsNotNull()
-	{
-		assertNotNull(boardFactory.createBoard());
 	}
 }
