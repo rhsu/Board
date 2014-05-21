@@ -1,73 +1,50 @@
 package rhsu.board2.factory;
 
-import rhsu.board2.basic.Board2Impl;
-import rhsu.board2.basic.implementations.BooleanBoard2;
-import rhsu.board2.basic.implementations.CharacterBoard2;
-import rhsu.board2.basic.implementations.StringBoard2;
-import rhsu.board2.basic.implementations.arithmetic.BigDecimalBoard2;
-import rhsu.board2.basic.implementations.arithmetic.BigIntegerBoard2;
-import rhsu.board2.basic.implementations.arithmetic.DoubleBoard2;
-import rhsu.board2.basic.implementations.arithmetic.IntegerBoard2;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import rhsu.board2.Board2;
 
-public class BoardFactory
+public class BoardFactory<B extends Board2>
 {
 	private final int horizontalSize;
 	private final int verticalSize;
+	final Class<B> boardClass;
 	
-	public BoardFactory(int horizontalSize, int verticalSize) 
+	public int getHorizontalSize() { return this.horizontalSize; }
+	public int getVerticalSize() { return this.verticalSize; }
+	
+	public BoardFactory(final Class<B> boardClass, int horizontalSize, int verticalSize)
 	{
 		this.horizontalSize = horizontalSize;
 		this.verticalSize = verticalSize;
+		this.boardClass = boardClass;
 	}
 	
-	public int getHorizontalSize() { return horizontalSize; }
-	
-	public int getVerticalSize() { return verticalSize; }
-	
-	public Board2Impl createBoardImpl(int horizontalSize, int verticalSize)
+	public B createBoard(int horizontalSize, int verticalSize)
 	{
-		return new Board2Impl(horizontalSize, verticalSize);
+		try
+		{
+			Object[] arguments = { horizontalSize, verticalSize };
+			Constructor<B> constructor = boardClass.getConstructor(int.class, int.class);
+			
+			return constructor.newInstance(arguments);
+		}
+		catch(IllegalAccessException | IllegalArgumentException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException ex)
+		{
+			System.out.println(ex);
+		}
+		return null;
 	}
 	
-	public Board2Impl createBoardImpl()
+	public B createBoard()
 	{
-		return createBoardImpl(horizontalSize, verticalSize);
+		return createBoard(this.horizontalSize, this.verticalSize);
 	}
 	
-	public BooleanBoard2 createBooleanBoard()
+	public static <B extends Board2> BoardFactory<B> createFactory(final Class<B> boardClass,
+		int horizontalSize,
+		int verticalSize)
 	{
-		return new BooleanBoard2(horizontalSize, verticalSize);
+		return new BoardFactory<>(boardClass, horizontalSize, verticalSize);
 	}
-	
-	public CharacterBoard2 createCharacterBoard()
-	{
-		return new CharacterBoard2(horizontalSize, verticalSize);
-	}
-	
-	public StringBoard2 createStringBoard()
-	{
-		return new StringBoard2(horizontalSize, verticalSize);
-	}
-	
-	public BigDecimalBoard2 createBigDecimalBoard()
-	{
-		return new BigDecimalBoard2(horizontalSize, verticalSize);
-	}
-	
-	public BigIntegerBoard2 createBigIntegerBoard()
-	{
-		return new BigIntegerBoard2(horizontalSize, verticalSize);
-	}
-	
-	public DoubleBoard2 createDoubleBoard()
-	{
-		return new DoubleBoard2(horizontalSize, verticalSize);
-	}
-	
-	public IntegerBoard2 createIntegerBoard()
-	{
-		return new IntegerBoard2(horizontalSize, verticalSize);
-	}
-	
-	
 }
