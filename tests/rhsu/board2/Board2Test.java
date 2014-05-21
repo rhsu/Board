@@ -17,6 +17,12 @@ public class Board2Test
 	}
 	
 	@Test
+	public void testBoardNotNull()
+	{
+		assertNotNull(board);
+	}
+	
+	@Test
 	public void testGetHorizontalSize() 
 	{ 
 		assert(board.getHorizontalSize() == boardFactory.getHorizontalSize());
