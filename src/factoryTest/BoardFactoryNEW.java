@@ -1,10 +1,8 @@
 package factoryTest;
 
 import java.lang.reflect.Constructor;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.lang.reflect.InvocationTargetException;
 import rhsu.board2.Board2;
-import rhsu.board2.basic.implementations.arithmetic.IntegerBoard2;
 
 public class BoardFactoryNEW<B extends Board2>
 {
@@ -12,30 +10,38 @@ public class BoardFactoryNEW<B extends Board2>
 	private final int verticalSize;
 	final Class<B> boardClass;
 	
-	public BoardFactoryNEW(int horizontalSize, int verticalSize, final Class<B> boardClass)
+	public BoardFactoryNEW(final Class<B> boardClass, int horizontalSize, int verticalSize)
 	{
 		this.horizontalSize = horizontalSize;
 		this.verticalSize = verticalSize;
 		this.boardClass = boardClass;
 	}
 	
-	public B createBoard() throws Exception
+	public B createBoard(int horizontalSize, int verticalSize)
 	{
-		Object[] arguments = { horizontalSize, verticalSize };
-		Constructor<B> constructor = boardClass.getConstructor(int.class, int.class);
-
-		return constructor.newInstance(arguments);
-	}
-	
-	public static void main(String[] args)
-	{
-		BoardFactoryNEW<IntegerBoard2> test = new BoardFactoryNEW<>(5, 5, IntegerBoard2.class);
 		try
 		{
-			IntegerBoard2 b = test.createBoard();
-		} catch (Exception ex)
-		{
-			Logger.getLogger(BoardFactoryNEW.class.getName()).log(Level.SEVERE, null, ex);
+			Object[] arguments = { horizontalSize, verticalSize };
+			Constructor<B> constructor = boardClass.getConstructor(int.class, int.class);
+			
+			return constructor.newInstance(arguments);
 		}
+		catch(IllegalAccessException | IllegalArgumentException | InstantiationException | NoSuchMethodException | SecurityException | InvocationTargetException ex)
+		{
+			System.out.println(ex);
+		}
+		return null;
+	}
+	
+	public B createBoard()
+	{
+		return createBoard(this.horizontalSize, this.verticalSize);
+	}
+	
+	public static <B extends Board2> BoardFactoryNEW<B> createBoard(final Class<B> boardClass,
+		int horizontalSize,
+		int verticalSize)
+	{
+		return new BoardFactoryNEW<>(boardClass, horizontalSize, verticalSize);
 	}
 }
