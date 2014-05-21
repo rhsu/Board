@@ -14,8 +14,8 @@ public class BooleanBoard2IntIntTest extends Board2ImplIntIntTest
 		int horizontalSize = 20;
 		int verticalSize = 30;
 		
-		boardFactory = new BoardFactory(horizontalSize, verticalSize);
-		board = boardFactory.createBooleanBoard();
+		boardFactory = new BoardFactory(BooleanBoard2.class, horizontalSize, verticalSize);
+		board = boardFactory.createBoard();
 	}
 	
 	@Test

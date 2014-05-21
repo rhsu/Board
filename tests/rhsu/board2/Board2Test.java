@@ -1,6 +1,7 @@
 package rhsu.board2;
 
 import org.junit.*;
+import static org.junit.Assert.*;
 import rhsu.board2.factory.BoardFactory;
 
 @Ignore
@@ -13,6 +14,12 @@ public class Board2Test
 	public void createBoard()
 	{
 		
+	}
+	
+	@Test
+	public void testBoardNotNull()
+	{
+		assertNotNull(board);
 	}
 	
 	@Test

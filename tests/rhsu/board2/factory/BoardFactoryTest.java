@@ -2,17 +2,18 @@ package rhsu.board2.factory;
 
 import org.junit.*;
 import static org.junit.Assert.*;
+import rhsu.board2.basic.Board2Impl;
 
 public class BoardFactoryTest
 {
-	private BoardFactory boardFactory;
+	private BoardFactory<Board2Impl> boardFactory;
 	private final int horizontalSize = 100;
 	private final int verticalSize = 200;
 	
 	@Before
 	public void setupBoardFactory()
 	{
-		boardFactory = new BoardFactory(horizontalSize, verticalSize);
+		boardFactory = BoardFactory.createFactory(Board2Impl.class, horizontalSize, verticalSize);
 	}
 	
 	@Test
@@ -30,12 +31,6 @@ public class BoardFactoryTest
 	@Test
 	public void testCreateBoard2ImplReturnsNotNull()
 	{
-		assertNotNull(boardFactory.createBoardImpl());
-	}
-	
-	@Test
-	public void testCreateIntegerBoardReturnsNotNull()
-	{
-		assertNotNull(boardFactory.createIntegerBoard());
+		assertNotNull(boardFactory.createBoard());
 	}
 }
