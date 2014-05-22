@@ -10,7 +10,7 @@ public class BoardImpl<T> implements Board2<T>
 	protected int verticalSize;
 	protected int size;
 	protected T defaultValue;
-	protected BoardPieceImpl<T>[][] board;
+	protected BoardPieceImpl<T>[][] boardArray;
 	
 	@Override
 	public int getHorizontalSize() { return horizontalSize; }
@@ -31,7 +31,7 @@ public class BoardImpl<T> implements Board2<T>
 	}
 	
 	@Override
-	public BoardPieceImpl<T>[][] getBoardArray() { return this.board; }
+	public BoardPieceImpl<T>[][] getBoardArray() { return this.boardArray; }
 	
 	@Override
 	public boolean equals(Object aInstance)
@@ -55,7 +55,7 @@ public class BoardImpl<T> implements Board2<T>
 		hash = 67 * hash + this.verticalSize;
 		hash = 67 * hash + this.size;
 		hash = 67 * hash + Objects.hashCode(this.defaultValue);
-		hash = 67 * hash + Arrays.deepHashCode(this.board);
+		hash = 67 * hash + Arrays.deepHashCode(this.boardArray);
 		return hash;
 	}
 	
@@ -66,10 +66,10 @@ public class BoardImpl<T> implements Board2<T>
 		this.size = horizontalSize * verticalSize;
 		this.defaultValue = null;
 		
-		this.board = new BoardPieceImpl[verticalSize][horizontalSize];
+		this.boardArray = new BoardPieceImpl[verticalSize][horizontalSize];
 		
 		int columnNumber = 0;
-		for (BoardPieceImpl<T>[] row : board)
+		for (BoardPieceImpl<T>[] row : boardArray)
 		{
 			for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
 			{ 
@@ -77,5 +77,22 @@ public class BoardImpl<T> implements Board2<T>
 			}
 			columnNumber++;
 		}
+	}
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder builder = new StringBuilder();
+		
+		for (int i = 0; i < this.horizontalSize; i++)
+		{
+			for (int j = 0; j < this.verticalSize; j++)
+			{
+				builder.append(this.boardArray[i][j]).append(" ");
+			}
+			builder.append("\n");
+		}
+		
+		return builder.toString().trim();
 	}
 }
