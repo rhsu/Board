@@ -29,6 +29,7 @@ public class Board2Impl<T> implements Board2<T>
 	@Override
 	public boolean equals(Object aInstance)
 	{
+System.out.println("HERE???");		
 		if (this == aInstance) return true;
 		if ( !(aInstance instanceof Board2Impl ) ) return false;
 		
