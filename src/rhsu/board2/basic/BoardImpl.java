@@ -3,6 +3,7 @@ package rhsu.board2.basic;
 import java.util.Arrays;
 import java.util.Objects;
 import rhsu.board2.Board2;
+import rhsu.board2.basic.implementations.StringBoard2;
 
 public class BoardImpl<T> implements Board2<T>
 {	
@@ -94,5 +95,12 @@ public class BoardImpl<T> implements Board2<T>
 		}
 		
 		return builder.toString().trim();
+	}
+	
+	public static void main(String[] args)
+	{
+		BoardImpl test = new BoardImpl(1,1);
+		
+		System.out.println(test);
 	}
 }
