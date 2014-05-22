@@ -1,5 +1,6 @@
 package rhsu.board2.basic;
 
+import java.util.Objects;
 import java.util.UUID;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.MobilityStatus2;
@@ -63,4 +64,28 @@ public class BoardPieceImpl<T> implements BoardPiece2<T>
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 	
+	@Override
+	public boolean equals(Object aInstance)
+	{
+		if (this == aInstance) return true;
+		if ( !(aInstance instanceof BoardPieceImpl ) ) return false; 
+		
+		BoardPieceImpl instance = (BoardPieceImpl) aInstance;
+		
+		return 
+			instance.getHorizontalIndex() == this.getHorizontalIndex() &&
+			instance.getVerticalIndex() == this.getVerticalIndex() &&
+			instance.getValue() == this.value;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int hash = 7;
+		hash = 43 * hash + this.horizontalIndex;
+		hash = 43 * hash + this.verticalIndex;
+		hash = 43 * hash + Objects.hashCode(this.value);
+		//hash = 43 * hash + Objects.hashCode(this.mobilityStatus);
+		return hash;
+	}
 }

@@ -1,5 +1,7 @@
 package rhsu.board2.basic;
 
+import java.util.Arrays;
+import java.util.Objects;
 import rhsu.board2.Board2;
 
 public class BoardImpl<T> implements Board2<T>
@@ -28,6 +30,35 @@ public class BoardImpl<T> implements Board2<T>
 		throw new UnsupportedOperationException("This method is not implemented yet");
 	}
 	
+	@Override
+	public BoardPieceImpl<T>[][] getBoardArray() { return this.board; }
+	
+	@Override
+	public boolean equals(Object aInstance)
+	{
+		if (this == aInstance) return true;
+		if ( !(aInstance instanceof BoardImpl ) ) return false; 
+		
+		BoardImpl instance = (BoardImpl) aInstance;
+		
+		return
+			instance.getHorizontalSize() == this.getHorizontalSize() &&
+			instance.getVerticalSize() == this.getVerticalSize() &&
+			Arrays.deepEquals(instance.getBoardArray(), this.getBoardArray());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int hash = 3;
+		hash = 67 * hash + this.horizontalSize;
+		hash = 67 * hash + this.verticalSize;
+		hash = 67 * hash + this.size;
+		hash = 67 * hash + Objects.hashCode(this.defaultValue);
+		hash = 67 * hash + Arrays.deepHashCode(this.board);
+		return hash;
+	}
+	
 	public BoardImpl(int horizontalSize, int verticalSize)
 	{
 		this.horizontalSize = horizontalSize;
@@ -46,10 +77,5 @@ public class BoardImpl<T> implements Board2<T>
 			}
 			columnNumber++;
 		}
-	}
-	
-	public static void main(String[] args)
-	{
-		BoardImpl<Object> board = new BoardImpl<>(5,6);
 	}
 }
