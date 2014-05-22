@@ -24,21 +24,20 @@ public class Board2Impl<T> implements Board2<T>
 	@Override
 	public T getDefaultValue() { return defaultValue; }
 	
-	public BoardPiece2Impl<T>[][] getBoard() { return this.board; }
+	public BoardPiece2Impl<T>[][] getBoardArray() { return this.board; }
 	
 	@Override
 	public boolean equals(Object aInstance)
 	{
-System.out.println("HERE???");		
 		if (this == aInstance) return true;
-		if ( !(aInstance instanceof Board2Impl ) ) return false;
+		if ( !(aInstance instanceof Board2Impl ) ) return false; 
 		
 		Board2Impl instance = (Board2Impl) aInstance;
 		
 		return
 			instance.getHorizontalSize() == this.getHorizontalSize() &&
 			instance.getVerticalSize() == this.getVerticalSize() &&
-			Arrays.deepEquals(instance.getBoard(), this.getBoard());
+			Arrays.deepEquals(instance.getBoardArray(), this.getBoardArray());
 	}
 
 	@Override
