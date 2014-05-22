@@ -59,15 +59,29 @@ public class Board2Test
 	 * Tests that the same hash code is generated if the two boards are equals
 	 */
 	@Test
-	public void testEqualsSelf_SameHashCode()
+	public void testEqualsSelfSameHashCode()
 	{
 		assertEquals(board.hashCode(), board.hashCode() );
 	}
 	
 	@Test
-	public void testDoesNotEqualDifferentBoard()
+	public void testEqualsSimilarBoard()
 	{
-		//TODO: need to expand the board factory to do some new stuff
+		Board2 sameBoard = boardFactory.createBoard();
+		assertEquals(sameBoard, board);
+	}
+	
+	@Test
+	public void testDoesNotEqualDifferentBoardSameTypeDifferentDimension()
+	{
+		Board2 differentBoard = boardFactory.createBoard(100, 200);
+		assertFalse(differentBoard.equals(board));
+	}
+	
+	@Test
+	public void testDoesNotEqualDifferentBoardDifferentType()
+	{
+		
 	}
 	
 	@Test
