@@ -4,13 +4,13 @@ import java.util.Arrays;
 import java.util.Objects;
 import rhsu.board2.Board2;
 
-public class Board2Impl<T> implements Board2<T>
+public class BoardImpl<T> implements Board2<T>
 {	
 	protected int horizontalSize;
 	protected int verticalSize;
 	protected int size;
 	protected T defaultValue;
-	protected BoardPiece2Impl<T>[][] board;
+	protected BoardPieceImpl<T>[][] board;
 	
 	@Override
 	public int getHorizontalSize() { return horizontalSize; }
@@ -25,15 +25,21 @@ public class Board2Impl<T> implements Board2<T>
 	public T getDefaultValue() { return defaultValue; }
 	
 	@Override
-	public BoardPiece2Impl<T>[][] getBoardArray() { return this.board; }
+	public BoardPieceImpl<T> getPieceAt(int horizontalIndex, int verticalIndex)
+	{
+		throw new UnsupportedOperationException("This method is not implemented yet");
+	}
+	
+	@Override
+	public BoardPieceImpl<T>[][] getBoardArray() { return this.board; }
 	
 	@Override
 	public boolean equals(Object aInstance)
 	{
 		if (this == aInstance) return true;
-		if ( !(aInstance instanceof Board2Impl ) ) return false; 
+		if ( !(aInstance instanceof BoardImpl ) ) return false; 
 		
-		Board2Impl instance = (Board2Impl) aInstance;
+		BoardImpl instance = (BoardImpl) aInstance;
 		
 		return
 			instance.getHorizontalSize() == this.getHorizontalSize() &&
@@ -53,28 +59,23 @@ public class Board2Impl<T> implements Board2<T>
 		return hash;
 	}
 	
-	public Board2Impl(int horizontalSize, int verticalSize)
+	public BoardImpl(int horizontalSize, int verticalSize)
 	{
 		this.horizontalSize = horizontalSize;
 		this.verticalSize = verticalSize;
 		this.size = horizontalSize * verticalSize;
 		this.defaultValue = null;
 		
-		this.board = new BoardPiece2Impl[verticalSize][horizontalSize];
+		this.board = new BoardPieceImpl[verticalSize][horizontalSize];
 		
 		int columnNumber = 0;
-		for (BoardPiece2Impl<T>[] row : board)
+		for (BoardPieceImpl<T>[] row : board)
 		{
 			for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
 			{ 
-				row[rowNumber] = new BoardPiece2Impl(rowNumber, columnNumber, null);
+				row[rowNumber] = new BoardPieceImpl(rowNumber, columnNumber, null);
 			}
 			columnNumber++;
 		}
-	}
-	
-	public static void main(String[] args)
-	{
-		Board2Impl<Object> board = new Board2Impl<>(5,6);
 	}
 }

@@ -13,7 +13,7 @@ public class Board2ImplIntIntTest extends Board2Test
 		int horizontalSize = 20;
 		int verticalSize = 30;
 		
-		boardFactory = new BoardFactory(Board2Impl.class, horizontalSize, verticalSize);		
+		boardFactory = new BoardFactory(BoardImpl.class, horizontalSize, verticalSize);		
 		board = boardFactory.createBoard();
 	}
 }

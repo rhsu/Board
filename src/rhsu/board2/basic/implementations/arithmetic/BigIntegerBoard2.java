@@ -1,9 +1,9 @@
 package rhsu.board2.basic.implementations.arithmetic;
 
 import java.math.BigInteger;
-import rhsu.board2.basic.Board2Impl;
+import rhsu.board2.basic.BoardImpl;
 
-public class BigIntegerBoard2 extends Board2Impl<BigInteger>
+public class BigIntegerBoard2 extends BoardImpl<BigInteger>
 {
 	private static final BigInteger DEFAULT_VALUE = BigInteger.ZERO;
 	

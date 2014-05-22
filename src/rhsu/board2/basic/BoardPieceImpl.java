@@ -5,7 +5,7 @@ import java.util.UUID;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.MobilityStatus2;
 
-public class BoardPiece2Impl<T> implements BoardPiece2<T>
+public class BoardPieceImpl<T> implements BoardPiece2<T>
 {
 	protected int horizontalIndex;
 	protected int verticalIndex;
@@ -15,7 +15,7 @@ public class BoardPiece2Impl<T> implements BoardPiece2<T>
 	//TODO: This will be done once Mobility is implemented.
 	//protected UUID uuid;
 	
-	public BoardPiece2Impl(int horizontalIndex, int verticalIndex, T value)
+	public BoardPieceImpl(int horizontalIndex, int verticalIndex, T value)
 	{
 		this.horizontalIndex = horizontalIndex;
 		this.verticalIndex= verticalIndex;
@@ -68,9 +68,9 @@ public class BoardPiece2Impl<T> implements BoardPiece2<T>
 	public boolean equals(Object aInstance)
 	{
 		if (this == aInstance) return true;
-		if ( !(aInstance instanceof BoardPiece2Impl ) ) return false; 
+		if ( !(aInstance instanceof BoardPieceImpl ) ) return false; 
 		
-		BoardPiece2Impl instance = (BoardPiece2Impl) aInstance;
+		BoardPieceImpl instance = (BoardPieceImpl) aInstance;
 		
 		return 
 			instance.getHorizontalIndex() == this.getHorizontalIndex() &&

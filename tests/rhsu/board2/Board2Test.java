@@ -50,6 +50,12 @@ public class Board2Test
 	}
 	
 	@Test
+	public void testGetPieceAt()
+	{
+		
+	}
+		
+	@Test
 	public void testEqualsSelf()
 	{
 		assertEquals(board, board);

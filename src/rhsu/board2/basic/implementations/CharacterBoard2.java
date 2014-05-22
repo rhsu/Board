@@ -1,8 +1,8 @@
 package rhsu.board2.basic.implementations;
 
-import rhsu.board2.basic.Board2Impl;
+import rhsu.board2.basic.BoardImpl;
 
-public class CharacterBoard2 extends Board2Impl<Character>
+public class CharacterBoard2 extends BoardImpl<Character>
 {
 	private static final Character DEFAULT_VALUE = '+';
 	

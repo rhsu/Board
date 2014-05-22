@@ -1,8 +1,7 @@
 package rhsu.board2.factory;
 
 import org.junit.*;
-import static org.junit.Assert.*;
-import rhsu.board2.basic.Board2Impl;
+import rhsu.board2.basic.BoardImpl;
 
 public class BoardFactoryTest
 {
@@ -13,7 +12,7 @@ public class BoardFactoryTest
 	@Before
 	public void setupBoardFactory()
 	{
-		boardFactory = BoardFactory.createFactory(Board2Impl.class, horizontalSize, verticalSize);
+		boardFactory = BoardFactory.createFactory(BoardImpl.class, horizontalSize, verticalSize);
 	}
 	
 	@Test

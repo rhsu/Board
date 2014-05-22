@@ -1,6 +1,6 @@
 package rhsu.board2;
 
-import rhsu.board2.basic.BoardPiece2Impl;
+import rhsu.board2.basic.BoardPieceImpl;
 
 public interface Board2<T>
 {
@@ -30,7 +30,9 @@ public interface Board2<T>
 	 */
 	public T getDefaultValue();
 	
-	public BoardPiece2Impl<T>[][] getBoardArray();
+	public BoardPieceImpl<T>[][] getBoardArray();
 	
 	//</editor-fold>
+	
+	public BoardPieceImpl<T> getPieceAt(int horizontalIndex, int verticalIndex);
 }
