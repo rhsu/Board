@@ -24,6 +24,7 @@ public class Board2Impl<T> implements Board2<T>
 	@Override
 	public T getDefaultValue() { return defaultValue; }
 	
+	@Override
 	public BoardPiece2Impl<T>[][] getBoardArray() { return this.board; }
 	
 	@Override

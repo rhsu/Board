@@ -1,5 +1,7 @@
 package rhsu.board2;
 
+import rhsu.board2.basic.BoardPiece2Impl;
+
 public interface Board2<T>
 {
 	//<editor-fold desc="Accessors" defaultstate="collapsed">
@@ -27,6 +29,8 @@ public interface Board2<T>
 	 * @return the default value of the Board
 	 */
 	public T getDefaultValue();
+	
+	public BoardPiece2Impl<T>[][] getBoardArray();
 	
 	//</editor-fold>
 }

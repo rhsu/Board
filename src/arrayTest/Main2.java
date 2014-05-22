@@ -15,6 +15,9 @@ public class Main2
 		
 		boolean b = b1.equals(b2);
 		
+		System.out.println(b1.getBoardArray());
+		System.out.println(b2.getBoardArray());
+		
 		System.out.println(b);
 	}
 }
