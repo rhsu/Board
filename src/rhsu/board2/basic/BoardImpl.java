@@ -65,10 +65,26 @@ public class BoardImpl<T> implements Board2<T>
 		this.verticalSize = verticalSize;
 		this.size = horizontalSize * verticalSize;
 		this.defaultValue = null;
-		
 		this.board = new BoardPieceImpl[verticalSize][horizontalSize];
 		
+		this.doInitializeBoardArray();
+	}
+	
+	/**
+	 * 
+	 */
+	private void doInitializeBoardArray()
+	{
+		initializeBoardArray();
+	}
+	
+	/**
+	 * Initializes the board array. Assume that the variable this.boardArray is already initialized
+	 */
+	protected void initializeBoardArray()
+	{		
 		int columnNumber = 0;
+		
 		for (BoardPieceImpl<T>[] row : board)
 		{
 			for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
