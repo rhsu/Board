@@ -99,7 +99,7 @@ public class BoardImpl<T> implements Board2<T>
 	
 	public static void main(String[] args)
 	{
-		BoardImpl test = new BoardImpl(1,1);
+		StringBoard2 test = new StringBoard2(1,1);
 		
 		System.out.println(test);
 	}
