@@ -6,9 +6,13 @@ public class IntegerBoard2 extends BoardImpl<Integer>
 {	
 	private static final Integer DEFAULT_VALUE = 0;
 	
+	public IntegerBoard2(int horizontalSize, int verticalSize, Integer defaultValue)
+	{
+		super(horizontalSize, verticalSize, defaultValue);
+	}
+	
 	public IntegerBoard2(int horizontalSize, int verticalSize)
 	{
-		super(horizontalSize, verticalSize);
-		this.defaultValue = DEFAULT_VALUE;
+		this(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 }

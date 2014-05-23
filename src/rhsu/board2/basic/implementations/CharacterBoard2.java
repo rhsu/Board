@@ -6,9 +6,13 @@ public class CharacterBoard2 extends BoardImpl<Character>
 {
 	private static final Character DEFAULT_VALUE = '+';
 	
+	public CharacterBoard2(int horizontalSize, int verticalSize, Character defaultValue)
+	{
+		super(horizontalSize, verticalSize, defaultValue);
+	}
+	
 	public CharacterBoard2(int horizontalSize, int verticalSize)
 	{
-		super(horizontalSize, verticalSize);
-		this.defaultValue = DEFAULT_VALUE;
+		this(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 }
