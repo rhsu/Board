@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import rhsu.board.basic.implementations.arithmetic.IntegerBoard;
 import rhsu.board.resources.ResourceRetriever;
 
+@Ignore
 public class TestUUID
 {
 	@Test

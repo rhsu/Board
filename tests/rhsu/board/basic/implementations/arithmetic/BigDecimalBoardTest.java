@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import org.junit.rules.ExpectedException;
 import rhsu.board.resources.ResourceRetriever;
 
+@Ignore
 public class BigDecimalBoardTest 
 {
 	//<editor-fold desc="Private Variables" defaultstate="collapsed">

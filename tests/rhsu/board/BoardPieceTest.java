@@ -3,13 +3,14 @@ package rhsu.board;
 import rhsu.board.basic.BasicBoardPiece;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.BeforeClass;
+import org.junit.*;
 import rhsu.board.test.MockFactory;
 
 /**
  *
  * @author rhsu
  */
+@Ignore
 public class BoardPieceTest 
 {
 	static BasicBoardPiece<Integer> mockBoardPiece;

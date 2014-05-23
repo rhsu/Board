@@ -7,11 +7,13 @@ package rhsu.board.basic.implementations.gameObjects;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 /**
  *
  * @author rhsu
  */
+@Ignore
 public class Drop7PieceTest2 {
 
     public Drop7PieceTest2() {

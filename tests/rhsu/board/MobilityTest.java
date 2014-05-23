@@ -4,6 +4,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board.basic.implementations.arithmetic.IntegerBoard;
 
+@Ignore
 public class MobilityTest 
 {	
 	private static final Board<Integer> source = new IntegerBoard(3,3,1);

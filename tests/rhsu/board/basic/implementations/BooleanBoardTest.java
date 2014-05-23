@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import rhsu.board.resources.ResourceRetriever;
 
+@Ignore
 public class BooleanBoardTest 
 {
 	//<editor-fold desc="Private Variables" defaultstate="collapsed">
