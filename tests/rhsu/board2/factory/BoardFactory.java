@@ -25,7 +25,8 @@ public class BoardFactory<B extends Board2>
 		try
 		{
 			Object[] arguments = { horizontalSize, verticalSize };
-			Constructor<B> constructor = boardClass.getConstructor(int.class, int.class);
+			Constructor<B> constructor = boardClass.getConstructor(int.class, 
+				int.class);
 			
 			return constructor.newInstance(arguments);
 		}
@@ -38,6 +39,8 @@ public class BoardFactory<B extends Board2>
 	
 	public B createBoard()
 	{
+System.out.println(this.horizontalSize);
+System.out.println(this.verticalSize);		
 		return createBoard(this.horizontalSize, this.verticalSize);
 	}
 	
