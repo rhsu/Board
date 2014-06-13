@@ -8,7 +8,11 @@ public class BooleanBoard2 extends BoardImpl<Boolean>
 	
 	public BooleanBoard2(int horizontalSize, int verticalSize)
 	{
-		super(horizontalSize, verticalSize);
-		this.defaultValue = DEFAULT_VALUE;
+		this(horizontalSize, verticalSize, DEFAULT_VALUE);
+	}
+	
+	public BooleanBoard2(int horizontalSize, int verticalSize, Boolean defaultValue)
+	{
+		super(horizontalSize, verticalSize, defaultValue);
 	}
 }
