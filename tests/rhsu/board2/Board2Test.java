@@ -26,7 +26,6 @@ public class Board2Test
 	@Test
 	public void testGetHorizontalSize() 
 	{ 
-System.out.println(board == null);
 		assert(board.getHorizontalSize() == boardFactory.getHorizontalSize());
 	}
 	
