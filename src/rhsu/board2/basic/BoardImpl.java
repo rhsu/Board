@@ -60,21 +60,21 @@ public class BoardImpl<T> implements Board2<T>
 		return hash;
 	}
 	
-	public BoardImpl(int horizontalSize, int verticalSize)
+	public BoardImpl(int horizontalSize, int verticalSize, Object defaultValue)
 	{
 		this.horizontalSize = horizontalSize;
 		this.verticalSize = verticalSize;
 		this.size = horizontalSize * verticalSize;
-		this.defaultValue = null;
-		
 		this.boardArray = new BoardPieceImpl[verticalSize][horizontalSize];
-		
+		this.defaultValue = (T) defaultValue;
+		this.boardArray = new BoardPieceImpl[verticalSize][horizontalSize];
 		int columnNumber = 0;
+
 		for (BoardPieceImpl<T>[] row : boardArray)
 		{
 			for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
 			{ 
-				row[rowNumber] = new BoardPieceImpl(rowNumber, columnNumber, null);
+				row[rowNumber] = new BoardPieceImpl(rowNumber, columnNumber, defaultValue);
 			}
 			columnNumber++;
 		}

@@ -7,9 +7,13 @@ public class BigIntegerBoard2 extends BoardImpl<BigInteger>
 {
 	private static final BigInteger DEFAULT_VALUE = BigInteger.ZERO;
 	
+	public BigIntegerBoard2(int horizontalSize, int verticalSize, BigInteger defaultValue)
+	{
+		super(horizontalSize, verticalSize, defaultValue);
+	}
+	
 	public BigIntegerBoard2(int horizontalSize, int verticalSize)
 	{
-		super(horizontalSize, verticalSize);
-		this.defaultValue = DEFAULT_VALUE;
+		this(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 }

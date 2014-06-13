@@ -9,6 +9,7 @@ import rhsu.board.test.MockFactory;
  *
  * @author rhsu
  */
+@Ignore
 public class LinkedGStructTest2 
 {
 	static LinkedGStruct<Integer> mockLinkedGStruct;

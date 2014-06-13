@@ -5,13 +5,13 @@
 
 package rhsu.board.basic.implementations.gameObjects;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.*;
 
 /**
  *
  * @author rhsu
  */
+@Ignore
 public class Drop7BoardTest2 {
 
     public Drop7BoardTest2() {

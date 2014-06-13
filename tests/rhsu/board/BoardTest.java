@@ -10,6 +10,7 @@ import rhsu.board.test.MockFactory;
  *
  * @author rhsu
  */
+@Ignore
 public class BoardTest 
 {
 	private static final String TEST_RESOURCE = "/rhsu/board/resources/test/";

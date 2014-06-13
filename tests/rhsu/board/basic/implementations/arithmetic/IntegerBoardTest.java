@@ -4,6 +4,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board.resources.ResourceRetriever;
 
+@Ignore
 public class IntegerBoardTest 
 {
 	//<editor-fold desc="Private Variables" defaultstate="collapsed">

@@ -8,6 +8,7 @@ import rhsu.board.basic.BasicBoardPiece;
  *
  * @author rhsu
  */
+@Ignore
 public class GSNodeTest2 
 {
 	static GSNode<Integer> mockGSNode;

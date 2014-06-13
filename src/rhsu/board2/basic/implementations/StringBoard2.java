@@ -6,9 +6,13 @@ public class StringBoard2 extends BoardImpl<String>
 {
 	private static final String DEFAULT_VALUE = "++";
 	
+	public StringBoard2(int horizontalSize, int verticalSize, String defaultValue)
+	{
+		super(horizontalSize, verticalSize, defaultValue);
+	}
+	
 	public StringBoard2(int horizontalSize, int verticalSize)
 	{
-		super(horizontalSize, verticalSize);
-		this.defaultValue = DEFAULT_VALUE;
+		this(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 }
