@@ -3,8 +3,6 @@ package rhsu.board2.basic;
 import java.util.Arrays;
 import java.util.Objects;
 import rhsu.board2.Board2;
-import rhsu.board2.basic.implementations.StringBoard2;
-import rhsu.board2.basic.implementations.arithmetic.IntegerBoard2;
 
 public class BoardImpl<T> implements Board2<T>
 {	
