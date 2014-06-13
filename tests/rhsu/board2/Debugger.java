@@ -10,6 +10,6 @@ public class Debugger
 		BoardFactory<IntegerBoard2> factory = BoardFactory.createFactory(IntegerBoard2.class, 5, 5);
 		IntegerBoard2 result = factory.createBoard();
 		
-		System.out.println(result.getDefaultValue());
+		System.out.println(result.getBoardArray().length);
 	}
 }

@@ -38,9 +38,7 @@ public class BoardFactory<B extends Board2>
 	}
 	
 	public B createBoard()
-	{
-System.out.println(this.horizontalSize);
-System.out.println(this.verticalSize);		
+	{		
 		return createBoard(this.horizontalSize, this.verticalSize);
 	}
 	
