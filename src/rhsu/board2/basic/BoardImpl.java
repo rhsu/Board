@@ -64,11 +64,11 @@ public class BoardImpl<T> implements Board2<T>
 		this.horizontalSize = horizontalSize;
 		this.verticalSize = verticalSize;
 		this.size = horizontalSize * verticalSize;
+		this.boardArray = new BoardPieceImpl[verticalSize][horizontalSize];
 		this.defaultValue = (T) defaultValue;
 		this.boardArray = new BoardPieceImpl[verticalSize][horizontalSize];
-				
 		int columnNumber = 0;
-		
+
 		for (BoardPieceImpl<T>[] row : boardArray)
 		{
 			for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
@@ -77,5 +77,23 @@ public class BoardImpl<T> implements Board2<T>
 			}
 			columnNumber++;
 		}
+	}
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder builder = new StringBuilder();
+		
+		for (int i = 0; i < this.verticalSize; i++)
+		{
+			for (int j = 0; j < this.horizontalSize; j++)
+			{
+				builder.append(this.boardArray[i][j]).append(" ");
+			}
+			
+			builder.append("\n");
+		}
+		
+		return builder.toString().trim();
 	}
 }

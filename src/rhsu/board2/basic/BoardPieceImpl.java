@@ -88,4 +88,11 @@ public class BoardPieceImpl<T> implements BoardPiece2<T>
 		//hash = 43 * hash + Objects.hashCode(this.mobilityStatus);
 		return hash;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return this.value.toString();
+	}
+	
 }
