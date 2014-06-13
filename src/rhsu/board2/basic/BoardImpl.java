@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Objects;
 import rhsu.board2.Board2;
 import rhsu.board2.basic.implementations.StringBoard2;
+import rhsu.board2.basic.implementations.arithmetic.IntegerBoard2;
 
 public class BoardImpl<T> implements Board2<T>
 {	
@@ -85,22 +86,16 @@ public class BoardImpl<T> implements Board2<T>
 	{
 		StringBuilder builder = new StringBuilder();
 		
-		for (int i = 0; i < this.horizontalSize; i++)
+		for (int i = 0; i < this.verticalSize; i++)
 		{
-			for (int j = 0; j < this.verticalSize; j++)
+			for (int j = 0; j < this.horizontalSize; j++)
 			{
 				builder.append(this.boardArray[i][j]).append(" ");
 			}
+			
 			builder.append("\n");
 		}
 		
 		return builder.toString().trim();
-	}
-	
-	public static void main(String[] args)
-	{
-		StringBoard2 test = new StringBoard2(1,1);
-		
-		System.out.println(test);
 	}
 }
