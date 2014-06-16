@@ -15,4 +15,25 @@ public class DoubleBoard2 extends BoardImpl<Double>
 	{
 		this(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
+	
+	
+	@Override
+	public boolean equals(Object aInstance)
+	{
+		if (this == aInstance) return true;
+		if ( !(aInstance instanceof BoardImpl ) ) return false; 
+		
+		BoardImpl instance = (BoardImpl) aInstance;
+		
+		return
+			instance.getHorizontalSize() == this.getHorizontalSize() &&
+			instance.getVerticalSize() == this.getVerticalSize() &&
+			instance.toString().equals(this.toString());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
+	}
 }

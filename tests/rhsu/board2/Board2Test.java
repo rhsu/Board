@@ -75,6 +75,7 @@ public class Board2Test
 	public void testEqualsSimilarBoard()
 	{
 		Board2 sameBoard = boardFactory.createBoard();
+		
 		assertEquals(sameBoard, board);
 	}
 	
