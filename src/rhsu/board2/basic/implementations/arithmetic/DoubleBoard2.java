@@ -33,11 +33,10 @@ public class DoubleBoard2 extends BoardImpl<Double>
 		return
 			instance.getHorizontalSize() == this.getHorizontalSize() &&
 			instance.getVerticalSize() == this.getVerticalSize() &&
-			//instance.toString().equals(this.toString());
 			EqualHelper(instance.getBoardArray());
 	}
 	
-	public boolean EqualHelper(BoardPieceImpl<Double>[][] otherBoardArray)
+	private boolean EqualHelper(BoardPieceImpl<Double>[][] otherBoardArray)
 	{	
 		for (int i = 0; i < this.getVerticalSize(); i++)
 		{
