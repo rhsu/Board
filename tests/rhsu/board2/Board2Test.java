@@ -46,7 +46,6 @@ public class Board2Test
 	@Test
 	public void testGetDefaultValue()
 	{
-		assert(board.getDefaultValue() == null);
 	}
 	
 	@Test
