@@ -23,6 +23,6 @@ public class BigIntegerBoard2IntIntTest extends Board2ImplIntIntTest
 	@Override
 	public void testGetDefaultValue()
 	{
-		assertEquals(BigInteger.ZERO, board.getDefaultValue());
+		assertEquals(BigIntegerBoard2.DEFAULT_VALUE, board.getDefaultValue());
 	}
 }

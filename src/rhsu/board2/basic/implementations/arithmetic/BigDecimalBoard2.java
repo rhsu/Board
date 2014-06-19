@@ -5,7 +5,7 @@ import rhsu.board2.basic.BoardImpl;
 
 public class BigDecimalBoard2 extends BoardImpl<BigDecimal>
 {
-	private static final BigDecimal DEFAULT_VALUE = BigDecimal.ZERO;
+	static final BigDecimal DEFAULT_VALUE = BigDecimal.ZERO;
 	
 	public BigDecimalBoard2(int horizontalSize, int verticalSize, BigDecimal defaultValue)
 	{

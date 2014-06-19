@@ -23,6 +23,6 @@ public class BigDecimalBoard2IntIntTest extends Board2ImplIntIntTest
 	@Override
 	public void testGetDefaultValue()
 	{
-		assertEquals(BigDecimal.ZERO, board.getDefaultValue());
+		assertEquals(BigDecimalBoard2.DEFAULT_VALUE, board.getDefaultValue());
 	}
 }

@@ -22,6 +22,6 @@ public class IntegerBoard2IntIntTest extends Board2ImplIntIntTest
 	@Override
 	public void testGetDefaultValue()
 	{
-		assertEquals(0, board.getDefaultValue());
+		assertEquals(IntegerBoard2.DEFAULT_VALUE, board.getDefaultValue());
 	}
 }
