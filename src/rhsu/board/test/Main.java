@@ -16,10 +16,7 @@ public class Main
     
 	public static void main(String[] args)
 	{
-		double a = 6.00000000000000000000000000000000000001;
-		double b = 6.00;
-		
-		System.out.println(Double.compare(a, b));
+		System.out.println(new Object());
 	}
 
 }

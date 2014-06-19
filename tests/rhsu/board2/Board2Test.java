@@ -46,7 +46,6 @@ public class Board2Test
 	@Test
 	public void testGetDefaultValue()
 	{
-		assert(board.getDefaultValue() == null);
 	}
 	
 	@Test
@@ -75,6 +74,7 @@ public class Board2Test
 	public void testEqualsSimilarBoard()
 	{
 		Board2 sameBoard = boardFactory.createBoard();
+		
 		assertEquals(sameBoard, board);
 	}
 	
