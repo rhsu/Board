@@ -5,7 +5,7 @@ import rhsu.board2.basic.BoardPieceImpl;
 
 public class DoubleBoard2 extends BoardImpl<Double>
 {
-	private static final double DEFAULT_VALUE = 0.0;
+	static final double DEFAULT_VALUE = 0.0;
 	
 	public DoubleBoard2(int horizontalSize, int verticalSize, Double defaultValue)
 	{

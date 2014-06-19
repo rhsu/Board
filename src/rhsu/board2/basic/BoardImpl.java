@@ -12,7 +12,7 @@ public class BoardImpl<T> implements Board2<T>
 	protected T defaultValue;
 	protected BoardPieceImpl<T>[][] boardArray;
 	
-	protected static final Object DEFAULT_VALUE_OBJECT = new Object();
+	static final Object DEFAULT_VALUE = new Object();
 	
 	@Override
 	public int getHorizontalSize() { return horizontalSize; }
@@ -83,7 +83,7 @@ public class BoardImpl<T> implements Board2<T>
 	
 	public BoardImpl(int horizontalSize, int verticalSize)
 	{
-		this(horizontalSize, verticalSize, DEFAULT_VALUE_OBJECT);
+		this(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 	
 	@Override
