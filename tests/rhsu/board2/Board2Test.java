@@ -14,7 +14,7 @@ public class Board2Test
 	@Before
 	public void createBoard()
 	{
-		
+		assert(false);
 	}
 	
 	@Test
@@ -46,12 +46,13 @@ public class Board2Test
 	@Test
 	public void testGetDefaultValue()
 	{
+		assert(false);
 	}
 	
 	@Test
 	public void testGetPieceAt()
 	{
-		
+		assert(false);
 	}
 		
 	@Test
