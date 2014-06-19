@@ -4,7 +4,7 @@ import rhsu.board2.basic.BoardImpl;
 
 public class StringBoard2 extends BoardImpl<String>
 {
-	private static final String DEFAULT_VALUE = "++";
+	static final String DEFAULT_VALUE = "++";
 	
 	public StringBoard2(int horizontalSize, int verticalSize, String defaultValue)
 	{

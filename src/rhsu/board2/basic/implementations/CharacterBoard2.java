@@ -4,7 +4,7 @@ import rhsu.board2.basic.BoardImpl;
 
 public class CharacterBoard2 extends BoardImpl<Character>
 {
-	private static final Character DEFAULT_VALUE = '+';
+	static final Character DEFAULT_VALUE = '+';
 	
 	public CharacterBoard2(int horizontalSize, int verticalSize, Character defaultValue)
 	{

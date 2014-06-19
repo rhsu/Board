@@ -5,7 +5,7 @@ import rhsu.board2.basic.BoardImpl;
 
 public class BigIntegerBoard2 extends BoardImpl<BigInteger>
 {
-	private static final BigInteger DEFAULT_VALUE = BigInteger.ZERO;
+	static final BigInteger DEFAULT_VALUE = BigInteger.ZERO;
 	
 	public BigIntegerBoard2(int horizontalSize, int verticalSize, BigInteger defaultValue)
 	{

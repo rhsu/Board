@@ -22,6 +22,6 @@ public class CharacterBoard2IntIntTest extends Board2ImplIntIntTest
 	@Override
 	public void testGetDefaultValue()
 	{
-		assertEquals('+', board.getDefaultValue());
+		assertEquals(CharacterBoard2.DEFAULT_VALUE, board.getDefaultValue());
 	}
 }
