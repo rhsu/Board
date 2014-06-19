@@ -17,7 +17,6 @@ public class DoubleBoard2 extends BoardImpl<Double>
 		this(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 	
-	
 	@Override
 	public boolean equals(Object aInstance)
 	{
