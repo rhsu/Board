@@ -2,7 +2,6 @@ package rhsu.board2;
 
 import java.util.Arrays;
 import java.util.Objects;
-import rhsu.board2.Board2;
 
 public class BoardImpl<T> implements Board2<T>
 {	
@@ -103,6 +102,4 @@ public class BoardImpl<T> implements Board2<T>
 		
 		return builder.toString().trim();
 	}
-	
-	//public abstract RandomGenerator<T> randomGenerator();
 }
