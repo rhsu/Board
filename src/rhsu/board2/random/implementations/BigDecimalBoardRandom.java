@@ -10,4 +10,8 @@ public class BigDecimalBoardRandom extends BigDecimalBoard2
 		super(horizontalSize, verticalSize, defaultValue);
 	}
 	
+	public BigDecimalBoardRandom(int horizontalSize, int verticalSize)
+	{
+		super(horizontalSize, verticalSize);
+	}
 }

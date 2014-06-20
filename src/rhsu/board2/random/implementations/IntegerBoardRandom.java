@@ -1,16 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package rhsu.board2.random.implementations;
 
-/**
- *
- * @author rhsu
- */
-public class IntegerBoardRandom
+import rhsu.board2.implementations.IntegerBoard2;
+
+public class IntegerBoardRandom extends IntegerBoard2
 {
+	public IntegerBoardRandom(int horizontalSize, int verticalSize, Integer defaultValue)
+	{
+		super(horizontalSize, verticalSize, defaultValue);
+	}
 	
+	public IntegerBoardRandom(int horizontalSize, int verticalSize)
+	{
+		super(horizontalSize, verticalSize);
+	}
 }
