@@ -1,10 +1,11 @@
-package rhsu.board2.basic.implementations;
+package rhsu.board2.implementations;
 
+import rhsu.board2.implementations.IntegerBoard2;
+import rhsu.board2.implementations.StringBoard2;
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board2.Board2;
-import rhsu.board2.basic.Board2ImplIntIntTest;
-import rhsu.board2.basic.implementations.arithmetic.IntegerBoard2;
+import rhsu.board2.Board2ImplIntIntTest;
 import rhsu.board2.factory.BoardFactory;
 
 public class StringBoard2IntIntTest extends Board2ImplIntIntTest

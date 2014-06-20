@@ -1,7 +1,7 @@
-package rhsu.board2.basic.implementations.arithmetic;
+package rhsu.board2.implementations;
 
 import java.math.BigDecimal;
-import rhsu.board2.basic.BoardImpl;
+import rhsu.board2.BoardImpl;
 
 public class BigDecimalBoard2 extends BoardImpl<BigDecimal>
 {

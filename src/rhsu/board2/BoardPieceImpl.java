@@ -1,4 +1,4 @@
-package rhsu.board2.basic;
+package rhsu.board2;
 
 import java.util.Objects;
 import java.util.UUID;

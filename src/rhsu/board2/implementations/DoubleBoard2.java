@@ -1,7 +1,7 @@
-package rhsu.board2.basic.implementations.arithmetic;
+package rhsu.board2.implementations;
 
-import rhsu.board2.basic.BoardImpl;
-import rhsu.board2.basic.BoardPieceImpl;
+import rhsu.board2.BoardImpl;
+import rhsu.board2.BoardPieceImpl;
 
 public class DoubleBoard2 extends BoardImpl<Double>
 {

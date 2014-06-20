@@ -1,6 +1,6 @@
 package rhsu.board2;
 
-import rhsu.board2.basic.BoardPieceImpl;
+import rhsu.board2.random.RandomGenerator2;
 
 public interface Board2<T>
 {
@@ -35,4 +35,6 @@ public interface Board2<T>
 	//</editor-fold>
 	
 	public BoardPieceImpl<T> getPieceAt(int horizontalIndex, int verticalIndex);
+	
+	//public RandomGenerator<T> randomGenerator();
 }

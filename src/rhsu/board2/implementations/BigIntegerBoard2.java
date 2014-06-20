@@ -1,7 +1,7 @@
-package rhsu.board2.basic.implementations.arithmetic;
+package rhsu.board2.implementations;
 
 import java.math.BigInteger;
-import rhsu.board2.basic.BoardImpl;
+import rhsu.board2.BoardImpl;
 
 public class BigIntegerBoard2 extends BoardImpl<BigInteger>
 {

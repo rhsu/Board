@@ -1,5 +1,6 @@
-package rhsu.board2.basic;
+package rhsu.board2;
 
+import rhsu.board2.BoardImpl;
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board2.Board2Test;

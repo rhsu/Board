@@ -2,7 +2,7 @@ package rhsu.board2;
 
 import org.junit.*;
 import static org.junit.Assert.*;
-import rhsu.board2.basic.implementations.StringBoard2;
+import rhsu.board2.implementations.StringBoard2;
 import rhsu.board2.factory.BoardFactory;
 
 @Ignore
