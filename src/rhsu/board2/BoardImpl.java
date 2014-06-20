@@ -34,31 +34,7 @@ public class BoardImpl<T> implements Board2<T>
 	@Override
 	public BoardPieceImpl<T>[][] getBoardArray() { return this.boardArray; }
 	
-	@Override
-	public boolean equals(Object aInstance)
-	{
-		if (this == aInstance) return true;
-		if ( !(aInstance instanceof BoardImpl ) ) return false; 
-		
-		BoardImpl instance = (BoardImpl) aInstance;
-		
-		return
-			instance.getHorizontalSize() == this.getHorizontalSize() &&
-			instance.getVerticalSize() == this.getVerticalSize() &&
-			Arrays.deepEquals(instance.getBoardArray(), this.getBoardArray());
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int hash = 3;
-		hash = 67 * hash + this.horizontalSize;
-		hash = 67 * hash + this.verticalSize;
-		hash = 67 * hash + this.size;
-		hash = 67 * hash + Objects.hashCode(this.defaultValue);
-		hash = 67 * hash + Arrays.deepHashCode(this.boardArray);
-		return hash;
-	}
+	//<editor-fold desc="Constructors">
 	
 	public BoardImpl(int horizontalSize, int verticalSize, Object defaultValue)
 	{
@@ -85,6 +61,36 @@ public class BoardImpl<T> implements Board2<T>
 		this(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 	
+	//</editor-fold>
+	
+	//<editor-fold desc="Inheirited From Object" defaultstate="collapsed">
+	
+	@Override
+	public boolean equals(Object aInstance)
+	{
+		if (this == aInstance) return true;
+		if ( !(aInstance instanceof BoardImpl ) ) return false; 
+		
+		BoardImpl instance = (BoardImpl) aInstance;
+		
+		return
+			instance.getHorizontalSize() == this.getHorizontalSize() &&
+			instance.getVerticalSize() == this.getVerticalSize() &&
+			Arrays.deepEquals(instance.getBoardArray(), this.getBoardArray());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int hash = 3;
+		hash = 67 * hash + this.horizontalSize;
+		hash = 67 * hash + this.verticalSize;
+		hash = 67 * hash + this.size;
+		hash = 67 * hash + Objects.hashCode(this.defaultValue);
+		hash = 67 * hash + Arrays.deepHashCode(this.boardArray);
+		return hash;
+	}
+	
 	@Override
 	public String toString()
 	{
@@ -102,4 +108,6 @@ public class BoardImpl<T> implements Board2<T>
 		
 		return builder.toString().trim();
 	}
+	
+	//</editor-fold>
 }

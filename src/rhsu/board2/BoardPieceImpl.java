@@ -15,13 +15,6 @@ public class BoardPieceImpl<T> implements BoardPiece2<T>
 	//TODO: This will be done once Mobility is implemented.
 	//protected UUID uuid;
 	
-	public BoardPieceImpl(int horizontalIndex, int verticalIndex, T value)
-	{
-		this.horizontalIndex = horizontalIndex;
-		this.verticalIndex= verticalIndex;
-		this.value = value;
-	}
-	
 	@Override
 	public void setValue(T value) { this.value = value; }
 
@@ -64,6 +57,19 @@ public class BoardPieceImpl<T> implements BoardPiece2<T>
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 	
+	//<editor-fold desc="Constructor" defaultstate="collapsed">
+	
+	public BoardPieceImpl(int horizontalIndex, int verticalIndex, T value)
+	{
+		this.horizontalIndex = horizontalIndex;
+		this.verticalIndex= verticalIndex;
+		this.value = value;
+	}
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="Inheirited from Object" defaultstate="collapsed">
+	
 	@Override
 	public boolean equals(Object aInstance)
 	{
@@ -95,4 +101,5 @@ public class BoardPieceImpl<T> implements BoardPiece2<T>
 		return this.value.toString();
 	}
 	
+	//</editor-fold>
 }
