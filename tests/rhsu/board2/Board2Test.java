@@ -14,7 +14,7 @@ public class Board2Test
 	@Before
 	public void createBoard()
 	{
-		assert(false);
+
 	}
 	
 	@Test
@@ -103,5 +103,14 @@ public class Board2Test
 			.createBoard();
 		
 		assertFalse(board.equals(stringBoard));
+	}
+	
+	@Test
+	public void testRandomNotNull()
+	{
+		//boa
+		
+		
+		assert(false);
 	}
 }
