@@ -10,8 +10,8 @@ public interface BoardPiece2<T>
 	public int getVerticalIndex();
 	public void setHorizontalIndex(int horizontal);
 	public void setVerticalIndex(int vertical);
-	public MobilityStatus2 getMobilityStatus();
-	public void setStatus(MobilityStatus2 status);
+	public MobilityStatus getMobilityStatus();
+	public void setStatus(MobilityStatus status);
 	public void setUUID(UUID uuid);
 	public UUID getUUID();
 }
