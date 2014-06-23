@@ -4,5 +4,5 @@ import rhsu.board2.Board2;
 
 public interface RandomBoard<T> extends Board2<T>
 {
-	public RandomGenerator2<T> randomGenerator();
+	public RandomGenerator<T> randomGenerator();
 }

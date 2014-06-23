@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.util.Random;
 import rhsu.board2.implementations.BigIntegerBoard2;
 import rhsu.board2.random.RandomBoard;
-import rhsu.board2.random.RandomGenerator2;
+import rhsu.board2.random.RandomGenerator;
 
 public class BigIntegerBoardRandom 
 	extends BigIntegerBoard2
@@ -21,9 +21,9 @@ public class BigIntegerBoardRandom
 	}
 	
 	@Override
-	public RandomGenerator2<BigInteger> randomGenerator() 
+	public RandomGenerator<BigInteger> randomGenerator() 
 	{
-		RandomGenerator2<BigInteger> generator = new RandomGenerator2()
+		RandomGenerator<BigInteger> generator = new RandomGenerator()
 		{
 			Random random = new Random();
 			

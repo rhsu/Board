@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.UUID;
 import rhsu.board.BoardPiece;
 import rhsu.board2.MobilityStatus;
-import rhsu.board.RandomGenerator;
+import rhsu.board2.random.RandomGenerator;
 
 /**
  * A wrapper class for objects. Contains two additional integer properties (horizontal index and vertical index)

@@ -5,37 +5,39 @@ import java.util.Objects;
 
 public class BoardImpl<T> implements Board2<T>
 {	
+	static final Object DEFAULT_VALUE = new Object();
+	
+	//<editor-fold desc="Protected Variables" defaultstate="collapsed">
+	
 	protected int horizontalSize;
 	protected int verticalSize;
 	protected int size;
 	protected T defaultValue;
 	protected BoardPieceImpl<T>[][] boardArray;
 	
-	static final Object DEFAULT_VALUE = new Object();
+	//</editor-fold>
+		
+	//<editor-fold desc="Accessors" defaultstate="collapsed">
 	
 	@Override
-	public int getHorizontalSize() { return horizontalSize; }
+	public int getHorizontalSize() { return this.horizontalSize; }
 
 	@Override
-	public int getVerticalSize() { return verticalSize; }
+	public int getVerticalSize() { return this.verticalSize; }
 
 	@Override
-	public int getSize() { return size; }
+	public int getSize() { return this.size; }
 
 	@Override
-	public T getDefaultValue() { return defaultValue; }
-	
-	@Override
-	public BoardPieceImpl<T> getPieceAt(int horizontalIndex, int verticalIndex)
-	{
-		throw new UnsupportedOperationException("This method is not implemented yet");
-	}
+	public T getDefaultValue() { return this.defaultValue; }
 	
 	@Override
 	public BoardPieceImpl<T>[][] getBoardArray() { return this.boardArray; }
 	
-	//<editor-fold desc="Constructors">
+	//</editor-fold>
 	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
+			
 	public BoardImpl(int horizontalSize, int verticalSize, Object defaultValue)
 	{
 		this.horizontalSize = horizontalSize;
@@ -44,8 +46,33 @@ public class BoardImpl<T> implements Board2<T>
 		this.boardArray = new BoardPieceImpl[verticalSize][horizontalSize];
 		this.defaultValue = (T) defaultValue;
 		this.boardArray = new BoardPieceImpl[verticalSize][horizontalSize];
+	
+		this.doInitializeBoardArray();
+	}
+	
+	public BoardImpl(int horizontalSize, int verticalSize)
+	{
+		this(horizontalSize, verticalSize, DEFAULT_VALUE);
+	}
+	
+	private void doInitializeBoardArray()
+	{
+		this.initializeBoardArray();
+	}
+	
+	//</editor-fold>
+	
+	@Override
+	public BoardPieceImpl<T> getPieceAt(int horizontalIndex, int verticalIndex)
+	{
+		throw new UnsupportedOperationException("This method is not implemented yet");
+	}
+		
+	@Override
+	public void initializeBoardArray()
+	{
 		int columnNumber = 0;
-
+		
 		for (BoardPieceImpl<T>[] row : boardArray)
 		{
 			for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
@@ -55,13 +82,6 @@ public class BoardImpl<T> implements Board2<T>
 			columnNumber++;
 		}
 	}
-	
-	public BoardImpl(int horizontalSize, int verticalSize)
-	{
-		this(horizontalSize, verticalSize, DEFAULT_VALUE);
-	}
-	
-	//</editor-fold>
 	
 	//<editor-fold desc="Inheirited From Object" defaultstate="collapsed">
 	

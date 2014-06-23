@@ -1,4 +1,4 @@
-package rhsu.board;
+package rhsu.board2.random;
 
 /**
  * Interface for generating a random type

@@ -2,8 +2,6 @@ package rhsu.board2;
 
 import java.util.Objects;
 import java.util.UUID;
-import rhsu.board2.BoardPiece2;
-import rhsu.board2.MobilityStatus;
 
 public class BoardPieceImpl<T> implements BoardPiece2<T>
 {

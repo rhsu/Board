@@ -10,7 +10,7 @@ import rhsu.board.Board;
 import rhsu.board.BoardPiece;
 import rhsu.board.Direction;
 import rhsu.board2.MobilityStatus;
-import rhsu.board.RandomGenerator;
+import rhsu.board2.random.RandomGenerator;
 import rhsu.board.io.BoardIO;
 import rhsu.board.io.BoardReader;
 import rhsu.board.io.BoardWriter;
