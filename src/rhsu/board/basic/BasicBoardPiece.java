@@ -3,7 +3,7 @@ package rhsu.board.basic;
 import java.util.Objects;
 import java.util.UUID;
 import rhsu.board.BoardPiece;
-import rhsu.board.MobilityStatus;
+import rhsu.board2.MobilityStatus;
 import rhsu.board.RandomGenerator;
 
 /**
