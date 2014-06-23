@@ -36,12 +36,6 @@ public class BoardImpl<T> implements Board2<T>
 	
 	//</editor-fold>
 	
-	@Override
-	public BoardPieceImpl<T> getPieceAt(int horizontalIndex, int verticalIndex)
-	{
-		throw new UnsupportedOperationException("This method is not implemented yet");
-	}
-		
 	//<editor-fold desc="Constructors" defaultstate="collapsed">
 			
 	public BoardImpl(int horizontalSize, int verticalSize, Object defaultValue)
@@ -66,6 +60,14 @@ public class BoardImpl<T> implements Board2<T>
 		this.initializeBoardArray();
 	}
 	
+	//</editor-fold>
+	
+	@Override
+	public BoardPieceImpl<T> getPieceAt(int horizontalIndex, int verticalIndex)
+	{
+		throw new UnsupportedOperationException("This method is not implemented yet");
+	}
+		
 	@Override
 	public void initializeBoardArray()
 	{
@@ -80,8 +82,6 @@ public class BoardImpl<T> implements Board2<T>
 			columnNumber++;
 		}
 	}
-	
-	//</editor-fold>
 	
 	//<editor-fold desc="Inheirited From Object" defaultstate="collapsed">
 	
