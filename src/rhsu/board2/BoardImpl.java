@@ -42,7 +42,7 @@ public class BoardImpl<T> implements Board2<T>
 		throw new UnsupportedOperationException("This method is not implemented yet");
 	}
 		
-	//<editor-fold desc="Constructors">
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
 	
 	public BoardImpl(int horizontalSize, int verticalSize, Object defaultValue)
 	{
