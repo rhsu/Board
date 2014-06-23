@@ -6,35 +6,43 @@ import rhsu.board2.Board2;
 
 public class BoardImpl<T> implements Board2<T>
 {	
+	static final Object DEFAULT_VALUE = new Object();
+	
+	//<editor-fold desc="Protected Variables" defaultstate="collapsed">
+	
 	protected int horizontalSize;
 	protected int verticalSize;
 	protected int size;
 	protected T defaultValue;
 	protected BoardPieceImpl<T>[][] boardArray;
 	
-	static final Object DEFAULT_VALUE = new Object();
+	//</editor-fold>
+		
+	//<editor-fold desc="Accessors" defaultstate="collapsed">
 	
 	@Override
-	public int getHorizontalSize() { return horizontalSize; }
+	public int getHorizontalSize() { return this.horizontalSize; }
 
 	@Override
-	public int getVerticalSize() { return verticalSize; }
+	public int getVerticalSize() { return this.verticalSize; }
 
 	@Override
-	public int getSize() { return size; }
+	public int getSize() { return this.size; }
 
 	@Override
-	public T getDefaultValue() { return defaultValue; }
+	public T getDefaultValue() { return this.defaultValue; }
+	
+	@Override
+	public BoardPieceImpl<T>[][] getBoardArray() { return this.boardArray; }
+	
+	//</editor-fold>
 	
 	@Override
 	public BoardPieceImpl<T> getPieceAt(int horizontalIndex, int verticalIndex)
 	{
 		throw new UnsupportedOperationException("This method is not implemented yet");
 	}
-	
-	@Override
-	public BoardPieceImpl<T>[][] getBoardArray() { return this.boardArray; }
-	
+		
 	//<editor-fold desc="Constructors">
 	
 	public BoardImpl(int horizontalSize, int verticalSize, Object defaultValue)
