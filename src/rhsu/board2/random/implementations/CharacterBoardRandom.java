@@ -3,7 +3,7 @@ package rhsu.board2.random.implementations;
 import java.util.Random;
 import rhsu.board2.implementations.CharacterBoard2;
 import rhsu.board2.random.RandomBoard;
-import rhsu.board2.random.RandomGenerator2;
+import rhsu.board2.random.RandomGenerator;
 
 public class CharacterBoardRandom 
 	extends CharacterBoard2
@@ -20,9 +20,9 @@ public class CharacterBoardRandom
 	}
 	
 	@Override
-	public RandomGenerator2<Character> randomGenerator() 
+	public RandomGenerator<Character> randomGenerator() 
 	{
-		RandomGenerator2<Character> generator = new RandomGenerator2()
+		RandomGenerator<Character> generator = new RandomGenerator()
 		{
 			final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 			final int N = ALPHABET.length();

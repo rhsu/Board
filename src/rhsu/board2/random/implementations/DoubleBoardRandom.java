@@ -3,7 +3,7 @@ package rhsu.board2.random.implementations;
 import java.util.Random;
 import rhsu.board2.implementations.DoubleBoard2;
 import rhsu.board2.random.RandomBoard;
-import rhsu.board2.random.RandomGenerator2;
+import rhsu.board2.random.RandomGenerator;
 
 public class DoubleBoardRandom 
 	extends DoubleBoard2
@@ -20,9 +20,9 @@ public class DoubleBoardRandom
 	}
 	
 	@Override
-	public RandomGenerator2<Double> randomGenerator() 
+	public RandomGenerator<Double> randomGenerator() 
 	{
-		RandomGenerator2<Double> generator = new RandomGenerator2()
+		RandomGenerator<Double> generator = new RandomGenerator()
 		{
 			Random random = new Random();
 			

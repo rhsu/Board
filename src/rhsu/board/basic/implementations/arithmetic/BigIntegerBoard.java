@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.math.BigInteger;
 import java.util.Random;
 import rhsu.board.basic.BasicBoardPiece;
-import rhsu.board.RandomGenerator;
+import rhsu.board2.random.RandomGenerator;
 import rhsu.board.basic.AbstractBasicMatrix;
 import rhsu.board.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
