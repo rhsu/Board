@@ -43,7 +43,7 @@ public class BoardImpl<T> implements Board2<T>
 	}
 		
 	//<editor-fold desc="Constructors" defaultstate="collapsed">
-	
+			
 	public BoardImpl(int horizontalSize, int verticalSize, Object defaultValue)
 	{
 		this.horizontalSize = horizontalSize;
@@ -52,8 +52,25 @@ public class BoardImpl<T> implements Board2<T>
 		this.boardArray = new BoardPieceImpl[verticalSize][horizontalSize];
 		this.defaultValue = (T) defaultValue;
 		this.boardArray = new BoardPieceImpl[verticalSize][horizontalSize];
+	
+		this.doInitializeBoardArray();
+	}
+	
+	public BoardImpl(int horizontalSize, int verticalSize)
+	{
+		this(horizontalSize, verticalSize, DEFAULT_VALUE);
+	}
+	
+	private void doInitializeBoardArray()
+	{
+		this.initializeBoardArray();
+	}
+	
+	@Override
+	public void initializeBoardArray()
+	{
 		int columnNumber = 0;
-
+		
 		for (BoardPieceImpl<T>[] row : boardArray)
 		{
 			for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
@@ -62,11 +79,6 @@ public class BoardImpl<T> implements Board2<T>
 			}
 			columnNumber++;
 		}
-	}
-	
-	public BoardImpl(int horizontalSize, int verticalSize)
-	{
-		this(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 	
 	//</editor-fold>

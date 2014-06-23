@@ -32,5 +32,7 @@ public interface Board2<T>
 	
 	//</editor-fold>
 	
+	public void initializeBoardArray();
+	
 	public BoardPieceImpl<T> getPieceAt(int horizontalIndex, int verticalIndex);
 }
