@@ -1,20 +1,20 @@
 package rhsu.board2.random.implementations;
 
 import java.util.Random;
-import rhsu.board2.implementations.DoubleBoard2;
+import rhsu.board2.random.AbstractRandomBoard;
 import rhsu.board2.random.RandomBoard;
 import rhsu.board2.random.RandomGenerator;
 
-public class DoubleBoardRandom 
-	extends DoubleBoard2
+public class DoubleRandomBoard 
+	extends AbstractRandomBoard<Double>
 	implements RandomBoard<Double>
 {
-	public DoubleBoardRandom(int horizontalSize, int verticalSize, Double defaultValue)
+	public DoubleRandomBoard(int horizontalSize, int verticalSize, Double defaultValue)
 	{
 		super(horizontalSize, verticalSize, defaultValue);
 	}
 	
-	public DoubleBoardRandom(int horizontalSize, int verticalSize)
+	public DoubleRandomBoard(int horizontalSize, int verticalSize)
 	{
 		super(horizontalSize, verticalSize);
 	}

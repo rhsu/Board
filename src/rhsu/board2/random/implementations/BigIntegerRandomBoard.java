@@ -2,20 +2,20 @@ package rhsu.board2.random.implementations;
 
 import java.math.BigInteger;
 import java.util.Random;
-import rhsu.board2.implementations.BigIntegerBoard2;
+import rhsu.board2.random.AbstractRandomBoard;
 import rhsu.board2.random.RandomBoard;
 import rhsu.board2.random.RandomGenerator;
 
-public class BigIntegerBoardRandom 
-	extends BigIntegerBoard2
+public class BigIntegerRandomBoard 
+	extends AbstractRandomBoard<BigInteger>
 	implements RandomBoard<BigInteger>
 {
-	public BigIntegerBoardRandom(int horizontalSize, int verticalSize, BigInteger defaultValue)
+	public BigIntegerRandomBoard(int horizontalSize, int verticalSize, BigInteger defaultValue)
 	{
 		super(horizontalSize, verticalSize, defaultValue);
 	}
 	
-	public BigIntegerBoardRandom(int horizontalSize, int verticalSize)
+	public BigIntegerRandomBoard(int horizontalSize, int verticalSize)
 	{
 		super(horizontalSize, verticalSize);
 	}

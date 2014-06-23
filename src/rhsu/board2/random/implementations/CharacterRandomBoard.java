@@ -1,20 +1,20 @@
 package rhsu.board2.random.implementations;
 
 import java.util.Random;
-import rhsu.board2.implementations.CharacterBoard2;
+import rhsu.board2.random.AbstractRandomBoard;
 import rhsu.board2.random.RandomBoard;
 import rhsu.board2.random.RandomGenerator;
 
-public class CharacterBoardRandom 
-	extends CharacterBoard2
+public class CharacterRandomBoard 
+	extends AbstractRandomBoard<Character>
 	implements RandomBoard<Character>
 {
-	public CharacterBoardRandom(int horizontalSize, int verticalSize, Character defaultValue)
+	public CharacterRandomBoard(int horizontalSize, int verticalSize, Character defaultValue)
 	{
 		super(horizontalSize, verticalSize, defaultValue);
 	}
 	
-	public CharacterBoardRandom(int horizontalSize, int verticalSize)
+	public CharacterRandomBoard(int horizontalSize, int verticalSize)
 	{
 		super(horizontalSize, verticalSize);
 	}
