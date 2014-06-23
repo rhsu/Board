@@ -1,4 +1,4 @@
-package rhsu.board;
+package rhsu.board2;
 
 /**
  * An enumeration to denote if a piece is movable.

@@ -8,7 +8,7 @@ public class BoardPieceImpl<T> implements BoardPiece2<T>
 	protected int horizontalIndex;
 	protected int verticalIndex;
 	protected T value;
-	protected MobilityStatus2 mobilityStatus;
+	protected MobilityStatus mobilityStatus;
 	
 	//TODO: This will be done once Mobility is implemented.
 	//protected UUID uuid;
@@ -32,13 +32,13 @@ public class BoardPieceImpl<T> implements BoardPiece2<T>
 	public void setVerticalIndex(int verticalIndex) { this.verticalIndex = verticalIndex; }
 
 	@Override
-	public MobilityStatus2 getMobilityStatus()
+	public MobilityStatus getMobilityStatus()
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public void setStatus(MobilityStatus2 status)
+	public void setStatus(MobilityStatus status)
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
