@@ -9,7 +9,7 @@ import java.util.UUID;
 import rhsu.board.Board;
 import rhsu.board.BoardPiece;
 import rhsu.board.Direction;
-import rhsu.board.MobilityStatus;
+import rhsu.board2.MobilityStatus;
 import rhsu.board.RandomGenerator;
 import rhsu.board.io.BoardIO;
 import rhsu.board.io.BoardReader;
