@@ -20,6 +20,8 @@ public class BoardFactory<B extends Board2>
 		this.boardClass = boardClass;
 	}
 	
+	public B createBoard(int h) { return null; }
+	
 	public B createBoard(int horizontalSize, int verticalSize)
 	{
 		try
