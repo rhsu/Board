@@ -1,7 +1,5 @@
 package rhsu.board2;
 
-import rhsu.board2.basic.BoardPieceImpl;
-
 public interface Board2<T>
 {
 	//<editor-fold desc="Accessors" defaultstate="collapsed">

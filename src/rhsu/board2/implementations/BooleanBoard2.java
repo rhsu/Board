@@ -1,6 +1,6 @@
-package rhsu.board2.basic.implementations;
+package rhsu.board2.implementations;
 
-import rhsu.board2.basic.BoardImpl;
+import rhsu.board2.BoardImpl;
 
 public class BooleanBoard2 extends BoardImpl<Boolean>
 {

@@ -1,8 +1,7 @@
-package rhsu.board2.basic;
+package rhsu.board2;
 
 import java.util.Arrays;
 import java.util.Objects;
-import rhsu.board2.Board2;
 
 public class BoardImpl<T> implements Board2<T>
 {	

@@ -1,4 +1,4 @@
-package rhsu.board2.basic;
+package rhsu.board2;
 
 import org.junit.*;
 import rhsu.board2.BoardPiece2Test;
