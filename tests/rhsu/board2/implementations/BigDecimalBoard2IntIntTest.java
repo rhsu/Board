@@ -1,7 +1,5 @@
 package rhsu.board2.implementations;
 
-import rhsu.board2.implementations.BigDecimalBoard2;
-import java.math.BigDecimal;
 import org.junit.*;
 import static org.junit.Assert.assertEquals;
 import rhsu.board2.Board2ImplIntIntTest;
