@@ -1,6 +1,6 @@
 package rhsu.board2.factory;
 
-import rhsu.board2.basic.BoardPieceImpl;
+import rhsu.board2.BoardPieceImpl;
 
 public class BoardPieceFactory
 {

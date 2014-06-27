@@ -2,7 +2,7 @@ package rhsu.board.utilities;
 
 import rhsu.board.BoardPiece;
 import rhsu.board.basic.AbstractBasicBoard;
-import rhsu.board.RandomGenerator;
+import rhsu.board2.random.RandomGenerator;
 
 /**
  *Various static functions

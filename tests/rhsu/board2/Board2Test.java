@@ -2,7 +2,7 @@ package rhsu.board2;
 
 import org.junit.*;
 import static org.junit.Assert.*;
-import rhsu.board2.basic.implementations.StringBoard2;
+import rhsu.board2.implementations.StringBoard2;
 import rhsu.board2.factory.BoardFactory;
 
 @Ignore
@@ -14,7 +14,7 @@ public class Board2Test
 	@Before
 	public void createBoard()
 	{
-		assert(false);
+
 	}
 	
 	@Test
@@ -52,7 +52,7 @@ public class Board2Test
 	@Test
 	public void testGetPieceAt()
 	{
-		assert(false);
+		//assert(false);
 	}
 		
 	@Test
