@@ -1,7 +1,7 @@
 package rhsu.board2.factory;
 
 import org.junit.*;
-import rhsu.board2.basic.BoardImpl;
+import rhsu.board2.BoardImpl;
 
 public class BoardFactoryTest
 {

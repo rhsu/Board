@@ -1,5 +1,6 @@
 package rhsu.board;
 
+import rhsu.board2.MobilityStatus;
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board.basic.implementations.arithmetic.IntegerBoard;

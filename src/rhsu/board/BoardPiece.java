@@ -1,5 +1,6 @@
 package rhsu.board;
 
+import rhsu.board2.MobilityStatus;
 import java.util.UUID;
 
 public interface BoardPiece<T>
