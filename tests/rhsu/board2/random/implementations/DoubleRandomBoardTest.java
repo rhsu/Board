@@ -1,31 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package rhsu.board2.random.implementations;
 
 import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import rhsu.board2.factory.BoardFactory;
+import rhsu.board2.random.RandomBoardTest;
 
-/**
- *
- * @author rhsu
- */
-public class DoubleRandomBoardTest {
-
-    public DoubleRandomBoardTest() {
-    }
-
+public class DoubleRandomBoardTest extends RandomBoardTest
+{
     @Before
-    public void setUp() {
-    }
-
-	@Test
-	public void testRandomGenerator()
+	@Override
+    public void createBoard() 
 	{
-	}
-
+		int horizontalSize = 20;
+		int verticalSize = 30;
+		
+		boardFactory = new BoardFactory(DoubleRandomBoard.class, horizontalSize, verticalSize);
+		board = boardFactory.createBoard();
+    }
 }
