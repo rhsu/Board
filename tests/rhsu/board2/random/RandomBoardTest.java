@@ -1,21 +1,16 @@
 package rhsu.board2.random;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import junit.framework.Assert;
+import org.junit.*;
+import rhsu.board2.Board2Test;
 
-/**
- *
- * @author rhsu
- */
-public class RandomBoardTest 
-{
-
-    public RandomBoardTest() {
-    }
-
-    @Before
-    public void setUp() 
+@Ignore
+public class RandomBoardTest extends Board2Test
+{	
+	@Test
+	public void testRandomGenerator()
 	{
-    }
+		RandomBoard randomBoard = (RandomBoard) board;
+		Assert.assertNotNull(randomBoard.randomGenerator().getRandom());
+	}
 }
