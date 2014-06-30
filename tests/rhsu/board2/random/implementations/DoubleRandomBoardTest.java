@@ -13,7 +13,7 @@ public class DoubleRandomBoardTest extends RandomBoardTest
 		int horizontalSize = 20;
 		int verticalSize = 30;
 		
-		boardFactory = new BoardFactory(DoubleRandomBoard.class, horizontalSize, verticalSize);
+		boardFactory = BoardFactory.createFactory(DoubleRandomBoard.class, horizontalSize, verticalSize);
 		board = boardFactory.createBoard();
     }
 }

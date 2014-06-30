@@ -1,11 +1,11 @@
 package rhsu.board2.implementations;
 
 import org.junit.*;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import rhsu.board2.Board2ImplIntIntTest;
 import rhsu.board2.factory.BoardFactory;
 
-public class BigDecimalBoard2IntIntTest extends Board2ImplIntIntTest
+public class BigIntegerBoard2Test extends Board2ImplIntIntTest
 {
 	@Before
 	@Override
@@ -14,7 +14,7 @@ public class BigDecimalBoard2IntIntTest extends Board2ImplIntIntTest
 		int horizontalSize = 20;
 		int verticalSize = 30;
 		
-		boardFactory = new BoardFactory(BigDecimalBoard2.class, horizontalSize, verticalSize);
+		boardFactory = BoardFactory.createFactory(BigIntegerBoard2.class, horizontalSize, verticalSize);
 		board = boardFactory.createBoard();
 	}
 	
@@ -22,6 +22,6 @@ public class BigDecimalBoard2IntIntTest extends Board2ImplIntIntTest
 	@Override
 	public void testGetDefaultValue()
 	{
-		assertEquals(BigDecimalBoard2.DEFAULT_VALUE, board.getDefaultValue());
+		assertEquals(BigIntegerBoard2.DEFAULT_VALUE, board.getDefaultValue());
 	}
 }
