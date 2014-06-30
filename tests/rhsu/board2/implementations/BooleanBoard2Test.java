@@ -1,13 +1,12 @@
 package rhsu.board2.implementations;
 
-import rhsu.board2.implementations.CharacterBoard2;
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board2.Board2ImplIntIntTest;
 import rhsu.board2.factory.BoardFactory;
 
-public class CharacterBoard2IntIntTest extends Board2ImplIntIntTest
-{	
+public class BooleanBoard2Test extends Board2ImplIntIntTest
+{
 	@Before
 	@Override
 	public void createBoard()
@@ -15,7 +14,7 @@ public class CharacterBoard2IntIntTest extends Board2ImplIntIntTest
 		int horizontalSize = 20;
 		int verticalSize = 30;
 		
-		boardFactory = new BoardFactory(CharacterBoard2.class, horizontalSize, verticalSize);
+		boardFactory = BoardFactory.createFactory(BooleanBoard2.class, horizontalSize, verticalSize);
 		board = boardFactory.createBoard();
 	}
 	
@@ -23,6 +22,6 @@ public class CharacterBoard2IntIntTest extends Board2ImplIntIntTest
 	@Override
 	public void testGetDefaultValue()
 	{
-		assertEquals(CharacterBoard2.DEFAULT_VALUE, board.getDefaultValue());
+		assertEquals(BooleanBoard2.DEFAULT_VALUE, board.getDefaultValue());
 	}
 }
