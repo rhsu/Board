@@ -14,7 +14,7 @@ public class IntegerRandomBoardTest extends RandomBoardTest
 		int horizontalSize = 20;
 		int verticalSize = 30;
 		
-		boardFactory = new BoardFactory(IntegerRandomBoard.class, horizontalSize, verticalSize);
+		boardFactory = BoardFactory.createFactory(IntegerRandomBoard.class, horizontalSize, verticalSize);
 		board = boardFactory.createBoard();
     }
 }

@@ -13,7 +13,7 @@ public class StringRandomBoardTest extends Board2Test
 		int horizontalSize = 20;
 		int verticalSize = 30;
 		
-		boardFactory = new BoardFactory(StringRandomBoard.class, horizontalSize, verticalSize);
+		boardFactory = BoardFactory.createFactory(StringRandomBoard.class, horizontalSize, verticalSize);
 		board = boardFactory.createBoard();
     }
 }
