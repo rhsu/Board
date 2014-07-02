@@ -1,11 +1,12 @@
 package rhsu.board2.implementations;
 
+import java.math.BigDecimal;
 import org.junit.*;
 import static org.junit.Assert.assertEquals;
-import rhsu.board2.Board2ImplIntIntTest;
+import rhsu.board2.Board2ImplTest;
 import rhsu.board2.factory.BoardFactory;
 
-public class BigDecimalBoard2Test extends Board2ImplIntIntTest
+public class BigDecimalBoard2Test extends Board2ImplTest
 {
 	@Before
 	@Override
@@ -23,5 +24,15 @@ public class BigDecimalBoard2Test extends Board2ImplIntIntTest
 	public void testGetDefaultValue()
 	{
 		assertEquals(BigDecimalBoard2.DEFAULT_VALUE, board.getDefaultValue());
+	}
+	
+	@Test
+	@Override
+	public void testSetPieceAt()
+	{
+		BigDecimal setValue = BigDecimal.TEN;
+		board.setPieceAt(2, 3, setValue);
+		
+		assertEquals(board.getPieceAt(2,3).getValue(), setValue);
 	}
 }
