@@ -2,10 +2,10 @@ package rhsu.board2.implementations;
 
 import org.junit.*;
 import static org.junit.Assert.*;
-import rhsu.board2.Board2ImplIntIntTest;
+import rhsu.board2.Board2ImplTest;
 import rhsu.board2.factory.BoardFactory;
 
-public class IntegerBoard2Test extends Board2ImplIntIntTest
+public class IntegerBoard2Test extends Board2ImplTest
 {
 	@Before
 	@Override
