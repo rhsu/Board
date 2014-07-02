@@ -3,10 +3,10 @@ package rhsu.board2.implementations;
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board2.Board2;
-import rhsu.board2.Board2ImplIntIntTest;
+import rhsu.board2.Board2ImplTest;
 import rhsu.board2.factory.BoardFactory;
 
-public class StringBoard2Test extends Board2ImplIntIntTest
+public class StringBoard2Test extends Board2ImplTest
 {
 	@Before
 	@Override
@@ -37,5 +37,15 @@ public class StringBoard2Test extends Board2ImplIntIntTest
 			.createBoard();
 		
 		assertFalse(board.equals(integerBoard));
+	}
+	
+	@Test
+	@Override
+	public void testSetPieceAt()
+	{
+		String setValue = "String";
+		board.setPieceAt(2, 3, setValue);
+
+		assertEquals(board.getPieceAt(2,3).getValue(), setValue);
 	}
 }

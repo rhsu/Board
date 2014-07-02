@@ -69,6 +69,14 @@ public class BoardImpl<T> implements Board2<T>
 	}
 		
 	@Override
+	public void setPieceAt(int horizontalIndex, int verticalIndex, T value)
+	{
+		this.boardArray[verticalIndex][horizontalIndex] = new BoardPieceImpl<>(horizontalIndex,
+			verticalIndex,
+			value);
+	}
+	
+	@Override
 	public void initializeBoardArray()
 	{
 		int columnNumber = 0;
