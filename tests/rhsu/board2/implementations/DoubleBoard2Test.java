@@ -24,4 +24,14 @@ public class DoubleBoard2Test extends Board2ImplIntIntTest
 	{
 		assertEquals(DoubleBoard2.DEFAULT_VALUE, board.getDefaultValue());
 	}
+	
+	@Test
+	@Override
+	public void testSetPieceAt()
+	{
+		Double setValue = 0.3;
+		board.setPieceAt(2, 3, setValue);
+
+		assertEquals(board.getPieceAt(2,3).getValue(), setValue);
+	}
 }

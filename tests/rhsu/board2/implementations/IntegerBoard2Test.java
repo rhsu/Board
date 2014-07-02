@@ -24,4 +24,14 @@ public class IntegerBoard2Test extends Board2ImplIntIntTest
 	{
 		assertEquals(IntegerBoard2.DEFAULT_VALUE, board.getDefaultValue());
 	}
+	
+	@Test
+	@Override
+	public void testSetPieceAt()
+	{
+		int setValue = 900;
+		board.setPieceAt(2, 3, setValue);
+
+		assertEquals(board.getPieceAt(2,3).getValue(), setValue);
+	}
 }

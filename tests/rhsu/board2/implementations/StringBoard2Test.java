@@ -38,4 +38,14 @@ public class StringBoard2Test extends Board2ImplIntIntTest
 		
 		assertFalse(board.equals(integerBoard));
 	}
+	
+	@Test
+	@Override
+	public void testSetPieceAt()
+	{
+		String setValue = "String";
+		board.setPieceAt(2, 3, setValue);
+
+		assertEquals(board.getPieceAt(2,3).getValue(), setValue);
+	}
 }

@@ -24,4 +24,14 @@ public class CharacterBoard2Test extends Board2ImplIntIntTest
 	{
 		assertEquals(CharacterBoard2.DEFAULT_VALUE, board.getDefaultValue());
 	}
+	
+	@Test
+	@Override
+	public void testSetPieceAt()
+	{
+		Character setValue = '5';
+		board.setPieceAt(2, 3, setValue);
+
+		assertEquals(board.getPieceAt(2,3).getValue(), setValue);
+	}
 }
