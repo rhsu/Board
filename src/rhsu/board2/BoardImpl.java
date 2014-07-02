@@ -65,7 +65,7 @@ public class BoardImpl<T> implements Board2<T>
 	@Override
 	public BoardPieceImpl<T> getPieceAt(int horizontalIndex, int verticalIndex)
 	{
-		throw new UnsupportedOperationException("This method is not implemented yet");
+		return this.boardArray[verticalIndex][horizontalIndex];
 	}
 		
 	@Override
