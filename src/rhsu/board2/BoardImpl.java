@@ -68,19 +68,90 @@ public class BoardImpl<T> implements Board2<T>
 	@Override
 	public BoardPiece2<T> getPieceAt(int horizontalIndex, int verticalIndex)
 	{
-		return this.boardArray[verticalIndex][horizontalIndex];
+		return ((horizontalIndex >= this.horizontalSize || verticalIndex >= this.verticalSize || horizontalIndex < 0 || verticalIndex < 0))
+				? null
+				: this.boardArray[verticalIndex][horizontalIndex];
 	}
 	
 	@Override
 	public BoardPiece2<T> getPieceAt(int horizontal, int vertical, Direction direction, int units)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		if(units == 0) return this.getPieceAt(horizontal, vertical);
+		
+		if(units < 0)
+		{
+			switch(direction)
+			{
+				case UP:
+					direction = Direction.DOWN;
+					break;
+				case DOWN:
+					direction = Direction.DOWN;
+					break;
+				case LEFT:
+					direction = Direction.RIGHT;
+					break;
+				case RIGHT:
+					direction = Direction.LEFT;
+			}
+		}
+		
+		BoardPiece2<T> returnValue;
+		
+		switch(direction)
+		{
+			case UP:
+			{
+				returnValue = this.getPieceAt(horizontal - 1, vertical);
+				
+				for(int i = 1; i < units; i++)
+				{
+					returnValue = this.getPieceAt(returnValue.getHorizontalIndex()- 1, vertical);
+				}
+				
+				return returnValue;
+			}
+			case DOWN:
+			{
+				returnValue = this.getPieceAt(horizontal + 1, vertical);
+				
+				for(int i = 1; i < units; i++)
+				{
+					returnValue = this.getPieceAt(returnValue.getHorizontalIndex()+ 1, vertical);
+				}
+				
+				return returnValue;
+			}
+			case LEFT:
+			{
+				returnValue = this.getPieceAt(horizontal, vertical - 1);
+				
+				for(int i = 1; i < units; i++)
+				{
+					returnValue = this.getPieceAt(horizontal, returnValue.getVerticalIndex()- 1);
+				}
+				
+				return returnValue;
+			}
+			default:
+			case RIGHT:
+			{
+				returnValue = this.getPieceAt(horizontal, vertical + 1);
+				
+				for(int i = 1; i < units; i++)
+				{
+					returnValue = this.getPieceAt(horizontal, returnValue.getVerticalIndex()+ 1);
+				}
+				
+				return returnValue;
+			}
+		}
 	}
 
 	@Override
 	public BoardPiece2<T> getPieceAt(BoardPiece2<T> piece, Direction direction, int units)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		return this.getPieceAt(piece.getHorizontalIndex(), piece.getVerticalIndex(), direction, units);
 	}
 	
 	//</editor-fold>
@@ -90,19 +161,19 @@ public class BoardImpl<T> implements Board2<T>
 	@Override
 	public T getValueAt(int horizontal, int vertical)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		return this.getPieceAt(horizontal, vertical).getValue();
 	}
 
 	@Override
 	public T getValueAt(int horizontal, int vertical, Direction direction, int units)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		return this.getPieceAt(horizontal, vertical, direction, units).getValue();
 	}
 
 	@Override
 	public T getValueAt(BoardPiece2<T> piece, Direction direction, int units)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		return this.getValueAt(piece.getHorizontalIndex(), piece.getVerticalIndex(), direction, units);
 	}
 	
 	
