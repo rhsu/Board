@@ -2,6 +2,7 @@ package rhsu.board2;
 
 import java.util.Arrays;
 import java.util.Objects;
+import rhsu.board.Direction;
 
 public class BoardImpl<T> implements Board2<T>
 {	
@@ -62,12 +63,53 @@ public class BoardImpl<T> implements Board2<T>
 	
 	//</editor-fold>
 	
+	//<editor-fold desc="Piece Retrieval Methods" defaultstate="collapsed">
+	
 	@Override
-	public BoardPieceImpl<T> getPieceAt(int horizontalIndex, int verticalIndex)
+	public BoardPiece2<T> getPieceAt(int horizontalIndex, int verticalIndex)
 	{
 		return this.boardArray[verticalIndex][horizontalIndex];
 	}
-		
+	
+	@Override
+	public BoardPiece2<T> getPieceAt(int horizontal, int vertical, Direction direction, int units)
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public BoardPiece2<T> getPieceAt(BoardPiece2<T> piece, Direction direction, int units)
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="Value Retrieval Methods" defaultstate="collapsed">
+	
+	@Override
+	public T getValueAt(int horizontal, int vertical)
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public T getValueAt(int horizontal, int vertical, Direction direction, int units)
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public T getValueAt(BoardPiece2<T> piece, Direction direction, int units)
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+	
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="Piece Setting Methods" defaultstate="collapsed">
+	
 	@Override
 	public void setPieceAt(int horizontalIndex, int verticalIndex, T value)
 	{
@@ -75,6 +117,20 @@ public class BoardImpl<T> implements Board2<T>
 			verticalIndex,
 			value);
 	}
+	
+	@Override
+	public void setPieceAt(int horizontal, int vertical, BoardPiece2<T> piece)
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+	
+	@Override
+	public void setValueAt(int horizontal, int vertical, T value)
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+	
+	//</editor-fold>
 	
 	@Override
 	public void initializeBoardArray()
