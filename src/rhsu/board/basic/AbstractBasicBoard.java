@@ -201,6 +201,7 @@ public abstract class AbstractBasicBoard<T>
 	//</editor-fold>
 	
 	//<editor-fold desc="Inheirited from Board Interface: Value Retrieval Methods" defaultstate="collapsed">
+	
 	@Override
 	public T getValueAt(int horizontal, int vertical)
 	{

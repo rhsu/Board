@@ -1,6 +1,7 @@
 package rhsu.board2.random;
 
 import rhsu.board2.BoardImpl;
+import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
 
 public abstract class AbstractRandomBoard<T> 
@@ -24,7 +25,7 @@ public abstract class AbstractRandomBoard<T>
 		
 		RandomGenerator<T> randomGenerator = this.randomGenerator();
 		
-		for (BoardPieceImpl<T>[] row : boardArray)
+		for (BoardPiece2<T>[] row : boardArray)
 		{
 			for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
 			{ 
