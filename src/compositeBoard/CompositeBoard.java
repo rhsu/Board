@@ -1,5 +1,6 @@
 package compositeBoard;
 
+import rhsu.board.io.BoardIO;
 import rhsu.board2.Board2;
 
 public interface CompositeBoard
