@@ -1,18 +1,39 @@
 package rhsu.compositeBoard.implementations;
 
+import rhsu.board.io.BoardIO;
+import rhsu.board2.Board2;
 import rhsu.board2.BoardImpl;
+import rhsu.board2.random.RandomBoard;
+import rhsu.compositeBoard.BoardBuilder;
+import rhsu.compositeBoard.CompositeBoard;
+import rhsu.compositeBoard.CompositeBoardImpl;
+import rhsu.compositeBoard.Matrix;
+import rhsu.compositeBoard.MobilityBoard;
 
-public class BooleanBoard2Composite extends BoardImpl<Boolean>
+public class BooleanBoard2Composite extends CompositeBoardImpl<Boolean>
 {
 	static final Boolean DEFAULT_VALUE = false;
-	
-	public BooleanBoard2Composite(int horizontalSize, int verticalSize)
+
+	public BooleanBoard2Composite(Board2<Boolean> boardCore, 
+		BoardIO boardIO, 
+		Matrix<Boolean> matrix, 
+		MobilityBoard<Boolean> mobilityBoard, 
+		RandomBoard<Boolean> randomBoard)
 	{
-		this(horizontalSize, verticalSize, DEFAULT_VALUE);
+		super(boardCore, boardIO, matrix, mobilityBoard, randomBoard);
 	}
 	
-	public BooleanBoard2Composite(int horizontalSize, int verticalSize, Boolean defaultValue)
+	public static CompositeBoard<Boolean> createBigDecimalBoard(int horizontalSize, 
+		int verticalSize,
+		Boolean defaultValue)
 	{
-		super(horizontalSize, verticalSize, defaultValue);
+		return new BoardBuilder()
+			.setBoardCore(new BoardImpl<Boolean>(horizontalSize, verticalSize, defaultValue) )
+			.createBoard();
+	}
+	
+	public static CompositeBoard<Boolean> createBigDecimalBoard(int horizontalSize, int verticalSize)
+	{		
+		return createBigDecimalBoard(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 }

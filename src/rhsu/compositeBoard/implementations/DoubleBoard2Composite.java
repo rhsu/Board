@@ -1,62 +1,39 @@
 package rhsu.compositeBoard.implementations;
 
-import rhsu.board2.BoardImpl;
-import rhsu.board2.BoardPieceImpl;
+import rhsu.board.io.BoardIO;
+import rhsu.board2.Board2;
+import rhsu.board2.boardCores.DoubleBoard2;
+import rhsu.board2.random.RandomBoard;
+import rhsu.compositeBoard.BoardBuilder;
+import rhsu.compositeBoard.CompositeBoard;
+import rhsu.compositeBoard.CompositeBoardImpl;
+import rhsu.compositeBoard.Matrix;
+import rhsu.compositeBoard.MobilityBoard;
 
-public class DoubleBoard2Composite extends BoardImpl<Double>
+public class DoubleBoard2Composite extends CompositeBoardImpl<Double>
 {
 	static final double DEFAULT_VALUE = 0.0;
 	
-	public DoubleBoard2Composite(int horizontalSize, int verticalSize, Double defaultValue)
+	public DoubleBoard2Composite(Board2<Double> boardCore, 
+		BoardIO boardIO, 
+		Matrix<Double> matrix, 
+		MobilityBoard<Double> mobilityBoard, 
+		RandomBoard<Double> randomBoard)
 	{
-		super(horizontalSize, verticalSize, defaultValue);
+		super(boardCore, boardIO, matrix, mobilityBoard, randomBoard);
 	}
 	
-	public DoubleBoard2Composite(int horizontalSize, int verticalSize)
+	public static CompositeBoard<Double> createBigDecimalBoard(int horizontalSize, 
+		int verticalSize,
+		Double defaultValue)
 	{
-		this(horizontalSize, verticalSize, DEFAULT_VALUE);
+		return new BoardBuilder()
+			.setBoardCore(new DoubleBoard2(horizontalSize, verticalSize, defaultValue) )
+			.createBoard();
 	}
 	
-	@Override
-	public boolean equals(Object aInstance)
-	{
-		if (this == aInstance) return true;
-		if ( !(aInstance instanceof BoardImpl ) ) return false; 
-		
-		BoardImpl instance = (BoardImpl) aInstance;
-		
-		Object test = instance.getBoardArray()[0][0].getValue();
-		
-		if (!(test instanceof Double)) return false;
-		
-		return
-			instance.getHorizontalSize() == this.getHorizontalSize() &&
-			instance.getVerticalSize() == this.getVerticalSize() &&
-			EqualHelper((BoardPieceImpl<Double>[][]) instance.getBoardArray());
-	}
-	
-	private boolean EqualHelper(BoardPieceImpl<Double>[][] otherBoardArray)
-	{	
-		for (int i = 0; i < this.getVerticalSize(); i++)
-		{
-			for (int j = 0; j < this.getHorizontalSize(); j++)
-			{	
-				Double otherValue = otherBoardArray[i][j].getValue();
-				Double thisValue = this.getBoardArray()[i][j].getValue();
-				
-				if (otherValue.compareTo(thisValue) != 0)
-				{
-					return false;
-				}
-			}
-		}
-		
-		return true;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
+	public static CompositeBoard<Double> createBigDecimalBoard(int horizontalSize, int verticalSize)
+	{		
+		return createBigDecimalBoard(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 }

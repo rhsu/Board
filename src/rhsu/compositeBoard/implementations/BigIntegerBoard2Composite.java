@@ -1,19 +1,40 @@
 package rhsu.compositeBoard.implementations;
 
 import java.math.BigInteger;
+import rhsu.board.io.BoardIO;
+import rhsu.board2.Board2;
 import rhsu.board2.BoardImpl;
+import rhsu.board2.random.RandomBoard;
+import rhsu.compositeBoard.BoardBuilder;
+import rhsu.compositeBoard.CompositeBoard;
+import rhsu.compositeBoard.CompositeBoardImpl;
+import rhsu.compositeBoard.Matrix;
+import rhsu.compositeBoard.MobilityBoard;
 
-public class BigIntegerBoard2Composite extends BoardImpl<BigInteger>
+public class BigIntegerBoard2Composite extends CompositeBoardImpl
 {
 	static final BigInteger DEFAULT_VALUE = BigInteger.ZERO;
-	
-	public BigIntegerBoard2Composite(int horizontalSize, int verticalSize, BigInteger defaultValue)
+
+	public BigIntegerBoard2Composite(Board2<BigInteger> boardCore, 
+		BoardIO boardIO, 
+		Matrix<BigInteger> matrix, 
+		MobilityBoard<BigInteger> mobilityBoard, 
+		RandomBoard<BigInteger> randomBoard)
 	{
-		super(horizontalSize, verticalSize, defaultValue);
+		super(boardCore, boardIO, matrix, mobilityBoard, randomBoard);
 	}
 	
-	public BigIntegerBoard2Composite(int horizontalSize, int verticalSize)
+	public static CompositeBoard<BigInteger> createBigDecimalBoard(int horizontalSize, 
+		int verticalSize,
+		BigInteger defaultValue)
 	{
-		this(horizontalSize, verticalSize, DEFAULT_VALUE);
+		return new BoardBuilder()
+			.setBoardCore(new BoardImpl<BigInteger>(horizontalSize, verticalSize, defaultValue) )
+			.createBoard();
+	}
+	
+	public static CompositeBoard<BigInteger> createBigDecimalBoard(int horizontalSize, int verticalSize)
+	{		
+		return createBigDecimalBoard(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 }
