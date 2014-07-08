@@ -3,6 +3,7 @@ package rhsu.board2;
 import java.util.Arrays;
 import java.util.Objects;
 import rhsu.board.Direction;
+import rhsu.board.basic.BasicBoardPiece;
 
 public class BoardImpl<T> implements Board2<T>
 {	
@@ -14,7 +15,7 @@ public class BoardImpl<T> implements Board2<T>
 	protected int verticalSize;
 	protected int size;
 	protected T defaultValue;
-	protected BoardPieceImpl<T>[][] boardArray;
+	protected BoardPiece2<T>[][] boardArray;
 	
 	//</editor-fold>
 		
@@ -33,7 +34,7 @@ public class BoardImpl<T> implements Board2<T>
 	public T getDefaultValue() { return this.defaultValue; }
 	
 	@Override
-	public BoardPieceImpl<T>[][] getBoardArray() { return this.boardArray; }
+	public BoardPiece2<T>[][] getBoardArray() { return this.boardArray; }
 	
 	//</editor-fold>
 	
@@ -190,15 +191,24 @@ public class BoardImpl<T> implements Board2<T>
 	}
 	
 	@Override
-	public void setPieceAt(int horizontal, int vertical, BoardPiece2<T> piece)
+	public void setPieceAt(int horizontalIndex, int verticalIndex, BoardPiece2<T> piece)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		if(horizontalIndex > this.horizontalSize || horizontalIndex < 0 || verticalIndex > this.verticalSize || verticalIndex < 0)
+			throw new RuntimeException("Out of Bounds");
+		
+		this.boardArray[verticalIndex][horizontalIndex] = piece;
 	}
 	
 	@Override
-	public void setValueAt(int horizontal, int vertical, T value)
+	public void setValueAt(int horizontalIndex, int verticalIndex, T value)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		if(horizontalIndex > this.horizontalSize || horizontalIndex < 0 || verticalIndex > this.verticalSize || verticalIndex < 0)
+			throw new RuntimeException("Out of Bounds");
+		
+		this.boardArray[verticalIndex][horizontalIndex] = new BoardPieceImpl(
+			horizontalIndex, 
+			verticalIndex, 
+			value);
 	}
 	
 	//</editor-fold>
@@ -208,7 +218,7 @@ public class BoardImpl<T> implements Board2<T>
 	{
 		int columnNumber = 0;
 		
-		for (BoardPieceImpl<T>[] row : boardArray)
+		for (BoardPiece2<T>[] row : boardArray)
 		{
 			for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
 			{ 
