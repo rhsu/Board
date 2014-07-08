@@ -1,5 +1,7 @@
 package rhsu.board2;
 
+import rhsu.board.Direction;
+
 public interface Board2<T>
 {
 	//<editor-fold desc="Accessors" defaultstate="collapsed">
@@ -32,9 +34,102 @@ public interface Board2<T>
 
 	//</editor-fold>
 
+	//<editor-fold desc="Piece Retrieval Methods" defaultstate="collapsed">
+	
+	/**
+	 * Returns the piece at the specified coordinates 
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @return the piece at the coordinate (horizontal, vertical)
+	 */
+	public BoardPiece2<T> getPieceAt(int horizontal, int vertical);	
+	
+	/**
+	 * Returns the piece to the specified direction relative to the specified coordinates
+	 * The piece will also be a given number of units away. If the number of units is negative, the direction will be reversed. For example, a negative left will move right
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @param direction the direction to check
+	 * @param units the number of units to move to
+	 * @return a piece units away in the specified direction away from the given coordinate
+	 */
+	public BoardPiece2<T> getPieceAt(int horizontal, int vertical, Direction direction, int units);
+	
+	/**
+	 * Returns the piece to the specified direction relative to the specified piece
+	 * The return piece will also be a given number of units away. If the number of units is negative, the direction will be reversed. For example, a negative left will move right
+	 * @param piece
+	 * @param direction
+	 * @param units
+	 * @return 
+	 */
+	public BoardPiece2<T> getPieceAt(BoardPiece2<T> piece, Direction direction, int units);
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="Value Retrieval Methods" defaultstate="collapsed">
+	
+	/**
+	 * Method for retrieving a value at the given coordinate
+	 * The return value will also be a given number of units away. If the number of units is negative, the direction will be reversed. For example, a negative left will move right
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @return the value of the piece at the coordinate (horizontal, vertical)
+	 */
+	public T getValueAt(int horizontal, int vertical);
+	
+	/**
+	 * Method for retrieving a value to the specified direction relative to the given coordinate
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @param direction the relative direction to get from
+	 * @param units the number of units
+	 * @return the value of the piece at the coordinate (horizontal, vertical) at a number of units away
+	 */
+	public T getValueAt(int horizontal, int vertical, Direction direction, int units);
+	
+	/***
+	 * Method for retrieving a value to the specified direction relative to the given coordinate
+	 * @param piece the coordinates of the parameter piece to retrieve from
+	 * @param direction the relative direction to get from
+	 * @param units the number of units
+	 * @return the value of the piece at the parameter pieces coordinate.
+	 */
+	public T getValueAt(BoardPiece2<T> piece, Direction direction, int units);
+	
+	/**
+	 * Sets the value of the piece at the coordinate (horizontal, vertical)
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @param value the value of the piece to set
+	 */
+	public void setValueAt(int horizontal, int vertical, T value);	
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="Piece Setting Methods" defaultstate="collpased">
+	
+	/**
+	 * modifies the piece at the given horizontal and vertical location to have the given value
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @param value the value of the piece to set
+	 */
+	public void setPieceAt(int horizontal, int vertical, T value);
+	
+	/**
+	 * modifies the piece at the given horizontal and vertical location to be the parameter piece
+	 * @param horizontal the horizontal index
+	 * @param vertical the vertical index
+	 * @param piece the piece to set at that location
+	 */
+	public void setPieceAt(int horizontal, int vertical, BoardPiece2<T> piece);
+	
+	//</editor-fold>
+	
 	public void initializeBoardArray();
 
-	public BoardPiece2<T> getPieceAt(int horizontalIndex, int verticalIndex);
+	//public BoardPiece22<T> getPieceAt(int horizontalIndex, int verticalIndex);
 
-	public void setPieceAt(int horizontalIndex, int verticalIndex, T value);
+	//public void setPieceAt(int horizontalIndex, int verticalIndex, T value);
 }
