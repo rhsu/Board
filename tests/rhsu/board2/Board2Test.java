@@ -50,11 +50,10 @@ public class Board2Test
 	}
 	
 	@Test
-	public void testGetPieceAt()
+	public void testSetPieceAt()
 	{
-		//assert(false);
 	}
-		
+			
 	@Test
 	public void testEqualsSelf()
 	{

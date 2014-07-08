@@ -4,7 +4,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board2.factory.BoardFactory;
 
-public class Board2ImplIntIntTest extends Board2Test
+public class Board2ImplTest extends Board2Test
 {	
 	@Before
 	@Override
