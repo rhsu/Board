@@ -3,11 +3,11 @@ package rhsu.compositeBoard.implementations;
 import rhsu.board.io.BoardIO;
 import rhsu.board2.Board2;
 import rhsu.board2.BoardImpl;
+import rhsu.board2.Matrix2;
 import rhsu.board2.random.RandomBoard;
 import rhsu.compositeBoard.BoardBuilder;
 import rhsu.compositeBoard.CompositeBoard;
 import rhsu.compositeBoard.CompositeBoardImpl;
-import rhsu.compositeBoard.Matrix;
 import rhsu.compositeBoard.MobilityBoard;
 
 public class BooleanBoard2Composite extends CompositeBoardImpl<Boolean>
@@ -16,7 +16,7 @@ public class BooleanBoard2Composite extends CompositeBoardImpl<Boolean>
 
 	public BooleanBoard2Composite(Board2<Boolean> boardCore, 
 		BoardIO boardIO, 
-		Matrix<Boolean> matrix, 
+		Matrix2<Boolean> matrix, 
 		MobilityBoard<Boolean> mobilityBoard, 
 		RandomBoard<Boolean> randomBoard)
 	{

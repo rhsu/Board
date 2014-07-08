@@ -4,11 +4,11 @@ import java.math.BigInteger;
 import rhsu.board.io.BoardIO;
 import rhsu.board2.Board2;
 import rhsu.board2.BoardImpl;
+import rhsu.board2.Matrix2;
 import rhsu.board2.random.RandomBoard;
 import rhsu.compositeBoard.BoardBuilder;
 import rhsu.compositeBoard.CompositeBoard;
 import rhsu.compositeBoard.CompositeBoardImpl;
-import rhsu.compositeBoard.Matrix;
 import rhsu.compositeBoard.MobilityBoard;
 
 public class BigIntegerBoard2Composite extends CompositeBoardImpl
@@ -17,7 +17,7 @@ public class BigIntegerBoard2Composite extends CompositeBoardImpl
 
 	public BigIntegerBoard2Composite(Board2<BigInteger> boardCore, 
 		BoardIO boardIO, 
-		Matrix<BigInteger> matrix, 
+		Matrix2<BigInteger> matrix, 
 		MobilityBoard<BigInteger> mobilityBoard, 
 		RandomBoard<BigInteger> randomBoard)
 	{

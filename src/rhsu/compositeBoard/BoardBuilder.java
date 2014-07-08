@@ -2,13 +2,14 @@ package rhsu.compositeBoard;
 
 import rhsu.board.io.BoardIO;
 import rhsu.board2.Board2;
+import rhsu.board2.Matrix2;
 import rhsu.board2.random.RandomBoard;
 
 public class BoardBuilder
 {
 	private Board2 boardCore = null;
 	private BoardIO boardIO = null;
-	private Matrix matrix = null;
+	private Matrix2 matrix = null;
 	private MobilityBoard mobilityBoard = null;
 	private RandomBoard randomBoard = null;
 	
@@ -24,7 +25,7 @@ public class BoardBuilder
 		return this;
 	}
 	
-	public BoardBuilder setMatrix(Matrix matrix)
+	public BoardBuilder setMatrix(Matrix2 matrix)
 	{
 		this.matrix = matrix;
 		return this;
