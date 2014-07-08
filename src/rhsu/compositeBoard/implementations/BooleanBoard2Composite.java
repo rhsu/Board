@@ -23,7 +23,7 @@ public class BooleanBoard2Composite extends CompositeBoardImpl<Boolean>
 		super(boardCore, boardIO, matrix, mobilityBoard, randomBoard);
 	}
 	
-	public static CompositeBoard<Boolean> createBigDecimalBoard(int horizontalSize, 
+	public static CompositeBoard<Boolean> createBooleanBoard(int horizontalSize, 
 		int verticalSize,
 		Boolean defaultValue)
 	{
@@ -32,8 +32,8 @@ public class BooleanBoard2Composite extends CompositeBoardImpl<Boolean>
 			.createBoard();
 	}
 	
-	public static CompositeBoard<Boolean> createBigDecimalBoard(int horizontalSize, int verticalSize)
+	public static CompositeBoard<Boolean> createBooleanBoard(int horizontalSize, int verticalSize)
 	{		
-		return createBigDecimalBoard(horizontalSize, verticalSize, DEFAULT_VALUE);
+		return createBooleanBoard(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 }

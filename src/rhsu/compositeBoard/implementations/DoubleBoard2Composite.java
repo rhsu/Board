@@ -23,7 +23,7 @@ public class DoubleBoard2Composite extends CompositeBoardImpl<Double>
 		super(boardCore, boardIO, matrix, mobilityBoard, randomBoard);
 	}
 	
-	public static CompositeBoard<Double> createBigDecimalBoard(int horizontalSize, 
+	public static CompositeBoard<Double> createDoubleBoard(int horizontalSize, 
 		int verticalSize,
 		Double defaultValue)
 	{
@@ -32,8 +32,8 @@ public class DoubleBoard2Composite extends CompositeBoardImpl<Double>
 			.createBoard();
 	}
 	
-	public static CompositeBoard<Double> createBigDecimalBoard(int horizontalSize, int verticalSize)
+	public static CompositeBoard<Double> createDoubleBoard(int horizontalSize, int verticalSize)
 	{		
-		return createBigDecimalBoard(horizontalSize, verticalSize, DEFAULT_VALUE);
+		return createDoubleBoard(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 }

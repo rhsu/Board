@@ -9,7 +9,6 @@ import rhsu.compositeBoard.CompositeBoard;
 import rhsu.compositeBoard.CompositeBoardImpl;
 import rhsu.compositeBoard.Matrix;
 import rhsu.compositeBoard.MobilityBoard;
-import static rhsu.compositeBoard.implementations.IntegerBoard2Composite.DEFAULT_VALUE;
 
 public class StringBoard2Composite extends CompositeBoardImpl<String>
 {
@@ -24,7 +23,7 @@ public class StringBoard2Composite extends CompositeBoardImpl<String>
 		super(boardCore, boardIO, matrix, mobilityBoard, randomBoard);
 	}
 	
-	public static CompositeBoard<String> createBigDecimalBoard(int horizontalSize, 
+	public static CompositeBoard<String> createStringBoard(int horizontalSize, 
 		int verticalSize,
 		String defaultValue)
 	{
@@ -33,8 +32,8 @@ public class StringBoard2Composite extends CompositeBoardImpl<String>
 			.createBoard();
 	}
 	
-	public static CompositeBoard<String> createBigDecimalBoard(int horizontalSize, int verticalSize)
+	public static CompositeBoard<String> createStringBoard(int horizontalSize, int verticalSize)
 	{		
-		return createBigDecimalBoard(horizontalSize, verticalSize, DEFAULT_VALUE);
+		return createStringBoard(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 }
