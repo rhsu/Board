@@ -6,33 +6,33 @@ import rhsu.board2.random.RandomBoard;
 
 public class CompositeBoardImpl<T> implements CompositeBoard<T>
 {
-	private final Board2 boardCore;
+	private final Board2<T> boardCore;
 	private final BoardIO boardIO;
-	private final Matrix matrix;
-	private final MobilityBoard mobilityBoard;
-	private final RandomBoard randomBoard;
+	private final Matrix<T>matrix;
+	private final MobilityBoard<T> mobilityBoard;
+	private final RandomBoard<T> randomBoard;
 	
 	@Override
-	public Board2 getBoardCore() { return this.boardCore; }
+	public Board2<T> getBoardCore() { return this.boardCore; }
 
 	@Override
 	public BoardIO getBoardIO() { return this.boardIO; }
 
 	@Override
-	public Matrix getMatrix() { return this.matrix; }
+	public Matrix<T> getMatrix() { return this.matrix; }
 
 	@Override
-	public MobilityBoard getMobilityBoard()	{ return this.mobilityBoard; }
+	public MobilityBoard<T> getMobilityBoard()	{ return this.mobilityBoard; }
 
 	@Override
-	public RandomBoard getRandomBoard() { return this.randomBoard; }
+	public RandomBoard<T> getRandomBoard() { return this.randomBoard; }
 		
 	public CompositeBoardImpl(
-		Board2 boardCore,
+		Board2<T> boardCore,
 		BoardIO boardIO,
-		Matrix matrix,
-		MobilityBoard mobilityBoard,
-		RandomBoard randomBoard)
+		Matrix<T> matrix,
+		MobilityBoard<T> mobilityBoard,
+		RandomBoard<T> randomBoard)
 	{
 		this.boardCore = boardCore;
 		this.boardIO = boardIO;
