@@ -1,7 +1,7 @@
 package rhsu.board.test;
 
-import compositeBoard.BoardBuilder;
-import compositeBoard.CompositeBoard;
+import rhsu.compositeBoard.BoardBuilder;
+import rhsu.compositeBoard.CompositeBoard;
 import rhsu.board.*;
 import rhsu.board.basic.implementations.*;
 import rhsu.board.basic.implementations.arithmetic.*;

@@ -1,4 +1,4 @@
-package compositeBoard;
+package rhsu.compositeBoard;
 
 import rhsu.board.io.BoardIO;
 import rhsu.board2.Board2;
