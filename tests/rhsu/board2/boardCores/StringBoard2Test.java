@@ -1,5 +1,7 @@
-package rhsu.board2.implementations;
+package rhsu.board2.boardCores;
 
+import rhsu.board2.boardCores.IntegerBoard2;
+import rhsu.board2.boardCores.StringBoard2;
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board2.Board2;

@@ -4,7 +4,7 @@ import rhsu.board.io.BoardIO;
 import rhsu.board2.Board2;
 import rhsu.board2.random.RandomBoard;
 
-public class CompositeBoardImpl implements CompositeBoard
+public class CompositeBoardImpl<T> implements CompositeBoard<T>
 {
 	private final Board2 boardCore;
 	private final BoardIO boardIO;
