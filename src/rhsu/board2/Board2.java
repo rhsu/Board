@@ -128,8 +128,4 @@ public interface Board2<T>
 	//</editor-fold>
 	
 	public void initializeBoardArray();
-
-	//public BoardPiece22<T> getPieceAt(int horizontalIndex, int verticalIndex);
-
-	//public void setPieceAt(int horizontalIndex, int verticalIndex, T value);
 }
