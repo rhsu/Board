@@ -1,18 +1,18 @@
-package rhsu.board2;
+package rhsu.board2.matrix;
 
 /**
  * A extension of the Board Interface to allow mathematical/matrix operations. This extension allows a board to be viewed as a 2 dimensional Matrix
  * @param <T> The type of the matrix object
  * @author rhsu
  */
-public interface Matrix2<T> extends Board2<T>
+public interface Matrix2<T>
 {	
 	/**
 	 * Performs the add operation
 	 * @param matrix
 	 * @return the result after the add operation
 	 */
-	public Matrix2<T> add(Matrix2<T> matrix);
+	public CompositeBoard<T> add(Matrix2<T> matrix);
 	
 	/**
 	 * Performs the subtract operation

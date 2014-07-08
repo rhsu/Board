@@ -2,7 +2,7 @@ package rhsu.compositeBoard.implementations;
 
 import rhsu.board.io.BoardIO;
 import rhsu.board2.Board2;
-import rhsu.board2.Matrix2;
+import rhsu.board2.matrix.Matrix2;
 import rhsu.board2.boardCores.DoubleBoard2;
 import rhsu.board2.random.RandomBoard;
 import rhsu.compositeBoard.BoardBuilder;
