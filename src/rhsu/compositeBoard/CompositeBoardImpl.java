@@ -26,7 +26,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 
 	@Override
 	public RandomBoard getRandomBoard() { return this.randomBoard; }
-	
+		
 	public CompositeBoardImpl(
 		Board2 boardCore,
 		BoardIO boardIO,
