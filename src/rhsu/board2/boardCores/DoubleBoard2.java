@@ -1,4 +1,4 @@
-package rhsu.board2.implementations;
+package rhsu.board2.boardCores;
 
 import rhsu.board2.BoardImpl;
 import rhsu.board2.BoardPieceImpl;

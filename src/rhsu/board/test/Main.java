@@ -8,8 +8,8 @@ import rhsu.board.basic.implementations.arithmetic.*;
 import rhsu.board.resources.ResourceRetriever;
 import rhsu.board2.Board2;
 import rhsu.board2.BoardImpl;
-import rhsu.board2.implementations.IntegerBoard2;
-import rhsu.board2.implementations.StringBoard2;
+import rhsu.board2.boardCores.IntegerBoard2;
+import rhsu.board2.boardCores.StringBoard2;
 
 public class Main
 {	

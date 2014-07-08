@@ -1,12 +1,12 @@
-package rhsu.board2.implementations;
+package rhsu.board2.boardCores;
 
-import java.math.BigInteger;
+import rhsu.board2.boardCores.BooleanBoard2;
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board2.Board2ImplTest;
 import rhsu.board2.factory.BoardFactory;
 
-public class BigIntegerBoard2Test extends Board2ImplTest
+public class BooleanBoard2Test extends Board2ImplTest
 {
 	@Before
 	@Override
@@ -15,7 +15,7 @@ public class BigIntegerBoard2Test extends Board2ImplTest
 		int horizontalSize = 20;
 		int verticalSize = 30;
 		
-		boardFactory = BoardFactory.createFactory(BigIntegerBoard2.class, horizontalSize, verticalSize);
+		boardFactory = BoardFactory.createFactory(BooleanBoard2.class, horizontalSize, verticalSize);
 		board = boardFactory.createBoard();
 	}
 	
@@ -23,14 +23,14 @@ public class BigIntegerBoard2Test extends Board2ImplTest
 	@Override
 	public void testGetDefaultValue()
 	{
-		assertEquals(BigIntegerBoard2.DEFAULT_VALUE, board.getDefaultValue());
+		assertEquals(BooleanBoard2.DEFAULT_VALUE, board.getDefaultValue());
 	}
 	
 	@Test
 	@Override
 	public void testSetPieceAt()
 	{
-		BigInteger setValue = BigInteger.TEN;
+		boolean setValue = Boolean.FALSE;
 		board.setPieceAt(2, 3, setValue);
 
 		assertEquals(board.getPieceAt(2,3).getValue(), setValue);

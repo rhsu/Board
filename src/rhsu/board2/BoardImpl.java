@@ -3,7 +3,6 @@ package rhsu.board2;
 import java.util.Arrays;
 import java.util.Objects;
 import rhsu.board.Direction;
-import rhsu.board.basic.BasicBoardPiece;
 
 public class BoardImpl<T> implements Board2<T>
 {	

@@ -1,12 +1,12 @@
-package rhsu.board2.implementations;
+package rhsu.board2.boardCores;
 
-import java.math.BigDecimal;
+import rhsu.board2.boardCores.IntegerBoard2;
 import org.junit.*;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import rhsu.board2.Board2ImplTest;
 import rhsu.board2.factory.BoardFactory;
 
-public class BigDecimalBoard2Test extends Board2ImplTest
+public class IntegerBoard2Test extends Board2ImplTest
 {
 	@Before
 	@Override
@@ -15,7 +15,7 @@ public class BigDecimalBoard2Test extends Board2ImplTest
 		int horizontalSize = 20;
 		int verticalSize = 30;
 		
-		boardFactory = BoardFactory.createFactory(BigDecimalBoard2.class, horizontalSize, verticalSize);
+		boardFactory = BoardFactory.createFactory(IntegerBoard2.class, horizontalSize, verticalSize);		
 		board = boardFactory.createBoard();
 	}
 	
@@ -23,16 +23,16 @@ public class BigDecimalBoard2Test extends Board2ImplTest
 	@Override
 	public void testGetDefaultValue()
 	{
-		assertEquals(BigDecimalBoard2.DEFAULT_VALUE, board.getDefaultValue());
+		assertEquals(IntegerBoard2.DEFAULT_VALUE, board.getDefaultValue());
 	}
 	
 	@Test
 	@Override
 	public void testSetPieceAt()
 	{
-		BigDecimal setValue = BigDecimal.TEN;
+		int setValue = 900;
 		board.setPieceAt(2, 3, setValue);
-		
+
 		assertEquals(board.getPieceAt(2,3).getValue(), setValue);
 	}
 }
