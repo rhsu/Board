@@ -4,7 +4,7 @@ import rhsu.board.Board;
 import rhsu.board.BoardPiece;
 import rhsu.board.Direction;
 
-public interface MobilityBoard<T> extends BoardCore<T>
+public interface MobilityBoard<T>
 {
 	/**
 	 * moves the parameter piece to the given coordinate (horizontal, vertical)
