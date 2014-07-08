@@ -1,10 +1,14 @@
 package rhsu.board.test;
 
+import compositeBoard.BoardBuilder;
+import compositeBoard.CompositeBoard;
 import rhsu.board.*;
 import rhsu.board.basic.implementations.*;
 import rhsu.board.basic.implementations.arithmetic.*;
 import rhsu.board.resources.ResourceRetriever;
 import rhsu.board2.Board2;
+import rhsu.board2.BoardImpl;
+import rhsu.board2.implementations.IntegerBoard2;
 import rhsu.board2.implementations.StringBoard2;
 
 public class Main
@@ -18,12 +22,12 @@ public class Main
     
 	public static void main(String[] args)
 	{
-		Board2<String> test = new StringBoard2(3,3);
+		Board2 boardImpl = new IntegerBoard2(5,5);
 		
-		//print(test);
+		CompositeBoard board = new BoardBuilder()
+			.setBoardCore(boardImpl)
+			.createBoard();
 		
-		test.setPieceAt(1, 2, "HERE");
-		
-		print(test);
+		System.out.println(board.getBoardCore());
 	}
 }
