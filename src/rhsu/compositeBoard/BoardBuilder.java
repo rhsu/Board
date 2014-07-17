@@ -11,7 +11,7 @@ public class BoardBuilder<T>
 	private RandomBoard<T> randomBoard = null;
 	private Integer horizontalSize = null;
 	private Integer verticalSize = null; 
-	
+	private T defaultValue = null;
 	
 	public BoardBuilder<T> setBoardIO(BoardIO boardIO)
 	{
@@ -49,6 +49,12 @@ public class BoardBuilder<T>
 		return this;
 	}
 	
+	public BoardBuilder<T> setDefaulValue(T defaultValue)
+	{
+		this.defaultValue = defaultValue;
+		return this;
+	}
+	
 	public CompositeBoard<T> createBoard()
 	{
 		return new CompositeBoardImpl(
@@ -57,6 +63,7 @@ public class BoardBuilder<T>
 			this.boardIO,
 			this.matrix,
 			this.mobilityBoard,
-			this.randomBoard);
+			this.randomBoard,
+			this.defaultValue);
 	}
 }

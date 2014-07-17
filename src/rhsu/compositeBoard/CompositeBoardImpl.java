@@ -43,7 +43,8 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 		BoardIO boardIO,
 		Matrix<T> matrix,
 		MobilityBoard<T> mobilityBoard,
-		RandomBoard<T> randomBoard)
+		RandomBoard<T> randomBoard,
+		T defaultValue)
 	{
 		this.horizontalSize = horizontalSize;
 		this.verticalSize = verticalSize;
@@ -51,6 +52,9 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 		this.matrix = matrix;
 		this.mobilityBoard = mobilityBoard;
 		this.randomBoard = randomBoard;
+		this.defaultValue = (T) (defaultValue == null ? DEFAULT_VALUE : defaultValue);
+		
+		InitializeBoardArray();
 	}
 
 	//<editor-fold desc="Accessors" defaultstate="collapsed">
@@ -220,4 +224,20 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 	}
 	
 	//</editor-fold>	
+	
+	private void InitializeBoardArray()
+	{
+		if (randomBoard != null)
+		{
+			throw new UnsupportedOperationException("This is not implemented yet");
+		}
+		else if (matrix != null)
+		{
+			throw new UnsupportedOperationException("This is not implemented yet");
+		}
+		else
+		{
+			
+		}
+	}
 }
