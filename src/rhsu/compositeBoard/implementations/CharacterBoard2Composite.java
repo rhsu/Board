@@ -4,7 +4,7 @@ import rhsu.board.io.BoardIO;
 import rhsu.board2.Board2;
 import rhsu.board2.BoardImpl;
 import rhsu.board2.random.RandomBoard;
-import rhsu.compositeBoard.BoardConfigurator;
+import rhsu.compositeBoard.BoardBuilder;
 import rhsu.compositeBoard.CompositeBoard;
 import rhsu.compositeBoard.CompositeBoardImpl;
 import rhsu.compositeBoard.Matrix;
@@ -27,7 +27,7 @@ public class CharacterBoard2Composite extends CompositeBoardImpl<Character>
 		int verticalSize,
 		Character defaultValue)
 	{
-		return new BoardConfigurator()
+		return new BoardBuilder()
 			.setBoardCore(new BoardImpl<Character>(horizontalSize, verticalSize, defaultValue) )
 			.createBoard();
 	}

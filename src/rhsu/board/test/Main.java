@@ -1,6 +1,6 @@
 package rhsu.board.test;
 
-import rhsu.compositeBoard.BoardConfigurator;
+import rhsu.compositeBoard.BoardBuilder;
 import rhsu.compositeBoard.CompositeBoard;
 import rhsu.board.*;
 import rhsu.board.basic.implementations.*;

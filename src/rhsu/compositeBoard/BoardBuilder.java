@@ -3,53 +3,53 @@ package rhsu.compositeBoard;
 import rhsu.board.io.BoardIO;
 import rhsu.board2.random.RandomBoard;
 
-public class BoardConfigurator
+public class BoardBuilder<T>
 {
 	private BoardIO boardIO = null;
-	private Matrix matrix = null;
-	private MobilityBoard mobilityBoard = null;
-	private RandomBoard randomBoard = null;
+	private Matrix<T> matrix = null;
+	private MobilityBoard<T> mobilityBoard = null;
+	private RandomBoard<T> randomBoard = null;
 	private Integer horizontalSize = null;
 	private Integer verticalSize = null; 
 	
 	
-	public BoardConfigurator setBoardIO(BoardIO boardIO)
+	public BoardBuilder<T> setBoardIO(BoardIO boardIO)
 	{
 		this.boardIO = boardIO;
 		return this;
 	}
 	
-	public BoardConfigurator setMatrix(Matrix matrix)
+	public BoardBuilder<T> setMatrix(Matrix<T> matrix)
 	{
 		this.matrix = matrix;
 		return this;
 	}
 	
-	public BoardConfigurator setRandomBoard(RandomBoard randomBoard)
+	public BoardBuilder<T> setRandomBoard(RandomBoard<T> randomBoard)
 	{
 		this.randomBoard = randomBoard;
 		return this;
 	}
 	
-	public BoardConfigurator setMobilityBoard(MobilityBoard mobilityBoard)
+	public BoardBuilder<T> setMobilityBoard(MobilityBoard<T> mobilityBoard)
 	{
 		this.mobilityBoard = mobilityBoard;
 		return this;
 	}
 	
-	public BoardConfigurator setHorizontalSize(int horizontalSize)
+	public BoardBuilder<T> setHorizontalSize(int horizontalSize)
 	{
 		this.horizontalSize = horizontalSize;
 		return this;
 	}
 	
-	public BoardConfigurator setVerticalSize(int verticalSize)
+	public BoardBuilder<T> setVerticalSize(int verticalSize)
 	{
 		this.verticalSize = verticalSize;
 		return this;
 	}
 	
-	public CompositeBoard configureBoard()
+	public CompositeBoard<T> createBoard()
 	{
 		return new CompositeBoardImpl(
 			this.horizontalSize,
