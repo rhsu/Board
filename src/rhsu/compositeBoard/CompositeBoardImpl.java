@@ -3,16 +3,27 @@ package rhsu.compositeBoard;
 import rhsu.board.Direction;
 import rhsu.board.io.BoardIO;
 import rhsu.board2.BoardPiece2;
+import rhsu.board2.BoardPieceImpl;
 import rhsu.board2.random.RandomBoard;
 
 public class CompositeBoardImpl<T> implements CompositeBoard<T>
 {
+	static final Object DEFAULT_VALUE = new Object();
+	
 	private final BoardIO boardIO;
 	private final Matrix<T>matrix;
 	private final MobilityBoard<T> mobilityBoard;
 	private final RandomBoard<T> randomBoard;
-	private final int horizontalSize;
-	private final int verticalSize;
+
+	//<editor-fold desc="Protected Variables" defaultstate="collapsed">
+	
+	protected int horizontalSize;
+	protected int verticalSize;
+	protected int size;
+	protected T defaultValue;
+	protected BoardPiece2<T>[][] boardArray;
+	
+	//</editor-fold>
 	
 	@Override
 	public BoardIO getBoardIO() { return this.boardIO; }
@@ -42,87 +53,171 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 		this.randomBoard = randomBoard;
 	}
 
+	//<editor-fold desc="Accessors" defaultstate="collapsed">
+	
 	@Override
-	public int getHorizontalSize()
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates
-	}
+	public int getHorizontalSize() { return this.horizontalSize; }
 
 	@Override
-	public int getVerticalSize()
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
-	}
+	public int getVerticalSize() { return this.verticalSize; }
 
 	@Override
-	public int getSize()
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
-	}
+	public int getSize() { return this.size; }
 
 	@Override
-	public T getDefaultValue()
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
-	}
-
+	public T getDefaultValue() { return this.defaultValue; }
+	
 	@Override
-	public BoardPiece2<T>[][] getBoardArray()
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
-	}
+	public BoardPiece2<T>[][] getBoardArray() { return this.boardArray; }
+	
+	//</editor-fold>
 
+	//<editor-fold desc="Piece Retrieval Methods" defaultstate="collapsed">
+	
 	@Override
-	public BoardPiece2<T> getPieceAt(int horizontal, int vertical)
+	public BoardPiece2<T> getPieceAt(int horizontalIndex, int verticalIndex)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
+		return ((horizontalIndex >= this.horizontalSize || verticalIndex >= this.verticalSize || horizontalIndex < 0 || verticalIndex < 0))
+				? null
+				: this.boardArray[verticalIndex][horizontalIndex];
 	}
-
+	
 	@Override
 	public BoardPiece2<T> getPieceAt(int horizontal, int vertical, Direction direction, int units)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
+		if(units == 0) return this.getPieceAt(horizontal, vertical);
+		
+		if(units < 0)
+		{
+			switch(direction)
+			{
+				case UP:
+					direction = Direction.DOWN;
+					break;
+				case DOWN:
+					direction = Direction.DOWN;
+					break;
+				case LEFT:
+					direction = Direction.RIGHT;
+					break;
+				case RIGHT:
+					direction = Direction.LEFT;
+			}
+		}
+		
+		BoardPiece2<T> returnValue;
+		
+		switch(direction)
+		{
+			case UP:
+			{
+				returnValue = this.getPieceAt(horizontal - 1, vertical);
+				
+				for(int i = 1; i < units; i++)
+				{
+					returnValue = this.getPieceAt(returnValue.getHorizontalIndex()- 1, vertical);
+				}
+				
+				return returnValue;
+			}
+			case DOWN:
+			{
+				returnValue = this.getPieceAt(horizontal + 1, vertical);
+				
+				for(int i = 1; i < units; i++)
+				{
+					returnValue = this.getPieceAt(returnValue.getHorizontalIndex()+ 1, vertical);
+				}
+				
+				return returnValue;
+			}
+			case LEFT:
+			{
+				returnValue = this.getPieceAt(horizontal, vertical - 1);
+				
+				for(int i = 1; i < units; i++)
+				{
+					returnValue = this.getPieceAt(horizontal, returnValue.getVerticalIndex()- 1);
+				}
+				
+				return returnValue;
+			}
+			default:
+			case RIGHT:
+			{
+				returnValue = this.getPieceAt(horizontal, vertical + 1);
+				
+				for(int i = 1; i < units; i++)
+				{
+					returnValue = this.getPieceAt(horizontal, returnValue.getVerticalIndex()+ 1);
+				}
+				
+				return returnValue;
+			}
+		}
 	}
 
 	@Override
 	public BoardPiece2<T> getPieceAt(BoardPiece2<T> piece, Direction direction, int units)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
+		return this.getPieceAt(piece.getHorizontalIndex(), piece.getVerticalIndex(), direction, units);
 	}
-
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="Value Retrieval Methods" defaultstate="collapsed">
+	
 	@Override
 	public T getValueAt(int horizontal, int vertical)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
+		return this.getPieceAt(horizontal, vertical).getValue();
 	}
 
 	@Override
 	public T getValueAt(int horizontal, int vertical, Direction direction, int units)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
+		return this.getPieceAt(horizontal, vertical, direction, units).getValue();
 	}
 
 	@Override
 	public T getValueAt(BoardPiece2<T> piece, Direction direction, int units)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
+		return this.getValueAt(piece.getHorizontalIndex(), piece.getVerticalIndex(), direction, units);
 	}
-
+	
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="Piece Setting Methods" defaultstate="collapsed">
+	
 	@Override
-	public void setValueAt(int horizontal, int vertical, T value)
+	public void setPieceAt(int horizontalIndex, int verticalIndex, T value)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
+		this.boardArray[verticalIndex][horizontalIndex] = new BoardPieceImpl<>(horizontalIndex,
+			verticalIndex,
+			value);
 	}
-
+	
 	@Override
-	public void setPieceAt(int horizontal, int vertical, T value)
+	public void setPieceAt(int horizontalIndex, int verticalIndex, BoardPiece2<T> piece)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
+		if(horizontalIndex > this.horizontalSize || horizontalIndex < 0 || verticalIndex > this.verticalSize || verticalIndex < 0)
+			throw new RuntimeException("Out of Bounds");
+		
+		this.boardArray[verticalIndex][horizontalIndex] = piece;
 	}
-
+	
 	@Override
-	public void setPieceAt(int horizontal, int vertical, BoardPiece2<T> piece)
+	public void setValueAt(int horizontalIndex, int verticalIndex, T value)
 	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template
+		if(horizontalIndex > this.horizontalSize || horizontalIndex < 0 || verticalIndex > this.verticalSize || verticalIndex < 0)
+			throw new RuntimeException("Out of Bounds");
+		
+		this.boardArray[verticalIndex][horizontalIndex] = new BoardPieceImpl(
+			horizontalIndex, 
+			verticalIndex, 
+			value);
 	}
+	
+	//</editor-fold>	
 }
