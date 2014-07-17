@@ -4,7 +4,7 @@ import rhsu.board.io.BoardIO;
 import rhsu.board2.Board2;
 import rhsu.board2.BoardImpl;
 import rhsu.board2.random.RandomBoard;
-import rhsu.compositeBoard.BoardBuilder;
+import rhsu.compositeBoard.BoardConfigurator;
 import rhsu.compositeBoard.CompositeBoard;
 import rhsu.compositeBoard.CompositeBoardImpl;
 import rhsu.compositeBoard.Matrix;
@@ -27,7 +27,7 @@ public class BooleanBoard2Composite extends CompositeBoardImpl<Boolean>
 		int verticalSize,
 		Boolean defaultValue)
 	{
-		return new BoardBuilder()
+		return new BoardConfigurator()
 			.setBoardCore(new BoardImpl<Boolean>(horizontalSize, verticalSize, defaultValue) )
 			.createBoard();
 	}

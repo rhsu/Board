@@ -1,17 +1,10 @@
 package rhsu.compositeBoard;
 
+import rhsu.board2.*;
 import rhsu.board.Direction;
-import rhsu.board.io.BoardIO;
-import rhsu.board2.BoardPiece2;
-import rhsu.board2.random.RandomBoard;
 
-public interface CompositeBoard<T>
+public interface Board2<T>
 {
-	public BoardIO getBoardIO();
-	public Matrix<T> getMatrix();
-	public MobilityBoard<T> getMobilityBoard();
-	public RandomBoard<T> getRandomBoard();
-	
 	//<editor-fold desc="Accessors" defaultstate="collapsed">
 
 	/**
@@ -134,4 +127,6 @@ public interface CompositeBoard<T>
 	public void setPieceAt(int horizontal, int vertical, BoardPiece2<T> piece);
 	
 	//</editor-fold>
+	
+	public void initializeBoardArray();
 }

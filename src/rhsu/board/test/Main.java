@@ -1,6 +1,6 @@
 package rhsu.board.test;
 
-import rhsu.compositeBoard.BoardBuilder;
+import rhsu.compositeBoard.BoardConfigurator;
 import rhsu.compositeBoard.CompositeBoard;
 import rhsu.board.*;
 import rhsu.board.basic.implementations.*;
@@ -22,12 +22,6 @@ public class Main
     
 	public static void main(String[] args)
 	{
-		Board2 boardImpl = new IntegerBoard2(5,5);
 		
-		CompositeBoard board = new BoardBuilder()
-			.setBoardCore(boardImpl)
-			.createBoard();
-		
-		System.out.println(board.getBoardCore());
 	}
 }
