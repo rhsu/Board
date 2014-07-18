@@ -3,7 +3,6 @@ package rhsu.compositeBoard.implementations;
 import java.math.BigDecimal;
 import rhsu.board.io.BoardIO;
 import rhsu.board2.Board2;
-import rhsu.board2.BoardImpl;
 import rhsu.board2.random.RandomBoard;
 import rhsu.compositeBoard.BoardBuilder;
 import rhsu.compositeBoard.CompositeBoard;
@@ -11,26 +10,28 @@ import rhsu.compositeBoard.CompositeBoardImpl;
 import rhsu.compositeBoard.Matrix;
 import rhsu.compositeBoard.MobilityBoard;
 
-public class BigDecimalBoard2Composite extends CompositeBoardImpl<BigDecimal>
+public class BigDecimalBoard2Composite //extends CompositeBoardImpl<BigDecimal>
 {
 	static final BigDecimal DEFAULT_VALUE = BigDecimal.ZERO;
 	
 	public BigDecimalBoard2Composite(
-		Board2<BigDecimal> boardCore, 
+		Integer horizontalSize,
+		Integer verticalSize,
 		BoardIO boardIO,
 		Matrix<BigDecimal> matrix, 
 		MobilityBoard<BigDecimal> mobilityBoard, 
-		RandomBoard<BigDecimal> randomBoard)
+		RandomBoard<BigDecimal> randomBoard,
+		BigDecimal defaultValue)
 	{
-		super(boardCore, boardIO, matrix, mobilityBoard, randomBoard);
+		//super(horizontalSize, verticalSize, boardIO, matrix, mobilityBoard, randomBoard, defaultValue);
 	}
 
 	public static CompositeBoard<BigDecimal> createBigDecimalBoard(int horizontalSize, 
 		int verticalSize,
 		BigDecimal defaultValue)
-	{
+	{	
 		return new BoardBuilder()
-			.setBoardCore(new BoardImpl<BigDecimal>(horizontalSize, verticalSize, defaultValue) )
+			.setDefaulValue(DEFAULT_VALUE)
 			.createBoard();
 	}
 	
