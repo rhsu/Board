@@ -237,7 +237,16 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 		}
 		else
 		{
-			
+			int columnNumber = 0;
+		
+			for (BoardPiece2<T>[] row : this.boardArray)
+			{
+				for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
+				{ 
+					row[rowNumber] = new BoardPieceImpl(rowNumber, columnNumber, defaultValue);
+				}
+				columnNumber++;
+			}
 		}
 	}
 }
