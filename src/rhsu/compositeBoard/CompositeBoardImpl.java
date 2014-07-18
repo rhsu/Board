@@ -54,7 +54,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 		this.randomBoard = randomBoard;
 		this.defaultValue = (T) (defaultValue == null ? DEFAULT_VALUE : defaultValue);
 		
-		InitializeBoardArray();
+		initializeBoardArray();
 	}
 
 	//<editor-fold desc="Accessors" defaultstate="collapsed">
@@ -225,7 +225,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 	
 	//</editor-fold>	
 	
-	private void InitializeBoardArray()
+	private void initializeBoardArray()
 	{
 		if (randomBoard != null)
 		{
