@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import rhsu.compositeBoard.BoardBuilder;
 import rhsu.compositeBoard.CompositeBoard;
 
-public class BigDecimalBoard2Composite //extends CompositeBoardImpl<BigDecimal>
+public class BigDecimalBoard2Composite
 {
 	static final BigDecimal DEFAULT_VALUE = BigDecimal.ZERO;
 	
