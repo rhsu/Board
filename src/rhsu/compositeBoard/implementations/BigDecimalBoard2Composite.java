@@ -2,11 +2,9 @@ package rhsu.compositeBoard.implementations;
 
 import java.math.BigDecimal;
 import rhsu.board.io.BoardIO;
-import rhsu.board2.Board2;
 import rhsu.board2.random.RandomBoard;
 import rhsu.compositeBoard.BoardBuilder;
 import rhsu.compositeBoard.CompositeBoard;
-import rhsu.compositeBoard.CompositeBoardImpl;
 import rhsu.compositeBoard.Matrix;
 import rhsu.compositeBoard.MobilityBoard;
 
