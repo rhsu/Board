@@ -22,12 +22,6 @@ public class Main
     
 	public static void main(String[] args)
 	{
-		Board2 boardImpl = new IntegerBoard2(5,5);
 		
-		CompositeBoard board = new BoardBuilder()
-			.setBoardCore(boardImpl)
-			.createBoard();
-		
-		System.out.println(board.getBoardCore());
 	}
 }
