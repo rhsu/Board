@@ -1,6 +1,5 @@
 package rhsu.board2.random.implementations;
 
-import rhsu.board2.random.RandomGenerator;
 import rhsu.compositeBoard.BoardBuilder;
 import rhsu.compositeBoard.CompositeBoard;
 import rhsu.compositeBoard.randomGenerators.DoubleRandomGenerator;
@@ -13,7 +12,7 @@ public class DoubleRandomBoard
 		return new BoardBuilder()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
-			.setRandomBoard((RandomGenerator<Double>) new DoubleRandomGenerator())
+			.setRandomGenerator(new DoubleRandomGenerator())
 			.createBoard();
 	}
 }

@@ -56,7 +56,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 		this.mobilityBoard = mobilityBoard;
 		this.randomGenerator = randomGenerator;
 		this.defaultValue = (T) (defaultValue == null ? DEFAULT_VALUE : defaultValue);
-		
+		this.boardArray = new BoardPieceImpl[verticalSize][horizontalSize];
 		initializeBoardArray();
 	}
 

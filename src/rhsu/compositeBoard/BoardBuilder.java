@@ -26,7 +26,7 @@ public class BoardBuilder<T>
 		return this;
 	}
 	
-	public BoardBuilder<T> setRandomBoard(RandomGenerator<T> randomGenerator)
+	public BoardBuilder<T> setRandomGenerator(RandomGenerator<T> randomGenerator)
 	{
 		this.randomGenerator = randomGenerator;
 		return this;
