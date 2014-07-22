@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import rhsu.board2.random.implementations.BigDecimalRandomBoard;
 import rhsu.board2.random.implementations.CharacterRandomBoard;
 import rhsu.compositeBoard.CompositeBoard;
+import rhsu.compositeBoard.implementations.CharacterBoard2Composite;
 
 public class Main
 {	
@@ -16,7 +17,7 @@ public class Main
     
 	public static void main(String[] args)
 	{
-		CompositeBoard<Character> board = CharacterRandomBoard.createBigDecimalRandomBoard(5, 5);
+		CompositeBoard<Character> board = CharacterBoard2Composite.createCharacterBoard(5, 5);
 		
 		print(board);
 	}
