@@ -6,6 +6,7 @@ import rhsu.board2.matrix2.Matrix2;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
 import rhsu.board2.random.RandomBoard;
+import rhsu.board2.random.RandomGenerator;
 
 public class CompositeBoardImpl<T> implements CompositeBoard<T>
 {
@@ -14,7 +15,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 	private final BoardIO boardIO;
 	private final Matrix2<T>matrix;
 	private final MobilityBoard<T> mobilityBoard;
-	private final RandomBoard<T> randomBoard;
+	private final RandomGenerator<T> randomBoard;
 
 	//<editor-fold desc="Protected Variables" defaultstate="collapsed">
 	
@@ -36,7 +37,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 	public MobilityBoard<T> getMobilityBoard()	{ return this.mobilityBoard; }
 
 	@Override
-	public RandomBoard<T> getRandomBoard() { return this.randomBoard; }
+	public RandomGenerator<T> getRandomBoard() { return this.randomBoard; }
 		
 	public CompositeBoardImpl(
 		Integer horizontalSize,
@@ -44,7 +45,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 		BoardIO boardIO,
 		Matrix2<T> matrix,
 		MobilityBoard<T> mobilityBoard,
-		RandomBoard<T> randomBoard,
+		RandomGenerator<T> randomBoard,
 		T defaultValue)
 	{
 		this.horizontalSize = horizontalSize;

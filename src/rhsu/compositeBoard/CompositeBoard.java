@@ -4,14 +4,14 @@ import rhsu.board.Direction;
 import rhsu.board.io.BoardIO;
 import rhsu.board2.matrix2.Matrix2;
 import rhsu.board2.BoardPiece2;
-import rhsu.board2.random.RandomBoard;
+import rhsu.board2.random.RandomGenerator;
 
 public interface CompositeBoard<T>
 {
 	public BoardIO getBoardIO();
 	public Matrix2<T> getMatrix();
 	public MobilityBoard<T> getMobilityBoard();
-	public RandomBoard<T> getRandomBoard();
+	public RandomGenerator<T> getRandomBoard();
 	
 	//<editor-fold desc="Accessors" defaultstate="collapsed">
 

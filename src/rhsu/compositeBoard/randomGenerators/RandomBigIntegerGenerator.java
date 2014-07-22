@@ -12,5 +12,4 @@ public class RandomBigIntegerGenerator implements RandomGenerator<BigInteger>
 		Random random = new Random();
 		return new BigInteger(new Integer(random.nextInt()).toString());
 	}
-	
 }

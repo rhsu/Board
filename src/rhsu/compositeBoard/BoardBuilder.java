@@ -2,14 +2,14 @@ package rhsu.compositeBoard;
 
 import rhsu.board.io.BoardIO;
 import rhsu.board2.matrix2.Matrix2;
-import rhsu.board2.random.RandomBoard;
+import rhsu.board2.random.RandomGenerator;
 
 public class BoardBuilder<T>
 {
 	private BoardIO boardIO = null;
 	private Matrix2<T> matrix = null;
 	private MobilityBoard<T> mobilityBoard = null;
-	private RandomBoard<T> randomBoard = null;
+	private RandomGenerator<T> randomGenerator = null;
 	private Integer horizontalSize = null;
 	private Integer verticalSize = null; 
 	private T defaultValue = null;
@@ -26,9 +26,9 @@ public class BoardBuilder<T>
 		return this;
 	}
 	
-	public BoardBuilder<T> setRandomBoard(RandomBoard<T> randomBoard)
+	public BoardBuilder<T> setRandomBoard(RandomGenerator<T> randomGenerator)
 	{
-		this.randomBoard = randomBoard;
+		this.randomGenerator = randomGenerator;
 		return this;
 	}
 	
@@ -64,7 +64,7 @@ public class BoardBuilder<T>
 			this.boardIO,
 			this.matrix,
 			this.mobilityBoard,
-			this.randomBoard,
+			this.randomGenerator,
 			this.defaultValue);
 	}
 }
