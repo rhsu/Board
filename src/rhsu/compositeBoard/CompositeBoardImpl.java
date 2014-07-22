@@ -2,6 +2,7 @@ package rhsu.compositeBoard;
 
 import rhsu.board.Direction;
 import rhsu.board.io.BoardIO;
+import rhsu.board2.matrix2.Matrix2;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
 import rhsu.board2.random.RandomBoard;
@@ -11,7 +12,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 	static final Object DEFAULT_VALUE = new Object();
 	
 	private final BoardIO boardIO;
-	private final Matrix<T>matrix;
+	private final Matrix2<T>matrix;
 	private final MobilityBoard<T> mobilityBoard;
 	private final RandomBoard<T> randomBoard;
 
@@ -29,7 +30,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 	public BoardIO getBoardIO() { return this.boardIO; }
 
 	@Override
-	public Matrix<T> getMatrix() { return this.matrix; }
+	public Matrix2<T> getMatrix() { return this.matrix; }
 
 	@Override
 	public MobilityBoard<T> getMobilityBoard()	{ return this.mobilityBoard; }
@@ -41,7 +42,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 		Integer horizontalSize,
 		Integer verticalSize,
 		BoardIO boardIO,
-		Matrix<T> matrix,
+		Matrix2<T> matrix,
 		MobilityBoard<T> mobilityBoard,
 		RandomBoard<T> randomBoard,
 		T defaultValue)

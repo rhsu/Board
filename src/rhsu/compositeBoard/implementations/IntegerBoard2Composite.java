@@ -6,7 +6,7 @@ import rhsu.compositeBoard.CompositeBoard;
 public class IntegerBoard2Composite
 {	
 	static final Integer DEFAULT_VALUE = 0;
-
+	
 	public static CompositeBoard<Integer> createIntegerBoard(int horizontalSize, 
 		int verticalSize,
 		Integer defaultValue)

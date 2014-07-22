@@ -6,7 +6,7 @@ import rhsu.compositeBoard.CompositeBoard;
 public class CharacterBoard2Composite
 {
 	static final Character DEFAULT_VALUE = '+';
-
+	
 	public static CompositeBoard<Character> createCharacterBoard(int horizontalSize, 
 		int verticalSize,
 		Character defaultValue)

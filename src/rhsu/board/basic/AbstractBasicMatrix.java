@@ -13,7 +13,7 @@ public abstract class AbstractBasicMatrix<T>
 	extends AbstractBasicBoard<T> implements Matrix<T>
 {
 
-	protected enum OperationType
+	public enum OperationType
 	{
 		ADD,
 		SUBTRACT,

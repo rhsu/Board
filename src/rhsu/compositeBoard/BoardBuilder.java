@@ -1,25 +1,26 @@
 package rhsu.compositeBoard;
 
 import rhsu.board.io.BoardIO;
+import rhsu.board2.matrix2.Matrix2;
 import rhsu.board2.random.RandomBoard;
 
 public class BoardBuilder<T>
 {
 	private BoardIO boardIO = null;
-	private Matrix<T> matrix = null;
+	private Matrix2<T> matrix = null;
 	private MobilityBoard<T> mobilityBoard = null;
 	private RandomBoard<T> randomBoard = null;
 	private Integer horizontalSize = null;
 	private Integer verticalSize = null; 
 	private T defaultValue = null;
-	
+
 	public BoardBuilder<T> setBoardIO(BoardIO boardIO)
 	{
 		this.boardIO = boardIO;
 		return this;
 	}
 	
-	public BoardBuilder<T> setMatrix(Matrix<T> matrix)
+	public BoardBuilder<T> setMatrix(Matrix2<T> matrix)
 	{
 		this.matrix = matrix;
 		return this;

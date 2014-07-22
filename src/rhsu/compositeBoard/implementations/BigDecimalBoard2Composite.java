@@ -1,6 +1,7 @@
 package rhsu.compositeBoard.implementations;
 
 import java.math.BigDecimal;
+
 import rhsu.compositeBoard.BoardBuilder;
 import rhsu.compositeBoard.CompositeBoard;
 

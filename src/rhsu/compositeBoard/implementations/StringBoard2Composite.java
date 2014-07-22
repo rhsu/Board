@@ -6,7 +6,7 @@ import rhsu.compositeBoard.CompositeBoard;
 public class StringBoard2Composite
 {
 	static final String DEFAULT_VALUE = "++";
-
+	
 	public static CompositeBoard<String> createStringBoard(int horizontalSize, 
 		int verticalSize,
 		String defaultValue)
