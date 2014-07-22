@@ -1,7 +1,7 @@
 package rhsu.compositeBoard.randomGenerators;
 
 import java.util.UUID;
-import rhsu.board2.random.RandomGenerator;
+import rhsu.board2.RandomGenerator;
 
 public class StringRandomGenerator implements RandomGenerator<String>
 {

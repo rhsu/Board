@@ -1,8 +1,8 @@
 package rhsu.board2.random.implementations;
 
 import java.math.BigDecimal;
-import rhsu.compositeBoard.BoardBuilder;
-import rhsu.compositeBoard.CompositeBoard;
+import rhsu.board2.BoardBuilder;
+import rhsu.board2.CompositeBoard;
 import rhsu.compositeBoard.randomGenerators.BigDecimalRandomGenerator;
 
 public class BigDecimalRandomBoard 

@@ -2,8 +2,8 @@ package rhsu.compositeBoard.implementations;
 
 import java.math.BigDecimal;
 
-import rhsu.compositeBoard.BoardBuilder;
-import rhsu.compositeBoard.CompositeBoard;
+import rhsu.board2.BoardBuilder;
+import rhsu.board2.CompositeBoard;
 
 public class BigDecimalBoard2Composite
 {

@@ -2,7 +2,7 @@ package rhsu.compositeBoard.randomGenerators;
 
 import java.math.BigDecimal;
 import java.util.Random;
-import rhsu.board2.random.RandomGenerator;
+import rhsu.board2.RandomGenerator;
 
 public class BigDecimalRandomGenerator implements RandomGenerator<BigDecimal>
 {

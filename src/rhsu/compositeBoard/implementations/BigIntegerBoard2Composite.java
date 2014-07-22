@@ -1,8 +1,8 @@
 package rhsu.compositeBoard.implementations;
 
 import java.math.BigInteger;
-import rhsu.compositeBoard.BoardBuilder;
-import rhsu.compositeBoard.CompositeBoard;
+import rhsu.board2.BoardBuilder;
+import rhsu.board2.CompositeBoard;
 
 public class BigIntegerBoard2Composite
 {

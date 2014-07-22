@@ -1,13 +1,11 @@
-package rhsu.compositeBoard;
+package rhsu.board2;
 
 import java.util.Arrays;
 import java.util.Objects;
 import rhsu.board.Direction;
 import rhsu.board.io.BoardIO;
-import rhsu.board2.matrix2.Matrix2;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
-import rhsu.board2.random.RandomGenerator;
 
 public class CompositeBoardImpl<T> implements CompositeBoard<T>
 {

@@ -1,8 +1,6 @@
-package rhsu.compositeBoard;
+package rhsu.board2;
 
 import rhsu.board.io.BoardIO;
-import rhsu.board2.matrix2.Matrix2;
-import rhsu.board2.random.RandomGenerator;
 
 public class BoardBuilder<T>
 {

@@ -3,7 +3,7 @@ package rhsu.board.test;
 import java.math.BigDecimal;
 import rhsu.board2.random.implementations.BigDecimalRandomBoard;
 import rhsu.board2.random.implementations.CharacterRandomBoard;
-import rhsu.compositeBoard.CompositeBoard;
+import rhsu.board2.CompositeBoard;
 import rhsu.compositeBoard.implementations.CharacterBoard2Composite;
 
 public class Main
