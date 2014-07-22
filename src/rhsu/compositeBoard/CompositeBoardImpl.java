@@ -5,7 +5,6 @@ import rhsu.board.io.BoardIO;
 import rhsu.board2.matrix2.Matrix2;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
-import rhsu.board2.random.RandomBoard;
 import rhsu.board2.random.RandomGenerator;
 
 public class CompositeBoardImpl<T> implements CompositeBoard<T>
@@ -37,7 +36,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 	public MobilityBoard<T> getMobilityBoard()	{ return this.mobilityBoard; }
 
 	@Override
-	public RandomGenerator<T> getRandomBoard() { return this.randomBoard; }
+	public RandomGenerator<T> getRandomGenerator() { return this.randomBoard; }
 		
 	public CompositeBoardImpl(
 		Integer horizontalSize,

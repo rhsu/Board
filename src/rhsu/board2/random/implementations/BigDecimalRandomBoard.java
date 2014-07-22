@@ -1,19 +1,19 @@
 package rhsu.board2.random.implementations;
 
 import java.math.BigDecimal;
+import rhsu.board2.random.RandomGenerator;
 import rhsu.compositeBoard.BoardBuilder;
 import rhsu.compositeBoard.CompositeBoard;
 
 public class BigDecimalRandomBoard 
-{
-	public static CompositeBoard<BigDecimal> createBigDecimalRandomBoard()
-	{
-		//Object t = new RandomBigDecimalGenerator();
-		
+{	
+	public static CompositeBoard<BigDecimal> createBigDecimalRandomBoard(int horizontalSize,
+		int verticalSize)
+	{		
 		return new BoardBuilder()
-			.setHorizontalSize(10)
-			.setVerticalSize(10)
-			.setRandomBoard(null)
+			.setHorizontalSize(horizontalSize)
+			.setVerticalSize(verticalSize)
+			.setRandomBoard((RandomGenerator<BigDecimal>) new BigDecimalRandomBoard())
 			.createBoard();
 	}
 }

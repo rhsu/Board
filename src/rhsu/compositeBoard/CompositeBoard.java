@@ -11,7 +11,7 @@ public interface CompositeBoard<T>
 	public BoardIO getBoardIO();
 	public Matrix2<T> getMatrix();
 	public MobilityBoard<T> getMobilityBoard();
-	public RandomGenerator<T> getRandomBoard();
+	public RandomGenerator<T> getRandomGenerator();
 	
 	//<editor-fold desc="Accessors" defaultstate="collapsed">
 
