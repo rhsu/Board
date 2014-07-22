@@ -1,15 +1,10 @@
 package rhsu.board.test;
 
-import rhsu.compositeBoard.BoardBuilder;
+import java.math.BigDecimal;
+import rhsu.board2.random.implementations.BigDecimalRandomBoard;
+import rhsu.board2.random.implementations.CharacterRandomBoard;
 import rhsu.compositeBoard.CompositeBoard;
-import rhsu.board.*;
-import rhsu.board.basic.implementations.*;
-import rhsu.board.basic.implementations.arithmetic.*;
-import rhsu.board.resources.ResourceRetriever;
-import rhsu.board2.Board2;
-import rhsu.board2.BoardImpl;
-import rhsu.board2.boardCores.IntegerBoard2;
-import rhsu.board2.boardCores.StringBoard2;
+import rhsu.compositeBoard.implementations.CharacterBoard2Composite;
 
 public class Main
 {	
@@ -22,6 +17,8 @@ public class Main
     
 	public static void main(String[] args)
 	{
+		CompositeBoard<Character> board = CharacterBoard2Composite.createCharacterBoard(5, 5);
 		
+		print(board);
 	}
 }

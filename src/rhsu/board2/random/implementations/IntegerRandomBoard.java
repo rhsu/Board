@@ -1,37 +1,18 @@
 package rhsu.board2.random.implementations;
 
-import java.util.Random;
-import rhsu.board2.random.AbstractRandomBoard;
-import rhsu.board2.random.RandomBoard;
-import rhsu.board2.random.RandomGenerator;
+import rhsu.compositeBoard.BoardBuilder;
+import rhsu.compositeBoard.CompositeBoard;
+import rhsu.compositeBoard.randomGenerators.IntegerRandomGenerator;
 
 public class IntegerRandomBoard 
-	extends AbstractRandomBoard<Integer>
-	implements RandomBoard<Integer>
 {
-	public IntegerRandomBoard(int horizontalSize, int verticalSize, Integer defaultValue)
-	{
-		super(horizontalSize, verticalSize, defaultValue);
-	}
-	
-	public IntegerRandomBoard(int horizontalSize, int verticalSize)
-	{
-		super(horizontalSize, verticalSize);
-	}
-	
-	@Override
-	public RandomGenerator<Integer> randomGenerator() 
-	{	
-		RandomGenerator<Integer> generator = new RandomGenerator()
-		{
-			Random random = new Random();
-			
-			@Override
-			public Integer getRandom() 
-			{
-				return random.nextInt();
-			}	
-		};
-		return generator;
+	public static CompositeBoard<Integer> createBigDecimalRandomBoard(int horizontalSize,
+		int verticalSize)
+	{		
+		return new BoardBuilder()
+			.setHorizontalSize(horizontalSize)
+			.setVerticalSize(verticalSize)
+			.setRandomGenerator(new IntegerRandomGenerator())
+			.createBoard();
 	}
 }
