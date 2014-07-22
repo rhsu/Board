@@ -1,4 +1,4 @@
-package rhsu.board2.matrix;
+package rhsu.board2.matrix2;
 
 import rhsu.compositeBoard.CompositeBoard;
 
