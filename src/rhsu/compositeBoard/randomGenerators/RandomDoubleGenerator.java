@@ -7,8 +7,7 @@ public class RandomDoubleGenerator implements RandomGenerator<Double>
 {
 	@Override
 	public Double getRandom()
-	{
-		Random random = new Random();
-		return random.nextDouble();
+	{ 
+		return new Random().nextDouble();
 	}	
 }

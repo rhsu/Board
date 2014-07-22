@@ -11,7 +11,6 @@ public class RandomCharacterGenerator implements RandomGenerator<Character>
 	@Override
 	public Character getRandom()
 	{
-		Random random = new Random();
-		return ALPHABET.charAt(random.nextInt(N));
+		return ALPHABET.charAt(new Random().nextInt(N));
 	}
 }

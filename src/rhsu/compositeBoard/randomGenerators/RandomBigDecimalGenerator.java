@@ -9,7 +9,6 @@ public class RandomBigDecimalGenerator implements RandomGenerator<BigDecimal>
 	@Override
 	public BigDecimal getRandom()
 	{
-		Random random = new Random();
-		return new BigDecimal(random.nextDouble());
+		return new BigDecimal(new Random().nextDouble());
 	}
 }

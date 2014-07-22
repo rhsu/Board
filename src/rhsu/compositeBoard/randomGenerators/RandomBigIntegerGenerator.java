@@ -9,7 +9,6 @@ public class RandomBigIntegerGenerator implements RandomGenerator<BigInteger>
 	@Override
 	public BigInteger getRandom()
 	{
-		Random random = new Random();
-		return new BigInteger(new Integer(random.nextInt()).toString());
+		return new BigInteger(new Integer(new Random().nextInt()).toString());
 	}
 }
