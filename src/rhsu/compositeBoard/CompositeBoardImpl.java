@@ -14,7 +14,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 	private final BoardIO boardIO;
 	private final Matrix2<T>matrix;
 	private final MobilityBoard<T> mobilityBoard;
-	private final RandomGenerator<T> randomBoard;
+	private final RandomGenerator<T> randomGenerator;
 
 	//<editor-fold desc="Protected Variables" defaultstate="collapsed">
 	
@@ -36,7 +36,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 	public MobilityBoard<T> getMobilityBoard()	{ return this.mobilityBoard; }
 
 	@Override
-	public RandomGenerator<T> getRandomGenerator() { return this.randomBoard; }
+	public RandomGenerator<T> getRandomGenerator() { return this.randomGenerator; }
 		
 	public CompositeBoardImpl(
 		Integer horizontalSize,
@@ -44,7 +44,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 		BoardIO boardIO,
 		Matrix2<T> matrix,
 		MobilityBoard<T> mobilityBoard,
-		RandomGenerator<T> randomBoard,
+		RandomGenerator<T> randomGenerator,
 		T defaultValue)
 	{
 		this.horizontalSize = horizontalSize;
@@ -52,7 +52,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 		this.boardIO = boardIO;
 		this.matrix = matrix;
 		this.mobilityBoard = mobilityBoard;
-		this.randomBoard = randomBoard;
+		this.randomGenerator = randomGenerator;
 		this.defaultValue = (T) (defaultValue == null ? DEFAULT_VALUE : defaultValue);
 		
 		initializeBoardArray();
@@ -228,9 +228,20 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 	
 	private void initializeBoardArray()
 	{
-		if (randomBoard != null)
+		if (randomGenerator != null)
 		{
-			throw new UnsupportedOperationException("This is not implemented yet");
+			int columnNumber = 0;
+		
+			for (BoardPiece2<T>[] row : this.boardArray)
+			{
+				for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
+				{ 
+					row[rowNumber] = new BoardPieceImpl(rowNumber, 
+						columnNumber, 
+						this.randomGenerator.getRandom());
+				}
+				columnNumber++;
+			}
 		}
 		else if (matrix != null)
 		{
@@ -244,7 +255,9 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 			{
 				for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
 				{ 
-					row[rowNumber] = new BoardPieceImpl(rowNumber, columnNumber, defaultValue);
+					row[rowNumber] = new BoardPieceImpl(rowNumber, 
+						columnNumber, 
+						defaultValue);
 				}
 				columnNumber++;
 			}
