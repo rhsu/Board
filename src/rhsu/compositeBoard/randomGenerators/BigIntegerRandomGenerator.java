@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.util.Random;
 import rhsu.board2.random.RandomGenerator;
 
-public class RandomBigIntegerGenerator implements RandomGenerator<BigInteger>
+public class BigIntegerRandomGenerator implements RandomGenerator<BigInteger>
 {
 	@Override
 	public BigInteger getRandom()

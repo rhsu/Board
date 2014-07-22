@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Random;
 import rhsu.board2.random.RandomGenerator;
 
-public class RandomBigDecimalGenerator implements RandomGenerator<BigDecimal>
+public class BigDecimalRandomGenerator implements RandomGenerator<BigDecimal>
 {
 	@Override
 	public BigDecimal getRandom()
