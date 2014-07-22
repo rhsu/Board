@@ -1,5 +1,7 @@
 package rhsu.compositeBoard;
 
+import java.util.Arrays;
+import java.util.Objects;
 import rhsu.board.Direction;
 import rhsu.board.io.BoardIO;
 import rhsu.board2.matrix2.Matrix2;
@@ -120,7 +122,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 				
 				for(int i = 1; i < units; i++)
 				{
-					returnValue = this.getPieceAt(returnValue.getHorizontalIndex()- 1, vertical);
+					returnValue = this.getPieceAt(returnValue.getHorizontalIndex() - 1, vertical);
 				}
 				
 				return returnValue;
@@ -142,7 +144,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 				
 				for(int i = 1; i < units; i++)
 				{
-					returnValue = this.getPieceAt(horizontal, returnValue.getVerticalIndex()- 1);
+					returnValue = this.getPieceAt(horizontal, returnValue.getVerticalIndex() - 1);
 				}
 				
 				return returnValue;
@@ -168,9 +170,9 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 		return this.getPieceAt(piece.getHorizontalIndex(), piece.getVerticalIndex(), direction, units);
 	}
 	
-	//</editor-fold>
+	//</editorfold>
 	
-	//<editor-fold desc="Value Retrieval Methods" defaultstate="collapsed">
+	//<editorfold desc="Value Retrieval Methods" defaultstate="collapsed">
 	
 	@Override
 	public T getValueAt(int horizontal, int vertical)
@@ -263,4 +265,52 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 			}
 		}
 	}
+	
+	//<editor-fold desc="Inheirited From Object" defaultstate="collapsed">
+	
+	@Override
+ 	public boolean equals(Object aInstance)
+ 	{
+ 		if (this == aInstance) return true;
+ 		if ( !(aInstance instanceof CompositeBoardImpl ) ) return false; 
+ 		
+ 		CompositeBoardImpl instance = (CompositeBoardImpl) aInstance;
+ 		
+ 		return
+ 			instance.getHorizontalSize() == this.getHorizontalSize() &&
+ 			instance.getVerticalSize() == this.getVerticalSize() &&
+ 			Arrays.deepEquals(instance.getBoardArray(), this.getBoardArray());
+ 	}
+ 
+ 	@Override
+ 	public int hashCode()
+ 	{
+ 		int hash = 3;
+ 		hash = 67 * hash + this.horizontalSize;
+ 		hash = 67 * hash + this.verticalSize;
+ 		hash = 67 * hash + this.size;
+ 		hash = 67 * hash + Objects.hashCode(this.defaultValue);
+ 		hash = 67 * hash + Arrays.deepHashCode(this.boardArray);
+ 		return hash;
+ 	}
+ 	
+ 	@Override
+ 	public String toString()
+ 	{
+ 		StringBuilder builder = new StringBuilder();
+ 		
+ 		for (int i = 0; i < this.verticalSize; i++)
+ 		{
+ 			for (int j = 0; j < this.horizontalSize; j++)
+ 			{
+ 				builder.append(this.boardArray[i][j]).append(" ");
+ 			}
+ 			
+ 			builder.append("\n");
+ 		}
+ 		
+ 		return builder.toString().trim();
+ 	}
+ 	
+ 	//</editor-fold>
 }
