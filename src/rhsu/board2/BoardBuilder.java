@@ -55,7 +55,7 @@ public class BoardBuilder<T>
 	}
 	
 	public CompositeBoard<T> createBoard()
-	{
+	{		
 		return new CompositeBoardImpl(
 			this.horizontalSize,
 			this.verticalSize,

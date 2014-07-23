@@ -13,6 +13,8 @@ public class BigIntegerBoard2Composite
 		BigInteger defaultValue)
 	{
 		return new BoardBuilder()
+			.setVerticalSize(verticalSize)
+			.setHorizontalSize(horizontalSize)
 			.setDefaulValue(defaultValue)
 			.createBoard();
 	}

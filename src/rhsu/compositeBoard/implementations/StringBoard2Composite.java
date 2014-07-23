@@ -12,6 +12,8 @@ public class StringBoard2Composite
 		String defaultValue)
 	{
 		return new BoardBuilder()
+			.setVerticalSize(verticalSize)
+			.setHorizontalSize(horizontalSize)
 			.setDefaulValue(defaultValue)
 			.createBoard();
 	}

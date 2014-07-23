@@ -13,6 +13,8 @@ public class CharacterBoard2Composite
 	{
 		return new BoardBuilder()
 			.setDefaulValue(defaultValue)
+			.setHorizontalSize(horizontalSize)
+			.setVerticalSize(verticalSize)
 			.createBoard();
 	}
 	

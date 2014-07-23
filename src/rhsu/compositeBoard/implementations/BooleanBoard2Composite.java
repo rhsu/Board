@@ -12,6 +12,8 @@ public class BooleanBoard2Composite
 		Boolean defaultValue)
 	{
 		return new BoardBuilder()
+			.setHorizontalSize(horizontalSize)
+			.setVerticalSize(verticalSize)
 			.setDefaulValue(DEFAULT_VALUE)
 			.createBoard();
 	}
