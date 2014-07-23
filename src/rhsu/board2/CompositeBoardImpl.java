@@ -48,7 +48,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
 		T defaultValue)
 	{
 		this.horizontalSize = horizontalSize;
-		this.verticalSize = verticalSize;
+		this.verticalSize = verticalSize;	
 		this.boardIO = boardIO;
 		this.matrix = matrix;
 		this.mobilityBoard = mobilityBoard;
