@@ -1,4 +1,4 @@
-package rhsu.compositeBoard.randomGenerators;
+package rhsu.board2.randomGenerators;
 
 import java.util.UUID;
 import rhsu.board2.RandomGenerator;

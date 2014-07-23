@@ -1,4 +1,4 @@
-package rhsu.compositeBoard.randomGenerators;
+package rhsu.board2.randomGenerators;
 
 import java.math.BigInteger;
 import java.util.Random;

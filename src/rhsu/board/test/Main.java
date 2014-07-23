@@ -1,7 +1,7 @@
 package rhsu.board.test;
 
 import rhsu.board2.CompositeBoard;
-import rhsu.compositeBoard.implementations.CharacterBoard2Composite;
+import rhsu.board2.implementations.CharacterBoard2Composite;
 
 public class Main
 {	

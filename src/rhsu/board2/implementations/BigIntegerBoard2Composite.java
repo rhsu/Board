@@ -1,9 +1,9 @@
-package rhsu.compositeBoard.implementations;
+package rhsu.board2.implementations;
 
 import java.math.BigInteger;
 import rhsu.board2.BoardBuilder;
 import rhsu.board2.CompositeBoard;
-import rhsu.compositeBoard.randomGenerators.BigIntegerRandomGenerator;
+import rhsu.board2.randomGenerators.BigIntegerRandomGenerator;
 
 public class BigIntegerBoard2Composite
 {

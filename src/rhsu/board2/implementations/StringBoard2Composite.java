@@ -1,8 +1,8 @@
-package rhsu.compositeBoard.implementations;
+package rhsu.board2.implementations;
 
 import rhsu.board2.BoardBuilder;
 import rhsu.board2.CompositeBoard;
-import rhsu.compositeBoard.randomGenerators.StringRandomGenerator;
+import rhsu.board2.randomGenerators.StringRandomGenerator;
 
 public class StringBoard2Composite
 {

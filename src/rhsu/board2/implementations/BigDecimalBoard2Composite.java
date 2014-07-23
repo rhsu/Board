@@ -1,10 +1,10 @@
-package rhsu.compositeBoard.implementations;
+package rhsu.board2.implementations;
 
 import java.math.BigDecimal;
 
 import rhsu.board2.BoardBuilder;
 import rhsu.board2.CompositeBoard;
-import rhsu.compositeBoard.randomGenerators.BigDecimalRandomGenerator;
+import rhsu.board2.randomGenerators.BigDecimalRandomGenerator;
 
 public class BigDecimalBoard2Composite
 {
