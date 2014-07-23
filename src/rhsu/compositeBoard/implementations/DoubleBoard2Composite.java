@@ -2,6 +2,7 @@ package rhsu.compositeBoard.implementations;
 
 import rhsu.board2.BoardBuilder;
 import rhsu.board2.CompositeBoard;
+import rhsu.compositeBoard.randomGenerators.DoubleRandomGenerator;
 
 public class DoubleBoard2Composite
 {
@@ -21,5 +22,15 @@ public class DoubleBoard2Composite
 	public static CompositeBoard<Double> createDoubleBoard(int horizontalSize, int verticalSize)
 	{		
 		return createDoubleBoard(horizontalSize, verticalSize, DEFAULT_VALUE);
+	}
+	
+	public static CompositeBoard<Double> createBigDecimalRandomBoard(int horizontalSize,
+		int verticalSize)
+	{		
+		return new BoardBuilder()
+			.setHorizontalSize(horizontalSize)
+			.setVerticalSize(verticalSize)
+			.setRandomGenerator(new DoubleRandomGenerator())
+			.createBoard();
 	}
 }
