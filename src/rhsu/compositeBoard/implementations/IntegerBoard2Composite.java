@@ -12,6 +12,8 @@ public class IntegerBoard2Composite
 		Integer defaultValue)
 	{
 		return new BoardBuilder()
+			.setVerticalSize(verticalSize)
+			.setHorizontalSize(horizontalSize)
 			.setDefaulValue(defaultValue)
 			.createBoard();
 	}

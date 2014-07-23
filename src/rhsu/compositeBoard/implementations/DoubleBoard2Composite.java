@@ -12,6 +12,8 @@ public class DoubleBoard2Composite
 		Double defaultValue)
 	{
 		return new BoardBuilder()
+			.setVerticalSize(verticalSize)
+			.setHorizontalSize(horizontalSize)
 			.setDefaulValue(defaultValue)
 			.createBoard();
 	}

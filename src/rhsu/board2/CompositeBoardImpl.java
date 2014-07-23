@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.Objects;
 import rhsu.board.Direction;
 import rhsu.board.io.BoardIO;
-import rhsu.board2.BoardPiece2;
-import rhsu.board2.BoardPieceImpl;
 
 public class CompositeBoardImpl<T> implements CompositeBoard<T>
 {

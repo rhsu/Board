@@ -14,6 +14,8 @@ public class BigDecimalBoard2Composite
 		BigDecimal defaultValue)
 	{	
 		return new BoardBuilder()
+			.setHorizontalSize(horizontalSize)
+			.setVerticalSize(verticalSize)
 			.setDefaulValue(defaultValue)
 			.createBoard();
 	}
