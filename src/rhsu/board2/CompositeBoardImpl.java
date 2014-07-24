@@ -232,41 +232,6 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	{
 		this.boardArray = (boardInitializer != null) ? boardInitializer.initializeBoard(boardArray)
 			: this.initializeBoard(boardArray);
-		
-		/*if (randomGenerator != null)
-		{
-			int columnNumber = 0;
-		
-			for (BoardPiece2<T>[] row : this.boardArray)
-			{
-				for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
-				{ 
-					row[rowNumber] = new BoardPieceImpl(rowNumber, 
-						columnNumber, 
-						this.randomGenerator.getRandom());
-				}
-				columnNumber++;
-			}
-		}
-		else if (matrix != null)
-		{
-			throw new UnsupportedOperationException("This is not implemented yet");
-		}
-		else
-		{
-			int columnNumber = 0;
-		
-			for (BoardPiece2<T>[] row : this.boardArray)
-			{
-				for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
-				{ 
-					row[rowNumber] = new BoardPieceImpl(rowNumber, 
-						columnNumber, 
-						defaultValue);
-				}
-				columnNumber++;
-			}
-		}*/
 	}
 	
 	//<editor-fold desc="Inheirited From Object" defaultstate="collapsed">
