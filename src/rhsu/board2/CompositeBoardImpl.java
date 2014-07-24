@@ -5,7 +5,8 @@ import java.util.Objects;
 import rhsu.board.Direction;
 import rhsu.board.io.BoardIO;
 
-public class CompositeBoardImpl<T> implements CompositeBoard<T>
+public class CompositeBoardImpl<T> implements CompositeBoard<T>,
+	BoardInitializable
 {
 	static final Object DEFAULT_VALUE = new Object();
 	
@@ -309,4 +310,23 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>
  	}
  	
  	//</editor-fold>
+
+	@Override
+	public BoardPiece2[][] initializeBoard(BoardPiece2[][] boardArray)
+	{
+		int columnNumber = 0;
+
+		for (BoardPiece2<T>[] row : boardArray)
+		{
+			for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
+			{ 
+				row[rowNumber] = new BoardPieceImpl(rowNumber, 
+					columnNumber, 
+					defaultValue);
+			}
+			columnNumber++;
+		}
+		
+		return boardArray;
+	}
 }
