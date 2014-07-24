@@ -2,7 +2,6 @@ package rhsu.board2;
 
 import rhsu.board.Direction;
 import rhsu.board.io.BoardIO;
-import rhsu.board2.BoardPiece2;
 
 public interface CompositeBoard<T>
 {
