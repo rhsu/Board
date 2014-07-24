@@ -2,6 +2,7 @@ package rhsu.board2.implementations;
 
 import rhsu.board2.BoardBuilder;
 import rhsu.board2.CompositeBoard;
+import rhsu.board2.randomGenerators.AbstractRandomGenerator;
 import rhsu.board2.randomGenerators.StringRandomGenerator;
 
 public class StringBoard2Composite
@@ -24,13 +25,16 @@ public class StringBoard2Composite
 		return createStringBoard(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 	
-	public static CompositeBoard<String> createBigDecimalRandomBoard(int horizontalSize,
+	public static CompositeBoard<String> createStringRandomBoard(int horizontalSize,
 		int verticalSize)
 	{		
+		AbstractRandomGenerator<String> randomGenerator = new StringRandomGenerator();
+		
 		return new BoardBuilder()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
-			.setRandomGenerator(new StringRandomGenerator())
+			.setRandomGenerator(randomGenerator)
+			.setBoardInitializable(randomGenerator)
 			.createBoard();
 	}
 }

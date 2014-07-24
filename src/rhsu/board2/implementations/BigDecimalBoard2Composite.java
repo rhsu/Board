@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import rhsu.board2.BoardBuilder;
 import rhsu.board2.CompositeBoard;
+import rhsu.board2.randomGenerators.AbstractRandomGenerator;
 import rhsu.board2.randomGenerators.BigDecimalRandomGenerator;
 
 public class BigDecimalBoard2Composite
@@ -28,11 +29,14 @@ public class BigDecimalBoard2Composite
 	
 	public static CompositeBoard<BigDecimal> createBigDecimalRandomBoard(int horizontalSize,
 		int verticalSize)
-	{		
+	{	
+		AbstractRandomGenerator randomGenerator = new BigDecimalRandomGenerator();
+		
 		return new BoardBuilder()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
-			.setRandomGenerator(new BigDecimalRandomGenerator())
+			.setRandomGenerator(randomGenerator)
+			.setBoardInitializable(randomGenerator)
 			.createBoard();
 	}
 }

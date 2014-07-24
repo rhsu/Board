@@ -1,9 +1,8 @@
 package rhsu.board2.randomGenerators;
 
 import java.util.Random;
-import rhsu.board2.RandomGenerator;
 
-public class BooleanRandomGenerator implements RandomGenerator<Boolean>
+public class BooleanRandomGenerator extends AbstractRandomGenerator<Boolean>
 {
 	@Override
 	public Boolean getRandom()
