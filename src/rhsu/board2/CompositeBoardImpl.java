@@ -14,7 +14,8 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	private final Matrix2<T>matrix;
 	private final MobilityBoard<T> mobilityBoard;
 	private final RandomGenerator<T> randomGenerator;
-
+	private final BoardInitializable<T> boardInitializer;
+	
 	//<editor-fold desc="Protected Variables" defaultstate="collapsed">
 	
 	protected int horizontalSize;
@@ -44,7 +45,8 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 		Matrix2<T> matrix,
 		MobilityBoard<T> mobilityBoard,
 		RandomGenerator<T> randomGenerator,
-		T defaultValue)
+		T defaultValue,
+		BoardInitializable<T> boardInitializer)
 	{
 		this.horizontalSize = horizontalSize;
 		this.verticalSize = verticalSize;	
@@ -54,6 +56,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 		this.randomGenerator = randomGenerator;
 		this.defaultValue = (T) (defaultValue == null ? DEFAULT_VALUE : defaultValue);
 		this.boardArray = new BoardPieceImpl[verticalSize][horizontalSize];
+		this.boardInitializer = boardInitializer;
 		initializeBoardArray();
 	}
 
@@ -227,7 +230,10 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	
 	private void initializeBoardArray()
 	{
-		if (randomGenerator != null)
+		this.boardArray = (boardInitializer != null) ? boardInitializer.initializeBoard(boardArray)
+			: this.initializeBoard(boardArray);
+		
+		/*if (randomGenerator != null)
 		{
 			int columnNumber = 0;
 		
@@ -260,7 +266,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 				}
 				columnNumber++;
 			}
-		}
+		}*/
 	}
 	
 	//<editor-fold desc="Inheirited From Object" defaultstate="collapsed">

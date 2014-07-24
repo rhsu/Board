@@ -14,8 +14,8 @@ public class Main
     
 	public static void main(String[] args)
 	{
-		CompositeBoard<Character> board = CharacterBoard2Composite.createCharacterBoard(5, 5);
-		//CompositeBoard<Character> board2 = CharacterRandomBoard.createBigDecimalRandomBoard(5, 5);
+		//CompositeBoard<Character> board = CharacterBoard2Composite.createCharacterBoard(5, 5);
+		CompositeBoard<Character> board = CharacterBoard2Composite.createBigDecimalRandomBoard(5, 5);
 		
 		print(board);
 	}

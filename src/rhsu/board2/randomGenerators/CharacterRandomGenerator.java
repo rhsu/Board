@@ -1,9 +1,8 @@
 package rhsu.board2.randomGenerators;
 
 import java.util.Random;
-import rhsu.board2.RandomGenerator;
 
-public class CharacterRandomGenerator implements RandomGenerator<Character>
+public class CharacterRandomGenerator extends AbstractRandomGenerator<Character>
 {
 	final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 	final int N = ALPHABET.length();
