@@ -35,8 +35,8 @@ public class BigDecimalBoard2Composite
 		return new BoardBuilder()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
-			.setRandomGenerator(new BigDecimalRandomGenerator())
-			.setBoardInitializable(new BigDecimalRandomGenerator())
+			.setRandomGenerator(randomGenerator)
+			.setBoardInitializable(randomGenerator)
 			.createBoard();
 	}
 }

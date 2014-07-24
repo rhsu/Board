@@ -2,6 +2,7 @@ package rhsu.board2.implementations;
 
 import rhsu.board2.BoardBuilder;
 import rhsu.board2.CompositeBoard;
+import rhsu.board2.randomGenerators.AbstractRandomGenerator;
 import rhsu.board2.randomGenerators.BooleanRandomGenerator;
 
 public class BooleanBoard2Composite
@@ -26,10 +27,13 @@ public class BooleanBoard2Composite
 	
 	public static CompositeBoard<Boolean> createRandomBooleanBoard(int horizontalSize, int verticalSize)
 	{
+		AbstractRandomGenerator<Boolean> randomGenerator = new BooleanRandomGenerator();
+		
 		return new BoardBuilder()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
-			.setRandomGenerator(new BooleanRandomGenerator())
+			.setRandomGenerator(randomGenerator)
+			.setBoardInitializable(randomGenerator)
 			.createBoard();
 	}
 }
