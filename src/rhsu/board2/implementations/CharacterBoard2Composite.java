@@ -24,7 +24,7 @@ public class CharacterBoard2Composite
 		return createCharacterBoard(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 	
-	public static CompositeBoard<Character> createBigDecimalRandomBoard(int horizontalSize,
+	public static CompositeBoard<Character> createCharacterRandomBoard(int horizontalSize,
 		int verticalSize)
 	{		
 		return new BoardBuilder()

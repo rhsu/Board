@@ -2,6 +2,7 @@ package rhsu.board.test;
 
 import rhsu.board2.CompositeBoard;
 import rhsu.board2.implementations.CharacterBoard2Composite;
+import rhsu.board2.implementations.IntegerBoard2Composite;
 
 public class Main
 {	
@@ -15,7 +16,8 @@ public class Main
 	public static void main(String[] args)
 	{
 		//CompositeBoard<Character> board = CharacterBoard2Composite.createCharacterBoard(5, 5);
-		CompositeBoard<Character> board = CharacterBoard2Composite.createBigDecimalRandomBoard(5, 5);
+		//CompositeBoard<Character> board = CharacterBoard2Composite.createCharacterRandomBoard(5, 5);
+		CompositeBoard<Integer> board = IntegerBoard2Composite.createIntegerRandomBoard(5, 5);
 		
 		print(board);
 	}

@@ -25,7 +25,7 @@ public class BigIntegerBoard2Composite
 		return createBigIntegerBoard(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 	
-	public static CompositeBoard<BigInteger> createBigDecimalRandomBoard(int horizontalSize,
+	public static CompositeBoard<BigInteger> createBigIntegerRandomBoard(int horizontalSize,
 		int verticalSize)
 	{		
 		return new BoardBuilder()

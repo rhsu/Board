@@ -24,7 +24,7 @@ public class StringBoard2Composite
 		return createStringBoard(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 	
-	public static CompositeBoard<String> createBigDecimalRandomBoard(int horizontalSize,
+	public static CompositeBoard<String> createStringRandomBoard(int horizontalSize,
 		int verticalSize)
 	{		
 		return new BoardBuilder()

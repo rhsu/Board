@@ -24,7 +24,7 @@ public class DoubleBoard2Composite
 		return createDoubleBoard(horizontalSize, verticalSize, DEFAULT_VALUE);
 	}
 	
-	public static CompositeBoard<Double> createBigDecimalRandomBoard(int horizontalSize,
+	public static CompositeBoard<Double> createDoubleRandomBoard(int horizontalSize,
 		int verticalSize)
 	{		
 		return new BoardBuilder()
