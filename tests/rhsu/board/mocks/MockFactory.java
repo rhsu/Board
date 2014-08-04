@@ -1,20 +1,19 @@
-package rhsu.board2;
+package rhsu.board.mocks;
 
 import java.io.BufferedReader;
-import org.junit.*;
-import static org.junit.Assert.*;
 import rhsu.board.Board;
 import rhsu.board.BoardPiece;
 import rhsu.board.Direction;
-import rhsu.board.Matrix;
 import rhsu.board.io.BoardIO;
+import rhsu.board2.BoardInitializable;
+import rhsu.board2.BoardPiece2;
+import rhsu.board2.CompositeBoard;
+import rhsu.board2.Matrix2;
+import rhsu.board2.MobilityBoard;
+import rhsu.board2.RandomGenerator;
 
-/**
- *
- * @author rhsu
- */
-public class BoardBuilderTest
-{	
+public class MockFactory
+{
 	private class MockBoardIO implements BoardIO
 	{
 		@Override
@@ -258,17 +257,28 @@ public class BoardBuilderTest
 		
 	}
 	
-	@Before
-	public void setupTest()
+	private static BoardIO mockBoardIO = null;
+	private static Matrix2<Object> mockMatrix = null;
+	private static MobilityBoard<Object> mockMobilityBoard = null;
+	private static RandomGenerator<Object> mockRandomGenerator = null;
+	private static BoardInitializable<Object> mockBoardInitializable = null;
+	private static CompositeBoard<Object> mockCompositeBoard = null;
+
+	public BoardIO getMockBoardIO()
 	{
-		CompositeBoard<Object> test = new BoardBuilder<>()
-			.setBoardIO(null)
-			.setMobilityBoard(null)
-			.setRandomGenerator(null)
-			.setHorizontalSize(10)
-			.setVerticalSize(10)
-			.setDefaulValue(null)
-			.setBoardInitializable(null)
-			.createBoard();
+		if (mockBoardIO == null) { mockBoardIO = new MockBoardIO(); }
+		return mockBoardIO;
+	}
+	
+	public Matrix2<Object> getMockMatrix()
+	{
+		if (mockMatrix == null) { mockMatrix = new MockMatrix<>(); }
+		return mockMatrix;
+	}
+	
+	public MobilityBoard<Object> getMockMobilityBoard()
+	{
+		if (mockMobilityBoard == null) { mockMobilityBoard = new MockMobilityBoard<>(); }
+		return mockMobilityBoard;
 	}
 }
