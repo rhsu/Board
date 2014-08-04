@@ -145,124 +145,11 @@ public class MockFactory
 		}
 	}
 	
-	private class MockCompositeBoard<T> implements CompositeBoard<T>
-	{
-		@Override
-		public BoardIO getBoardIO()
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public Matrix2<T> getMatrix()
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public MobilityBoard<T> getMobilityBoard()
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public RandomGenerator<T> getRandomGenerator()
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public int getHorizontalSize()
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public int getVerticalSize()
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public int getSize()
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public T getDefaultValue()
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public BoardPiece2<T>[][] getBoardArray()
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public BoardPiece2<T> getPieceAt(int horizontal, int vertical)
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public BoardPiece2<T> getPieceAt(int horizontal, int vertical, Direction direction, int units)
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public BoardPiece2<T> getPieceAt(BoardPiece2<T> piece, Direction direction, int units)
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public T getValueAt(int horizontal, int vertical)
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public T getValueAt(int horizontal, int vertical, Direction direction, int units)
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public T getValueAt(BoardPiece2<T> piece, Direction direction, int units)
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public void setValueAt(int horizontal, int vertical, T value)
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented"); 
-		}
-
-		@Override
-		public void setPieceAt(int horizontal, int vertical, T value)
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-
-		@Override
-		public void setPieceAt(int horizontal, int vertical, BoardPiece2<T> piece)
-		{
-			throw new UnsupportedOperationException("Mock Method: Not Implemented");
-		}
-		
-	}
-	
 	private static BoardIO mockBoardIO = null;
 	private static Matrix2<Object> mockMatrix = null;
 	private static MobilityBoard<Object> mockMobilityBoard = null;
 	private static RandomGenerator<Object> mockRandomGenerator = null;
 	private static BoardInitializable<Object> mockBoardInitializable = null;
-	private static CompositeBoard<Object> mockCompositeBoard = null;
 
 	public BoardIO getMockBoardIO()
 	{
@@ -280,5 +167,17 @@ public class MockFactory
 	{
 		if (mockMobilityBoard == null) { mockMobilityBoard = new MockMobilityBoard<>(); }
 		return mockMobilityBoard;
+	}
+	
+	public RandomGenerator<Object> getMockRandomGenerator()
+	{
+		if (mockRandomGenerator == null) { mockRandomGenerator = new MockRandomGenerator<>(); }
+		return mockRandomGenerator;
+	}
+	
+	public BoardInitializable<Object> getMockBoardInitializable()
+	{
+		if (mockBoardInitializable == null) { mockBoardInitializable = new MockBoardInitializable<>(); }
+		return mockBoardInitializable;
 	}
 }
