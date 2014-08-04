@@ -1,8 +1,18 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.LinkedList;
+import rhsu.board.basic.implementations.StringBoard;
+import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board2.Board2IO;
 
 public class Board2IOImpl implements Board2IO
 {
+	private StringBoard boardInitializer;
+	
+	public StringBoard getBoardInitializer() { return this.boardInitializer; }
+	
 	/**
 	 * A string representing all the supported delimiters. A supported delimiter
 	 * will be automatically picked up.
@@ -27,13 +37,44 @@ public class Board2IOImpl implements Board2IO
 	}
 	
 	@Override
-	public void populateFromFile(String filename)
+	public void populateFromFile(String filename, String delimiter)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		LinkedList<String[]> fileContent = new LinkedList<>();
+		
+		try
+		{
+			BufferedReader reader = new BufferedReader(new FileReader(filename));
+			String line;
+			while ((line = reader.readLine()) != null)
+			{			
+				String[] row = line.split( "".equals(delimiter) 
+						? DetermineDelimiter(line)
+						: delimiter);
+				
+				fileContent.add(row);
+			}
+		}
+		catch (IOException exception)
+		{
+			ExceptionHandler.Handle(exception);
+		}
+		
+		this.boardInitializer = new StringBoard(fileContent.size(), fileContent.get(0).length);
+		
+		int boardCounter = 0;
+		
+		for(String[] item : fileContent)
+		{
+			for(int i = 0; i < item.length; i++)
+			{
+				boardInitializer.setValueAt(boardCounter, i, item[i].trim());
+			}
+			boardCounter++;
+		}
 	}
 
 	@Override
-	public void populateFromResource(BufferedReader reader)
+	public void populateFromResource(BufferedReader reader, String delimiter)
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
@@ -43,11 +84,4 @@ public class Board2IOImpl implements Board2IO
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
-
-	@Override
-	public void export(String filename)
-	{
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-	
 }
