@@ -8,12 +8,13 @@ import java.util.LinkedList;
 import rhsu.board.basic.implementations.StringBoard;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board2.Board2IO;
+import rhsu.board2.implementations.StringBoard2Composite;
 
 public class Board2IOImpl implements Board2IO
 {
-	private StringBoard boardInitializer;
+	private CompositeBoard<String> boardInitializer;
 	
-	public StringBoard getBoardInitializer() { return this.boardInitializer; }
+	public CompositeBoard<String> getBoardInitializer() { return this.boardInitializer; }
 	
 	/**
 	 * A string representing all the supported delimiters. A supported delimiter
@@ -61,7 +62,7 @@ public class Board2IOImpl implements Board2IO
 			ExceptionHandler.Handle(exception);
 		}
 		
-		this.boardInitializer = new StringBoard(fileContent.size(), fileContent.get(0).length);
+		this.boardInitializer = StringBoard2Composite.createStringBoard(fileContent.size(), fileContent.get(0).length);
 		
 		int boardCounter = 0;
 		
