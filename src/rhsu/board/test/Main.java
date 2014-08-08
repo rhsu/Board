@@ -1,5 +1,7 @@
 package rhsu.board.test;
 
+import rhsu.board2.Board2IO;
+import rhsu.board2.Board2IOImpl;
 import rhsu.board2.CompositeBoard;
 import rhsu.board2.implementations.BooleanBoard2Composite;
 import rhsu.board2.implementations.CharacterBoard2Composite;
@@ -16,10 +18,8 @@ public class Main
     
 	public static void main(String[] args)
 	{
-		//CompositeBoard<Character> board = CharacterBoard2Composite.createCharacterBoard(5, 5);
-		//CompositeBoard<Character> board = CharacterBoard2Composite.createCharacterRandomBoard(5, 5);
-		CompositeBoard<Boolean> board = BooleanBoard2Composite.createRandomBooleanBoard(5, 5);
-		
-		print(board);
+		Board2IOImpl test = new Board2IOImpl();
+		test.populateFromFile("test.txt", " ");
+		print(test.getBoardInitializer())	;
 	}
 }

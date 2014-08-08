@@ -1,13 +1,10 @@
 package rhsu.board2;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
-import rhsu.board.basic.implementations.StringBoard;
 import rhsu.board.exceptionHandler.ExceptionHandler;
-import rhsu.board2.Board2IO;
 import rhsu.board2.implementations.StringBoard2Composite;
 
 public class Board2IOImpl implements Board2IO
