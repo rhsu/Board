@@ -1,4 +1,4 @@
-package rhsu.board2.BoardReaders;
+package rhsu.board2.boardReaders;
 
 import java.io.BufferedReader;
 import rhsu.board2.CompositeBoard;

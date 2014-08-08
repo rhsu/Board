@@ -1,4 +1,4 @@
-package rhsu.board2.BoardReaders;
+package rhsu.board2.boardReaders;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,10 +6,12 @@ import java.io.IOException;
 import java.util.LinkedList;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board2.BoardInitializable;
+import rhsu.board2.BoardPiece2;
+import rhsu.board2.BoardPieceImpl;
 import rhsu.board2.CompositeBoard;
 import rhsu.board2.implementations.StringBoard2Composite;
 
-public abstract class AbstractBoardIO<T> implements Board2IO,
+public abstract class AbstractBoardReader<T> implements Board2IO,
 	BoardInitializable<T>
 {
 	private CompositeBoard<String> boardInitializer;
@@ -88,4 +90,28 @@ public abstract class AbstractBoardIO<T> implements Board2IO,
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
+	
+	@Override
+	public BoardPiece2[][] initializeBoard(BoardPiece2[][] boardArray)
+	{
+		int columnNumber = 0;
+
+		for (BoardPiece2<Character>[] row : boardArray)
+		{
+			for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
+			{
+				String stringValue = this.getBoardInitializer()
+					.getValueAt(rowNumber, columnNumber);
+				
+				row[rowNumber] = new BoardPieceImpl(rowNumber, 
+					columnNumber, 
+					this.convertFromString(stringValue));
+			}
+			columnNumber++;
+		}
+		
+		return boardArray;
+	}
+	
+	protected abstract T convertFromString(String string);
 }
