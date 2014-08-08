@@ -1,8 +1,9 @@
 package rhsu.board.test;
 
 import rhsu.board2.boardReaders.Board2IO;
-import rhsu.board2.boardReaders.AbstractBoardReader;
+import rhsu.board2.boardReaders.*;
 import rhsu.board2.CompositeBoard;
+import rhsu.board2.boardReaders.StringBoardReader;
 import rhsu.board2.implementations.BooleanBoard2Composite;
 import rhsu.board2.implementations.CharacterBoard2Composite;
 import rhsu.board2.implementations.IntegerBoard2Composite;
@@ -18,7 +19,7 @@ public class Main
     
 	public static void main(String[] args)
 	{
-		AbstractBoardReader test = new AbstractBoardReader();
+		AbstractBoardReader<Integer> test = new IntegerBoardReader();
 		test.populateFromFile("test.txt", " ");
 		print(test.getBoardInitializer());
 	}
