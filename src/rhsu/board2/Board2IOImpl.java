@@ -59,15 +59,15 @@ public class Board2IOImpl implements Board2IO
 			ExceptionHandler.Handle(exception);
 		}
 		
-		this.boardInitializer = StringBoard2Composite.createStringBoard(fileContent.size(), fileContent.get(0).length);
-		
+		this.boardInitializer = StringBoard2Composite.createStringBoard(fileContent.get(0).length, fileContent.size());
+				
 		int boardCounter = 0;
 		
 		for(String[] item : fileContent)
 		{
 			for(int i = 0; i < item.length; i++)
 			{
-				boardInitializer.setValueAt(boardCounter, i, item[i].trim());
+				boardInitializer.setValueAt(i, boardCounter, item[i].trim());
 			}
 			boardCounter++;
 		}
