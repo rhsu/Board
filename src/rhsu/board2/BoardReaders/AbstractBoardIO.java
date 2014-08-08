@@ -1,16 +1,20 @@
-package rhsu.board2;
+package rhsu.board2.BoardReaders;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board2.BoardInitializable;
+import rhsu.board2.CompositeBoard;
 import rhsu.board2.implementations.StringBoard2Composite;
 
-public class Board2IOImpl implements Board2IO
+public abstract class AbstractBoardIO<T> implements Board2IO,
+	BoardInitializable<T>
 {
 	private CompositeBoard<String> boardInitializer;
 	
+	@Override
 	public CompositeBoard<String> getBoardInitializer() { return this.boardInitializer; }
 	
 	/**
