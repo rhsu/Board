@@ -14,7 +14,7 @@ public class BigIntegerBoard2Composite
 		int verticalSize,
 		BigInteger defaultValue)
 	{
-		return new BoardBuilder()
+		return new BoardBuilder<BigInteger>()
 			.setVerticalSize(verticalSize)
 			.setHorizontalSize(horizontalSize)
 			.setDefaulValue(defaultValue)
