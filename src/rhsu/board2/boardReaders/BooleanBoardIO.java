@@ -1,6 +1,6 @@
 package rhsu.board2.boardReaders;
 
-public class BooleanBoardReader extends AbstractBoardReader<Boolean>
+public class BooleanBoardIO extends AbstractBoardIO<Boolean>
 {
 	@Override
 	protected Boolean convertFromString(String string)

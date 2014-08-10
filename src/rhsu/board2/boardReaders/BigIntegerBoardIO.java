@@ -2,7 +2,7 @@ package rhsu.board2.boardReaders;
 
 import java.math.BigInteger;
 
-public class BigIntegerBoardReader extends AbstractBoardReader<BigInteger>
+public class BigIntegerBoardIO extends AbstractBoardIO<BigInteger>
 {
 
 	@Override

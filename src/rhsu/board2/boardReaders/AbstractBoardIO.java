@@ -11,7 +11,7 @@ import rhsu.board2.BoardPieceImpl;
 import rhsu.board2.CompositeBoard;
 import rhsu.board2.implementations.StringBoard2Composite;
 
-public abstract class AbstractBoardReader<T> implements Board2IO,
+public abstract class AbstractBoardIO<T> implements Board2IO,
 	BoardInitializable<T>
 {
 	private CompositeBoard<String> boardInitializer;

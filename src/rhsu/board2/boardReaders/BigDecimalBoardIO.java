@@ -2,7 +2,7 @@ package rhsu.board2.boardReaders;
 
 import java.math.BigDecimal;
 
-public class BigDecimalBoardReader extends AbstractBoardReader<BigDecimal>
+public class BigDecimalBoardIO extends AbstractBoardIO<BigDecimal>
 {
 	@Override
 	protected BigDecimal convertFromString(String string)

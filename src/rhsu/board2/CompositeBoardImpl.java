@@ -3,14 +3,14 @@ package rhsu.board2;
 import java.util.Arrays;
 import java.util.Objects;
 import rhsu.board.Direction;
-import rhsu.board.io.BoardIO;
+import rhsu.board2.boardReaders.Board2IO;
 
 public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	BoardInitializable
 {
 	static final Object DEFAULT_VALUE = new Object();
 	
-	private final BoardIO boardIO;
+	private final Board2IO boardIO;
 	private final Matrix2<T>matrix;
 	private final MobilityBoard<T> mobilityBoard;
 	private final RandomGenerator<T> randomGenerator;
@@ -27,7 +27,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	//</editor-fold>
 	
 	@Override
-	public BoardIO getBoardIO() { return this.boardIO; }
+	public Board2IO getBoardIO() { return this.boardIO; }
 
 	@Override
 	public Matrix2<T> getMatrix() { return this.matrix; }
@@ -41,7 +41,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	public CompositeBoardImpl(
 		Integer horizontalSize,
 		Integer verticalSize,
-		BoardIO boardIO,
+		Board2IO boardIO,
 		Matrix2<T> matrix,
 		MobilityBoard<T> mobilityBoard,
 		RandomGenerator<T> randomGenerator,

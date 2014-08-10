@@ -1,6 +1,6 @@
 package rhsu.board2.boardReaders;
 
-public class DoubleBoardReader extends AbstractBoardReader<Double>
+public class DoubleBoardReader extends AbstractBoardIO<Double>
 {
 	@Override
 	protected Double convertFromString(String string)

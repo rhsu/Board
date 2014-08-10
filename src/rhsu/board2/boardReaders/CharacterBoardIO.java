@@ -1,6 +1,6 @@
 package rhsu.board2.boardReaders;
 
-public class CharacterBoardReader extends AbstractBoardReader<Character>
+public class CharacterBoardIO extends AbstractBoardIO<Character>
 {
 	@Override
 	protected Character convertFromString(String string)
