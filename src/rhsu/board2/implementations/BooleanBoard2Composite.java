@@ -13,7 +13,7 @@ public class BooleanBoard2Composite
 		int verticalSize,
 		Boolean defaultValue)
 	{
-		return new BoardBuilder()
+		return new BoardBuilder<Boolean>()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
 			.setDefaulValue(DEFAULT_VALUE)
@@ -29,7 +29,7 @@ public class BooleanBoard2Composite
 	{
 		AbstractRandomGenerator<Boolean> randomGenerator = new BooleanRandomGenerator();
 		
-		return new BoardBuilder()
+		return new BoardBuilder<Boolean>()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
 			.setRandomGenerator(randomGenerator)

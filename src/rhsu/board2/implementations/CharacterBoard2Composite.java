@@ -13,7 +13,7 @@ public class CharacterBoard2Composite
 		int verticalSize,
 		Character defaultValue)
 	{
-		return new BoardBuilder()
+		return new BoardBuilder<Character>()
 			.setDefaulValue(defaultValue)
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
@@ -29,7 +29,8 @@ public class CharacterBoard2Composite
 		int verticalSize)
 	{		
 		AbstractRandomGenerator<Character> randomGenerator = new CharacterRandomGenerator();
-		return new BoardBuilder()
+		
+		return new BoardBuilder<Character>()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
 			.setRandomGenerator(new CharacterRandomGenerator())
