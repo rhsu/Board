@@ -30,7 +30,7 @@ public class CompositeBoardFactory<T>
 			.createBoard();
 	}
 		
-	public CompositeBoard<T> createBigDecimalRandomBoard(int horizontalSize,
+	public CompositeBoard<T> createRandomBoard(int horizontalSize,
 		int verticalSize)
 	{	
 		return new BoardBuilder<T>()
@@ -43,11 +43,13 @@ public class CompositeBoardFactory<T>
 	
 	public CompositeBoard<T> createBoardFromFile(String filename)
 	{
+		this.boardIO.populateFromFile(filename, " ");
+		
 		return new BoardBuilder<T>()
-			.setHorizontalSize(boardIO.getBoardInitializer().getHorizontalSize())
-			.setVerticalSize(boardIO.getBoardInitializer().getVerticalSize())
-			.setBoardIO(boardIO)
-			.setBoardInitializable(boardIO)
+			.setHorizontalSize(this.boardIO.getBoardInitializer().getHorizontalSize())
+			.setVerticalSize(this.boardIO.getBoardInitializer().getVerticalSize())
+			.setBoardIO(this.boardIO)
+			.setBoardInitializable(this.boardIO)
 			.createBoard();
 	}
 }

@@ -9,7 +9,7 @@ import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
 import rhsu.board2.CompositeBoard;
-import rhsu.board2.implementations.StringBoard2Composite;
+import rhsu.board2.implementations.factories.CompositeBoardClients;
 
 public abstract class AbstractBoardIO<T> implements Board2IO,
 	BoardInitializable<T>
@@ -18,16 +18,6 @@ public abstract class AbstractBoardIO<T> implements Board2IO,
 	
 	@Override
 	public CompositeBoard<String> getBoardInitializer() { return this.boardInitializer; }
-	
-	public AbstractBoardIO(String filename)
-	{
-		this.doPopulateFromFile(filename);
-	}
-	
-	private void doPopulateFromFile(String filename)
-	{
-		this.populateFromFile(filename, " ");
-	}
 	
 	/**
 	 * A string representing all the supported delimiters. A supported delimiter
@@ -75,8 +65,10 @@ public abstract class AbstractBoardIO<T> implements Board2IO,
 			ExceptionHandler.Handle(exception);
 		}
 		
-		this.boardInitializer = StringBoard2Composite.createStringBoard(fileContent.get(0).length, fileContent.size());
-				
+		this.boardInitializer = CompositeBoardClients
+			.GetStringBoardClient("")
+			.createBoard(fileContent.get(0).length, fileContent.size());
+		
 		int boardCounter = 0;
 		
 		for(String[] item : fileContent)

@@ -3,7 +3,7 @@ package rhsu.board2.matrices;
 import java.math.BigDecimal;
 import rhsu.board.basic.AbstractBasicMatrix;
 import rhsu.board2.CompositeBoard;
-import rhsu.board2.implementations.BigDecimalBoard2Composite;
+import rhsu.board2.implementations.factories.CompositeBoardClients;
 
 public class BigDecimalMatrix extends AbstractMatrix2
 {
@@ -17,9 +17,13 @@ public class BigDecimalMatrix extends AbstractMatrix2
 	{
 		super.CheckDimensions(AbstractBasicMatrix.OperationType.ADD, matrix);
 
-		CompositeBoard<BigDecimal> result = BigDecimalBoard2Composite.createBigDecimalBoard(
-			this.horizontalSize, this.verticalSize);
+		//CompositeBoard<BigDecimal> result = BigDecimalBoard2Composite.createBigDecimalBoard(
+		//	this.horizontalSize, this.verticalSize);
 
+		CompositeBoard<BigDecimal> result = CompositeBoardClients
+			.GetBigDecimalBoardClient(BigDecimal.ZERO)
+			.createBoard(this.horizontalSize, this.verticalSize);
+		
 		for(int i = 0; i < horizontalSize; i++)
 		{
 			for(int j = 0; j < verticalSize; j++)
