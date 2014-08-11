@@ -5,13 +5,13 @@ import rhsu.board2.CompositeBoard;
 import rhsu.board2.boardReaders.AbstractBoardIO;
 import rhsu.board2.randomGenerators.AbstractRandomGenerator;
 
-public class CompositeBoardFactory<T>
+public class BoardFactory<T>
 {
 	private final T defaultValue;
 	private final AbstractRandomGenerator<T> randomGenerator; 
 	private final AbstractBoardIO<T> boardIO;
 	
-	public CompositeBoardFactory(T defaultValue, 
+	public BoardFactory(T defaultValue, 
 		AbstractRandomGenerator<T> randomGenerator,
 		AbstractBoardIO<T> boardIO)
 	{

@@ -9,7 +9,7 @@ import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
 import rhsu.board2.CompositeBoard;
-import rhsu.board2.implementations.factories.CompositeBoardClients;
+import rhsu.board2.implementations.factories.BoardClients;
 
 public abstract class AbstractBoardIO<T> implements Board2IO,
 	BoardInitializable<T>
@@ -65,8 +65,8 @@ public abstract class AbstractBoardIO<T> implements Board2IO,
 			ExceptionHandler.Handle(exception);
 		}
 		
-		this.boardInitializer = CompositeBoardClients
-			.GetStringBoardClient()
+		this.boardInitializer = BoardClients
+			.GetStringBoardFactory()
 			.createBoard(fileContent.get(0).length, fileContent.size());
 		
 		int boardCounter = 0;
