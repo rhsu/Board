@@ -6,5 +6,5 @@ public class IntegerBoardIO extends AbstractBoardIO<Integer>
 	protected Integer convertFromString(String string)
 	{
 		return Integer.valueOf(string);
-	}	
+	}
 }
