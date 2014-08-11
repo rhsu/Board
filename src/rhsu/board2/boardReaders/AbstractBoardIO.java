@@ -9,7 +9,7 @@ import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
 import rhsu.board2.CompositeBoard;
-import rhsu.board2.implementations.StringBoard2Composite;
+import rhsu.board2.implementations.factories.BoardClients;
 
 public abstract class AbstractBoardIO<T> implements Board2IO,
 	BoardInitializable<T>
@@ -65,15 +65,17 @@ public abstract class AbstractBoardIO<T> implements Board2IO,
 			ExceptionHandler.Handle(exception);
 		}
 		
-		this.boardInitializer = StringBoard2Composite.createStringBoard(fileContent.get(0).length, fileContent.size());
-				
+		this.boardInitializer = BoardClients
+			.GetStringBoardFactory()
+			.createBoard(fileContent.get(0).length, fileContent.size());
+		
 		int boardCounter = 0;
 		
 		for(String[] item : fileContent)
 		{
 			for(int i = 0; i < item.length; i++)
 			{
-				boardInitializer.setValueAt(i, boardCounter, item[i].trim());
+				this.boardInitializer.setValueAt(i, boardCounter, item[i].trim());
 			}
 			boardCounter++;
 		}
