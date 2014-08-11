@@ -1,4 +1,6 @@
-package rhsu.board2;
+package rhsu.board2.matrices;
+
+import rhsu.board2.CompositeBoard;
 
 public interface Matrix2<T>
 {	

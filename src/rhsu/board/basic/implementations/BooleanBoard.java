@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.util.Random;
 import rhsu.board.basic.AbstractBasicBoard;
 import rhsu.board.basic.BasicBoardPiece;
-import rhsu.board2.RandomGenerator;
+import rhsu.board2.randomGenerators.RandomGenerator;
 
 /**
  * A boolean implementation

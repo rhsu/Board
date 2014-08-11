@@ -4,7 +4,6 @@ import java.math.BigInteger;
 
 public class BigIntegerBoardIO extends AbstractBoardIO<BigInteger>
 {
-
 	@Override
 	protected BigInteger convertFromString(String string)
 	{

@@ -2,7 +2,7 @@ package rhsu.board.test;
 
 import rhsu.board2.*;
 import rhsu.board2.boardReaders.*;
-import rhsu.board2.implementations.*;
+import rhsu.board2.implementations.factories.BoardClients;
 
 public class Main
 {	
@@ -14,17 +14,11 @@ public class Main
     }
     
 	public static void main(String[] args)
-	{		
-		AbstractBoardIO<Integer> boardIO = new IntegerBoardIO();
-		boardIO.populateFromFile("test.txt", " ");
+	{				
+		CompositeBoard<String> test2 = BoardClients
+			.GetStringBoardFactory()
+			.createBoardFromFile("test.txt");
 		
-		CompositeBoard<Integer> test = new BoardBuilder<Integer>()
-			.setHorizontalSize(3)
-			.setVerticalSize(3)
-			.setBoardIO(boardIO)
-			.setBoardInitializable(boardIO)
-			.createBoard();
-		
-		print(test);
+		print(test2);
 	}
 }
