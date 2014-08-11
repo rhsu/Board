@@ -1,6 +1,7 @@
-package rhsu.board2;
+package rhsu.board2.matrices;
 
 import rhsu.board.basic.AbstractBasicMatrix.OperationType;
+import rhsu.board2.CompositeBoard;
 
 public abstract class AbstractMatrix2<T> implements Matrix2<T>
 {
