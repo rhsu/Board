@@ -13,7 +13,7 @@ public class IntegerBoard2Composite
 		int verticalSize,
 		Integer defaultValue)
 	{
-		return new BoardBuilder()
+		return new BoardBuilder<Integer>()
 			.setVerticalSize(verticalSize)
 			.setHorizontalSize(horizontalSize)
 			.setDefaulValue(defaultValue)
@@ -30,7 +30,7 @@ public class IntegerBoard2Composite
 	{		
 		AbstractRandomGenerator<Integer> randomGenerator = new IntegerRandomGenerator();
 		
-		return new BoardBuilder()
+		return new BoardBuilder<Integer>()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
 			.setRandomGenerator(randomGenerator)

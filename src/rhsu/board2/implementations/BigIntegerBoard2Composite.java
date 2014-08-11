@@ -14,7 +14,7 @@ public class BigIntegerBoard2Composite
 		int verticalSize,
 		BigInteger defaultValue)
 	{
-		return new BoardBuilder()
+		return new BoardBuilder<BigInteger>()
 			.setVerticalSize(verticalSize)
 			.setHorizontalSize(horizontalSize)
 			.setDefaulValue(defaultValue)
@@ -31,7 +31,7 @@ public class BigIntegerBoard2Composite
 	{		
 		AbstractRandomGenerator<BigInteger> randomGenerator = new BigIntegerRandomGenerator();
 		
-		return new BoardBuilder()
+		return new BoardBuilder<BigInteger>()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
 			.setRandomGenerator(randomGenerator)
