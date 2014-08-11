@@ -15,7 +15,7 @@ public class BigDecimalBoard2Composite
 		int verticalSize,
 		BigDecimal defaultValue)
 	{	
-		return new BoardBuilder()
+		return new BoardBuilder<BigDecimal>()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
 			.setDefaulValue(defaultValue)
@@ -30,9 +30,9 @@ public class BigDecimalBoard2Composite
 	public static CompositeBoard<BigDecimal> createBigDecimalRandomBoard(int horizontalSize,
 		int verticalSize)
 	{	
-		AbstractRandomGenerator randomGenerator = new BigDecimalRandomGenerator();
+		AbstractRandomGenerator<BigDecimal> randomGenerator = new BigDecimalRandomGenerator();
 		
-		return new BoardBuilder()
+		return new BoardBuilder<BigDecimal>()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
 			.setRandomGenerator(randomGenerator)
