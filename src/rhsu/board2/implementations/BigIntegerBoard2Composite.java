@@ -31,7 +31,7 @@ public class BigIntegerBoard2Composite
 	{		
 		AbstractRandomGenerator<BigInteger> randomGenerator = new BigIntegerRandomGenerator();
 		
-		return new BoardBuilder()
+		return new BoardBuilder<BigInteger>()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
 			.setRandomGenerator(randomGenerator)
