@@ -13,7 +13,7 @@ public class StringBoard2Composite
 		int verticalSize,
 		String defaultValue)
 	{
-		return new BoardBuilder()
+		return new BoardBuilder<String>()
 			.setVerticalSize(verticalSize)
 			.setHorizontalSize(horizontalSize)
 			.setDefaulValue(defaultValue)
@@ -30,7 +30,7 @@ public class StringBoard2Composite
 	{		
 		AbstractRandomGenerator<String> randomGenerator = new StringRandomGenerator();
 		
-		return new BoardBuilder()
+		return new BoardBuilder<String>()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
 			.setRandomGenerator(randomGenerator)

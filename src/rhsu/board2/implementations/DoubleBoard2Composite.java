@@ -13,7 +13,7 @@ public class DoubleBoard2Composite
 		int verticalSize,
 		Double defaultValue)
 	{
-		return new BoardBuilder()
+		return new BoardBuilder<Double>()
 			.setVerticalSize(verticalSize)
 			.setHorizontalSize(horizontalSize)
 			.setDefaulValue(defaultValue)
@@ -30,7 +30,7 @@ public class DoubleBoard2Composite
 	{		
 		AbstractRandomGenerator<Double> randomGenerator = new DoubleRandomGenerator(); 
 		
-		return new BoardBuilder()
+		return new BoardBuilder<Double>()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
 			.setRandomGenerator(randomGenerator)
