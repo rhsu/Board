@@ -1,11 +1,11 @@
 package rhsu.board2;
 
 import rhsu.board.Direction;
-import rhsu.board.io.BoardIO;
+import rhsu.board2.boardReaders.Board2IO;
 
 public interface CompositeBoard<T>
 {
-	public BoardIO getBoardIO();
+	public Board2IO getBoardIO();
 	public Matrix2<T> getMatrix();
 	public MobilityBoard<T> getMobilityBoard();
 	public RandomGenerator<T> getRandomGenerator();

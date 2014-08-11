@@ -1,10 +1,10 @@
 package rhsu.board2;
 
-import rhsu.board.io.BoardIO;
+import rhsu.board2.boardReaders.Board2IO;
 
 public class BoardBuilder<T>
 {
-	private BoardIO boardIO = null;
+	private Board2IO boardIO = null;
 	private Matrix2<T> matrix = null;
 	private MobilityBoard<T> mobilityBoard = null;
 	private RandomGenerator<T> randomGenerator = null;
@@ -13,7 +13,7 @@ public class BoardBuilder<T>
 	private T defaultValue = null;
 	private BoardInitializable<T> boardInitializer = null;
 	
-	public BoardBuilder<T> setBoardIO(BoardIO boardIO)
+	public BoardBuilder<T> setBoardIO(Board2IO boardIO)
 	{
 		this.boardIO = boardIO;
 		return this;
