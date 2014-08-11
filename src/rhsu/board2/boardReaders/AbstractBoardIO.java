@@ -66,7 +66,7 @@ public abstract class AbstractBoardIO<T> implements Board2IO,
 		}
 		
 		this.boardInitializer = CompositeBoardClients
-			.GetStringBoardClient("")
+			.GetStringBoardClient()
 			.createBoard(fileContent.get(0).length, fileContent.size());
 		
 		int boardCounter = 0;

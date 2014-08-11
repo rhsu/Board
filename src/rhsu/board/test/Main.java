@@ -16,7 +16,7 @@ public class Main
 	public static void main(String[] args)
 	{				
 		CompositeBoard<String> test2 = CompositeBoardClients
-			.GetStringBoardClient("")
+			.GetStringBoardClient()
 			.createBoardFromFile("test.txt");
 		
 		print(test2);

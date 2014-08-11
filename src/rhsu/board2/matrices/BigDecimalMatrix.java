@@ -17,11 +17,8 @@ public class BigDecimalMatrix extends AbstractMatrix2
 	{
 		super.CheckDimensions(AbstractBasicMatrix.OperationType.ADD, matrix);
 
-		//CompositeBoard<BigDecimal> result = BigDecimalBoard2Composite.createBigDecimalBoard(
-		//	this.horizontalSize, this.verticalSize);
-
 		CompositeBoard<BigDecimal> result = CompositeBoardClients
-			.GetBigDecimalBoardClient(BigDecimal.ZERO)
+			.GetBigDecimalBoardClient()
 			.createBoard(this.horizontalSize, this.verticalSize);
 		
 		for(int i = 0; i < horizontalSize; i++)
