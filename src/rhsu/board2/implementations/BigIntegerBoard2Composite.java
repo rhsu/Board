@@ -3,6 +3,8 @@ package rhsu.board2.implementations;
 import java.math.BigInteger;
 import rhsu.board2.BoardBuilder;
 import rhsu.board2.CompositeBoard;
+import rhsu.board2.boardReaders.AbstractBoardIO;
+import rhsu.board2.boardReaders.BigIntegerBoardIO;
 import rhsu.board2.randomGenerators.AbstractRandomGenerator;
 import rhsu.board2.randomGenerators.BigIntegerRandomGenerator;
 
@@ -36,6 +38,18 @@ public class BigIntegerBoard2Composite
 			.setVerticalSize(verticalSize)
 			.setRandomGenerator(randomGenerator)
 			.setBoardInitializable(randomGenerator)
+			.createBoard();
+	}
+	
+	public static CompositeBoard<BigInteger> createBigIntegerBoardFromFile(String filename)
+	{
+		AbstractBoardIO<BigInteger> stringBoardIO = new BigIntegerBoardIO(filename);
+		
+		return new BoardBuilder<BigInteger>()
+			.setHorizontalSize(stringBoardIO.getBoardInitializer().getHorizontalSize())
+			.setVerticalSize(stringBoardIO.getBoardInitializer().getVerticalSize())
+			.setBoardIO(stringBoardIO)
+			.setBoardInitializable(stringBoardIO)
 			.createBoard();
 	}
 }

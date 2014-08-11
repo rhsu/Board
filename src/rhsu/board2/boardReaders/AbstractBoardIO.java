@@ -19,6 +19,16 @@ public abstract class AbstractBoardIO<T> implements Board2IO,
 	@Override
 	public CompositeBoard<String> getBoardInitializer() { return this.boardInitializer; }
 	
+	public AbstractBoardIO(String filename)
+	{
+		this.doPopulateFromFile(filename);
+	}
+	
+	private void doPopulateFromFile(String filename)
+	{
+		this.populateFromFile(filename, " ");
+	}
+	
 	/**
 	 * A string representing all the supported delimiters. A supported delimiter
 	 * will be automatically picked up.
@@ -73,7 +83,7 @@ public abstract class AbstractBoardIO<T> implements Board2IO,
 		{
 			for(int i = 0; i < item.length; i++)
 			{
-				boardInitializer.setValueAt(i, boardCounter, item[i].trim());
+				this.boardInitializer.setValueAt(i, boardCounter, item[i].trim());
 			}
 			boardCounter++;
 		}

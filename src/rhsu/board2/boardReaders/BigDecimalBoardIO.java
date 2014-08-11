@@ -4,6 +4,11 @@ import java.math.BigDecimal;
 
 public class BigDecimalBoardIO extends AbstractBoardIO<BigDecimal>
 {
+	public BigDecimalBoardIO(String filename)
+	{
+		super(filename);
+	}
+	
 	@Override
 	protected BigDecimal convertFromString(String string)
 	{

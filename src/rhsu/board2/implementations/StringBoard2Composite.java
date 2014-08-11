@@ -42,8 +42,7 @@ public class StringBoard2Composite
 	
 	public static CompositeBoard<String> createStringBoardFromFile(String filename)
 	{
-		AbstractBoardIO<String> stringBoardIO = new StringBoardIO();
-		stringBoardIO.populateFromFile(filename, " ");
+		AbstractBoardIO<String> stringBoardIO = new StringBoardIO(filename);
 		
 		return new BoardBuilder<String>()
 			.setHorizontalSize(stringBoardIO.getBoardInitializer().getHorizontalSize())

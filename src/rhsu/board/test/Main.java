@@ -14,17 +14,7 @@ public class Main
     }
     
 	public static void main(String[] args)
-	{		
-		AbstractBoardIO<Integer> boardIO = new IntegerBoardIO();
-		boardIO.populateFromFile("test.txt", " ");
-		
-		CompositeBoard<Integer> test = new BoardBuilder<Integer>()
-			.setHorizontalSize(3)
-			.setVerticalSize(3)
-			.setBoardIO(boardIO)
-			.setBoardInitializable(boardIO)
-			.createBoard();
-		
+	{				
 		CompositeBoard<String> test2 = StringBoard2Composite.createStringBoardFromFile("test.txt");
 		
 		print(test2);
