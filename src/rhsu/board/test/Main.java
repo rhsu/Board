@@ -25,6 +25,8 @@ public class Main
 			.setBoardInitializable(boardIO)
 			.createBoard();
 		
-		print(test);
+		CompositeBoard<String> test2 = StringBoard2Composite.createStringBoardFromFile("test.txt");
+		
+		print(test2);
 	}
 }

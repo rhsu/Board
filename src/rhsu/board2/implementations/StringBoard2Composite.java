@@ -2,6 +2,8 @@ package rhsu.board2.implementations;
 
 import rhsu.board2.BoardBuilder;
 import rhsu.board2.CompositeBoard;
+import rhsu.board2.boardReaders.AbstractBoardIO;
+import rhsu.board2.boardReaders.StringBoardIO;
 import rhsu.board2.randomGenerators.AbstractRandomGenerator;
 import rhsu.board2.randomGenerators.StringRandomGenerator;
 
@@ -35,6 +37,19 @@ public class StringBoard2Composite
 			.setVerticalSize(verticalSize)
 			.setRandomGenerator(randomGenerator)
 			.setBoardInitializable(randomGenerator)
+			.createBoard();
+	}
+	
+	public static CompositeBoard<String> createStringBoardFromFile(String filename)
+	{
+		AbstractBoardIO<String> stringBoardIO = new StringBoardIO();
+		stringBoardIO.populateFromFile(filename, " ");
+		
+		return new BoardBuilder<String>()
+			.setHorizontalSize(stringBoardIO.getBoardInitializer().getHorizontalSize())
+			.setVerticalSize(stringBoardIO.getBoardInitializer().getVerticalSize())
+			.setBoardIO(stringBoardIO)
+			.setBoardInitializable(stringBoardIO)
 			.createBoard();
 	}
 }
