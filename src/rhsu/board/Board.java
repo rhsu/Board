@@ -1,6 +1,6 @@
 package rhsu.board;
 
-import rhsu.board2.RandomGenerator;
+import rhsu.board2.randomGenerators.RandomGenerator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;

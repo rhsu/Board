@@ -3,7 +3,6 @@ package rhsu.board2.randomGenerators;
 import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
-import rhsu.board2.RandomGenerator;
 
 public abstract class AbstractRandomGenerator<T> implements RandomGenerator<T>,
 	BoardInitializable<T>
