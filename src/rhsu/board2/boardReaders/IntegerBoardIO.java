@@ -1,6 +1,6 @@
 package rhsu.board2.boardReaders;
 
-public class IntegerBoardReader extends AbstractBoardIO<Integer>
+public class IntegerBoardIO extends AbstractBoardIO<Integer>
 {
 	@Override
 	protected Integer convertFromString(String string)
