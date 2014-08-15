@@ -68,10 +68,10 @@ public abstract class AbstractBoardIO<T> implements Board2IO,
 			ExceptionHandler.Handle(exception);
 		}
 		
-		this.boardInitializer = BoardClients
+		this.boardInitializer = new BoardClients()
 			.GetStringBoardFactory()
 			.createBoard(fileContent.get(0).length, fileContent.size());
-		
+			
 		int boardCounter = 0;
 		
 		for(String[] item : fileContent)
