@@ -1,7 +1,10 @@
 package rhsu.board2.boardReaders;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedList;
 import rhsu.board.exceptionHandler.ExceptionHandler;
@@ -90,7 +93,32 @@ public abstract class AbstractBoardIO<T> implements Board2IO,
 	@Override
 	public void export(String filename, char delimiter)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		String output = this.getBoardOutputString();
+		
+		try
+		{
+			File file = new File(filename);
+ 
+			if (!file.exists()) 
+			{
+				file.createNewFile();
+			}
+			
+			FileWriter fw = new FileWriter(file.getAbsoluteFile());
+			
+			try (BufferedWriter bw = new BufferedWriter(fw))
+			{
+				bw.write(output);
+			}
+ 
+			System.out.println("Done creating file: " + filename);
+			
+		}
+		catch (IOException exception)
+		{
+			System.out.println(exception);
+			System.exit(1);
+		}
 	}
 	
 	@Override
@@ -116,4 +144,19 @@ public abstract class AbstractBoardIO<T> implements Board2IO,
 	}
 	
 	protected abstract T convertFromString(String string);
+	
+	private String getBoardOutputString()
+	{
+		StringBuilder builder = new StringBuilder();
+		
+		for (int i = 0; i < this.boardInitializer.getHorizontalSize(); i++)
+		{
+			for (int j = 0; j < this.boardInitializer.getVerticalSize(); j++)
+			{
+				builder.append(this.boardInitializer.getPieceAt(i, j).toString()).append(" ");
+			}
+			builder.append("\n");
+		}
+		return builder.toString().trim();
+	}
 }
