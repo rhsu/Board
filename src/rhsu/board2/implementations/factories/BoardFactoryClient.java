@@ -1,17 +1,11 @@
 package rhsu.board2.implementations.factories;
 
-import rhsu.board2.boardIO.CharacterBoardIO;
-import rhsu.board2.boardIO.DoubleBoardIO;
-import rhsu.board2.boardIO.IntegerBoardIO;
-import rhsu.board2.boardIO.BigDecimalBoardIO;
-import rhsu.board2.boardIO.BigIntegerBoardIO;
-import rhsu.board2.boardIO.StringBoardIO;
-import rhsu.board2.boardIO.BooleanBoardIO;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import rhsu.board2.boardIO.AbstractBoardIOFactory;
 import rhsu.board2.randomGenerators.*;
 
-public class BoardClients
+public class BoardFactoryClient
 {
 	static final BigDecimal DEFAULT_BIG_DECIMAL = BigDecimal.ZERO;
 	static final BigInteger DEFAULT_BIG_INTEGER = BigInteger.ZERO;
@@ -22,17 +16,19 @@ public class BoardClients
 	static final String DEFAULT_STRING = "++";
 	
 	private final AbstractRandomGeneratorFactory abstractRandomGeneratorFactory;
+	private final AbstractBoardIOFactory abstractBoardIOFactory;
 	
-	public BoardClients()
+	public BoardFactoryClient()
 	{
 		abstractRandomGeneratorFactory = new AbstractRandomGeneratorFactory();
+		abstractBoardIOFactory = new AbstractBoardIOFactory();
 	}
 	
 	public BoardFactory<BigDecimal> GetBigDecimalBoardFactory(BigDecimal defaultValue)
 	{		
 		return new BoardFactory<>(defaultValue, 
 			abstractRandomGeneratorFactory.getBigDecimalRandomGenerator(), 
-			new BigDecimalBoardIO());
+			abstractBoardIOFactory.getBigDecimalBoardIO());
 	}
 	
 	public BoardFactory<BigDecimal> GetBigDecimalBoardFactory()
@@ -44,7 +40,7 @@ public class BoardClients
 	{		
 		return new BoardFactory<>(defaultValue, 
 			abstractRandomGeneratorFactory.getBigIntegerRandomGenerator(),
-			new BigIntegerBoardIO());
+			abstractBoardIOFactory.getBigIntegerBoardIO());
 	}
 	
 	public BoardFactory<BigInteger> GetBigIntegerBoardFactory()
@@ -56,7 +52,7 @@ public class BoardClients
 	{		
 		return new BoardFactory<>(defaultValue, 
 			abstractRandomGeneratorFactory.getBooleanRandomGenerator(), 
-			new BooleanBoardIO());
+			abstractBoardIOFactory.getBooleanBoardIO());
 	}
 	
 	public BoardFactory<Boolean> GetBooleanBoardFactory()
@@ -68,7 +64,7 @@ public class BoardClients
 	{
 		return new BoardFactory<>(defaultValue, 
 			abstractRandomGeneratorFactory.getCharacterRandomGenerator(),
-			new CharacterBoardIO());
+			abstractBoardIOFactory.getCharacterBoardIO());
 	}
 	
 	public BoardFactory<Character> GetCharacterBoardFactory()
@@ -80,7 +76,7 @@ public class BoardClients
 	{		
 		return new BoardFactory<>(defaultValue, 
 			abstractRandomGeneratorFactory.getDoubleRandomGenerator(),
-			new DoubleBoardIO());
+			abstractBoardIOFactory.getDoubleBoardIO());
 	}
 	
 	public BoardFactory<Double> GetDoubleBoardFactory()
@@ -92,7 +88,7 @@ public class BoardClients
 	{
 		return new BoardFactory<>(defaultValue,
 			abstractRandomGeneratorFactory.getIntegerRandomGenerator(),
-			new IntegerBoardIO());
+			abstractBoardIOFactory.getIntegerBoardIO());
 	}
 	
 	public BoardFactory<Integer> GetIntegerBoardFactory()
@@ -104,7 +100,7 @@ public class BoardClients
 	{
 		return new BoardFactory<>(defaultValue,
 			abstractRandomGeneratorFactory.getStringRandomGenerator(),
-			new StringBoardIO());
+			abstractBoardIOFactory.getStringBoardIO());
 	}
 	
 	public BoardFactory<String> GetStringBoardFactory()

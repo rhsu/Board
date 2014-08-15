@@ -3,7 +3,7 @@ package rhsu.board2.boardIO;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class AbstracBoardIOFactory
+public class AbstractBoardIOFactory
 {
 	public AbstractBoardIO<BigDecimal> getBigDecimalBoardIO()
 	{		
