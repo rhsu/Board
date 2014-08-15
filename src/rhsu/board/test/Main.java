@@ -1,7 +1,6 @@
 package rhsu.board.test;
 
 import rhsu.board2.*;
-import rhsu.board2.boardReaders.*;
 import rhsu.board2.implementations.factories.BoardClients;
 
 public class Main

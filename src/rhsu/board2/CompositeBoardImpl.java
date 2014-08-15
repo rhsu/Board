@@ -5,7 +5,7 @@ import rhsu.board2.matrices.Matrix2;
 import java.util.Arrays;
 import java.util.Objects;
 import rhsu.board.Direction;
-import rhsu.board2.boardReaders.Board2IO;
+import rhsu.board2.boardIO.Board2IO;
 
 public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	BoardInitializable

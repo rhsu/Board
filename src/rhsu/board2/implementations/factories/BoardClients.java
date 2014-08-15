@@ -1,8 +1,14 @@
 package rhsu.board2.implementations.factories;
 
+import rhsu.board2.boardIO.CharacterBoardIO;
+import rhsu.board2.boardIO.DoubleBoardIO;
+import rhsu.board2.boardIO.IntegerBoardIO;
+import rhsu.board2.boardIO.BigDecimalBoardIO;
+import rhsu.board2.boardIO.BigIntegerBoardIO;
+import rhsu.board2.boardIO.StringBoardIO;
+import rhsu.board2.boardIO.BooleanBoardIO;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import rhsu.board2.boardReaders.*;
 import rhsu.board2.randomGenerators.*;
 
 public class BoardClients

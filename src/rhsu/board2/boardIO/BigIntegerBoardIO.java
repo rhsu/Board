@@ -1,4 +1,4 @@
-package rhsu.board2.boardReaders;
+package rhsu.board2.boardIO;
 
 import java.math.BigInteger;
 
