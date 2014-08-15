@@ -1,4 +1,4 @@
-package rhsu.board2.boardReaders;
+package rhsu.board2.boardIO;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,7 +12,7 @@ import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
 import rhsu.board2.CompositeBoard;
-import rhsu.board2.implementations.factories.BoardClients;
+import rhsu.board2.implementations.factories.BoardFactoryClient;
 
 public abstract class AbstractBoardIO<T> implements Board2IO,
 	BoardInitializable<T>
@@ -68,7 +68,7 @@ public abstract class AbstractBoardIO<T> implements Board2IO,
 			ExceptionHandler.Handle(exception);
 		}
 		
-		this.boardInitializer = new BoardClients()
+		this.boardInitializer = new BoardFactoryClient()
 			.GetStringBoardFactory()
 			.createBoard(fileContent.get(0).length, fileContent.size());
 			
