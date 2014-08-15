@@ -18,10 +18,6 @@ public class Main
 			.GetStringBoardFactory()
 			.createBoardFromFile("test.txt");
 		
-		//CompositeBoard<String> test2 BoardFactoryClientlients()
-		//	.GetStringBoardFactory()
-		//	.createBoardFromFile("test.txt");
-		
 		print(test2);
 	}
 }
