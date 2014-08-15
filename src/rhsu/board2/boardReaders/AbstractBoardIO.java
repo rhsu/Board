@@ -90,7 +90,16 @@ public abstract class AbstractBoardIO<T> implements Board2IO,
 	@Override
 	public void export(String filename, char delimiter)
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		String output = this.getBoardOutputString();
+		
+		try
+		{
+			
+		}
+		catch (Exception exception)
+		{
+			
+		}
 	}
 	
 	@Override
@@ -116,4 +125,19 @@ public abstract class AbstractBoardIO<T> implements Board2IO,
 	}
 	
 	protected abstract T convertFromString(String string);
+	
+	private String getBoardOutputString()
+	{
+		StringBuilder builder = new StringBuilder();
+		
+		for (int i = 0; i < this.boardInitializer.getHorizontalSize(); i++)
+		{
+			for (int j = 0; j < this.boardInitializer.getVerticalSize(); j++)
+			{
+				builder.append(this.boardInitializer.getPieceAt(i, j).toString()).append(" ");
+			}
+			builder.append("\n");
+		}
+		return builder.toString().trim();
+	}
 }
