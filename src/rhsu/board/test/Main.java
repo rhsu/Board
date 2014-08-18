@@ -1,6 +1,8 @@
 package rhsu.board.test;
 
 import rhsu.board2.*;
+import rhsu.board2.boardIO.AbstractBoardIO;
+import rhsu.board2.boardIO.AbstractBoardIOFactory;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
 
 public class Main
@@ -14,10 +16,15 @@ public class Main
     
 	public static void main(String[] args)
 	{	
-		CompositeBoard<String> test2 = new BoardFactoryClient()
-			.GetStringBoardFactory()
-			.createBoardFromFile("test.txt");
+		AbstractBoardIO<Integer> boardIO = new AbstractBoardIOFactory().getIntegerBoardIO();
 		
-		print(test2);
+		CompositeBoard<Integer> test = new BoardBuilder<Integer>()
+			.setHorizontalSize(5)
+			.setVerticalSize(5)
+			.setBoardIO(boardIO)
+			.setBoardInitializable(boardIO)
+			.createBoard();
+		
+		print(test);
 	}
 }
