@@ -1,4 +1,4 @@
-package rhsu.board2;
+package rhsu.board2.mobility;
 
 import rhsu.board.Board;
 import rhsu.board.BoardPiece;
