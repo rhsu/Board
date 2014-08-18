@@ -15,7 +15,7 @@ public class BoardBuilder<T>
 	private T defaultValue = null;
 	private BoardInitializable<T> boardInitializer = null;
 	
-	public BoardBuilder<T> setBoardIO(Board2IO boardIO)
+	public BoardBuilder<T> setBoardIO(Board2IO<T> boardIO)
 	{
 		this.boardIO = boardIO;
 		return this;
@@ -57,7 +57,7 @@ public class BoardBuilder<T>
 		return this;
 	}
 	
-	public BoardBuilder<T> setBoardInitializable(BoardInitializable boardInitializer)
+	public BoardBuilder<T> setBoardInitializable(BoardInitializable<T> boardInitializer)
 	{
 		this.boardInitializer = boardInitializer;
 		return this;
