@@ -23,7 +23,7 @@ public class BoardFactoryClient
 		abstractRandomGeneratorFactory = new AbstractRandomGeneratorFactory();
 		abstractBoardIOFactory = new AbstractBoardIOFactory();
 	}
-	
+
 	public BoardFactory<BigDecimal> GetBigDecimalBoardFactory(BigDecimal defaultValue)
 	{		
 		return new BoardFactory<>(defaultValue, 
