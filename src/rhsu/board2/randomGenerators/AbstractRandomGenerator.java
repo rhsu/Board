@@ -8,6 +8,18 @@ public abstract class AbstractRandomGenerator<T> implements RandomGenerator<T>,
 	BoardInitializable<T>
 {
 	@Override
+	public int getHorizontalSize()
+	{
+		throw new UnsupportedOperationException("Get Horizontal Size is not supported in AbstractRandomGenerator");
+	}
+	
+	@Override
+	public int getVerticalSize()
+	{
+		throw new UnsupportedOperationException("Get Vertical Size is not supported in AbstractRandomGenerator");
+	}
+	
+	@Override
 	public BoardPiece2<T>[][] initializeBoard(BoardPiece2<T>[][] boardArray)
 	{
 		int columnNumber = 0;
