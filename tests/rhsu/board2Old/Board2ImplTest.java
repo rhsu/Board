@@ -1,8 +1,8 @@
-package rhsu.board2;
+package rhsu.board2Old;
 
 import org.junit.*;
 import static org.junit.Assert.*;
-import rhsu.board2.factory.BoardFactory;
+import rhsu.board2Old.factory.BoardFactory;
 
 public class Board2ImplTest extends Board2Test
 {	

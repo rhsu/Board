@@ -1,8 +1,9 @@
-package rhsu.board2;;
+package rhsu.board2Old;;
 
 import org.junit.*;
+import rhsu.board2.BoardPiece2;
 import static org.junit.Assert.*;
-import rhsu.board2.factory.BoardPieceFactory;
+import rhsu.board2Old.factory.BoardPieceFactory;
 
 @Ignore
 public class BoardPiece2Test

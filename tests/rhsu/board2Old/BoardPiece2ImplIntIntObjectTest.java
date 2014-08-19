@@ -1,8 +1,8 @@
-package rhsu.board2;
+package rhsu.board2Old;
 
 import org.junit.*;
-import rhsu.board2.BoardPiece2Test;
-import rhsu.board2.factory.BoardPieceFactory;
+import rhsu.board2Old.BoardPiece2Test;
+import rhsu.board2Old.factory.BoardPieceFactory;
 
 public class BoardPiece2ImplIntIntObjectTest extends BoardPiece2Test
 {

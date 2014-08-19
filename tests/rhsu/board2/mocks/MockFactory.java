@@ -1,4 +1,4 @@
-package rhsu.board.mocks;
+package rhsu.board2.mocks;
 
 import java.io.BufferedReader;
 import rhsu.board.Board;

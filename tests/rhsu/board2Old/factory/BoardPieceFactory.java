@@ -1,4 +1,4 @@
-package rhsu.board2.factory;
+package rhsu.board2Old.factory;
 
 import rhsu.board2.BoardPieceImpl;
 

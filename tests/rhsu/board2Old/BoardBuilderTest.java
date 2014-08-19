@@ -1,8 +1,10 @@
-package rhsu.board2;
+package rhsu.board2Old;
 
 import org.junit.*;
 import static org.junit.Assert.*;
-import rhsu.board.mocks.MockFactory;
+import rhsu.board2.mocks.MockFactory;
+import rhsu.board2.BoardBuilder;
+import rhsu.board2.CompositeBoard;
 
 /**
  *

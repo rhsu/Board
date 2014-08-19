@@ -1,9 +1,9 @@
-package rhsu.board2.random.implementations;
+package rhsu.board2Old.random.implementations;
 
 import org.junit.Before;
 import org.junit.Ignore;
-import rhsu.board2.Board2Test;
-import rhsu.board2.factory.BoardFactory;
+import rhsu.board2Old.Board2Test;
+import rhsu.board2Old.factory.BoardFactory;
 
 @Ignore
 public class StringRandomBoardTest extends Board2Test

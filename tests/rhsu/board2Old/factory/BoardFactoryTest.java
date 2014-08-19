@@ -1,4 +1,4 @@
-package rhsu.board2.factory;
+package rhsu.board2Old.factory;
 
 import org.junit.*;
 import rhsu.board2.BoardImpl;

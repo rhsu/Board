@@ -1,10 +1,11 @@
-package rhsu.board2.boardCores;
+package rhsu.board2Old.boardCores;
 
 import rhsu.board2.boardCores.BooleanBoard2;
 import org.junit.*;
+import rhsu.board2.boardCores.BooleanBoard2;
 import static org.junit.Assert.*;
-import rhsu.board2.Board2ImplTest;
-import rhsu.board2.factory.BoardFactory;
+import rhsu.board2Old.Board2ImplTest;
+import rhsu.board2Old.factory.BoardFactory;
 
 public class BooleanBoard2Test extends Board2ImplTest
 {
