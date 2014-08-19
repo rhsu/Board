@@ -1,5 +1,6 @@
 package rhsu.board2;
 
+import rhsu.board2.mobility.MobilityStatus;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -10,8 +11,7 @@ public class BoardPieceImpl<T> implements BoardPiece2<T>
 	protected T value;
 	protected MobilityStatus mobilityStatus;
 	
-	//TODO: This will be done once Mobility is implemented.
-	//protected UUID uuid;
+	protected UUID uuid;
 	
 	@Override
 	public void setValue(T value) { this.value = value; }
@@ -32,28 +32,17 @@ public class BoardPieceImpl<T> implements BoardPiece2<T>
 	public void setVerticalIndex(int verticalIndex) { this.verticalIndex = verticalIndex; }
 
 	@Override
-	public MobilityStatus getMobilityStatus()
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
+	public MobilityStatus getMobilityStatus() { return this.mobilityStatus; }
 
 	@Override
-	public void setStatus(MobilityStatus status)
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
+	public void setStatus(MobilityStatus status) { this.mobilityStatus = status; }
+	
 
 	@Override
-	public void setUUID(UUID uuid)
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
+	public void setUUID(UUID uuid) { this.uuid = uuid; }
 
 	@Override
-	public UUID getUUID()
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
+	public UUID getUUID() { return this.uuid; }
 	
 	//<editor-fold desc="Constructor" defaultstate="collapsed">
 	
