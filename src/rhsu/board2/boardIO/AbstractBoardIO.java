@@ -20,6 +20,18 @@ public abstract class AbstractBoardIO<T> implements Board2IO,
 	private CompositeBoard<String> boardInitializer;
 	
 	@Override
+	public int getHorizontalSize()
+	{
+		return this.boardInitializer.getHorizontalSize();
+	}
+	
+	@Override
+	public int getVerticalSize()
+	{
+		return this.boardInitializer.getVerticalSize();
+	}
+	
+	@Override
 	public CompositeBoard<String> getBoardInitializer() { return this.boardInitializer; }
 	
 	/**

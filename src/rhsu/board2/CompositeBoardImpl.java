@@ -50,14 +50,22 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 		T defaultValue,
 		BoardInitializable<T> boardInitializer)
 	{
-		this.horizontalSize = horizontalSize;
-		this.verticalSize = verticalSize;	
+		this.horizontalSize = horizontalSize == null 
+			? boardInitializer.getHorizontalSize()
+			: horizontalSize;
+		
+		this.verticalSize = verticalSize == null
+			? boardInitializer.getVerticalSize()
+			: verticalSize;
+		
 		this.boardIO = boardIO;
 		this.matrix = matrix;
 		this.mobilityBoard = mobilityBoard;
 		this.randomGenerator = randomGenerator;
+		
 		this.defaultValue = (T) (defaultValue == null ? DEFAULT_VALUE : defaultValue);
-		this.boardArray = new BoardPieceImpl[verticalSize][horizontalSize];
+				
+		this.boardArray = new BoardPieceImpl[this.verticalSize][this.horizontalSize];
 		this.boardInitializer = boardInitializer;
 		initializeBoardArray();
 	}
