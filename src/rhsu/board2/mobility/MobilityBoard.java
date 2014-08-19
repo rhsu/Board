@@ -4,6 +4,7 @@ import java.util.UUID;
 import rhsu.board.Board;
 import rhsu.board.Direction;
 import rhsu.board2.BoardPiece2;
+import rhsu.board2.CompositeBoard;
 
 public interface MobilityBoard<T>
 {
@@ -24,7 +25,7 @@ public interface MobilityBoard<T>
 	 * @param otherBoard the other board to move to
 	 * @return a boolean value to denote if the move was successful
 	 */
-	public boolean move(BoardPiece2<T> piece, int horizontal, int vertical, Board<T> otherBoard);
+	public boolean move(BoardPiece2<T> piece, int horizontal, int vertical, CompositeBoard<T> otherBoard);
 	
 	/**
 	 * moves the parameter piece a specified number of units in the given direction
@@ -44,7 +45,7 @@ public interface MobilityBoard<T>
 	 * @param otherBoard the other board to move to
 	 * @return a boolean value to denote if the move was successful
 	 */
-	public boolean move(BoardPiece2<T> piece, int units, Direction direction, Board<T> otherBoard);
+	public boolean move(BoardPiece2<T> piece, int units, Direction direction, CompositeBoard<T> otherBoard);
 	
 	public UUID getUUID();
 }
