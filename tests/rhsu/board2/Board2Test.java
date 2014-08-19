@@ -2,24 +2,19 @@ package rhsu.board2;
 
 import org.junit.*;
 import static org.junit.Assert.*;
+import rhsu.board2.implementations.factories.BoardFactoryClient;
 
 @Ignore
-public class Board2Test<T>
+public abstract class Board2Test<T>
 {
 	protected CompositeBoard<T> board;
 	protected BoardBuilder<T> boardBuilder;
 	
 	@Before
-	public void createBoard()
-	{
-		
-	}
+	public abstract void createBoard();
 	
 	@Test
-	public void testBoardNotNull()
-	{
-		
-	}
+	public abstract void testBoardNotNull();
 	
 	@Test
 	public void testGetHorizontalSize() 
@@ -71,7 +66,7 @@ public class Board2Test<T>
 	@Test
 	public void testEqualsSimilarBoard()
 	{
-		CompositeBoard<T> sameBoard = boardFactory.createBoard();
+		CompositeBoard<T> sameBoard = boardBuilder.createBoard();
 		
 		assertEquals(sameBoard, board);
 	}
@@ -79,25 +74,27 @@ public class Board2Test<T>
 	@Test
 	public void testSimliarBoardSameHashCode()
 	{
-		CompositeBoard<T> sameBoard = boardFactory.createBoard();
+		CompositeBoard<T> sameBoard = boardBuilder.createBoard();
 		assertEquals(board.hashCode(), sameBoard.hashCode());
 	}
 	
 	@Test
 	public void testDoesNotEqualDifferentBoardSameTypeDifferentDimension()
 	{
-		CompositeBoard<T> differentBoard = boardFactory.createBoard(100, 200);
+		CompositeBoard<T> differentBoard = boardBuilder
+			.setHorizontalSize(100)
+			.setVerticalSize(200)
+			.createBoard();
+		
 		assertFalse(board.equals(differentBoard));
 	}
 	
 	@Test
 	public void testDoesNotEqualDifferentBoardDifferentType()
-	{
-		CompositeBoard<String> stringBoard = BoardFactory.createFactory(
-			StringBoard2.class, 
-			boardFactory.getHorizontalSize(),
-			boardFactory.getVerticalSize())
-			.createBoard();
+	 {
+		CompositeBoard<String> stringBoard = new BoardFactoryClient()
+			.GetStringBoardFactory()
+			.createBoard(board.getHorizontalSize(), board.getVerticalSize());
 		
 		assertFalse(board.equals(stringBoard));
 	}
