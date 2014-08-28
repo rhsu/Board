@@ -4,7 +4,7 @@ import java.util.Iterator;
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board.basic.implementations.arithmetic.IntegerBoard;
-import rhsu.board.resources.ResourceRetriever;
+import rhsu.resourceRetriever.ResourceRetrieverImpl;
 
 @Ignore
 public class TestUUID
@@ -12,8 +12,11 @@ public class TestUUID
 	@Test
 	public void testResourceBoardUUID()
 	{
-		Board<Integer> intBoard = new IntegerBoard(ResourceRetriever.GetResource("ExampleIntegerBoard"));
-		
+		//Just to make things compile. I don't expect this to work anymore
+		Board<Integer> intBoard = new IntegerBoard(
+			ResourceRetrieverImpl.getResourceRetriever("ExampleIntegerBoard", "ExampleIntegerBoard")
+			.getReader());
+			
 		assertNotNull(intBoard.getUUID());
 		
 		Iterator<BoardPiece<Integer>> iterator = intBoard.iterBoard();

@@ -4,8 +4,10 @@ import rhsu.board2.mobility.MobilityStatus;
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board.basic.implementations.arithmetic.IntegerBoard;
-import rhsu.board.resources.ResourceRetriever;
+
 import rhsu.board.test.MockFactory;
+import rhsu.resourceRetriever.ResourceRetriever;
+import rhsu.resourceRetriever.ResourceRetrieverImpl;
 
 /**
  *
@@ -41,7 +43,8 @@ public class BoardTest
 		mockMoveOtherPiece.setValue(-999);
 		
 		testMoveDirectionBoard = new IntegerBoard(
-			ResourceRetriever.GetResource("testMoveDirectionBoard", TEST_RESOURCE));
+			ResourceRetrieverImpl.getResourceRetriever(TEST_RESOURCE, TEST_RESOURCE)
+			.getReader());
 	}
 	
 	/**
@@ -103,8 +106,9 @@ public class BoardTest
 	public void testMovePreservesIndices()
 	{
 		Board<Integer> test112Board = new IntegerBoard(
-				ResourceRetriever.GetResource("testMobilityBoard", TEST_RESOURCE));
-	
+			ResourceRetrieverImpl.getResourceRetriever("testMobilityBoard", TEST_RESOURCE)
+			.getReader());
+			
 		//create a reference to pieceZero			
 		BoardPiece<Integer> pieceZero = test112Board.getPieceAt(0, 0);		
 		assertTrue(test112Board.move(test112Board.getPieceAt(0,0), 2, 2));
