@@ -7,9 +7,11 @@ import rhsu.board2.implementations.factories.BoardFactoryClient;
 @Ignore
 public abstract class Board2Test<T>
 {
+	protected int horizontalSize = 3;
+	protected int verticalSize = 5;
 	protected CompositeBoard<T> board;
-	protected BoardBuilder<T> boardBuilder;
-	
+	protected CompositeBoard<T> sameBoard;
+
 	@Before
 	public abstract void createBoard();
 	
@@ -19,19 +21,21 @@ public abstract class Board2Test<T>
 	@Test
 	public void testGetHorizontalSize() 
 	{ 
-		assert(board.getHorizontalSize() == boardBuilder.horizontalSize);
+		assert(board.getHorizontalSize() == horizontalSize);
 	}
 	
 	@Test
 	public void testGetVerticalSize()
 	{
-		assert(board.getVerticalSize() == boardBuilder.verticalSize);
+		assert(board.getVerticalSize() == verticalSize);
 	}
 	
 	@Test
 	public void testGetSize()
 	{
-		int size = boardBuilder.horizontalSize * boardBuilder.verticalSize;
+		int size = horizontalSize * verticalSize;
+		
+System.out.println(board.getSize());
 		
 		assert(board.getSize() == size);
 	}
@@ -53,7 +57,6 @@ public abstract class Board2Test<T>
 		assertEquals(board, board);
 	}
 	
-	
 	/**
 	 * Tests that the same hash code is generated if the two boards are equals
 	 */
@@ -64,24 +67,21 @@ public abstract class Board2Test<T>
 	}
 	
 	@Test
-	public void testEqualsSimilarBoard()
-	{
-		CompositeBoard<T> sameBoard = boardBuilder.createBoard();
-		
+	public  void testEqualsSimilarBoard()
+	{		
 		assertEquals(sameBoard, board);
 	}
 	
 	@Test
 	public void testSimliarBoardSameHashCode()
 	{
-		CompositeBoard<T> sameBoard = boardBuilder.createBoard();
 		assertEquals(board.hashCode(), sameBoard.hashCode());
 	}
 	
 	@Test
 	public void testDoesNotEqualDifferentBoardSameTypeDifferentDimension()
 	{
-		CompositeBoard<T> differentBoard = boardBuilder
+		CompositeBoard<T> differentBoard = new BoardBuilder()
 			.setHorizontalSize(100)
 			.setVerticalSize(200)
 			.createBoard();
