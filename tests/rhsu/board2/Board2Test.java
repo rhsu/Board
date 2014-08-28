@@ -16,7 +16,10 @@ public abstract class Board2Test<T>
 	public abstract void createBoard();
 	
 	@Test
-	public abstract void testBoardNotNull();
+	public void testBoardNotNull()
+	{
+		assertNotNull(board);
+	}
 	
 	@Test
 	public void testGetHorizontalSize() 

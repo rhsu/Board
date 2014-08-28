@@ -15,11 +15,4 @@ public class IntegerBoardTest extends Board2Test<Integer>
 		board = boardFactory.createBoard(this.horizontalSize, this.verticalSize);
 		sameBoard = boardFactory.createBoard(this.horizontalSize, this.verticalSize);
 	}
-
-	@Test
-	@Override
-	public void testBoardNotNull()
-	{
-		
-	}
 }
