@@ -7,14 +7,14 @@ import rhsu.board2.boardIO.Board2IO;
 
 public class BoardBuilder<T>
 {
-	private Board2IO boardIO = null;
-	private Matrix2<T> matrix = null;
-	private MobilityBoard<T> mobilityBoard = null;
-	private RandomGenerator<T> randomGenerator = null;
-	private Integer horizontalSize = null;
-	private Integer verticalSize = null; 
-	private T defaultValue = null;
-	private BoardInitializable<T> boardInitializer = null;
+	protected Board2IO boardIO = null;
+	protected Matrix2<T> matrix = null;
+	protected MobilityBoard<T> mobilityBoard = null;
+	protected RandomGenerator<T> randomGenerator = null;
+	protected Integer horizontalSize = null;
+	protected Integer verticalSize = null; 
+	protected T defaultValue = null;
+	protected BoardInitializable<T> boardInitializer = null;
 	
 	public BoardBuilder<T> setBoardIO(Board2IO<T> boardIO)
 	{
