@@ -42,15 +42,10 @@ public abstract class Board2Test<T>
 	}
 	
 	@Test
-	public void testGetDefaultValue()
-	{
-
-	}
+	public abstract void testGetDefaultValue();
 	
 	@Test
-	public void testSetPieceAt()
-	{
-	}
+	public abstract void testSetPieceAt();
 			
 	@Test
 	public void testEqualsSelf()
