@@ -4,6 +4,8 @@ import rhsu.board2.mobility.MobilityBoard;
 import rhsu.board2.randomGenerators.RandomGenerator;
 import rhsu.board2.matrices.Matrix2;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Objects;
 import rhsu.board.Direction;
 import rhsu.board2.boardIO.Board2IO;
@@ -316,5 +318,48 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 		}
 		
 		return boardArray;
+	}
+	
+	@Override
+	public BoardPiece2<T> find(T value)
+	{
+		return null;
+	}
+	
+	@Override
+	public List<BoardPiece2<T>> findAll(T value)
+	{
+		return null;
+	}
+	
+	@Override
+	public Iterator<BoardPiece2<T>> boardIterator()
+	{
+		return new Iterator() 
+		{
+			private int currentIndex = 0;
+
+			@Override
+			public boolean hasNext()
+			{
+				return currentIndex < size;
+			}
+
+			@Override
+			public BoardPiece2<T> next()
+			{
+				BoardPiece2<T> retPiece 
+					= boardArray[currentIndex/verticalSize][currentIndex % verticalSize];
+				currentIndex++;
+				return retPiece;
+			}
+
+			@Override
+			public void remove()
+			{
+				throw new UnsupportedOperationException("Not supported yet.");
+			}
+			
+		};
 	}
 }

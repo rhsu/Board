@@ -25,6 +25,7 @@ public class Main
 			.setBoardInitializable(boardIO)
 			.createBoard();
 		
-		print(test);
+		BoardPiece2<String> thing = test.getPieceAt(0, 0);
+		
 	}
 }
