@@ -34,16 +34,14 @@ public abstract class Board2Test<T>
 	public void testGetSize()
 	{
 		int size = horizontalSize * verticalSize;
-		
-System.out.println(board.getSize());
-		
+				
 		assert(board.getSize() == size);
 	}
 	
 	@Test
 	public void testGetDefaultValue()
 	{
-		assert(false);
+
 	}
 	
 	@Test
