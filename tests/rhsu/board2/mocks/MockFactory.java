@@ -8,11 +8,8 @@ import rhsu.board.io.BoardIO;
 import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.CompositeBoard;
-import rhsu.board2.Matrix2;
-import rhsu.board2.MobilityBoard;
-import rhsu.board2.RandomGenerator;
 
-public class MockFactory
+/*public class MockFactory
 {
 	private class MockBoardIO implements BoardIO
 	{
@@ -180,4 +177,4 @@ public class MockFactory
 		if (mockBoardInitializable == null) { mockBoardInitializable = new MockBoardInitializable<>(); }
 		return mockBoardInitializable;
 	}
-}
+}*/
