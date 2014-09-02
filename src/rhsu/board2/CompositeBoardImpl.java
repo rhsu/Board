@@ -5,8 +5,10 @@ import rhsu.board2.randomGenerators.RandomGenerator;
 import rhsu.board2.matrices.Matrix2;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
+import rhsu.board.BoardPiece;
 import rhsu.board.Direction;
 import rhsu.board2.boardIO.Board2IO;
 
@@ -322,14 +324,40 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	
 	@Override
 	public BoardPiece2<T> find(T value)
-	{
+	{		
+		
+		Iterator<BoardPiece2<T>> boardIterator = this.boardIterator();
+		
+		while(boardIterator.hasNext())
+		{
+			BoardPiece2<T> next = boardIterator.next();
+			
+			if (next.getValue() == value)
+			{
+				return next;
+			}
+		}
+		
 		return null;
 	}
 	
 	@Override
 	public List<BoardPiece2<T>> findAll(T value)
 	{
-		return null;
+		Iterator<BoardPiece2<T>> boardIterator = this.boardIterator();
+		
+		LinkedList<BoardPiece2<T>> list = new LinkedList<>();
+		
+		while(boardIterator.hasNext())
+		{
+			BoardPiece2<T> nextItem = boardIterator.next();
+			
+			if (nextItem.getValue() == value)
+			{
+				list.add(nextItem);
+			}
+		}
+		return list;
 	}
 	
 	@Override
@@ -348,8 +376,7 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 			@Override
 			public BoardPiece2<T> next()
 			{
-				BoardPiece2<T> retPiece 
-					= boardArray[currentIndex/verticalSize][currentIndex % verticalSize];
+				BoardPiece2<T> retPiece = boardArray[currentIndex/verticalSize][currentIndex % verticalSize];
 				currentIndex++;
 				return retPiece;
 			}
@@ -359,7 +386,6 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 			{
 				throw new UnsupportedOperationException("Not supported yet.");
 			}
-			
 		};
 	}
 }
