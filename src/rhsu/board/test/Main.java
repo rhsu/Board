@@ -1,5 +1,6 @@
 package rhsu.board.test;
 
+import java.util.List;
 import rhsu.board.io.BoardIO;
 import rhsu.board2.*;
 import rhsu.board2.boardIO.AbstractBoardIO;
@@ -17,7 +18,7 @@ public class Main
     
 	public static void main(String[] args)
 	{	
-		AbstractBoardIO<String> boardIO = new AbstractBoardIOFactory().getStringBoardIO();
+	/*AbstractBoardIO<String> boardIO = new AbstractBoardIOFactory().getStringBoardIO();
 		boardIO.populateFromFile("test.txt", " ");
 		
 		CompositeBoard<String> test = new BoardBuilder()
@@ -25,6 +26,20 @@ public class Main
 			.setBoardInitializable(boardIO)
 			.createBoard();
 		
-		print(test);
+		BoardPiece2<String> thing = test.getPieceAt(0, 0);*/
+		
+		CompositeBoard<String> test = new BoardFactoryClient()
+			.GetStringBoardFactory()
+			.createBoard(5, 5);
+		
+		List<BoardPiece2<String>> things = test.findAll("++");
+		
+		for (BoardPiece2<String> thing : things)
+		{
+			print(thing.getHorizontalIndex());
+			print(thing.getVerticalIndex());
+		}
+		
+
 	}
 }

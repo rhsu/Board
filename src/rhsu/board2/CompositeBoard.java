@@ -1,5 +1,7 @@
 package rhsu.board2;
 
+import java.util.Iterator;
+import java.util.List;
 import rhsu.board2.mobility.MobilityBoard;
 import rhsu.board2.randomGenerators.RandomGenerator;
 import rhsu.board2.matrices.Matrix2;
@@ -135,4 +137,10 @@ public interface CompositeBoard<T>
 	public void setPieceAt(int horizontal, int vertical, BoardPiece2<T> piece);
 	
 	//</editor-fold>
+	
+	public BoardPiece2<T> find(T value);
+	
+	public List<BoardPiece2<T>> findAll(T value);
+	
+	public Iterator<BoardPiece2<T>> boardIterator();
 }
