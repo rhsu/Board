@@ -59,7 +59,8 @@ public class CompositeBoardImpl<T> implements CompositeBoard<T>,
 			? boardInitializer.getVerticalSize()
 			: verticalSize;
 		
-		this.size = horizontalSize * verticalSize;
+		this.size = ((horizontalSize == null) || (verticalSize == null)) ?
+			0 : horizontalSize * verticalSize;
 		
 		this.boardIO = boardIO;
 		this.matrix = matrix;
