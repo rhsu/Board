@@ -2,39 +2,34 @@ package rhsu.board2;
 
 import org.junit.*;
 import static org.junit.Assert.*;
-import rhsu.board2.boardIO.Board2IO;
-import rhsu.board2.matrices.Matrix2;
-import rhsu.board2.mobility.MobilityBoard;
-import rhsu.board2.randomGenerators.RandomGenerator;
-import rhsu.board2.unitTestStubs.Board2IOStub;
-import rhsu.board2.unitTestStubs.Matrix2Stub;
+import rhsu.board2.unitTestStubs.UnitTestStubFactory;
 
 public class BoardBuilderTest
 {
 	BoardBuilder<Object> boardBuilder;
+	private final static UnitTestStubFactory<Object> stubFactory = new UnitTestStubFactory<>();
 	
 	@Before
 	public void setup()
 	{
-		boardBuilder = new BoardBuilder();
+		boardBuilder = new BoardBuilder<>();
 	}
 	
 	@Test
 	public void testSetBoardIO()
 	{	
-		Board2IO<Object> item = new Board2IOStub();
-		boardBuilder.setBoardIO(item);
-		accessorAssertion(boardBuilder.boardIO, item);
+		boardBuilder.setBoardIO(stubFactory.GetBoard2IOStub());
+		accessorAssertion(boardBuilder.boardIO, stubFactory.GetBoard2IOStub());
 	}
 	
 	@Test
 	public void testSetMatrix()
 	{
-		Matrix2<Object> item = new Matrix2Stub();
-		boardBuilder.setMatrix(item);
-		accessorAssertion(boardBuilder.matrix, item);
+		boardBuilder.setMatrix(stubFactory.GetMatrix2Stub());
+		accessorAssertion(boardBuilder.matrix, stubFactory.GetMatrix2Stub());
 	}
 	
+	@Test
 	public void testSetRandomGenerator()
 	{
 		
