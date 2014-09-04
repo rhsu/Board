@@ -1,48 +1,61 @@
-#Board
+# Board
 
-A wrapper class for a 2D array of objects (implemented as a generic). 
+A 2-Dimensional Array Wrapper ... and more.
 
-#Board2... Coming Soon...
+# General Idea
 
-* Board contains very bad semantics in how it is implemented. Board2 will be released to fix this. In the meantime, Version 1.3 will be the last release. 
+`CompositeBoard<T>` allows the client to easily access coordinates called `BoardPiece<T>`. For example, I have a 3 by 3 matrix. To get the first piece, I call `myBoard.getPieceAt(0, 0)`. The first parameter of the `pieceAt()` method is the horizontal coordinate. Hence, vertical is the second. 
 
-#Version 1.3 Is Available!
+# Architecture
 
-* Improvements over 1.2beta
-* Version 1.2beta is no longer supported
-* The console application has been determined as not very useful and has been stripped. It may be repackaged in the future with better features.
+Board features individual modules that extend the behavior of board. The current modules are `BoardIO`, `Matrix`, `Mobility`, `RandomGenerator`
 
-#Iterator Warning!
+# Modules
 
-* It seems that the iterator is not as fast as anticipated. While it is still usable, it is not as efficient as originally advertised.
+`BoardIO`: Allows the creation of board from a file. Allows the export of the board also
 
+`Matrix`: Treats the board as a matrix. Supports Add, Subtract, Determinant, and Multiply
 
-#Introducing the Iterator!
+`Mobility`: Allows moving a piece from one location to another. Allows moving a piece from one board to another.
 
-A easier way loop through a Board object.
+`RandomGenerator`: Creates a random board based off of the data type.
 
-Example code:
+# Code To Build a Board
+
+The easiest way to build a board is through the `BoardBuilder`
 
 ```
-Board myBoard = new IntegerBoard("File.txt")
-Iterator iter = myBoard.iterBoard();
-while(iter.HasNext())
-{
-	BoardPiece<Integer> item = (BoardPiece<Integer>) iter.next();
-	//do something with item.
-}
+CompositeBoard<String> myBoard = new BoardBuilder<String>()
+  .setHorizontalSize(3)
+  .setVerticalSize(4)
+  .createBoard()
 ```
 
-#Version 1.1 Is Available!
+To include a module attach it to the `BoardBuilder` like such
 
-* The previous Version1.0 is no longer supported.
-* Version 2 Beta is no longer supported.
-* To update. Checkout to the version1.1 branch
-* New features include: Arithmetic Operations, including add, subtract, transpose, inverse, and determinant
-* Contains Exception Handler for board to allow user or programmer to either ignore warnings or to handle errors.
-* Improvements over Version 2 Beta
+```
 
-#Coming soon...
+RandomGenerator<String> myGenerator = new SomeRandomGeneratorStringImplementation();
 
-* Updated JavaDocs
-* Improvements to the iterator
+CompositeBoard<String> myBoard = new BoardBuilder<String>()
+   .setHorizontalSize(3)
+   .setVerticalSize(4)
+   .setRandomGenerator(myGenerator)
+   .createBoard();
+```
+
+A `BoardFactoryClient` also exists to add in default modules without the client needing to know about them. To use the default `BoardIO`
+
+```
+CompositeBoard<String> myBoard = new BoardFactoryClient<String>()
+   .GetStringBoardFactory()
+   .createBoardFromFile("File.txt");
+```
+
+To create a random 7 by 8 board of GUIDs
+
+```
+CompositeBoard<String> myRandomBoard = new BoardFactoryClient<String>()
+   .GetStringBoardFactory()
+   .createRandomBoard(7,8);
+```
