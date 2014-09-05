@@ -43,7 +43,7 @@ public class BoardFactory<T>
 	
 	public CompositeBoard<T> createBoardFromFile(String filename)
 	{
-		this.boardIO.populateFromFile(filename, " ");
+		this.boardIO.populateFromFile(filename, "\t");
 		
 		return new BoardBuilder<T>()
 			.setHorizontalSize(this.boardIO.getBoardInitializer().getHorizontalSize())
