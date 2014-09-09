@@ -1,16 +1,19 @@
-package rhsu.board2.unitTestStubs;
+package rhsu.board2.unitTestUtilities;
 
 import java.io.BufferedReader;
 import rhsu.board2.CompositeBoard;
 import rhsu.board2.boardIO.Board2IO;
 import rhsu.board2.matrices.Matrix2;
+import rhsu.board2.randomGenerators.RandomGenerator;
 
 public class UnitTestStubFactory<T>
 {
 	private Board2IO<T> boardIO = null;
 	private Matrix2<T> matrix = null;
+	private RandomGenerator<T> randomGenerator = null;
 	
-	public Board2IO<T> GetBoard2IOStub()
+	
+	public Board2IO<T> getBoard2IOStub()
 	{
 		if(boardIO == null)
 		{
@@ -44,7 +47,7 @@ public class UnitTestStubFactory<T>
 		return boardIO;
 	}
 	
-	public Matrix2<T> GetMatrix2Stub()
+	public Matrix2<T> getMatrix2Stub()
 	{
 		if(matrix == null)
 		{
@@ -106,5 +109,22 @@ public class UnitTestStubFactory<T>
 			};
 		}
 		return matrix;
+	}
+	
+	public RandomGenerator<T> getRandomGeneratorStub()
+	{
+		if(randomGenerator == null)
+		{
+			randomGenerator = new RandomGenerator<T>()
+			{
+
+				@Override
+				public T getRandom()
+				{
+					throw new UnsupportedOperationException("Not supported yet.");
+				}
+			};
+		}
+		return randomGenerator;
 	}
 }

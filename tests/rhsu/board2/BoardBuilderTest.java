@@ -1,8 +1,8 @@
 package rhsu.board2;
 
 import org.junit.*;
-import static org.junit.Assert.*;
-import rhsu.board2.unitTestStubs.UnitTestStubFactory;
+import rhsu.board2.unitTestUtilities.UnitTestLibrary;
+import rhsu.board2.unitTestUtilities.UnitTestStubFactory;
 
 public class BoardBuilderTest
 {
@@ -18,21 +18,22 @@ public class BoardBuilderTest
 	@Test
 	public void testSetBoardIO()
 	{	
-		boardBuilder.setBoardIO(stubFactory.GetBoard2IOStub());
-		accessorAssertion(boardBuilder.boardIO, stubFactory.GetBoard2IOStub());
+		boardBuilder.setBoardIO(stubFactory.getBoard2IOStub());
+		UnitTestLibrary.accessorAssertion(boardBuilder.boardIO, stubFactory.getBoard2IOStub());
 	}
 	
 	@Test
 	public void testSetMatrix()
 	{
-		boardBuilder.setMatrix(stubFactory.GetMatrix2Stub());
-		accessorAssertion(boardBuilder.matrix, stubFactory.GetMatrix2Stub());
+		boardBuilder.setMatrix(stubFactory.getMatrix2Stub());
+		UnitTestLibrary.accessorAssertion(boardBuilder.matrix, stubFactory.getMatrix2Stub());
 	}
 	
 	@Test
 	public void testSetRandomGenerator()
 	{
-		
+		boardBuilder.setRandomGenerator(stubFactory.getRandomGeneratorStub());
+		UnitTestLibrary.accessorAssertion(boardBuilder.randomGenerator, stubFactory.getRandomGeneratorStub());
 	}
 	
 	public void testSetMobilityBoard()
@@ -58,11 +59,5 @@ public class BoardBuilderTest
 	public void setBoardInitializable()
 	{
 		
-	}
-	
-	private void accessorAssertion(Object boardBuilderItem, Object otherItem)
-	{
-		assertNotNull(boardBuilderItem);
-		assertEquals(boardBuilderItem, otherItem);
 	}
 }
