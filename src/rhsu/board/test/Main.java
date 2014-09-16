@@ -18,28 +18,14 @@ public class Main
     
 	public static void main(String[] args)
 	{	
-	/*AbstractBoardIO<String> boardIO = new AbstractBoardIOFactory().getStringBoardIO();
-		boardIO.populateFromFile("test.txt", " ");
-		
-		CompositeBoard<String> test = new BoardBuilder()
-			.setBoardIO(boardIO)
-			.setBoardInitializable(boardIO)
-			.createBoard();
-		
-		BoardPiece2<String> thing = test.getPieceAt(0, 0);*/
-		
 		CompositeBoard<String> test = new BoardFactoryClient()
 			.GetStringBoardFactory()
-			.createBoard(5, 5);
+			.createBoardFromFile("test.txt");
 		
-		List<BoardPiece2<String>> things = test.findAll("++");
+		print(test);
+		print("\n");
+		test.setValueAt(1, 1, "E");
 		
-		for (BoardPiece2<String> thing : things)
-		{
-			print(thing.getHorizontalIndex());
-			print(thing.getVerticalIndex());
-		}
-		
-
+		print(test);
 	}
 }

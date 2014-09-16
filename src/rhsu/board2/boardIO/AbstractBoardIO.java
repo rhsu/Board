@@ -104,9 +104,7 @@ public abstract class AbstractBoardIO<T> implements Board2IO<T>,
 
 	@Override
 	public void export(String filename, char delimiter)
-	{
-		String output = this.getBoardOutputString();
-		
+	{		
 		try
 		{
 			File file = new File(filename);
@@ -120,7 +118,7 @@ public abstract class AbstractBoardIO<T> implements Board2IO<T>,
 			
 			try (BufferedWriter bw = new BufferedWriter(fw))
 			{
-				bw.write(output);
+				bw.write(this.boardInitializer.toString());
 			}
  
 			System.out.println("Done creating file: " + filename);
@@ -156,19 +154,4 @@ public abstract class AbstractBoardIO<T> implements Board2IO<T>,
 	}
 	
 	protected abstract T convertFromString(String string);
-	
-	private String getBoardOutputString()
-	{
-		StringBuilder builder = new StringBuilder();
-		
-		for (int i = 0; i < this.boardInitializer.getHorizontalSize(); i++)
-		{
-			for (int j = 0; j < this.boardInitializer.getVerticalSize(); j++)
-			{
-				builder.append(this.boardInitializer.getPieceAt(i, j).toString()).append(" ");
-			}
-			builder.append("\n");
-		}
-		return builder.toString().trim();
-	}
 }
