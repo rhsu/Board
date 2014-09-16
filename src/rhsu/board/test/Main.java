@@ -18,11 +18,6 @@ public class Main
     
 	public static void main(String[] args)
 	{	
-		CompositeBoard<String> thing = new BoardFactoryClient()
-			.GetStringBoardFactory()
-			.createBoard(10, 10);
-		
-		print(thing);
-		
+
 	}
 }
