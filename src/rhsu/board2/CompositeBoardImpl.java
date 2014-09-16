@@ -8,11 +8,10 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
-import rhsu.board.BoardPiece;
 import rhsu.board.Direction;
 import rhsu.board2.boardIO.Board2IO;
 
-public class CompositeBoardImpl<T> implements CompositeBoard<T>,
+class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	BoardInitializable
 {
 	static final Object DEFAULT_VALUE = new Object();
