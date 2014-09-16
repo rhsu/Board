@@ -18,14 +18,6 @@ public class Main
     
 	public static void main(String[] args)
 	{	
-		CompositeBoard<String> test = new BoardFactoryClient()
-			.GetStringBoardFactory()
-			.createBoardFromFile("test.txt");
-		
-		print(test);
-		print("\n");
-		test.setValueAt(1, 1, "E");
-		
-		print(test);
+
 	}
 }
