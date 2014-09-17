@@ -7,7 +7,7 @@ import rhsu.board2.unitTestUtilities.UnitTestStubFactory;
 public class BoardBuilderTest
 {
 	BoardBuilder<Object> boardBuilder;
-	private final static UnitTestStubFactory<Object> stubFactory = new UnitTestStubFactory<>();
+	private final UnitTestStubFactory<Object> stubFactory = new UnitTestStubFactory<>();
 	
 	@Before
 	public void setup()
@@ -36,28 +36,39 @@ public class BoardBuilderTest
 		UnitTestLibrary.accessorAssertion(boardBuilder.randomGenerator, stubFactory.getRandomGeneratorStub());
 	}
 	
+	@Test
 	public void testSetMobilityBoard()
 	{
-		
+		boardBuilder.setMobilityBoard(stubFactory.getMobilityBoardStub());
+		UnitTestLibrary.accessorAssertion(boardBuilder.mobilityBoard, stubFactory.getMobilityBoardStub());
 	}
 	
+	@Test
 	public void testSetHorizontalSize()
 	{
-
+		boardBuilder.setHorizontalSize(10);
+		UnitTestLibrary.accessorAssertion(boardBuilder.horizontalSize, 10);
 	}
 	
+	@Test
 	public void testSetVerticalSize()
 	{
-
+		boardBuilder.setVerticalSize(10);
+		UnitTestLibrary.accessorAssertion(boardBuilder.verticalSize, 10);
 	}
 	
+	@Test
 	public void testSetDefaulValue()
 	{
-
+		Object something = new Object();
+		boardBuilder.setDefaulValue(something);
+		UnitTestLibrary.accessorAssertion(boardBuilder.defaultValue, something);
 	}
 	
+	@Test
 	public void setBoardInitializable()
 	{
-		
+		boardBuilder.setBoardInitializable(stubFactory.getBoardInitializable());
+		UnitTestLibrary.accessorAssertion(boardBuilder.boardInitializer, stubFactory.getBoardInitializable());
 	}
 }
