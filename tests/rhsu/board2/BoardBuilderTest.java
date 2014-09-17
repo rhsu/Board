@@ -7,12 +7,13 @@ import rhsu.board2.unitTestUtilities.UnitTestStubFactory;
 public class BoardBuilderTest
 {
 	BoardBuilder<Object> boardBuilder;
-	private final UnitTestStubFactory<Object> stubFactory = new UnitTestStubFactory<>();
+	private UnitTestStubFactory<Object> stubFactory;
 	
 	@Before
 	public void setup()
 	{
 		boardBuilder = new BoardBuilder<>();
+		stubFactory = new UnitTestStubFactory();
 	}
 	
 	@Test
@@ -70,5 +71,11 @@ public class BoardBuilderTest
 	{
 		boardBuilder.setBoardInitializable(stubFactory.getBoardInitializable());
 		UnitTestLibrary.accessorAssertion(boardBuilder.boardInitializer, stubFactory.getBoardInitializable());
+	}
+	
+	@Test
+	public void testCreateBoard()
+	{
+		
 	}
 }
