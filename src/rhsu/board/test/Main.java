@@ -23,5 +23,7 @@ public class Main
 			.createBoardFromFile("test.txt");
 		
 		print(test);
+		
+		test.setValueAt(-1, 5, "asdfasdf");
 	}
 }
