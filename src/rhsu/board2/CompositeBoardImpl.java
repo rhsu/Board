@@ -223,9 +223,9 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 		
 		List<String> errors = new LinkedList<>();
 		
-		if (horizontalIndex > this.horizontalSize) errors.add(String.format(horizontalIndexOutOfRange, horizontalIndex));
+		if (horizontalIndex >= this.horizontalSize) errors.add(String.format(horizontalIndexOutOfRange, horizontalIndex));
 		if (horizontalIndex < 0) errors.add(String.format(horizontalIndexNegative, horizontalIndex));
-		if (verticalIndex > this.verticalSize) errors.add(String.format(verticalIndexOutOfRange, verticalIndex));
+		if (verticalIndex >= this.verticalSize) errors.add(String.format(verticalIndexOutOfRange, verticalIndex));
 		if (verticalIndex < 0) errors.add(String.format(verticalIndexNegative, verticalIndex));
 		
 		if (!errors.isEmpty())
@@ -236,6 +236,8 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 			{
 				errorMessage.append(error);
 			}
+			
+			errorMessage.append("Error Occurred at line: ").append(verticalIndex+1);
 			
 			throw new IllegalArgumentException(errorMessage.toString().trim());
 		}
@@ -263,7 +265,7 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	public void setValueAt(int horizontalIndex, int verticalIndex, T value)
 	{
 		this.checkCoordinates(horizontalIndex, verticalIndex);
-		
+
 		this.boardArray[verticalIndex][horizontalIndex] = new BoardPieceImpl<>(
 			horizontalIndex, 
 			verticalIndex, 

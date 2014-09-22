@@ -21,9 +21,5 @@ public class Main
 		CompositeBoard<String> test = new BoardFactoryClient()
 			.GetStringBoardFactory()
 			.createBoardFromFile("test.txt");
-		
-		print(test);
-		
-		test.setValueAt(-100, 100, "asdfasdf");
 	}
 }
