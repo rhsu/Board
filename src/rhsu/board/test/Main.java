@@ -21,7 +21,5 @@ public class Main
 		CompositeBoard<String> test = new BoardFactoryClient()
 			.GetStringBoardFactory()
 			.createBoardFromFile("test.txt");
-		
-		
 	}
 }
