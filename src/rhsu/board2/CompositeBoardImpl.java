@@ -214,9 +214,29 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	
 	//<editor-fold desc="Piece Setting Methods" defaultstate="collapsed">
 	
+	private void checkCoordinates(int horizontalIndex, int verticalIndex)
+	{
+		StringBuilder errorString = new StringBuilder();
+		
+		if(horizontalIndex > this.horizontalSize || horizontalIndex < 0)
+		{
+			errorString.append("Bad horizontal index: ").append(horizontalIndex);
+		}
+		
+		if(verticalIndex > this.verticalSize || verticalIndex < 0)
+		{
+			if (errorString.length() > 0) errorString.append(" ");
+			errorString.append("Bad vertical index: ").append(verticalIndex);
+		}
+		
+		throw new IllegalArgumentException(errorString.toString());
+	}
+	
 	@Override
 	public void setPieceAt(int horizontalIndex, int verticalIndex, T value)
-	{
+	{	
+		this.checkCoordinates(horizontalIndex, verticalIndex);
+		
 		this.boardArray[verticalIndex][horizontalIndex] = new BoardPieceImpl<>(horizontalIndex,
 			verticalIndex,
 			value);
@@ -225,8 +245,7 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	@Override
 	public void setPieceAt(int horizontalIndex, int verticalIndex, BoardPiece2<T> piece)
 	{
-		if(horizontalIndex > this.horizontalSize || horizontalIndex < 0 || verticalIndex > this.verticalSize || verticalIndex < 0)
-			throw new RuntimeException("Out of Bounds");
+		this.checkCoordinates(horizontalIndex, verticalIndex);
 		
 		this.boardArray[verticalIndex][horizontalIndex] = piece;
 	}
@@ -234,8 +253,7 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	@Override
 	public void setValueAt(int horizontalIndex, int verticalIndex, T value)
 	{
-		if(horizontalIndex > this.horizontalSize || horizontalIndex < 0 || verticalIndex > this.verticalSize || verticalIndex < 0)
-			throw new RuntimeException("Out of Bounds");
+		this.checkCoordinates(horizontalIndex, verticalIndex);
 		
 		this.boardArray[verticalIndex][horizontalIndex] = new BoardPieceImpl(
 			horizontalIndex, 
