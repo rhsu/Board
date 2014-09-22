@@ -4,11 +4,9 @@ import rhsu.board2.mobility.MobilityBoard;
 import rhsu.board2.randomGenerators.RandomGenerator;
 import rhsu.board2.matrices.Matrix2;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import rhsu.board.Direction;
 import rhsu.board2.boardIO.Board2IO;
@@ -266,7 +264,7 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	{
 		this.checkCoordinates(horizontalIndex, verticalIndex);
 		
-		this.boardArray[verticalIndex][horizontalIndex] = new BoardPieceImpl(
+		this.boardArray[verticalIndex][horizontalIndex] = new BoardPieceImpl<>(
 			horizontalIndex, 
 			verticalIndex, 
 			value);
