@@ -24,6 +24,6 @@ public class Main
 		
 		print(test);
 		
-		test.setValueAt(-1, 5, "asdfasdf");
+		test.setValueAt(-100, 100, "asdfasdf");
 	}
 }

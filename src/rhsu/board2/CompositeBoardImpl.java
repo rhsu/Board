@@ -4,9 +4,11 @@ import rhsu.board2.mobility.MobilityBoard;
 import rhsu.board2.randomGenerators.RandomGenerator;
 import rhsu.board2.matrices.Matrix2;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import rhsu.board.Direction;
 import rhsu.board2.boardIO.Board2IO;
@@ -216,23 +218,29 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	
 	private void checkCoordinates(int horizontalIndex, int verticalIndex)
 	{
-		StringBuilder errorString = new StringBuilder();
-		boolean hasError = false;
+		String horizontalIndexOutOfRange = "The Horizontal Index Is Out of Range: %s. ";
+		String horizontalIndexNegative = "The Horizontal Index Is Negative: %s. ";
+		String verticalIndexOutOfRange = "The Vertical Index Is Out of Range: %s. ";
+		String verticalIndexNegative = "The Vertical Index Is Negative: %s. ";
 		
-		if(horizontalIndex > this.horizontalSize || horizontalIndex < 0)
+		List<String> errors = new LinkedList<>();
+		
+		if (horizontalIndex > this.horizontalSize) errors.add(String.format(horizontalIndexOutOfRange, horizontalIndex));
+		if (horizontalIndex < 0) errors.add(String.format(horizontalIndexNegative, horizontalIndex));
+		if (verticalIndex > this.verticalSize) errors.add(String.format(verticalIndexOutOfRange, verticalIndex));
+		if (verticalIndex < 0) errors.add(String.format(verticalIndexNegative, verticalIndex));
+		
+		if (!errors.isEmpty())
 		{
-			errorString.append("Bad horizontal index: ").append(horizontalIndex);
-			hasError = true;
+			StringBuilder errorMessage = new StringBuilder();
+			
+			for (String error : errors)
+			{
+				errorMessage.append(error);
+			}
+			
+			throw new IllegalArgumentException(errorMessage.toString().trim());
 		}
-		
-		if(verticalIndex > this.verticalSize || verticalIndex < 0)
-		{
-			if (errorString.length() > 0) errorString.append(" ");
-			errorString.append("Bad vertical index: ").append(verticalIndex);
-			hasError = true;
-		}
-		
-		if (hasError) throw new IllegalArgumentException(errorString.toString());
 	}
 	
 	@Override
