@@ -35,7 +35,7 @@ public class BoardPieceImpl<T> implements BoardPiece2<T>
 	public MobilityStatus getMobilityStatus() { return this.mobilityStatus; }
 
 	@Override
-	public void setStatus(MobilityStatus status) { this.mobilityStatus = status; }
+	public void setMobilityStatus(MobilityStatus status) { this.mobilityStatus = status; }
 	
 	@Override
 	public void setUUID(UUID uuid) { this.uuid = uuid; }
