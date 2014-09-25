@@ -18,8 +18,20 @@ public class Main
     
 	public static void main(String[] args)
 	{	
-		CompositeBoard<String> test = new BoardFactoryClient()
-			.GetStringBoardFactory()
-			.createBoardFromFile("test.txt");
+		CompositeBoard<Integer> test = new BoardBuilder<Integer>()
+			.setHorizontalSize(5)
+			.setDefaulValue(2)
+			.setVerticalSize(4)
+			.setBoardIO(new AbstractBoardIOFactory().getIntegerBoardIO())
+			.createBoard();
+		print(test);
+
+		
+		test.getBoardIO().export("output", '|');
+//	new BoardFactoryClient()
+		//		.GetStringBoardFactory()
+		//		.createBoardFromFile("test.txt");
+		
+		
 	}
 }
