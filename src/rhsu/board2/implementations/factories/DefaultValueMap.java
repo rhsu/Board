@@ -29,7 +29,7 @@ public class DefaultValueMap extends HashMap<String, Object>//extends AbstractDe
 		this.put("Boolean", false);
 		this.put("Integer", 0);
 		this.put("String", "++");
-		this.put("Character", "+");
+		this.put("Character", '+');
 		this.put("Double", 0.0);
 	}
 }

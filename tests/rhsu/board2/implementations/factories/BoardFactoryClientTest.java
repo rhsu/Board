@@ -12,21 +12,18 @@ public class BoardFactoryClientTest
 	private final int horizontalSize;
 	private final int verticalSize;
 	
-	private BoardFactoryClientTest()
+	public BoardFactoryClientTest()
 	{
 		factoryClient = new BoardFactoryClient();
 		horizontalSize = 3;
 		verticalSize = 4;
 	}
 	
-	
 	@Test
 	public void testBigDecimalBoard()
 	{
-		BigDecimal defaultValue = BigDecimal.ZERO;
-		
 		CompositeBoard<BigDecimal> result
-			= factoryClient.GetBigDecimalBoardFactory(BigDecimal.ZERO).createBoard(horizontalSize, verticalSize);
+			= factoryClient.GetBigDecimalBoardFactory().createBoard(horizontalSize, verticalSize);
 		assertNotNull(result);
 	}
 	
