@@ -11,7 +11,7 @@ public class BoardFactory<T>
 	private final AbstractRandomGenerator<T> randomGenerator; 
 	private final AbstractBoardIO<T> boardIO;
 	
-	public BoardFactory(T defaultValue, 
+	BoardFactory(T defaultValue, 
 		AbstractRandomGenerator<T> randomGenerator,
 		AbstractBoardIO<T> boardIO)
 	{
