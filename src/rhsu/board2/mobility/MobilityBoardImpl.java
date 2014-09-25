@@ -26,7 +26,7 @@ public class MobilityBoardImpl<T> implements MobilityBoard<T>
 			for (int j = 0; j < parent.getVerticalSize(); j++)
 			{
 				boardArray[i][j].setUUID(this.uuid);
-				boardArray[i][j].setStatus(MobilityStatus.Free);
+				boardArray[i][j].setMobilityStatus(MobilityStatus.Free);
 			}
 		}
 	}
