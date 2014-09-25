@@ -7,104 +7,68 @@ import rhsu.board2.randomGenerators.*;
 
 public class BoardFactoryClient
 {
-	static final BigDecimal DEFAULT_BIG_DECIMAL = BigDecimal.ZERO;
-	static final BigInteger DEFAULT_BIG_INTEGER = BigInteger.ZERO;
-	static final Boolean DEFAULT_BOOLEAN = false;
-	static final Character DEFAULT_CHARACTER = '+';
-	static final Double DEFAULT_DOUBLE = 0.0;
-	static final Integer DEFAULT_INTEGER = 0;
-	static final String DEFAULT_STRING = "++";
-	
 	private final AbstractRandomGeneratorFactory abstractRandomGeneratorFactory;
 	private final AbstractBoardIOFactory abstractBoardIOFactory;
+	private final DefaultValueMap defaultValueMap;
+	
+	public BoardFactoryClient(DefaultValueMap defaultValueMap)
+	{
+		this.abstractRandomGeneratorFactory = new AbstractRandomGeneratorFactory();
+		this.abstractBoardIOFactory = new AbstractBoardIOFactory();
+		this.defaultValueMap = defaultValueMap;
+	}
 	
 	public BoardFactoryClient()
 	{
-		abstractRandomGeneratorFactory = new AbstractRandomGeneratorFactory();
-		abstractBoardIOFactory = new AbstractBoardIOFactory();
+		this(new DefaultValueMap());
 	}
 
-	public BoardFactory<BigDecimal> GetBigDecimalBoardFactory(BigDecimal defaultValue)
-	{		
-		return new BoardFactory<>(defaultValue, 
+	public BoardFactory<BigDecimal> GetBigDecimalBoardFactory()
+	{
+		return new BoardFactory<>(defaultValueMap.getDefaultBigDecimal(), 
 			abstractRandomGeneratorFactory.getBigDecimalRandomGenerator(), 
 			abstractBoardIOFactory.getBigDecimalBoardIO());
 	}
 	
-	public BoardFactory<BigDecimal> GetBigDecimalBoardFactory()
-	{
-		return GetBigDecimalBoardFactory(DEFAULT_BIG_DECIMAL);
-	}
-	
-	public BoardFactory<BigInteger> GetBigIntegerBoardFactory(BigInteger defaultValue)
+	public BoardFactory<BigInteger> GetBigIntegerBoardFactory()
 	{		
-		return new BoardFactory<>(defaultValue, 
+		return new BoardFactory<>(defaultValueMap.getDefaultBigInteger(), 
 			abstractRandomGeneratorFactory.getBigIntegerRandomGenerator(),
 			abstractBoardIOFactory.getBigIntegerBoardIO());
 	}
 	
-	public BoardFactory<BigInteger> GetBigIntegerBoardFactory()
+	public BoardFactory<Boolean> GetBooleanBoardFactory()
 	{		
-		return GetBigIntegerBoardFactory(DEFAULT_BIG_INTEGER);
-	}
-	
-	public BoardFactory<Boolean> GetBooleanBoardFactory(Boolean defaultValue)
-	{		
-		return new BoardFactory<>(defaultValue, 
+		return new BoardFactory<>(defaultValueMap.getDefaultBoolean(), 
 			abstractRandomGeneratorFactory.getBooleanRandomGenerator(), 
 			abstractBoardIOFactory.getBooleanBoardIO());
 	}
 	
-	public BoardFactory<Boolean> GetBooleanBoardFactory()
-	{		
-		return GetBooleanBoardFactory(DEFAULT_BOOLEAN);
-	}
-	
-	public BoardFactory<Character> GetCharacterBoardFactory(Character defaultValue)
+	public BoardFactory<Character> GetCharacterBoardFactory()
 	{
-		return new BoardFactory<>(defaultValue, 
+		return new BoardFactory<>(defaultValueMap.getDefaultCharacter(), 
 			abstractRandomGeneratorFactory.getCharacterRandomGenerator(),
 			abstractBoardIOFactory.getCharacterBoardIO());
 	}
 	
-	public BoardFactory<Character> GetCharacterBoardFactory()
-	{
-		return GetCharacterBoardFactory(DEFAULT_CHARACTER);
-	}
-	
-	public BoardFactory<Double> GetDoubleBoardFactory(Double defaultValue)
+	public BoardFactory<Double> GetDoubleBoardFactory()
 	{		
-		return new BoardFactory<>(defaultValue, 
+		return new BoardFactory<>(defaultValueMap.getDefaultDouble(), 
 			abstractRandomGeneratorFactory.getDoubleRandomGenerator(),
 			abstractBoardIOFactory.getDoubleBoardIO());
 	}
 	
-	public BoardFactory<Double> GetDoubleBoardFactory()
-	{		
-		return GetDoubleBoardFactory(DEFAULT_DOUBLE);
-	}
-	
-	public BoardFactory<Integer> GetIntegerBoardFactory(Integer defaultValue)
+	public BoardFactory<Integer> GetIntegerBoardFactory()
 	{
-		return new BoardFactory<>(defaultValue,
+		return new BoardFactory<>(defaultValueMap.getDefaultInteger(),
 			abstractRandomGeneratorFactory.getIntegerRandomGenerator(),
 			abstractBoardIOFactory.getIntegerBoardIO());
 	}
 	
-	public BoardFactory<Integer> GetIntegerBoardFactory()
-	{
-		return GetIntegerBoardFactory(DEFAULT_INTEGER);
-	}
-	
-	public BoardFactory<String> GetStringBoardFactory(String defaultValue)
-	{
-		return new BoardFactory<>(defaultValue,
-			abstractRandomGeneratorFactory.getStringRandomGenerator(),
-			abstractBoardIOFactory.getStringBoardIO());
-	}
-	
 	public BoardFactory<String> GetStringBoardFactory()
 	{
-		return GetStringBoardFactory(DEFAULT_STRING);
+		return new BoardFactory<>(defaultValueMap.getDefaultString(),
+			abstractRandomGeneratorFactory.getStringRandomGenerator(),
+			abstractBoardIOFactory.getStringBoardIO());
 	}
 }
