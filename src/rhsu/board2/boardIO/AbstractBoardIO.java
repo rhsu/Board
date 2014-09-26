@@ -6,8 +6,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.LinkedList;
 import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board2.BoardBuilder;
 import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
@@ -18,6 +20,14 @@ public abstract class AbstractBoardIO<T> implements Board2IO<T>,
 	BoardInitializable<T>
 {
 	private CompositeBoard<String> boardInitializer;
+	
+	private CompositeBoard<T> parent;
+	
+	@Override
+	public void setParent(CompositeBoard<T> parent)
+	{
+		this.parent = parent;
+	}
 	
 	@Override
 	public int getHorizontalSize()
@@ -31,8 +41,44 @@ public abstract class AbstractBoardIO<T> implements Board2IO<T>,
 		return this.boardInitializer.getVerticalSize();
 	}
 	
+	public AbstractBoardIO()
+	{
+		/*this.boardInitializer = new BoardBuilder<String>()
+			.setHorizontalSize(parent.getHorizontalSize())
+			.setVerticalSize(parent.getVerticalSize())
+			.createBoard();
+		
+		for(int i = 0; i < parent.getHorizontalSize(); i++)
+		{
+			for(int j = 0; j < parent.getVerticalSize(); j++)
+			{
+				this.boardInitializer.setValueAt(i, j, 
+					parent.getValueAt(i, j).toString());
+			}
+		}*/
+	}
+	
 	@Override
-	public CompositeBoard<String> getBoardInitializer() { return this.boardInitializer; }
+	public CompositeBoard<String> getBoardInitializer() 
+	{
+		if(boardInitializer == null)
+		{
+			this.boardInitializer = new BoardBuilder<String>()
+					.setHorizontalSize(parent.getHorizontalSize())
+					.setVerticalSize(parent.getVerticalSize())
+					.createBoard();
+
+			for(int i = 0; i < parent.getHorizontalSize(); i++)
+			{
+				for(int j = 0; j < parent.getVerticalSize(); j++)
+				{
+					this.boardInitializer.setValueAt(i, j, 
+						this.parent.getValueAt(i, j).toString());
+				}
+			}
+		}
+		return this.boardInitializer;
+	}
 	
 	/**
 	 * A string representing all the supported delimiters. A supported delimiter
@@ -118,7 +164,7 @@ public abstract class AbstractBoardIO<T> implements Board2IO<T>,
 			
 			try (BufferedWriter bw = new BufferedWriter(fw))
 			{
-				bw.write(this.boardInitializer.toString());
+				bw.write(this.getBoardInitializer().toString());
 			}
  
 			System.out.println("Done creating file: " + filename);

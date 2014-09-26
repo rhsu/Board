@@ -9,4 +9,5 @@ public interface Board2IO<T>
 	public void populateFromFile(String filename, String delimiter);
 	public void populateFromResource(BufferedReader reader, String delimiter);
 	public void export(String filename, char delimiter);
+	public void setParent(CompositeBoard<T> parent);
 }

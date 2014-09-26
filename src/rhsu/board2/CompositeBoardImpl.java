@@ -66,6 +66,7 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 			0 : horizontalSize * verticalSize;
 		
 		this.boardIO = boardIO;
+		
 		this.matrix = matrix;
 		this.mobilityBoard = mobilityBoard;
 		this.randomGenerator = randomGenerator;
@@ -75,6 +76,13 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 		this.boardArray = new BoardPieceImpl[this.verticalSize][this.horizontalSize];
 		this.boardInitializer = boardInitializer;
 		initializeBoardArray();
+		
+		setupChildren();
+	}
+	
+	private void setupChildren()
+	{
+		this.boardIO.setParent(this);
 	}
 
 	//<editor-fold desc="Accessors" defaultstate="collapsed">

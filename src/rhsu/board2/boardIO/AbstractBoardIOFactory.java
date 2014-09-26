@@ -2,6 +2,7 @@ package rhsu.board2.boardIO;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import rhsu.board2.CompositeBoard;
 
 public class AbstractBoardIOFactory
 {
