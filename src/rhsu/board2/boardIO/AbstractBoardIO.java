@@ -34,12 +34,6 @@ public abstract class AbstractBoardIO<T> implements Board2IO<T>,
 	@Override
 	public CompositeBoard<String> getBoardInitializer() { return this.boardInitializer; }
 	
-	/**
-	 * A string representing all the supported delimiters. A supported delimiter
-	 * will be automatically picked up.
-	 */
-	private final static String DELIMITERS = "|,;:\t";
-	
 	@Override
 	public void populateFromFile(String filename, String delimiter)
 	{
