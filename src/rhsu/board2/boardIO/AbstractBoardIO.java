@@ -40,23 +40,6 @@ public abstract class AbstractBoardIO<T> implements Board2IO<T>,
 	 */
 	private final static String DELIMITERS = "|,;:\t";
 	
-	/**
-	 * Method to determine the delimiter of a line in a file
-	 * @param line the line to determine the delimiter of
-	 * @return a string that represents the delimiter of the file
-	 */
-	private String DetermineDelimiter(String line)
-	{
-		char[] test = DELIMITERS.toCharArray();
-		
-		for(char item : test) 
-		{
-			if(line.contains(String.valueOf(item))) return String.valueOf(item);
-		}
-		
-		return " ";
-	}
-	
 	@Override
 	public void populateFromFile(String filename, String delimiter)
 	{
@@ -68,9 +51,7 @@ public abstract class AbstractBoardIO<T> implements Board2IO<T>,
 			String line;
 			while ((line = reader.readLine()) != null)
 			{			
-				String[] row = line.split( "".equals(delimiter) 
-						? DetermineDelimiter(line)
-						: delimiter);
+				String[] row = line.split(delimiter);
 				
 				fileContent.add(row);
 			}
