@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.HashMap;
 
-public class DefaultValueMap extends HashMap<String, Object>//extends AbstractDefaultValueProvider
+class DefaultValueMap extends HashMap<String, Object>
 {
 	public BigDecimal getDefaultBigDecimal() { return (BigDecimal) this.get("BigDecimal"); }
 	public BigInteger getDefaultBigInteger() { return (BigInteger) this.get("BigInteger"); }
