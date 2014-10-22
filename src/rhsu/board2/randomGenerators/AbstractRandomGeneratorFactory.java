@@ -33,7 +33,7 @@ public class AbstractRandomGeneratorFactory
 			@Override
 			public BigInteger getRandom()
 			{
-				return new BigInteger(new Integer(random.nextInt()).toString());
+				return new BigInteger(Integer.toString(random.nextInt()));
 			}
 		};
 	}
@@ -61,7 +61,7 @@ public class AbstractRandomGeneratorFactory
 			public Character getRandom()
 			{
 				return ALPHABET.charAt(random.nextInt(N));
-			}
+			}	
 		};
 	}
 	
