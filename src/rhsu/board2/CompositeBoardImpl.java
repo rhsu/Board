@@ -1,5 +1,6 @@
 package rhsu.board2;
 
+import java.util.ArrayList;
 import rhsu.board2.mobility.MobilityBoard;
 import rhsu.board2.randomGenerators.RandomGenerator;
 import rhsu.board2.matrices.Matrix2;
@@ -115,9 +116,9 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	public BoardPiece2<T>[][] getBoardArray() { return this.boardArray; }
 	
 	@Override
-	public Map<String, BoardModule> getBoardModules() 
+	public List<BoardModule> getBoardModules() 
 	{
-		return this.boardModules;
+		return new ArrayList<>(this.boardModules.values());
 	}
 	
 	//</editor-fold>
