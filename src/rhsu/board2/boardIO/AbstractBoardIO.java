@@ -8,14 +8,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedList;
 import rhsu.board.exceptionHandler.ExceptionHandler;
+import rhsu.board2.AbstractBoardModule;
 import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
 import rhsu.board2.CompositeBoard;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
 
-public abstract class AbstractBoardIO<T> implements Board2IO<T>,
-	BoardInitializable<T>
+public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
+	implements Board2IO<T>, BoardInitializable<T>
 {
 	private CompositeBoard<String> boardInitializer;
 	
@@ -90,12 +91,12 @@ public abstract class AbstractBoardIO<T> implements Board2IO<T>,
 			}
 			
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			
+ 
 			try (BufferedWriter bw = new BufferedWriter(fw))
 			{
-				bw.write(this.boardInitializer.toString());
+				bw.write(this.getParent().toString().trim());
 			}
- 
+			
 			System.out.println("Done creating file: " + filename);
 			
 		}

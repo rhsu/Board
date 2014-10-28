@@ -2,12 +2,14 @@ package rhsu.board2.mobility;
 
 import java.util.UUID;
 import rhsu.board.Direction;
+import rhsu.board2.AbstractBoardModule;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.CompositeBoard;
 
-public class MobilityBoardImpl<T> implements MobilityBoard<T>
+public class MobilityBoardImpl<T> 
+	extends AbstractBoardModule<T>
+	implements MobilityBoard<T>
 {
-	private final CompositeBoard<T> parent;
 	private final UUID uuid;
 	
 	public MobilityBoardImpl(CompositeBoard<T> parent)

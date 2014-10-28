@@ -20,8 +20,8 @@ public class Main
 	{	
 		CompositeBoard<String> test = new BoardFactoryClient()
 			.GetStringBoardFactory()
-			.createBoardFromFile("test.txt", " ");
+			.createRandomBoard(5, 5);
 		
-		print(test);
+		test.getBoardIO().export("testing123", '1');
 	}
 }
