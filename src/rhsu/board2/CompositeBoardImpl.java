@@ -20,9 +20,9 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	static final Object DEFAULT_VALUE = new Object();
 	
 	private Map<String, BoardModule> boardModules;
-	private static final String boardIO = "boardIO";
-	private static final String matrix = "matrix";
-	private static final String mobilityBoard = "mobilityBoard";
+	private static final String BOARD_IO = "boardIO";
+	private static final String MATRIX = "matrix";
+	private static final String MOBILITY_BOARD = "mobilityBoard";
 	
 	private final RandomGenerator<T> randomGenerator;
 	
@@ -41,19 +41,19 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	@Override
 	public Board2IO getBoardIO() 
 	{ 
-		return (Board2IO) boardModules.get(CompositeBoardImpl.boardIO); 
+		return (Board2IO) boardModules.get(CompositeBoardImpl.BOARD_IO); 
 	}
 
 	@Override
 	public Matrix2<T> getMatrix() 
 	{ 
-		return (Matrix2) boardModules.get(CompositeBoardImpl.matrix);
+		return (Matrix2) boardModules.get(CompositeBoardImpl.MATRIX);
 	}
 
 	@Override
 	public MobilityBoard<T> getMobilityBoard()	
 	{ 
-		return (MobilityBoard) boardModules.get(CompositeBoardImpl.mobilityBoard); 
+		return (MobilityBoard) boardModules.get(CompositeBoardImpl.MOBILITY_BOARD); 
 	}
 
 	@Override
@@ -80,9 +80,9 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 		this.size = ((horizontalSize == null) || (verticalSize == null)) ?
 			0 : horizontalSize * verticalSize;
 				
-		this.boardModules.put(CompositeBoardImpl.boardIO, boardIO);
-		this.boardModules.put(CompositeBoardImpl.matrix, matrix);
-		this.boardModules.put(CompositeBoardImpl.mobilityBoard, mobilityBoard);
+		this.boardModules.put(CompositeBoardImpl.BOARD_IO, boardIO);
+		this.boardModules.put(CompositeBoardImpl.MATRIX, matrix);
+		this.boardModules.put(CompositeBoardImpl.MOBILITY_BOARD, mobilityBoard);
 		
 		//this.boardModules.put(randomGenerator, matrix);
 		this.randomGenerator = randomGenerator;
