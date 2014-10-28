@@ -303,19 +303,12 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	
 	private void setupBoardModules()
 	{
-		if (this.getBoardIO() != null)
+		for(BoardModule module : this.getBoardModules())
 		{
-			this.setupBoardModule((this.getBoardIO()));
-		}
-		
-		if (this.getMatrix() != null)
-		{
-			this.setupBoardModule(this.getMatrix());
-		}
-		
-		if (this.getMobilityBoard() != null)
-		{
-			this.setupBoardModule(this.getMobilityBoard());
+			if (module != null)
+			{
+				module.setParent(this);
+			}
 		}
 	}
 	
