@@ -2,6 +2,7 @@ package rhsu.board2;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import rhsu.board2.mobility.MobilityBoard;
 import rhsu.board2.randomGenerators.RandomGenerator;
 import rhsu.board2.matrices.Matrix2;
@@ -10,6 +11,8 @@ import rhsu.board2.boardIO.Board2IO;
 
 public interface CompositeBoard<T>
 {
+	public Map<String, BoardModule> getBoardModules();
+	
 	public Board2IO getBoardIO();
 	public Matrix2<T> getMatrix();
 	public MobilityBoard<T> getMobilityBoard();

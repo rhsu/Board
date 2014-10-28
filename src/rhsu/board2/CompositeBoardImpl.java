@@ -4,9 +4,11 @@ import rhsu.board2.mobility.MobilityBoard;
 import rhsu.board2.randomGenerators.RandomGenerator;
 import rhsu.board2.matrices.Matrix2;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import rhsu.board.Direction;
 import rhsu.board2.boardIO.Board2IO;
@@ -16,10 +18,13 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 {
 	static final Object DEFAULT_VALUE = new Object();
 	
-	private final Board2IO boardIO;
-	private final Matrix2<T>matrix;
-	private final MobilityBoard<T> mobilityBoard;
+	private Map<String, BoardModule> boardModules;
+	private static final String boardIO = "boardIO";
+	private static final String matrix = "matrix";
+	private static final String mobilityBoard = "mobilityBoard";
+	
 	private final RandomGenerator<T> randomGenerator;
+	
 	private final BoardInitializable<T> boardInitializer;
 	
 	//<editor-fold desc="Protected Variables" defaultstate="collapsed">
@@ -33,13 +38,22 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	//</editor-fold>
 	
 	@Override
-	public Board2IO getBoardIO() { return this.boardIO; }
+	public Board2IO getBoardIO() 
+	{ 
+		return (Board2IO) boardModules.get(CompositeBoardImpl.boardIO); 
+	}
 
 	@Override
-	public Matrix2<T> getMatrix() { return this.matrix; }
+	public Matrix2<T> getMatrix() 
+	{ 
+		return (Matrix2) boardModules.get(CompositeBoardImpl.matrix);
+	}
 
 	@Override
-	public MobilityBoard<T> getMobilityBoard()	{ return this.mobilityBoard; }
+	public MobilityBoard<T> getMobilityBoard()	
+	{ 
+		return (MobilityBoard) boardModules.get(CompositeBoardImpl.mobilityBoard); 
+	}
 
 	@Override
 	public RandomGenerator<T> getRandomGenerator() { return this.randomGenerator; }
@@ -64,16 +78,21 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 		
 		this.size = ((horizontalSize == null) || (verticalSize == null)) ?
 			0 : horizontalSize * verticalSize;
+				
+		this.boardModules.put(CompositeBoardImpl.boardIO, boardIO);
+		this.boardModules.put(CompositeBoardImpl.matrix, matrix);
+		this.boardModules.put(CompositeBoardImpl.mobilityBoard, mobilityBoard);
 		
-		this.boardIO = boardIO;
-		this.matrix = matrix;
-		this.mobilityBoard = mobilityBoard;
+		//this.boardModules.put(randomGenerator, matrix);
 		this.randomGenerator = randomGenerator;
 		
 		this.defaultValue = (T) (defaultValue == null ? DEFAULT_VALUE : defaultValue);
 				
 		this.boardArray = new BoardPieceImpl[this.verticalSize][this.horizontalSize];
 		this.boardInitializer = boardInitializer;
+		
+		boardModules = new HashMap<>();
+		
 		initializeBoardArray();
 		setupBoardModules();
 	}
@@ -94,6 +113,12 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	
 	@Override
 	public BoardPiece2<T>[][] getBoardArray() { return this.boardArray; }
+	
+	@Override
+	public Map<String, BoardModule> getBoardModules() 
+	{
+		return this.boardModules;
+	}
 	
 	//</editor-fold>
 
