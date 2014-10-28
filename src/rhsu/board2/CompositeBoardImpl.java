@@ -75,6 +75,7 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 		this.boardArray = new BoardPieceImpl[this.verticalSize][this.horizontalSize];
 		this.boardInitializer = boardInitializer;
 		initializeBoardArray();
+		setupBoardModules();
 	}
 
 	//<editor-fold desc="Accessors" defaultstate="collapsed">
@@ -273,6 +274,29 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	}
 	
 	//</editor-fold>	
+	
+	private void setupBoardModules()
+	{
+		if (this.getBoardIO() != null)
+		{
+			this.setupBoardModule((this.getBoardIO()));
+		}
+		
+		if (this.getMatrix() != null)
+		{
+			this.setupBoardModule(this.getMatrix());
+		}
+		
+		if (this.getMobilityBoard() != null)
+		{
+			this.setupBoardModule(this.getMobilityBoard());
+		}
+	}
+	
+	private void setupBoardModule(BoardModule module)
+	{
+		module.setParent(this);
+	}
 	
 	private void initializeBoardArray()
 	{

@@ -91,12 +91,12 @@ public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
 			}
 			
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			
+ 
 			try (BufferedWriter bw = new BufferedWriter(fw))
 			{
-				bw.write(this.boardInitializer.toString());
+				bw.write(this.getParent().toString().trim());
 			}
- 
+			
 			System.out.println("Done creating file: " + filename);
 			
 		}
