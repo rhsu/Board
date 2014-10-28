@@ -149,6 +149,16 @@ public class UnitTestStubFactory<T>
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
+
+				@Override
+				public CompositeBoard<T> getParent() {
+					throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+				}
+
+				@Override
+				public void setParent(CompositeBoard<T> parent) {
+					throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+				}
 			};
 		}
 		return randomGenerator;

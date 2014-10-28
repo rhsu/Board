@@ -1,22 +1,24 @@
 package rhsu.board2.randomGenerators;
 
+import rhsu.board2.AbstractBoardModule;
 import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
 
-public abstract class AbstractRandomGenerator<T> implements RandomGenerator<T>,
+public abstract class AbstractRandomGenerator<T> extends AbstractBoardModule<T>
+	implements RandomGenerator<T>,
 	BoardInitializable<T>
 {
 	@Override
 	public int getHorizontalSize()
 	{
-		throw new UnsupportedOperationException("Get Horizontal Size is not supported in AbstractRandomGenerator");
+		return this.getParent().getHorizontalSize();
 	}
 	
 	@Override
 	public int getVerticalSize()
 	{
-		throw new UnsupportedOperationException("Get Vertical Size is not supported in AbstractRandomGenerator");
+		return this.getParent().getVerticalSize();
 	}
 	
 	@Override
@@ -37,5 +39,4 @@ public abstract class AbstractRandomGenerator<T> implements RandomGenerator<T>,
 		
 		return boardArray;
 	}
-	
 }

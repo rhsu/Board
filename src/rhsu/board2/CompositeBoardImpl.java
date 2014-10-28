@@ -23,8 +23,7 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	private static final String BOARD_IO = "boardIO";
 	private static final String MATRIX = "matrix";
 	private static final String MOBILITY_BOARD = "mobilityBoard";
-	
-	private final RandomGenerator<T> randomGenerator;
+	private static final String RANDOM_GENERATOR = "randomGenerator";
 	
 	private final BoardInitializable<T> boardInitializer;
 	
@@ -57,7 +56,10 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	}
 
 	@Override
-	public RandomGenerator<T> getRandomGenerator() { return this.randomGenerator; }
+	public RandomGenerator<T> getRandomGenerator() 
+	{
+		return (RandomGenerator) boardModules.get(CompositeBoardImpl.RANDOM_GENERATOR);
+	}
 		
 	public CompositeBoardImpl(
 		Integer horizontalSize,
@@ -83,9 +85,7 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 		this.boardModules.put(CompositeBoardImpl.BOARD_IO, boardIO);
 		this.boardModules.put(CompositeBoardImpl.MATRIX, matrix);
 		this.boardModules.put(CompositeBoardImpl.MOBILITY_BOARD, mobilityBoard);
-		
-		//this.boardModules.put(randomGenerator, matrix);
-		this.randomGenerator = randomGenerator;
+		this.boardModules.put(CompositeBoardImpl.RANDOM_GENERATOR, randomGenerator);
 		
 		this.defaultValue = (T) (defaultValue == null ? DEFAULT_VALUE : defaultValue);
 				
@@ -311,12 +311,7 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 			}
 		}
 	}
-	
-	private void setupBoardModule(BoardModule module)
-	{
-		module.setParent(this);
-	}
-	
+		
 	private void initializeBoardArray()
 	{
 		this.boardArray = (boardInitializer != null) ? boardInitializer.initializeBoard(boardArray)

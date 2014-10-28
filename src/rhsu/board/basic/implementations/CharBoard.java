@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.util.Random;
 import rhsu.board.basic.AbstractBasicBoard;
 import rhsu.board.basic.BasicBoardPiece;
+import rhsu.board2.CompositeBoard;
 import rhsu.board2.randomGenerators.RandomGenerator;
 
 /**
@@ -77,6 +78,16 @@ public class CharBoard extends AbstractBasicBoard<Character>
 			public Character getRandom() 
 			{
 				return ALPHABET.charAt(random.nextInt(N));
+			}
+
+			@Override
+			public CompositeBoard getParent() {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+			}
+
+			@Override
+			public void setParent(CompositeBoard parent) {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 			}
 		};
 		return generator;
