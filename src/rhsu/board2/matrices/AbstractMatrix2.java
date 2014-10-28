@@ -1,11 +1,12 @@
 package rhsu.board2.matrices;
 
 import rhsu.board.basic.AbstractBasicMatrix.OperationType;
+import rhsu.board2.AbstractBoardModule;
 import rhsu.board2.CompositeBoard;
 
-public abstract class AbstractMatrix2<T> implements Matrix2<T>
+public abstract class AbstractMatrix2<T> extends AbstractBoardModule<T>
+	implements Matrix2<T>
 {
-	protected CompositeBoard<T> parent;
 	protected int horizontalSize;
 	protected int verticalSize;
 	

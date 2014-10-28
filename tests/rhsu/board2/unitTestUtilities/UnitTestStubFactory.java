@@ -48,6 +48,16 @@ public class UnitTestStubFactory<T>
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
+
+				@Override
+				public CompositeBoard<T> getParent() {
+					throw new UnsupportedOperationException("Stub Method: Not Implemented");
+				}
+
+				@Override
+				public void setParent(CompositeBoard<T> parent) {
+					throw new UnsupportedOperationException("Stub Method: Not Implemented");
+				}
 			};
 		}
 		return boardIO;
@@ -112,6 +122,16 @@ public class UnitTestStubFactory<T>
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
+
+				@Override
+				public CompositeBoard<T> getParent() {
+					throw new UnsupportedOperationException("Stub Method: Not Implemented");
+				}
+
+				@Override
+				public void setParent(CompositeBoard<T> parent) {
+					throw new UnsupportedOperationException("Stub Method: Not Implemented");
+				}
 			};
 		}
 		return matrix;
@@ -168,6 +188,16 @@ public class UnitTestStubFactory<T>
 				public UUID getUUID()
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented"); 
+				}
+
+				@Override
+				public CompositeBoard<T> getParent() {
+					throw new UnsupportedOperationException("Stub Method: Not Implemented");
+				}
+
+				@Override
+				public void setParent(CompositeBoard<T> parent) {
+					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
 			};
 		}

@@ -22,6 +22,6 @@ public class Main
 			.GetStringBoardFactory()
 			.createBoardFromFile("test.txt", " ");
 		
-		print(test);
+		test.getBoardIO().export("result.txt", ';');
 	}
 }

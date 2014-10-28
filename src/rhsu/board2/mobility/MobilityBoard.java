@@ -1,12 +1,12 @@
 package rhsu.board2.mobility;
 
 import java.util.UUID;
-import rhsu.board.Board;
 import rhsu.board.Direction;
+import rhsu.board2.BoardModule;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.CompositeBoard;
 
-public interface MobilityBoard<T>
+public interface MobilityBoard<T> extends BoardModule<T>
 {
 	/**
 	 * moves the parameter piece to the given coordinate (horizontal, vertical)

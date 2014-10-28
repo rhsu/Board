@@ -1,8 +1,9 @@
 package rhsu.board2.matrices;
 
+import rhsu.board2.BoardModule;
 import rhsu.board2.CompositeBoard;
 
-public interface Matrix2<T>
+public interface Matrix2<T> extends BoardModule<T>
 {	
 	/**
 	 * Performs the add operation
