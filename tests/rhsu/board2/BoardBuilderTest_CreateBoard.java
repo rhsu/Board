@@ -7,7 +7,7 @@ import rhsu.board2.unitTestUtilities.UnitTestStubFactory;
 
 public class BoardBuilderTest_CreateBoard
 {
-	private BoardBuilder<Object> builder;
+	private BasicBoardBuilder<Object> builder;
 	private UnitTestStubFactory<Object> stubFactory;
 	private CompositeBoard<Object> board;
 	private final int HORIZONTAL_SIZE = 5;
@@ -16,7 +16,7 @@ public class BoardBuilderTest_CreateBoard
 	@Before
 	public void setup()
 	{
-		builder = new BoardBuilder<>()
+		builder = new BasicBoardBuilder<>()
 			.setHorizontalSize(HORIZONTAL_SIZE)
 			.setVerticalSize(VERTICAL_SIZE)
 			//setting modules

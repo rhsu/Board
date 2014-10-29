@@ -77,7 +77,7 @@ public abstract class Board2Test<T>
 	@Test
 	public void testDoesNotEqualDifferentBoardSameTypeDifferentDimension()
 	{
-		CompositeBoard<T> differentBoard = new BoardBuilder()
+		CompositeBoard<T> differentBoard = new BasicBoardBuilder()
 			.setHorizontalSize(100)
 			.setVerticalSize(200)
 			.createBoard();

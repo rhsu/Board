@@ -5,7 +5,7 @@ import rhsu.board2.randomGenerators.RandomGenerator;
 import rhsu.board2.matrices.Matrix2;
 import rhsu.board2.boardIO.Board2IO;
 
-public class BoardBuilder<T>
+public class BasicBoardBuilder<T>
 {
 	protected Board2IO boardIO = null;
 	protected Matrix2<T> matrix = null;
@@ -16,49 +16,49 @@ public class BoardBuilder<T>
 	protected T defaultValue = null;
 	protected BoardInitializable<T> boardInitializer = null;
 	
-	public BoardBuilder<T> setBoardIO(Board2IO<T> boardIO)
+	public BasicBoardBuilder<T> setBoardIO(Board2IO<T> boardIO)
 	{
 		this.boardIO = boardIO;
 		return this;
 	}
 	
-	public BoardBuilder<T> setMatrix(Matrix2<T> matrix)
+	public BasicBoardBuilder<T> setMatrix(Matrix2<T> matrix)
 	{
 		this.matrix = matrix;
 		return this;
 	}
 	
-	public BoardBuilder<T> setRandomGenerator(RandomGenerator<T> randomGenerator)
+	public BasicBoardBuilder<T> setRandomGenerator(RandomGenerator<T> randomGenerator)
 	{
 		this.randomGenerator = randomGenerator;
 		return this;
 	}
 	
-	public BoardBuilder<T> setMobilityBoard(MobilityBoard<T> mobilityBoard)
+	public BasicBoardBuilder<T> setMobilityBoard(MobilityBoard<T> mobilityBoard)
 	{
 		this.mobilityBoard = mobilityBoard;
 		return this;
 	}
 	
-	public BoardBuilder<T> setHorizontalSize(int horizontalSize)
+	public BasicBoardBuilder<T> setHorizontalSize(int horizontalSize)
 	{
 		this.horizontalSize = horizontalSize;
 		return this;
 	}
 	
-	public BoardBuilder<T> setVerticalSize(int verticalSize)
+	public BasicBoardBuilder<T> setVerticalSize(int verticalSize)
 	{
 		this.verticalSize = verticalSize;
 		return this;
 	}
 	
-	public BoardBuilder<T> setDefaulValue(T defaultValue)
+	public BasicBoardBuilder<T> setDefaulValue(T defaultValue)
 	{
 		this.defaultValue = defaultValue;
 		return this;
 	}
 	
-	public BoardBuilder<T> setBoardInitializable(BoardInitializable<T> boardInitializer)
+	public BasicBoardBuilder<T> setBoardInitializable(BoardInitializable<T> boardInitializer)
 	{
 		this.boardInitializer = boardInitializer;
 		return this;
