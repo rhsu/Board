@@ -1,7 +1,7 @@
 package rhsu.board2.matrices;
 
 import rhsu.board2.BoardModule;
-import rhsu.board2.CompositeBoard;
+import rhsu.board2.Board2;
 
 public interface Matrix2<T> extends BoardModule<T>
 {	
@@ -10,34 +10,34 @@ public interface Matrix2<T> extends BoardModule<T>
 	 * @param matrix
 	 * @return the result after the add operation
 	 */
-	public CompositeBoard<T> add(CompositeBoard<T> matrix);
+	public Board2<T> add(Board2<T> matrix);
 	
 	/**
 	 * Performs the subtract operation
 	 * @param matrix
 	 * @return the result after the subtract operation
 	 */
-	public CompositeBoard<T> subtract(CompositeBoard<T> matrix);
+	public Board2<T> subtract(Board2<T> matrix);
 	
 	/**
 	 * Performs the multiply operation
 	 * @param matrix
 	 * @return the result after the multiply operation
 	 */
-	public CompositeBoard<T> multiply(CompositeBoard<T> matrix);
+	public Board2<T> multiply(Board2<T> matrix);
 	
 	/**
 	 * Performs the multiply scalar operation
 	 * @param piece the scalar to multiply to the matrix
 	 * @return the result after the multiply scalar operation
 	 */
-	public CompositeBoard<T> multiply(T piece);
+	public Board2<T> multiply(T piece);
 	
 	/**
 	 * Performs the inverse operation
 	 * @return the result after the inverse operation
 	 */
-	public CompositeBoard<T> inverse();
+	public Board2<T> inverse();
 	
 	/**
 	 * Performs the determinant operation
@@ -45,9 +45,9 @@ public interface Matrix2<T> extends BoardModule<T>
 	 */
 	public T determinant();
 	
-	public CompositeBoard<T> transpose();
+	public Board2<T> transpose();
 	
-	public CompositeBoard<T> createSubMatrix(int excluding_row, int excluding_column);
+	public Board2<T> createSubMatrix(int excluding_row, int excluding_column);
 	
-	public CompositeBoard<T> cofactor();
+	public Board2<T> cofactor();
 }

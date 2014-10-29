@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import org.junit.*;
 import static org.junit.Assert.*;
-import rhsu.board2.CompositeBoard;
+import rhsu.board2.Board2;
 
 public class BoardFactoryClientTest
 {
@@ -22,7 +22,7 @@ public class BoardFactoryClientTest
 	@Test
 	public void testBigDecimalBoard()
 	{
-		CompositeBoard<BigDecimal> result
+		Board2<BigDecimal> result
 			= factoryClient.GetBigDecimalBoardFactory().createBoard(horizontalSize, verticalSize);
 		assertNotNull(result);
 	}
@@ -30,7 +30,7 @@ public class BoardFactoryClientTest
 	@Test
 	public void testBigIntegerBoard()
 	{
-		CompositeBoard<BigInteger> result
+		Board2<BigInteger> result
 			= factoryClient.GetBigIntegerBoardFactory().createBoard(horizontalSize, verticalSize);
 		assertNotNull(result);
 	}
@@ -38,7 +38,7 @@ public class BoardFactoryClientTest
 	@Test
 	public void testBooleanBoard()
 	{
-		CompositeBoard<Boolean> result 
+		Board2<Boolean> result 
 			= factoryClient.GetBooleanBoardFactory().createBoard(horizontalSize, verticalSize);
 		assertNotNull(result);
 	}
@@ -46,7 +46,7 @@ public class BoardFactoryClientTest
 	@Test
 	public void testCharacterBoard()
 	{
-		CompositeBoard<Character> result 
+		Board2<Character> result 
 			= factoryClient.GetCharacterBoardFactory().createBoard(horizontalSize, verticalSize);
 		assertNotNull(result);
 	}
@@ -54,7 +54,7 @@ public class BoardFactoryClientTest
 	@Test
 	public void testDoubleBoard()
 	{
-		CompositeBoard<Double> result
+		Board2<Double> result
 			= factoryClient.GetDoubleBoardFactory().createBoard(horizontalSize, verticalSize);
 		assertNotNull(result);
 	}
@@ -62,7 +62,7 @@ public class BoardFactoryClientTest
 	@Test
 	public void testIntegerBoard()
 	{
-		CompositeBoard<Integer> result
+		Board2<Integer> result
 			= factoryClient.GetIntegerBoardFactory().createBoard(horizontalSize, verticalSize);
 		assertNotNull(result);
 	}

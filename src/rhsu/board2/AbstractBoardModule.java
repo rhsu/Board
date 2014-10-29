@@ -2,16 +2,16 @@ package rhsu.board2;
 
 public abstract class AbstractBoardModule<T> implements BoardModule<T>
 {
-	protected CompositeBoard<T> parent;
+	protected Board2<T> parent;
 	
 	@Override
-	public void setParent(CompositeBoard<T> parent)
+	public void setParent(Board2<T> parent)
 	{
 		this.parent = parent;
 	}
 	
 	@Override
-	public CompositeBoard<T> getParent()
+	public Board2<T> getParent()
 	{
 		return parent;
 	}
