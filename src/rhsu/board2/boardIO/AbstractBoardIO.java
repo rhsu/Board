@@ -12,13 +12,13 @@ import rhsu.board2.AbstractBoardModule;
 import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
-import rhsu.board2.CompositeBoard;
+import rhsu.board2.Board2;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
 
 public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
 	implements Board2IO<T>, BoardInitializable<T>
 {
-	private CompositeBoard<String> boardInitializer;
+	private Board2<String> boardInitializer;
 	
 	@Override
 	public int getHorizontalSize()
@@ -33,7 +33,7 @@ public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
 	}
 	
 	@Override
-	public CompositeBoard<String> getBoardInitializer() { return this.boardInitializer; }
+	public Board2<String> getBoardInitializer() { return this.boardInitializer; }
 	
 	@Override
 	public void populateFromFile(String filename, String delimiter)
@@ -94,7 +94,7 @@ public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
  
 			try (BufferedWriter bw = new BufferedWriter(fw))
 			{
-				CompositeBoard<T> parentBoard = this.getParent();
+				Board2<T> parentBoard = this.getParent();
 				for(int i = 0; i < parentBoard.getHorizontalSize(); i++)
 				{
 					for(int j = 0; j < parentBoard.getVerticalSize(); j++)

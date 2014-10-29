@@ -9,7 +9,7 @@ public class BoardBuilderTest_CreateBoard
 {
 	private BasicBoardBuilder<Object> builder;
 	private UnitTestStubFactory<Object> stubFactory;
-	private CompositeBoard<Object> board;
+	private Board2<Object> board;
 	private final int HORIZONTAL_SIZE = 5;
 	private final int VERTICAL_SIZE = 7;
 	

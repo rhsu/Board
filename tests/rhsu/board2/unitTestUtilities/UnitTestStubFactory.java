@@ -5,7 +5,7 @@ import java.util.UUID;
 import rhsu.board.Direction;
 import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
-import rhsu.board2.CompositeBoard;
+import rhsu.board2.Board2;
 import rhsu.board2.boardIO.Board2IO;
 import rhsu.board2.matrices.Matrix2;
 import rhsu.board2.mobility.MobilityBoard;
@@ -26,7 +26,7 @@ public class UnitTestStubFactory<T>
 			boardIO = new Board2IO<T>() 
 			{
 				@Override
-				public CompositeBoard<String> getBoardInitializer()
+				public Board2<String> getBoardInitializer()
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
@@ -50,12 +50,12 @@ public class UnitTestStubFactory<T>
 				}
 
 				@Override
-				public CompositeBoard<T> getParent() {
+				public Board2<T> getParent() {
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
 
 				@Override
-				public void setParent(CompositeBoard<T> parent) {
+				public void setParent(Board2<T> parent) {
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
 			};
@@ -70,31 +70,31 @@ public class UnitTestStubFactory<T>
 			matrix = new Matrix2<T>()
 			{
 				@Override
-				public CompositeBoard<T> add(CompositeBoard<T> matrix)
+				public Board2<T> add(Board2<T> matrix)
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
 
 				@Override
-				public CompositeBoard<T> subtract(CompositeBoard<T> matrix)
+				public Board2<T> subtract(Board2<T> matrix)
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
 
 				@Override
-				public CompositeBoard<T> multiply(CompositeBoard<T> matrix)
+				public Board2<T> multiply(Board2<T> matrix)
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
 
 				@Override
-				public CompositeBoard<T> multiply(T piece)
+				public Board2<T> multiply(T piece)
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
 
 				@Override
-				public CompositeBoard<T> inverse()
+				public Board2<T> inverse()
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
@@ -106,30 +106,30 @@ public class UnitTestStubFactory<T>
 				}
 
 				@Override
-				public CompositeBoard<T> transpose()
+				public Board2<T> transpose()
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
 
 				@Override
-				public CompositeBoard<T> createSubMatrix(int excluding_row, int excluding_column)
+				public Board2<T> createSubMatrix(int excluding_row, int excluding_column)
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
 
 				@Override
-				public CompositeBoard<T> cofactor()
+				public Board2<T> cofactor()
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
 
 				@Override
-				public CompositeBoard<T> getParent() {
+				public Board2<T> getParent() {
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
 
 				@Override
-				public void setParent(CompositeBoard<T> parent) {
+				public void setParent(Board2<T> parent) {
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
 			};
@@ -167,7 +167,7 @@ public class UnitTestStubFactory<T>
 				}
 
 				@Override
-				public boolean move(BoardPiece2<T> piece, int horizontal, int vertical, CompositeBoard<T> otherBoard)
+				public boolean move(BoardPiece2<T> piece, int horizontal, int vertical, Board2<T> otherBoard)
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
@@ -179,7 +179,7 @@ public class UnitTestStubFactory<T>
 				}
 
 				@Override
-				public boolean move(BoardPiece2<T> piece, int units, Direction direction, CompositeBoard<T> otherBoard)
+				public boolean move(BoardPiece2<T> piece, int units, Direction direction, Board2<T> otherBoard)
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented"); 
 				}
@@ -191,12 +191,12 @@ public class UnitTestStubFactory<T>
 				}
 
 				@Override
-				public CompositeBoard<T> getParent() {
+				public Board2<T> getParent() {
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
 
 				@Override
-				public void setParent(CompositeBoard<T> parent) {
+				public void setParent(Board2<T> parent) {
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
 			};

@@ -9,8 +9,8 @@ public abstract class Board2Test<T>
 {
 	protected int horizontalSize = 3;
 	protected int verticalSize = 5;
-	protected CompositeBoard<T> board;
-	protected CompositeBoard<T> sameBoard;
+	protected Board2<T> board;
+	protected Board2<T> sameBoard;
 
 	@Before
 	public abstract void createBoard();
@@ -77,7 +77,7 @@ public abstract class Board2Test<T>
 	@Test
 	public void testDoesNotEqualDifferentBoardSameTypeDifferentDimension()
 	{
-		CompositeBoard<T> differentBoard = new BasicBoardBuilder()
+		Board2<T> differentBoard = new BasicBoardBuilder()
 			.setHorizontalSize(100)
 			.setVerticalSize(200)
 			.createBoard();
@@ -88,7 +88,7 @@ public abstract class Board2Test<T>
 	@Test
 	public void testDoesNotEqualDifferentBoardDifferentType()
 	 {
-		CompositeBoard<String> stringBoard = new BoardFactoryClient()
+		Board2<String> stringBoard = new BoardFactoryClient()
 			.GetStringBoardFactory()
 			.createBoard(board.getHorizontalSize(), board.getVerticalSize());
 		

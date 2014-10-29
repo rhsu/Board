@@ -2,22 +2,22 @@ package rhsu.board2.matrices;
 
 import java.math.BigDecimal;
 import rhsu.board.basic.AbstractBasicMatrix;
-import rhsu.board2.CompositeBoard;
+import rhsu.board2.Board2;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
 
 public class BigDecimalMatrix extends AbstractMatrix2
 {
-	public BigDecimalMatrix(CompositeBoard parent)
+	public BigDecimalMatrix(Board2 parent)
 	{
 		super(parent);
 	}
 
 	@Override
-	public CompositeBoard add(CompositeBoard matrix)
+	public Board2 add(Board2 matrix)
 	{
 		super.CheckDimensions(AbstractBasicMatrix.OperationType.ADD, matrix);
 
-		CompositeBoard<BigDecimal> result = new BoardFactoryClient()
+		Board2<BigDecimal> result = new BoardFactoryClient()
 			.GetBigDecimalBoardFactory()
 			.createBoard(this.horizontalSize, this.verticalSize);
 		
@@ -35,25 +35,25 @@ public class BigDecimalMatrix extends AbstractMatrix2
 	}
 
 	@Override
-	public CompositeBoard subtract(CompositeBoard matrix)
+	public Board2 subtract(Board2 matrix)
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
-	public CompositeBoard multiply(CompositeBoard matrix)
+	public Board2 multiply(Board2 matrix)
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
-	public CompositeBoard multiply(Object piece)
+	public Board2 multiply(Object piece)
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
-	public CompositeBoard inverse()
+	public Board2 inverse()
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
@@ -65,19 +65,19 @@ public class BigDecimalMatrix extends AbstractMatrix2
 	}
 
 	@Override
-	public CompositeBoard transpose()
+	public Board2 transpose()
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
-	public CompositeBoard createSubMatrix(int excluding_row, int excluding_column)
+	public Board2 createSubMatrix(int excluding_row, int excluding_column)
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 	@Override
-	public CompositeBoard cofactor()
+	public Board2 cofactor()
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}

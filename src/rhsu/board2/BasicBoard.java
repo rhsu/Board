@@ -11,7 +11,7 @@ import java.util.Objects;
 import rhsu.board.Direction;
 import rhsu.board2.boardIO.Board2IO;
 
-class BasicBoard<T> implements CompositeBoard<T>,
+class BasicBoard<T> implements Board2<T>,
 	BoardInitializable
 {
 	static final Object DEFAULT_VALUE = new Object();

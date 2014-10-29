@@ -8,7 +8,7 @@ import rhsu.board2.matrices.Matrix2;
 import rhsu.board.Direction;
 import rhsu.board2.boardIO.Board2IO;
 
-public interface CompositeBoard<T>
+public interface Board2<T>
 {
 	public Board2IO getBoardIO();
 	public Matrix2<T> getMatrix();
