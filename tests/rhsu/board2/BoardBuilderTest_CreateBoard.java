@@ -1,5 +1,6 @@
 package rhsu.board2;
 
+import rhsu.board2.basicBoard.BasicBoardBuilder;
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board2.unitTestUtilities.UnitTestLibrary;
@@ -7,16 +8,16 @@ import rhsu.board2.unitTestUtilities.UnitTestStubFactory;
 
 public class BoardBuilderTest_CreateBoard
 {
-	private BoardBuilder<Object> builder;
+	private BasicBoardBuilder<Object> builder;
 	private UnitTestStubFactory<Object> stubFactory;
-	private CompositeBoard<Object> board;
+	private Board2<Object> board;
 	private final int HORIZONTAL_SIZE = 5;
 	private final int VERTICAL_SIZE = 7;
 	
 	@Before
 	public void setup()
 	{
-		builder = new BoardBuilder<>()
+		builder = (BasicBoardBuilder<Object>) new BasicBoardBuilder<>()
 			.setHorizontalSize(HORIZONTAL_SIZE)
 			.setVerticalSize(VERTICAL_SIZE)
 			//setting modules

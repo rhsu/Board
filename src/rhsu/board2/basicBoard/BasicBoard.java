@@ -1,4 +1,4 @@
-package rhsu.board2;
+package rhsu.board2.basicBoard;
 
 import java.util.ArrayList;
 import rhsu.board2.mobility.MobilityBoard;
@@ -12,10 +12,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import rhsu.board.Direction;
+import rhsu.board2.Board2;
+import rhsu.board2.BoardInitializable;
+import rhsu.board2.BoardModule;
+import rhsu.board2.BoardPiece2;
+import rhsu.board2.BoardPieceImpl;
 import rhsu.board2.boardIO.Board2IO;
 
-class CompositeBoardImpl<T> implements CompositeBoard<T>,
-	BoardInitializable
+class BasicBoard<T> implements Board2<T>,
+	BoardInitializable<T>
 {
 	static final Object DEFAULT_VALUE = new Object();
 	
@@ -27,7 +32,7 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	
 	private final BoardInitializable<T> boardInitializer;
 	
-	//<editor-fold desc="Protected Variables" defaultstate="collapsed">
+	//<editor-fold desc="Protected Member Variables" defaultstate="collapsed">
 	
 	protected int horizontalSize;
 	protected int verticalSize;
@@ -40,28 +45,28 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	@Override
 	public Board2IO getBoardIO() 
 	{ 
-		return (Board2IO) boardModules.get(CompositeBoardImpl.BOARD_IO); 
+		return (Board2IO) boardModules.get(BasicBoard.BOARD_IO); 
 	}
 
 	@Override
 	public Matrix2<T> getMatrix() 
 	{ 
-		return (Matrix2) boardModules.get(CompositeBoardImpl.MATRIX);
+		return (Matrix2) boardModules.get(BasicBoard.MATRIX);
 	}
 
 	@Override
 	public MobilityBoard<T> getMobilityBoard()	
 	{ 
-		return (MobilityBoard) boardModules.get(CompositeBoardImpl.MOBILITY_BOARD); 
+		return (MobilityBoard) boardModules.get(BasicBoard.MOBILITY_BOARD); 
 	}
 
 	@Override
 	public RandomGenerator<T> getRandomGenerator() 
 	{
-		return (RandomGenerator) boardModules.get(CompositeBoardImpl.RANDOM_GENERATOR);
+		return (RandomGenerator) boardModules.get(BasicBoard.RANDOM_GENERATOR);
 	}
 		
-	public CompositeBoardImpl(
+	public BasicBoard(
 		Integer horizontalSize,
 		Integer verticalSize,
 		Board2IO boardIO,
@@ -82,10 +87,10 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 		this.size = ((horizontalSize == null) || (verticalSize == null)) ?
 			0 : horizontalSize * verticalSize;
 				
-		this.boardModules.put(CompositeBoardImpl.BOARD_IO, boardIO);
-		this.boardModules.put(CompositeBoardImpl.MATRIX, matrix);
-		this.boardModules.put(CompositeBoardImpl.MOBILITY_BOARD, mobilityBoard);
-		this.boardModules.put(CompositeBoardImpl.RANDOM_GENERATOR, randomGenerator);
+		this.boardModules.put(BasicBoard.BOARD_IO, boardIO);
+		this.boardModules.put(BasicBoard.MATRIX, matrix);
+		this.boardModules.put(BasicBoard.MOBILITY_BOARD, mobilityBoard);
+		this.boardModules.put(BasicBoard .RANDOM_GENERATOR, randomGenerator);
 		
 		this.defaultValue = (T) (defaultValue == null ? DEFAULT_VALUE : defaultValue);
 				
@@ -113,7 +118,7 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	public T getDefaultValue() { return this.defaultValue; }
 	
 	@Override
-	public BoardPiece2<T>[][] getBoardArray() { return this.boardArray; }
+	public BoardPiece2<T>[][] getInnerBoardRepresentation() { return this.boardArray; }
 	
 	@Override
 	public List<BoardModule> getBoardModules() 
@@ -300,94 +305,7 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 	}
 	
 	//</editor-fold>	
-	
-	private void setupBoardModules()
-	{
-		for(BoardModule module : this.getBoardModules())
-		{
-			if (module != null)
-			{
-				module.setParent(this);
-			}
-		}
-	}
-		
-	private void initializeBoardArray()
-	{
-		this.boardArray = (boardInitializer != null) ? boardInitializer.initializeBoard(boardArray)
-			: this.initializeBoard(boardArray);
-	}
-	
-	//<editor-fold desc="Inheirited From Object" defaultstate="collapsed">
-	
-	@Override
- 	public boolean equals(Object aInstance)
- 	{
- 		if (this == aInstance) return true;
- 		if ( !(aInstance instanceof CompositeBoardImpl ) ) return false; 
- 		
- 		CompositeBoardImpl instance = (CompositeBoardImpl) aInstance;
- 		
- 		return
- 			instance.getHorizontalSize() == this.getHorizontalSize() &&
- 			instance.getVerticalSize() == this.getVerticalSize() &&
- 			Arrays.deepEquals(instance.getBoardArray(), this.getBoardArray());
- 	}
- 
- 	@Override
- 	public int hashCode()
- 	{
- 		int hash = 3;
- 		hash = 67 * hash + this.horizontalSize;
- 		hash = 67 * hash + this.verticalSize;
- 		hash = 67 * hash + this.size;
- 		hash = 67 * hash + Objects.hashCode(this.defaultValue);
- 		hash = 67 * hash + Arrays.deepHashCode(this.boardArray);
- 		return hash;
- 	}
- 	
- 	@Override
- 	public String toString()
- 	{
- 		StringBuilder builder = new StringBuilder();
- 		
- 		for (int i = 0; i < this.verticalSize; i++)
- 		{
- 			for (int j = 0; j < this.horizontalSize; j++)
- 			{
- 				builder.append(this.boardArray[i][j]).append(" ");
- 			}
- 			
- 			builder.append("\n");
- 		}
- 		
- 		return builder.toString().trim();
- 	}
- 	
- 	//</editor-fold>
-
-	@Override
-	public BoardPiece2[][] initializeBoard(BoardPiece2[][] boardArray)
-	{
-		int columnNumber = 0;
-
-		for (BoardPiece2<T>[] row : boardArray)
-		{
-			for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
-			{ 
-				if (row[rowNumber] == null)
-				{
-					row[rowNumber] = new BoardPieceImpl(rowNumber, 
-						columnNumber, 
-						defaultValue);
-				}
-			}
-			columnNumber++;
-		}
-		
-		return boardArray;
-	}
-	
+				
 	@Override
 	public BoardPiece2<T> find(T value)
 	{		
@@ -454,4 +372,99 @@ class CompositeBoardImpl<T> implements CompositeBoard<T>,
 			}
 		};
 	}
+	
+	//<editor-fold desc="Private Helper Functions" defaultstate="collapsed">
+	
+	private void setupBoardModules()
+	{
+		for(BoardModule module : this.getBoardModules())
+		{
+			if (module != null)
+			{
+				module.setParent(this);
+			}
+		}
+	}
+		
+	//</editor-fold>
+	
+	//<editor-fold desc="Inheirited From Object" defaultstate="collapsed">
+	
+	@Override
+ 	public boolean equals(Object aInstance)
+ 	{
+ 		if (this == aInstance) return true;
+ 		if ( !(aInstance instanceof BasicBoard ) ) return false; 
+ 		
+ 		BasicBoard instance = (BasicBoard) aInstance;
+ 		
+ 		return
+ 			instance.getHorizontalSize() == this.getHorizontalSize() &&
+ 			instance.getVerticalSize() == this.getVerticalSize() &&
+ 			Arrays.deepEquals(instance.getInnerBoardRepresentation(), this.getInnerBoardRepresentation());
+ 	}
+ 
+ 	@Override
+ 	public int hashCode()
+ 	{
+ 		int hash = 3;
+ 		hash = 67 * hash + this.horizontalSize;
+ 		hash = 67 * hash + this.verticalSize;
+ 		hash = 67 * hash + this.size;
+ 		hash = 67 * hash + Objects.hashCode(this.defaultValue);
+ 		hash = 67 * hash + Arrays.deepHashCode(this.boardArray);
+ 		return hash;
+ 	}
+ 	
+ 	@Override
+ 	public String toString()
+ 	{
+ 		StringBuilder builder = new StringBuilder();
+ 		
+ 		for (int i = 0; i < this.verticalSize; i++)
+ 		{
+ 			for (int j = 0; j < this.horizontalSize; j++)
+ 			{
+ 				builder.append(this.boardArray[i][j]).append(" ");
+ 			}
+ 			
+ 			builder.append("\n");
+ 		}
+ 		
+ 		return builder.toString().trim();
+ 	}
+ 	
+ 	//</editor-fold>
+
+	//<editor-fold desc="Inheirited From BoardInitializable<T>" defaultstate="collapsed">
+	
+	@Override
+	public BoardPiece2[][] initializeBoard(BoardPiece2[][] boardArray)
+	{
+		int columnNumber = 0;
+
+		for (BoardPiece2<T>[] row : boardArray)
+		{
+			for (int rowNumber = 0; rowNumber < row.length; rowNumber++) 
+			{ 
+				if (row[rowNumber] == null)
+				{
+					row[rowNumber] = new BoardPieceImpl(rowNumber, 
+						columnNumber, 
+						defaultValue);
+				}
+			}
+			columnNumber++;
+		}
+		
+		return boardArray;
+	}
+	
+	private void initializeBoardArray()
+	{
+		this.boardArray = (boardInitializer != null) ? boardInitializer.initializeBoard(boardArray)
+			: this.initializeBoard(boardArray);
+	}
+	
+	//</editor-fold>
 }

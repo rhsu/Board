@@ -1,7 +1,7 @@
 package rhsu.board2.implementations.factories;
 
-import rhsu.board2.BoardBuilder;
-import rhsu.board2.CompositeBoard;
+import rhsu.board2.basicBoard.BasicBoardBuilder;
+import rhsu.board2.Board2;
 import rhsu.board2.boardIO.AbstractBoardIO;
 import rhsu.board2.randomGenerators.AbstractRandomGenerator;
 
@@ -20,10 +20,10 @@ public class BoardFactory<T>
 		this.boardIO = boardIO;
 	}
 		
-	public CompositeBoard<T> createBoard(int horizontalSize, 
+	public Board2<T> createBoard(int horizontalSize, 
 		int verticalSize)
 	{	
-		return new BoardBuilder<T>()
+		return new BasicBoardBuilder<T>()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
 			.setDefaulValue(this.defaultValue)
@@ -31,10 +31,10 @@ public class BoardFactory<T>
 			.createBoard();
 	}
 		
-	public CompositeBoard<T> createRandomBoard(int horizontalSize,
+	public Board2<T> createRandomBoard(int horizontalSize,
 		int verticalSize)
 	{	
-		return new BoardBuilder<T>()
+		return new BasicBoardBuilder<T>()
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
 			.setRandomGenerator(this.randomGenerator)
@@ -43,11 +43,11 @@ public class BoardFactory<T>
 			.createBoard();
 	}
 	
-	public CompositeBoard<T> createBoardFromFile(String filename, String delimiter)
+	public Board2<T> createBoardFromFile(String filename, String delimiter)
 	{
 		this.boardIO.populateFromFile(filename, delimiter);
 		
-		return new BoardBuilder<T>()
+		return new BasicBoardBuilder<T>()
 			.setHorizontalSize(this.boardIO.getBoardInitializer().getHorizontalSize())
 			.setVerticalSize(this.boardIO.getBoardInitializer().getVerticalSize())
 			.setBoardIO(this.boardIO)

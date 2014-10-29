@@ -8,7 +8,7 @@ import rhsu.board.basic.AbstractBasicMatrix;
 import rhsu.board.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
 import rhsu.board.utilities.UtilityFunctions;
-import rhsu.board2.CompositeBoard;
+import rhsu.board2.Board2;
 
 /**
  *A double implementation
@@ -271,12 +271,12 @@ public class DoubleBoard extends AbstractBasicMatrix<Double>
 			}	
 
 			@Override
-			public CompositeBoard getParent() {
+			public void setParent(Board2 parent) {
 				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 			}
 
 			@Override
-			public void setParent(CompositeBoard parent) {
+			public Board2 getParent() {
 				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 			}
 		};

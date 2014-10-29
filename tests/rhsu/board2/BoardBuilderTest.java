@@ -1,18 +1,19 @@
 package rhsu.board2;
 
+import rhsu.board2.basicBoard.BasicBoardBuilder;
 import org.junit.*;
 import rhsu.board2.unitTestUtilities.UnitTestLibrary;
 import rhsu.board2.unitTestUtilities.UnitTestStubFactory;
 
 public class BoardBuilderTest
 {
-	BoardBuilder<Object> boardBuilder;
+	BasicBoardBuilder<Object> boardBuilder;
 	private UnitTestStubFactory<Object> stubFactory;
 	
 	@Before
 	public void setup()
 	{
-		boardBuilder = new BoardBuilder<>();
+		boardBuilder = new BasicBoardBuilder<>();
 		stubFactory = new UnitTestStubFactory();
 	}
 	

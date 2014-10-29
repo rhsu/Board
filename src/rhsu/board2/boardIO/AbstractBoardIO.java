@@ -12,13 +12,13 @@ import rhsu.board2.AbstractBoardModule;
 import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
-import rhsu.board2.CompositeBoard;
+import rhsu.board2.Board2;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
 
 public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
 	implements Board2IO<T>, BoardInitializable<T>
 {
-	private CompositeBoard<String> boardInitializer;
+	private Board2<String> boardInitializer;
 	
 	@Override
 	public int getHorizontalSize()
@@ -33,7 +33,7 @@ public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
 	}
 	
 	@Override
-	public CompositeBoard<String> getBoardInitializer() { return this.boardInitializer; }
+	public Board2<String> getBoardInitializer() { return this.boardInitializer; }
 	
 	@Override
 	public void populateFromFile(String filename, String delimiter)
@@ -79,7 +79,7 @@ public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
 	}
 
 	@Override
-	public void export(String filename, char delimiter)
+	public void export(String filename, String delimiter)
 	{		
 		try
 		{
@@ -94,7 +94,24 @@ public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
  
 			try (BufferedWriter bw = new BufferedWriter(fw))
 			{
-				bw.write(this.getParent().toString().trim());
+				Board2<T> parentBoard = this.getParent();
+				for(int i = 0; i < parentBoard.getHorizontalSize(); i++)
+				{
+					for(int j = 0; j < parentBoard.getVerticalSize(); j++)
+					{
+						bw.write(parentBoard.getValueAt(i, j).toString().trim());
+						
+						if (j != parentBoard.getVerticalSize() - 1)
+						{
+							bw.write(String.format(" %s ", delimiter));
+						}
+					}
+					if (i != parentBoard.getHorizontalSize() - 1)
+					{
+						bw.write("\n");
+					}
+				}
+				
 			}
 			
 			System.out.println("Done creating file: " + filename);

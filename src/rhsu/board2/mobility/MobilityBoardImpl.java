@@ -4,7 +4,7 @@ import java.util.UUID;
 import rhsu.board.Direction;
 import rhsu.board2.AbstractBoardModule;
 import rhsu.board2.BoardPiece2;
-import rhsu.board2.CompositeBoard;
+import rhsu.board2.Board2;
 
 public class MobilityBoardImpl<T> 
 	extends AbstractBoardModule<T>
@@ -12,16 +12,16 @@ public class MobilityBoardImpl<T>
 {
 	private final UUID uuid;
 	
-	public MobilityBoardImpl(CompositeBoard<T> parent)
+	public MobilityBoardImpl(Board2<T> parent)
 	{
 		this.parent = parent;
 		this.uuid = UUID.randomUUID();
 		this.initializeParentBoardPieces(parent);
 	}
 	
-	private void initializeParentBoardPieces(CompositeBoard<T> parent)
+	private void initializeParentBoardPieces(Board2<T> parent)
 	{
-		BoardPiece2<T>[][] boardArray = parent.getBoardArray();
+		BoardPiece2<T>[][] boardArray = (BoardPiece2<T>[][]) parent.getInnerBoardRepresentation();
 		
 		for (int i = 0; i < parent.getHorizontalSize(); i++)
 		{
@@ -55,7 +55,7 @@ public class MobilityBoardImpl<T>
 	}
 
 	@Override
-	public boolean move(BoardPiece2<T> piece, int horizontal, int vertical, CompositeBoard<T> otherBoard)
+	public boolean move(BoardPiece2<T> piece, int horizontal, int vertical, Board2<T> otherBoard)
 	{
 		BoardPiece2<T> target = otherBoard.getPieceAt(horizontal, vertical);
 		
@@ -88,7 +88,7 @@ public class MobilityBoardImpl<T>
 	}
 
 	@Override
-	public boolean move(BoardPiece2<T> piece, int units, Direction direction, CompositeBoard<T> otherBoard)
+	public boolean move(BoardPiece2<T> piece, int units, Direction direction, Board2<T> otherBoard)
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}

@@ -18,10 +18,11 @@ public class Main
     
 	public static void main(String[] args)
 	{	
-		CompositeBoard<String> test = new BoardFactoryClient()
+		Board2<String> test = new BoardFactoryClient()
 			.GetStringBoardFactory()
 			.createRandomBoard(5, 5);
 		
-		test.getBoardIO().export("testing123", '1');
+		test.getBoardIO().export("testing123", "|");
+		
 	}
 }

@@ -2,7 +2,7 @@ package rhsu.board2.matrices;
 
 import rhsu.board.basic.AbstractBasicMatrix.OperationType;
 import rhsu.board2.AbstractBoardModule;
-import rhsu.board2.CompositeBoard;
+import rhsu.board2.Board2;
 
 public abstract class AbstractMatrix2<T> extends AbstractBoardModule<T>
 	implements Matrix2<T>
@@ -10,7 +10,7 @@ public abstract class AbstractMatrix2<T> extends AbstractBoardModule<T>
 	protected int horizontalSize;
 	protected int verticalSize;
 	
-	public AbstractMatrix2(CompositeBoard<T> parent)
+	public AbstractMatrix2(Board2<T> parent)
 	{
 		this.parent = parent;
 		this.horizontalSize = parent.getHorizontalSize();
@@ -22,7 +22,7 @@ public abstract class AbstractMatrix2<T> extends AbstractBoardModule<T>
 		CheckDimensions(type, null);
 	}
 	
-	protected void CheckDimensions(OperationType type, CompositeBoard<T> otherMatrix)
+	protected void CheckDimensions(OperationType type, Board2<T> otherMatrix)
 	{
 		switch(type)
 		{
