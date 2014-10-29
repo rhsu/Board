@@ -14,7 +14,7 @@ import rhsu.board2.randomGenerators.RandomGenerator;
 public class ExpandableBoard<T> extends AbstractBoard<T>
 {
 	@Override
-	public BoardPiece2<T>[][] getBoardArray() 
+	public BoardPiece2<T>[][] getInnerBoardRepresentation() 
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}

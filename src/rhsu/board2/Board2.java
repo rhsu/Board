@@ -36,7 +36,12 @@ public interface Board2<T>
 	 */
 	public T getDefaultValue();
 
-	public BoardPiece2<T>[][] getBoardArray();
+	/**
+	 * Method for returning in inner representation of the Board. The return type is an object because it can be either
+	 * a linked structure or an array
+	 * @return the inner representation of the board
+	 */
+	public Object getInnerBoardRepresentation();
 
 	//</editor-fold>
 	
