@@ -22,6 +22,7 @@ public class Main
 			.GetStringBoardFactory()
 			.createRandomBoard(5, 5);
 		
-		test.getBoardIO().export("testing123", '1');
+		test.getBoardIO().export("testing123", "|");
+		
 	}
 }
