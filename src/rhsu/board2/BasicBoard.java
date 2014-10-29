@@ -11,7 +11,7 @@ import java.util.Objects;
 import rhsu.board.Direction;
 import rhsu.board2.boardIO.Board2IO;
 
-class BasicBoard2<T> implements CompositeBoard<T>,
+class BasicBoard<T> implements CompositeBoard<T>,
 	BoardInitializable
 {
 	static final Object DEFAULT_VALUE = new Object();
@@ -44,7 +44,7 @@ class BasicBoard2<T> implements CompositeBoard<T>,
 	@Override
 	public RandomGenerator<T> getRandomGenerator() { return this.randomGenerator; }
 		
-	public BasicBoard2(
+	public BasicBoard(
 		Integer horizontalSize,
 		Integer verticalSize,
 		Board2IO boardIO,
@@ -310,9 +310,9 @@ class BasicBoard2<T> implements CompositeBoard<T>,
  	public boolean equals(Object aInstance)
  	{
  		if (this == aInstance) return true;
- 		if ( !(aInstance instanceof BasicBoard2 ) ) return false; 
+ 		if ( !(aInstance instanceof BasicBoard ) ) return false; 
  		
- 		BasicBoard2 instance = (BasicBoard2) aInstance;
+ 		BasicBoard instance = (BasicBoard) aInstance;
  		
  		return
  			instance.getHorizontalSize() == this.getHorizontalSize() &&

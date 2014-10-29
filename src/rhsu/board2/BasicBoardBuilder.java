@@ -66,7 +66,7 @@ public class BasicBoardBuilder<T>
 	
 	public CompositeBoard<T> createBoard()
 	{		
-		return new BasicBoard2(
+		return new BasicBoard(
 			this.horizontalSize,
 			this.verticalSize,
 			this.boardIO,
