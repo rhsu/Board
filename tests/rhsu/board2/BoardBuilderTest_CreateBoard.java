@@ -16,7 +16,7 @@ public class BoardBuilderTest_CreateBoard
 	@Before
 	public void setup()
 	{
-		builder = new BasicBoardBuilder<>()
+		builder = (BasicBoardBuilder<Object>) new BasicBoardBuilder<>()
 			.setHorizontalSize(HORIZONTAL_SIZE)
 			.setVerticalSize(VERTICAL_SIZE)
 			//setting modules
