@@ -10,11 +10,6 @@ import rhsu.board2.boardIO.Board2IO;
 
 public interface Board2<T>
 {
-	public Board2IO getBoardIO();
-	public Matrix2<T> getMatrix();
-	public MobilityBoard<T> getMobilityBoard();
-	public RandomGenerator<T> getRandomGenerator();
-	
 	//<editor-fold desc="Accessors" defaultstate="collapsed">
 
 	/**
@@ -44,7 +39,16 @@ public interface Board2<T>
 	public BoardPiece2<T>[][] getBoardArray();
 
 	//</editor-fold>
-
+	
+	//<editor-fold desc="Modules" defaultstate="collapsed">
+	
+	public Board2IO getBoardIO();
+	public Matrix2<T> getMatrix();
+	public MobilityBoard<T> getMobilityBoard();
+	public RandomGenerator<T> getRandomGenerator();
+	
+	//</editor-fold>
+	
 	//<editor-fold desc="Piece Retrieval Methods" defaultstate="collapsed">
 	
 	/**
