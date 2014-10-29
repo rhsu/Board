@@ -1,4 +1,4 @@
-package rhsu.board2;
+package rhsu.board2.basicBoard;
 
 import rhsu.board2.mobility.MobilityBoard;
 import rhsu.board2.randomGenerators.RandomGenerator;
@@ -9,6 +9,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import rhsu.board.Direction;
+import rhsu.board2.Board2;
+import rhsu.board2.BoardInitializable;
+import rhsu.board2.BoardModule;
+import rhsu.board2.BoardPiece2;
+import rhsu.board2.BoardPieceImpl;
 import rhsu.board2.boardIO.Board2IO;
 
 class BasicBoard<T> implements Board2<T>,

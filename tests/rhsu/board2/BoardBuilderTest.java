@@ -1,5 +1,6 @@
 package rhsu.board2;
 
+import rhsu.board2.basicBoard.BasicBoardBuilder;
 import org.junit.*;
 import rhsu.board2.unitTestUtilities.UnitTestLibrary;
 import rhsu.board2.unitTestUtilities.UnitTestStubFactory;
