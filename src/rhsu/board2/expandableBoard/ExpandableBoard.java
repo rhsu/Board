@@ -91,7 +91,7 @@ public class ExpandableBoard<T> extends AbstractBoard<T>
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 	
-	public ExpandableBoard(Integer horizontalSize,
+	ExpandableBoard(Integer horizontalSize,
 		Integer verticalSize,
 		Board2IO boardIO,
 		Matrix2<T> matrix,
