@@ -1,5 +1,6 @@
 package rhsu.board2;
 
+import rhsu.board2.basicBoard.BasicBoardBuilder;
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board2.implementations.factories.BoardFactoryClient;

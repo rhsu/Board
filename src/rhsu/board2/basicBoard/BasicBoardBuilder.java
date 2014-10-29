@@ -1,4 +1,7 @@
-package rhsu.board2;
+package rhsu.board2.basicBoard;
+
+import rhsu.board2.AbstractBoardBuilder;
+import rhsu.board2.Board2;
 
 public class BasicBoardBuilder<T> extends AbstractBoardBuilder
 {

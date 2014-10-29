@@ -1,5 +1,6 @@
 package rhsu.board2;
 
+import rhsu.board2.basicBoard.BasicBoardBuilder;
 import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board2.unitTestUtilities.UnitTestLibrary;
@@ -16,7 +17,7 @@ public class BoardBuilderTest_CreateBoard
 	@Before
 	public void setup()
 	{
-		builder = new BasicBoardBuilder<>()
+		builder = (BasicBoardBuilder<Object>) new BasicBoardBuilder<>()
 			.setHorizontalSize(HORIZONTAL_SIZE)
 			.setVerticalSize(VERTICAL_SIZE)
 			//setting modules

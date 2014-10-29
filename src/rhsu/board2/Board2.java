@@ -10,11 +10,6 @@ import rhsu.board2.boardIO.Board2IO;
 
 public interface Board2<T>
 {
-	public Board2IO getBoardIO();
-	public Matrix2<T> getMatrix();
-	public MobilityBoard<T> getMobilityBoard();
-	public RandomGenerator<T> getRandomGenerator();
-	
 	//<editor-fold desc="Accessors" defaultstate="collapsed">
 
 	/**
@@ -41,10 +36,24 @@ public interface Board2<T>
 	 */
 	public T getDefaultValue();
 
-	public BoardPiece2<T>[][] getBoardArray();
+	/**
+	 * Method for returning in inner representation of the Board. The return type is an object because it can be either
+	 * a linked structure or an array
+	 * @return the inner representation of the board
+	 */
+	public Object getInnerBoardRepresentation();
 
 	//</editor-fold>
-
+	
+	//<editor-fold desc="Modules" defaultstate="collapsed">
+	
+	public Board2IO getBoardIO();
+	public Matrix2<T> getMatrix();
+	public MobilityBoard<T> getMobilityBoard();
+	public RandomGenerator<T> getRandomGenerator();
+	
+	//</editor-fold>
+	
 	//<editor-fold desc="Piece Retrieval Methods" defaultstate="collapsed">
 	
 	/**

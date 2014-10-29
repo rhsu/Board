@@ -1,6 +1,6 @@
 package rhsu.board2.implementations.factories;
 
-import rhsu.board2.BasicBoardBuilder;
+import rhsu.board2.basicBoard.BasicBoardBuilder;
 import rhsu.board2.Board2;
 import rhsu.board2.boardIO.AbstractBoardIO;
 import rhsu.board2.randomGenerators.AbstractRandomGenerator;

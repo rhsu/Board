@@ -21,7 +21,7 @@ public class MobilityBoardImpl<T>
 	
 	private void initializeParentBoardPieces(Board2<T> parent)
 	{
-		BoardPiece2<T>[][] boardArray = parent.getBoardArray();
+		BoardPiece2<T>[][] boardArray = (BoardPiece2<T>[][]) parent.getInnerBoardRepresentation();
 		
 		for (int i = 0; i < parent.getHorizontalSize(); i++)
 		{
