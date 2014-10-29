@@ -44,7 +44,7 @@ public class UnitTestStubFactory<T>
 				}
 
 				@Override
-				public void export(String filename, char delimiter)
+				public void export(String filename, String delimiter)
 				{
 					throw new UnsupportedOperationException("Stub Method: Not Implemented");
 				}
