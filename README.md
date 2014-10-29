@@ -4,7 +4,7 @@ A 2-Dimensional Array Wrapper ... and more.
 
 # General Idea
 
-`CompositeBoard<T>` allows the client to easily access coordinates called `BoardPiece<T>`. For example, I have a 3 by 3 matrix. To get the first piece, I call `myBoard.getPieceAt(0, 0)`. The first parameter of the `pieceAt()` method is the horizontal coordinate. Hence, vertical is the second. 
+`CBoard2<T>` allows the client to easily access coordinates called `BoardPiece<T>`. For example, I have a 3 by 3 matrix. To get the first piece, I call `myBoard.getPieceAt(0, 0)`. The first parameter of the `pieceAt()` method is the horizontal coordinate. Hence, vertical is the second. 
 
 # Architecture
 
@@ -25,7 +25,7 @@ Board features individual modules that extend the behavior of board. The current
 The easiest way to build a board is through the `BoardBuilder`
 
 ```
-CompositeBoard<String> myBoard = new BoardBuilder<String>()
+Board2<String> myBoard = new BoardBuilder<String>()
   .setHorizontalSize(3)
   .setVerticalSize(4)
   .createBoard()
@@ -37,7 +37,7 @@ To include a module attach it to the `BoardBuilder` like such
 
 RandomGenerator<String> myGenerator = new SomeRandomGeneratorStringImplementation();
 
-CompositeBoard<String> myBoard = new BoardBuilder<String>()
+Board2<String> myBoard = new BasicBoardBuilder<String>()
    .setHorizontalSize(3)
    .setVerticalSize(4)
    .setRandomGenerator(myGenerator)
@@ -47,7 +47,7 @@ CompositeBoard<String> myBoard = new BoardBuilder<String>()
 A `BoardFactoryClient` also exists to add in default modules without the client needing to know about them. To use the default `BoardIO`
 
 ```
-CompositeBoard<String> myBoard = new BoardFactoryClient<String>()
+Board2<String> myBoard = new BoardFactoryClient<String>()
    .GetStringBoardFactory()
    .createBoardFromFile("File.txt");
 ```
@@ -55,7 +55,7 @@ CompositeBoard<String> myBoard = new BoardFactoryClient<String>()
 To create a random 7 by 8 board of GUIDs
 
 ```
-CompositeBoard<String> myRandomBoard = new BoardFactoryClient<String>()
+Board2<String> myRandomBoard = new BoardFactoryClient<String>()
    .GetStringBoardFactory()
    .createRandomBoard(7,8);
 ```
