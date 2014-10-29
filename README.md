@@ -4,7 +4,7 @@ A 2-Dimensional Array Wrapper ... and more.
 
 # General Idea
 
-`CBoard2<T>` allows the client to easily access coordinates called `BoardPiece<T>`. For example, I have a 3 by 3 matrix. To get the first piece, I call `myBoard.getPieceAt(0, 0)`. The first parameter of the `pieceAt()` method is the horizontal coordinate. Hence, vertical is the second. 
+`Board2<T>` allows the client to easily access coordinates called `BoardPiece<T>`. For example, I have a 3 by 3 matrix. To get the first piece, I call `myBoard.getPieceAt(0, 0)`. The first parameter of the `pieceAt()` method is the horizontal coordinate. Hence, vertical is the second. 
 
 # Architecture
 
