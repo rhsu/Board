@@ -8,6 +8,13 @@ public class ExpandableBoardBuilder<T> extends AbstractBoardBuilder<T>
 	@Override
 	public Board2<T> createBoard() 
 	{
-		return new ExpandableBoard();
+		return new ExpandableBoard(horizontalSize,
+			verticalSize,
+			boardIO,
+			matrix,
+			mobilityBoard,
+			randomGenerator,
+			defaultValue,
+			boardInitializer);
 	}
 }

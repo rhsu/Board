@@ -3,63 +3,16 @@ package rhsu.board2.expandableBoard;
 import java.util.Iterator;
 import java.util.List;
 import rhsu.board.Direction;
-import rhsu.board2.Board2;
+import rhsu.board2.AbstractBoard;
+import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.boardIO.Board2IO;
 import rhsu.board2.matrices.Matrix2;
 import rhsu.board2.mobility.MobilityBoard;
 import rhsu.board2.randomGenerators.RandomGenerator;
 
-public class ExpandableBoard<T> implements Board2<T>
+public class ExpandableBoard<T> extends AbstractBoard<T>
 {
-	@Override
-	public Board2IO getBoardIO() 
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public Matrix2<T> getMatrix() 
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public MobilityBoard<T> getMobilityBoard() 
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public RandomGenerator<T> getRandomGenerator() 
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public int getHorizontalSize() 
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public int getVerticalSize() 
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public int getSize() 
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public T getDefaultValue() 
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
 	@Override
 	public BoardPiece2<T>[][] getBoardArray() 
 	{
@@ -138,8 +91,22 @@ public class ExpandableBoard<T> implements Board2<T>
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 	
-	ExpandableBoard()
+	public ExpandableBoard(Integer horizontalSize,
+		Integer verticalSize,
+		Board2IO boardIO,
+		Matrix2<T> matrix,
+		MobilityBoard<T> mobilityBoard,
+		RandomGenerator<T> randomGenerator,
+		T defaultValue,
+		BoardInitializable<T> boardInitializer)
 	{
-		
-	}
+		super(horizontalSize,
+			verticalSize,
+			boardIO,
+			matrix,
+			mobilityBoard,
+			randomGenerator,
+			defaultValue,
+			boardInitializer);
+	}	
 }
