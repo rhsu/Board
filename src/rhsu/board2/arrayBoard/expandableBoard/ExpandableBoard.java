@@ -1,4 +1,4 @@
-package rhsu.board2.expandableBoard;
+package rhsu.board2.arrayBoard.expandableBoard;
 
 import java.util.Iterator;
 import java.util.List;

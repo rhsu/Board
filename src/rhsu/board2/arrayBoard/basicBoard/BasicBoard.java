@@ -1,4 +1,4 @@
-package rhsu.board2.basicBoard;
+package rhsu.board2.arrayBoard.basicBoard;
 
 import rhsu.board2.mobility.MobilityBoard;
 import rhsu.board2.randomGenerators.RandomGenerator;
