@@ -5,38 +5,17 @@ import static org.junit.Assert.*;
 import rhsu.board2.Board2;
 import rhsu.board2.BoardModule;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
+import rhsu.board2.unitTestUtilities.UnitTestStubFactory;
 
 public class BoardModuleTest 
-{
-	public static class TestModule<T> implements BoardModule<T>
-	{
-		private Board2<T> parent;
-		
-		public TestModule()
-		{
-
-		}
-		
-		@Override
-		public Board2<T> getParent() 
-		{
-			return this.parent;
-		}
-
-		@Override
-		public void setParent(Board2<T> parent) 
-		{
-			this.parent = parent;
-		}
-	}
-	
+{	
 	BoardModule<String> testModule;
 	Board2<String> testBoard;
 	
 	@Before
 	public void setup()
 	{
-		testModule = new TestModule<>();
+		testModule = new UnitTestStubFactory().getBoardModuleStub();
 		testBoard = new BoardFactoryClient()
 			.GetStringBoardFactory()
 			.createBoard(2, 2);
