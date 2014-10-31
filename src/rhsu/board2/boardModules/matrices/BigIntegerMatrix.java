@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 
-package rhsu.board2.matrices;
+package rhsu.board2.boardModules.matrices;
 
 /**
  *
  * @author rhsu
  */
-public class IntegerMatrix
+public class BigIntegerMatrix
 {
 	
 }

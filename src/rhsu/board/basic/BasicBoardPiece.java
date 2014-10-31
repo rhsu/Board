@@ -3,8 +3,8 @@ package rhsu.board.basic;
 import java.util.Objects;
 import java.util.UUID;
 import rhsu.board.BoardPiece;
-import rhsu.board2.randomGenerators.RandomGenerator;
-import rhsu.board2.mobility.MobilityStatus;
+import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
+import rhsu.board2.boardModules.mobility.MobilityStatus;
 
 /**
  * A wrapper class for objects. Contains two additional integer properties (horizontal index and vertical index)

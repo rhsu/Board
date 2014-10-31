@@ -1,9 +1,9 @@
 package rhsu.board2.implementations.factories;
 
+import rhsu.board2.boardModules.randomGenerators.AbstractRandomGeneratorFactory;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import rhsu.board2.boardIO.AbstractBoardIOFactory;
-import rhsu.board2.randomGenerators.*;
+import rhsu.board2.boardModules.boardIO.AbstractBoardIOFactory;
 
 public class BoardFactoryClient
 {

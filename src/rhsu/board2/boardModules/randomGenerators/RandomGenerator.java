@@ -1,6 +1,6 @@
-package rhsu.board2.randomGenerators;
+package rhsu.board2.boardModules.randomGenerators;
 
-import rhsu.board2.BoardModule;
+import rhsu.board2.boardModules.BoardModule;
 
 /**
  * Interface for generating a random type

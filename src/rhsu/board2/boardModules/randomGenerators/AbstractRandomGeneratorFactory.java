@@ -1,4 +1,4 @@
-package rhsu.board2.randomGenerators;
+package rhsu.board2.boardModules.randomGenerators;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

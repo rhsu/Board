@@ -6,12 +6,12 @@ import java.util.Map;
 import rhsu.board.Direction;
 import rhsu.board2.AbstractBoard;
 import rhsu.board2.BoardInitializable;
-import rhsu.board2.BoardModule;
+import rhsu.board2.boardModules.BoardModule;
 import rhsu.board2.BoardPiece2;
-import rhsu.board2.boardIO.Board2IO;
-import rhsu.board2.matrices.Matrix2;
-import rhsu.board2.mobility.MobilityBoard;
-import rhsu.board2.randomGenerators.RandomGenerator;
+import rhsu.board2.boardModules.boardIO.Board2IO;
+import rhsu.board2.boardModules.matrices.Matrix2;
+import rhsu.board2.boardModules.mobility.MobilityBoard;
+import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
 
 public class ExpandableBoard<T> extends AbstractBoard<T>
 {

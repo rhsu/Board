@@ -2,7 +2,7 @@ package rhsu.board2;
 
 import java.util.UUID;
 import org.junit.*;
-import rhsu.board2.mobility.MobilityStatus;
+import rhsu.board2.boardModules.mobility.MobilityStatus;
 import rhsu.board2.unitTestUtilities.UnitTestLibrary;
 
 public class BoardPiece2Test

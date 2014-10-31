@@ -1,4 +1,4 @@
-package rhsu.board2.matrices;
+package rhsu.board2.boardModules.matrices;
 
 import rhsu.board.basic.AbstractBasicMatrix.OperationType;
 import rhsu.board2.AbstractBoardModule;

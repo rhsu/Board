@@ -1,4 +1,4 @@
-package rhsu.board2.randomGenerators;
+package rhsu.board2.boardModules.randomGenerators;
 
 import rhsu.board2.AbstractBoardModule;
 import rhsu.board2.BoardInitializable;

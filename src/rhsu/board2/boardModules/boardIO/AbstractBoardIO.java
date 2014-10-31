@@ -1,4 +1,4 @@
-package rhsu.board2.boardIO;
+package rhsu.board2.boardModules.boardIO;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
