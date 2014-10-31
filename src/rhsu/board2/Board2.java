@@ -48,7 +48,7 @@ public interface Board2<T>
 	//<editor-fold desc="Modules" defaultstate="collapsed">
 
 	public List<BoardModule<T>> getBoardModules();
-	public Board2IO getBoardIO();
+	public Board2IO<T> getBoardIO();
 	public Matrix2<T> getMatrix();
 	public MobilityBoard<T> getMobilityBoard();
 	public RandomGenerator<T> getRandomGenerator();

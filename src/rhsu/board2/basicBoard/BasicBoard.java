@@ -43,27 +43,27 @@ class BasicBoard<T> implements Board2<T>,
 	//</editor-fold>
 	
 	@Override
-	public Board2IO getBoardIO() 
+	public Board2IO<T> getBoardIO() 
 	{ 
-		return (Board2IO) boardModules.get(BasicBoard.BOARD_IO); 
+		return (Board2IO<T>) boardModules.get(BasicBoard.BOARD_IO); 
 	}
 
 	@Override
 	public Matrix2<T> getMatrix() 
 	{ 
-		return (Matrix2) boardModules.get(BasicBoard.MATRIX);
+		return (Matrix2<T>) boardModules.get(BasicBoard.MATRIX);
 	}
 
 	@Override
 	public MobilityBoard<T> getMobilityBoard()	
 	{ 
-		return (MobilityBoard) boardModules.get(BasicBoard.MOBILITY_BOARD); 
+		return (MobilityBoard<T>) boardModules.get(BasicBoard.MOBILITY_BOARD); 
 	}
 
 	@Override
 	public RandomGenerator<T> getRandomGenerator() 
 	{
-		return (RandomGenerator) boardModules.get(BasicBoard.RANDOM_GENERATOR);
+		return (RandomGenerator<T>) boardModules.get(BasicBoard.RANDOM_GENERATOR);
 	}
 		
 	public BasicBoard(
