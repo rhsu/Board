@@ -1,4 +1,4 @@
-package rhsu.board2.matrices;
+package rhsu.board2.boardModules.matrices;
 
 import java.math.BigDecimal;
 import rhsu.board.basic.AbstractBasicMatrix;

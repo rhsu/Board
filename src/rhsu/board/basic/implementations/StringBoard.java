@@ -5,7 +5,7 @@ import java.util.UUID;
 import rhsu.board.basic.AbstractBasicBoard;
 import rhsu.board.basic.BasicBoardPiece;
 import rhsu.board2.Board2;
-import rhsu.board2.randomGenerators.RandomGenerator;
+import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
 
 /**
  * A string implementation
