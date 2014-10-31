@@ -3,7 +3,7 @@ package rhsu.board.test;
 import java.util.List;
 import rhsu.board.io.BoardIO;
 import rhsu.board2.*;
-import rhsu.board2.basicBoard.BasicBoardBuilder;
+import rhsu.board2.arrayBoard.basicBoard.BasicBoardBuilder;
 import rhsu.board2.boardIO.AbstractBoardIO;
 import rhsu.board2.boardIO.AbstractBoardIOFactory;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
