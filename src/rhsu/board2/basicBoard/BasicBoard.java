@@ -122,9 +122,9 @@ class BasicBoard<T> implements Board2<T>,
 	public BoardPiece2<T>[][] getInnerBoardRepresentation() { return this.boardArray; }
 	
 	@Override
-	public List<BoardModule<T>> getBoardModules() 
+	public Map<String, BoardModule<T>> getBoardModules() 
 	{
-		return new ArrayList<>(this.boardModules.values());
+		return boardModules;
 	}
 	
 	//</editor-fold>
@@ -378,7 +378,7 @@ class BasicBoard<T> implements Board2<T>,
 	
 	private void setupBoardModules()
 	{
-		for(BoardModule module : this.getBoardModules())
+		for(BoardModule module : this.getBoardModules().values())
 		{
 			if (module != null)
 			{

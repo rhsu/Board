@@ -2,6 +2,7 @@ package rhsu.board2.expandableBoard;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import rhsu.board.Direction;
 import rhsu.board2.AbstractBoard;
 import rhsu.board2.BoardInitializable;
@@ -112,7 +113,7 @@ public class ExpandableBoard<T> extends AbstractBoard<T>
 	}	
 
 	@Override
-	public List<BoardModule<T>> getBoardModules() 
+	public Map<String, BoardModule<T>> getBoardModules() 
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
