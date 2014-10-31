@@ -8,6 +8,7 @@ import rhsu.board.basic.AbstractBasicMatrix;
 import rhsu.board.Matrix;
 import rhsu.board.exceptionHandler.HandleType;
 import rhsu.board.utilities.UtilityFunctions;
+import rhsu.board2.Board2;
 
 /**
  * An integer implementation
@@ -266,6 +267,18 @@ public class IntegerBoard extends AbstractBasicMatrix<Integer>
 			{
 				return random.nextInt();
 			}	
+
+			@Override
+			public Board2 getParent() {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+			}
+
+			@Override
+			public void setParent(Board2 parent) {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+			}
+
+			
 		};
 		return generator;
 	}

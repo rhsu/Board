@@ -1,12 +1,15 @@
 package rhsu.board2.basicBoard;
 
+import java.util.ArrayList;
 import rhsu.board2.mobility.MobilityBoard;
 import rhsu.board2.randomGenerators.RandomGenerator;
 import rhsu.board2.matrices.Matrix2;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import rhsu.board.Direction;
 import rhsu.board2.Board2;
@@ -21,10 +24,12 @@ class BasicBoard<T> implements Board2<T>,
 {
 	static final Object DEFAULT_VALUE = new Object();
 	
-	private final Board2IO boardIO;
-	private final Matrix2<T>matrix;
-	private final MobilityBoard<T> mobilityBoard;
-	private final RandomGenerator<T> randomGenerator;
+	private Map<String, BoardModule<T>> boardModules;
+	private static final String BOARD_IO = "boardIO";
+	private static final String MATRIX = "matrix";
+	private static final String MOBILITY_BOARD = "mobilityBoard";
+	private static final String RANDOM_GENERATOR = "randomGenerator";
+	
 	private final BoardInitializable<T> boardInitializer;
 	
 	//<editor-fold desc="Protected Member Variables" defaultstate="collapsed">
@@ -38,16 +43,28 @@ class BasicBoard<T> implements Board2<T>,
 	//</editor-fold>
 	
 	@Override
-	public Board2IO getBoardIO() { return this.boardIO; }
+	public Board2IO<T> getBoardIO() 
+	{ 
+		return (Board2IO<T>) boardModules.get(BasicBoard.BOARD_IO); 
+	}
 
 	@Override
-	public Matrix2<T> getMatrix() { return this.matrix; }
+	public Matrix2<T> getMatrix() 
+	{ 
+		return (Matrix2<T>) boardModules.get(BasicBoard.MATRIX);
+	}
 
 	@Override
-	public MobilityBoard<T> getMobilityBoard()	{ return this.mobilityBoard; }
+	public MobilityBoard<T> getMobilityBoard()	
+	{ 
+		return (MobilityBoard<T>) boardModules.get(BasicBoard.MOBILITY_BOARD); 
+	}
 
 	@Override
-	public RandomGenerator<T> getRandomGenerator() { return this.randomGenerator; }
+	public RandomGenerator<T> getRandomGenerator() 
+	{
+		return (RandomGenerator<T>) boardModules.get(BasicBoard.RANDOM_GENERATOR);
+	}
 		
 	public BasicBoard(
 		Integer horizontalSize,
@@ -58,7 +75,7 @@ class BasicBoard<T> implements Board2<T>,
 		RandomGenerator<T> randomGenerator,
 		T defaultValue,
 		BoardInitializable<T> boardInitializer)
-	{
+	{		
 		this.horizontalSize = horizontalSize == null 
 			? boardInitializer.getHorizontalSize()
 			: horizontalSize;
@@ -69,16 +86,20 @@ class BasicBoard<T> implements Board2<T>,
 		
 		this.size = ((horizontalSize == null) || (verticalSize == null)) ?
 			0 : horizontalSize * verticalSize;
-		
-		this.boardIO = boardIO;
-		this.matrix = matrix;
-		this.mobilityBoard = mobilityBoard;
-		this.randomGenerator = randomGenerator;
+				
+		this.boardModules = new HashMap<>();
+		this.boardModules.put(BasicBoard.BOARD_IO, boardIO);		
+		this.boardModules.put(BasicBoard.MATRIX, matrix);
+		this.boardModules.put(BasicBoard.MOBILITY_BOARD, mobilityBoard);
+		this.boardModules.put(BasicBoard .RANDOM_GENERATOR, randomGenerator);
 		
 		this.defaultValue = (T) (defaultValue == null ? DEFAULT_VALUE : defaultValue);
 				
 		this.boardArray = new BoardPieceImpl[this.verticalSize][this.horizontalSize];
 		this.boardInitializer = boardInitializer;
+		
+		boardModules = new HashMap<>();
+		
 		initializeBoardArray();
 		setupBoardModules();
 	}
@@ -99,6 +120,12 @@ class BasicBoard<T> implements Board2<T>,
 	
 	@Override
 	public BoardPiece2<T>[][] getInnerBoardRepresentation() { return this.boardArray; }
+	
+	@Override
+	public List<BoardModule<T>> getBoardModules() 
+	{
+		return new ArrayList<>(this.boardModules.values());
+	}
 	
 	//</editor-fold>
 
@@ -351,27 +378,15 @@ class BasicBoard<T> implements Board2<T>,
 	
 	private void setupBoardModules()
 	{
-		if (this.getBoardIO() != null)
+		for(BoardModule module : this.getBoardModules())
 		{
-			this.setupBoardModule((this.getBoardIO()));
-		}
-		
-		if (this.getMatrix() != null)
-		{
-			this.setupBoardModule(this.getMatrix());
-		}
-		
-		if (this.getMobilityBoard() != null)
-		{
-			this.setupBoardModule(this.getMobilityBoard());
+			if (module != null)
+			{
+				module.setParent(this);
+			}
 		}
 	}
-	
-	private void setupBoardModule(BoardModule module)
-	{
-		module.setParent(this);
-	}
-	
+		
 	//</editor-fold>
 	
 	//<editor-fold desc="Inheirited From Object" defaultstate="collapsed">
@@ -405,7 +420,7 @@ class BasicBoard<T> implements Board2<T>,
  	@Override
  	public String toString()
  	{
- 		StringBuilder builder = new StringBuilder();
+		StringBuilder builder = new StringBuilder();
  		
  		for (int i = 0; i < this.verticalSize; i++)
  		{
