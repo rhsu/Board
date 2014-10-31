@@ -6,6 +6,7 @@ import rhsu.board.Direction;
 import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.Board2;
+import rhsu.board2.BoardModule;
 import rhsu.board2.boardIO.Board2IO;
 import rhsu.board2.matrices.Matrix2;
 import rhsu.board2.mobility.MobilityBoard;
@@ -242,5 +243,25 @@ public class UnitTestStubFactory<T>
 			};
 		}
 		return boardInitializable;
+	}
+	
+	public BoardModule<T> getBoardModuleStub()
+	{
+		return new BoardModule<T>()
+		{
+			private Board2<T> parent;
+			
+			@Override
+			public Board2<T> getParent() 
+			{
+				return this.parent;
+			}
+
+			@Override
+			public void setParent(Board2<T> parent) 
+			{
+				this.parent = parent;
+			}
+		};
 	}
 }
