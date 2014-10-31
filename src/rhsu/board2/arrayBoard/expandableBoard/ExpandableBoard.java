@@ -5,6 +5,7 @@ import java.util.List;
 import rhsu.board.Direction;
 import rhsu.board2.AbstractBoard;
 import rhsu.board2.BoardInitializable;
+import rhsu.board2.BoardModule;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.boardIO.Board2IO;
 import rhsu.board2.matrices.Matrix2;
@@ -109,4 +110,10 @@ public class ExpandableBoard<T> extends AbstractBoard<T>
 			defaultValue,
 			boardInitializer);
 	}	
+
+	@Override
+	public List<BoardModule<T>> getBoardModules() 
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
 }

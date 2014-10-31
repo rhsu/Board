@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.util.UUID;
 import rhsu.board.basic.AbstractBasicBoard;
 import rhsu.board.basic.BasicBoardPiece;
+import rhsu.board2.Board2;
 import rhsu.board2.randomGenerators.RandomGenerator;
 
 /**
@@ -75,6 +76,18 @@ public class StringBoard extends AbstractBasicBoard<String>
 			{
 				return UUID.randomUUID().toString();
 			}
+
+			@Override
+			public Board2 getParent() {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+			}
+
+			@Override
+			public void setParent(Board2 parent) {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+			}
+
+			
 		};
 		return generator;
 	}
