@@ -47,7 +47,7 @@ public interface Board2<T>
 	
 	//<editor-fold desc="Modules" defaultstate="collapsed">
 
-	public List<BoardModule> getBoardModules();
+	public List<BoardModule<T>> getBoardModules();
 	public Board2IO getBoardIO();
 	public Matrix2<T> getMatrix();
 	public MobilityBoard<T> getMobilityBoard();

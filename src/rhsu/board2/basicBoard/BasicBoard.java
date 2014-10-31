@@ -24,7 +24,7 @@ class BasicBoard<T> implements Board2<T>,
 {
 	static final Object DEFAULT_VALUE = new Object();
 	
-	private Map<String, BoardModule> boardModules;
+	private Map<String, BoardModule<T>> boardModules;
 	private static final String BOARD_IO = "boardIO";
 	private static final String MATRIX = "matrix";
 	private static final String MOBILITY_BOARD = "mobilityBoard";
@@ -75,7 +75,7 @@ class BasicBoard<T> implements Board2<T>,
 		RandomGenerator<T> randomGenerator,
 		T defaultValue,
 		BoardInitializable<T> boardInitializer)
-	{
+	{		
 		this.horizontalSize = horizontalSize == null 
 			? boardInitializer.getHorizontalSize()
 			: horizontalSize;
@@ -87,7 +87,8 @@ class BasicBoard<T> implements Board2<T>,
 		this.size = ((horizontalSize == null) || (verticalSize == null)) ?
 			0 : horizontalSize * verticalSize;
 				
-		this.boardModules.put(BasicBoard.BOARD_IO, boardIO);
+		this.boardModules = new HashMap<>();
+		this.boardModules.put(BasicBoard.BOARD_IO, boardIO);		
 		this.boardModules.put(BasicBoard.MATRIX, matrix);
 		this.boardModules.put(BasicBoard.MOBILITY_BOARD, mobilityBoard);
 		this.boardModules.put(BasicBoard .RANDOM_GENERATOR, randomGenerator);
@@ -121,7 +122,7 @@ class BasicBoard<T> implements Board2<T>,
 	public BoardPiece2<T>[][] getInnerBoardRepresentation() { return this.boardArray; }
 	
 	@Override
-	public List<BoardModule> getBoardModules() 
+	public List<BoardModule<T>> getBoardModules() 
 	{
 		return new ArrayList<>(this.boardModules.values());
 	}
@@ -419,7 +420,7 @@ class BasicBoard<T> implements Board2<T>,
  	@Override
  	public String toString()
  	{
- 		StringBuilder builder = new StringBuilder();
+		StringBuilder builder = new StringBuilder();
  		
  		for (int i = 0; i < this.verticalSize; i++)
  		{

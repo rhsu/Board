@@ -3,6 +3,7 @@ package rhsu.board.test;
 import java.util.List;
 import rhsu.board.io.BoardIO;
 import rhsu.board2.*;
+import rhsu.board2.basicBoard.BasicBoardBuilder;
 import rhsu.board2.boardIO.AbstractBoardIO;
 import rhsu.board2.boardIO.AbstractBoardIOFactory;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
@@ -18,11 +19,12 @@ public class Main
     
 	public static void main(String[] args)
 	{	
-		Board2<String> test = new BoardFactoryClient()
-			.GetStringBoardFactory()
-			.createRandomBoard(5, 5);
+		Board2<Integer> test = new BasicBoardBuilder()
+			.setDefaulValue(10)
+			.setHorizontalSize(1)
+			.setVerticalSize(1)
+			.createBoard();
 		
-		test.getBoardIO().export("testing123", "|");
-		
+		print(test.toString());
 	}
 }

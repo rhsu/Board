@@ -112,7 +112,8 @@ public class ExpandableBoard<T> extends AbstractBoard<T>
 	}	
 
 	@Override
-	public List<BoardModule> getBoardModules() {
+	public List<BoardModule<T>> getBoardModules() 
+	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }
