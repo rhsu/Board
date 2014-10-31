@@ -53,10 +53,12 @@ public class Main
 	{	
 		BoardModule<Integer> module = new TestModule<>();
 		
-		Board2<Integer> test = new BasicBoardBuilder()
+		Board2<Integer> board = new BasicBoardBuilder()
 			.setDefaulValue(10)
 			.setHorizontalSize(1)
 			.setVerticalSize(1)
 			.createBoard();
+		
+		board.addModule("test", module);
 	}
 }

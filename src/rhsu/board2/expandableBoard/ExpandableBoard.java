@@ -113,8 +113,17 @@ public class ExpandableBoard<T> extends AbstractBoard<T>
 	}	
 
 	@Override
-	public Map<String, BoardModule<T>> getBoardModules() 
-	{
+	public BoardModule<T> getModule(String name) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public boolean addModule(String name, BoardModule<T> module) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public boolean removeModule(String name) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }

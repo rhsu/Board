@@ -1,6 +1,5 @@
 package rhsu.board2.basicBoard;
 
-import java.util.ArrayList;
 import rhsu.board2.mobility.MobilityBoard;
 import rhsu.board2.randomGenerators.RandomGenerator;
 import rhsu.board2.matrices.Matrix2;
@@ -24,7 +23,7 @@ class BasicBoard<T> implements Board2<T>,
 {
 	static final Object DEFAULT_VALUE = new Object();
 	
-	private Map<String, BoardModule<T>> boardModules;
+	protected Map<String, BoardModule<T>> boardModules;
 	private static final String BOARD_IO = "boardIO";
 	private static final String MATRIX = "matrix";
 	private static final String MOBILITY_BOARD = "mobilityBoard";
@@ -120,12 +119,6 @@ class BasicBoard<T> implements Board2<T>,
 	
 	@Override
 	public BoardPiece2<T>[][] getInnerBoardRepresentation() { return this.boardArray; }
-	
-	@Override
-	public Map<String, BoardModule<T>> getBoardModules() 
-	{
-		return boardModules;
-	}
 	
 	//</editor-fold>
 
@@ -306,7 +299,46 @@ class BasicBoard<T> implements Board2<T>,
 	}
 	
 	//</editor-fold>	
-				
+	
+	@Override
+	public BoardModule<T> getModule(String name)
+	{
+		return (this.boardModules.containsKey(name)) 
+			? this.boardModules.get(name)
+			: null;
+	}
+		
+	@Override
+	public boolean addModule(String name, BoardModule<T> module)
+	{
+		boolean isSucessful =  false;
+		
+		if (!this.boardModules.containsKey(name) && module != null)
+		{
+			isSucessful = true;
+			
+			this.boardModules.put(name, module);
+			module.setParent(this);
+		}
+			
+		return isSucessful;
+	}
+		
+	@Override
+	public boolean removeModule(String name)
+	{
+		boolean isSucessful = false;
+		
+		if (this.boardModules.containsKey(name))
+		{
+			isSucessful = true;
+			this.boardModules.get(name).setParent(null);
+			this.boardModules.remove(name);
+		}
+		
+		return isSucessful;
+	}
+	
 	@Override
 	public BoardPiece2<T> find(T value)
 	{		
@@ -378,7 +410,7 @@ class BasicBoard<T> implements Board2<T>,
 	
 	private void setupBoardModules()
 	{
-		for(BoardModule module : this.getBoardModules().values())
+		for(BoardModule module : this.boardModules.values())
 		{
 			if (module != null)
 			{
