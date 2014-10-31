@@ -1,6 +1,6 @@
-package rhsu.board2.matrices;
+package rhsu.board2.boardModules.matrices;
 
-import rhsu.board2.BoardModule;
+import rhsu.board2.boardModules.BoardModule;
 import rhsu.board2.Board2;
 
 public interface Matrix2<T> extends BoardModule<T>

@@ -1,12 +1,13 @@
 package rhsu.board2;
 
+import rhsu.board2.boardModules.BoardModule;
 import java.util.Iterator;
 import java.util.List;
-import rhsu.board2.mobility.MobilityBoard;
-import rhsu.board2.randomGenerators.RandomGenerator;
-import rhsu.board2.matrices.Matrix2;
+import rhsu.board2.boardModules.mobility.MobilityBoard;
+import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
+import rhsu.board2.boardModules.matrices.Matrix2;
 import rhsu.board.Direction;
-import rhsu.board2.boardIO.Board2IO;
+import rhsu.board2.boardModules.boardIO.Board2IO;
 
 public interface Board2<T>
 {	

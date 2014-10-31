@@ -3,7 +3,7 @@ package rhsu.board.basic.implementations.arithmetic;
 import java.io.BufferedReader;
 import java.util.Random;
 import rhsu.board.basic.BasicBoardPiece;
-import rhsu.board2.randomGenerators.RandomGenerator;
+import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
 import rhsu.board.basic.AbstractBasicMatrix;
 import rhsu.board.Matrix;
 import rhsu.board.exceptionHandler.HandleType;

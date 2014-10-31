@@ -1,4 +1,4 @@
-package rhsu.board2.mobility;
+package rhsu.board2.boardModules.mobility;
 
 /**
  * An enumeration to denote if a piece is movable.

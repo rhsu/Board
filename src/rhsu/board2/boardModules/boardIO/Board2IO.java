@@ -1,7 +1,7 @@
-package rhsu.board2.boardIO;
+package rhsu.board2.boardModules.boardIO;
 
 import java.io.BufferedReader;
-import rhsu.board2.BoardModule;
+import rhsu.board2.boardModules.BoardModule;
 import rhsu.board2.Board2;
 
 public interface Board2IO<T> extends BoardModule<T>

@@ -2,8 +2,8 @@ package rhsu.board2.implementations.factories;
 
 import rhsu.board2.arrayBoard.basicBoard.BasicBoardBuilder;
 import rhsu.board2.Board2;
-import rhsu.board2.boardIO.AbstractBoardIO;
-import rhsu.board2.randomGenerators.AbstractRandomGenerator;
+import rhsu.board2.boardModules.boardIO.AbstractBoardIO;
+import rhsu.board2.boardModules.randomGenerators.AbstractRandomGenerator;
 
 public class BoardFactory<T>
 {

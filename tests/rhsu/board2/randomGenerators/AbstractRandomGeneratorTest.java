@@ -1,5 +1,6 @@
 package rhsu.board2.randomGenerators;
 
+import rhsu.board2.boardModules.randomGenerators.AbstractRandomGeneratorFactory;
 import static org.junit.Assert.*;
 import org.junit.*;
 

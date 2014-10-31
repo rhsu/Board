@@ -1,5 +1,7 @@
 package rhsu.board2;
 
+import rhsu.board2.boardModules.BoardModule;
+
 public abstract class AbstractBoardModule<T> implements BoardModule<T>
 {
 	protected Board2<T> parent;
