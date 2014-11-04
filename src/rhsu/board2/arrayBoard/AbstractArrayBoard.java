@@ -2,24 +2,26 @@ package rhsu.board2.arrayBoard;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.UUID;
-import rhsu.board.Board;
-import rhsu.board.BoardPiece;
 import rhsu.board.Direction;
+import rhsu.board2.Board2;
 import rhsu.board2.BoardInitializable;
+import rhsu.board2.BoardPiece2;
+import rhsu.board2.boardModules.BoardModule;
+import rhsu.board2.boardModules.boardIO.Board2IO;
+import rhsu.board2.boardModules.matrices.Matrix2;
+import rhsu.board2.boardModules.mobility.MobilityBoard;
 import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
 
-public class AbstractArrayBoard<T> implements Board<T>,
+public abstract class AbstractArrayBoard<T> implements Board2<T>,
 	BoardInitializable<T>
 {
-
 	@Override
-	public int getHorizontal_size() {
+	public int getHorizontalSize() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public int getVertical_size() {
+	public int getVerticalSize() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
@@ -34,17 +36,57 @@ public class AbstractArrayBoard<T> implements Board<T>,
 	}
 
 	@Override
-	public BoardPiece<T> getPieceAt(int horizontal, int vertical) {
+	public Object getInnerBoardRepresentation() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public BoardPiece<T> getPieceAt(int horizontal, int vertical, Direction direction, int units) {
+	public Board2IO<T> getBoardIO() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public BoardPiece<T> getPieceAt(BoardPiece<T> piece, Direction direction, int units) {
+	public Matrix2<T> getMatrix() {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public MobilityBoard<T> getMobilityBoard() {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public RandomGenerator<T> getRandomGenerator() {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public BoardModule<T> getModule(String name) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public boolean addModule(String name, BoardModule<T> module) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public boolean removeModule(String name) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public BoardPiece2<T> getPieceAt(int horizontal, int vertical) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public BoardPiece2<T> getPieceAt(int horizontal, int vertical, Direction direction, int units) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public BoardPiece2<T> getPieceAt(BoardPiece2<T> piece, Direction direction, int units) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
@@ -59,7 +101,7 @@ public class AbstractArrayBoard<T> implements Board<T>,
 	}
 
 	@Override
-	public T getValueAt(BoardPiece<T> piece, Direction direction, int units) {
+	public T getValueAt(BoardPiece2<T> piece, Direction direction, int units) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
@@ -74,57 +116,47 @@ public class AbstractArrayBoard<T> implements Board<T>,
 	}
 
 	@Override
-	public void setPieceAt(int horizontal, int vertical, BoardPiece<T> piece) {
+	public void setPieceAt(int horizontal, int vertical, BoardPiece2<T> piece) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public BoardPiece<T> find(T value) {
+	public BoardPiece2<T> find(T value) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public List<BoardPiece<T>> findAll(T value) {
+	public List<BoardPiece2<T>> findAll(T value) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public Iterator<BoardPiece<T>> iterBoard() {
+	public Iterator<BoardPiece2<T>> boardIterator() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public RandomGenerator<T> randomGenerator() {
+	public void AddColumn(Board2<T> column) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public boolean move(BoardPiece<T> piece, int horizontal, int vertical) {
+	public void AddRow(Board2<T> row) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public boolean move(BoardPiece<T> piece, int horizontal, int vertical, Board<T> otherBoard) {
+	public void RemoveColumn(Board2<T> column) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public boolean move(BoardPiece<T> piece, int units, Direction direction) {
+	public void RemoveRow(Board2<T> row) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 	@Override
-	public boolean move(BoardPiece<T> piece, int units, Direction direction, Board<T> otherBoard) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public UUID getUUID() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public String toOutputString(char delimiter) {
+	public BoardPiece2<T>[][] initializeBoard(BoardPiece2<T>[][] boardArray) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 	
