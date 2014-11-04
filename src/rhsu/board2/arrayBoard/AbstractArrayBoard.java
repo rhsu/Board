@@ -160,4 +160,16 @@ public abstract class AbstractArrayBoard<T> implements Board2<T>,
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 	
+	protected AbstractArrayBoard(Integer horizontalSize,
+		Integer verticalSize,
+		Board2IO boardIO,
+		Matrix2<T> matrix,
+		MobilityBoard<T> mobilityBoard,
+		RandomGenerator<T> randomGenerator,
+		T defaultValue,
+		BoardInitializable<T> boardInitializer)
+	{
+		
+	}	
+	
 }
