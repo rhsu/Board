@@ -18,7 +18,7 @@ import rhsu.board2.boardModules.matrices.Matrix2;
 import rhsu.board2.boardModules.mobility.MobilityBoard;
 import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
 
-public class AbstractArrayBoard<T> implements Board2<T>,
+public abstract class AbstractArrayBoard<T> implements Board2<T>,
 	BoardInitializable<T>
 {
 	//<editor-fold desc="Private Variables" defaultstate="collapsed">
