@@ -37,7 +37,6 @@ public abstract class AbstractArrayBoard<T> implements Board2<T>,
 	
 	protected int horizontalSize;
 	protected int verticalSize;
-	protected int size;
 	protected T defaultValue;
 	protected BoardPiece2<T>[][] boardArray;
 	
@@ -52,7 +51,10 @@ public abstract class AbstractArrayBoard<T> implements Board2<T>,
 	public int getVerticalSize() { return this.verticalSize; }
 
 	@Override
-	public int getSize() { return this.horizontalSize * this.verticalSize; }
+	public int getSize() 
+	{ 
+		return this.horizontalSize * this.verticalSize;
+	}
 
 	@Override
 	public T getDefaultValue() { return this.defaultValue; }
@@ -294,30 +296,6 @@ public abstract class AbstractArrayBoard<T> implements Board2<T>,
 	}
 	
 	//</editor-fold>
-
-	//<editor-fold desc="Add And Remove Methods" defaultstate="collapsed">
-	
-	@Override
-	public void AddColumn(Board2<T> column) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public void AddRow(Board2<T> row) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public void RemoveColumn(Board2<T> column) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public void RemoveRow(Board2<T> row) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	//</editor-fold>
 	
 	//<editor-fold desc="Inheirited From BoardInitializable<T>" defaultstate="collapsed">
 	
@@ -373,7 +351,6 @@ public abstract class AbstractArrayBoard<T> implements Board2<T>,
  		int hash = 3;
  		hash = 67 * hash + this.horizontalSize;
  		hash = 67 * hash + this.verticalSize;
- 		hash = 67 * hash + this.size;
  		hash = 67 * hash + Objects.hashCode(this.defaultValue);
  		hash = 67 * hash + Arrays.deepHashCode(this.boardArray);
  		return hash;
@@ -461,7 +438,7 @@ public abstract class AbstractArrayBoard<T> implements Board2<T>,
 			@Override
 			public boolean hasNext()
 			{
-				return currentIndex < size;
+				return currentIndex < getSize();
 			}
 
 			@Override
@@ -496,10 +473,7 @@ public abstract class AbstractArrayBoard<T> implements Board2<T>,
 		this.verticalSize = verticalSize == null
 			? boardInitializer.getVerticalSize()
 			: verticalSize;
-		
-		this.size = ((horizontalSize == null) || (verticalSize == null)) ?
-			0 : horizontalSize * verticalSize;
-				
+						
 		this.boardModules = new HashMap<>();
 		this.boardModules.put(AbstractArrayBoard.BOARD_IO, boardIO);		
 		this.boardModules.put(AbstractArrayBoard.MATRIX, matrix);
