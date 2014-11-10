@@ -342,7 +342,6 @@ class BasicBoard<T> implements Board2<T>,
 	@Override
 	public BoardPiece2<T> find(T value)
 	{		
-		
 		Iterator<BoardPiece2<T>> boardIterator = this.boardIterator();
 		
 		while(boardIterator.hasNext())
