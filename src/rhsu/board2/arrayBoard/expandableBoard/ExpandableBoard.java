@@ -2,6 +2,7 @@ package rhsu.board2.arrayBoard.expandableBoard;
 
 import rhsu.board2.Board2;
 import rhsu.board2.BoardInitializable;
+import rhsu.board2.BoardPieceImpl;
 import rhsu.board2.arrayBoard.AbstractArrayBoard;
 import rhsu.board2.boardModules.boardIO.Board2IO;
 import rhsu.board2.boardModules.matrices.Matrix2;
@@ -15,6 +16,8 @@ public class ExpandableBoard<T> extends AbstractArrayBoard<T>
 	@Override
 	public void AddColumn(Board2<T> column) 
 	{
+		
+		
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
@@ -55,5 +58,19 @@ public class ExpandableBoard<T> extends AbstractArrayBoard<T>
 			randomGenerator,
 			defaultValue,
 			boardInitializer);
+		
+		this.expandBoard();
+		this.boardArray = new BoardPieceImpl[this.verticalSize][this.horizontalSize];
+	}
+	
+	private void expandBoard()
+	{
+		expandBoard(10);
+	}
+	
+	public void expandBoard(int expansionSize)
+	{
+		this.horizontalSize += expansionSize;
+		this.verticalSize += expansionSize;
 	}
 }

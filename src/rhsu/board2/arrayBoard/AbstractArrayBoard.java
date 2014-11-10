@@ -482,7 +482,6 @@ public abstract class AbstractArrayBoard<T> implements Board2<T>,
 		
 		this.defaultValue = (T) (defaultValue == null ? DEFAULT_VALUE : defaultValue);
 				
-		this.boardArray = new BoardPieceImpl[this.verticalSize][this.horizontalSize];
 		this.boardInitializer = boardInitializer;
 		
 		boardModules = new HashMap<>();
