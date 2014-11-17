@@ -7,13 +7,13 @@ import rhsu.board2.unitTestUtilities.UnitTestStubFactory;
 
 public class BoardBuilderTest
 {
-	BasicBoardBuilder<Object> boardBuilder;
+	BoardBuilder<Object> boardBuilder;
 	private UnitTestStubFactory<Object> stubFactory;
-	
+		
 	@Before
 	public void setup()
 	{
-		boardBuilder = new BasicBoardBuilder<>();
+		boardBuilder = new BasicBoardBuilder<Object>();
 		stubFactory = new UnitTestStubFactory();
 	}
 	
