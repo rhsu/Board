@@ -17,6 +17,8 @@ public class BoardBuilderTest
 	@Before
 	public void setup()
 	{
+		//System.out.println("stub factory 1" + stubFactory.getBoard2IOStub());
+		
 		builder = new BasicBoardBuilder<>()
 			.setHorizontalSize(HORIZONTAL_SIZE)
 			.setVerticalSize(VERTICAL_SIZE)
@@ -49,7 +51,9 @@ public class BoardBuilderTest
 	@Test
 	public void testCreateBoard_BoardIOSet()
 	{
-		//UnitTestLibrary.accessorAssertion(builder.randomGenerator, board.getRandomGenerator());
+		//System.out.println(board.getBoardIO());
+		
+		UnitTestLibrary.accessorAssertion(stubFactory.getBoard2IOStub(), board.getBoardIO());
 	}
 	
 	@Test
