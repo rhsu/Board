@@ -2,81 +2,71 @@ package rhsu.board2;
 
 import rhsu.board2.basicBoard.BasicBoardBuilder;
 import org.junit.*;
+import static org.junit.Assert.*;
 import rhsu.board2.unitTestUtilities.UnitTestLibrary;
 import rhsu.board2.unitTestUtilities.UnitTestStubFactory;
 
 public class BoardBuilderTest
 {
-	BasicBoardBuilder<Object> boardBuilder;
-	private UnitTestStubFactory<Object> stubFactory;
+	private BoardBuilder<Object> builder;
+	private final UnitTestStubFactory<Object> stubFactory = new UnitTestStubFactory<>();
+	private Board2<Object> board;
+	private final int HORIZONTAL_SIZE = 5;
+	private final int VERTICAL_SIZE = 7;
 	
 	@Before
 	public void setup()
-	{
-		boardBuilder = new BasicBoardBuilder<>();
-		stubFactory = new UnitTestStubFactory();
-	}
-	
-	@Test
-	public void testSetBoardIO()
-	{	
-		boardBuilder.setBoardIO(stubFactory.getBoard2IOStub());
-		UnitTestLibrary.accessorAssertion(boardBuilder.boardIO, stubFactory.getBoard2IOStub());
-	}
-	
-	@Test
-	public void testSetMatrix()
-	{
-		boardBuilder.setMatrix(stubFactory.getMatrix2Stub());
-		UnitTestLibrary.accessorAssertion(boardBuilder.matrix, stubFactory.getMatrix2Stub());
-	}
-	
-	@Test
-	public void testSetRandomGenerator()
-	{
-		boardBuilder.setRandomGenerator(stubFactory.getRandomGeneratorStub());
-		UnitTestLibrary.accessorAssertion(boardBuilder.randomGenerator, stubFactory.getRandomGeneratorStub());
-	}
-	
-	@Test
-	public void testSetMobilityBoard()
-	{
-		boardBuilder.setMobilityBoard(stubFactory.getMobilityBoardStub());
-		UnitTestLibrary.accessorAssertion(boardBuilder.mobilityBoard, stubFactory.getMobilityBoardStub());
-	}
-	
-	@Test
-	public void testSetHorizontalSize()
-	{
-		boardBuilder.setHorizontalSize(10);
-		UnitTestLibrary.accessorAssertion(boardBuilder.horizontalSize, 10);
-	}
-	
-	@Test
-	public void testSetVerticalSize()
-	{
-		boardBuilder.setVerticalSize(10);
-		UnitTestLibrary.accessorAssertion(boardBuilder.verticalSize, 10);
-	}
-	
-	@Test
-	public void testSetDefaulValue()
-	{
-		Object something = new Object();
-		boardBuilder.setDefaulValue(something);
-		UnitTestLibrary.accessorAssertion(boardBuilder.defaultValue, something);
-	}
-	
-	@Test
-	public void setBoardInitializable()
-	{
-		boardBuilder.setBoardInitializable(stubFactory.getBoardInitializable());
-		UnitTestLibrary.accessorAssertion(boardBuilder.boardInitializer, stubFactory.getBoardInitializable());
-	}
-	
-	@Test
-	public void testCreateBoard()
-	{
+	{		
+		builder = new BasicBoardBuilder<>()
+			.setHorizontalSize(HORIZONTAL_SIZE)
+			.setVerticalSize(VERTICAL_SIZE)
+			.setBoardIO(stubFactory.getBoard2IOStub())
+			.setMatrix(stubFactory.getMatrix2Stub())
+			.setMobilityBoard(stubFactory.getMobilityBoardStub())
+			.setRandomGenerator(stubFactory.getRandomGeneratorStub());
 		
+		board = builder.createBoard();
+	}
+	
+	@Test
+	public void testCreateBoardNotNull()
+	{
+		assertNotNull(board);
+	}
+	
+	@Test
+	public void testCreateBoard_HorizontalSet()
+	{
+		UnitTestLibrary.accessorAssertion(board.getHorizontalSize(), HORIZONTAL_SIZE);
+	}
+	
+	@Test
+	public void testCreateBoard_VerticalSet()
+	{
+		UnitTestLibrary.accessorAssertion(board.getVerticalSize(), VERTICAL_SIZE);
+	}
+	
+	@Test
+	public void testCreateBoard_BoardIOSet()
+	{		
+		UnitTestLibrary.accessorAssertion(stubFactory.getBoard2IOStub(), board.getBoardIO());
+	}
+	
+	@Test
+	public void testCreateBoard_MatrixSet()
+	{
+		UnitTestLibrary.accessorAssertion(stubFactory.getMatrix2Stub(), board.getMatrix());
+	}
+	
+	@Test
+	public void testCreateBoard_RandomGeneratorSet()
+	{
+		UnitTestLibrary.accessorAssertion(stubFactory.getRandomGeneratorStub(), board.getRandomGenerator());
+	}
+	
+	@Test
+	public void testCreateBoard_MobilitySet()
+	{
+		UnitTestLibrary.accessorAssertion(stubFactory.getMobilityBoardStub(), board.getMobilityBoard());
 	}
 }

@@ -43,7 +43,7 @@ class BasicBoard<T> implements Board2<T>,
 	
 	@Override
 	public Board2IO<T> getBoardIO() 
-	{ 
+	{
 		return (Board2IO<T>) boardModules.get(BasicBoard.BOARD_IO); 
 	}
 
@@ -87,17 +87,15 @@ class BasicBoard<T> implements Board2<T>,
 			0 : horizontalSize * verticalSize;
 				
 		this.boardModules = new HashMap<>();
-		this.boardModules.put(BasicBoard.BOARD_IO, boardIO);		
+		
+		this.boardModules.put(BasicBoard.BOARD_IO, boardIO);
 		this.boardModules.put(BasicBoard.MATRIX, matrix);
 		this.boardModules.put(BasicBoard.MOBILITY_BOARD, mobilityBoard);
 		this.boardModules.put(BasicBoard .RANDOM_GENERATOR, randomGenerator);
 		
 		this.defaultValue = (T) (defaultValue == null ? DEFAULT_VALUE : defaultValue);
-				
 		this.boardArray = new BoardPieceImpl[this.verticalSize][this.horizontalSize];
 		this.boardInitializer = boardInitializer;
-		
-		boardModules = new HashMap<>();
 		
 		initializeBoardArray();
 		setupBoardModules();
