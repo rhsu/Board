@@ -14,238 +14,230 @@ import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
 
 public class UnitTestStubFactory<T>
 {
-	private Board2IO<T> boardIO = null;
-	private Matrix2<T> matrix = null;
-	private RandomGenerator<T> randomGenerator = null;
-	private MobilityBoard<T> mobilityBoard = null;
-	private BoardInitializable<T> boardInitializable = null;
+	private final Board2IO<T> boardIO;
+	private final Matrix2<T> matrix;
+	private final RandomGenerator<T> randomGenerator;
+	private final MobilityBoard<T> mobilityBoard;
+	private final BoardInitializable<T> boardInitializable;
+	private final BoardModule<T> boardModule;
 	
-	public Board2IO<T> getBoard2IOStub()
+	public UnitTestStubFactory()
 	{
-		if (boardIO == null)
-		{
-			boardIO = new Board2IO<T>() 
-			{
-				@Override
-				public Board2<String> getBoardInitializer()
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-
-				@Override
-				public void populateFromFile(String filename, String delimiter)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-
-				@Override
-				public void populateFromResource(BufferedReader reader, String delimiter)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-
-				@Override
-				public void export(String filename, String delimiter)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-
-				@Override
-				public Board2<T> getParent() {
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-
-				@Override
-				public void setParent(Board2<T> parent) {
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-			};
-		}
-		return boardIO;
+		this.boardIO = initializeBoard2IO();
+		this.matrix = initializeMatrix();
+		this.randomGenerator = initializeRandomGenerator();
+		this.mobilityBoard = initializeMobilityBoard();
+		this.boardInitializable = initializeBoardInitializable();
+		this.boardModule = initializeBoardModule();
 	}
 	
-	public Matrix2<T> getMatrix2Stub()
+	private Board2IO<T> initializeBoard2IO()
 	{
-		if (matrix == null)
+		return new Board2IO<T>() 
 		{
-			matrix = new Matrix2<T>()
+			@Override
+			public Board2<String> getBoardInitializer()
 			{
-				@Override
-				public Board2<T> add(Board2<T> matrix)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public Board2<T> subtract(Board2<T> matrix)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-
-				@Override
-				public Board2<T> multiply(Board2<T> matrix)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-
-				@Override
-				public Board2<T> multiply(T piece)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-
-				@Override
-				public Board2<T> inverse()
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-
-				@Override
-				public T determinant()
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-
-				@Override
-				public Board2<T> transpose()
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-
-				@Override
-				public Board2<T> createSubMatrix(int excluding_row, int excluding_column)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-
-				@Override
-				public Board2<T> cofactor()
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-
-				@Override
-				public Board2<T> getParent() {
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-
-				@Override
-				public void setParent(Board2<T> parent) {
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-			};
-		}
-		return matrix;
-	}
-	
-	public RandomGenerator<T> getRandomGeneratorStub()
-	{
-		if (randomGenerator == null)
-		{
-			randomGenerator = new RandomGenerator<T>()
+			@Override
+			public void populateFromFile(String filename, String delimiter)
 			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public T getRandom()
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+			@Override
+			public void populateFromResource(BufferedReader reader, String delimiter)
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public Board2<T> getParent() {
-					throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-				}
+			@Override
+			public void export(String filename, String delimiter)
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public void setParent(Board2<T> parent) {
-					throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-				}
+			@Override
+			public Board2<T> getParent() 
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
+			@Override
+			public void setParent(Board2<T> parent) 
+			{
 				
-			};
-		}
-		return randomGenerator;
+			}
+		};
 	}
 	
-	public MobilityBoard<T> getMobilityBoardStub()
+	private Matrix2<T> initializeMatrix()
 	{
-		if (mobilityBoard == null)
+		return new Matrix2<T>()
 		{
-			mobilityBoard = new MobilityBoard<T>()
+			@Override
+			public Board2<T> add(Board2<T> matrix)
 			{
-				@Override
-				public boolean move(BoardPiece2<T> piece, int horizontal, int vertical)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public boolean move(BoardPiece2<T> piece, int horizontal, int vertical, Board2<T> otherBoard)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+			@Override
+			public Board2<T> subtract(Board2<T> matrix)
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public boolean move(BoardPiece2<T> piece, int units, Direction direction)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+			@Override
+			public Board2<T> multiply(Board2<T> matrix)
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public boolean move(BoardPiece2<T> piece, int units, Direction direction, Board2<T> otherBoard)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented"); 
-				}
+			@Override
+			public Board2<T> multiply(T piece)
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public UUID getUUID()
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented"); 
-				}
+			@Override
+			public Board2<T> inverse()
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public Board2<T> getParent() {
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+			@Override
+			public T determinant()
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public void setParent(Board2<T> parent) {
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-			};
-		}
-		return mobilityBoard;
+			@Override
+			public Board2<T> transpose()
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
+
+			@Override
+			public Board2<T> createSubMatrix(int excluding_row, int excluding_column)
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
+
+			@Override
+			public Board2<T> cofactor()
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
+
+			@Override
+			public Board2<T> getParent() {
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
+
+			@Override
+			public void setParent(Board2<T> parent) 
+			{
+				
+			}
+		};
 	}
 	
-	public BoardInitializable<T> getBoardInitializable()
+	private RandomGenerator<T> initializeRandomGenerator()
 	{
-		if (boardInitializable == null)
+		return new RandomGenerator<T>()
 		{
-			boardInitializable = new BoardInitializable<T>()
+
+			@Override
+			public T getRandom()
 			{
-				@Override
-				public BoardPiece2<T>[][] initializeBoard(BoardPiece2<T>[][] boardArray)
-				{
-					throw new UnsupportedOperationException("Stub Method. Not Implemented.");
-				}
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public int getHorizontalSize()
-				{
-					throw new UnsupportedOperationException("Stub Method. Not Implemented."); 
-				}
+			@Override
+			public Board2<T> getParent() {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+			}
 
-				@Override
-				public int getVerticalSize()
-				{
-					throw new UnsupportedOperationException("Stub Method. Not Implemented."); 
-				}
-			};
-		}
-		return boardInitializable;
+			@Override
+			public void setParent(Board2<T> parent) 
+			{
+			}
+		};
 	}
 	
-	public BoardModule<T> getBoardModuleStub()
+	private MobilityBoard<T> initializeMobilityBoard()
+	{
+		return new MobilityBoard<T>()
+		{
+			@Override
+			public boolean move(BoardPiece2<T> piece, int horizontal, int vertical)
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
+
+			@Override
+			public boolean move(BoardPiece2<T> piece, int horizontal, int vertical, Board2<T> otherBoard)
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
+
+			@Override
+			public boolean move(BoardPiece2<T> piece, int units, Direction direction)
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
+
+			@Override
+			public boolean move(BoardPiece2<T> piece, int units, Direction direction, Board2<T> otherBoard)
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented"); 
+			}
+
+			@Override
+			public UUID getUUID()
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented"); 
+			}
+
+			@Override
+			public Board2<T> getParent() {
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
+
+			@Override
+			public void setParent(Board2<T> parent) 
+			{
+			}
+		};
+	}
+	
+	private BoardInitializable<T> initializeBoardInitializable()
+	{
+		return new BoardInitializable<T>()
+		{
+			@Override
+			public BoardPiece2<T>[][] initializeBoard(BoardPiece2<T>[][] boardArray)
+			{
+				throw new UnsupportedOperationException("Stub Method. Not Implemented.");
+			}
+
+			@Override
+			public int getHorizontalSize()
+			{
+				throw new UnsupportedOperationException("Stub Method. Not Implemented."); 
+			}
+
+			@Override
+			public int getVerticalSize()
+			{
+				throw new UnsupportedOperationException("Stub Method. Not Implemented."); 
+			}
+		};
+	}
+	
+	private BoardModule<T> initializeBoardModule()
 	{
 		return new BoardModule<T>()
 		{
@@ -263,5 +255,35 @@ public class UnitTestStubFactory<T>
 				this.parent = parent;
 			}
 		};
+	}
+	
+	public Board2IO<T> getBoard2IOStub()
+	{
+		return boardIO;
+	}
+	
+	public Matrix2<T> getMatrix2Stub()
+	{
+		return matrix;
+	}
+	
+	public RandomGenerator<T> getRandomGeneratorStub()
+	{
+		return randomGenerator;
+	}
+	
+	public MobilityBoard<T> getMobilityBoardStub()
+	{
+		return mobilityBoard;
+	}
+	
+	public BoardInitializable<T> getBoardInitializable()
+	{
+		return boardInitializable;
+	}
+		
+	public BoardModule<T> getBoardModuleStub()
+	{
+		return boardModule;
 	}
 }
