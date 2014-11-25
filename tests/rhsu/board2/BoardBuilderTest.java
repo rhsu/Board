@@ -16,9 +16,7 @@ public class BoardBuilderTest
 	
 	@Before
 	public void setup()
-	{
-		//System.out.println("stub factory 1" + stubFactory.getBoard2IOStub());
-		
+	{		
 		builder = new BasicBoardBuilder<>()
 			.setHorizontalSize(HORIZONTAL_SIZE)
 			.setVerticalSize(VERTICAL_SIZE)
