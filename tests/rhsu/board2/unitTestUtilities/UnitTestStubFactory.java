@@ -60,13 +60,15 @@ public class UnitTestStubFactory<T>
 			}
 
 			@Override
-			public Board2<T> getParent() {
+			public Board2<T> getParent() 
+			{
 				throw new UnsupportedOperationException("Stub Method: Not Implemented");
 			}
 
 			@Override
-			public void setParent(Board2<T> parent) {
-				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			public void setParent(Board2<T> parent) 
+			{
+				
 			}
 		};
 	}
@@ -75,70 +77,71 @@ public class UnitTestStubFactory<T>
 	{
 		return new Matrix2<T>()
 		{
-				@Override
-				public Board2<T> add(Board2<T> matrix)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+			@Override
+			public Board2<T> add(Board2<T> matrix)
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public Board2<T> subtract(Board2<T> matrix)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+			@Override
+			public Board2<T> subtract(Board2<T> matrix)
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public Board2<T> multiply(Board2<T> matrix)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+			@Override
+			public Board2<T> multiply(Board2<T> matrix)
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public Board2<T> multiply(T piece)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+			@Override
+			public Board2<T> multiply(T piece)
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public Board2<T> inverse()
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+			@Override
+			public Board2<T> inverse()
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public T determinant()
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+			@Override
+			public T determinant()
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public Board2<T> transpose()
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+			@Override
+			public Board2<T> transpose()
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public Board2<T> createSubMatrix(int excluding_row, int excluding_column)
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+			@Override
+			public Board2<T> createSubMatrix(int excluding_row, int excluding_column)
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public Board2<T> cofactor()
-				{
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+			@Override
+			public Board2<T> cofactor()
+			{
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public Board2<T> getParent() {
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
+			@Override
+			public Board2<T> getParent() {
+				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			}
 
-				@Override
-				public void setParent(Board2<T> parent) {
-					throw new UnsupportedOperationException("Stub Method: Not Implemented");
-				}
-			};
+			@Override
+			public void setParent(Board2<T> parent) 
+			{
+				
+			}
+		};
 	}
 	
 	private RandomGenerator<T> initializeRandomGenerator()
@@ -158,11 +161,9 @@ public class UnitTestStubFactory<T>
 			}
 
 			@Override
-			public void setParent(Board2<T> parent) {
-				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+			public void setParent(Board2<T> parent) 
+			{
 			}
-
-
 		};
 	}
 	
@@ -206,8 +207,8 @@ public class UnitTestStubFactory<T>
 			}
 
 			@Override
-			public void setParent(Board2<T> parent) {
-				throw new UnsupportedOperationException("Stub Method: Not Implemented");
+			public void setParent(Board2<T> parent) 
+			{
 			}
 		};
 	}
