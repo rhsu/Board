@@ -48,27 +48,25 @@ public class BoardBuilderTest
 	
 	@Test
 	public void testCreateBoard_BoardIOSet()
-	{
-		//System.out.println(board.getBoardIO());
-		
+	{		
 		UnitTestLibrary.accessorAssertion(stubFactory.getBoard2IOStub(), board.getBoardIO());
 	}
 	
 	@Test
 	public void testCreateBoard_MatrixSet()
 	{
-		//UnitTestLibrary.accessorAssertion(builder.matrix, board.getMatrix());
+		UnitTestLibrary.accessorAssertion(stubFactory.getMatrix2Stub(), board.getMatrix());
 	}
 	
 	@Test
 	public void testCreateBoard_RandomGeneratorSet()
 	{
-		//UnitTestLibrary.accessorAssertion(builder.randomGenerator, board.getRandomGenerator());
+		UnitTestLibrary.accessorAssertion(stubFactory.getRandomGeneratorStub(), board.getRandomGenerator());
 	}
 	
 	@Test
 	public void testCreateBoard_MobilitySet()
 	{
-		//UnitTestLibrary.accessorAssertion(builder.mobilityBoard, board.getMobilityBoard());
+		UnitTestLibrary.accessorAssertion(stubFactory.getMobilityBoardStub(), board.getMobilityBoard());
 	}
 }
