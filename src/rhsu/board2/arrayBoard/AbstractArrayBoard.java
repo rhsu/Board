@@ -484,8 +484,6 @@ public abstract class AbstractArrayBoard<T> implements Board2<T>,
 				
 		this.boardInitializer = boardInitializer;
 		
-		boardModules = new HashMap<>();
-		
 		initializeBoardArray();
 		setupBoardModules();
 	}
