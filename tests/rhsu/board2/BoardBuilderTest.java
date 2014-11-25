@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import rhsu.board2.unitTestUtilities.UnitTestLibrary;
 import rhsu.board2.unitTestUtilities.UnitTestStubFactory;
 
-public class BoardBuilderTest_CreateBoard
+public class BoardBuilderTest
 {
 	private BoardBuilder<Object> builder;
 	private final UnitTestStubFactory<Object> stubFactory = new UnitTestStubFactory<>();

@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
 
 @Ignore
-public abstract class Board2Test<T>
+public abstract class AbstractBoard2Test<T>
 {
 	protected int horizontalSize = 3;
 	protected int verticalSize = 5;
