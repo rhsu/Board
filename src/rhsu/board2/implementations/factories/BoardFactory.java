@@ -1,5 +1,6 @@
 package rhsu.board2.implementations.factories;
 
+import java.io.BufferedReader;
 import rhsu.board2.basicBoard.BasicBoardBuilder;
 import rhsu.board2.Board2;
 import rhsu.board2.boardModules.boardIO.AbstractBoardIO;
@@ -53,5 +54,12 @@ public class BoardFactory<T>
 			.setBoardIO(this.boardIO)
 			.setBoardInitializable(this.boardIO)
 			.createBoard();
+	}
+	
+	public Board2<T> createBoardFromResource(BufferedReader resource, String delimiter)
+	{
+		
+		
+		return null;
 	}
 }

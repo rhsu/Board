@@ -8,6 +8,8 @@ import rhsu.board2.basicBoard.BasicBoardBuilder;
 import rhsu.board2.boardModules.boardIO.AbstractBoardIO;
 import rhsu.board2.boardModules.boardIO.AbstractBoardIOFactory;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
+import rhsu.resourceRetriever.ResourceRetriever;
+import rhsu.resourceRetriever.ResourceRetrieverImpl;
 
 public class Main
 {	
@@ -20,6 +22,12 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
+		ResourceRetriever retriever = new ResourceRetrieverImpl(
+			"newFile",
+			"/rhsu/board2/unitTest/resources");
 		
+		Board2<String> myBoard = new BoardFactoryClient()
+			.GetStringBoardFactory()
+			.createBoardFromFile(TEST_RESOURCE, TEST_RESOURCE);
 	}
 }
