@@ -20,7 +20,7 @@ public class AbstractBoardIOFactory
 				}
 				catch (Exception exception)
 				{
-					value = BigDecimal.ZERO;
+					value = this.getParent().getDefaultValue();
 				}
 
 				return value;
@@ -43,7 +43,7 @@ public class AbstractBoardIOFactory
 				}
 				catch(Exception exception)
 				{
-					value = BigInteger.ZERO;
+					value = this.getParent().getDefaultValue();
 				}
 
 				return value;
