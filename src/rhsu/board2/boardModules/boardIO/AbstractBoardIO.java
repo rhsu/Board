@@ -18,7 +18,7 @@ import rhsu.board2.implementations.factories.BoardFactoryClient;
 public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
 	implements Board2IO<T>, BoardInitializable<T>
 {
-	private Board2<String> boardInitializer;
+	protected Board2<String> boardInitializer;
 	
 	@Override
 	public int getHorizontalSize()
@@ -35,7 +35,7 @@ public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
 	@Override
 	public Board2<String> getBoardInitializer() { return this.boardInitializer; }
 	
-	@Override
+	/*@Override
 	public void populateFromFile(String filename, String delimiter)
 	{
 		LinkedList<String[]> fileContent = new LinkedList<>();
@@ -76,7 +76,7 @@ public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
 	public void populateFromResource(BufferedReader reader, String delimiter)
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
-	}
+	}*/
 
 	@Override
 	public void export(String filename, String delimiter)

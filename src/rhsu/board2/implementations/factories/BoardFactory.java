@@ -45,9 +45,9 @@ public class BoardFactory<T>
 	
 	public Board2<T> createBoardFromFile(String filename, String delimiter)
 	{
-		this.boardIO.populateFromFile(filename, delimiter);
+		// this.boardIO.populateFromFile(filename, delimiter);
 		
-		System.out.println(this.boardIO.getBoardInitializer());
+		// System.out.println(this.boardIO.getBoardInitializer());
 		
 		return new BasicBoardBuilder<T>()
 			.setHorizontalSize(this.boardIO.getBoardInitializer().getHorizontalSize())
