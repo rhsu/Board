@@ -20,6 +20,10 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
+		Board2<String> test = new BoardFactoryClient()
+			.GetStringBoardFactory()
+			.createBoardFromFile("test.txt", " ");
 		
+		//print(test);
 	}
 }

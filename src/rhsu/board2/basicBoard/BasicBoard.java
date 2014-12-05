@@ -35,7 +35,6 @@ class BasicBoard<T> implements Board2<T>,
 	
 	protected int horizontalSize;
 	protected int verticalSize;
-	protected int size;
 	protected T defaultValue;
 	protected BoardPiece2<T>[][] boardArray;
 	
@@ -65,7 +64,7 @@ class BasicBoard<T> implements Board2<T>,
 		return (RandomGenerator<T>) boardModules.get(BasicBoard.RANDOM_GENERATOR);
 	}
 		
-	public BasicBoard(
+	BasicBoard(
 		Integer horizontalSize,
 		Integer verticalSize,
 		Board2IO boardIO,
@@ -82,9 +81,6 @@ class BasicBoard<T> implements Board2<T>,
 		this.verticalSize = verticalSize == null
 			? boardInitializer.getVerticalSize()
 			: verticalSize;
-		
-		this.size = ((horizontalSize == null) || (verticalSize == null)) ?
-			0 : horizontalSize * verticalSize;
 				
 		this.boardModules = new HashMap<>();
 		
@@ -110,7 +106,10 @@ class BasicBoard<T> implements Board2<T>,
 	public int getVerticalSize() { return this.verticalSize; }
 
 	@Override
-	public int getSize() { return this.size; }
+	public int getSize() 
+	{ 
+		return getHorizontalSize() * getVerticalSize(); 
+	}
 
 	@Override
 	public T getDefaultValue() { return this.defaultValue; }
@@ -385,7 +384,7 @@ class BasicBoard<T> implements Board2<T>,
 			@Override
 			public boolean hasNext()
 			{
-				return currentIndex < size;
+				return currentIndex < horizontalSize * verticalSize;
 			}
 
 			@Override
@@ -441,7 +440,6 @@ class BasicBoard<T> implements Board2<T>,
  		int hash = 3;
  		hash = 67 * hash + this.horizontalSize;
  		hash = 67 * hash + this.verticalSize;
- 		hash = 67 * hash + this.size;
  		hash = 67 * hash + Objects.hashCode(this.defaultValue);
  		hash = 67 * hash + Arrays.deepHashCode(this.boardArray);
  		return hash;

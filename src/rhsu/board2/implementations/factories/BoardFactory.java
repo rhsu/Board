@@ -47,6 +47,8 @@ public class BoardFactory<T>
 	{
 		this.boardIO.populateFromFile(filename, delimiter);
 		
+		System.out.println(this.boardIO.getBoardInitializer());
+		
 		return new BasicBoardBuilder<T>()
 			.setHorizontalSize(this.boardIO.getBoardInitializer().getHorizontalSize())
 			.setVerticalSize(this.boardIO.getBoardInitializer().getVerticalSize())
