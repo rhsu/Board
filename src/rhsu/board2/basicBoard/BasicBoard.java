@@ -16,7 +16,7 @@ import rhsu.board2.BoardInitializable;
 import rhsu.board2.boardModules.BoardModule;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
-import rhsu.board2.boardModules.boardIO.Board2IO;
+import rhsu.board2.boardModules.boardFileIO.BoardFileIO;
 
 class BasicBoard<T> implements Board2<T>,
 	BoardInitializable<T>
@@ -41,9 +41,9 @@ class BasicBoard<T> implements Board2<T>,
 	//</editor-fold>
 	
 	@Override
-	public Board2IO<T> getBoardIO() 
+	public BoardFileIO<T> getBoardIO() 
 	{
-		return (Board2IO<T>) boardModules.get(BasicBoard.BOARD_IO); 
+		return (BoardFileIO<T>) boardModules.get(BasicBoard.BOARD_IO); 
 	}
 
 	@Override
@@ -67,7 +67,7 @@ class BasicBoard<T> implements Board2<T>,
 	BasicBoard(
 		Integer horizontalSize,
 		Integer verticalSize,
-		Board2IO boardIO,
+		BoardFileIO boardIO,
 		Matrix2<T> matrix,
 		MobilityBoard<T> mobilityBoard,
 		RandomGenerator<T> randomGenerator,

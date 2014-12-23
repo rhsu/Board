@@ -1,13 +1,13 @@
 package rhsu.board2;
 
-import rhsu.board2.boardModules.boardIO.Board2IO;
+import rhsu.board2.boardModules.boardFileIO.BoardFileIO;
 import rhsu.board2.boardModules.matrices.Matrix2;
 import rhsu.board2.boardModules.mobility.MobilityBoard;
 import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
 
 public abstract class AbstractBoardBuilder<T> implements BoardBuilder<T>
 {
-	protected Board2IO boardIO = null;
+	protected BoardFileIO boardIO = null;
 	protected Matrix2<T> matrix = null;
 	protected MobilityBoard<T> mobilityBoard = null;
 	protected RandomGenerator<T> randomGenerator = null;
@@ -17,7 +17,7 @@ public abstract class AbstractBoardBuilder<T> implements BoardBuilder<T>
 	protected BoardInitializable<T> boardInitializer = null;
 	
 	@Override
-	public BoardBuilder<T> setBoardIO(Board2IO<T> boardIO)
+	public BoardBuilder<T> setBoardIO(BoardFileIO<T> boardIO)
 	{
 		this.boardIO = boardIO;
 		return this;

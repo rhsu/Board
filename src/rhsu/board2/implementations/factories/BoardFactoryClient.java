@@ -4,7 +4,7 @@ import rhsu.board2.boardModules.randomGenerators.AbstractRandomGeneratorFactory;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.HashMap;
-import rhsu.board2.boardModules.boardIO.AbstractBoardIOFactory;
+import rhsu.board2.boardModules.boardFileIO.AbstractBoardIOFactory;
 
 public class BoardFactoryClient
 {

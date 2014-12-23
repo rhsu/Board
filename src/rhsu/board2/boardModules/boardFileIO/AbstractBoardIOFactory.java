@@ -1,13 +1,13 @@
-package rhsu.board2.boardModules.boardIO;
+package rhsu.board2.boardModules.boardFileIO;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class AbstractBoardIOFactory
 {
-	public AbstractBoardIO<BigDecimal> getBigDecimalBoardIO()
+	public AbstractBoardFileIO<BigDecimal> getBigDecimalBoardIO()
 	{		
-		return new AbstractBoardIO<BigDecimal>()
+		return new AbstractBoardFileIO<BigDecimal>()
 		{
 			BigDecimal value;
 			
@@ -28,9 +28,9 @@ public class AbstractBoardIOFactory
 		};
 	}
 	
-	public AbstractBoardIO<BigInteger> getBigIntegerBoardIO()
+	public AbstractBoardFileIO<BigInteger> getBigIntegerBoardIO()
 	{
-		return new AbstractBoardIO<BigInteger>()
+		return new AbstractBoardFileIO<BigInteger>()
 		{
 			@Override
 			protected BigInteger convertFromString(String string)
@@ -51,9 +51,9 @@ public class AbstractBoardIOFactory
 		};
 	}
 	
-	public AbstractBoardIO<Boolean> getBooleanBoardIO()
+	public AbstractBoardFileIO<Boolean> getBooleanBoardIO()
 	{
-		return new AbstractBoardIO<Boolean>()
+		return new AbstractBoardFileIO<Boolean>()
 		{
 			@Override
 			protected Boolean convertFromString(String string)
@@ -63,9 +63,9 @@ public class AbstractBoardIOFactory
 		};
 	}
 	
-	public AbstractBoardIO<Character> getCharacterBoardIO()
+	public AbstractBoardFileIO<Character> getCharacterBoardIO()
 	{
-		return new AbstractBoardIO<Character>()
+		return new AbstractBoardFileIO<Character>()
 		{
 			@Override
 			protected Character convertFromString(String string)
@@ -75,9 +75,9 @@ public class AbstractBoardIOFactory
 		};
 	}
 	
-	public AbstractBoardIO<Double> getDoubleBoardIO()
+	public AbstractBoardFileIO<Double> getDoubleBoardIO()
 	{
-		return new AbstractBoardIO<Double>()
+		return new AbstractBoardFileIO<Double>()
 		{
 			@Override
 			protected Double convertFromString(String string)
@@ -87,9 +87,9 @@ public class AbstractBoardIOFactory
 		};
 	}
 	
-	public AbstractBoardIO<Integer> getIntegerBoardIO()
+	public AbstractBoardFileIO<Integer> getIntegerBoardIO()
 	{
-		return new AbstractBoardIO<Integer>()
+		return new AbstractBoardFileIO<Integer>()
 		{
 			@Override
 			protected Integer convertFromString(String string)
@@ -99,9 +99,9 @@ public class AbstractBoardIOFactory
 		};
 	}
 	
-	public AbstractBoardIO<String> getStringBoardIO()
+	public AbstractBoardFileIO<String> getStringBoardIO()
 	{
-		return new AbstractBoardIO<String>()
+		return new AbstractBoardFileIO<String>()
 		{
 			@Override
 			protected String convertFromString(String string)

@@ -1,4 +1,4 @@
-package rhsu.board2.boardModules.boardIO;
+package rhsu.board2.boardModules.boardFileIO;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,8 +8,25 @@ import java.util.List;
 import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
 
-public class Board2IOFileReader<T> extends AbstractBoardIO<T>
-{	
+public abstract class AbstractBoardFileReader<T> extends AbstractBoardFileIO<T> 
+	implements BoardFileReader<T>
+{
+	private final String filename;
+	private final String delimiter;
+	
+	public AbstractBoardFileReader(String filename, String delimiter) 
+	{
+		this.filename = filename;
+		this.delimiter = delimiter;
+	}
+	
+	@Override
+	public void populate() 
+	{
+		this.populateFromFile(filename, delimiter);
+	}	
+	
+	@Override
 	public void populateFromFile(String filename, String delimiter)
 	{
 		List<String[]> fileContent = new LinkedList<>();
@@ -44,11 +61,5 @@ public class Board2IOFileReader<T> extends AbstractBoardIO<T>
 			}
 			boardCounter++;
 		}
-	}
-
-	@Override
-	protected T convertFromString(String string) 
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }
