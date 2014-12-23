@@ -25,6 +25,4 @@ public abstract class AbstractBoardFileResource<T> extends AbstractBoardFileIO<T
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
-	
-
 }
