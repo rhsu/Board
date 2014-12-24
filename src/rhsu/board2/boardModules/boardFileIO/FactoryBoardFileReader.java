@@ -23,7 +23,7 @@ public class FactoryBoardFileReader<T> implements FactoryBoardFileIOProduct<T>
 		this.delimiter = null;
 	}
 	
-	private void checkParameter(String s)
+	private void checkParameter(Object s)
 	{
 		if (s == null) 
 		{
