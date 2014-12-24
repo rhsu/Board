@@ -4,7 +4,7 @@ import rhsu.board2.boardModules.randomGenerators.AbstractRandomGeneratorFactory;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.HashMap;
-import rhsu.board2.boardModules.boardFileIO.AbstractBoardIOFactory;
+import rhsu.board2.boardModules.boardFileIO.AbstractBoardIOFactory_OLD;
 
 public class BoardFactoryClient
 {
@@ -43,13 +43,13 @@ public class BoardFactoryClient
 	//</editor-fold>
 	
 	private final AbstractRandomGeneratorFactory abstractRandomGeneratorFactory;
-	private final AbstractBoardIOFactory abstractBoardIOFactory;
+	private final AbstractBoardIOFactory_OLD abstractBoardIOFactory;
 	private final DefaultValueMap defaultValueMap;
 	
 	public BoardFactoryClient()
 	{
 		this.abstractRandomGeneratorFactory = new AbstractRandomGeneratorFactory();
-		this.abstractBoardIOFactory = new AbstractBoardIOFactory();
+		this.abstractBoardIOFactory = new AbstractBoardIOFactory_OLD();
 		this.defaultValueMap = new DefaultValueMap();
 	}
 

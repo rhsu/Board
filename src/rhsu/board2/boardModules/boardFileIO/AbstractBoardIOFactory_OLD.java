@@ -3,7 +3,7 @@ package rhsu.board2.boardModules.boardFileIO;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class AbstractBoardIOFactory
+public class AbstractBoardIOFactory_OLD
 {
 	public AbstractBoardFileIO<BigDecimal> getBigDecimalBoardIO()
 	{		
@@ -24,6 +24,11 @@ public class AbstractBoardIOFactory
 				}
 
 				return value;
+			}
+
+			@Override
+			public void populate() {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 			}
 		};
 	}
@@ -48,6 +53,11 @@ public class AbstractBoardIOFactory
 
 				return value;
 			}
+
+			@Override
+			public void populate() {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+			}
 		};
 	}
 	
@@ -59,6 +69,11 @@ public class AbstractBoardIOFactory
 			protected Boolean convertFromString(String string)
 			{
 				return Boolean.valueOf(string);
+			}
+
+			@Override
+			public void populate() {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 			}
 		};
 	}
@@ -72,6 +87,11 @@ public class AbstractBoardIOFactory
 			{
 				return string.charAt(0);
 			}	
+
+			@Override
+			public void populate() {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+			}
 		};
 	}
 	
@@ -83,6 +103,11 @@ public class AbstractBoardIOFactory
 			protected Double convertFromString(String string)
 			{
 				return Double.valueOf(string);
+			}
+
+			@Override
+			public void populate() {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 			}
 		};
 	}
@@ -96,6 +121,11 @@ public class AbstractBoardIOFactory
 			{
 				return Integer.valueOf(string);
 			}
+
+			@Override
+			public void populate() {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+			}
 		};
 	}
 	
@@ -107,6 +137,11 @@ public class AbstractBoardIOFactory
 			protected String convertFromString(String string)
 			{
 				return string;
+			}
+
+			@Override
+			public void populate() {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 			}
 		};
 	}

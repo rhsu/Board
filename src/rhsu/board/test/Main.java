@@ -6,7 +6,6 @@ import rhsu.board.io.BoardIO;
 import rhsu.board2.*;
 import rhsu.board2.basicBoard.BasicBoardBuilder;
 import rhsu.board2.boardModules.boardFileIO.AbstractBoardFileIO;
-import rhsu.board2.boardModules.boardFileIO.AbstractBoardIOFactory;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
 
 public class Main
