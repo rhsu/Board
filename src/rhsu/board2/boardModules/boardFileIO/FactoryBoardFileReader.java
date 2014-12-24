@@ -39,7 +39,7 @@ public class FactoryBoardFileReader<T> implements FactoryBoardFileIOProduct<T>
 	}
 	
 	@Override
-	public AbstractBoardFileReader<T> getImplementation() 
+	public BoardFileIO<T> getImplementation() 
 	{	
 		checkParameter(this.delimiter);
 		checkParameter(this.filename);
@@ -49,7 +49,7 @@ public class FactoryBoardFileReader<T> implements FactoryBoardFileIOProduct<T>
 			@Override
 			protected T convertFromString(String string) 
 			{
-				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+				throw new UnsupportedOperationException("Not supported yet.");
 			}	
 		};
 	}
