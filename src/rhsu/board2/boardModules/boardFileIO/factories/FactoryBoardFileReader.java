@@ -1,11 +1,11 @@
 package rhsu.board2.boardModules.boardFileIO.factories;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import rhsu.board2.boardModules.boardFileIO.AbstractBoardFileReader;
 import rhsu.board2.boardModules.boardFileIO.BoardFileIO;
 
-public class FactoryBoardFileReader<T> implements FactoryBoardFileIOProduct<T>
+public class FactoryBoardFileReader implements FactoryBoardFileIOProduct
 {
 	private String filename;
 	private String delimiter;
@@ -25,34 +25,116 @@ public class FactoryBoardFileReader<T> implements FactoryBoardFileIOProduct<T>
 		this.delimiter = null;
 	}
 	
-	private void checkParameter(Object s)
-	{
-		if (s == null) 
-		{
-			try 
-			{
-				throw new NullPointerException("parameter is null");
-			} 
-			catch (Exception ex) 
-			{
-				Logger.getLogger(FactoryBoardFileReader.class.getName()).log(Level.SEVERE, null, ex);
-			}
-		}
-	}
-	
 	@Override
-	public BoardFileIO<T> getImplementation() 
-	{	
-		checkParameter(this.delimiter);
-		checkParameter(this.filename);
-		
-		return new AbstractBoardFileReader<T>(this.filename, this.delimiter)
+	public BoardFileIO<BigDecimal> getBigDecimalImplementation() 
+	{
+		return new AbstractBoardFileReader<BigDecimal>(this.filename, this.delimiter)
 		{
 			@Override
-			protected T convertFromString(String string) 
+			protected BigDecimal convertFromString(String string) 
 			{
-				throw new UnsupportedOperationException("Not supported yet.");
-			}	
+				BigDecimal value;
+				
+				try
+				{
+					value = new BigDecimal(string);
+				}
+				catch (Exception exception)
+				{
+					value = this.getParent().getDefaultValue();
+				}
+
+				return value;
+			}
+		};
+	}
+
+	@Override
+	public BoardFileIO<BigInteger> getBigIntegerImplementation() 
+	{
+		return new AbstractBoardFileReader<BigInteger>(this.filename, this.delimiter)
+		{
+			@Override
+			protected BigInteger convertFromString(String string) 
+			{
+				BigInteger value;
+				
+				try
+				{
+					value = new BigInteger(string);
+				}
+				catch(Exception exception)
+				{
+					value = this.getParent().getDefaultValue();
+				}
+
+				return value;
+			}
+		};
+	}
+
+	@Override
+	public BoardFileIO<Boolean> getBooleanImplementation() 
+	{
+		return new AbstractBoardFileReader<Boolean>(this.filename, this.delimiter)
+		{
+			@Override
+			protected Boolean convertFromString(String string) 
+			{
+				return Boolean.valueOf(string);
+			}
+		};
+	}
+
+	@Override
+	public BoardFileIO<Character> getCharacterImplentation() 
+	{
+		return new AbstractBoardFileReader<Character>(this.filename, this.delimiter)
+		{
+			@Override
+			protected Character convertFromString(String string)
+			{
+				return string.charAt(0);
+			}
+		};
+	}
+
+	@Override
+	public BoardFileIO<Double> getDoubleImplementation() 
+	{
+		return new AbstractBoardFileReader<Double>(this.filename, this.delimiter)
+		{
+			@Override
+			protected Double convertFromString(String string) 
+			{
+				return Double.valueOf(string);
+			}
+		};
+	}
+
+	@Override
+	public BoardFileIO<Integer> getIntegerImplementation() 
+	{
+		return new AbstractBoardFileReader<Integer>(this.filename, this.delimiter)
+		{
+			@Override
+			protected Integer convertFromString(String string) 
+			{
+				return Integer.valueOf(string);
+			}
+		};
+	}
+
+	@Override
+	public BoardFileIO<String> getStringImpelementation() 
+	{
+		return new AbstractBoardFileReader<String>(this.filename, this.delimiter)
+		{
+			@Override
+			protected String convertFromString(String string) 
+			{
+				return string;
+			}
 		};
 	}
 }
