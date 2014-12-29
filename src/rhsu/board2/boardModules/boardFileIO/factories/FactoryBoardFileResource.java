@@ -32,7 +32,7 @@ public class FactoryBoardFileResource<T> implements FactoryBoardFileIOProduct<T>
 		{
 			try 
 			{
-				throw new NullPointerException("Filename is null");
+				throw new NullPointerException("Parameter is null");
 			} 
 			catch (Exception ex) 
 			{

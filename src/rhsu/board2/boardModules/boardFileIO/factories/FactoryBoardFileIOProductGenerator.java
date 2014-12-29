@@ -1,10 +1,6 @@
 package rhsu.board2.boardModules.boardFileIO.factories;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import rhsu.board2.boardModules.boardFileIO.BoardFileIOProductType;
-
-public class FactoryBoardFileIOProductGenerator 
+public class FactoryBoardFileIOProductGenerator<T>
 {
 	private BoardFileIOProductType type;
 	
@@ -14,68 +10,10 @@ public class FactoryBoardFileIOProductGenerator
 	
 	public FactoryBoardFileIOProductGenerator(BoardFileIOProductType type) { this.type = type; }
 	
-	public FactoryBoardFileIOProduct<Integer> getIntegerProduct()
+	public FactoryBoardFileIOProduct<T> getProduct()
 	{
-		switch(type)
-		{
-			case FILE:
-				return new FactoryBoardFileReader<>();
-			case RESOURCE:
-			default:
-				return new FactoryBoardFileResource<>();
-		}
-	}
-	
-	public FactoryBoardFileIOProduct<Double> getDoubleProduct()
-	{
-		switch(type)
-		{
-			case FILE:
-				return new FactoryBoardFileReader<>();
-			case RESOURCE:
-			default:
-				return new FactoryBoardFileResource<>();
-		}
-	}
-	
-	public FactoryBoardFileIOProduct<String> getStringProduct()
-	{
-		switch(type)
-		{
-			case FILE:
-				return new FactoryBoardFileReader<>();
-			case RESOURCE:
-			default:
-				return new FactoryBoardFileResource<>();
-		}
-	}
-	
-	public FactoryBoardFileIOProduct<BigDecimal> getBigDecimalProduct()
-	{
-		switch(type)
-		{
-			case FILE:
-				return new FactoryBoardFileReader<>();
-			case RESOURCE:
-			default:
-				return new FactoryBoardFileResource<>();
-		}
-	}
-	
-	public FactoryBoardFileIOProduct<BigInteger> getBigIntegerProduct()
-	{
-		switch(type)
-		{
-			case FILE:
-				return new FactoryBoardFileReader<>();
-			case RESOURCE:
-			default:
-				return new FactoryBoardFileResource<>();
-		}
-	}
-	
-	public FactoryBoardFileIOProduct<Character> getCharacterProduct()
-	{
+		if (this.type == null) throw new NullPointerException("Cannot build factory because type is null");
+		
 		switch(type)
 		{
 			case FILE:
