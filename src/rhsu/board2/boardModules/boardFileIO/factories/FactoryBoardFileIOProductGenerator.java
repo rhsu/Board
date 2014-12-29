@@ -10,7 +10,7 @@ public class FactoryBoardFileIOProductGenerator<T>
 	
 	public FactoryBoardFileIOProductGenerator(BoardFileIOProductType type) { this.type = type; }
 	
-	public FactoryBoardFileIOProduct<T> getProduct()
+	public FactoryBoardFileIOProduct<T> getFactory()
 	{
 		if (this.type == null) throw new NullPointerException("Cannot build factory because type is null");
 		
