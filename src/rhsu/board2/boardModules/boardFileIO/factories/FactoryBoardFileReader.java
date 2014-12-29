@@ -46,7 +46,7 @@ public class FactoryBoardFileReader<T> implements FactoryBoardFileIOProduct<T>
 		checkParameter(this.delimiter);
 		checkParameter(this.filename);
 		
-		return new AbstractBoardFileReader<T>(this.delimiter, this.filename)
+		return new AbstractBoardFileReader<T>(this.filename, this.delimiter)
 		{
 			@Override
 			protected T convertFromString(String string) 
