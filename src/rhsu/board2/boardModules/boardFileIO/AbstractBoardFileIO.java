@@ -74,7 +74,6 @@ public abstract class AbstractBoardFileIO<T> extends AbstractBoardModule<T>
 			}
 			
 			System.out.println("Done creating file: " + filename);
-			
 		}
 		catch (IOException exception)
 		{

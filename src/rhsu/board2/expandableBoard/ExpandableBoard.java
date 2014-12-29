@@ -2,7 +2,6 @@ package rhsu.board2.expandableBoard;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import rhsu.board.Direction;
 import rhsu.board2.AbstractBoard;
 import rhsu.board2.BoardInitializable;

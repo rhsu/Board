@@ -7,7 +7,7 @@ import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
 
 public abstract class AbstractBoardBuilder<T> implements BoardBuilder<T>
 {
-	protected BoardFileIO boardIO = null;
+	protected BoardFileIO<T> boardIO = null;
 	protected Matrix2<T> matrix = null;
 	protected MobilityBoard<T> mobilityBoard = null;
 	protected RandomGenerator<T> randomGenerator = null;

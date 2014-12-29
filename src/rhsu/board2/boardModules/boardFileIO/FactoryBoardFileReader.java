@@ -29,7 +29,7 @@ public class FactoryBoardFileReader<T> implements FactoryBoardFileIOProduct<T>
 		{
 			try 
 			{
-				throw new NullPointerException("Filename is null");
+				throw new NullPointerException("parameter is null");
 			} 
 			catch (Exception ex) 
 			{

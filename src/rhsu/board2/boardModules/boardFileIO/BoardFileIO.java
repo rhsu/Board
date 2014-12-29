@@ -1,6 +1,5 @@
 package rhsu.board2.boardModules.boardFileIO;
 
-import java.io.BufferedReader;
 import rhsu.board2.boardModules.BoardModule;
 import rhsu.board2.Board2;
 
