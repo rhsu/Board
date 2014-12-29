@@ -1,7 +1,8 @@
-package rhsu.board2.boardModules.boardFileIO;
+package rhsu.board2.boardModules.boardFileIO.factories;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import rhsu.board2.boardModules.boardFileIO.BoardFileIOProductType;
 
 public class FactoryBoardFileIOProductGenerator 
 {

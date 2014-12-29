@@ -1,7 +1,9 @@
-package rhsu.board2.boardModules.boardFileIO;
+package rhsu.board2.boardModules.boardFileIO.factories;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import rhsu.board2.boardModules.boardFileIO.AbstractBoardFileReader;
+import rhsu.board2.boardModules.boardFileIO.BoardFileIO;
 
 public class FactoryBoardFileReader<T> implements FactoryBoardFileIOProduct<T>
 {

@@ -1,4 +1,4 @@
-package rhsu.board2.boardModules.boardFileIO;
+package rhsu.board2.boardModules.boardFileIO.factories;
 
 public class FactoryBoardFileIO<T> 
 {
