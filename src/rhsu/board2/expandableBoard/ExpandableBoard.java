@@ -2,13 +2,12 @@ package rhsu.board2.expandableBoard;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import rhsu.board.Direction;
 import rhsu.board2.AbstractBoard;
 import rhsu.board2.BoardInitializable;
 import rhsu.board2.boardModules.BoardModule;
 import rhsu.board2.BoardPiece2;
-import rhsu.board2.boardModules.boardIO.Board2IO;
+import rhsu.board2.boardModules.boardFileIO.BoardFileIO;
 import rhsu.board2.boardModules.matrices.Matrix2;
 import rhsu.board2.boardModules.mobility.MobilityBoard;
 import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
@@ -95,7 +94,7 @@ public class ExpandableBoard<T> extends AbstractBoard<T>
 	
 	ExpandableBoard(Integer horizontalSize,
 		Integer verticalSize,
-		Board2IO boardIO,
+		BoardFileIO boardIO,
 		Matrix2<T> matrix,
 		MobilityBoard<T> mobilityBoard,
 		RandomGenerator<T> randomGenerator,

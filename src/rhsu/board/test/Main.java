@@ -5,8 +5,7 @@ import java.util.List;
 import rhsu.board.io.BoardIO;
 import rhsu.board2.*;
 import rhsu.board2.basicBoard.BasicBoardBuilder;
-import rhsu.board2.boardModules.boardIO.AbstractBoardIO;
-import rhsu.board2.boardModules.boardIO.AbstractBoardIOFactory;
+import rhsu.board2.boardModules.boardFileIO.AbstractBoardFileIO;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
 
 public class Main
@@ -20,6 +19,10 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
+		Board2<String> test = new BoardFactoryClient()
+			.GetStringBoardFactory()
+			.createBoardFromFile("test.txt", " ");
 		
+		print(test);
 	}
 }

@@ -2,18 +2,18 @@ package rhsu.board2.implementations.factories;
 
 import rhsu.board2.basicBoard.BasicBoardBuilder;
 import rhsu.board2.Board2;
-import rhsu.board2.boardModules.boardIO.AbstractBoardIO;
+import rhsu.board2.boardModules.boardFileIO.AbstractBoardFileIO;
 import rhsu.board2.boardModules.randomGenerators.AbstractRandomGenerator;
 
 public class BoardFactory<T>
 {
 	private final T defaultValue;
 	private final AbstractRandomGenerator<T> randomGenerator; 
-	private final AbstractBoardIO<T> boardIO;
+	private final AbstractBoardFileIO<T> boardIO;
 	
 	BoardFactory(T defaultValue, 
 		AbstractRandomGenerator<T> randomGenerator,
-		AbstractBoardIO<T> boardIO)
+		AbstractBoardFileIO<T> boardIO)
 	{
 		this.defaultValue = defaultValue;
 		this.randomGenerator = randomGenerator;
@@ -45,7 +45,13 @@ public class BoardFactory<T>
 	
 	public Board2<T> createBoardFromFile(String filename, String delimiter)
 	{
-		this.boardIO.populateFromFile(filename, delimiter);
+		// this.boardIO.populateFromFile(filename, delimiter);
+		
+		// System.out.println(this.boardIO.getBoardInitializer());
+		
+		System.out.println(boardIO.getBoardInitializer());
+		
+		System.out.println(boardIO.getBoardInitializer());
 		
 		return new BasicBoardBuilder<T>()
 			.setHorizontalSize(this.boardIO.getBoardInitializer().getHorizontalSize())

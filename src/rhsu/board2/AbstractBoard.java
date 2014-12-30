@@ -1,13 +1,13 @@
 package rhsu.board2;
 
-import rhsu.board2.boardModules.boardIO.Board2IO;
+import rhsu.board2.boardModules.boardFileIO.BoardFileIO;
 import rhsu.board2.boardModules.matrices.Matrix2;
 import rhsu.board2.boardModules.mobility.MobilityBoard;
 import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
 
 public abstract class AbstractBoard<T> implements Board2<T>
 {
-	protected final Board2IO boardIO;
+	protected final BoardFileIO<T> boardIO;
 	protected final Matrix2<T>matrix;
 	protected final MobilityBoard<T> mobilityBoard;
 	protected final RandomGenerator<T> randomGenerator;
@@ -18,7 +18,7 @@ public abstract class AbstractBoard<T> implements Board2<T>
 	protected T defaultValue;
 	
 	@Override
-	public Board2IO getBoardIO() 
+	public BoardFileIO<T> getBoardIO() 
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
@@ -67,7 +67,7 @@ public abstract class AbstractBoard<T> implements Board2<T>
 	
 	public AbstractBoard(Integer horizontalSize,
 		Integer verticalSize,
-		Board2IO boardIO,
+		BoardFileIO<T> boardIO,
 		Matrix2<T> matrix,
 		MobilityBoard<T> mobilityBoard,
 		RandomGenerator<T> randomGenerator,

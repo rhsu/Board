@@ -1,24 +1,26 @@
-package rhsu.board2.boardModules.boardIO;
+package rhsu.board2.boardModules.boardFileIO;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.LinkedList;
-import rhsu.board.exceptionHandler.ExceptionHandler;
 import rhsu.board2.AbstractBoardModule;
 import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
 import rhsu.board2.Board2;
-import rhsu.board2.implementations.factories.BoardFactoryClient;
 
-public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
-	implements Board2IO<T>, BoardInitializable<T>
+public abstract class AbstractBoardFileIO<T> extends AbstractBoardModule<T>
+	implements BoardFileIO<T>, BoardInitializable<T>
 {
-	private Board2<String> boardInitializer;
+	protected Board2<String> boardInitializer;
+	
+	public AbstractBoardFileIO() { }
+	
+	public AbstractBoardFileIO(String s1, String s2) { }
+	
+	public AbstractBoardFileIO(BufferedReader br, String s2) { }
 	
 	@Override
 	public int getHorizontalSize()
@@ -35,49 +37,6 @@ public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
 	@Override
 	public Board2<String> getBoardInitializer() { return this.boardInitializer; }
 	
-	@Override
-	public void populateFromFile(String filename, String delimiter)
-	{
-		LinkedList<String[]> fileContent = new LinkedList<>();
-		
-		try
-		{
-			BufferedReader reader = new BufferedReader(new FileReader(filename));
-			String line;
-			while ((line = reader.readLine()) != null)
-			{			
-				String[] row = line.split(delimiter);
-				
-				fileContent.add(row);
-			}
-		}
-		catch (IOException exception)
-		{
-			ExceptionHandler.Handle(exception);
-		}
-		
-		this.boardInitializer = new BoardFactoryClient()
-			.GetStringBoardFactory()
-			.createBoard(fileContent.get(0).length, fileContent.size());
-			
-		int boardCounter = 0;
-		
-		for(String[] item : fileContent)
-		{
-			for(int i = 0; i < item.length; i++)
-			{
-				this.boardInitializer.setValueAt(i, boardCounter, item[i].trim());
-			}
-			boardCounter++;
-		}
-	}
-
-	@Override
-	public void populateFromResource(BufferedReader reader, String delimiter)
-	{
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
 	@Override
 	public void export(String filename, String delimiter)
 	{		
@@ -115,7 +74,6 @@ public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
 			}
 			
 			System.out.println("Done creating file: " + filename);
-			
 		}
 		catch (IOException exception)
 		{

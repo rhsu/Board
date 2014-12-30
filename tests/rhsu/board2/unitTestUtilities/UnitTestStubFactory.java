@@ -7,14 +7,14 @@ import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.Board2;
 import rhsu.board2.boardModules.BoardModule;
-import rhsu.board2.boardModules.boardIO.Board2IO;
+import rhsu.board2.boardModules.boardFileIO.BoardFileIO;
 import rhsu.board2.boardModules.matrices.Matrix2;
 import rhsu.board2.boardModules.mobility.MobilityBoard;
 import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
 
 public class UnitTestStubFactory<T>
 {
-	private final Board2IO<T> boardIO;
+	private final BoardFileIO<T> boardIO;
 	private final Matrix2<T> matrix;
 	private final RandomGenerator<T> randomGenerator;
 	private final MobilityBoard<T> mobilityBoard;
@@ -31,9 +31,9 @@ public class UnitTestStubFactory<T>
 		this.boardModule = initializeBoardModule();
 	}
 	
-	private Board2IO<T> initializeBoard2IO()
+	private BoardFileIO<T> initializeBoard2IO()
 	{
-		return new Board2IO<T>() 
+		return new BoardFileIO<T>() 
 		{
 			@Override
 			public Board2<String> getBoardInitializer()
@@ -257,7 +257,7 @@ public class UnitTestStubFactory<T>
 		};
 	}
 	
-	public Board2IO<T> getBoard2IOStub()
+	public BoardFileIO<T> getBoard2IOStub()
 	{
 		return boardIO;
 	}
