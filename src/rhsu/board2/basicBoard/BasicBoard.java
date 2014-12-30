@@ -42,7 +42,7 @@ class BasicBoard<T> implements Board2<T>,
 	//</editor-fold>
 	
 	@Override
-	public Board2FileIO<T> getBoardIO() 
+	public Board2FileIO<T> getBoardFileIO() 
 	{
 		return (Board2FileIO<T>) boardModules.get(BasicBoard.BOARD_IO); 
 	}

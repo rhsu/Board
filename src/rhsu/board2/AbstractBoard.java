@@ -18,7 +18,7 @@ public abstract class AbstractBoard<T> implements Board2<T>
 	protected T defaultValue;
 	
 	@Override
-	public Board2FileIO getBoardIO() 
+	public Board2FileIO getBoardFileIO() 
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
