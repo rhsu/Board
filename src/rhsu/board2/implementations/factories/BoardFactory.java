@@ -39,7 +39,7 @@ public class BoardFactory<T>
 			.setVerticalSize(verticalSize)
 			.setRandomGenerator(this.randomGenerator)
 			.setBoardInitializable(this.randomGenerator)
-			.setBoardIO(boardIO)
+			.setBoardIO(this.boardIO)
 			.createBoard();
 	}
 	
