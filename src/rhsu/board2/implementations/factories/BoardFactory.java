@@ -27,7 +27,7 @@ public class BoardFactory<T>
 			.setHorizontalSize(horizontalSize)
 			.setVerticalSize(verticalSize)
 			.setDefaulValue(this.defaultValue)
-			.setBoardIO(boardIO)
+			.setBoardIO(this.boardIO)
 			.createBoard();
 	}
 		
