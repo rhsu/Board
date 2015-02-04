@@ -16,7 +16,7 @@ import rhsu.board2.Board2;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
 
 public abstract class AbstractBoardIO<T> extends AbstractBoardModule<T>
-	implements Board2IO<T>, BoardInitializable<T>
+	implements Board2FileIO<T>, BoardInitializable<T>
 {
 	private Board2<String> boardInitializer;
 	

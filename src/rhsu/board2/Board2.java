@@ -7,7 +7,7 @@ import rhsu.board2.boardModules.mobility.MobilityBoard;
 import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
 import rhsu.board2.boardModules.matrices.Matrix2;
 import rhsu.board.Direction;
-import rhsu.board2.boardModules.boardIO.Board2IO;
+import rhsu.board2.boardModules.boardIO.Board2FileIO;
 
 public interface Board2<T>
 {	
@@ -48,7 +48,7 @@ public interface Board2<T>
 	
 	//<editor-fold desc="Modules" defaultstate="collapsed">
 
-	public Board2IO<T> getBoardIO();
+	public Board2FileIO<T> getBoardFileIO();
 	public Matrix2<T> getMatrix();
 	public MobilityBoard<T> getMobilityBoard();
 	public RandomGenerator<T> getRandomGenerator();

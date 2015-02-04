@@ -49,7 +49,7 @@ public class BoardBuilderTest
 	@Test
 	public void testCreateBoard_BoardIOSet()
 	{		
-		UnitTestLibrary.accessorAssertion(stubFactory.getBoard2IOStub(), board.getBoardIO());
+		UnitTestLibrary.accessorAssertion(stubFactory.getBoard2IOStub(), board.getBoardFileIO());
 	}
 	
 	@Test
