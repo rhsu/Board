@@ -13,7 +13,7 @@ import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
 import rhsu.board2.boardModules.BoardModule;
-import rhsu.board2.boardModules.boardIO.Board2IO;
+import rhsu.board2.boardModules.boardIO.Board2FileIO;
 import rhsu.board2.boardModules.matrices.Matrix2;
 import rhsu.board2.boardModules.mobility.MobilityBoard;
 import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
@@ -66,8 +66,7 @@ public abstract class AbstractArrayBoard<T> implements Board2<T>,
 	
 	//<editor-fold desc="Board Module Methods" defaultstate="collapsed">
 	
-	@Override
-	public Board2IO<T> getBoardIO() { return (Board2IO<T>) boardModules.get(AbstractArrayBoard.BOARD_IO); }
+	public Board2FileIO<T> getBoardIO() { return (Board2FileIO<T>) boardModules.get(AbstractArrayBoard.BOARD_IO); }
 
 	@Override
 	public Matrix2<T> getMatrix() { return (Matrix2<T>) boardModules.get(AbstractArrayBoard.MATRIX); }
@@ -459,7 +458,7 @@ public abstract class AbstractArrayBoard<T> implements Board2<T>,
 	
 	protected AbstractArrayBoard(Integer horizontalSize,
 		Integer verticalSize,
-		Board2IO boardIO,
+		Board2FileIO boardIO,
 		Matrix2<T> matrix,
 		MobilityBoard<T> mobilityBoard,
 		RandomGenerator<T> randomGenerator,

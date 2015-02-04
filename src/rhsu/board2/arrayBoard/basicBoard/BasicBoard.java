@@ -16,7 +16,7 @@ import rhsu.board2.BoardInitializable;
 import rhsu.board2.boardModules.BoardModule;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.BoardPieceImpl;
-import rhsu.board2.boardModules.boardIO.Board2IO;
+import rhsu.board2.boardModules.boardIO.Board2FileIO;
 
 class BasicBoard<T> implements Board2<T>,
 	BoardInitializable<T>
@@ -35,16 +35,15 @@ class BasicBoard<T> implements Board2<T>,
 	
 	protected int horizontalSize;
 	protected int verticalSize;
-	protected int size;
 	protected T defaultValue;
 	protected BoardPiece2<T>[][] boardArray;
 	
 	//</editor-fold>
 	
 	@Override
-	public Board2IO<T> getBoardIO() 
+	public Board2FileIO<T> getBoardFileIO() 
 	{
-		return (Board2IO<T>) boardModules.get(BasicBoard.BOARD_IO); 
+		return (Board2FileIO<T>) boardModules.get(BasicBoard.BOARD_IO); 
 	}
 
 	@Override
@@ -68,7 +67,7 @@ class BasicBoard<T> implements Board2<T>,
 	public BasicBoard(
 		Integer horizontalSize,
 		Integer verticalSize,
-		Board2IO boardIO,
+		Board2FileIO boardIO,
 		Matrix2<T> matrix,
 		MobilityBoard<T> mobilityBoard,
 		RandomGenerator<T> randomGenerator,
@@ -82,9 +81,6 @@ class BasicBoard<T> implements Board2<T>,
 		this.verticalSize = verticalSize == null
 			? boardInitializer.getVerticalSize()
 			: verticalSize;
-		
-		this.size = ((horizontalSize == null) || (verticalSize == null)) ?
-			0 : horizontalSize * verticalSize;
 				
 		this.boardModules = new HashMap<>();
 		
@@ -110,7 +106,7 @@ class BasicBoard<T> implements Board2<T>,
 	public int getVerticalSize() { return this.verticalSize; }
 
 	@Override
-	public int getSize() { return this.size; }
+	public int getSize() { return this.getHorizontalSize() * this.getVerticalSize(); }
 
 	@Override
 	public T getDefaultValue() { return this.defaultValue; }
@@ -384,7 +380,7 @@ class BasicBoard<T> implements Board2<T>,
 			@Override
 			public boolean hasNext()
 			{
-				return currentIndex < size;
+				return currentIndex < (horizontalSize * verticalSize);
 			}
 
 			@Override
@@ -438,10 +434,10 @@ class BasicBoard<T> implements Board2<T>,
  	public int hashCode()
  	{
  		int hash = 3;
- 		hash = 67 * hash + this.horizontalSize;
- 		hash = 67 * hash + this.verticalSize;
- 		hash = 67 * hash + this.size;
- 		hash = 67 * hash + Objects.hashCode(this.defaultValue);
+ 		hash = 67 * hash + this.getHorizontalSize();
+ 		hash = 67 * hash + this.getVerticalSize();
+ 		hash = 67 * hash + this.getSize();
+ 		hash = 67 * hash + Objects.hashCode(this.getDefaultValue());
  		hash = 67 * hash + Arrays.deepHashCode(this.boardArray);
  		return hash;
  	}
