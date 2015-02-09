@@ -1,4 +1,4 @@
-package rhsu.board2.arrayBoard.expandableBoard;
+package rhsu.board2.boardModules.boardExpansion;
 
 import rhsu.board2.Board2;
 import rhsu.board2.BoardInitializable;
