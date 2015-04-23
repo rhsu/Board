@@ -156,4 +156,12 @@ public interface Board2<T>
 	public List<BoardPiece2<T>> findAll(T value);
 	
 	public Iterator<BoardPiece2<T>> boardIterator();
+	
+	public void AddColumn(Board2<T> column);
+	
+	public void AddRow(Board2<T> row);
+	
+	public void RemoveColumn(Board2<T> column);
+	
+	public void RemoveRow(Board2<T> row);
 }

@@ -1,4 +1,4 @@
-package rhsu.board2.basicBoard;
+package rhsu.board2.arrayBoard.basicBoard;
 
 import rhsu.board2.AbstractBoardBuilder;
 import rhsu.board2.Board2;

@@ -1,4 +1,4 @@
-package rhsu.board2.basicBoard;
+package rhsu.board2.arrayBoard.basicBoard;
 
 import rhsu.board2.boardModules.mobility.MobilityBoard;
 import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
@@ -336,7 +336,6 @@ class BasicBoard<T> implements Board2<T>,
 	@Override
 	public BoardPiece2<T> find(T value)
 	{		
-		
 		Iterator<BoardPiece2<T>> boardIterator = this.boardIterator();
 		
 		while(boardIterator.hasNext())
@@ -494,4 +493,28 @@ class BasicBoard<T> implements Board2<T>,
 	}
 	
 	//</editor-fold>
+	
+	@Override
+	public void AddColumn(Board2<T> column)
+	{
+		
+	}
+	
+	@Override
+	public void RemoveColumn(Board2<T> column)
+	{
+		
+	}
+	
+	@Override
+	public void AddRow(Board2<T> row)
+	{
+		
+	}
+	
+	@Override
+	public void RemoveRow(Board2<T> row)
+	{
+		
+	}
 }

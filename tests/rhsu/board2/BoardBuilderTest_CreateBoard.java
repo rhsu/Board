@@ -6,26 +6,29 @@ import static org.junit.Assert.*;
 import rhsu.board2.unitTestUtilities.UnitTestLibrary;
 import rhsu.board2.unitTestUtilities.UnitTestStubFactory;
 
-public class BoardBuilderTest
+public class BoardBuilderTest_CreateBoard
 {
-	private BoardBuilder<Object> builder;
-	private final UnitTestStubFactory<Object> stubFactory = new UnitTestStubFactory<>();
+	private BasicBoardBuilder<Object> builder;
+	private UnitTestStubFactory<Object> stubFactory;
 	private Board2<Object> board;
 	private final int HORIZONTAL_SIZE = 5;
 	private final int VERTICAL_SIZE = 7;
 	
 	@Before
 	public void setup()
-	{		
-		builder = new BasicBoardBuilder<>()
+	{
+		builder = (BasicBoardBuilder<Object>) new BasicBoardBuilder<>()
 			.setHorizontalSize(HORIZONTAL_SIZE)
 			.setVerticalSize(VERTICAL_SIZE)
+			//setting modules
 			.setBoardIO(stubFactory.getBoard2IOStub())
 			.setMatrix(stubFactory.getMatrix2Stub())
 			.setMobilityBoard(stubFactory.getMobilityBoardStub())
 			.setRandomGenerator(stubFactory.getRandomGeneratorStub());
 		
 		board = builder.createBoard();
+		
+		stubFactory = new UnitTestStubFactory<>();
 	}
 	
 	@Test
@@ -48,25 +51,25 @@ public class BoardBuilderTest
 	
 	@Test
 	public void testCreateBoard_BoardIOSet()
-	{		
-		UnitTestLibrary.accessorAssertion(stubFactory.getBoard2IOStub(), board.getBoardFileIO());
+	{
+		UnitTestLibrary.accessorAssertion(builder.randomGenerator, board.getRandomGenerator());
 	}
 	
 	@Test
 	public void testCreateBoard_MatrixSet()
 	{
-		UnitTestLibrary.accessorAssertion(stubFactory.getMatrix2Stub(), board.getMatrix());
+		UnitTestLibrary.accessorAssertion(builder.matrix, board.getMatrix());
 	}
 	
 	@Test
 	public void testCreateBoard_RandomGeneratorSet()
 	{
-		UnitTestLibrary.accessorAssertion(stubFactory.getRandomGeneratorStub(), board.getRandomGenerator());
+		UnitTestLibrary.accessorAssertion(builder.randomGenerator, board.getRandomGenerator());
 	}
 	
 	@Test
 	public void testCreateBoard_MobilitySet()
 	{
-		UnitTestLibrary.accessorAssertion(stubFactory.getMobilityBoardStub(), board.getMobilityBoard());
+		UnitTestLibrary.accessorAssertion(builder.mobilityBoard, board.getMobilityBoard());
 	}
 }

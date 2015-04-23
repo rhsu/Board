@@ -1,13 +1,6 @@
 package rhsu.board.test;
 
-import rhsu.board2.boardModules.BoardModule;
-import java.util.List;
-import rhsu.board.io.BoardIO;
-import rhsu.board2.*;
-import rhsu.board2.basicBoard.BasicBoardBuilder;
-import rhsu.board2.boardModules.boardIO.AbstractBoardIO;
-import rhsu.board2.boardModules.boardIO.AbstractBoardIOFactory;
-import rhsu.board2.implementations.factories.BoardFactoryClient;
+import rhsu.board2.Board2;
 
 public class Main
 {	
@@ -20,6 +13,6 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		
+
 	}
 }
