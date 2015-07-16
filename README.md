@@ -2,60 +2,16 @@
 
 A 2-Dimensional Array Wrapper ... and more.
 
-# General Idea
+# What's New?
 
-`Board2<T>` allows the client to easily access coordinates called `BoardPiece<T>`. For example, I have a 3 by 3 matrix. To get the first piece, I call `myBoard.getPieceAt(0, 0)`. The first parameter of the `pieceAt()` method is the horizontal coordinate. Hence, vertical is the second. 
+## No More Modules
+The concept of Modules are removed.
 
-# Architecture
+## Better Unit Testing and Code Coverage
+Better unit testing principles will be adopted. The concept of code coverage will be in a future release possibly v3.1 or even v4
 
-Board features individual modules that extend the behavior of board. The current modules are `BoardIO`, `Matrix`, `Mobility`, `RandomGenerator`
+## No More Board Piece
+This allows an even easier way of creating a board.
 
-# Modules
-
-`BoardIO`: Allows the creation of board from a file. Allows the export of the board also
-
-`Matrix`: Treats the board as a matrix. Supports Add, Subtract, Determinant, and Multiply
-
-`Mobility`: Allows moving a piece from one location to another. Allows moving a piece from one board to another.
-
-`RandomGenerator`: Creates a random board based off of the data type.
-
-# Code To Build a Board
-
-The easiest way to build a board is through the `BoardBuilder`
-
-```
-Board2<String> myBoard = new BoardBuilder<String>()
-  .setHorizontalSize(3)
-  .setVerticalSize(4)
-  .createBoard()
-```
-
-To include a module attach it to the `BoardBuilder` like such
-
-```
-
-RandomGenerator<String> myGenerator = new SomeRandomGeneratorStringImplementation();
-
-Board2<String> myBoard = new BasicBoardBuilder<String>()
-   .setHorizontalSize(3)
-   .setVerticalSize(4)
-   .setRandomGenerator(myGenerator)
-   .createBoard();
-```
-
-A `BoardFactoryClient` also exists to add in default modules without the client needing to know about them. To use the default `BoardIO`
-
-```
-Board2<String> myBoard = new BoardFactoryClient<String>()
-   .GetStringBoardFactory()
-   .createBoardFromFile("File.txt");
-```
-
-To create a random 7 by 8 board of GUIDs
-
-```
-Board2<String> myRandomBoard = new BoardFactoryClient<String>()
-   .GetStringBoardFactory()
-   .createRandomBoard(7,8);
-```
+## Services over Modules
+Services will be created over modules. Services are simply classes, which do some operation on a `Board<T>`. This allows less learning of the API to develop additional features for `Board<T>`.
