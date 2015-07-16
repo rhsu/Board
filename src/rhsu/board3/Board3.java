@@ -30,7 +30,7 @@ public interface Board3<T>
 	
 	//</editor-fold>
 		
-	//<editor-fold desc="Value Retrieval And Setter Methods" defaultstate="collapsed">
+	//<editor-fold desc="Value Retrieval Methods" defaultstate="collapsed">
 	
 	/**
 	 * Method for retrieving a value at the given coordinate
@@ -50,6 +50,10 @@ public interface Board3<T>
 	 * @return the value of the piece at the coordinate (horizontal, vertical) at a number of units away
 	 */
 	public T getValueAt(int horizontal, int vertical, Direction direction, int units);
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="Value Setter Methods" defaultstate="collapsed">
 	
 	/**
 	 * Sets the value of the piece at the coordinate (horizontal, vertical)
