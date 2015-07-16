@@ -67,20 +67,12 @@ public interface Board3<T>
 	 * @param instance the instance to search for
 	 * @return The instance in the 
 	 */
-	public T find(T instance);
-	
-	/**
-	 * Searches the board for all instances which exist in the board
-	 * @param instance the instance to search for
-	 * @return The instances in the board
-	 */
-	public List<T> findAll(T instance);
-
-	
+	public boolean findInstance(T instance);
+		
 	/**
 	 * Searches the board if there is a same value
 	 * @param value the value to search for
 	 * @return true if the value exists in the board
 	 */
-	public boolean contains(T value);
+	public boolean containsValue(T value);
 }

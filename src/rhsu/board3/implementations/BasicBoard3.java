@@ -42,4 +42,16 @@ public class BasicBoard3<T> implements Board3<T>
 		this.verticalSize = verticalSize;
 		this.boardArray = (T[][]) new Object[verticalSize][horizontalSize];
 	}
+
+	@Override
+	public boolean findInstance(T instance) 
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public boolean containsValue(T value) 
+	{
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
 }
