@@ -5,10 +5,16 @@ import rhsu.board3.Board3;
 
 public class ArrayBoard3<T> implements Board3<T>
 {
+	//<editor-fold desc="Private Variables" defaultstate="collapsed">
+	
 	private final int horizontalSize;
 	private final int verticalSize;
 	private final T[][] boardArray;
-		
+	private final T defaultValue;	
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="Accessors -- Inheirited from Board3" defaultstate="collapsed">
 	@Override
 	public int getHorizontalSize() { return this.horizontalSize; }
 
@@ -18,6 +24,10 @@ public class ArrayBoard3<T> implements Board3<T>
 	@Override
 	public int getSize() { return this.horizontalSize * this.verticalSize; }
 
+	//</editor-fold>
+	
+	//<editor-fold desc="Value Retrieval Methods -- Inheirited from Board3" defaultstate="collapsed">
+	
 	@Override
 	public T getValueAt(int horizontal, int vertical) 
 	{
@@ -30,19 +40,20 @@ public class ArrayBoard3<T> implements Board3<T>
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
+	//</editor-fold>
+	
+	//<editor-fold desc="Value Setter Methods -- Inheirited from Board3" defaultstate="collapsed">
+	
 	@Override
 	public void setValueAt(int horizontal, int vertical, T value) 
 	{
 		this.boardArray[horizontal][vertical] = value;
 	}
 	
-	public ArrayBoard3(int horizontalSize, int verticalSize)
-	{
-		this.horizontalSize = horizontalSize;
-		this.verticalSize = verticalSize;
-		this.boardArray = (T[][]) new Object[verticalSize][horizontalSize];
-	}
-
+	//</editor-fold>
+		
+	//<editor-fold desc="Find Methods -- Inheirited from Board3" defaultstate="collapsed">
+	
 	@Override
 	public boolean findInstance(T instance) 
 	{
@@ -54,4 +65,23 @@ public class ArrayBoard3<T> implements Board3<T>
 	{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="Constructors" defaultstate="collapsed">
+	
+	public ArrayBoard3(int horizontalSize, int verticalSize, T defaultValue)
+	{
+		this.horizontalSize = horizontalSize;
+		this.verticalSize = verticalSize;
+		this.boardArray = (T[][]) new Object[verticalSize][horizontalSize];
+		this.defaultValue = defaultValue;
+	}
+	
+	public ArrayBoard3(int horizontalSize, int verticalSize)
+	{
+		this(horizontalSize, verticalSize, null);
+	}
+
+	//</editor-fold>
 }

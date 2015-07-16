@@ -1,6 +1,5 @@
 package rhsu.board3;
 
-import java.util.List;
 import rhsu.board.Direction;
 
 /**
@@ -28,7 +27,7 @@ public interface Board3<T>
 	 * @return the total size of the board
 	 */
 	public int getSize();
-
+	
 	//</editor-fold>
 		
 	//<editor-fold desc="Value Retrieval And Setter Methods" defaultstate="collapsed">
