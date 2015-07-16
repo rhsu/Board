@@ -3,7 +3,7 @@ package rhsu.board3.implementations;
 import rhsu.board.Direction;
 import rhsu.board3.Board3;
 
-public class BasicBoard3<T> implements Board3<T>
+public class ArrayBoard3<T> implements Board3<T>
 {
 	private final int horizontalSize;
 	private final int verticalSize;
@@ -36,7 +36,7 @@ public class BasicBoard3<T> implements Board3<T>
 		this.boardArray[horizontal][vertical] = value;
 	}
 	
-	public BasicBoard3(int horizontalSize, int verticalSize)
+	public ArrayBoard3(int horizontalSize, int verticalSize)
 	{
 		this.horizontalSize = horizontalSize;
 		this.verticalSize = verticalSize;
