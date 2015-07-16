@@ -1,3 +1,6 @@
+# News!
+This version is no longer supported. All the old proposed features of this version will no longer be implements as version3.0 will be used instead.
+
 # Board
 
 A 2-Dimensional Array Wrapper ... and more.
