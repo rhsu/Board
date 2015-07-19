@@ -1,4 +1,4 @@
-package rhsu.board2.unitTestUtilities;
+package rhsu.board2.unitTest.utilities;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

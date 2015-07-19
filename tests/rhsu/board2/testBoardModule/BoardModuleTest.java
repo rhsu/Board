@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import rhsu.board2.Board2;
 import rhsu.board2.boardModules.BoardModule;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
-import rhsu.board2.unitTestUtilities.UnitTestStubFactory;
+import rhsu.board2.unitTest.utilities.UnitTestStubFactory;
 
 public class BoardModuleTest 
 {	

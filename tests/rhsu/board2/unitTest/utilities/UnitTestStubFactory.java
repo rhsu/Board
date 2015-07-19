@@ -1,4 +1,4 @@
-package rhsu.board2.unitTestUtilities;
+package rhsu.board2.unitTest.utilities;
 
 import java.io.BufferedReader;
 import java.util.UUID;
