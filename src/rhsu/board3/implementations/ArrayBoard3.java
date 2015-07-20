@@ -1,6 +1,6 @@
 package rhsu.board3.implementations;
 
-import rhsu.board.Direction;
+import rhsu.board3.Direction;
 import rhsu.board3.Board3;
 
 public class ArrayBoard3<T> implements Board3<T>

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 import rhsu.board.Board;
 import rhsu.board.BoardPiece;
-import rhsu.board.Direction;
+import rhsu.board3.Direction;
 import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
 import rhsu.board2.boardModules.mobility.MobilityStatus;
 import rhsu.board.io.BoardIO;

@@ -1,7 +1,5 @@
 package rhsu.board3;
 
-import rhsu.board.Direction;
-
 /**
  * 3rd Generation of the Board Project
  * @param <T> The type parameter
