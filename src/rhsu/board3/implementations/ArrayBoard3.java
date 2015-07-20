@@ -53,7 +53,7 @@ public class ArrayBoard3<T> implements Board3<T>
 	//</editor-fold>
 			
 	//<editor-fold desc="Constructors" defaultstate="collapsed">
-	
+
 	public ArrayBoard3(int horizontalSize, int verticalSize, T defaultValue)
 	{
 		this.horizontalSize = horizontalSize;
