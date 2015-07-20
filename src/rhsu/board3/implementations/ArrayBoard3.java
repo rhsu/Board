@@ -51,23 +51,7 @@ public class ArrayBoard3<T> implements Board3<T>
 	}
 	
 	//</editor-fold>
-		
-	//<editor-fold desc="Find Methods -- Inheirited from Board3" defaultstate="collapsed">
-	
-	@Override
-	public boolean findInstance(T instance) 
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public boolean containsValue(T value) 
-	{
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-	
-	//</editor-fold>
-	
+			
 	//<editor-fold desc="Constructors" defaultstate="collapsed">
 	
 	public ArrayBoard3(int horizontalSize, int verticalSize, T defaultValue)

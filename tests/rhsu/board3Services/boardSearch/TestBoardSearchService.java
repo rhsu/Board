@@ -1,10 +1,10 @@
 package rhsu.board3Services.boardSearch;
 
 import rhsu.board3.Board3;
-import rhsu.board3.Board3TestCaseBase;
+import rhsu.board3.Board3TestCase;
 import rhsu.board3.implementations.ArrayBoard3;
 
-public class TestBoardSearchService extends Board3TestCaseBase
+public class TestBoardSearchService extends Board3TestCase
 {
 	private static final int HORIZONTAL_SIZE = 12;
 	private static final int VERTICAL_SIZE = 34;
@@ -12,17 +12,24 @@ public class TestBoardSearchService extends Board3TestCaseBase
 	
 	private Board3<Integer> testBoard;
 	
+	//<editor-fold desc="Constrcutor" defaultstate="Collapsed">
 	
 	public TestBoardSearchService(String method) 
 	{
 		super(method);
 	}
 	
+	//</editor-fold>
+	
+	//<editor-fold desc="SetUp" defaultstate="collapsed">
+	
 	@Override
 	public void setUp()
 	{
 		testBoard = new ArrayBoard3<>(HORIZONTAL_SIZE, VERTICAL_SIZE, null);
 	}
+	
+	//</editor-fold>
 	
 	/**
 	 * put value into testBoard

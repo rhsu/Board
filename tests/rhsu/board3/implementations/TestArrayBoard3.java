@@ -1,18 +1,14 @@
 package rhsu.board3.implementations;
 
 import rhsu.board3.Board3;
-import rhsu.board3.Board3TestCaseBase;
+import rhsu.board3.Board3TestCase;
 
-public class TestArrayBoard3 extends Board3TestCaseBase
-{
-	//<editor-fold desc="Private Variables" defaultstate="collapsed">
-	
-	private final int HORIZONTAL_SIZE = 50;
-	private final int VERTICAL_SIZE = 25;
+public class TestArrayBoard3 extends Board3TestCase
+{	
+	private static final int HORIZONTAL_SIZE = 50;
+	private static final int VERTICAL_SIZE = 25;
 	
 	private Board3<Integer> board;
-	
-	//</editor-fold>
 	
 	//<editor-fold desc="Constructors" defaultstate="collapsed">
 	
@@ -23,7 +19,7 @@ public class TestArrayBoard3 extends Board3TestCaseBase
 	
 	//</editor-fold>
 	
-	//<editor-fold desc="SetUp">
+	//<editor-fold desc="SetUp" defaultstate="collapsed">
 	
 	@Override
 	public void setUp()
