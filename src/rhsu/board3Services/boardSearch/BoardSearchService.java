@@ -17,7 +17,7 @@ public final class BoardSearchService
 		for (int i = 0; i < board.getVerticalSize(); i++)
 		{
 			for (int j = 0; j < board.getHorizontalSize(); j++)
-			{
+			{				
 				if(board.getValueAt(i, j).equals(value))
 				{
 					return true;
