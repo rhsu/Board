@@ -47,4 +47,18 @@ public class TestArrayBoard3 extends Board3TestCaseBase
 	{
 		assertEquals(board.getSize(), HORIZONTAL_SIZE * VERTICAL_SIZE);
 	}
+	
+	/**
+	 * Tests setting and getting.
+	 * This test will test setting a value at location 10, 10 by checking
+	 * that the location of the piece is the correct value
+	 */
+	public void testSetAndGet()
+	{
+		Integer value = -96578;
+		board.setValueAt(10, 10, value);
+		Integer retrievedValue = board.getValueAt(10, 10);
+		
+		assertEquals(retrievedValue, value);
+	}
 }

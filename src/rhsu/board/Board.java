@@ -1,5 +1,6 @@
 package rhsu.board;
 
+import rhsu.board3.Direction;
 import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
 import java.util.Iterator;
 import java.util.List;

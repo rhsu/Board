@@ -2,7 +2,7 @@ package rhsu.board2.unitTestUtilities;
 
 import java.io.BufferedReader;
 import java.util.UUID;
-import rhsu.board.Direction;
+import rhsu.board3.Direction;
 import rhsu.board2.BoardInitializable;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.Board2;

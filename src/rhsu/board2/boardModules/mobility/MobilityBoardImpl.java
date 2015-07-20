@@ -1,7 +1,7 @@
 package rhsu.board2.boardModules.mobility;
 
 import java.util.UUID;
-import rhsu.board.Direction;
+import rhsu.board3.Direction;
 import rhsu.board2.AbstractBoardModule;
 import rhsu.board2.BoardPiece2;
 import rhsu.board2.Board2;
