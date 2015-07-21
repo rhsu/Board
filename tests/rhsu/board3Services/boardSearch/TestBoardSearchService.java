@@ -45,9 +45,53 @@ public class TestBoardSearchService extends Board3TestCase
 	/**
 	 * test board does not contain value
 	 */
-	/*public void testContainsValue2()
+	public void testContainsValue2()
 	{
 		boolean contains = BoardSearchService.containsValue(VALUE, testBoard);
 		assertFalse(contains);
-	}*/
+	}
+	
+	// TODO: Test throws null exception
+	
+	/**
+	 * test board contains the instance
+	 */
+	public void testContainsInstance1()
+	{
+		testBoard.setValueAt(10, 5, VALUE);
+		boolean contains = BoardSearchService.containsInstance(VALUE, testBoard);
+		assertTrue(contains);
+	}
+	
+	/**
+	 * test board contains the same value but NOT the same instance
+	 */
+	public void testContainsInstance2()
+	{
+		Integer otherValue = -99000;
+		testBoard.setValueAt(10, 5, VALUE);
+		boolean contains = BoardSearchService.containsInstance(otherValue, testBoard);
+		assertFalse(contains);
+	}
+	
+	/**
+	 * test board does NOT contain the same value or the same instance
+	 */
+	public void testContainsInstance3()
+	{
+		Integer nonsense = 65;
+		testBoard.setValueAt(10, 5, VALUE);
+		boolean contains = BoardSearchService.containsInstance(nonsense, testBoard);
+		assertFalse(contains);
+	}
+	
+	/**
+	 * test that the board contains the value
+	 */
+	public void testGetValue1()
+	{
+		testBoard.setValueAt(5, 3, VALUE);
+		BoardSearchResult<Integer> searchResult = 
+			BoardSearchService.getValue(VALUE, testBoard);
+	}
 }

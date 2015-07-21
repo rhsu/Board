@@ -1,7 +1,7 @@
 package rhsu.board3Services.boardSearch;
 
 public class BoardSearchResult<T>
-{
+{	
 	private final int horizontalIndex;
 	private final int verticalIndex;
 	private final T value;
@@ -17,5 +17,12 @@ public class BoardSearchResult<T>
 		this.horizontalIndex = horizontalIndex;
 		this.verticalIndex = verticalIndex;
 		this.value = value;
+	}
+	
+	private final static BoardSearchResult NullSearchResult = new BoardSearchResult(-1, -1, null);
+	
+	public static BoardSearchResult GetNullResult()
+	{
+		return NullSearchResult;
 	}
 }

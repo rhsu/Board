@@ -13,19 +13,23 @@ public final class BoardSearchService
 			// TODO: throw exception
 		}
 
+		boolean contains = false;
+		
 		// TODO: Java8 can I make this into a lambda?
 		for (int i = 0; i < board.getVerticalSize(); i++)
 		{
 			for (int j = 0; j < board.getHorizontalSize(); j++)
-			{				
-				if(board.getValueAt(i, j).equals(value))
+			{
+				T currentValue = board.getValueAt(i, j);
+				
+				if (currentValue != null && currentValue.equals(value))
 				{
-					return true;
+					contains = true;
 				}
 			}
 		}
 		
-		return false;
+		return contains;
 	}
 	
 	public static <T> boolean containsInstance(T instance, Board3<T> board)
@@ -36,7 +40,7 @@ public final class BoardSearchService
 		}
 		
 		// TODO: Java8 can I make this into a lambda?
-		for (int i = 0; i < board.getVerticalSize(); i++)
+		/*for (int i = 0; i < board.getVerticalSize(); i++)
 		{
 			for (int j = 0; j < board.getHorizontalSize(); j++)
 			{
@@ -45,7 +49,7 @@ public final class BoardSearchService
 					return true;
 				}
 			}
-		}
+		}*/
 
 		return false;
 	}
@@ -69,7 +73,7 @@ public final class BoardSearchService
 			}
 		}
 		
-		return null;
+		return BoardSearchResult.GetNullResult();
 	}
 	
 	public static <T> BoardSearchResult<T> getValue(T value, Board3<T> board)

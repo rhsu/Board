@@ -57,4 +57,20 @@ public class TestArrayBoard3 extends Board3TestCase
 		
 		assertEquals(retrievedValue, value);
 	}
+	
+	/**
+	 * Tests setting and getting 
+	 * when the horizontal and vertical coordinates are not the same.	 */
+	public void testSetAndGet2()
+	{
+		Integer value = -96578;
+		board.setValueAt(10, 1, value);
+		Integer retrievedValue = board.getValueAt(10, 1);
+		
+		assertEquals(retrievedValue, value);
+	}
+	
+	// TODO: TestSetAndGet for negatives
+	
+	// TODO: TestSetAndGet for out of range
 }
