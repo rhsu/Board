@@ -31,6 +31,8 @@ public class TestBoardSearchService extends Board3TestCase
 	
 	//</editor-fold>
 	
+	//<editor-fold defaultstate="collapsed" desc="containsValue">
+	
 	/**
 	 * put value into testBoard
 	 * test that testBoard contains value
@@ -50,8 +52,12 @@ public class TestBoardSearchService extends Board3TestCase
 		boolean contains = BoardSearchService.containsValue(VALUE, testBoard);
 		assertFalse(contains);
 	}
-	
+
 	// TODO: Test throws null exception
+	
+	//</editor-fold>
+
+	//<editor-fold desc="containsInstance" defaultstate="collapsed">
 	
 	/**
 	 * test board contains the instance
@@ -85,6 +91,20 @@ public class TestBoardSearchService extends Board3TestCase
 		assertFalse(contains);
 	}
 	
+	//</editor-fold>
+	
+	//<editor-fold desc="getInstance" defaultstate="collapsed">
+	
+	/*public void testGetInstance1()
+	{
+		testBoard.setValueAt(5, 3, VALUE);
+		BoardSearchResult<Integ
+	}*/
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="getValue" defaultstate="collapsed">
+	
 	/**
 	 * test that the board contains the value
 	 */
@@ -93,5 +113,21 @@ public class TestBoardSearchService extends Board3TestCase
 		testBoard.setValueAt(5, 3, VALUE);
 		BoardSearchResult<Integer> searchResult = 
 			BoardSearchService.getValue(VALUE, testBoard);
+		assertEquals(searchResult.getHorizontalIndex(), 5);
+		assertEquals(searchResult.getVerticalIndex(), 3);
+		assertEquals(searchResult.getValue(), VALUE);
 	}
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="Custom Asserts" defaultstate="collapsed">
+	
+	public static <T> void assertNotNullBoardSearchResult(
+		BoardSearchResult<T> boardSearchResult)
+	{
+		if (boardSearchResult == BoardSearchResult.GetNullResult())
+			fail("the board search result is a null result");
+	}
+	
+	//</editor-fold>
 }

@@ -13,23 +13,9 @@ public final class BoardSearchService
 			// TODO: throw exception
 		}
 
-		boolean contains = false;
+		BoardSearchResult<T> result = BoardSearchService.getValue(value, board);
 		
-		// TODO: Java8 can I make this into a lambda?
-		for (int i = 0; i < board.getVerticalSize(); i++)
-		{
-			for (int j = 0; j < board.getHorizontalSize(); j++)
-			{
-				T currentValue = board.getValueAt(i, j);
-				
-				if (currentValue != null && currentValue.equals(value))
-				{
-					contains = true;
-				}
-			}
-		}
-		
-		return contains;
+		return (result != BoardSearchResult.GetNullResult());
 	}
 	
 	public static <T> boolean containsInstance(T instance, Board3<T> board)
@@ -39,19 +25,9 @@ public final class BoardSearchService
 			// TODO: throw exception
 		}
 		
-		// TODO: Java8 can I make this into a lambda?
-		/*for (int i = 0; i < board.getVerticalSize(); i++)
-		{
-			for (int j = 0; j < board.getHorizontalSize(); j++)
-			{
-				if (board.getValueAt(i, j) == instance)
-				{
-					return true;
-				}
-			}
-		}*/
+		BoardSearchResult<T> result = BoardSearchService.getInstance(instance, board);
 
-		return false;
+		return (result != BoardSearchResult.GetNullResult());
 	}
 	
 	public static <T> BoardSearchResult<T> getInstance(T instance, Board3<T> board)
@@ -64,7 +40,7 @@ public final class BoardSearchService
 		for (int i = 0; i < board.getVerticalSize(); i++)
 		{
 			for (int j = 0; j < board.getHorizontalSize(); j++)
-			{
+			{				
 				if(board.getValueAt(i, j) == instance)
 				{
 					BoardSearchResult<T> result = new BoardSearchResult(i, j, instance);
@@ -84,10 +60,12 @@ public final class BoardSearchService
 		}
 
 		for (int i = 0; i < board.getVerticalSize(); i++)
-		{
+		{	
 			for (int j = 0; j < board.getHorizontalSize(); j++)
 			{
-				if(board.getValueAt(i, j).equals(value))
+				T currentValue = board.getValueAt(i, j);
+				
+				if (currentValue != null && currentValue.equals(value))
 				{
 					BoardSearchResult<T> result = new BoardSearchResult(i, j, value);
 					return result;
@@ -95,7 +73,7 @@ public final class BoardSearchService
 			}
 		}
 		
-		return null;
+		return BoardSearchResult.GetNullResult();
 	}
 	
 	public static <T> List<BoardSearchResult<T>> getAllInstances(T instance, Board3<T> board)

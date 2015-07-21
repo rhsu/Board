@@ -21,8 +21,5 @@ public class BoardSearchResult<T>
 	
 	private final static BoardSearchResult NullSearchResult = new BoardSearchResult(-1, -1, null);
 	
-	public static BoardSearchResult GetNullResult()
-	{
-		return NullSearchResult;
-	}
+	public static BoardSearchResult GetNullResult() { return NullSearchResult; }
 }
