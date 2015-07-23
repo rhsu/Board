@@ -120,6 +120,22 @@ public class TestBoardSearchService extends Board3TestCase
 	
 	//</editor-fold>
 	
+	//<editor-fold desc="getAllInstances" defaultstate="collapsed">
+	public void testGetAllInstances()
+	{
+		// TODO: Unit test this;
+	}
+	
+	//</editor-fold>
+	
+	//<editor-fold desc="getAllValues" defaultstate="collapsed">
+	public void testGetAllValues()
+	{
+		// TODO: Unit test this;
+	}
+	
+	//</editor-fold>
+	
 	//<editor-fold desc="Custom Asserts" defaultstate="collapsed">
 	
 	public static <T> void assertNotNullBoardSearchResult(

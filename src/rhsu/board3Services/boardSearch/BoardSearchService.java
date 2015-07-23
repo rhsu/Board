@@ -88,7 +88,7 @@ public final class BoardSearchService
 		for (int i = 0; i < board.getVerticalSize(); i++)
 		{
 			for (int j = 0; j < board.getHorizontalSize(); j++)
-			{
+			{				
 				if(board.getValueAt(i, j) == instance)
 				{
 					BoardSearchResult<T> result = new BoardSearchResult(i, j, instance);
@@ -113,7 +113,9 @@ public final class BoardSearchService
 		{
 			for (int j = 0; j < board.getHorizontalSize(); j++)
 			{
-				if(board.getValueAt(i, j).equals(value))
+				T currentValue = board.getValueAt(i, j);
+				
+				if (currentValue != null && currentValue.equals(value))
 				{
 					BoardSearchResult<T> result = new BoardSearchResult(i, j, value);
 					results.add(result);
