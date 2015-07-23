@@ -1,7 +1,5 @@
 package rhsu.board3;
 
-import rhsu.board.Direction;
-
 /**
  * 3rd Generation of the Board Project
  * @param <T> The type parameter
@@ -64,18 +62,4 @@ public interface Board3<T>
 	public void setValueAt(int horizontal, int vertical, T value);	
 	
 	//</editor-fold>
-	
-	/**
-	 * Searches the board if the instance exists in the board
-	 * @param instance the instance to search for
-	 * @return The instance in the 
-	 */
-	public boolean findInstance(T instance);
-		
-	/**
-	 * Searches the board if there is a same value
-	 * @param value the value to search for
-	 * @return true if the value exists in the board
-	 */
-	public boolean containsValue(T value);
 }

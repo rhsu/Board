@@ -1,4 +1,4 @@
-package rhsu.board;
+package rhsu.board3;
 
 /**
  * An enumeration to denote a 2 Dimensional Direction

@@ -6,7 +6,7 @@ import java.util.List;
 import rhsu.board2.boardModules.mobility.MobilityBoard;
 import rhsu.board2.boardModules.randomGenerators.RandomGenerator;
 import rhsu.board2.boardModules.matrices.Matrix2;
-import rhsu.board.Direction;
+import rhsu.board3.Direction;
 import rhsu.board2.boardModules.boardIO.Board2FileIO;
 
 public interface Board2<T>

@@ -1,5 +1,6 @@
 package rhsu.board;
 
+import rhsu.board3.Direction;
 import rhsu.board2.boardModules.mobility.MobilityStatus;
 import org.junit.*;
 import static org.junit.Assert.*;
