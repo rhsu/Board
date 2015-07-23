@@ -97,6 +97,7 @@ public class TestBoardSearchService extends Board3TestCase
 	
 	/*public void testGetInstance1()
 	{
+		//TODO: Review this unit test
 		testBoard.setValueAt(5, 3, VALUE);
 		BoardSearchResult<Integ
 	}*/
