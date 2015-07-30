@@ -15,7 +15,7 @@ public final class BoardSearchService
 
 		BoardSearchResult<T> result = BoardSearchService.getValue(value, board);
 		
-		return (result != BoardSearchResult.GetNullResult());
+		return (result != BoardSearchResult.GetNullSearchResult());
 	}
 	
 	public static <T> boolean containsInstance(T instance, Board3<T> board)
@@ -27,7 +27,7 @@ public final class BoardSearchService
 		
 		BoardSearchResult<T> result = BoardSearchService.getInstance(instance, board);
 
-		return (result != BoardSearchResult.GetNullResult());
+		return (result != BoardSearchResult.GetNullSearchResult());
 	}
 	
 	public static <T> BoardSearchResult<T> getInstance(T instance, Board3<T> board)
@@ -49,7 +49,7 @@ public final class BoardSearchService
 			}
 		}
 		
-		return BoardSearchResult.GetNullResult();
+		return BoardSearchResult.GetNullSearchResult();
 	}
 	
 	public static <T> BoardSearchResult<T> getValue(T value, Board3<T> board)
@@ -73,7 +73,7 @@ public final class BoardSearchService
 			}
 		}
 		
-		return BoardSearchResult.GetNullResult();
+		return BoardSearchResult.GetNullSearchResult();
 	}
 	
 	public static <T> List<BoardSearchResult<T>> getAllInstances(T instance, Board3<T> board)

@@ -13,8 +13,8 @@ public class Main
 	
 	public static void main(String[] args)
 	{	
-		BoardSearchResult<Integer> a = BoardSearchResult.GetNullResult();
-		BoardSearchResult<Integer> b = BoardSearchResult.GetNullResult();
+		BoardSearchResult<Integer> a = BoardSearchResult.GetNullSearchResult();
+		BoardSearchResult<Integer> b = BoardSearchResult.GetNullSearchResult();
 		
 		print(a == b);
 	}

@@ -5,8 +5,8 @@ import rhsu.board3.Board3TestCase;
 
 public class TestArrayBoard3 extends Board3TestCase
 {	
-	private static final int HORIZONTAL_SIZE = 50;
-	private static final int VERTICAL_SIZE = 25;
+	private static final int EXPECTED_HORIZONTAL_SIZE = 50;
+	private static final int EXPECTED_VERTICAL_SIZE = 25;
 	
 	private Board3<Integer> board;
 	
@@ -24,24 +24,24 @@ public class TestArrayBoard3 extends Board3TestCase
 	@Override
 	public void setUp()
 	{
-		board = new ArrayBoard3<>(HORIZONTAL_SIZE, VERTICAL_SIZE);
+		board = new ArrayBoard3<>(EXPECTED_HORIZONTAL_SIZE, EXPECTED_VERTICAL_SIZE);
 	}
 	
 	//</editor-fold>
 	
 	public void testGetHorizontalSize()
 	{
-		assertEquals(board.getHorizontalSize(), HORIZONTAL_SIZE);
+		assertEquals(board.getHorizontalSize(), EXPECTED_HORIZONTAL_SIZE);
 	}
 	
 	public void testGetVerticalSize()
 	{
-		assertEquals(board.getVerticalSize(), VERTICAL_SIZE);
+		assertEquals(board.getVerticalSize(), EXPECTED_VERTICAL_SIZE);
 	}
 	
 	public void testGetSize()
 	{
-		assertEquals(board.getSize(), HORIZONTAL_SIZE * VERTICAL_SIZE);
+		assertEquals(board.getSize(), EXPECTED_HORIZONTAL_SIZE * EXPECTED_VERTICAL_SIZE);
 	}
 	
 	/**
@@ -60,7 +60,8 @@ public class TestArrayBoard3 extends Board3TestCase
 	
 	/**
 	 * Tests setting and getting 
-	 * when the horizontal and vertical coordinates are not the same.	 */
+	 * when the horizontal and vertical coordinates are not the same.	 
+	 */
 	public void testSetAndGet2()
 	{
 		Integer value = -96578;
