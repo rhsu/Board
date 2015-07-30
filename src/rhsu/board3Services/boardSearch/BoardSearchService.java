@@ -10,7 +10,7 @@ public final class BoardSearchService
 	{
 		if (value == null)
 		{
-			// TODO: throw exception
+			throw new IllegalArgumentException("value cannot be null");
 		}
 
 		BoardSearchResult<T> result = BoardSearchService.getValue(value, board);
@@ -22,7 +22,7 @@ public final class BoardSearchService
 	{
 		if (instance == null)
 		{
-			// TODO: throw exception
+			throw new IllegalArgumentException("instance cannot be null");
 		}
 		
 		BoardSearchResult<T> result = BoardSearchService.getInstance(instance, board);
@@ -34,7 +34,7 @@ public final class BoardSearchService
 	{
 		if (instance == null)
 		{
-			// TODO: throw exception.
+			throw new IllegalArgumentException("instance cannot be null");
 		}
 
 		for (int i = 0; i < board.getVerticalSize(); i++)
@@ -56,7 +56,7 @@ public final class BoardSearchService
 	{
 		if (value == null)
 		{
-			// TODO: throw exception.
+			throw new IllegalArgumentException("value cannot be null");
 		}
 
 		for (int i = 0; i < board.getVerticalSize(); i++)
@@ -80,7 +80,7 @@ public final class BoardSearchService
 	{
 		if (instance == null)
 		{
-			// TODO: throw exception.
+			throw new IllegalArgumentException("instance cannot be null");
 		}
 		
 		List<BoardSearchResult<T>> results = new ArrayList<>();
@@ -104,7 +104,7 @@ public final class BoardSearchService
 	{
 		if (value == null)
 		{
-			// TODO: throw exception.
+			throw new IllegalArgumentException("value cannot be null");
 		}
 		
 		List<BoardSearchResult<T>> results = new ArrayList<>();
