@@ -1,42 +1,42 @@
 package rhsu.board3Services.boardSearch;
 
-import rhsu.board3.Board3TestCase;
+import static org.junit.Assert.assertEquals;
+import org.junit.Before;
+import org.junit.Test;
 
-public class TestBoardSearchResult extends Board3TestCase
+public class BoardSearchResultTest
 {
-	protected final int expected_horizontal_index;
-	protected final int expected_vertical_index;
-	protected final String expected_value;
+	//<editor-fold desc="Member Variables and Constants" defaultstate="Collapsed">
+	
+	protected final int expected_horizontal_index = 98;
+	protected final int expected_vertical_index = 89;
+	protected final String expected_value = "value";
 	
 	private BoardSearchResult<String> testSearchResult;
 	
-	public TestBoardSearchResult(String method) 
-	{
-		super(method);
-		
-		this.expected_horizontal_index = 98;
-		this.expected_vertical_index = 89;
-		this.expected_value = "value";
-	}
+	//</editor-fold>
 	
-	@Override
+	@Before
 	public void setUp()
-	{
+	{		
 		testSearchResult = new BoardSearchResult<>(expected_horizontal_index, 
 			expected_vertical_index,
 			expected_value);
 	}
 	
+	@Test
 	public void testGetHorizontalIndex()
 	{
 		assertEquals(testSearchResult.getHorizontalIndex(), expected_horizontal_index);
 	}
-	
+
+	@Test
 	public void testGetVerticalIndex()
 	{
 		assertEquals(testSearchResult.getVerticalIndex(), expected_vertical_index);
 	}
 	
+	@Test
 	public void testGetValue()
 	{
 		assertEquals(testSearchResult.getValue(), expected_value);

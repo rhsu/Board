@@ -1,29 +1,29 @@
 package rhsu.board3Services.boardSearch;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+import org.junit.Before;
+import org.junit.Test;
 import rhsu.board3.Board3;
-import rhsu.board3.Board3TestCase;
 import rhsu.board3.implementations.ArrayBoard3;
 
-public class TestBoardSearchService extends Board3TestCase
+public class BoardSearchServiceTest
 {
+	//<editor-fold desc="Memeber Variables and Constants" defaultstate="Collapsed">
+	
 	private static final int EXPECTED_HORIZONTAL_SIZE = 12;
 	private static final int EXPECTED_VERTICAL_SIZE = 34;
 	private static final Integer EXPECTED_VALUE = -99000;
 	
 	private Board3<Integer> testBoard;
 	
-	//<editor-fold desc="Constructor" defaultstate="Collapsed">
-	
-	public TestBoardSearchService(String method) 
-	{
-		super(method);
-	}
-	
 	//</editor-fold>
 	
 	//<editor-fold desc="SetUp" defaultstate="collapsed">
 	
-	@Override
+	@Before
 	public void setUp()
 	{
 		testBoard = new ArrayBoard3<>(EXPECTED_HORIZONTAL_SIZE, EXPECTED_VERTICAL_SIZE, null);
@@ -37,6 +37,7 @@ public class TestBoardSearchService extends Board3TestCase
 	 * put value into testBoard
 	 * test that testBoard contains value
 	 */
+	@Test
 	public void testContainsValue1()
 	{
 		testBoard.setValueAt(10, 5, EXPECTED_VALUE);
@@ -47,6 +48,7 @@ public class TestBoardSearchService extends Board3TestCase
 	/**
 	 * test board does not contain value
 	 */
+	@Test
 	public void testContainsValue2()
 	{
 		boolean contains = BoardSearchService.containsValue(EXPECTED_VALUE, testBoard);
@@ -62,6 +64,7 @@ public class TestBoardSearchService extends Board3TestCase
 	/**
 	 * test board contains the instance
 	 */
+	@Test
 	public void testContainsInstance1()
 	{
 		testBoard.setValueAt(10, 5, EXPECTED_VALUE);
@@ -72,6 +75,7 @@ public class TestBoardSearchService extends Board3TestCase
 	/**
 	 * test board contains the same value but NOT the same instance
 	 */
+	@Test
 	public void testContainsInstance2()
 	{
 		Integer otherValue = -99000;
@@ -83,6 +87,7 @@ public class TestBoardSearchService extends Board3TestCase
 	/**
 	 * test board does NOT contain the same value or the same instance
 	 */
+	@Test
 	public void testContainsInstance3()
 	{
 		Integer nonsense = 65;
@@ -109,6 +114,7 @@ public class TestBoardSearchService extends Board3TestCase
 	/**
 	 * test that the board contains the value
 	 */
+	@Test
 	public void testGetValue1()
 	{
 		testBoard.setValueAt(5, 3, EXPECTED_VALUE);
@@ -122,6 +128,8 @@ public class TestBoardSearchService extends Board3TestCase
 	//</editor-fold>
 	
 	//<editor-fold desc="getAllInstances" defaultstate="collapsed">
+	
+	@Test
 	public void testGetAllInstances()
 	{
 		// TODO: Unit test this;
@@ -130,6 +138,8 @@ public class TestBoardSearchService extends Board3TestCase
 	//</editor-fold>
 	
 	//<editor-fold desc="getAllValues" defaultstate="collapsed">
+	
+	@Test
 	public void testGetAllValues()
 	{
 		// TODO: Unit test this;
