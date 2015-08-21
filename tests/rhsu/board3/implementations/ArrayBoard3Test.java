@@ -18,28 +18,24 @@ public class ArrayBoard3Test
 	
 	//<editor-fold desc="SetUp" defaultstate="collapsed">
 	
-	@Before
-	public void setUp()
+	@Before public void setUp()
 	{
 		board = new ArrayBoard3<>(EXPECTED_HORIZONTAL_SIZE, EXPECTED_VERTICAL_SIZE);
 	}
 	
 	//</editor-fold>
 	
-	@Test
-	public void testGetHorizontalSize()
+	@Test public void getHorizontalSize()
 	{
 		assertEquals(board.getHorizontalSize(), EXPECTED_HORIZONTAL_SIZE);
 	}
 	
-	@Test
-	public void testGetVerticalSize()
+	@Test public void getVerticalSize()
 	{
 		assertEquals(board.getVerticalSize(), EXPECTED_VERTICAL_SIZE);
 	}
 	
-	@Test
-	public void testGetSize()
+	@Test public void getSize()
 	{
 		assertEquals(board.getSize(), EXPECTED_HORIZONTAL_SIZE * EXPECTED_VERTICAL_SIZE);
 	}
@@ -49,8 +45,7 @@ public class ArrayBoard3Test
 	 * This test will test setting a value at location 10, 10 by checking
 	 * that the location of the piece is the correct value
 	 */	
-	@Test
-	public void testSetAndGet()
+	@Test public void setAndGet()
 	{
 		Integer value = -96578;
 		board.setValueAt(10, 10, value);
@@ -63,8 +58,7 @@ public class ArrayBoard3Test
 	 * Tests setting and getting 
 	 * when the horizontal and vertical coordinates are not the same.	 
 	 */
-	@Test
-	public void testSetAndGet2()
+	@Test public void setAndGet2()
 	{
 		Integer value = -96578;
 		board.setValueAt(10, 1, value);

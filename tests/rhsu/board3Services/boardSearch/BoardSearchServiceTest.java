@@ -23,8 +23,7 @@ public class BoardSearchServiceTest
 	
 	//<editor-fold desc="SetUp" defaultstate="collapsed">
 	
-	@Before
-	public void setUp()
+	@Before public void setUp()
 	{
 		testBoard = new ArrayBoard3<>(EXPECTED_HORIZONTAL_SIZE, EXPECTED_VERTICAL_SIZE, null);
 	}
@@ -37,8 +36,7 @@ public class BoardSearchServiceTest
 	 * put value into testBoard
 	 * test that testBoard contains value
 	 */
-	@Test
-	public void testContainsValue1()
+	@Test public void containsValue1()
 	{
 		testBoard.setValueAt(10, 5, EXPECTED_VALUE);
 		boolean contains = BoardSearchService.containsValue(EXPECTED_VALUE, testBoard);
@@ -48,8 +46,7 @@ public class BoardSearchServiceTest
 	/**
 	 * test board does not contain value
 	 */
-	@Test
-	public void testContainsValue2()
+	@Test public void containsValue2()
 	{
 		boolean contains = BoardSearchService.containsValue(EXPECTED_VALUE, testBoard);
 		assertFalse(contains);
@@ -64,8 +61,7 @@ public class BoardSearchServiceTest
 	/**
 	 * test board contains the instance
 	 */
-	@Test
-	public void testContainsInstance1()
+	@Test public void containsInstance1()
 	{
 		testBoard.setValueAt(10, 5, EXPECTED_VALUE);
 		boolean contains = BoardSearchService.containsInstance(EXPECTED_VALUE, testBoard);
@@ -75,8 +71,7 @@ public class BoardSearchServiceTest
 	/**
 	 * test board contains the same value but NOT the same instance
 	 */
-	@Test
-	public void testContainsInstance2()
+	@Test public void containsInstance2()
 	{
 		Integer otherValue = -99000;
 		testBoard.setValueAt(10, 5, EXPECTED_VALUE);
@@ -87,8 +82,7 @@ public class BoardSearchServiceTest
 	/**
 	 * test board does NOT contain the same value or the same instance
 	 */
-	@Test
-	public void testContainsInstance3()
+	@Test public void containsInstance3()
 	{
 		Integer nonsense = 65;
 		testBoard.setValueAt(10, 5, EXPECTED_VALUE);
@@ -114,8 +108,7 @@ public class BoardSearchServiceTest
 	/**
 	 * test that the board contains the value
 	 */
-	@Test
-	public void testGetValue1()
+	@Test public void getValue1()
 	{
 		testBoard.setValueAt(5, 3, EXPECTED_VALUE);
 		BoardSearchResult<Integer> searchResult = 
@@ -129,8 +122,7 @@ public class BoardSearchServiceTest
 	
 	//<editor-fold desc="getAllInstances" defaultstate="collapsed">
 	
-	@Test
-	public void testGetAllInstances()
+	@Test public void getAllInstances()
 	{
 		// TODO: Unit test this;
 	}
@@ -139,8 +131,7 @@ public class BoardSearchServiceTest
 	
 	//<editor-fold desc="getAllValues" defaultstate="collapsed">
 	
-	@Test
-	public void testGetAllValues()
+	@Test public void getAllValues()
 	{
 		// TODO: Unit test this;
 	}

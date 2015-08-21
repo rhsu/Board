@@ -16,28 +16,24 @@ public class BoardSearchResultTest
 	
 	//</editor-fold>
 	
-	@Before
-	public void setUp()
+	@Before public void setUp()
 	{		
 		testSearchResult = new BoardSearchResult<>(expected_horizontal_index, 
 			expected_vertical_index,
 			expected_value);
 	}
 	
-	@Test
-	public void testGetHorizontalIndex()
+	@Test public void getHorizontalIndex()
 	{
 		assertEquals(testSearchResult.getHorizontalIndex(), expected_horizontal_index);
 	}
 
-	@Test
-	public void testGetVerticalIndex()
+	@Test public void getVerticalIndex()
 	{
 		assertEquals(testSearchResult.getVerticalIndex(), expected_vertical_index);
 	}
 	
-	@Test
-	public void testGetValue()
+	@Test public void getValue()
 	{
 		assertEquals(testSearchResult.getValue(), expected_value);
 	}
