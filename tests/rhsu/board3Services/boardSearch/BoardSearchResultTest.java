@@ -8,16 +8,20 @@ public class BoardSearchResultTest
 {
 	//<editor-fold desc="Member Variables and Constants" defaultstate="Collapsed">
 	
-	protected final int expected_horizontal_index = 98;
-	protected final int expected_vertical_index = 89;
-	protected final String expected_value = "value";
+	protected int expected_horizontal_index = 98;
+	protected int expected_vertical_index = 89;
+	protected String expected_value = "value";
 	
-	private BoardSearchResult<String> testSearchResult;
+	protected BoardSearchResult<String> testSearchResult;
 	
 	//</editor-fold>
 	
 	@Before public void setUp()
 	{		
+		expected_horizontal_index = 98;
+		expected_vertical_index = 89;
+		expected_value = "value";
+		
 		testSearchResult = new BoardSearchResult<>(expected_horizontal_index, 
 			expected_vertical_index,
 			expected_value);
