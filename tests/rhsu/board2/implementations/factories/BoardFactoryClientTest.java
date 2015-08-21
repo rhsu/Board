@@ -6,6 +6,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import rhsu.board2.Board2;
 
+@Ignore
 public class BoardFactoryClientTest
 {
 	private final BoardFactoryClient factoryClient;

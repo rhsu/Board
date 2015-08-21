@@ -1,45 +1,41 @@
 package rhsu.board3.implementations;
 
+import static org.junit.Assert.assertEquals;
+import org.junit.Before;
+import org.junit.Test;
 import rhsu.board3.Board3;
-import rhsu.board3.Board3TestCase;
 
-public class TestArrayBoard3 extends Board3TestCase
+public class ArrayBoard3Test
 {	
+	//<editor-fold desc="Member Variables and Constants" defaultstate="collapsed">
+	
 	private static final int EXPECTED_HORIZONTAL_SIZE = 50;
 	private static final int EXPECTED_VERTICAL_SIZE = 25;
-	
+		
 	private Board3<Integer> board;
-	
-	//<editor-fold desc="Constructors" defaultstate="collapsed">
-	
-	public TestArrayBoard3(String method) 
-	{
-		super(method);
-	}
 	
 	//</editor-fold>
 	
 	//<editor-fold desc="SetUp" defaultstate="collapsed">
 	
-	@Override
-	public void setUp()
+	@Before public void setUp()
 	{
 		board = new ArrayBoard3<>(EXPECTED_HORIZONTAL_SIZE, EXPECTED_VERTICAL_SIZE);
 	}
 	
 	//</editor-fold>
 	
-	public void testGetHorizontalSize()
+	@Test public void getHorizontalSize()
 	{
 		assertEquals(board.getHorizontalSize(), EXPECTED_HORIZONTAL_SIZE);
 	}
 	
-	public void testGetVerticalSize()
+	@Test public void getVerticalSize()
 	{
 		assertEquals(board.getVerticalSize(), EXPECTED_VERTICAL_SIZE);
 	}
 	
-	public void testGetSize()
+	@Test public void getSize()
 	{
 		assertEquals(board.getSize(), EXPECTED_HORIZONTAL_SIZE * EXPECTED_VERTICAL_SIZE);
 	}
@@ -48,8 +44,8 @@ public class TestArrayBoard3 extends Board3TestCase
 	 * Tests setting and getting.
 	 * This test will test setting a value at location 10, 10 by checking
 	 * that the location of the piece is the correct value
-	 */
-	public void testSetAndGet()
+	 */	
+	@Test public void setAndGet()
 	{
 		Integer value = -96578;
 		board.setValueAt(10, 10, value);
@@ -62,7 +58,7 @@ public class TestArrayBoard3 extends Board3TestCase
 	 * Tests setting and getting 
 	 * when the horizontal and vertical coordinates are not the same.	 
 	 */
-	public void testSetAndGet2()
+	@Test public void setAndGet2()
 	{
 		Integer value = -96578;
 		board.setValueAt(10, 1, value);
