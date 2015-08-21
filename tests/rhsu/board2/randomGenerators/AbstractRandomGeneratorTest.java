@@ -4,6 +4,7 @@ import rhsu.board2.boardModules.randomGenerators.AbstractRandomGeneratorFactory;
 import static org.junit.Assert.*;
 import org.junit.*;
 
+@Ignore
 public class AbstractRandomGeneratorTest 
 {
 	private final AbstractRandomGeneratorFactory factory;

@@ -4,6 +4,7 @@ import org.junit.*;
 import rhsu.board2.implementations.factories.BoardFactory;
 import rhsu.board2.implementations.factories.BoardFactoryClient;
 
+@Ignore
 public class IntegerBoardTest extends AbstractBoard2Test<Integer>
 {
 	@Test
