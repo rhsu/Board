@@ -1,6 +1,7 @@
 package rhsu.board3.implementations;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.Test;
 import rhsu.board3.Board3;
@@ -45,7 +46,7 @@ public class ArrayBoard3Test
 	 * This test will test setting a value at location 10, 10 by checking
 	 * that the location of the piece is the correct value
 	 */	
-	@Test public void setAndGet()
+	@Test public void setAndGetValue()
 	{
 		Integer value = -96578;
 		board.setValueAt(10, 10, value);
@@ -58,7 +59,7 @@ public class ArrayBoard3Test
 	 * Tests setting and getting 
 	 * when the horizontal and vertical coordinates are not the same.	 
 	 */
-	@Test public void setAndGet2()
+	@Test public void setAndGetValue2()
 	{
 		Integer value = -96578;
 		board.setValueAt(10, 1, value);
@@ -67,7 +68,43 @@ public class ArrayBoard3Test
 		assertEquals(retrievedValue, value);
 	}
 	
-	// TODO: TestSetAndGet for negatives
+	/**
+	 * Tests retrieving the value of an index that is equal to the horizontal 
+	 * size
+	 */
+	@Test public void setAndGet3()
+	{
+		Integer retrievedValue = board.getValueAt(board.getHorizontalSize(), 0);
+		assertNull(retrievedValue);
+	}
 	
-	// TODO: TestSetAndGet for out of range
+	/**
+	 * Tests retrieving the value of a negative horizontal 
+	 * index
+	 */
+	@Test public void setAndGet4()
+	{
+		Integer retrievedValue = board.getValueAt(-1, 0);
+		assertNull(retrievedValue);
+	}
+	
+	/**
+	 * Tests retrieving the value of a negative vertical 
+	 * index
+	 */
+	@Test public void setAndGet5()
+	{
+		Integer retrievedValue = board.getValueAt(0, -1);
+		assertNull(retrievedValue);
+	}
+	
+	/**
+	 * Tests retrieving the value of an index that is equal to the vertical
+	 * size
+	 */
+	@Test public void setAndGetWhenEqualToVerticalSize()
+	{
+		Integer retrievedValue = board.getValueAt(0, board.getVerticalSize());
+		assertNull(retrievedValue);
+	}
 }

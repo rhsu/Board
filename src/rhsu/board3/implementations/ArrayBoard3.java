@@ -31,6 +31,12 @@ public class ArrayBoard3<T> implements Board3<T>
 	@Override
 	public T getValueAt(int horizontal, int vertical) 
 	{
+		if (horizontal < 0 || horizontal >= this.horizontalSize)
+			return null;
+		
+		if (vertical < 0 || vertical >= this.verticalSize)
+			return null;
+		
 		return this.boardArray[horizontal][vertical];
 	}
 
