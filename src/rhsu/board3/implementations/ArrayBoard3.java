@@ -32,10 +32,10 @@ public class ArrayBoard3<T> implements Board3<T>
 	public T getValueAt(int horizontal, int vertical) 
 	{
 		if (horizontal < 0 || horizontal >= this.horizontalSize)
-			return null;
+			throw new IndexOutOfBoundsException("horizontal index is out of bounds");
 		
 		if (vertical < 0 || vertical >= this.verticalSize)
-			return null;
+			throw new IndexOutOfBoundsException("vertical index is out of bounds");
 		
 		return this.boardArray[horizontal][vertical];
 	}

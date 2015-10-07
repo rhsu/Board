@@ -72,27 +72,29 @@ public class ArrayBoard3Test
 	 * Tests retrieving the value of an index that is equal to the horizontal 
 	 * size
 	 */
-	@Test public void setAndGet3()
+	@Test(expected=IndexOutOfBoundsException.class)
+	public void setAndGet3()
 	{
 		Integer retrievedValue = board.getValueAt(board.getHorizontalSize(), 0);
 		assertNull(retrievedValue);
 	}
 	
 	/**
-	 * Tests retrieving the value of a negative horizontal 
+	 * Tests retrieving the value of a negative horizontal
 	 * index
 	 */
-	@Test public void setAndGet4()
+	@Test(expected=IndexOutOfBoundsException.class)
+	public void setAndGet4()
 	{
 		Integer retrievedValue = board.getValueAt(-1, 0);
-		assertNull(retrievedValue);
 	}
 	
 	/**
 	 * Tests retrieving the value of a negative vertical 
 	 * index
 	 */
-	@Test public void setAndGet5()
+	@Test(expected=IndexOutOfBoundsException.class)
+	public void setAndGet5()
 	{
 		Integer retrievedValue = board.getValueAt(0, -1);
 		assertNull(retrievedValue);
@@ -102,7 +104,8 @@ public class ArrayBoard3Test
 	 * Tests retrieving the value of an index that is equal to the vertical
 	 * size
 	 */
-	@Test public void setAndGetWhenEqualToVerticalSize()
+	@Test(expected=IndexOutOfBoundsException.class)
+	public void setAndGetWhenEqualToVerticalSize()
 	{
 		Integer retrievedValue = board.getValueAt(0, board.getVerticalSize());
 		assertNull(retrievedValue);
