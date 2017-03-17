@@ -5,6 +5,7 @@ import org.junit.*;
 import rhsu.board2.boardModules.mobility.MobilityStatus;
 import rhsu.board2.unitTestUtilities.UnitTestLibrary;
 
+@Ignore
 public class BoardPiece2Test
 {
 	protected BoardPiece2<Object> piece;

@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import rhsu.board.Direction;
+import rhsu.board3.Direction;
 import rhsu.board2.Board2;
 import rhsu.board2.BoardInitializable;
 import rhsu.board2.boardModules.BoardModule;
